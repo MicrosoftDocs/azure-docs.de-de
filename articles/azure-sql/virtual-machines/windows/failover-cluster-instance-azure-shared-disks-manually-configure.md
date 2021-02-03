@@ -32,7 +32,7 @@ Weitere Informationen finden Sie in der Übersicht zu [FCI mit SQL Server auf A
 Bevor Sie die in diesem Artikel aufgeführten Anweisungen ausführen, sollten Sie über Folgendes verfügen:
 
 - Ein Azure-Abonnement. [Kostenlos](https://azure.microsoft.com/free/) einsteigen. 
-- [Zwei oder mehr virtuelle Windows Azure-Computer](failover-cluster-instance-prepare-vm.md). [Verfügbarkeitsgruppen](../../../virtual-machines/windows/tutorial-availability-sets.md) und [Näherungsplatzierungsgruppe](../../../virtual-machines/co-location.md#proximity-placement-groups) werden für SSD Premium und [Verfügbarkeitszonen](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) werden für Ultra Disks unterstützt. Wenn Sie eine PPG verwenden, müssen alle Knoten in derselben Gruppe vorhanden sein.
+- [Zwei oder mehr virtuelle Windows Azure-Computer](failover-cluster-instance-prepare-vm.md). [Verfügbarkeitsgruppen](../../../virtual-machines/windows/tutorial-availability-sets.md) und [Näherungsplatzierungsgruppe](../../../virtual-machines/co-location.md#proximity-placement-groups) werden für SSD Premium und [Verfügbarkeitszonen](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) werden für Ultra Disks unterstützt. Alle Knoten müssen in einer [Näherungsplatzierungsgruppe](../../../virtual-machines/co-location.md#proximity-placement-groups) enthalten sein.
 - Ein Konto mit Berechtigungen zum Erstellen von Objekten auf virtuellen Azure-Computern und in Active Directory
 - Die neueste Version von [PowerShell](/powershell/azure/install-az-ps). 
 
