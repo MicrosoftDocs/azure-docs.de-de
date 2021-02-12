@@ -71,7 +71,7 @@ Für virtuelle Computer in VNETs ist der Metadatendienst über eine statische, n
 Wenn der virtuelle Computer nicht innerhalb eines virtuellen Netzwerks erstellt wird (Standard für Clouddienste und klassische virtuelle Computer), ist zusätzliche Logik erforderlich, um die zu verwendende IP-Adresse zu ermitteln. In diesem Beispiel erfahren Sie, wie Sie [den Hostendpunkt ermitteln](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Version und regionale Verfügbarkeit
-Das Feature für geplante Ereignisse ist versionsspezifisch. Die Versionen sind obligatorisch. Die aktuelle Version ist `2019-01-01`.
+Das Feature für geplante Ereignisse ist versionsspezifisch. Die Versionen sind obligatorisch. Die aktuelle Version ist `2019-08-01`.
 
 | Version | Releasetyp | Regions | Versionsinformationen | 
 | - | - | - | - | 
