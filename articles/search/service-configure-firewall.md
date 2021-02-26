@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932796"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573244"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurieren einer IP-Firewall für Azure Cognitive Search
 
@@ -31,7 +31,7 @@ Um die IP-Zugriffssteuerungsrichtlinie im Azure-Portal festzulegen, wechseln Sie
 Das Azure-Portal bietet die Möglichkeit, IP-Adressen und IP-Adressbereiche im CIDR-Format anzugeben. Ein Beispiel für die CIDR-Notation ist „8.8.8.0/24“, womit die IPs im Bereich zwischen 8.8.8.0 und 8.8.8.255 dargestellt werden.
 
 > [!NOTE]
-> Nach dem Aktivieren der IP-Zugriffssteuerungsrichtlinie für Ihren Azure Cognitive Search-Dienst werden alle Anforderungen an die Datenebene von Computern außerhalb der Liste der zulässigen IP-Adressbereiche abgelehnt. Werden IP-Regeln konfiguriert, werden einige Features des Azure-Portals deaktiviert. Sie können Informationen auf Dienstebene anzeigen und verwalten, aber der Portalzugriff auf Indexdaten und die verschiedenen Komponenten im Dienst sind aus Sicherheitsgründen eingeschränkt. Dazu zählen beispielsweise Index-, Indexer- und Skillsetdefinitionen.
+> Nach dem Aktivieren der IP-Zugriffssteuerungsrichtlinie für Ihren Azure Cognitive Search-Dienst werden alle Anforderungen an die Datenebene von Computern außerhalb der Liste der zulässigen IP-Adressbereiche abgelehnt. Werden IP-Regeln konfiguriert, werden einige Features des Azure-Portals deaktiviert. Sie können Informationen auf Dienstebene anzeigen und verwalten, aber der Portalzugriff auf Indexdaten und die verschiedenen Komponenten im Dienst sind aus Sicherheitsgründen eingeschränkt. Dazu zählen beispielsweise Index-, Indexer- und Skillsetdefinitionen. Als Alternative zum Portal können Sie die [VS Code-Erweiterung](https://aka.ms/vscode-search) verwenden, um mit den verschiedenen Komponenten im Dienst zu interagieren.
 
 ### <a name="requests-from-your-current-ip"></a>Anforderungen über Ihre aktuelle IP-Adresse
 

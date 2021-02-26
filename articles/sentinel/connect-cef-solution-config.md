@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567684"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559422"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>SCHRITT 2: Konfigurieren Ihrer Sicherheitslösung zum Senden von CEF-Nachrichten
 
@@ -30,6 +30,7 @@ In diesem Schritt führen Sie die erforderlichen Konfigurationsänderungen an Ih
 Wenn Ihre Sicherheitslösung bereits über einen Connector verfügt, verwenden Sie die connectorspezifischen Anweisungen wie folgt:
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
+- [Sicherheitsrelevante Akamai-Ereignisse](connect-akamai-security-events.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -39,6 +40,7 @@ Wenn Ihre Sicherheitslösung bereits über einen Connector verfügt, verwenden S
 - [Forcepoint-Produkte](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)

@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949784"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225207"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Abrechnungsmodell für Azure Active Directory B2C
 
 Die Preisgestaltung für Azure Active Directory B2C (Azure AD B2C) basiert auf den monatlich aktiven Benutzern (MAU), d. h. die Anzahl eindeutiger Benutzer mit Authentifizierungsaktivität innerhalb eines Kalendermonats. Dieses Abrechnungsmodell gilt sowohl für Azure AD B2C-Mandanten als auch für die [Zusammenarbeit mit Azure AD-Gastbenutzern (B2B)](../active-directory/external-identities/external-identities-pricing.md). Das MAU-Abrechnungsmodell hilft Ihnen, Ihre Kosten zu senken, da es einen kostenlosen Tarif sowie eine flexible, vorhersehbare Preisgestaltung bietet. In diesem Artikel finden Sie Informationen zur MAU-Abrechnung, zum Verknüpfen Ihrer Azure AD B2C-Mandanten mit einem Abonnement und zum Ändern Ihres Tarifs.
 
 > [!IMPORTANT]
-> Dieser Artikel enthält keine Preisinformationen. Die aktuellen Informationen zur Nutzungsabrechnung und zu den Preisen finden Sie unter [Azure Active Directory B2C – Preise](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Dieser Artikel enthält keine Preisinformationen. Die aktuellen Informationen zur Nutzungsabrechnung und zu den Preisen finden Sie unter [Azure Active Directory B2C – Preise](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Ausführliche Informationen zu den Orten, an denen der Azure AD B2C-Dienst verfügbar ist und Benutzerdaten gespeichert werden, finden Sie unter [Regionale Verfügbarkeit und Datenresidenz in Azure AD B2C](data-residency.md).
 
 ## <a name="what-do-i-need-to-do"></a>Wie muss ich vorgehen?
 

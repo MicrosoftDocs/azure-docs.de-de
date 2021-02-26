@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071899"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548830"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zulassen oder Blockieren von Einladungen für B2B-Benutzer von bestimmten Organisationen
 
@@ -27,7 +27,7 @@ Sie können eine Zulassungsliste oder eine Verweigerungsliste verwenden, um Einl
 
 - Sie können entweder eine Zulassungsliste oder eine Verweigerungsliste erstellen. Sie können jedoch nicht beide Listentypen einrichten. Standardmäßig sind alle Domänen, die nicht in der Zulassungsliste aufgeführt sind, in der Verweigerungsliste enthalten (und umgekehrt). 
 - Sie können nur jeweils eine Richtlinie pro Organisation erstellen. Sie können die Richtlinie so aktualisieren, dass sie weitere Domänen enthält, oder Sie können die Richtlinie löschen und eine neue erstellen. 
-- Die Anzahl der Domänen, die Sie einer Zulassungs- oder Verweigerungsliste hinzufügen können, wird nur durch die Richtliniengröße eingeschränkt. Die Maximalgröße der gesamten Richtlinie beträgt 25 KB (25.000 Zeichen) einschließlich der Zulassungs- oder Verweigerungsliste sowie aller weiteren Parameter, die für andere Features konfiguriert sind.
+- Die Anzahl der Domänen, die Sie einer Zulassungs- oder Verweigerungsliste hinzufügen können, wird nur durch die Richtliniengröße eingeschränkt. Dieser Grenzwert bezieht sich auf die Anzahl der Zeichen, sodass Sie mehrere kurze oder wenigere lange Domänen angeben können. Die Maximalgröße der gesamten Richtlinie beträgt 25 KB (25.000 Zeichen) einschließlich der Zulassungs- oder Verweigerungsliste sowie aller weiteren Parameter, die für andere Features konfiguriert sind.
 - Diese Liste ist unabhängig von Zulassungs- oder Blockierungslisten für OneDrive for Business und SharePoint Online. Wenn Sie einzelne Dateifreigaben in SharePoint Online einschränken möchten, müssen Sie eine Zulassungs- oder Verweigerungsliste für OneDrive for Business und SharePoint Online einrichten. Weitere Informationen finden Sie unter [Eingeschränkte Domänenfreigabe in SharePoint Online und OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - Diese Liste gilt nicht für externe Benutzer, die die Einladung bereits eingelöst haben. Die Liste wird nach dem Einrichten erzwungen. Wenn eine Benutzereinladung ausstehend ist und Sie eine Richtlinie festlegen, die die Domäne des Benutzers blockiert, kann der Benutzer die Einladung nicht einlösen.
 
@@ -43,7 +43,7 @@ So fügen Sie eine Verweigerungsliste hinzu
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie **Azure Active Directory** > **Benutzer** > **Benutzereinstellungen** aus.
-3. Wählen Sie unter **Externe Benutzer** die Option **Manage external collaboration settings** (Einstellungen für externe Zusammenarbeit verwalten) aus.
+3. Wählen Sie unter **Externe Benutzer** die Option **Externe Einstellungen zur Zusammenarbeit verwalten** aus.
 4. Wählen Sie unter **Collaboration restrictions** (Zusammenarbeitseinschränkungen) die Option **Deny invitations to the specified domains** (Einladungen an die angegebene Domäne verweigern) aus.
 5. Geben Sie unter **ZIELDOMÄNEN** den Namen einer der Domänen ein, die Sie blockieren möchten. Geben Sie für mehrere Domänen jede Domäne in einer neuen Zeile ein. Beispiel:
 
@@ -64,7 +64,7 @@ So fügen Sie eine Zulassungsliste hinzu
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie **Azure Active Directory** > **Benutzer** > **Benutzereinstellungen** aus.
-3. Wählen Sie unter **Externe Benutzer** die Option **Manage external collaboration settings** (Einstellungen für externe Zusammenarbeit verwalten) aus.
+3. Wählen Sie unter **Externe Benutzer** die Option **Externe Einstellungen zur Zusammenarbeit verwalten** aus.
 4. Wählen Sie unter **Einschränkungen für die Zusammenarbeit** die Option **Einladungen nur für die angegebenen Domänen zulassen (restriktivste Einstellung)** aus.
 5. Geben Sie unter **ZIELDOMÄNEN** den Namen einer der Domänen ein, die Sie zulassen möchten. Geben Sie für mehrere Domänen jede Domäne in einer neuen Zeile ein. Beispiel:
 
@@ -80,7 +80,7 @@ Wenn Sie zwischen Richtlinien wechseln, wird jeweils die vorhandene Richtlinienk
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Festlegen der Richtlinie für die Zulassungs- oder Verweigerungsliste mithilfe von PowerShell
 
-### <a name="prerequisite"></a>Voraussetzung
+### <a name="prerequisite"></a>Voraussetzungen
 
 > [!Note]
 > Das AzureADPreview-Modul ist kein vollständig unterstütztes Modul, da es sich in der Vorschauphase befindet. 

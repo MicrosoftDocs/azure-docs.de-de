@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359526"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627704"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Erstellen einer Site-to-Site-Verbindung per Azure Virtual WAN
 
@@ -55,7 +55,7 @@ Ein Hub ist ein virtuelles Netzwerk, das Gateways für Verbindungen vom Typ „S
 
 ## <a name="create-a-site"></a><a name="site"></a>Erstellen einer Site
 
-Nun ist alles bereit, um die Sites gemäß Ihren physischen Standorten zu erstellen. Erstellen Sie beliebig viele Sites, die Ihren physischen Standorten entsprechen. Erstellen Sie beispielsweise drei separate Sites, wenn Sie jeweils über eine Filiale in New York, London und Los Angeles verfügen. Diese Sites enthalten Ihre lokalen VPN-Geräteendpunkte. Sie können in einem Virtual WAN bis zu 1.000 Sites pro virtuellem Hub erstellen. Bei mehreren Hubs ist die Erstellung von 1.000 Sites pro Hub möglich. Falls Sie über ein CPE-Gerät eines Virtual WAN-Partners verfügen (Linkeinfügung), können Sie sich beim Partner über die Automatisierungsmöglichkeiten in Azure informieren. Normalerweise umfasst die Automatisierung eine einfache Vorgehensweise per Klick, um umfassende Branchinformationen nach Azure zu exportieren und die Konnektivität vom CPE zum Azure Virtual WAN-VPN-Gateway einzurichten. Weitere Informationen finden Sie unter [Virtual WAN-Partner](virtual-wan-configure-automation-providers.md).
+In diesem Abschnitt wird eine Site erstellt. Sites entsprechen Ihren physischen Standorten. Sie können beliebig viele davon erstellen. Erstellen Sie beispielsweise drei separate Sites, wenn Sie jeweils über eine Filiale in New York, London und Los Angeles verfügen. Diese Sites enthalten Ihre lokalen VPN-Geräteendpunkte. In einem virtuellen WAN können bis zu 1.000 Sites pro virtuellem Hub erstellt werden. Bei mehreren Hubs ist die Erstellung von 1.000 Sites pro Hub möglich. Falls Sie über ein CPE-Gerät eines Virtual WAN-Partners verfügen, können Sie sich bei dem Partner über die Automatisierungsmöglichkeiten in Azure informieren. Automatisierung impliziert in der Regel einen einfachen Klickvorgang, um umfassende Branchinformationen nach Azure zu exportieren und die Konnektivität vom CPE zum Azure Virtual WAN-VPN-Gateway einzurichten. Weitere Informationen finden Sie unter [Virtual WAN-Partner](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -78,19 +78,19 @@ Verwenden Sie die VPN-Gerätekonfiguration, um Ihr lokales VPN-Gerät zu konfigu
 3. Nachdem die Erstellung der Datei abgeschlossen wurde, können Sie auf den Link klicken, um sie herunterzuladen.
 4. Wenden Sie die Konfiguration auf Ihr lokales VPN-Gerät an.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Grundlegendes zur Konfigurationsdatei für VPN-Geräte
+### <a name="about-the-vpn-device-configuration-file"></a>Informationen zur VPN-Gerätekonfigurationsdatei
 
 Die Gerätekonfigurationsdatei enthält die Einstellungen, die beim Konfigurieren Ihrer lokalen VPN-Geräte verwendet werden. Beachten Sie beim Anzeigen dieser Datei die folgenden Informationen:
 
-* **vpnSiteConfiguration** : In diesem Abschnitt sind die Gerätedetails für die Einrichtung einer Site angegeben, für die eine Verbindung mit dem virtuellen WAN hergestellt wird. Sie enthält den Namen und die öffentliche IP-Adresse des Zweigstellengeräts.
-* **vpnSiteConnections** : Dieser Abschnitt enthält die folgenden Einstellungen:
+* **vpnSiteConfiguration**: In diesem Abschnitt sind die Gerätedetails für die Einrichtung einer Site angegeben, für die eine Verbindung mit dem virtuellen WAN hergestellt wird. Sie enthält den Namen und die öffentliche IP-Adresse des Zweigstellengeräts.
+* **vpnSiteConnections**: Dieser Abschnitt enthält die folgenden Einstellungen:
 
-    * **Adressraum** des virtuellen Hub-VNET<br>Beispiel:
+    * **Adressraum** des virtuellen Hub-VNET.<br>Beispiel:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Adressraum** der VNETs, die mit dem Hub verbunden sind<br>Beispiel:
+    * **Adressraum** der VNETs, die mit dem Hub verbunden sind.<br>Beispiel:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -101,7 +101,7 @@ Die Gerätekonfigurationsdatei enthält die Einstellungen, die beim Konfiguriere
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Details zur Konfiguration der vpngateway-Verbindung** , z.B. BGP, vorinstallierter Schlüssel usw. Der vorinstallierte Schlüssel (Pre-Shared Key, PSK) wird automatisch für Sie erstellt. Sie können die Verbindung für einen benutzerdefinierten PSK auf der Seite „Übersicht“ jederzeit bearbeiten.
+    * **Details zur Konfiguration der vpngateway-Verbindung**, z.B. BGP, vorinstallierter Schlüssel usw. Der vorinstallierte Schlüssel (Pre-Shared Key, PSK) wird automatisch für Sie erstellt. Sie können die Verbindung für einen benutzerdefinierten PSK auf der Seite „Übersicht“ jederzeit bearbeiten.
   
 ### <a name="example-device-configuration-file"></a>Beispiel für Gerätekonfigurationsdatei
 

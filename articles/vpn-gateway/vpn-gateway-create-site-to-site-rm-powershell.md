@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0295f1687a328980ccf8ceeb6d6a1f1cbd2b4bad
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1488aa6f48c05a8c2dfa2c6162c1bd1df35d4f58
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878069"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380487"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Erstellen eines VNET mit einer Site-to-Site-VPN-Verbindung per PowerShell
 
@@ -242,7 +242,7 @@ Es gibt mehrere Möglichkeiten, wie Sie Ihre VPN-Verbindung überprüfen können
 
 ## <a name="to-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>So ändern Sie die IP-Adresspräfixe für ein lokales Netzwerkgateway
 
-Wenn sich die IP-Adressen ändern, die an den lokalen Standort weitergeleitet werden sollen, können Sie das Gateway des lokalen Netzwerks anpassen. Es sind zwei Anleitungen vorhanden. Welche Anleitung für Sie geeignet ist, hängt davon ab, ob Sie die Gatewayverbindung bereits erstellt haben. Wenn Sie diese Beispiele verwenden, ändern Sie die Werte Ihrer Umgebung entsprechend.
+Wenn sich die IP-Adressen ändern, die an den lokalen Standort weitergeleitet werden sollen, können Sie das Gateway des lokalen Netzwerks anpassen. Wenn Sie diese Beispiele verwenden, ändern Sie die Werte Ihrer Umgebung entsprechend.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 

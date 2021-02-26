@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210017"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593128"
 ---
 # <a name="app-service-networking-features"></a>App Service-Netzwerkfunktionen
 
@@ -113,6 +113,9 @@ Das Feature zur IP-basierten Zugriffseinschränkung ist nützlich, wenn Sie die 
 * Beschränken Sie den Zugriff auf Datenverkehr, der über ein externes Lastenausgleichsmodul oder andere Netzwerkgeräte mit bekannten IP-Ausgangsadressen erfolgt. 
 
 Informationen, wie Sie diese Funktion aktivieren, finden Sie unter [Konfigurieren von Zugriffseinschränkungen][iprestrictions].
+
+> [!NOTE]
+> Auf IP-Adressen basierende Zugriffseinschränkungsregeln behandeln nur Adressbereiche für virtuelle Netzwerke, wenn sich Ihre App in einer App Service-Umgebung befindet. Wenn sich Ihre App im mehrinstanzenfähigen Dienst befindet, müssen Sie [Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) verwenden, um den Datenverkehr so einzuschränken, dass Subnetze in Ihrem virtuellen Netzwerk ausgewählt werden.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Auf Dienstendpunkten basierende Zugriffseinschränkungsregeln 
 

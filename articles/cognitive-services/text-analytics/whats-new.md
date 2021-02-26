@@ -8,19 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652842"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220699"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Neuigkeiten bei der Textanalyse-API
 
 Die Textanalyse-API wird fortlaufend aktualisiert. Damit Sie bezüglich der aktuellen Entwicklungen auf dem neuesten Stand bleiben, bietet dieser Artikel Informationen zu neuen Releases und Funktionen.
+
+## <a name="january-2021"></a>Januar 2021
+
+* Die `2021-01-15`-Modellversion für die [Erkennung benannter Entitäten](how-tos/text-analytics-how-to-entity-linking.md), Version 3.x bietet Folgendes: 
+  * erweiterte Sprachunterstützung für [mehrere allgemeine Entitätskategorien](named-entity-types.md) 
+  * verbesserte KI-Qualität allgemeiner Entitätskategorien für alle in Version 3 unterstützten Sprachen 
+
+* Die `2021-01-05`-Modellversion für die [Spracherkennung](how-tos/text-analytics-how-to-language-detection.md) bietet zusätzliche [Sprachunterstützung](language-support.md?tabs=language-detection).
+
+Diese Modellversionen sind zurzeit nicht in der Region „USA, Osten“ verfügbar. 
+
+> [!div class="nextstepaction"]
+> [Weitere Informationen zum neuen NER-Modell](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>Dezember 2020
 
@@ -66,7 +79,7 @@ Die Textanalyse-API wird fortlaufend aktualisiert. Damit Sie bezüglich der aktu
 ### <a name="text-analytics-for-health-container-updates"></a>Updates beim Container für die Textanalyse im Gesundheitsbereich
 
 Die folgenden Updates gelten speziell nur für das September-Release des Containers für die Textanalyse im Gesundheitsbereich.
-* Ein neues Containerimage mit dem Tag `1.1.013530001-amd64-preview` und der neuen Modellversion `2020-09-03` wurde im Repository „containerpreview“ veröffentlicht. 
+* Ein neues Containerimage mit dem Tag `1.1.013530001-amd64-preview` und der neuen Modellversion `2020-09-03` wurde im Repository für die Containervorschau veröffentlicht. 
 * Diese Modellversion bietet Verbesserungen bei der Erkennung von Entitäten und Abkürzungen und bei der Latenz.
 
 > [!div class="nextstepaction"]

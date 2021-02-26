@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption-Beispielskripts
+title: Azure Disk Encryption-Beispielskripts für virtuelle Windows-Computer
 description: Dieser Artikel enthält den Anhang zu Microsoft Azure Disk Encryption für virtuelle Windows-Computer.
 author: msmbaldwin
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 255e284cf8d54a9be59f09f5613cb2728417d234
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f113a1e559798328a2ef81336e8afff02732bb90
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912037"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99804953"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption-Beispielskripts 
 

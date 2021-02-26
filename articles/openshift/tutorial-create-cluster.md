@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675719"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072235"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Erstellen eines Azure Red Hat OpenShift 4-Clusters
 
@@ -82,17 +82,17 @@ Wenn Sie den Befehl `az aro create` ausführen, können Sie mithilfe des `--doma
 Beachten Sie die folgenden Punkte, wenn Sie eine benutzerdefinierte Domäne für Ihren Cluster bereitstellen:
 
 * Nachdem Sie den Cluster erstellt haben, müssen Sie im DNS-Server 2 DNS A-Einträge für die angegebene `--domain` erstellen:
-    * **api** : Verweist auf die IP-Adresse des API-Servers.
-    * **\*.apps** : Verweist auf die Eingangs-IP-Adresse.
+    * **api**: Verweist auf die IP-Adresse des API-Servers.
+    * **\*.apps**: Verweist auf die Eingangs-IP-Adresse.
     * Rufen Sie diese Werte ab, indem Sie den folgenden Befehl nach der Clustererstellung ausführen: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
 
 * Die OpenShift-Konsole ist anstelle der integrierten Domäne `https://console-openshift-console.apps.<random>.<location>.aroapp.io` unter einer URL wie `https://console-openshift-console.apps.example.com` verfügbar.
 
-* OpenShift verwendet standardmäßig selbstsignierte Zertifikate für alle in benutzerdefinierten `*.apps.example.com`-Domänen erstellten Routen.  Wenn Sie nach dem Herstellen einer Verbindung mit dem Cluster benutzerdefiniertes DNS verwenden möchten, müssen Sie anhand der OpenShift-Dokumentation [eine benutzerdefinierte Zertifizierungsstelle für Ihren Eingangscontroller](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) und eine [benutzerdefinierte Zertifizierungsstelle für Ihren API-Server](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html) konfigurieren.
+* OpenShift verwendet standardmäßig selbstsignierte Zertifikate für alle in benutzerdefinierten `*.apps.example.com`-Domänen erstellten Routen.  Wenn Sie nach dem Herstellen einer Verbindung mit dem Cluster benutzerdefiniertes DNS verwenden möchten, müssen Sie anhand der OpenShift-Dokumentation [eine benutzerdefinierte Zertifizierungsstelle für Ihren Eingangscontroller](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) und eine [benutzerdefinierte Zertifizierungsstelle für Ihren API-Server](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html) konfigurieren.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Erstellen eines virtuellen Netzwerks mit zwei leeren Subnetzen
 
-Als Nächstes erfahren Sie, wie Sie ein virtuelles Netzwerk mit zwei leeren Subnetzen erstellen.
+Als Nächstes erfahren Sie, wie Sie ein virtuelles Netzwerk mit zwei leeren Subnetzen erstellen. Wenn Sie über ein vorhandenes virtuelles Netzwerk verfügen, das Ihre Anforderungen erfüllt, können Sie diesen Schritt überspringen.
 
 1. **Legen Sie die folgenden Variablen in der Shell-Umgebung fest, in der Sie die `az`-Befehle ausführen.**
 
@@ -131,7 +131,7 @@ Als Nächstes erfahren Sie, wie Sie ein virtuelles Netzwerk mit zwei leeren Subn
 
 2. **Erstellen Sie ein virtuelles Netzwerk.**
 
-   Für Azure Red Hat OpenShift-Cluster mit OpenShift 4 ist ein virtuelles Netzwerk mit zwei leeren Subnetzen für die Master- und Workerknoten erforderlich.
+   Für Azure Red Hat OpenShift-Cluster mit OpenShift 4 ist ein virtuelles Netzwerk mit zwei leeren Subnetzen für die Master- und Workerknoten erforderlich. Sie können entweder ein neues virtuelles Netzwerk dafür erstellen oder ein vorhandenes virtuelles Netzwerk verwenden.
 
    Erstellen Sie ein neues virtuelles Netzwerk in derselben Ressourcengruppe, die Sie zuvor erstellt haben:
 

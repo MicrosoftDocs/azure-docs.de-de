@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0df9e4722136dafe94d1bfc84a7767e1e0144d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997221"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Azure Active Directory-Integration mit M-Files
 
@@ -129,7 +129,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit M-Files 
     >[!NOTE]
     >Führen Sie die nächsten Schritte aus, wenn Sie SSO für die M-Files-Desktopanwendung konfigurieren möchten. Es sind keine zusätzlichen Schritte erforderlich, wenn Sie SSO nur für die Webversion von M-Files konfigurieren möchten.  
 
-1. Führen Sie die nächsten Schritte aus, um die M-Files-Desktopanwendung mit aktiviertem SSO mit Azure AD zu konfigurieren. Um M-Files herunterzuladen, navigieren Sie zur Seite [M-Files Herunterladen](https://www.m-files.com/en/download-latest-version).
+1. Führen Sie die nächsten Schritte aus, um die M-Files-Desktopanwendung mit aktiviertem SSO mit Azure AD zu konfigurieren. Um M-Files herunterzuladen, navigieren Sie zur Seite [M-Files Herunterladen](https://www.m-files.com/customers/product-downloads/download-update-links/).
 
 1. Öffnen Sie das Fenster **M-Files Desktop Settings** (M-Files-Desktopeinstellungen). Klicken Sie anschließend auf **Hinzufügen**.
    

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753325"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582316"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Web-App, die Web-APIs aufruft: Codekonfiguration
 
@@ -44,7 +44,7 @@ Wählen Sie die Registerkarte für die Plattform aus, die Sie interessiert:
 
 ## <a name="client-secrets-or-client-certificates"></a>Geheime Clientschlüssel oder Clientzertifikate
 
-Wenn Ihre Web-App jetzt eine Downstream-Web-API aufruft, müssen Sie in der Datei *appsettings.json* einen geheimen Clientschlüssel oder ein Clientzertifikat angeben. Sie können auch einen Abschnitt hinzufügen, in dem Folgendes angegeben wird:
+Wenn Ihre Web-App jetzt eine Downstream-Web-API aufruft, geben Sie in der Datei *appsettings.json* einen geheimen Clientschlüssel oder ein Clientzertifikat an. Sie können auch einen Abschnitt hinzufügen, in dem Folgendes angegeben wird:
 
 - Die URL der Downstream-Web-API
 - Die zum Aufrufen der API erforderlichen Bereiche

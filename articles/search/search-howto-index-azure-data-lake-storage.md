@@ -5,16 +5,15 @@ description: Erfahren Sie, wie Sie Inhalte und Metadaten in Azure Data Lake Stor
 manager: nitinme
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 4a585fa1c3c56d285859171e6b5673fe57beffb3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 51c32501015a16819ba9316272ed0d522e1083d7
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517320"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545563"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indizieren von Dokumenten in Azure Data Lake Storage Gen2
 

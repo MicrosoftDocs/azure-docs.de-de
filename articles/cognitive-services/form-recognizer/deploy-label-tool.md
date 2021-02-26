@@ -2,19 +2,19 @@
 title: Bereitstellen des Formularerkennungstools für die Bezeichnung von Beispielen
 titleSuffix: Azure Cognitive Services
 description: Erfahren Sie mehr über die verschiedenen Möglichkeiten, wie Sie das Formularerkennungstool für die Bezeichnung von Beispielen für überwachte Lernen bereitstellen können.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790426"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370025"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Bereitstellen des Samplebezeichnungstools
 
@@ -32,7 +32,7 @@ Die schnellste Möglichkeit, um mit dem Beschriften von Daten loszulegen, ist di
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Bereitstellen mit Azure Container Instances (ACI)
 
-Zum Bereitstellen des Tools für die Beschriftung von Beispielen in einer Azure-Containerinstanz gibt es zwei Möglichkeiten. Beide Optionen werden verwendet, um das Tool für die Beschriftung von Beispielen mit ACI auszuführen: 
+Zum Bereitstellen des Tools für die Beschriftung von Beispielen in einer Azure-Containerinstanz gibt es zwei Möglichkeiten. Beide Optionen werden verwendet, um das Tool für die Beschriftung von Beispielen mit ACI auszuführen:
 
 * [Verwenden des Azure-Portals](#azure-portal)
 * [Verwenden der Azure-Befehlszeilenschnittstelle](#azure-cli)
@@ -42,16 +42,16 @@ Zum Bereitstellen des Tools für die Beschriftung von Beispielen in einer Azure-
 Führen Sie die folgenden Schritte aus, um eine neue Ressource im Azure-Portal zu erstellen: 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/signin/index/) an.
-2. Wählen Sie **Ressource erstellen**. 
-3. Wählen Sie anschließend **Web-App** aus. 
+2. Wählen Sie **Ressource erstellen**.
+3. Wählen Sie anschließend **Web-App** aus.
 
    > [!div class="mx-imgBorder"]
-   > ![Auswählen von „Web-App“](./media/quickstarts/formre-create-web-app.png)
-   
-4. Vergewissern Sie sich zunächst, dass die Registerkarte **Grundlagen** ausgewählt ist. Jetzt müssen Sie einige Informationen angeben: 
+   > ![Auswählen von „Web-App“](./media/quickstarts/create-web-app.png)
+
+4. Vergewissern Sie sich zunächst, dass die Registerkarte **Grundlagen** ausgewählt ist. Jetzt müssen Sie einige Informationen angeben:
 
    > [!div class="mx-imgBorder"]
-   > ![Auswählen von „Grundlagen“](./media/quickstarts/formre-select-basics.png)
+   > ![Auswählen von „Grundlagen“](./media/quickstarts/select-basics.png)
    * Abonnement: Wählen Sie ein vorhandenes Azure-Abonnement aus.
    * Ressourcengruppe: Sie können eine vorhandene Ressourcengruppe wiederverwenden oder eine neue Ressourcengruppe für das Projekt erstellen. Es wird empfohlen, eine neue Ressourcengruppe zu erstellen.
    * Name: Geben Sie einen Namen für Ihre Web-App ein. 
@@ -61,44 +61,46 @@ Führen Sie die folgenden Schritte aus, um eine neue Ressource im Azure-Portal z
    * Linux-Plan: Wählen Sie einen Tarif/Plan für Ihre App Service-App aus. 
 
    > [!div class="mx-imgBorder"]
-   > ![Konfigurieren der Web-App](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Konfigurieren der Web-App](./media/quickstarts/select-docker.png)
 
-5. Wählen Sie als Nächstes die Registerkarte **Docker** aus. 
+5. Wählen Sie als Nächstes die Registerkarte **Docker** aus.
 
    > [!div class="mx-imgBorder"]
-   > ![Auswählen von „Docker“](./media/quickstarts/formre-select-docker.png)
+   > ![Auswählen von „Docker“](./media/quickstarts/select-docker.png)
 
 6. Konfigurieren Sie nun Ihren Docker-Container. Alle Felder sind erforderlich, sofern nicht anders angegeben:
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)  
-   * Optionen: Wählen Sie **Einzelner Container** aus.
-   * Imagequelle: Wählen Sie **Private Registrierung** aus. 
-   * Server-URL: Legen Sie die URL auf `https://mcr.microsoft.com` fest.
-   * Benutzername (optional): Erstellen Sie einen Benutzernamen. 
-   * Kennwort (optional): Erstellen Sie ein sicheres Kennwort, das Sie sich gut merken können.
-   * Image und Tag: Legen Sie diese Einstellung auf `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest` fest.
-   * Continuous Deployment: Legen Sie diesen Wert auf **On** fest, wenn Sie automatische Aktualisierungen erhalten möchten, sobald das Entwicklungsteam Änderungen am Beschriftungstool für Stichproben vornimmt.
-   * Startbefehl: Legen Sie diese Einstellung auf `./run.sh eula=accept` fest.
+    # <a name="v20"></a>[v2.0](#tab/v2-0)
+
+* Optionen: Wählen Sie **Einzelner Container** aus.
+* Imagequelle: Wählen Sie **Private Registrierung** aus. 
+* Server-URL: Legen Sie die URL auf `https://mcr.microsoft.com` fest.
+* Benutzername (optional): Erstellen Sie einen Benutzernamen. 
+* Kennwort (optional): Erstellen Sie ein sicheres Kennwort, das Sie sich gut merken können.
+* Image und Tag: Legen Sie diese Einstellung auf `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest` fest.
+* Continuous Deployment: Legen Sie diesen Wert auf **On** fest, wenn Sie automatische Aktualisierungen erhalten möchten, sobald das Entwicklungsteam Änderungen am Beschriftungstool für Stichproben vornimmt.
+* Startbefehl: Legen Sie diese Einstellung auf `./run.sh eula=accept` fest.
 
     # <a name="v21-preview"></a>[Vorschauversion v2.1](#tab/v2-1) 
-   * Optionen: Wählen Sie **Einzelner Container** aus.
-   * Imagequelle: Wählen Sie **Private Registrierung** aus. 
-   * Server-URL: Legen Sie die URL auf `https://mcr.microsoft.com` fest.
-   * Benutzername (optional): Erstellen Sie einen Benutzernamen. 
-   * Kennwort (optional): Erstellen Sie ein sicheres Kennwort, das Sie sich gut merken können.
-   * Image und Tag: Legen Sie diese Einstellung auf `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview` fest.
-   * Continuous Deployment: Legen Sie diesen Wert auf **On** fest, wenn Sie automatische Aktualisierungen erhalten möchten, sobald das Entwicklungsteam Änderungen am Beschriftungstool für Stichproben vornimmt.
-   * Startbefehl: Legen Sie diese Einstellung auf `./run.sh eula=accept` fest.
-    
+
+* Optionen: Wählen Sie **Einzelner Container** aus.
+* Imagequelle: Wählen Sie **Private Registrierung** aus. 
+* Server-URL: Legen Sie die URL auf `https://mcr.microsoft.com` fest.
+* Benutzername (optional): Erstellen Sie einen Benutzernamen. 
+* Kennwort (optional): Erstellen Sie ein sicheres Kennwort, das Sie sich gut merken können.
+* Image und Tag: Legen Sie diese Einstellung auf `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview` fest.
+* Continuous Deployment: Legen Sie diesen Wert auf **On** fest, wenn Sie automatische Aktualisierungen erhalten möchten, sobald das Entwicklungsteam Änderungen am Beschriftungstool für Stichproben vornimmt.
+* Startbefehl: Legen Sie diese Einstellung auf `./run.sh eula=accept` fest.
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Konfigurieren von Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Konfigurieren von Docker](./media/quickstarts/configure-docker.png)
 
 7. Das ist alles. Wählen Sie als Nächstes **Überprüfen + Erstellen** und dann **Erstellen** aus, um die Web-App bereitzustellen. Nach der Bereitstellung können Sie unter der URL, die in der **Übersicht** für Ihre Ressource angegeben ist, auf die Web-App zugreifen.
 
 > [!NOTE]
-> Beim Erstellen Ihrer Web-App können Sie auch die Autorisierung/Authentifizierung konfigurieren. Für die ersten Schritte ist dies jedoch nicht erforderlich. 
+> Beim Erstellen Ihrer Web-App können Sie auch die Autorisierung/Authentifizierung konfigurieren. Für die ersten Schritte ist dies jedoch nicht erforderlich.
 
 > [!IMPORTANT]
 > Möglicherweise müssen Sie TLS für Ihre Web-App aktivieren, um sie unter ihrer `https`-Adresse anzuzeigen. Befolgen Sie die Anweisungen in [Aktivieren eines TLS-Endpunkts](../../container-instances/container-instances-container-group-ssl.md), um einen Sidecar-Container einzurichten, und aktivieren Sie dann TLS/SSL für Ihre Web-App.
@@ -114,10 +116,10 @@ Es gibt einige Dinge, die Sie über diesen Befehl wissen sollten:
 * Sie müssen angeben, wo die Ressource erstellt werden soll. Ersetzen Sie `<region name>` durch die gewünschte Region für die Web-App. 
 * Dieser Befehl akzeptiert automatisch die Lizenzbedingungen.
 
-Führen Sie in der Azure CLI den folgenden Befehl aus, um eine Web-App-Ressource für das Tool für die Beschriftung von Beispielen zu erstellen: 
+Führen Sie in der Azure CLI den folgenden Befehl aus, um eine Web-App-Ressource für das Tool für die Beschriftung von Beispielen zu erstellen:
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -131,8 +133,10 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[Vorschauversion v2.1](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

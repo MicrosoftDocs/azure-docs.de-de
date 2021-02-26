@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755480"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051599"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Grundlegendes zu Metriken für Azure Spring Cloud
 
@@ -121,6 +121,7 @@ Die verfügbaren Metriken und ihre Details sind in den nachfolgenden Tabellen au
 >| Anzahl Gen 0 GC  | gen-0-gc-count | Anzahl        | Anzahl der Garbage Collections von Generation 0 pro Sekunde. |
 >| Anzahl Gen 1 GC  | gen-1-gc-count | Anzahl        | Anzahl der Garbage Collections von Generation 1 pro Sekunde. |
 >| Anzahl Gen 2 GC  | gen-2-gc-count | Anzahl        | Anzahl der Garbage Collections von Generation 2 pro Sekunde. |
+>| GC-Zeitdauer      | timein-gc      | Percent      | Der Prozentsatz der mit Garbage Collection verbrachten Zeit seit dem letzten Garbage Collection-Vorgang. |
 >| Gen 0-Heapgröße | gen-0-size     | Byte        | Heapgröße von Generation 0. |
 >| Gen 1-Heapgröße | gen-1-size     | Byte        | Heapgröße von Generation 1. |
 >| Gen 2-Heapgröße | gen-2-size     | Byte        | Heapgröße von Generation 2. |

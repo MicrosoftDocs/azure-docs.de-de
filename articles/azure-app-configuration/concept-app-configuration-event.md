@@ -7,12 +7,12 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078203"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550741"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagieren auf Azure App Configuration-Ereignisse
 
@@ -22,7 +22,7 @@ Azure App Configuration-Ereignisse werden an den Azure Event Grid-Dienst ges
 
 Zu gängigen Szenarien mit App-Konfigurationsereignissen zählen beispielsweise das Aktualisieren der Anwendungskonfiguration, das Auslösen von Bereitstellungen sowie andere konfigurationsorientierte Workflows. Wenn Änderungen selten sind, aber Ihr Szenario die sofortige Reaktion erfordert, kann die ereignisbasierte Architektur besonders effizient sein.
 
-Unter [Schnellstart: Weiterleiten von Azure App Configuration-Ereignissen an einen Webendpunkt mit der Azure-Befehlszeilenschnittstelle](./howto-app-configuration-event.md) finden Sie ein kurzes Beispiel. 
+Ein kurzes Beispiel finden Sie unter [Verwenden von Event Grid für Benachrichtigungen bei Änderungen von Daten](./howto-app-configuration-event.md). 
 
 ![Event Grid-Modell](./media/event-grid-functional-model.png)
 
@@ -87,4 +87,4 @@ Anwendungen, die App Configuration-Ereignisse behandeln, sollten diese empfohlen
 Erfahren Sie mehr über Event Grid, und probieren Sie Azure App Configuration-Ereignisse aus:
 
 - [Einführung in Azure Event Grid](../event-grid/overview.md)
-- [Schnellstart: Weiterleiten von Azure App Configuration-Ereignissen an einen Webendpunkt mit der Azure-Befehlszeilenschnittstelle](./howto-app-configuration-event.md)
+- [Verwenden von Event Grid für Benachrichtigungen bei Änderungen von Daten](./howto-app-configuration-event.md)

@@ -1,19 +1,17 @@
 ---
 title: Beheben von Problemen mit der Sicherheit und Zugriffssteuerung
 description: Hier erfahren Sie, wie Sie Probleme mit der Sicherheit und Zugriffssteuerung in Azure Data Factory beheben.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944518"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375169"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Beheben von Problemen mit der Sicherheit und Zugriffssteuerung in Azure Data Factory
 
@@ -88,9 +86,10 @@ Gehen Sie folgendermaßen vor, um zu überprüfen, ob der vollständig qualifizi
 #### <a name="resolution"></a>Lösung
 
 Gehen Sie zur Lösung des Problems wie folgt vor:
-- Lesen Sie den Artikel [Azure Private Link für Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints). Die Anweisung dient zum Konfigurieren der privaten DNS-Zone oder des Servers, um den Data Factory-FQDN in eine private IP-Adresse aufzulösen.
 
-- Es wird empfohlen, ein benutzerdefiniertes DNS als langfristige Lösung zu verwenden. Wenn Sie die private DNS-Zone oder den Server jedoch nicht konfigurieren möchten, versuchen Sie es mit der folgenden temporären Lösung:
+- Als Option empfiehlt es sich, manuell eine „VNet-Verknüpfung“ unter der „Private Link-DNS-Zone“ von Data Factory hinzuzufügen. Lesen Sie für weitere Informationen den Artikel [Azure Private Link für Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints). Die Anweisung dient zum Konfigurieren der privaten DNS-Zone oder des benutzerdefinierten DNS-Servers, um den Data Factory-FQDN in eine private IP-Adresse aufzulösen. 
+
+- Wenn Sie die private DNS-Zone oder den benutzerdefinierten DNS-Server jedoch nicht konfigurieren möchten, versuchen Sie es mit der folgenden temporären Lösung:
 
   1. Ändern Sie die Hostdatei in Windows, und ordnen Sie die private IP-Adresse (den privaten Azure Data Factory-Endpunkt) dem Azure Data Factory-FQDN zu.
   

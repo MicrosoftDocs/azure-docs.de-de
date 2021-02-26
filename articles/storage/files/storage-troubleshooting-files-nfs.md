@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4c87887f77d5f227fe4d4cdee220397289878d7f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878492"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574464"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Behandeln von Problemen mit Azure NFS-Dateifreigaben
 
@@ -56,7 +56,7 @@ Connect-AzAccount
 $context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
 Set-AzContext $context
 
-Register-AzProviderFeature -FeatureName AllowNfsFileShares - ProviderNamespace Microsoft.Storage
+Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -67,7 +67,6 @@ NFS ist nur für Speicherkonten mit der folgenden Konfiguration verfügbar:
 
 - Ebene – Premium
 - Kontoart – FileStorage
-- Redundanz – LRS
 - Regionen – [Liste der unterstützten Regionen](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Lösung
@@ -150,6 +149,17 @@ Das NFS-Protokoll kommuniziert über Port 2049 mit dem Server. Stellen Sie sich
 #### <a name="solution"></a>Lösung
 
 Überprüfen Sie, ob Port 2049 auf dem Client geöffnet ist, indem Sie den folgenden Befehl ausführen: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. Wenn der Port nicht geöffnet ist, öffnen Sie ihn.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (list files, Dateien auflisten) zeigt falsche/inkonsistente Ergebnisse
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Ursache: Abweichungen zwischen den zwischengespeicherten Werten und den Metadatenwerten der Serverdatei bei geöffnetem Dateihandle
+Manchmal zeigt der Befehl „list files“ wie erwartet eine Größe ungleich null an, während der direkt folgende Befehl „list files“ stattdessen als Größe 0 oder einen sehr alten Zeitstempel ausgibt. Dies ist ein bekanntes Problem aufgrund einer inkonsistenten Zwischenspeicherung von Dateimetadaten bei geöffneter Datei. Führen Sie eine der folgenden Problemumgehungen aus, um dieses Problem zu beheben:
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Problemumgehung 1: Verwenden Sie zum Fetchen der Dateigröße „wc -c“ anstelle von „ls -l“.
+Bei Verwendung von „wc -c“ wird immer der aktuelle Wert vom Server abgerufen, sodass keine Inkonsistenzen auftreten.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>Problemumgehung 2: Verwenden Sie das Einbindungsflag „noac“.
+Binden Sie das Dateisystem mit dem Befehl „mount“ und dem Flag „noac“ erneut ein. Damit werden immer alle Metadatenwerte vom Server abgerufen. Bei allen Metadatenvorgängen kann ein geringfügiger Leistungsmehraufwand auftreten, wenn diese Problemumgehung verwendet wird.
 
 ## <a name="need-help-contact-support"></a>Sie brauchen Hilfe? Wenden Sie sich an den Support.
 [Wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), falls Sie weitere Hilfe benötigen, um das Problem schnell beheben zu lassen.

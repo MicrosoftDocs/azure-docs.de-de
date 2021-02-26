@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522942"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980557"
 ---
 # <a name="about-the-move-process"></a>Informationen zum Verschiebungsprozess
 
@@ -46,7 +46,7 @@ Alle Verschiebungsressourcen durchlaufen die zusammengefassten Schritte.
 **Schritt 4: Initiieren der Verschiebung** | Starten Sie den Verschiebungsprozess. Die Verschiebungsmethode hängt vom Ressourcentyp ab:<br/><br/> - **Zustandslos**: Bei zustandslosen Ressourcen stellt der Verschiebungsprozess in der Regel eine importierte Vorlage in der Zielregion bereit. Diese Vorlage basiert auf den Quellressourceneinstellungen sowie allen manuellen Änderungen, die Sie an den Zieleinstellungen vornehmen.<br/><br/> - **Zustandsbehaftet**: Bei zustandsbehafteten Ressourcen umfasst der Verschiebungsprozess möglicherweise das Erstellen der Ressource oder Aktivieren einer Kopie in der Zielregion.<br/><br/>  Nur bei zustandsbehafteten Ressourcen kann das Initiieren einer Verschiebung zu einer Downtime der Quellressourcen führen. Beispiele sind VMs und SQL. | Beim Starten des Prozesses wird der Zustand in *Initiate move in progress* (Initiieren der Verschiebung läuft) geändert.<br/><br/> Bei einem erfolgreichen Initiieren der Verschiebung ändert sich der Zustand der Ressource in *Commit move pending* (Committen der Verschiebung ausstehend), ohne dass Probleme auftreten. <br/><br/> Bei einem nicht erfolgreichen Verschiebungsprozess ändert sich der Zustand in *Initiate move failed* (Fehler beim Initiieren der Verschiebung).
 **Schritt 5, Option 1: Verwerfen der Verschiebung** | Nach der anfänglichen Verschiebung können Sie entscheiden, ob Sie mit der vollständigen Verschiebung fortfahren möchten. Wenn nicht, können Sie die Verschiebung verwerfen, und Resource Mover löscht die im Ziel erstellten Ressourcen. Nach dem Verwerfungsprozess wird der Replikationsprozess für zustandsbehaftete Ressourcen fortgesetzt. Diese Option ist nützlich für Tests. | Durch das Verwerfen von Ressourcen ändert sich der Zustand in *Discard in progress* (Verwerfung läuft).<br/><br/> Wird die Verschiebung erfolgreich verworfen, ändert sich der Zustand in *Initiate move pending* (Initiieren der Verschiebung ausstehend), ohne dass Probleme auftreten.<br/><br/> Tritt beim Verwerfen ein Fehler auf, ändert sich der Zustand in *Discard move failed* (Fehler beim Verwerfen der Verschiebung). 
 **Schritt 5, Option 2: Committen der Verschiebung** | Wenn Sie nach der anfänglichen Verschiebung mit der vollständigen Verschiebung fortfahren möchten, überprüfen Sie die Ressourcen in der Zielregion, und committen Sie die Verschiebung, wenn Sie bereit sind.<br/><br/> Nur bei zustandsbehafteten Ressourcen kann ein Commit dazu führen, dass auf Quellressourcen wie VMs oder SQL nicht mehr zugegriffen werden kann. | Wenn Sie die Verschiebung committen, ändert sich der Zustand der Ressource in *Commit move in progress** (Committen der Verschiebung läuft).<br/><br/> Nach einem erfolgreichen Commit ändert sich der Zustand der Ressource in *Commit move completed* (Committen der Verschiebung abgeschlossen), ohne dass Probleme auftreten.<br/><br/> Tritt beim Committen der Verschiebung ein Fehler auf, ändert sich der Zustand in *Commit move failed* (Fehler beim Committen der Verschiebung).
-**Schritt 6: Löschen der Quelle** | Nach dem Committen der Verschiebung und Überprüfen der Ressourcen in der Zielregion können Sie die Quellressource löschen. | Nach dem Committen der Verschiebung ändert sich der Zustand der Ressource in *Delete source pending* (Löschen der Quelle ausstehend).
+**Schritt 6: Löschen der Quelle** | Nach dem Committen der Verschiebung und Überprüfen der Ressourcen in der Zielregion können Sie die Quellressource löschen. | Nach dem Committen ändert sich der Zustand der Ressource in *Delete source pending* (Löschen der Quelle ausstehend). Sie können dann die Quellressource auswählen und löschen.<br/><br/> - Nur Ressourcen im Zustand *Delete source pending* (Löschen der Quelle ausstehend) können gelöscht werden. | Das Löschen einer Ressourcengruppe oder SQL Server-Instanz im Resource Mover-Portal wird nicht unterstützt. Diese Ressourcen können nur auf der Seite mit den Ressourceneigenschaften gelöscht werden.
 
 
 ## <a name="move-region-states"></a>Zustände bei der Verschiebung in eine andere Region
@@ -72,7 +72,7 @@ Wenn Sie eine Ressource nicht verschieben möchten, können Sie sie aus der Vers
 
 In der folgenden Tabelle ist zusammengefasst, worauf eine Verschiebung in eine andere Region Auswirkungen hat.
 
-**Behavior class (Behavior-Klasse)** | **bei Verschiebung in eine andere Region**
+**Verhalten** | **bei Verschiebung in eine andere Region**
 --- | --- | --- 
 **Daten** | Ressourcendaten und Metadaten werden verschoben.<br/><br/> Metadaten werden temporär gespeichert, um den Zustand von Ressourcenabhängigkeiten und -vorgängen nachzuverfolgen.
 **Ressource** | Die Quellressource bleibt intakt, um sicherzustellen, dass Apps weiterhin funktionieren, und kann optional nach der Verschiebung entfernt werden.<br/><br/> Eine Ressource in der Zielregion wird erstellt.

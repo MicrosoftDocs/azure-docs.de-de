@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132294"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054803"
 ---
 # <a name="understand-and-work-with-scopes"></a>Verstehen von und Arbeiten mit Bereichen
 
@@ -114,7 +114,7 @@ Für aus einzelnen Angeboten wie nutzungsbasierte Bezahlung und verwandten Typen
 
     Ressourcentyp: Nicht verfügbar
 
-Kontoadministratoren für einzelne Azure-Abonnements können im [Azure-Kontocenter](https://account.azure.com/subscriptions) Abrechnungsdaten wie Rechnungen und Zahlungen anzeigen und verwalten. Sie können jedoch im Azure-Portal keine Kostendaten einsehen und keine Ressourcen verwalten. Um dem Kontoadministrator Zugriff zu gewähren, verwenden Sie die zuvor genannten Cost Management-Rollen.
+Kontoadministratoren für einzelne Azure-Abonnements können Abrechnungsdaten, z. B. Rechnungen und Zahlungen, anzeigen, indem sie zu [Azure-Portal](https://portal.azure.com) > **Abonnements** navigieren und ein Abonnement auswählen.
 
 Im Gegensatz zu EA können Kontoadministratoren für einzelne Azure-Abonnements ihre Rechnungen im Azure-Portal anzeigen. Beachten Sie, dass die Rollen „Cost Management-Leser“ und „Cost Management-Mitwirkender“ keinen Zugriff auf Rechnungen bieten. Weitere Informationen finden Sie unter [Gewähren des Zugriffs auf Rechnungen](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

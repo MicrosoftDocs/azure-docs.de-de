@@ -3,12 +3,12 @@ title: Private Endpunkte
 description: Erfahren Sie mehr über den Prozess zum Erstellen privater Endpunkte für Azure Backup und die Szenarien, in denen private Endpunkte dazu beitragen, die Sicherheit Ihrer Ressourcen zu gewährleisten.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629713"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054871"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Private Endpunkte für Azure Backup
 
@@ -32,7 +32,7 @@ In diesem Artikel erfahren Sie, wie private Endpunkte für Azure Backup erstellt
 
 Solange private Endpunkte für den Tresor aktiviert sind, werden sie nur für die Sicherung und Wiederherstellung von SQL- und SAP HANA-Workloads in einer Sicherung in einer Azure-VM und mit dem MARS-Agent verwendet. Sie können den Tresor auch für die Sicherung anderer Workloads einsetzen (die allerdings keine privaten Endpunkte benötigen). Neben der Sicherung von SQL- und SAP HANA-Workloads und einer Sicherung mit dem MARS-Agent werden private Endpunkte bei einer Azure-VM-Sicherung auch für die Dateiwiederherstellung verwendet. Weitere Informationen finden Sie in der Tabelle unten:
 
-| Sicherung von Workloads in Azure-VM (SQL, SAP HANA), Sicherung mit MARS-Agent | Private Endpunkte werden empfohlen, um eine Sicherung und Wiederherstellung zu ermöglichen, ohne dass Sie IP-Adressen/FQDNs für Azure Backup oder Azure Storage in Ihren virtuellen Netzwerken auf eine Zulassungsliste setzen müssen. |
+| Sicherung von Workloads in Azure-VM (SQL, SAP HANA), Sicherung mit MARS-Agent | Private Endpunkte werden empfohlen, um eine Sicherung und Wiederherstellung zu ermöglichen, ohne dass Sie IP-Adressen/FQDNs für Azure Backup oder Azure Storage in Ihren virtuellen Netzwerken auf eine Zulassungsliste setzen müssen. Stellen Sie in diesem Szenario sicher, dass VMs, die SQL-Datenbanken hosten, Azure AD-IPs oder FQDNs erreichen können. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Azure-VM-Sicherung**                                         | Für die VM-Sicherung ist es nicht erforderlich, Zugriff auf IP-Adressen oder FQDNs zu gewähren. Es werden also keine privaten Endpunkte für eine Sicherung und Wiederherstellung von Datenträgern benötigt.  <br><br>   Die Dateiwiederherstellung aus einem Tresor mit privaten Endpunkten wäre jedoch auf virtuelle Netzwerke beschränkt, die einen privaten Endpunkt für den Tresor enthalten. <br><br>    Wenn Sie nicht verwaltete Datenträger mit Zugriffssteuerungslisten (ACLs) verwenden, stellen Sie sicher, dass das Speicherkonto mit den Datenträgern den Zugriff auf **vertrauenswürdige Microsoft-Dienste** erlaubt, wenn eine ACL vorhanden ist. |
 | **Azure Files-Sicherung**                                      | Azure Files-Sicherungen werden im lokalen Speicherkonto gespeichert. Es werden daher keine privaten Endpunkte für eine Sicherung und Wiederherstellung benötigt. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Erstellen von DNS-Zonen für benutzerdefinierte DNS-Server
 
-Sie müssen drei private DNS-Zonen erstellen und diese mit Ihrem virtuellen Netzwerk verknüpfen.
+Sie müssen drei private DNS-Zonen erstellen und diese mit Ihrem virtuellen Netzwerk verknüpfen. Beachten Sie, dass die öffentlichen URLs des Sicherungsdiensts im Gegensatz zu Blob und Warteschlange nicht in Azure Public DNS für die Umleitung zu den Private Link-DNS-Zonen registriert werden. 
 
 | **Zone**                                                     | **Service** |
 | ------------------------------------------------------------ | ----------- |

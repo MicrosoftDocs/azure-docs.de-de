@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813869"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806255"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Verwalten von DDoS Protection-Plänen: Berechtigungen und Einschränkungen
 
@@ -43,7 +43,7 @@ Für eine Aktivierung des DDoS-Schutzes für ein virtuelles Netz müssen Ihrem K
 
 Die Erstellung von mehr als einem Plan ist für die meisten Organisationen nicht erforderlich. Ein Plan kann nicht zwischen den Abonnements verschoben werden. Wenn das Abonnement, das einen Plan enthält, geändert werden soll, müssen Sie den vorhandenen Plan löschen und einen neuen erstellen.
 
-Für Kunden, die verschiedene Abonnements haben und sicherstellen möchten, dass ein einziger Plan zur Kostenkontrolle für ihren Mandanten bereitgestellt wird, können Sie mit Azure Policy die [Erstellung von Azure DDoS Protection Standard-Plänen einschränken](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Diese Richtlinie blockiert die Erstellung von DDoS-Plänen, es sei denn, das Abonnement wurde zuvor als Ausnahme gekennzeichnet. Diese Richtlinie zeigt außerdem eine Liste aller Abonnements an, für die fälschlicherweise ein DDoS-Plan bereitgestellt wurde, und markiert diese als nicht kompatibel.
+Für Kunden, die verschiedene Abonnements haben und sicherstellen möchten, dass ein einziger Plan zur Kostenkontrolle für ihren Mandanten bereitgestellt wird, können Sie mit Azure Policy die [Erstellung von Azure DDoS Protection Standard-Plänen einschränken](https://aka.ms/ddosrestrictplan). Diese Richtlinie blockiert die Erstellung von DDoS-Plänen, es sei denn, das Abonnement wurde zuvor als Ausnahme gekennzeichnet. Diese Richtlinie zeigt außerdem eine Liste aller Abonnements an, für die fälschlicherweise ein DDoS-Plan bereitgestellt wurde, und markiert diese als nicht kompatibel.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

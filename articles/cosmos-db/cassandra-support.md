@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576480"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-Features, die von der Cassandra-API für Azure Cosmos DB unterstützt werden 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,7 +43,7 @@ Die folgenden Versionen von Cassandra-Treibern werden von der Cassandra-API für
 
 Die Cassandra-API für Azure Cosmos DB unterstützt die folgenden CQL-Datentypen:
 
-|Get-Help  |Unterstützt |
+|type  |Unterstützt |
 |---------|---------|
 | ascii  | Ja |
 | BIGINT  | Ja |
@@ -82,13 +82,14 @@ Die Cassandra-API für Azure Cosmos DB unterstützt die folgenden CQL-Funktionen
 |Get-Help  |Unterstützt |
 |---------|---------|
 | Token * | Ja |
-| ttl | Ja |
-| writetime | Ja |
+| ttl *** | Ja |
+| writetime *** | Ja |
 | cast ** | Ja |
 
 > [!NOTE] 
 > \* Die Cassandra-API unterstützt Token als Projektion/Selektor. Außerdem ist die Verwendung von token(pk) nur auf der linken Seite einer WHERE-Klausel zulässig. Beispiel: `WHERE token(pk) > 1024` wird unterstützt, aber `WHERE token(pk) > token(100)` wird **nicht** unterstützt.  
-> \*\* Die Funktion `cast()` kann in der Cassandra-API nicht geschachtelt werden. Beispiel: `SELECT cast(count as double) FROM myTable` wird unterstützt, aber `SELECT avg(cast(count as double)) FROM myTable` wird **nicht** unterstützt.
+> \*\* Die Funktion `cast()` kann in der Cassandra-API nicht geschachtelt werden. Beispiel: `SELECT cast(count as double) FROM myTable` wird unterstützt, aber `SELECT avg(cast(count as double)) FROM myTable` wird **nicht** unterstützt.    
+> \*\*\* Benutzerdefinierte Zeitstempel und TTL, die mit der Option `USING` angegeben werden, werden auf Zeilenebene (und nicht pro Zelle) angewendet.
 
 
 
@@ -159,7 +160,6 @@ Azure Cosmos DB unterstützt die folgenden Datenbankbefehle für Cassandra-API-K
 | CREATE ROLE | Nein |
 | CREATE USER (in nativer Apache Cassandra-Version veraltet) | Nein |
 | Delete | Ja |
-| DELETE (einfache Transaktionen mit IF-Bedingung)| Ja |
 | DISTINCT | Nein |
 | DROP AGGREGATE | Nein |
 | DROP FUNCTION | Nein |
@@ -173,17 +173,25 @@ Azure Cosmos DB unterstützt die folgenden Datenbankbefehle für Cassandra-API-K
 | DROP USER (in nativer Apache Cassandra-Version veraltet) | Nein |
 | GRANT | Nein |
 | INSERT | Ja |
-| INSERT (einfache Transaktionen mit IF-Bedingung)| Ja |
 | LIST PERMISSIONS | Nein |
 | LIST ROLES | Nein |
 | LIST USERS (in nativer Apache Cassandra-Version veraltet) | Nein |
 | REVOKE | Nein |
 | SELECT | Ja |
-| SELECT (einfache Transaktionen mit IF-Bedingung)| Nein |
 | UPDATE | Ja |
-| UPDATE (einfache Transaktionen mit IF-Bedingung)| Nein |
 | TRUNCATE | Nein |
 | USE | Ja |
+
+## <a name="lightweight-transactions-lwt"></a>Einfache Transaktionen (Lightweight Transactions, LWT)
+
+| Komponente  |Unterstützt |
+|---------|---------|
+| DELETE IF EXISTS | Ja |
+| DELETE-Bedingungen | Nein |
+| INSERT IF NOT EXISTS | Ja |
+| UPDATE IF EXISTS | Ja |
+| UPDATE IF NOT EXISTS | Ja |
+| UPDATE-Bedingungen | Nein |
 
 ## <a name="cql-shell-commands"></a>CQL-Shellbefehle
 

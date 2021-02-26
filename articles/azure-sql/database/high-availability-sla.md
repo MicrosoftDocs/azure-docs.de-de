@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095439"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593417"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hochverfügbarkeit für Azure SQL-Datenbank und SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Die zonenredundante Version der Hochverfügbarkeitsarchitektur für die Diensteb
 ![Zonenredundante Konfiguration für „Universell“](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Aktuelle Informationen über die Regionen, die zonenredundante Datenbanken unterstützen, finden Sie unter [Unterstützung der Dienste nach Region](../../availability-zones/az-region.md). Die zonenredundante Konfiguration ist nur verfügbar, wenn die Gen5-Computehardware ausgewählt ist. Dieses Feature steht in einer SQL Managed Instance nicht zur Verfügung.
+> Die zonenredundante Konfiguration ist nur verfügbar, wenn die Gen5-Computehardware ausgewählt ist. Dieses Feature steht in einer SQL Managed Instance nicht zur Verfügung. Die zonenredundante Konfiguration für die universelle Ebene ist nur in den folgenden Regionen verfügbar: USA, Osten; USA, Osten 2; USA, Westen 2; Europa, Norden; Europa, Westen; Asien, Südosten; Australien, Osten; Japan, Osten; Vereinigtes Königreich, Süden und Frankreich, Mitte.
 
 > [!NOTE]
 > Bei Datenbanken vom Typ „Universell“ mit einer Größe von 80 virtuellen Kernen kann es bei zonenredundanter Konfiguration zu Leistungseinbußen kommen. Darüber hinaus können Vorgänge wie Sicherung, Wiederherstellung, Datenbankkopie und das Einrichten von Geo-DR-Beziehungen (georedundante Notfallwiederherstellung) bei einzelnen Datenbanken, die größer als 1 TB sind, zu geringerer Leistung führen. 

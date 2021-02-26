@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d21f9eea0258175195529c4d8b72ee9085dc77
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446323"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546974"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Tutorial: Konfigurieren von Zertifikaten für Ihr Azure Stack Edge Pro-Gerät mit GPU
 
@@ -35,10 +35,10 @@ In diesem Tutorial lernen Sie Folgendes kennen:
 
 * Sie haben Ihr physisches Gerät gemäß der Anleitung unter [Installieren von Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md) installiert.
 * Wenn Sie beabsichtigen, eigene Zertifikate zu nutzen:
-    - Sie müssen Ihre Zertifikate im entsprechenden Format einschließlich des Signaturkettenzertifikats bereithalten. Einzelheiten zu Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md).
+    - Sie müssen Ihre Zertifikate im entsprechenden Format einschließlich des Signaturkettenzertifikats bereithalten. Einzelheiten zu Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md).
 
 <!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Konfigurieren von Zertifikaten für ein Gerät
@@ -120,13 +120,13 @@ Führen Sie diese Schritte aus, um die Azure Stack Edge Pro-Gerätezertifikate n
 
 Sie müssen diese Zertifikate auf dem Clientsystem installieren, das Sie für den Zugriff auf die Endpunkte auf dem Azure Stack Edge-Gerät verwenden. Diese Zertifikate schaffen ein Vertrauensverhältnis zwischen Client und Gerät.
 
-Zum Importieren und Installieren dieser Zertifikate auf dem Client, den Sie für den Zugriff auf das Gerät verwenden, folgen Sie den Schritten unter [Importieren von Zertifikaten auf Clients, die auf Ihr Azure Stack Edge Pro-Gerät zugreifen](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+Zum Importieren und Installieren dieser Zertifikate auf dem Client, den Sie für den Zugriff auf das Gerät verwenden, folgen Sie den Schritten unter [Importieren von Zertifikaten auf Clients, die auf Ihr Azure Stack Edge Pro-Gerät zugreifen](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 Wenn Sie Azure Storage-Explorer verwenden, müssen Sie Zertifikate im PEM-Format auf Ihrem Client installieren und die vom Gerät generierten Zertifikate in das PEM-Format konvertieren. 
 
 > [!IMPORTANT]
 > - Der Downloadlink ist nur für die vom Gerät generierten Zertifikate verfügbar und nicht, wenn Sie Ihre eigenen Zertifikate bereitstellen.
-> - Sie können sich für eine Kombination aus vom Gerät generierten Zertifikaten entscheiden und Ihre eigenen Zertifikate bereitstellen, solange andere Zertifikatsanforderungen erfüllt sind. Weitere Informationen finden Sie unter [Zertifikatanforderungen](azure-stack-edge-j-series-certificate-requirements.md).
+> - Sie können sich für eine Kombination aus vom Gerät generierten Zertifikaten entscheiden und Ihre eigenen Zertifikate bereitstellen, solange andere Zertifikatsanforderungen erfüllt sind. Weitere Informationen finden Sie unter [Zertifikatanforderungen](azure-stack-edge-gpu-certificate-requirements.md).
     
 
 ### <a name="bring-your-own-certificates"></a>Bereitstellen eigener Zertifikate

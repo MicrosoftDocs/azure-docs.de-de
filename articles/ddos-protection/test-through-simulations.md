@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537840"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806238"
 ---
 # <a name="test-through-simulations"></a>Durchführen von Simulationstests
 
@@ -63,7 +63,7 @@ Sobald die Ressource angegriffen wird, sollte der Wert von **0** in **1** geänd
 
 ### <a name="breakingpoint-cloud-api-script"></a>BreakingPoint Cloud-API-Skript
 
-Dieses [API-Skript](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) kann verwendet werden, um DDoS-Tests zu automatisieren, indem es einmalig ausgeführt wird oder indem mithilfe von cron regelmäßige Tests geplant werden. Dies ist nützlich, um zu überprüfen, ob Ihre Protokollierung ordnungsgemäß konfiguriert ist und ob Erkennungs- und Reaktionsprozeduren wirksam sind. Für die Skripts ist ein Linux-Betriebssystem (getestet mit Ubuntu 18.04 LTS) und Python 3 erforderlich. Installieren Sie die erforderlichen Komponenten und den API-Client mithilfe des enthaltenen Skripts oder indem Sie die Dokumentation auf der [BreakingPoint Cloud](http://breakingpoint.cloud/)-Website verwenden.
+Dieses [API-Skript](https://aka.ms/ddosbreakingpoint) kann verwendet werden, um DDoS-Tests zu automatisieren, indem es einmalig ausgeführt wird oder indem mithilfe von cron regelmäßige Tests geplant werden. Dies ist nützlich, um zu überprüfen, ob Ihre Protokollierung ordnungsgemäß konfiguriert ist und ob Erkennungs- und Reaktionsprozeduren wirksam sind. Für die Skripts ist ein Linux-Betriebssystem (getestet mit Ubuntu 18.04 LTS) und Python 3 erforderlich. Installieren Sie die erforderlichen Komponenten und den API-Client mithilfe des enthaltenen Skripts oder indem Sie die Dokumentation auf der [BreakingPoint Cloud](http://breakingpoint.cloud/)-Website verwenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

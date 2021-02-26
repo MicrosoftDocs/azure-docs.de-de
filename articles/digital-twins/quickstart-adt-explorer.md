@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050526"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575681"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Schnellstart: Untersuchen eines Azure Digital Twins-Beispielszenarios mit ADT Explorer
 
@@ -306,11 +306,15 @@ In diesem Schnellstart haben Sie die Temperaturaktualisierung manuell durchgefü
 
 Beenden Sie zum Abschließen dieser Schnellstartanleitung zunächst die ausgeführte Konsolen-App. Durch diese Aktion wird die Verbindung mit der ADT-Explorer-App im Browser beendet. Sie können keine Livedaten mehr im Browser anzeigen. Sie können den Browsertab schließen.
 
-Wenn Sie mit den Tutorials für Azure Digital Twins fortfahren möchten, können Sie die in dieser Schnellstartanleitung verwendete Instanz in den entsprechenden Artikeln wiederverwenden und müssen sie nicht entfernen.
+Anschließend können Sie die zu entfernenden Ressourcen auswählen, abhängig davon, wie Sie weiter vorgehen möchten.
+
+* **Wenn Sie mit den Tutorials für Azure Digital Twins fortfahren möchten**, können Sie die in dieser Schnellstartanleitung verwendete Instanz in den entsprechenden Artikeln wiederverwenden und müssen sie nicht entfernen.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Löschen Sie abschließend den Beispielordner des Projekts, den Sie auf Ihren lokalen Computer heruntergeladen haben (**Azure_Digital_Twins__ADT__explorer**). Möglicherweise müssen Sie die gezippten und entzippten Versionen löschen.
+Löschen Sie ggf. auch den Projektordner von Ihrem lokalen Computer.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

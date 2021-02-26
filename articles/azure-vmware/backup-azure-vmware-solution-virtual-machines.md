@@ -2,13 +2,13 @@
 title: Sichern von Azure VMware Solution-VMs mit Azure Backup Server
 description: Konfigurieren Sie Ihre Azure VMware Solution-Umgebung zum Sichern von VMs mit Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.date: 02/04/2021
+ms.openlocfilehash: ea2164ba19703660e54879c25b975342d824662c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495704"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585023"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Sichern von Azure VMware Solution-VMs mit Azure Backup Server
 
@@ -37,7 +37,7 @@ Azure Backup Server kommuniziert mit VMware-Servern standardmäßig über HTTPS.
 
    :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="vSphere-Webclient":::
 
-1. Speichern Sie die Datei **download.zip** auf dem Azure Backup Server-Computer, und extrahieren Sie den Inhalt dann in den Ordner **certs** , der Folgendes enthält:
+1. Speichern Sie die Datei **download.zip** auf dem Azure Backup Server-Computer, und extrahieren Sie den Inhalt dann in den Ordner **certs**, der Folgendes enthält:
 
    - Eine Stammzertifikatsdatei, deren Erweiterung mit einer Nummerierung wie „.0“ und „.1“ beginnt
    - Eine CRL-Datei, deren Erweiterung mit einer Nummerierung wie „.r0“ oder „.r1“ beginnt
@@ -55,7 +55,7 @@ Azure Backup Server kommuniziert mit VMware-Servern standardmäßig über HTTPS.
    > [!NOTE] 
    > Wenn Sie gefragt werden, ob Sie Änderungen am Computer zulassen möchten, bestätigen Sie dies.
 
-1. Wählen Sie **Alle Zertifikate in folgendem Speicher speichern** aus, und klicken Sie auf **Durchsuchen** , um den Zertifikatspeicher auszuwählen.
+1. Wählen Sie **Alle Zertifikate in folgendem Speicher speichern** aus, und klicken Sie auf **Durchsuchen**, um den Zertifikatspeicher auszuwählen.
 
    ![Zertifikatspeicher](../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -197,8 +197,8 @@ Schutzgruppen erfassen mehrere VMs und wenden auf alle VMs in der Gruppe die gle
 
 1. Legen Sie fest, wie lange die gesicherten Daten auf dem Datenträger beibehalten werden sollen.
 
-   - **Beibehaltungsdauer** : Gibt die Anzahl von Tagen an, für die Datenträgerwiederherstellungspunkte beibehalten werden.
-   - **Schnelle vollständige Sicherung** : Gibt an, wie oft Datenträgerwiederherstellungspunkte erstellt werden. Wählen Sie **Ändern** aus, um die Zeit- oder Datumsangaben für die Ausführung von kurzfristigen Sicherungen zu ändern.
+   - **Beibehaltungsdauer**: Gibt die Anzahl von Tagen an, für die Datenträgerwiederherstellungspunkte beibehalten werden.
+   - **Schnelle vollständige Sicherung**: Gibt an, wie oft Datenträgerwiederherstellungspunkte erstellt werden. Wählen Sie **Ändern** aus, um die Zeit- oder Datumsangaben für die Ausführung von kurzfristigen Sicherungen zu ändern.
 
    :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Angeben der kurzfristigen Ziele für den datenträgerbasierten Schutz":::
 
@@ -255,7 +255,7 @@ Schutzgruppen erfassen mehrere VMs und wenden auf alle VMs in der Gruppe die gle
 
 Nachdem Sie die Schutzgruppe zur Sicherung von Azure VMware Solution-VMs konfiguriert haben, können Sie den Status des Sicherungsauftrags und Warnungen in der Azure Backup Server-Konsole überwachen. Folgendes können Sie überwachen:
 
-- Aufgabenbereich **Überwachung** :
+- Aufgabenbereich **Überwachung**:
    - Unter **Warnungen** können Sie Fehler, Warnungen und allgemeine Informationen überwachen.  Sie können aktive und inaktive Warnungen anzeigen und E-Mail-Benachrichtigungen einrichten.
    - Unter **Aufträge** können Sie von Azure Backup Server gestartete Aufträge für eine bestimmte geschützte Datenquelle oder Schutzgruppe anzeigen. Sie können den Auftragsstatus verfolgen oder den Ressourcenverbrauch von Aufträgen überprüfen.
 - Im Aufgabenbereich **Schutz** können Sie den Status von Volumes und Freigaben in der Schutzgruppe überprüfen. Sie können auch Konfigurationseinstellungen überprüfen, z. B. die Wiederherstellungseinstellungen, die Datenträgerzuordnung und den Sicherungszeitplan.
@@ -267,22 +267,22 @@ Nachdem Sie die Schutzgruppe zur Sicherung von Azure VMware Solution-VMs konfig
 
 In der Azure Backup Server-Administratorkonsole haben Sie zwei Möglichkeiten, um wiederherstellbare Daten zu ermitteln: Suchen oder Durchsuchen. Beim Wiederherstellen von Daten kann es auch vorkommen, dass Sie Daten oder eine VM nicht an demselben Speicherort wiederherstellen möchten. Aus diesem Grund unterstützt Azure Backup Server drei Wiederherstellungsoptionen für VMware-VM-Sicherungen:
 
-- **Wiederherstellung am ursprünglichen Speicherort** : Verwenden Sie diese Wiederherstellungsoption, um eine geschützte VM an ihrem ursprünglichen Speicherort wiederherzustellen. Sie können eine VM nur dann am ursprünglichen Speicherort wiederherstellen, wenn seit der Sicherung keine Datenträger hinzugefügt oder gelöscht wurden. Wenn Datenträger hinzugefügt oder gelöscht wurden, müssen Sie die Option zur Wiederherstellung an einem alternativen Speicherort verwenden.
-- **Wiederherstellung an einem alternativen Speicherort** : Verwenden Sie diese Option, wenn die ursprüngliche VM nicht vorhanden ist oder Sie sie nicht beeinträchtigen möchten. Geben Sie den Speicherort eines ESXi-Hosts, Ressourcenpools und Ordners sowie den Speicherdatenspeicher mit Pfad an. Zur Unterscheidung der wiederhergestellten VM von der ursprünglichen VM fügt Azure Backup Server den Zusatz *„-Recovered“* an den Namen der VM an.
-- **Wiederherstellung einzelner Dateien an einem Speicherort** : Wenn es sich bei der geschützten VM um eine Windows Server-VM handelt, können Sie mit dieser Option von Azure Backup Server einzelne Dateien oder Ordner der VM wiederherstellen. Informationen zur Wiederherstellung einzelner Dateien finden Sie in den Schritten weiter unten in diesem Artikel. Die Wiederherstellung einzelner Dateien von einer VM ist nur für Windows-VM- und Datenträgerwiederherstellungspunkte verfügbar.
+- **Wiederherstellung am ursprünglichen Speicherort**: Verwenden Sie diese Wiederherstellungsoption, um eine geschützte VM an ihrem ursprünglichen Speicherort wiederherzustellen. Sie können eine VM nur dann am ursprünglichen Speicherort wiederherstellen, wenn seit der Sicherung keine Datenträger hinzugefügt oder gelöscht wurden. Wenn Datenträger hinzugefügt oder gelöscht wurden, müssen Sie die Option zur Wiederherstellung an einem alternativen Speicherort verwenden.
+- **Wiederherstellung an einem alternativen Speicherort**: Verwenden Sie diese Option, wenn die ursprüngliche VM nicht vorhanden ist oder Sie sie nicht beeinträchtigen möchten. Geben Sie den Speicherort eines ESXi-Hosts, Ressourcenpools und Ordners sowie den Speicherdatenspeicher mit Pfad an. Zur Unterscheidung der wiederhergestellten VM von der ursprünglichen VM fügt Azure Backup Server den Zusatz *„-Recovered“* an den Namen der VM an.
+- **Wiederherstellung einzelner Dateien an einem Speicherort**: Wenn es sich bei der geschützten VM um eine Windows Server-VM handelt, können Sie mit dieser Option von Azure Backup Server einzelne Dateien oder Ordner der VM wiederherstellen. Informationen zur Wiederherstellung einzelner Dateien finden Sie in den Schritten weiter unten in diesem Artikel. Die Wiederherstellung einzelner Dateien von einer VM ist nur für Windows-VM- und Datenträgerwiederherstellungspunkte verfügbar.
 
 ### <a name="restore-a-recovery-point"></a>Wiederherstellen eines Wiederherstellungspunkts
 
 1. Wählen Sie in der Azure Backup Server-Administratorkonsole die Ansicht **Wiederherstellung** aus. 
 
-1. Suchen oder filtern Sie im Bereich **Durchsuchen** , um die wiederherzustellende VM zu ermitteln. Nachdem Sie eine VM oder einen Ordner ausgewählt haben, werden im Bereich **Wiederherstellungspunkte für** die verfügbaren Wiederherstellungspunkte angezeigt.
+1. Suchen oder filtern Sie im Bereich **Durchsuchen**, um die wiederherzustellende VM zu ermitteln. Nachdem Sie eine VM oder einen Ordner ausgewählt haben, werden im Bereich **Wiederherstellungspunkte für** die verfügbaren Wiederherstellungspunkte angezeigt.
 
    ![Verfügbare Wiederherstellungspunkte](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
 1. Wählen Sie im Bereich **Wiederherstellungspunkte für** ein Datum aus, an dem ein Wiederherstellungspunkt erstellt wurde. Für fett formatierte Kalenderdaten sind Wiederherstellungspunkte verfügbar. Alternativ können Sie mit der rechten Maustaste auf die VM klicken, **Alle Wiederherstellungspunkte anzeigen** und dann den Wiederherstellungspunkt in der Liste auswählen.
 
    > [!NOTE] 
-   > Wählen Sie für den kurzfristigen Schutz einen datenträgerbasierten Wiederherstellungspunkt aus, um die Wiederherstellung zu beschleunigen. Nach Ablauf der kurzfristigen Wiederherstellungspunkte sind nur **Online** -Wiederherstellungspunkte zur Wiederherstellung verfügbar.
+   > Wählen Sie für den kurzfristigen Schutz einen datenträgerbasierten Wiederherstellungspunkt aus, um die Wiederherstellung zu beschleunigen. Nach Ablauf der kurzfristigen Wiederherstellungspunkte sind nur **Online**-Wiederherstellungspunkte zur Wiederherstellung verfügbar.
 
 1. Vergewissern Sie sich vor dem Wiederherstellen eines Online-Wiederherstellungspunkts, dass am Stagingspeicherort ausreichend freier Speicherplatz für die vollständige nicht komprimierte Größe der VM verfügbar ist, die Sie wiederherstellen möchten. Sie können den Stagingspeicherort anzeigen oder ändern, indem Sie den **Assistenten zum Konfigurieren von Abonnementeinstellungen** ausführen.
 
@@ -300,7 +300,7 @@ In der Azure Backup Server-Administratorkonsole haben Sie zwei Möglichkeiten, 
 1. Wählen Sie auf der Seite **Wiederherstellungstyp auswählen** aus, ob die Wiederherstellung auf der ursprünglichen Instanz oder an einem anderen Speicherort durchgeführt werden soll.
 
    - Bei Auswahl von **In ursprünglicher Instanz wiederherstellen**  müssen Sie im Assistenten keine weiteren Angaben machen. Die Daten der ursprünglichen Instanz werden verwendet.
-   - Wenn Sie **Als virtuellen Computer auf einem beliebigen Host wiederherstellen** auswählen, müssen Sie auf dem Bildschirm **Ziel angeben** die Informationen für **ESXi-Host** , **Ressourcenpool** , **Ordner** und **Pfad** angeben.
+   - Wenn Sie **Als virtuellen Computer auf einem beliebigen Host wiederherstellen** auswählen, müssen Sie auf dem Bildschirm **Ziel angeben** die Informationen für **ESXi-Host**, **Ressourcenpool**, **Ordner** und **Pfad** angeben.
 
    ![Seite „Wiederherstellungstyp auswählen“](../backup/media/restore-azure-backup-server-vmware/recovery-type.png)
 
@@ -317,7 +317,7 @@ Sie können einzelne Dateien eines geschützten VM-Wiederherstellungspunkts wied
 
 1. Wählen Sie in der Azure Backup Server-Administratorkonsole die Ansicht **Wiederherstellung** aus.
 
-1. Suchen oder filtern Sie im Bereich **Durchsuchen** , um die wiederherzustellende VM zu ermitteln. Nachdem Sie eine VM oder einen Ordner ausgewählt haben, werden im Bereich **Wiederherstellungspunkte für** die verfügbaren Wiederherstellungspunkte angezeigt.
+1. Suchen oder filtern Sie im Bereich **Durchsuchen**, um die wiederherzustellende VM zu ermitteln. Nachdem Sie eine VM oder einen Ordner ausgewählt haben, werden im Bereich **Wiederherstellungspunkte für** die verfügbaren Wiederherstellungspunkte angezeigt.
 
    ![Verfügbare Wiederherstellungspunkte](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
@@ -330,14 +330,14 @@ Sie können einzelne Dateien eines geschützten VM-Wiederherstellungspunkts wied
 
    Nachdem Sie den Wiederherstellungspunkt ausgewählt haben, wird die Liste der wiederherstellbaren Elemente im Bereich **Pfad** angezeigt.
 
-1. Ermitteln Sie die wiederherzustellenden Dateien, indem Sie im Bereich **Pfad** auf das Element in der Spalte **Wiederherstellbares Element** doppelklicken, um es zu öffnen. Wählen Sie dann die Dateien bzw. Ordner aus, die Sie wiederherstellen möchten. Um mehrere Elemente auszuwählen, halten Sie beim Auswählen der einzelnen Elemente die **STRG** -Taste gedrückt. Im Bereich **Pfad** können Sie die Liste der Dateien oder Ordner durchsuchen, die in der Spalte **Wiederherstellbares Element** angezeigt werden.
+1. Ermitteln Sie die wiederherzustellenden Dateien, indem Sie im Bereich **Pfad** auf das Element in der Spalte **Wiederherstellbares Element** doppelklicken, um es zu öffnen. Wählen Sie dann die Dateien bzw. Ordner aus, die Sie wiederherstellen möchten. Um mehrere Elemente auszuwählen, halten Sie beim Auswählen der einzelnen Elemente die **STRG**-Taste gedrückt. Im Bereich **Pfad** können Sie die Liste der Dateien oder Ordner durchsuchen, die in der Spalte **Wiederherstellbares Element** angezeigt werden.
     
    > [!NOTE]
-   > Bei der Option **Liste unten durchsuchen** werden die Unterordner nicht in die Suche einbezogen. Doppelklicken Sie auf den Ordner, um die Unterordner zu durchsuchen. Verwenden Sie die Schaltfläche **Nach oben** , um von einem untergeordneten Ordner in den übergeordneten Ordner zu wechseln. Sie können mehrere Elemente (Dateien und Ordner) auswählen, aber diese müssen in demselben übergeordneten Ordner enthalten sein. Es ist nicht möglich, in einem einzigen Wiederherstellungsauftrag Elemente aus mehreren Ordnern wiederherzustellen.
+   > Bei der Option **Liste unten durchsuchen** werden die Unterordner nicht in die Suche einbezogen. Doppelklicken Sie auf den Ordner, um die Unterordner zu durchsuchen. Verwenden Sie die Schaltfläche **Nach oben**, um von einem untergeordneten Ordner in den übergeordneten Ordner zu wechseln. Sie können mehrere Elemente (Dateien und Ordner) auswählen, aber diese müssen in demselben übergeordneten Ordner enthalten sein. Es ist nicht möglich, in einem einzigen Wiederherstellungsauftrag Elemente aus mehreren Ordnern wiederherzustellen.
 
    ![Wiederherstellungsauswahl überprüfen](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-1. Klicken Sie nach dem Auswählen der wiederherzustellenden Elemente im Menüband der Administratorkonsole auf **Wiederherstellen** , um den **Wiederherstellungs-Assistenten** zu öffnen. Im **Wiederherstellungs-Assistenten** werden auf dem Bildschirm **Wiederherstellungsauswahl überprüfen** die zur Wiederherstellung ausgewählten Elemente angezeigt.
+1. Klicken Sie nach dem Auswählen der wiederherzustellenden Elemente im Menüband der Administratorkonsole auf **Wiederherstellen**, um den **Wiederherstellungs-Assistenten** zu öffnen. Im **Wiederherstellungs-Assistenten** werden auf dem Bildschirm **Wiederherstellungsauswahl überprüfen** die zur Wiederherstellung ausgewählten Elemente angezeigt.
 
 1. Führen Sie auf der Seite **Wiederherstellungsoptionen angeben** einen der folgenden Schritte aus:
 
@@ -352,11 +352,11 @@ Sie können einzelne Dateien eines geschützten VM-Wiederherstellungspunkts wied
 
 1. Wählen Sie auf dem Bildschirm **Wiederherstellungsoptionen angeben** aus, welche Sicherheitseinstellung angewendet werden soll. Sie können sich für eine Änderung der Drosselung der Netzwerkbandbreite entscheiden, aber die Drosselung ist standardmäßig deaktiviert. Auch die Optionen **SAN-Wiederherstellung** und **Benachrichtigung** sind nicht aktiviert.
 
-1. Überprüfen Sie Ihre Einstellungen auf dem Bildschirm **Zusammenfassung** , und wählen Sie **Wiederherstellen** aus, um den Wiederherstellungsprozess zu starten. Auf dem Bildschirm **Wiederherstellungsstatus** wird der Status des Wiederherstellungsvorgangs angezeigt.
+1. Überprüfen Sie Ihre Einstellungen auf dem Bildschirm **Zusammenfassung**, und wählen Sie **Wiederherstellen** aus, um den Wiederherstellungsprozess zu starten. Auf dem Bildschirm **Wiederherstellungsstatus** wird der Status des Wiederherstellungsvorgangs angezeigt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Falls beim Einrichten von Sicherungen Probleme auftreten, lesen Sie den Leitfaden zum Behandeln von Problemen mit Azure Backup Server.
+Nachdem Sie sich mit dem Sichern Ihrer Azure VMware Solution-VMs mit Azure Backup Server vertraut gemacht haben, sollten Sie sich über die folgenden Themen informieren: 
 
-> [!div class="nextstepaction"]
-> [Behandeln von Problemen mit Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)
+- [Behandeln von Problemen mit Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md)
+- [Lebenszyklusverwaltung von Azure VMware Solution-VMs](lifecycle-management-of-azure-vmware-solution-vms.md)

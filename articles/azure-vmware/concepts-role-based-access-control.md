@@ -2,13 +2,13 @@
 title: 'Konzepte: rollenbasierte Zugriffssteuerung in vSphere (RBAC)'
 description: Erfahren Sie mehr über die wichtigsten Funktionen der rollenbasierten Zugriffssteuerung in vSphere für Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 10/23/2020
-ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 02/02/2021
+ms.openlocfilehash: 9d7c724fba194d86c2d73bb8323439de7c83c170
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888401"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537017"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>Rollenbasierte Zugriffssteuerung in vSphere (RBAC) für Azure VMware Solution
 
@@ -22,9 +22,6 @@ Bei einer lokalen Bereitstellung von vCenter und ESXi hat der Administrator Zugr
 Bei einer Azure VMware Solution-Bereitstellung hat der Administrator keinen Zugriff auf das Benutzerkonto des Administrators. Er kann jedoch AD-Benutzer und -Gruppen der Rolle CloudAdmin für vCenter zuweisen.  
 
 Der Benutzer der privaten Cloud hat keinen Zugriff auf bestimmte Verwaltungskomponenten, die von Microsoft unterstützt und verwaltet werden, und kann diese nicht konfigurieren. Dazu gehören z. B. Cluster, Hosts, Datenspeicher und verteilte virtuelle Switches.
-
-
-
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Azure VMware Solution-Rolle CloudAdmin in vCenter
 
@@ -63,7 +60,11 @@ Die Azure VMware Solution-Rolle CloudAdmin verfügt über die folgenden Berechti
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Eine ausführliche Erläuterung der einzelnen Berechtigungen finden Sie in der [VMware-Produktdokumentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+Nachdem Sie sich mit den Grundlagen der rollenbasierten Zugriffssteuerung in vSphere für Azure VMware Solution vertraut gemacht haben, informieren Sie sich über die folgenden Themen:
+
+- Details der einzelnen Berechtigungen in der [VMware-Produktdokumentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Überwachen und Reparieren von privaten Clouds mit Azure VMware Solution](concepts-monitor-repair-private-cloud.md)
+- [Aktivieren einer Azure VMware Solution-Ressource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 

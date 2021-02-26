@@ -1,9 +1,25 @@
 ---
-Titel: DRM-Verschlüsselung und Lizenzübermittlungsdienst von Azure Media Services service: Azure Media Services description: Hier erfahren Sie, wie Sie mit der dynamischen DRM-Verschlüsselung und dem Lizenzbereitstellungsdienst Streams bereitstellen, die mit Microsoft PlayReady-, Google Widevine- oder Apple FairPlay-Lizenzen verschlüsselt sind.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
-
+title: DRM-Verschlüsselung und Lizenzbereitstellung für Media Services
+description: Hier erfahren Sie, wie Sie mit der dynamischen DRM-Verschlüsselung und dem Lizenzbereitstellungsdienst Streams bereitstellen, die mit Microsoft PlayReady-, Google Widevine- oder Apple FairPlay-Lizenzen verschlüsselt sind.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18
+ms.openlocfilehash: a4f5810f76af7116421bac3953b4eb65370055e3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955172"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Verwenden der dynamischen DRM-Verschlüsselung und des Lizenzbereitstellungsdiensts
 

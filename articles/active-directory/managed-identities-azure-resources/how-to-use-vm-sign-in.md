@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266322"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090959"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Verwenden von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Azure-Computer für die Anmeldung 
 
@@ -90,12 +90,7 @@ Antworten wie beispielsweise die folgenden können angeben, dass die verwaltete 
 - Mit PowerShell: *Invoke-WebRequest: Es konnte keine Verbindung mit dem Remoteserver hergestellt werden.*
 - Über die CLI: *MSI: Failed to retrieve a token from `http://localhost:50342/oauth2/token` with an error of 'HTTPConnectionPool(host='localhost', port=50342)* (MSI: Fehler beim Abrufen eines Tokens aus 'http://localhost:50342/oauth2/token' mit dem Fehler 'HTTPConnectionPool[host='localhost', port=50342]) 
 
-Wenn einer dieser Fehler angezeigt wird, wechseln Sie zu dem virtuellen Azure-Computer im [Azure-Portal](https://portal.azure.com) und:
-
-- Stellen Sie auf der Seite **Identität** sicher, dass **Vom System zugewiesen** auf „Ja“ festgelegt ist.
-- Vergewissern Sie sich auf der Seite **Erweiterungen**, dass die Erweiterung für verwaltete Identitäten für Azure-Ressourcen **(gilt ab Januar 2019 als veraltet)** erfolgreich bereitgestellt wurde.
-
-Wenn einer dieser Punkte nicht zutrifft, müssen Sie die verwalteten Identitäten für Azure-Ressourcen möglicherweise erneut für die Ressource bereitstellen oder den Fehler bei der Bereitstellung beheben. Hilfe zur Konfiguration des virtuellen Computers finden Sie unter [Konfigurieren von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Computer über das Azure-Portal](qs-configure-portal-windows-vm.md).
+Wenn einer dieser Fehler ausgegeben wird, kehren Sie im [Azure-Portal](https://portal.azure.com) zum virtuellen Azure-Computer zurück, wechseln Sie zur Seite **Identität**, und stellen Sie sicher, dass **Vom System zugewiesen** auf „Ja“ eingestellt ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

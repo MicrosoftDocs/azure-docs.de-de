@@ -62,6 +62,9 @@
           href: zone-redundancy.md
         - name: Registrierung – bewährte Methoden
           href: container-registry-best-practices.md
+        - name: Images für mehrere Architekturen
+          href: push-multi-architecture-images.md
+          displayName: multi-architecture
         - name: Verwalten öffentlicher Images
           href: buffer-gate-public-content.md
     - name: Anleitungen
@@ -101,6 +104,8 @@
               href: container-registry-access-selected-networks.md
             - name: Beschränken des Zugriffs mithilfe eines Dienstendpunkts (Vorschauversion)
               href: container-registry-vnet.md
+            - name: Zulassen des Zugriffs durch vertrauenswürdige Dienste
+              href: allow-access-trusted-services.md
             - name: Verschlüsseln mit einem kundenseitig verwalteten Schlüssel
               href: container-registry-customer-managed-keys.md
             - name: Zugriff hinter einer Firewall

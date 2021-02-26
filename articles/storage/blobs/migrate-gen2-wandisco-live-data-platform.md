@@ -5,16 +5,16 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914438"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508928"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>WANdisco LiveData Platform for Azure (Vorschauversion) für anspruchsvolle Migrationsanforderungen
 
@@ -34,7 +34,9 @@ Im Gegensatz zur _Offlinemigration_ von Daten durch [Kopieren statischer Informa
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Wichtige Funktionen der WANdisco LiveData Platform für Azure
 
-[WANdisco LiveData Platform für Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) verwendet ein einzigartiges Konsensmodul mit WAN-Unterstützung, um Datenkonsistenz zu erzielen, und führt Datenreplikation im großen Stil durch, während die replizierten Daten weiterhin von Anwendungen geändert werden können.  
+[WANdisco LiveData Platform für Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) verwendet ein einzigartiges Konsensmodul mit WAN-Unterstützung, um Datenkonsistenz zu erzielen, und führt Datenreplikation im großen Stil durch, während die replizierten Daten weiterhin von Anwendungen geändert werden können. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 Einige der wichtigsten Funktionen der Plattform:
 
@@ -86,7 +88,9 @@ Bei umfangreichen Migrationen von lokalen Data Lakes zu Azure sind Anwendungstes
 Sorgen Sie nach der Ausgangsmigration mit LiveData Plane for Azure dafür, dass Ihre Daten über lokale Hadoop-Cluster und Azure Storage hinweg konsistent bleiben:
 
 1. Stellen Sie LiveData Plane for Azure lokal und in Azure bereit. Verwenden Sie dazu zunächst das Azure-Portal. Es sind keine Änderungen an Anwendungen erforderlich.
+
 2. Konfigurieren Sie Replikationsregeln, die die Datenspeicherorte abdecken, die konsistent bleiben sollen, z. B.: `/user/contoso/sales/region/WA`.
+
 3. Führen Sie nach Bedarf Anwendungen aus, die auf Daten an einem der beiden Speicherorte als Hadoop-kompatibles Dateisystem zugreifen und diese ändern.
 
 LiveData Plane for Azure stellt die Datenkonsistenz ohne nennenswerte Auswirkungen auf die Leistung von Clustervorgängen und Anwendungen sicher. Ändern oder erfassen Sie Daten, während alle Änderungen konsistent repliziert werden.

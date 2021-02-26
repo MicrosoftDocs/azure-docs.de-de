@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ca01397959aa50c77218742320f8ced128876bad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: aea0a79d1ae27d987a6a30cfefe91e875f9a8382
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018677"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097505"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4- und Dsv4-Serie
 
@@ -31,9 +31,11 @@ Speicher für Remotedatenträger wird separat zu virtuellen Computern abgerechne
 [ACU](acu.md): 195-210<br>
 [Storage Premium:](premium-storage-performance.md) Nicht unterstützt<br>
 [Storage Premium-Zwischenspeicherung:](premium-storage-performance.md) Nicht unterstützt<br>
-[Livemigration:](maintenance-and-updates.md) Unterstützt<br>
-[Updates mit Speicherbeibehaltung:](maintenance-and-updates.md) Unterstützt<br>
-[Unterstützung von VM-Generationen:](generation-2.md) Generation 1<br>
+[Livemigration](maintenance-and-updates.md): Unterstützt<br>
+[Updates mit Speicherbeibehaltung](maintenance-and-updates.md): Unterstützt<br>
+[Unterstützung von VM-Generationen](generation-2.md): Generation 1<br>
+[Beschleunigter Netzwerkbetrieb](../virtual-network/create-vm-accelerated-networking-cli.md): Unterstützt<br>
+[Kurzlebige Betriebssystemdatenträger](ephemeral-os-disks.md): Nicht unterstützt <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temporärer Speicher (SSD): GiB | Max. Anzahl Datenträger | Maximale Anzahl NICs|Erwartete Netzwerkbandbreite (MBit/s) |
@@ -53,9 +55,11 @@ Die Größen der Dsv4-Serie laufen auf dem Intel&reg; Xeon&reg; Platinum 8272CL 
 [ACU](acu.md): 195-210<br>
 [Storage Premium](premium-storage-performance.md): Unterstützt<br>
 [Storage Premium-Zwischenspeicherung:](premium-storage-performance.md) Unterstützt<br>
-[Livemigration:](maintenance-and-updates.md) Unterstützt<br>
-[Updates mit Speicherbeibehaltung:](maintenance-and-updates.md) Unterstützt<br>
+[Livemigration](maintenance-and-updates.md): Unterstützt<br>
+[Updates mit Speicherbeibehaltung](maintenance-and-updates.md): Unterstützt<br>
 [Unterstützung von VM-Generationen:](generation-2.md) Generation 1 und 2<br>
+[Beschleunigter Netzwerkbetrieb](../virtual-network/create-vm-accelerated-networking-cli.md): Unterstützt<br>
+[Kurzlebige Betriebssystemdatenträger](ephemeral-os-disks.md): Nicht unterstützt <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temporärer Speicher (SSD): GiB | Max. Anzahl Datenträger | Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBit/s | Maximale Anzahl NICs|Erwartete Netzwerkbandbreite (MBit/s) |

@@ -3,12 +3,12 @@ title: Problembehandlung für SQL Server-Datenbanksicherungen
 description: Informationen zur Problembehandlung beim Sichern von SQL Server-Datenbanken auf virtuellen Azure-Computern mit Azure Backup
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733922"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557735"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Problembehandlung für die SQL Server-Datenbanksicherung mit Azure Backup
 
@@ -202,22 +202,29 @@ Der Vorgang ist blockiert, da Sie den Höchstwert für die Anzahl der innerhalb 
 |---|---|---|
 Der Vorgang wird blockiert, da der Tresor die in einem Zeitraum von 24 Stunden maximal zulässige Anzahl von Vorgängen erreicht hat. | Dieser Fehler tritt auf, wenn Sie den maximal zulässigen Grenzwert für einen Vorgang innerhalb eines Zeitraums von 24 Stunden erreicht haben. Er tritt normalerweise bei Skalierungsvorgängen auf, z. B. beim Ändern von Richtlinien oder beim automatischen Schutz. Anders als bei „CloudDosAbsoluteLimitReached“ haben Sie nur wenige Möglichkeiten zum Auflösen dieses Zustands. Tatsächlich wiederholt der Azure Backup-Dienst die Vorgänge intern für alle entsprechenden Elemente.<br> Beispiel: Wenn eine große Anzahl von Datenquellen durch eine Richtlinie geschützt wird und Sie versuchen, diese Richtlinie zu ändern, werden Aufträge zum Konfigurieren des Schutzes für alle geschützten Elemente ausgelöst, sodass manchmal der pro Tag maximal zulässige Grenzwert für diese Vorgänge erreicht wird.| Der Azure Backup-Dienst wiederholt diesen Vorgang automatisch nach 24 Stunden.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Fehlermeldung | Mögliche Ursachen | Empfohlene Maßnahme |
+|---|---|---|
+Fehler beim Vorgang für die AzureBackup-Workloaderweiterung. | Die VM wurde heruntergefahren, oder die VM kann den Azure-Backup-Dienst aufgrund von Problemen mit der Internetverbindung nicht kontaktieren.| <li> Stellen Sie sicher, dass die VM ausgeführt wird und über eine Internetverbindung verfügt.<li> [Erneutes Registrieren einer Erweiterung auf der SQL Server-VM](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Fehlermeldung | Mögliche Ursachen | Empfohlene Maßnahme |
 |---|---|---|
-Die VM kann den Azure Backup-Dienst aufgrund von Problemen mit der Internetverbindung nicht erreichen. | Die VM benötigt eine ausgehende Verbindung zu den Diensten Azure Backup-Dienst, Azure Storage oder Azure Active Directory.| – Wenn Sie die Konnektivität mit NSG einschränken, sollten Sie den ausgehenden Zugriff auf den Azure Backup-Dienst und ebenso für die Dienste Azure AD (*AzureActiveDirectory*) und Azure Storage(*Storage*) mit dem Diensttag *AzureBackup* zulassen. Mithilfe folgender [Schritte](./backup-sql-server-database-azure-vms.md#nsg-tags) können Sie den Zugriff erteilen.<br>– Stellen Sie sicher, dass DNS Azure-Endpunkte löst.<br>– Überprüfen Sie, ob sich die VM hinter einem Lastenausgleich befindet, der den Zugriff auf das Internet blockiert. Durch das Zuweisen einer öffentlichen IP-Adresse funktioniert die Ermittlung.<br>– Überprüfen Sie, ob eine Firewall/ein Antivirenprogramm/ein Proxy Aufrufe der drei vorstehenden Zieldienste blockiert.
+Die VM kann den Azure Backup-Dienst aufgrund von Problemen mit der Internetverbindung nicht erreichen. | Die VM benötigt eine ausgehende Verbindung zu den Diensten Azure Backup-Dienst, Azure Storage oder Azure Active Directory.| <li> Wenn Sie die Konnektivität mit NSG einschränken, sollten Sie den ausgehenden Zugriff auf den Azure Backup-Dienst und ebenso für die Dienste Azure AD (*AzureActiveDirectory*) und Azure Storage(*Storage*) mit dem Diensttag *AzureBackup* zulassen. Mithilfe folgender [Schritte](./backup-sql-server-database-azure-vms.md#nsg-tags) können Sie den Zugriff erteilen. <li> Stellen Sie sicher, dass DNS Azure-Endpunkte löst. <li> Überprüfen Sie, ob sich die VM hinter einem Lastenausgleich befindet, der den Zugriff auf das Internet blockiert. Durch das Zuweisen einer öffentlichen IP-Adresse funktioniert die Ermittlung. <li> Überprüfen Sie, ob eine Firewall/ein Antivirenprogramm/ein Proxy Aufrufe der drei vorstehenden Zieldienste blockiert.
 
 ## <a name="re-registration-failures"></a>Fehler bei der erneuten Registrierung
 
 Überprüfen Sie vor dem Auslösen der erneuten Registrierung, ob ein oder mehrere der folgenden Symptome vorhanden sind:
 
-- Für alle Vorgänge (z.B. Sicherung, Wiederherstellung und Sicherungskonfiguration) tritt auf der VM ein Fehler mit einem der folgenden Fehlercodes auf: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Für alle Vorgänge (z.B. Sicherung, Wiederherstellung und Sicherungskonfiguration) tritt auf der VM ein Fehler mit einem der folgenden Fehlercodes auf: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)** , **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Wenn im Bereich **Sicherungsstatus** für das Sicherungselement der Status **Nicht erreichbar** angezeigt wird, schließen Sie alle anderen Gründe aus, die zum gleichen Status führen könnten:
 
   - Fehlende Berechtigung zur Durchführung von sicherungsbezogenen Vorgängen auf der VM
   - Herunterfahren des virtuellen Computers, sodass keine Sicherungen durchgeführt werden können
-  - Netzwerkfehler
+  - [Netzwerkprobleme](#usererrorvminternetconnectivityissue)
 
    ![Wiederkehrende Registrierung der VM](./media/backup-azure-sql-database/re-register-vm.png)
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813614"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596166"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Automatische Bereitstellung von Agents und Erweiterungen aus Azure Security Center
 
@@ -83,7 +83,7 @@ So aktivieren Sie die automatische Bereitstellung des Log Analytics-Agents:
 
     - **Azure-VMs mit einem anderen Arbeitsbereich verbinden**: Wählen Sie in der Dropdownliste den Arbeitsbereich aus, in dem die gesammelten Daten gespeichert werden sollen. Die Dropdownliste enthält sämtliche Arbeitsbereiche für alle Ihrer Abonnements. Sie können diese Option verwenden, um Daten von VMs zu sammeln, die in anderen Abonnements ausgeführt werden, und sie im ausgewählten Arbeitsbereich zu speichern.  
 
-        Wenn Sie bereits über einen vorhandenen Log Analytics-Arbeitsbereich verfügen, können Sie diesen verwenden (erfordert Lese- und Schreibberechtigungen für den Arbeitsbereich). Diese Option ist hilfreich, wenn Sie einen zentralen Arbeitsbereich in Ihrer Organisation verwenden und diesen für die Sammlung von Sicherheitsdaten verwenden möchten. Weitere Informationen finden Sie unter [Verwalten des Zugriffs auf Protokolldaten und Arbeitsbereiche in Azure Monitor](../azure-monitor/platform/manage-access.md).
+        Wenn Sie bereits über einen vorhandenen Log Analytics-Arbeitsbereich verfügen, können Sie diesen verwenden (erfordert Lese- und Schreibberechtigungen für den Arbeitsbereich). Diese Option ist hilfreich, wenn Sie einen zentralen Arbeitsbereich in Ihrer Organisation verwenden und diesen für die Sammlung von Sicherheitsdaten verwenden möchten. Weitere Informationen finden Sie unter [Verwalten des Zugriffs auf Protokolldaten und Arbeitsbereiche in Azure Monitor](../azure-monitor/logs/manage-access.md).
 
         Wenn für den ausgewählten Arbeitsbereich bereits eine Security- oder SecurityCenterFree-Lösung aktiviert ist, werden die Preise automatisch festgelegt. Installieren Sie andernfalls eine Security Center-Lösung im Arbeitsbereich:
 
@@ -218,7 +218,7 @@ So installieren Sie den Log Analytics-Agent manuell:
    - [Installieren des Log Analytics-Agents für Windows](../virtual-machines/extensions/oms-windows.md)
    - [Installieren des Log Analytics-Agents für Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. Folgen Sie zum Bereitstellen von Agents auf Ihren vorhandenen VMs den Anweisungen unter [Sammeln von Daten von einem virtuellen Azure-Computer mit Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md) (der Abschnitt **Sammeln von Ereignis- und Leistungsdaten** ist optional).
+1. Folgen Sie zum Bereitstellen von Agents auf Ihren vorhandenen VMs den Anweisungen unter [Sammeln von Daten von einem virtuellen Azure-Computer mit Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md) (der Abschnitt **Sammeln von Ereignis- und Leistungsdaten** ist optional).
 
 1. Wenn Sie die Agents mithilfe von PowerShell bereitstellen möchten, folgen Sie den Anweisungen in der Dokumentation zu VMs:
 

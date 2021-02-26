@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9643e62f085888808b95698d068c5e383fb8d539
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337966"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524548"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Verwenden des selbst verwalteten Versands für Azure Data Box im Azure-Portal
 
@@ -24,12 +24,14 @@ In diesem Artikel werden die Aufgaben beim selbst verwalteten Versand (Bestellun
 Der selbst verwaltete Versand ist als Option verfügbar, wenn Sie [Azure Data Box bestellen](data-box-deploy-ordered.md). Der selbst verwaltete Versand ist nur in folgenden Regionen verfügbar:
 
 * US Government
+* United Kingdom
 * Europa, Westen
 * Japan
 * Singapur
 * Südkorea
 * Indien
 * Südafrika
+* Australien
 
 ## <a name="use-self-managed-shipping"></a>Verwenden des selbst verwalteten Versands
 
@@ -73,7 +75,7 @@ Beim Aufgeben einer Data Box-Bestellung können Sie die Option für selbst verwa
 
 8. Nachdem das Gerät abgeholt wurde, kopieren Sie die Daten in die Data Box an Ihrem Standort. Nach Abschluss des Datenkopiervorgangs können Sie die Data Box für den Versand vorbereiten. Weitere Informationen finden Sie unter [Für den Versand vorbereiten](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   Der Schritt **Versandvorbereitung** muss ohne kritische Fehler abgeschlossen werden. Andernfalls müssen Sie diesen Schritt erneut ausführen, nachdem Sie die erforderlichen Korrekturen vorgenommen haben. Nach erfolgreichem Abschluss der Versandvorbereitung können Sie den Autorisierungscode für die Abgabe auf der lokalen Benutzeroberfläche anzeigen.
+   Der Schritt **Versandvorbereitung** muss ohne kritische Fehler abgeschlossen werden. Andernfalls müssen Sie diesen Schritt wiederholen, nachdem Sie die erforderlichen Korrekturen vorgenommen haben. Nach erfolgreichem Abschluss des Schritts **Versandvorbereitung** können Sie den Autorisierungscode für die Abgabe auf der lokalen Benutzeroberfläche anzeigen.
 
    > [!NOTE]
    > Versenden Sie den Autorisierungscode nicht per E-Mail. Dieser muss im Datacenter nämlich nur während der Abgabe überprüft werden.

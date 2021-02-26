@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063296"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582348"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Microsoft Identity Platform-Tokenaustauschszenarien mit SAML und OIDC/OAuth
 
 SAML und OpenID Connect (OIDC)/OAuth sind beliebte Protokolle für die Implementierung von einmaligem Anmelden (Single Sign-On, SSO). Einige Apps implementieren möglicherweise nur SAML, während andere möglicherweise nur OIDC/OAuth implementieren. Beide Protokolle verwenden Token, um Geheimnisse zu übermitteln. Weitere Informationen zu SAML finden Sie unter [SAML-Protokoll für einmaliges Anmelden](single-sign-on-saml-protocol.md). Weitere Informationen zu OIDC/OAuth finden Sie unter [OAuth 2.0- und OpenID Connect-Protokolle auf der Microsoft Identity Platform](active-directory-v2-protocols.md).
 
-In diesem Artikel wird ein gängiges Szenario beschrieben, in dem eine App SAML implementiert, Sie aber die Graph-API aufrufen müssen, die OIDC/OAuth verwendet. Für Personen, die in einem solchen Szenario arbeiten, wird ein grundlegender Leitfaden bereitgestellt.
+In diesem Artikel wird ein gängiges Szenario beschrieben, in dem SAML in eine App implementiert, aber die Graph-API aufgerufen wird, die OIDC/OAuth verwendet. Für Personen, die in einem solchen Szenario arbeiten, wird ein grundlegender Leitfaden bereitgestellt.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Szenario: Sie verfügen über ein SAML-Token und möchten die Graph-API aufrufen.
 Viele Apps werden mit SAML implementiert. Die Graph-API verwendet jedoch die OIDC-/OAuth-Protokolle. Es ist zwar möglich, aber nicht einfach, einer SAML-App OIDC-/OAuth-Funktionen hinzuzufügen. Sobald die OAuth-Funktionalität in einer App verfügbar ist, kann die Graph-API verwendet werden.

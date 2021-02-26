@@ -3,19 +3,19 @@ title: Referenz zur Integration von Azure Active Directory mit Workday
 description: Fundierte technische Einblicke in die HR-Bereitstellung mit Workday
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570145"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255983"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Integration der Azure Active Directory-Bereitstellung mit Workday
 
@@ -43,7 +43,7 @@ Um die Konnektivität zwischen Azure AD-Bereitstellungsdienst und Workday noch 
 1. Kopieren Sie alle IP-Adressbereiche, die innerhalb des-Elements *addressPrefixes* aufgeführt sind, und verwenden Sie den Bereich, um eine eigene IP-Adressliste zu erstellen.
 1. Melden Sie sich beim Workday-Verwaltungsportal an. 
 1. Greifen Sie auf die Aufgabe **Maintain IP Ranges** (IP-Adressbereiche verwalten) zu, um einen neuen IP-Adressbereich für die Azure-Rechenzentren zu erstellen. Geben Sie die IP-Adressbereiche (in CIDR-Notation) als eine durch Trennzeichen getrennte Liste an.  
-1. Greifen Sie auf die Aufgabe **Manage Authentication Policies** (Authentifizierungsrichtlinien verwalten) zu, um eine neue Authentifizierungsrichtlinie zu erstellen. Verwenden Sie in der Authentifizierungsrichtlinie die **Authentication Whitelist** (Positivliste für die Authentifizierung), um den Azure AD-IP-Adressbereich und die Sicherheitsgruppe anzugeben, der der Zugriff von diesem IP-Adressbereich aus gestattet wird. Speichern Sie die Änderungen. 
+1. Greifen Sie auf die Aufgabe **Manage Authentication Policies** (Authentifizierungsrichtlinien verwalten) zu, um eine neue Authentifizierungsrichtlinie zu erstellen. Verwenden Sie in der Authentifizierungsrichtlinie die Positivliste für die Authentifizierung, um den Azure AD-IP-Adressbereich und die Sicherheitsgruppe anzugeben, der der Zugriff von diesem IP-Adressbereich aus gestattet wird. Speichern Sie die Änderungen. 
 1. Greifen Sie auf die Aufgabe **Activate All Pending Authentication Policy Changes** (Alle ausstehenden Änderungen an Authentifizierungsrichtlinien aktivieren) zu, um die Änderungen zu bestätigen.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Einschränken des Zugriffs auf Mitarbeiterdaten in Workday mithilfe von eingeschränkten Sicherheitsgruppen
@@ -348,7 +348,7 @@ Wenn eine der oben genannten Abfragen eine Einstellung in der Zukunft zurückgib
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Abrufen von Attributen für Mitarbeiterdaten
+## <a name="retrieving-worker-data-attributes"></a>Abrufen von Attributen für Mitarbeiterdaten
 
 Die *Get_Workers*-API kann verschiedene Datasets zurückgeben, die einem Mitarbeiter zugeordnet sind. Abhängig von den [XPATH-API-Ausdrücken](workday-attribute-reference.md), die im Bereitstellungsschema konfiguriert sind, legt der Azure AD-Bereitstellungsdienst fest, welche Datasets aus Workday abgerufen werden sollen. Die entsprechenden *Response_Group*-Flags werden in der *Get_Workers*-Anforderung festgelegt. 
 
@@ -402,6 +402,9 @@ In der folgenden Tabelle finden Sie einen Leitfaden für die Zuordnung der Konfi
 | 44 | Daten zur Talentbeurteilung               | No                  | wd:Worker\_Data/wd:Talent\_Assessment\_Data                                   |
 | 45 | Benutzerkontodaten                    | No                  | wd:Worker\_Data/wd:User\_Account\_Data                                        |
 | 46 | Mitarbeiterdokumentdaten                 | No                  | wd:Worker\_Data/wd:Worker\_Document\_Data                                     |
+
+>[!NOTE]
+>Jede in der Tabelle aufgelistete Workday-Entität wird durch eine **Domänensicherheitsrichtlinie** in Workday geschützt. Wenn Sie nach dem Festlegen des richtigen XPATH keine Attribute abrufen können, die der Entität zugeordnet sind, wenden Sie sich an Ihren Workday-Administrator, um sicherzustellen, dass für den Integrationssystembenutzer, der der Bereitstellungs-App zugeordnet ist, die entsprechende Domänensicherheitsrichtlinie konfiguriert ist. Wenn Sie z. B. *Daten zu Fertigkeiten* abrufen möchten, ist der Zugriff *Abrufen* für die Workday-Domäne *Worker Data: Skills and Experience* (Mitarbeiterdaten: Fertigkeiten und Erfahrungen). 
 
 Im Folgenden finden Sie einige Beispiele dazu, wie Sie die Workday-Integration erweitern können, um bestimmte Anforderungen zu erfüllen. 
 

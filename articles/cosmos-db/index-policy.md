@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681649"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526754"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indizierungsrichtlinien in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ In Azure Cosmos DB ist die Summe des Speicherverbrauchs die Kombination von Date
 
 * Die Indexgröße hängt von der Indizierungsrichtlinie ab. Wenn alle Eigenschaften indiziert werden, kann der Index größer als die Daten sein.
 * Wenn die Daten gelöscht werden, werden die Indizes nahezu fortlaufend komprimiert. Bei kleinen Datenlöschungen erkennen Sie jedoch möglicherweise nicht sofort eine Verringerung der Indexgröße.
-* Die Indexgröße kann in den folgenden Fällen zunehmen:
-
-  * Dauer der Partitionsaufteilung: Der Speicherplatz für den Index wird freigegeben, nachdem die Partitionsaufteilung abgeschlossen wurde.
-  * Beim Aufteilen einer Partition erhöht sich der Indexspeicher während des Vorgangs vorübergehend. 
+* Die Indexgröße kann sich vorübergehend erhöhen, wenn physische Partitionen aufgeteilt werden. Der Speicherplatz für den Index wird nach Abschluss der Partitionsaufteilung wieder freigegeben.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Ein- und Ausschließen von Eigenschaftenpfaden
 
@@ -186,33 +183,35 @@ Sie müssen Ihre Indizierungsrichtlinie anpassen, damit Sie alle notwendigen `OR
 
 Wenn eine Abfrage Filter für zwei oder mehr Eigenschaften enthält, kann es hilfreich sein, einen zusammengesetzten Index für diese Eigenschaften zu erstellen.
 
-Sehen Sie sich beispielsweise die folgende Abfrage an, die über einen Gleichheitsfilter für zwei Eigenschaften verfügt:
+Sehen Sie sich beispielsweise die folgende Abfrage an, die sowohl einen Gleichheits- als auch einen Bereichsfilter enthält:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Diese Abfrage ist effizienter, schneller und beansprucht weniger RUs, wenn sie einen zusammengesetzten Index für „(name ASC, age ASC)“ nutzen kann.
+Diese Abfrage ist effizienter, schneller und beansprucht weniger RUs, wenn sie einen zusammengesetzten Index für `(name ASC, age ASC)` nutzen kann.
 
-Abfragen mit Bereichsfiltern können ebenfalls mit einem zusammengesetzten Index optimiert werden. Allerdings kann die Abfrage nur einen einzelnen Bereichsfilter enthalten. Zu Bereichsfiltern zählen `>`, `<`, `<=`, `>=` und `!=`. Der Bereichsfilter muss im zusammengesetzten Index zuletzt definiert werden.
+Abfragen mit mehreren Bereichsfiltern können ebenfalls mit einem zusammengesetzten Index optimiert werden. Ein zusammengesetzter Index kann jedoch immer nur jeweils einen einzelnen Bereichsfilter optimieren. Zu Bereichsfiltern zählen `>`, `<`, `<=`, `>=` und `!=`. Der Bereichsfilter muss im zusammengesetzten Index zuletzt definiert werden.
 
-Die folgende Abfrage enthält sowohl Gleichheits- als auch Bereichsfilter:
+Die folgende Abfrage enthält einen Gleichheits- und zwei Bereichsfilter:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Diese Abfrage ist mit einem zusammengesetzten Index für „(name ASC, age ASC)“ effizienter. Die Abfrage würde jedoch keinen zusammengesetzten Index für „(age ASC, name ASC)“ verwenden, da die Gleichheitsfilter im zusammengesetzten Index zuerst definiert werden müssen.
+Diese Abfrage wird mit einem zusammengesetzten Index für `(name ASC, age ASC)` und `(name ASC, _ts ASC)` effizienter. Die Abfrage würde für `(age ASC, name ASC)` jedoch keinen zusammengesetzten Index nutzen, da die Eigenschaften mit Gleichheitsfiltern erst im zusammengesetzten Index definiert werden müssen. Da ein zusammengesetzter Index immer nur jeweils einen einzelnen Bereichsfilter optimieren kann, werden für `(name ASC, age ASC, _ts ASC)` anstelle eines einzelnen zusammengesetzten Index zwei separate zusammengesetzte Indizes benötigt.
 
 Bei der Erstellung zusammengesetzter Indizes für Abfragen mit Filtern für mehrere Eigenschaften muss Folgendes berücksichtigt werden:
 
+- Filterausdrücke können mehrere zusammengesetzte Indizes verwenden.
 - Die Eigenschaften im Filter der Abfrage müssen den Eigenschaften im zusammengesetzten Index entsprechen. Ist eine Eigenschaft im zusammengesetzten Index, aber nicht als Filter in der Abfrage enthalten, wird der zusammengesetzte Index von der Abfrage nicht verwendet.
 - Enthält der Filter einer Abfrage zusätzliche Eigenschaften, die nicht in einem zusammengesetzten Index definiert wurden, wird zur Auswertung der Abfrage eine Kombination aus zusammengesetztem Index und Bereichsindex verwendet. Dadurch werden weniger RUs beansprucht als bei ausschließlicher Verwendung von Bereichsindizes.
-- Wenn eine Eigenschaft einen Bereichsfilter besitzt (`>`, `<`, `<=`, `>=` oder `!=`), muss diese Eigenschaft im zusammengesetzten Index zuletzt definiert werden. Enthält eine Abfrage mehrere Bereichsfilter, wird der zusammengesetzte Index nicht verwendet.
+- Wenn eine Eigenschaft einen Bereichsfilter besitzt (`>`, `<`, `<=`, `>=` oder `!=`), muss diese Eigenschaft im zusammengesetzten Index zuletzt definiert werden. Enthält eine Abfrage mehrere Bereichsfilter, empfiehlt sich ggf. die Verwendung mehrerer zusammengesetzter Indizes.
 - Wenn Sie einen zusammengesetzten Index erstellen, um Abfragen mit mehreren Filtern zu optimieren, hat die Reihenfolge (`ORDER`) des zusammengesetzten Index keine Auswirkungen auf die Ergebnisse. Diese Eigenschaft ist optional.
-- Wenn Sie keinen zusammengesetzten Index für eine Abfrage mit Filtern für mehrere Eigenschaften definieren, wird die Abfrage trotzdem erfolgreich ausgeführt. Mit einem zusammengesetzten Index beansprucht die Abfrage allerdings weniger RUs.
-- Abfragen mit Aggregaten (z. B. COUNT oder SUM) und Filtern profitieren ebenfalls von zusammengesetzten Indizes.
-- Filterausdrücke können mehrere zusammengesetzte Indizes verwenden.
 
 Betrachten Sie die folgenden Beispiele, in denen ein zusammengesetzter Index für die Eigenschaften „name“, „age“, und „timestamp“ definiert wird:
 
@@ -227,43 +226,76 @@ Betrachten Sie die folgenden Beispiele, in denen ein zusammengesetzter Index fü
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Abfragen mit Filter und ORDER BY-Klausel
+### <a name="queries-with-a-filter-and-order-by"></a>Abfragen mit einem Filter und „ORDER BY“
 
 Wenn eine Abfrage nach einer oder mehreren Eigenschaften filtert und verschiedene Eigenschaften in der ORDER BY-Klausel enthält, kann es hilfreich sein, die Eigenschaften im Filter der `ORDER BY`-Klausel hinzuzufügen.
 
-Durch Hinzufügen der Eigenschaften im Filter zur ORDER BY-Klausel kann beispielsweise die folgende Abfrage umgeschrieben werden, um einen zusammengesetzten Index zu nutzen:
+Durch Hinzufügen der Eigenschaften im Filter zur `ORDER BY`-Klausel kann beispielsweise die folgende Abfrage umgeschrieben werden, um einen zusammengesetzten Index zu nutzen:
 
 Abfrage mit Bereichsindex:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Abfrage mit zusammengesetztem Index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-Das gleiche Muster und die gleichen Abfrageoptimierungen können für Abfragen mit mehreren Gleichheitsfiltern verallgemeinert werden:
+Die gleichen Abfrageoptimierungen können für alle `ORDER BY`-Abfragen mit Filtern generalisiert werden. Beachten Sie dabei jedoch, dass einzelne zusammengesetzte Indizes maximal einen einzelnen Bereichsfilter unterstützen können.
 
 Abfrage mit Bereichsindex:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Abfrage mit zusammengesetztem Index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Außerdem können Sie zusammengesetzte Indizes verwenden, um Abfragen mit Systemfunktionen und „ORDER BY“ zu optimieren:
+
+Abfrage mit Bereichsindex:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Abfrage mit zusammengesetztem Index:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 Bei der Erstellung zusammengesetzter Indizes für die Optimierung einer Abfrage mit Filter und `ORDER BY`-Klausel muss Folgendes berücksichtigt werden:
 
+* Wenn Sie für eine Abfrage mit einem Filter für eine Eigenschaft und einer separaten `ORDER BY`-Klausel mit einer anderen Eigenschaft keinen zusammengesetzten Index definieren, wird die Abfrage trotzdem erfolgreich ausgeführt. Mit einem zusammengesetzten Index beansprucht die Abfrage allerdings weniger RUs – insbesondere, wenn die Eigenschaft in der `ORDER BY`-Klausel eine hohe Kardinalität besitzt.
 * Wenn die Abfrage nach Eigenschaften filtert, müssen diese in der `ORDER BY`-Klausel zuerst angegeben werden.
 * Wenn die Abfrage nach mehreren Eigenschaften filtert, müssen die Gleichheitsfilter die ersten Eigenschaften in der `ORDER BY`-Klausel sein.
-* Wenn Sie für eine Abfrage mit einem Filter für eine Eigenschaft und einer separaten `ORDER BY`-Klausel mit einer anderen Eigenschaft keinen zusammengesetzten Index definieren, wird die Abfrage trotzdem erfolgreich ausgeführt. Mit einem zusammengesetzten Index beansprucht die Abfrage allerdings weniger RUs – insbesondere, wenn die Eigenschaft in der `ORDER BY`-Klausel eine hohe Kardinalität besitzt.
+* Wenn die Abfrage nach mehreren Eigenschaften filtert, kann pro zusammengesetztem Index maximal ein einzelner Bereichsfilter oder eine einzelne Systemfunktion verwendet werden. Die im Bereichsfilter oder in der Systemfunktion verwendete Eigenschaft muss im zusammengesetzten Index zuletzt definiert werden.
 * Die Überlegungen im Zusammenhang mit der Erstellung zusammengesetzter Indizes für `ORDER BY`-Abfragen mit mehreren Eigenschaften sowie für Abfragen mit Filtern für mehrere Eigenschaften gelten weiterhin.
 
 
@@ -277,7 +309,7 @@ Bei der Erstellung zusammengesetzter Indizes für die Optimierung einer Abfrage 
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
-## <a name="modifying-the-indexing-policy"></a>Ändern der Indizierungsrichtlinie
+## <a name="index-transformationmodifying-the-indexing-policy"></a><index-transformation>Ändern der Indizierungsrichtlinie
 
 Die Indizierungsrichtlinie eines Containers kann jederzeit [im Azure-Portal oder mit einem der unterstützten SDKs](how-to-manage-indexing-policy.md) aktualisiert werden. Die Aktualisierung einer Indizierungsrichtlinie löst eine Transformation vom alten Index auf den neuen aus. Dies erfolgt online und direkt (sodass während des Vorgangs kein zusätzlicher Speicherplatz verbraucht wird). Die alte Indizierungsrichtlinie wird effizient in die neue Richtlinie transformiert, ohne die Schreibverfügbarkeit, Leseverfügbarkeit oder den Durchsatz, der für den Container bereitgestellt wird, zu beeinträchtigen. Die Indextransformation ist ein asynchroner Vorgang. Der erforderliche Zeitaufwand hängt vom bereitgestellten Durchsatz, der Anzahl der Elemente und ihrer Größe ab.
 

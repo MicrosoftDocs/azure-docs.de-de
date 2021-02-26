@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743597"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626154"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivieren der kennwortlosen Anmeldung mit der Microsoft Authenticator-App (Vorschauversion)
 
@@ -57,10 +57,13 @@ Mit Azure AD können Sie auswählen, welche Authentifizierungsmethoden während 
 Führen Sie die folgenden Schritte aus, um die Authentifizierungsmethode für die kennwortlose Anmeldung per Telefon zu aktivieren:
 
 1. Melden Sie sich mit einem globalen *Administratorkonto* im [Azure-Portal](https://portal.azure.com) an.
-1. Suchen Sie *Azure Active Directory*, und wählen sie es aus. Navigieren Sie anschließend zu **Sicherheit** > **Authentifizierungsmethoden** > **Authentifizierungsmethodenrichtlinie (Vorschau)** .
-1. Wählen Sie unter **Kennwortlose Anmeldung per Telefon** die folgenden Optionen aus:
+1. Suchen Sie nach *Azure Active Directory*, und wählen Sie die Option aus. Navigieren Sie anschließend zu **Sicherheit** > **Authentifizierungsmethoden** > **Richtlinien**.
+1. Wählen Sie unter **Microsoft Authenticator (Vorschau)** die folgenden Optionen aus:
    1. **Aktivieren**: „Ja“ oder „Nein“
    1. **Ziel**: „Alle Benutzer“ oder „Benutzer auswählen“
+1. Bei jeder hinzugefügten Gruppe und jedem hinzugefügten Benutzer ist standardmäßig Microsoft Authenticator sowohl im kennwortlosen als auch im Pushbenachrichtigungsmodus („Beliebig“) aktiviert. Um dies zu ändern, führen Sie für jede Zeile folgende Schritte aus:
+   1. Navigieren Sie zu **...**  > **Konfigurieren**.
+   1. Wählen Sie als **Authentifizierungsmodus** „Beliebig“, „Kennwortlos“ oder „Push“ aus.
 1. Wählen Sie **Speichern** aus, um die neue Richtlinie anzuwenden.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Benutzerregistrierung und Verwaltung von Microsoft Authenticator

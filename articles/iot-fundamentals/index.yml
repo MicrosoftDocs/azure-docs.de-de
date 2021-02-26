@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 950ed3c6c8a5d4b495dc3f72e1e6105c9391c3fa
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 729cbc4697fc1af3da9841edcc7f1f0a3528bf67
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98786220"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100366125"
 highlightedContent:
   items:
   - title: Was ist Azure IoT?
@@ -75,7 +75,7 @@ conceptualContent:
       itemType: tutorial
       text: Verbinden eines Geräts
     footerLink:
-      url: ../iot-central/core/index.yml
+      url: ../iot-central/index.yml
       text: Weitere Informationen
   - title: Ausführen intelligenter Cloudfunktionen auf Edgegeräten
     links:

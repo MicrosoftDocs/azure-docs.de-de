@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656953"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096320"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migration zu Version 3 der Textanalyse-API
 
@@ -46,9 +46,6 @@ Beispiele für die JSON-Antwort finden Sie in der Referenzdokumentation.
 
 ### <a name="feature-changes"></a>Funktionsänderungen
 
-> [!NOTE] 
-> [Entitätskategorien der Version 3](named-entity-types.md) werden derzeit nur für englischen und spanischen Text zurückgegeben. Die API gibt Ergebnisse der Version 2.1 für Anforderungen in anderen Sprachen zurück, sofern diese in Version 2.1 unterstützt wurden.
-
 In Version 2.1 verwendet die Textanalyse-API einen Endpunkt für die Erkennung benannter Entitäten und die Entitätsverknüpfung. In Version 3 wird die erweiterte Erkennung benannter Entitäten bereitgestellt. Außerdem werden separate Endpunkte für Anforderungen der Erkennung benannter Entitäten und der Entitätsverknüpfung verwendet. Ab v3.1-preview.1 kann die Erkennung benannter Entitäten auch persönliche Informationen (`pii`) und Integritätsinformationen (`phi`) ermitteln. 
 
 ### <a name="steps-to-migrate"></a>Migrationsschritte
@@ -73,6 +70,35 @@ Beispiele für die JSON-Antwort finden Sie in der Referenzdokumentation.
 #### <a name="client-libraries"></a>Clientbibliotheken
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>Entitätskategorien für Version 2.1
+
+In der folgenden Tabelle sind die für die NER-Version 2.1 zurückgegebenen Entitätskategorien aufgeführt.
+
+| Category   | BESCHREIBUNG                          |
+|------------|--------------------------------------|
+| Person   |   Namen von Personen  |
+|Standort    | Natürliche und von Menschen hergestellte Wahrzeichen, Gebäude, geografische Merkmale und geopolitische Entitäten |
+|Organization | Firmen, politische Gruppen, Musikgruppen, Sportvereine, Regierungsstellen und öffentliche Organisationen Nationalitäten und Religionen werden in diesem Entitätstyp nicht berücksichtigt. |
+| PhoneNumber | Telefonnummern (nur US- und EU-Telefonnummern) |
+| Email | E-Mail-Adressen |
+| URL | URLs zu Websites |
+| IP | Netzwerk-IP-Adressen |
+| Datetime | Datums- und Uhrzeitangaben| 
+| Date | Kalenderdatumsangaben |
+| Time | Tageszeiten |
+| DateRange | Datumsbereiche |
+| TimeRange | Uhrzeitbereiche |
+| Duration | Zeitspannen |
+| Set | Festgelegte Wiederholungszeiten |
+| Menge | Zahlen und numerische Mengen. |
+| Number | Zahlen. |
+| Prozentwert | Prozentangaben|
+| Ordinal | Ordinalzahlen |
+| Age | Altersangaben |
+| Währung | Währungen |
+| Dimension | Abmessungen und Maße |
+| Temperatur | Temperaturen |
 
 ## <a name="language-detection"></a>[Sprachenerkennung](#tab/language-detection)
 

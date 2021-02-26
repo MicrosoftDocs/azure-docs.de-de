@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878934"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008416"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Häufig gestellte Fragen zu Azure Monitor
 
@@ -81,10 +81,12 @@ Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Un
 
 ### <a name="how-do-i-retrieve-log-data"></a>Wie rufe ich Protokolldaten ab?
 Alle Daten werden mithilfe einer in der Kusto-Abfragesprache (KQL) geschriebenen Protokollabfrage aus einem Log Analytics-Arbeitsbereich abgerufen. Sie können eigene Abfragen schreiben oder Lösungen und Erkenntnisse verwenden, die Protokollabfragen für eine bestimmte Anwendung oder einen bestimmten Dienst enthalten. Weitere Informationen finden Sie in der [Übersicht über Protokollabfragen in Azure Monitor](log-query/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Kann ich Daten aus einem Log Analytics-Arbeitsbereich löschen?
 Daten werden gemäß ihrer [Beibehaltungsdauer](platform/manage-cost-storage.md#change-the-data-retention-period) aus einem Arbeitsbereich entfernt. Sie können bestimmte Daten aus Datenschutz- oder Compliancegründen löschen. Weitere Informationen finden Sie unter [Exportieren und Löschen personenbezogener Daten](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
 
+### <a name="is-log-analytics-storage-immutable"></a>Ist Log Analytics-Speicher unveränderlich?
+Daten im Datenbankspeicher können nach der Erfassung nicht mehr geändert werden, aber sie können mithilfe der [*Purge*-API zum Löschen privater Daten](platform/personal-data-mgmt.md#delete) endgültig gelöscht werden. Obwohl Daten nicht verändert werden können, verlangen einige Zertifizierungen, dass Daten unveränderlich aufbewahrt werden und im Speicher nicht geändert oder gelöscht werden können. Die Unveränderlichkeit von Daten kann durch [Datenexport](platform/logs-data-export.md) in ein Speicherkonto erreicht werden, das als [unveränderlicher Speicher](../storage/blobs/storage-blob-immutability-policies-manage.md) konfiguriert ist.
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Was ist ein Log Analytics-Arbeitsbereich?
 Alle von Azure Monitor erfassten Protokolldaten werden in einem Log Analytics-Arbeitsbereich gespeichert. Ein Arbeitsbereich ist im Wesentlichen ein Container, in dem Protokolldaten aus einer Vielzahl von Quellen gesammelt werden. Möglicherweise verfügen Sie über einen einzigen Log Analytics-Arbeitsbereich für alle Überwachungsdaten oder es sind mehrere Arbeitsbereiche erforderlich. Weitere Informationen finden Sie unter [Entwerfen Ihrer Azure Monitor-Protokollbereitstellung](platform/design-logs-deployment.md).

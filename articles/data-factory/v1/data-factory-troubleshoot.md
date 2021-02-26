@@ -1,24 +1,19 @@
 ---
 title: Problembehandlung bei Azure Data Factory
 description: Erfahren Sie, wie Sie Probleme mithilfe von Azure Data Factory beheben.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ed831e5f07eb29110b858dfb16b73f276926424f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494969"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388242"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Problembehandlung bei Data Factory
 > [!NOTE]
@@ -35,14 +30,15 @@ Wenn Sie diesen Fehler erhalten, wurde der Azure Data Factory-Ressourcenanbieter
 1. Starten Sie Azure PowerShell.
 2. Melden Sie sich mithilfe des folgenden Befehls bei Ihrem Azure-Konto an.
 
-    ```powershell
-    Connect-AzAccount
-    ```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. Führen Sie den folgenden Befehl aus, um den Azure Data Factory-Anbieter zu registrieren.
 
-    ```powershell        
-    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Autorisierungsfehler beim Ausführen eines Data Factory-Cmdlets
 Sie verwenden wahrscheinlich nicht das richtige Azure-Konto oder -Abonnement für Azure PowerShell. Wählen Sie mithilfe der folgenden Cmdlets das richtige Azure-Konto und -Abonnement für die Verwendung mit Azure PowerShell aus.
@@ -67,7 +63,7 @@ Starten Sie den **Datenverwaltungsgateway-Konfigurations-Manager** auf dem Gatew
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problem: Eingabeslices haben dauerhaft den Status „Warten“.
 Die Slices können sich aus verschiedenen Gründen im Status **Warten** befinden. Einer der häufigsten Gründe ist, dass die Eigenschaft **external** nicht auf **true** festgelegt ist. Ein Dataset, das außerhalb des Gültigkeitsbereichs von Azure Data Factory erstellt wird, sollte mit der Eigenschaft **external** gekennzeichnet sein. Diese Eigenschaft weist darauf hin, dass es sich um externe Daten handelt, die nicht von Pipelines innerhalb der Data Factory unterstützt werden. Die Datenslices werden als **Ready** gekennzeichnet, sobald die Daten im entsprechenden Speicher verfügbar sind.
 
-Das folgende Beispiel zeigt die Verwendung der Eigenschaft **external** . Sie können optional **externalData** _ angeben, wenn Sie „external“ auf „true“ festlegen.
+Das folgende Beispiel zeigt die Verwendung der Eigenschaft **external** . Sie können optional **externalData*** angeben, wenn Sie „external“ auf „true“ festlegen.
 
 Weitere Informationen zu dieser Eigenschaft finden Sie im Artikel [Datasets](data-factory-create-datasets.md) .
 
@@ -97,7 +93,7 @@ Weitere Informationen zu dieser Eigenschaft finden Sie im Artikel [Datasets](dat
 }
 ```
 
-Um den Fehler zu beheben, fügen Sie die Eigenschaft _ *external** und den optionalen Abschnitt **externalData** der JSON-Definition für die Eingabetabelle hinzu und erstellen die Tabelle erneut.
+Um den Fehler zu beheben, fügen Sie die Eigenschaft **external** und den optionalen Abschnitt **externalData** der JSON-Definition für die Eingabetabelle hinzu und erstellen die Tabelle erneut.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problem: Fehler beim Hybridkopiervorgang
 Die Schritte zum Behandeln von Problemen beim Kopieren in lokale Datenspeicher und aus lokalen Datenspeichern mit dem Datenverwaltungsgateway finden Sie unter [Problembehandlung bei Gateways](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610147"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429261"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (Vorschau)
+# <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
-Microsoft Azure Attestation (Vorschau) ist eine einheitliche Lösung zur Remoteüberprüfung der Vertrauenswürdigkeit einer Plattform und der Integrität der darin ausgeführten Binärdateien. Der Dienst unterstützt den Nachweis der TPM-basierten (Trusted Platform Module) Plattformen sowie den Nachweis des Zustands vertrauenswürdiger Ausführungsumgebungen (Trusted Execution Environments, TEEs), wozu beispielsweise SGX-Enclaves ([Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) und VBS-Enclaves ([virtualisierungsbasierte Sicherheit](/windows-hardware/design/device-experiences/oem-vbs)) zählen. 
+Microsoft Azure Attestation ist eine einheitliche Lösung zur Remoteüberprüfung der Vertrauenswürdigkeit einer Plattform und der Integrität der darin ausgeführten Binärdateien. Der Dienst unterstützt den Nachweis der TPM-basierten (Trusted Platform Module) Plattformen sowie den Nachweis des Zustands vertrauenswürdiger Ausführungsumgebungen (Trusted Execution Environments, TEEs), wozu beispielsweise SGX-Enclaves ([Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)) und VBS-Enclaves ([virtualisierungsbasierte Sicherheit](/windows-hardware/design/device-experiences/oem-vbs)) zählen. 
 
 Der Nachweis ist ein Prozess, um zu veranschaulichen, dass Softwarebinärdateien auf einer vertrauenswürdigen Plattform ordnungsgemäß instanziiert wurden. Vertrauende Remoteseiten können dann sicher sein, dass nur die vorgesehene Software auf vertrauenswürdiger Hardware ausgeführt wird. Azure Attestation ist ein einheitlicher Service für die Kunden und ein Framework für den Nachweis.
 
@@ -67,7 +67,7 @@ Azure Attestation ist die bevorzugte Wahl für den Nachweis von TEEs, da es die 
 
 - Einheitliches Framework für den Nachweis mehrerer Umgebungen (beispielsweise TPMs, SGC-Enclaves und VBS-Enclaves) 
 - Mehrinstanzenfähiger Dienst, der die Konfiguration von benutzerdefinierten Nachweisanbietern und Richtlinien ermöglicht, um die Tokengenerierung einzuschränken
-- Bietet Standardanbieter, die ohne Konfiguration von Benutzern Nachweise durchführen können
+- Verfügt über regionale gemeinsam genutzte Anbieter, die ohne Konfiguration von Benutzern Nachweise durchführen können
 - Schützt die Daten während der Verwendung mit der Implementierung in einer SGX-Enclave
 - Hochverfügbarer Dienst 
 

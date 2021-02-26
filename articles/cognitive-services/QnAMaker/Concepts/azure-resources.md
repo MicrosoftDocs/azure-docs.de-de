@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705403"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979761"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-Ressourcen für QnA Maker
 
@@ -134,6 +134,94 @@ Führen Sie ein [Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the
 
 ---
 
+## <a name="keys-in-qna-maker"></a>Schlüssel in QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
+Ihr QnA Maker-Dienst befasst sich mit zwei Arten von Schlüsseln: **Erstellungsschlüsseln** und **Anfrageendpunktschlüsseln**, die zusammen mit der im App Service gehosteten Runtime verwendet werden.
+
+Verwenden Sie diese Schlüssel, wenn Sie Anforderungen an den Dienst über APIs senden.
+
+![Schlüsselverwaltung](../media/qnamaker-how-to-key-management/key-management.png)
+
+|Name|Standort|Zweck|
+|--|--|--|
+|Erstellungs-/Abonnementschlüssel|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|Diese Schlüssel werden verwendet, um auf die [QnA Maker-Verwaltungsdienst-APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) zuzugreifen. Mit diesen APIs können Sie die Fragen und Antworten in Ihrer Wissensdatenbank bearbeiten und Ihre Wissensdatenbank veröffentlichen. Diese Schlüssel werden erstellt, wenn Sie einen neuen QnA Maker-Dienst erstellen.<br><br>Sie finden diese Schlüssel in der Ressource **Cognitive Services** auf der Seite **Schlüssel**.|
+|Abfrageendpunktschlüssel|[QnA Maker-Portal](https://www.qnamaker.ai)|Diese Schlüssel werden zum Abfragen des Endpunkts der veröffentlichten Wissensdatenbank verwendet, um eine Antwort auf eine Benutzerfrage abzurufen. In der Regel verwenden Sie diesen Abfrageendpunkt in Ihrem Chatbot oder im Clientanwendungscode, der eine Verbindung mit dem QnA Maker-Dienst herstellt. Diese Schlüssel werden erstellt, wenn Sie Ihre QnA Maker-Wissensdatenbank veröffentlichen.<br><br>Sie finden diese Schlüssel auf der Seite **Diensteinstellungen**. Suchen Sie diese Seite im Menü des Benutzers in der oberen rechten Ecke der Seite im Dropdownmenü.|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Suchen von Erstellungsschlüsseln im Azure-Portal
+
+Sie können Ihre Erstellungsschlüssel in dem Azure-Portal anzeigen und zurücksetzen, in dem Sie die QnA Maker-Ressource erstellt haben. Diese Schlüssel können auch als Abonnementschlüssel bezeichnet werden.
+
+1. Wechseln Sie im Azure-Portal zur QnA Maker-Ressource, und wählen Sie die Ressource mit dem _Cognitive Services_-Typ aus:
+
+    ![QnA Maker-Ressourcenliste](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+
+2. Wechseln Sie zu **Schlüssel und Endpunkt**:
+
+    ![QnA Maker verwaltet (Vorschau)-Abonnementschlüssel](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+
+### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Suchen von Abfrageendpunktschlüsseln im QnA Maker-Portal
+
+Der Endpunkt befindet sich in demselben Bereich wie die Ressource, da die Endpunktschlüssel verwendet werden, um einen Aufruf an die Wissensdatenbank zu senden.
+
+Endpunktschlüssel können im [QnA Maker-Portal](https://qnamaker.ai) verwaltet werden.
+
+1. Melden Sie sich beim [QnA Maker-Portal](https://qnamaker.ai) an, wechseln Sie zu Ihrem Profil, und wählen Sie **Diensteinstellungen** aus:
+
+    ![Endpunktschlüssel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+
+2. Zeigen Sie Ihre Schlüssel an, oder setzen Sie die Schlüssel zurück:
+
+    > [!div class="mx-imgBorder"]
+    > ![Endpunktschlüssel-Manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+
+    >[!NOTE]
+    >Aktualisieren Sie Ihre Schlüssel, wenn Sie denken, dass sie gefährdet sind. Dazu müssen möglicherweise entsprechende Änderungen an Ihrem Clientanwendungs- oder Botcode vorgenommen werden.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+Ihr QnA Maker verwaltet-Dienst (Vorschau) befasst sich mit zwei Arten von Schlüsseln: **Erstellungsschlüssel** und **Azure Cognitive Search-Schlüssel**, die für den Zugriff auf den Dienst im Abonnement des Kunden verwendet werden.
+
+Verwenden Sie diese Schlüssel, wenn Sie Anforderungen an den Dienst über APIs senden.
+
+![Schlüsselverwaltung: Verwaltete Vorschau](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+
+|Name|Standort|Zweck|
+|--|--|--|
+|Erstellungs-/Abonnementschlüssel|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|Diese Schlüssel werden verwendet, um auf die [QnA Maker-Verwaltungsdienst-APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) zuzugreifen. Mit diesen APIs können Sie die Fragen und Antworten in Ihrer Wissensdatenbank bearbeiten und Ihre Wissensdatenbank veröffentlichen. Diese Schlüssel werden erstellt, wenn Sie einen neuen QnA Maker-Dienst erstellen.<br><br>Sie finden diese Schlüssel in der Ressource **Cognitive Services** auf der Seite **Schlüssel**.|
+|Administratorschlüssel von Azure Cognitive Search|[Azure portal](../../../search/search-security-api-keys.md)|Diese Schlüssel werden verwendet, um mit dem Azure Cognitive Search-Dienst zu kommunizieren, der im Azure-Abonnement des Benutzers bereitgestellt wird. Wenn Sie Azure Cognitive Search mit dem QnA Maker verwaltet-Dienst (Vorschau) verknüpfen, wird der Administratorschlüssel automatisch an den QnA Maker-Dienst weitergeleitet. <br><br>Sie finden diese Schlüssel in der **Azure Cognitive Search**-Ressource auf der Seite **Schlüssel**.|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Suchen von Erstellungsschlüsseln im Azure-Portal
+
+Sie können Ihre Erstellungsschlüssel in dem Azure-Portal anzeigen und zurücksetzen, in dem Sie die QnA Maker verwaltet (Vorschau)-Ressource erstellt haben. Diese Schlüssel können auch als Abonnementschlüssel bezeichnet werden.
+
+1. Wechseln Sie im Azure-Portal zur QnA Maker verwaltet (Vorschau)-Ressource, und wählen Sie die Ressource mit dem *Cognitive Services*-Typ aus:
+
+    ![QnA Maker verwaltet (Vorschau)-Ressourcenliste](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
+
+2. Wechseln Sie zu **Schlüssel und Endpunkt**:
+
+    ![QnA Maker verwaltet (Vorschau)-Abonnementschlüssel](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+
+### <a name="update-the-resources"></a>Aktualisieren der Ressourcen
+
+Erfahren Sie, wie Sie die von Ihrer Wissensdatenbank genutzten Ressourcen aktualisieren können. QnA Maker verwaltet (Vorschau) ist während der Vorschauphase **kostenlos**. 
+
+---
+
+## <a name="management-service-region"></a>Verwaltungsdienstregion
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
+Der Verwaltungsdienst von QnA Maker wird nur für das QnA Maker-Portal und für die anfängliche Datenverarbeitung genutzt. Dieser Dienst ist nur in der Region **USA, Westen** verfügbar. In diesem Dienst (USA, Westen) werden keine Kundendaten gespeichert.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
+
+Bei QnA Maker verwaltet (Vorschau) befinden sich sowohl die Verwaltungs- als auch die Vorhersage-Dienste in derselben Region. Derzeit ist QnA Maker verwaltet (Vorschau) in **USA (Süden-Mitte), Europa (Norden) und Australien (Osten)** verfügbar.
+
+---
+
 ## <a name="resource-naming-considerations"></a>Überlegungen zu Ressourcennamen
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
@@ -156,107 +244,6 @@ Nach dem Erstellen haben die Ressourcen den gleichen Namen, mit Ausnahme der opt
 > [!TIP]
 > Verwenden Sie eine Benennungskonvention, die Tarifstufen im Namen der Ressource oder Ressourcengruppe anzeigt. Wenn beim Erstellen einer neuen Wissensdatenbank oder beim Hinzufügen neuer Dokumente Fehler angezeigt werden, ist der Grenzwert des Cognitive Search-Tarifs ein häufiges Problem.
 
-### <a name="resource-purposes"></a>Zwecke von Ressourcen
-
-Jede Azure-Ressource, die mit QnA Maker erstellt wird, hat einen bestimmten Zweck:
-
-* QnA Maker-Ressource
-* Cognitive Search-Ressource
-* App Service
-* App-Plandienst
-* Application Insights-Dienst
-
-
-### <a name="cognitive-search-resource"></a>Cognitive Search-Ressource
-
-Die [Cognitive Search](../../../search/index.yml)-Ressource wird für diese Zwecke verwendet:
-
-* Speichern der QnA-Paare
-* Angeben der anfänglichen Rangfolge (Bewerter Nr. 1) der QnA-Paare zur Laufzeit
-
-#### <a name="index-usage"></a>Indexnutzung
-
-Die Ressource pflegt einen Index, der als Testindex fungiert, und die verbleibenden Indizes korrelieren jeweils zu einer veröffentlichten Wissensdatenbank.
-
-Eine Ressource, die nach ihrem Preis 15 Indizes unterhalten kann, enthält 14 veröffentlichte Wissensdatenbanken, während ein Index zum Testen aller Wissensdatenbanken verwendet wird. Dieser Testindex ist nach Wissensdatenbanken partitioniert, sodass eine Abfrage, die den interaktiven Testbereich verwendet, den Testindex verwendet, jedoch nur Ergebnisse aus der spezifischen Partition zurückgibt, die der spezifischen Wissensdatenbank zugeordnet ist.
-
-#### <a name="language-usage"></a>Sprachverwendung
-
-Die erste Wissensdatenbank, die in der QnA Maker-Ressource erstellt wird, wird verwendet, um den _einzelnen_ Sprachsatz zu bestimmen, der für die Cognitive Search-Ressource und alle zugehörigen Indizes festgelegt ist. Es kann nur _ein Sprachsatz_ für einen QnA Maker-Dienst festgelegt werden.
-
-### <a name="qna-maker-resource"></a>QnA Maker-Ressource
-
-Die QnA Maker-Ressource bietet zur Laufzeit Zugriff auf die Erstellungs- und Veröffentlichungs-APIs sowie auf die zweite Bewertungsschicht (Bewerter Nr. 2) der QnA-Paare, die auf natürlichsprachlicher Verarbeitung (Natural Language Processing, NLP) beruht.
-
-Die zweite Bewertung wendet intelligente Filter an, die Metadaten und Folgeaufforderungen beinhalten können.
-
-#### <a name="qna-maker-resource-configuration-settings"></a>Ressourcenkonfigurationseinstellungen für QnA Maker
-
-Wenn Sie eine neue Wissensdatenbank im [QnA Maker-Portal](https://qnamaker.ai) erstellen, ist die Einstellung für **Sprache** die einzige Einstellung, die auf der Ressourcenebene angewendet wird. Sie wählen die Sprache aus, wenn Sie die erste Wissensdatenbank für die Ressource erstellen.
-
-### <a name="app-service-and-app-service-plan"></a>App Service und App Service-Plan
-
-Der [App Service](../../../app-service/index.yml) wird von Ihrer Clientanwendung verwendet, um über den Laufzeitendpunkt auf die veröffentlichten Wissensdatenbanken zuzugreifen.
-
-Um die veröffentlichte Wissensdatenbank abzufragen, verwenden alle veröffentlichten Wissensdatenbanken denselben URL-Endpunkt, geben aber die **Wissensdatenbank-ID** in der Route an.
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### <a name="application-insights"></a>Application Insights
-
-[Application Insights](../../../azure-monitor/app/app-insights-overview.md) wird verwendet, um Chatprotokolle und Telemetriedaten zu erfassen. Verwenden Sie die allgemeinen [Kusto-Abfragen](../how-to/get-analytics-knowledge-base.md), um Informationen zu Ihrem Dienst zu erhalten.
-
-## <a name="share-services-with-qna-maker"></a>Freigeben von Diensten mit QnA Maker
-
-QnA Maker erstellt verschiedene Azure-Ressourcen. Wenn Sie den Verwaltungsaufwand reduzieren und von der Kostenteilung profitieren möchten, informieren Sie sich anhand der folgenden Tabelle, was Sie freigeben können und was nicht:
-
-|Dienst|Freigabe|`Reason`|
-|--|--|--|
-|Cognitive Services|X|Programmbedingt nicht möglich.|
-|App Service-Plan|✔|Der für einen App Service-Plan zugewiesene Speicherplatz auf dem Datenträger. Wenn andere Apps, die denselben App Service-Plan gemeinsam nutzen, eine erhebliche Menge an Speicherplatz belegen, treten bei der QnAMaker App Service-Instanz Probleme auf.|
-|App Service|X|Programmbedingt nicht möglich.|
-|Application Insights|✔|Gemeinsame Nutzung möglich.|
-|Suchdienst|✔|1. `testkb` ist ein reservierter Name für den QnAMaker-Dienst, der von anderen Benutzern nicht verwendet werden kann.<br>2. Eine Synonymzuordnung nach dem Namen `synonym-map` ist für den QnAMaker-Dienst reserviert.<br>3. Die Anzahl von veröffentlichten Wissensdatenbanken wird durch den Suchdiensttarif begrenzt. Wenn freie Indizes verfügbar sind, können sie von anderen Diensten genutzt werden.|
-
-### <a name="using-a-single-cognitive-search-service"></a>Verwenden eines einzelnen Cognitive Search-Diensts
-
-Wenn Sie einen QnA-Dienst und dessen Abhängigkeiten (z.B. Search) über das Portal erstellen, wird automatisch ein Suchdienst erstellt und mit dem QnA Maker-Dienst verknüpft. Nachdem diese Ressourcen erstellt wurden, können Sie die App Service-Einstellung aktualisieren, um einen bereits vorhandenen Suchdienst zu nutzen und den soeben erstellten Suchdienst zu entfernen.
-
-Erfahren Sie, wie Sie QnA Maker [so konfigurieren](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource), dass er eine andere Cognitive Service-Ressource als die verwendet, die im Rahmen des Ressourcenerstellungsvorgangs für QnA Maker erstellt wurde.
-
-## <a name="management-service-region"></a>Verwaltungsdienstregion
-
-Der Verwaltungsdienst von QnA Maker wird nur für das QnA Maker-Portal und für die anfängliche Datenverarbeitung genutzt. Dieser Dienst ist nur in der Region **USA, Westen** verfügbar. In diesem Dienst (USA, Westen) werden keine Kundendaten gespeichert.
-
-## <a name="keys-in-qna-maker"></a>Schlüssel in QnA Maker
-
-Ihr QnA Maker-Dienst befasst sich mit zwei Arten von Schlüsseln: **Erstellungsschlüsseln** und **Anfrageendpunktschlüsseln**, die zusammen mit der im App Service gehosteten Runtime verwendet werden.
-
-Wenn Sie nach Ihrem **Abonnementschlüssel** suchen, nehmen Sie zur Kenntnis, dass sich [die Terminologie geändert hat](#subscription-keys).
-
-Verwenden Sie diese Schlüssel, wenn Sie Anforderungen an den Dienst über APIs senden.
-
-![Schlüsselverwaltung](../media/qnamaker-how-to-key-management/key-management.png)
-
-|Name|Standort|Zweck|
-|--|--|--|
-|Erstellungsschlüssel|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|Diese Schlüssel werden verwendet, um auf die [QnA Maker-Verwaltungsdienst-APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) zuzugreifen. Mit diesen APIs können Sie die Fragen und Antworten in Ihrer Wissensdatenbank bearbeiten und Ihre Wissensdatenbank veröffentlichen. Diese Schlüssel werden erstellt, wenn Sie einen neuen QnA Maker-Dienst erstellen.<br><br>Sie finden diese Schlüssel in der Ressource **Cognitive Services** auf der Seite **Schlüssel**.|
-|Abfrageendpunktschlüssel|[QnA Maker-Portal](https://www.qnamaker.ai)|Diese Schlüssel werden zum Abfragen des Endpunkts der veröffentlichten Wissensdatenbank verwendet, um eine Antwort auf eine Benutzerfrage abzurufen. In der Regel verwenden Sie diesen Abfrageendpunkt in Ihrem Chatbot oder im Clientanwendungscode, der eine Verbindung mit dem QnA Maker-Dienst herstellt. Diese Schlüssel werden erstellt, wenn Sie Ihre QnA Maker-Wissensdatenbank veröffentlichen.<br><br>Sie finden diese Schlüssel auf der Seite **Diensteinstellungen**. Suchen Sie diese Seite im Menü des Benutzers in der oberen rechten Ecke der Seite im Dropdownmenü.|
-
-### <a name="subscription-keys"></a>Abonnementschlüssel
-
-Die Begriffe „Erstellungsschlüssel“ und „Abfrageendpunktschlüssel“ dienen der Berichtigung. Der vorherig verwendete Begriff lautete **Abonnementschlüssel**. Wenn in anderen Dokumenten der Dokumentation auf Abonnementschlüssel verwiesen wird, sind diese gleichbedeutend mit Erstellungs- und Abfrageendpunktschlüsseln (die in der Runtime verwendet werden).
-
-Sie müssen wissen, welchen Zweck der Zugriff mit dem Schlüssel verfolgt, die Verwaltung der Wissensdatenbank oder die Abfrage der Wissensdatenbank, damit Sie wissen, welcher Schlüssel gesucht werden muss.
-
-### <a name="recommended-settings-for-network-isolation"></a>Empfohlene Einstellungen für die Netzwerkisolation
-
-* Schützen Sie Cognitive Services-Ressourcen vor öffentlichem Zugriff, indem Sie [das virtuelle Netzwerk konfigurieren](../../cognitive-services-virtual-networks.md?tabs=portal).
-* Schützen von App Service (QnA-Runtime) vor öffentlichem Zugriff:
-    * Lassen Sie nur Datenverkehr von Cognitive Services-IP-Adressen zu. Diese sind im Diensttag „CognitiveServicesManagement“ bereits enthalten. Dies ist für die Erstellung von APIs (KB erstellen/aktualisieren) erforderlich, um die App Service-Instanz aufzurufen und den Azure Search-Dienst entsprechend zu aktualisieren.
-    * Stellen Sie außerdem sicher, dass Sie auch andere Einstiegspunkte, z. B. Bot Service, QnA Maker-Portal (ggf. Ihr Unternehmensnetzwerk) usw., für den Zugriff auf die „GenerateAnswer“-API zulassen, um Vorhersagen durchzuführen.
-    * Lesen Sie die [weiteren Informationen zu Diensttags](../../../virtual-network/service-tags-overview.md).
-
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
 
 Der Ressourcenname für die QnA Maker verwaltet-Ressource (Vorschau), wie etwa `qna-westus-f0-b`, wird auch zum Benennen der weiteren Ressourcen verwendet.
@@ -275,12 +262,87 @@ Im Erstellen-Fenster des Azure-Portals können Sie eine QnA Maker verwaltet-Ress
 > [!TIP]
 > Verwenden Sie eine Benennungskonvention, die Tarifstufen im Namen der Ressource oder Ressourcengruppe anzeigt. Wenn beim Erstellen einer neuen Wissensdatenbank oder beim Hinzufügen neuer Dokumente Fehler angezeigt werden, ist der Grenzwert des Cognitive Search-Tarifs ein häufiges Problem.
 
-### <a name="resource-purposes"></a>Zwecke von Ressourcen
+---
+
+## <a name="resource-purposes"></a>Zwecke von Ressourcen
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker, allgemeine Verfügbarkeit (stabile Version)](#tab/v1)
+
+Jede Azure-Ressource, die mit QnA Maker erstellt wird, hat einen bestimmten Zweck:
+
+* QnA Maker-Ressource
+* Cognitive Search-Ressource
+* App Service
+* App-Plandienst
+* Application Insights-Dienst
+
+### <a name="qna-maker-resource"></a>QnA Maker-Ressource
+
+Die QnA Maker-Ressource bietet zur Laufzeit Zugriff auf die Erstellungs- und Veröffentlichungs-APIs sowie auf die zweite Bewertungsschicht (Bewerter Nr. 2) der QnA-Paare, die auf natürlichsprachlicher Verarbeitung (Natural Language Processing, NLP) beruht.
+
+Die zweite Bewertung wendet intelligente Filter an, die Metadaten und Folgeaufforderungen beinhalten können.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>Ressourcenkonfigurationseinstellungen für QnA Maker
+
+Wenn Sie eine neue Wissensdatenbank im [QnA Maker-Portal](https://qnamaker.ai) erstellen, ist die Einstellung für **Sprache** die einzige Einstellung, die auf der Ressourcenebene angewendet wird. Sie wählen die Sprache aus, wenn Sie die erste Wissensdatenbank für die Ressource erstellen.
+
+### <a name="cognitive-search-resource"></a>Cognitive Search-Ressource
+
+Die [Cognitive Search](../../../search/index.yml)-Ressource wird für diese Zwecke verwendet:
+
+* Speichern der QnA-Paare
+* Angeben der anfänglichen Rangfolge (Bewerter Nr. 1) der QnA-Paare zur Laufzeit
+
+#### <a name="index-usage"></a>Indexnutzung
+
+Die Ressource pflegt einen Index, der als Testindex fungiert, und die verbleibenden Indizes korrelieren jeweils zu einer veröffentlichten Wissensdatenbank.
+
+Eine Ressource, die nach ihrem Preis 15 Indizes unterhalten kann, enthält 14 veröffentlichte Wissensdatenbanken, während ein Index zum Testen aller Wissensdatenbanken verwendet wird. Dieser Testindex ist nach Wissensdatenbanken partitioniert, sodass eine Abfrage, die den interaktiven Testbereich verwendet, den Testindex verwendet, jedoch nur Ergebnisse aus der spezifischen Partition zurückgibt, die der spezifischen Wissensdatenbank zugeordnet ist.
+
+#### <a name="language-usage"></a>Sprachverwendung
+
+Die erste Wissensdatenbank, die in der QnA Maker-Ressource erstellt wird, wird verwendet, um den _einzelnen_ Sprachsatz zu bestimmen, der für die Cognitive Search-Ressource und alle zugehörigen Indizes festgelegt ist. Es kann nur _ein Sprachsatz_ für einen QnA Maker-Dienst festgelegt werden.
+
+#### <a name="using-a-single-cognitive-search-service"></a>Verwenden eines einzelnen Cognitive Search-Diensts
+
+Wenn Sie einen QnA-Dienst und dessen Abhängigkeiten (z.B. Search) über das Portal erstellen, wird automatisch ein Suchdienst erstellt und mit dem QnA Maker-Dienst verknüpft. Nachdem diese Ressourcen erstellt wurden, können Sie die App Service-Einstellung aktualisieren, um einen bereits vorhandenen Suchdienst zu nutzen und den soeben erstellten Suchdienst zu entfernen.
+
+Erfahren Sie, wie Sie QnA Maker [so konfigurieren](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource), dass er eine andere Cognitive Service-Ressource als die verwendet, die im Rahmen des Ressourcenerstellungsvorgangs für QnA Maker erstellt wurde.
+
+### <a name="app-service-and-app-service-plan"></a>App Service und App Service-Plan
+
+Der [App Service](../../../app-service/index.yml) wird von Ihrer Clientanwendung verwendet, um über den Laufzeitendpunkt auf die veröffentlichten Wissensdatenbanken zuzugreifen.
+
+Um die veröffentlichte Wissensdatenbank abzufragen, verwenden alle veröffentlichten Wissensdatenbanken denselben URL-Endpunkt, geben aber die **Wissensdatenbank-ID** in der Route an.
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### <a name="application-insights"></a>Application Insights
+
+[Application Insights](../../../azure-monitor/app/app-insights-overview.md) wird verwendet, um Chatprotokolle und Telemetriedaten zu erfassen. Verwenden Sie die allgemeinen [Kusto-Abfragen](../how-to/get-analytics-knowledge-base.md), um Informationen zu Ihrem Dienst zu erhalten.
+
+### <a name="share-services-with-qna-maker"></a>Freigeben von Diensten mit QnA Maker
+
+QnA Maker erstellt verschiedene Azure-Ressourcen. Wenn Sie den Verwaltungsaufwand reduzieren und von der Kostenteilung profitieren möchten, informieren Sie sich anhand der folgenden Tabelle, was Sie freigeben können und was nicht:
+
+|Dienst|Freigabe|`Reason`|
+|--|--|--|
+|Cognitive Services|X|Programmbedingt nicht möglich.|
+|App Service-Plan|✔|Der für einen App Service-Plan zugewiesene Speicherplatz auf dem Datenträger. Wenn andere Apps, die denselben App Service-Plan gemeinsam nutzen, eine erhebliche Menge an Speicherplatz belegen, treten bei der QnAMaker App Service-Instanz Probleme auf.|
+|App Service|X|Programmbedingt nicht möglich.|
+|Application Insights|✔|Gemeinsame Nutzung möglich.|
+|Suchdienst|✔|1. `testkb` ist ein reservierter Name für den QnAMaker-Dienst, der von anderen Benutzern nicht verwendet werden kann.<br>2. Eine Synonymzuordnung nach dem Namen `synonym-map` ist für den QnAMaker-Dienst reserviert.<br>3. Die Anzahl von veröffentlichten Wissensdatenbanken wird durch den Suchdiensttarif begrenzt. Wenn freie Indizes verfügbar sind, können sie von anderen Diensten genutzt werden.|
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker verwaltet (Vorschauversion)](#tab/v2)
 
 Jede Azure-Ressource, die mit QnA Maker verwaltet (Vorschau) erstellt wird, hat einen bestimmten Zweck.
 
 * QnA Maker-Ressource
 * Cognitive Search-Ressource
+
+### <a name="qna-maker-resource"></a>QnA Maker-Ressource
+
+Die QnA Maker verwaltet-Ressource (Vorschau) bietet Zugriff auf die Erstellungs- und Veröffentlichungs-APIs, hostet die Rangfolgeruntime und stellt die Telemetrie bereit.
 
 ### <a name="azure-cognitive-search-resource"></a>Azure Cognitive Search-Ressource
 
@@ -298,39 +360,6 @@ Wenn Ihr Tarif z. B. 15 zulässige Indizes aufweist, können Sie 14 Wissensdate
 #### <a name="language-usage"></a>Sprachverwendung
 
 Mit QnA Maker verwaltet (Vorschau) haben Sie die Wahl, Ihren QnA Maker-Dienst für Wissensdatenbanken in einer einzelnen oder in mehreren Sprachen einzurichten. Sie treffen diese Wahl bei der Erstellung der ersten Wissensdatenbank in Ihrem QnA Maker-Dienst. Weitere Informationen zum Aktivieren der Spracheinstellung pro Wissensdatenbank finden Sie [hier](#pricing-tier-considerations).
-
-### <a name="qna-maker-resource"></a>QnA Maker-Ressource
-
-Die QnA Maker verwaltet-Ressource (Vorschau) bietet Zugriff auf die Erstellungs- und Veröffentlichungs-APIs, hostet die Rangfolgeruntime und stellt die Telemetrie bereit.
-
-## <a name="region-support"></a>Unterstützung für Regionen
-
-Bei QnA Maker verwaltet (Vorschau) befinden sich sowohl die Verwaltungs- als auch die Vorhersage-Dienste in derselben Region. Derzeit ist QnA Maker verwaltet (Vorschau) in **USA (Süden-Mitte), Europa (Norden) und Australien (Osten)** verfügbar.
-
-### <a name="keys-in-qna-maker-managed-preview"></a>Schlüssel in QnA Maker verwaltet (Vorschau)
-
-Ihr QnA Maker verwaltet-Dienst (Vorschau) befasst sich mit zwei Arten von Schlüsseln: **Erstellungsschlüssel** und **Azure Cognitive Search-Schlüssel**, die für den Zugriff auf den Dienst im Abonnement des Kunden verwendet werden.
-
-Wenn Sie nach Ihrem **Abonnementschlüssel** suchen, nehmen Sie zur Kenntnis, dass sich [die Terminologie geändert hat](#subscription-keys).
-
-Verwenden Sie diese Schlüssel, wenn Sie Anforderungen an den Dienst über APIs senden.
-
-![Schlüsselverwaltung: Verwaltete Vorschau](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
-
-|Name|Standort|Zweck|
-|--|--|--|
-|Erstellungsschlüssel|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|Diese Schlüssel werden verwendet, um auf die [QnA Maker-Verwaltungsdienst-APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) zuzugreifen. Mit diesen APIs können Sie die Fragen und Antworten in Ihrer Wissensdatenbank bearbeiten und Ihre Wissensdatenbank veröffentlichen. Diese Schlüssel werden erstellt, wenn Sie einen neuen QnA Maker-Dienst erstellen.<br><br>Sie finden diese Schlüssel in der Ressource **Cognitive Services** auf der Seite **Schlüssel**.|
-|Administratorschlüssel von Azure Cognitive Search|[Azure portal](../../../search/search-security-api-keys.md)|Diese Schlüssel werden verwendet, um mit dem Azure Cognitive Search-Dienst zu kommunizieren, der im Azure-Abonnement des Benutzers bereitgestellt wird. Wenn Sie Azure Cognitive Search mit dem QnA Maker verwaltet-Dienst (Vorschau) verknüpfen, wird der Administratorschlüssel automatisch an den QnA Maker-Dienst weitergeleitet. <br><br>Sie finden diese Schlüssel in der **Azure Cognitive Search**-Ressource auf der Seite **Schlüssel**.|
-
-### <a name="subscription-keys"></a>Abonnementschlüssel
-
-Die Begriffe „Erstellungsschlüssel“ und „Abfrageendpunktschlüssel“ dienen der Berichtigung. Der vorherig verwendete Begriff lautete **Abonnementschlüssel**. Wenn in anderen Dokumenten der Dokumentation auf Abonnementschlüssel verwiesen wird, sind diese gleichbedeutend mit Erstellungs- und Abfrageendpunktschlüsseln (die in der Runtime verwendet werden).
-
-Sie müssen wissen, welchen Zweck der Zugriff mit dem Schlüssel verfolgt, die Verwaltung der Wissensdatenbank oder die Abfrage der Wissensdatenbank, damit Sie wissen, welcher Schlüssel gesucht werden muss.
-
-### <a name="recommended-settings-for-network-isolation"></a>Empfohlene Einstellungen für die Netzwerkisolation 
-
-Schützen Sie Cognitive Services-Ressourcen vor öffentlichem Zugriff, indem Sie [das virtuelle Netzwerk konfigurieren](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 

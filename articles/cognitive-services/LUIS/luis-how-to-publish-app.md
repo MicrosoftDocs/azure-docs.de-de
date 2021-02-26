@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180029"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558895"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Veröffentlichen Ihrer aktiven, trainierten App an einem Staging- oder Produktionsendpunkt
 
@@ -57,7 +57,6 @@ Wenn Sie beispielsweise für eine auf [www.luis.ai](https://www.luis.ai) erstell
 Nachdem Sie den Slot ausgewählt haben, konfigurieren Sie die Veröffentlichungseinstellungen für:
 
 * Stimmungsanalyse
-* [Rechtschreibkorrektur](luis-tutorial-bing-spellcheck.md)
 * Sprachvorbereitung
 
 Nach der Veröffentlichung können Sie diese Einstellungen auf der zum Abschnitt **Verwalten** gehörenden Seite **Veröffentlichungseinstellungen** ändern. Sie können die Einstellungen mit jeder Veröffentlichung ändern. Wenn Sie eine Veröffentlichung abbrechen, werden alle Änderungen, die Sie während der Veröffentlichung vorgenommen haben, ebenfalls abgebrochen.
@@ -79,37 +78,6 @@ Sie müssen keine Textanalyseschlüssel bereitstellen, und es entstehen keine Ab
 Stimmungsdaten stellen eine Bewertung zwischen 1 und 0 dar, die eine eher positive (näher an 1) oder negative (näher an 0) Stimmung in den Daten angibt. Die Stimmungsbezeichnung von `positive`, `neutral` und `negative` gilt jeweils pro unterstützter Kultur. Derzeit unterstützt nur Englisch Stimmungsbezeichnungen.
 
 Weitere Informationen zur JSON-Endpunktantwort im Zusammenhang mit der Standpunktanalyse finden Sie unter [Standpunktanalyse](luis-reference-prebuilt-sentiment.md).
-
-## <a name="spelling-correction"></a>Rechtschreibkorrektur
-
-Die V3-Vorhersage-API unterstützt jetzt die Bing-Rechtschreibprüfungs-API. Sie können der Anwendung eine Rechtschreibprüfung hinzufügen, indem Sie den Schlüssel zur Ressource der Bing-Suche in der Kopfzeile Ihrer Anforderungen einschließen. Sie können eine vorhandene Bing-Ressource verwenden, wenn Sie bereits über eine verfügen, oder [eine neue erstellen](https://portal.azure.com/#create/Microsoft.BingSearch), um dieses Feature zu verwenden. 
-
-|Headerschlüssel|Headerwert|
-|--|--|
-|`mkt-bing-spell-check-key`|Auf dem Blatt **Keys and Endpoint** (Schlüssel und Endpunkte) der Ressource gefundene Schlüssel|
-
-Beispiel für eine Vorhersageausgabe für eine falsch geschriebene Abfrage:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Korrekturen an der Rechtschreibung werden vor der LUIS-Äußerungsvorhersage für den Benutzer vorgenommen. In der Antwort können Sie alle Änderungen an der ursprünglichen Äußerung, einschließlich Rechtschreibung, sehen.
 
 ## <a name="speech-priming"></a>Sprachvorbereitung
 

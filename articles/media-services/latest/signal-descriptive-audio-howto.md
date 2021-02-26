@@ -1,5 +1,5 @@
 ---
-title: Signalisieren beschreibender Audiospuren mit Azure Media Services v3 | Microsoft-Dokumentation
+title: Signalisieren beschreibender Audiospuren mit Media Services v3
 description: Führen Sie die Schritte in diesem Tutorial aus, um eine Datei hochzuladen, das Video zu codieren, beschreibende Audiospuren hinzuzufügen und Ihre Inhalte mit Media Services v3 zu streamen.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bd2002e8f6f233361dd85cc08cfbd97ca23ed60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291261"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954511"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signalisieren beschreibender Audiospuren
 

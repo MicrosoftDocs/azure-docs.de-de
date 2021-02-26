@@ -3,16 +3,16 @@ title: 'Tutorial: Überwachen eines Hybridcomputers mit Azure Monitor für VMs'
 description: Hier erfahren Sie, wie Sie Daten von einem Hybridcomputer in Azure Monitor sammeln und analysieren.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587691"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Überwachen eines Hybridcomputers mit Azure Monitor für VMs
 
-[Azure Monitor](../overview.md) kann Daten direkt von Ihren Hybridcomputern zur detaillierten Analyse und Korrelation in einem Log Analytics-Arbeitsbereich sammeln. Normalerweise müssten Sie dazu den [Log Analytics-Agent](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) mithilfe eines Skripts, manuell oder mit einer automatisierten Methode gemäß Ihren Standards zur Konfigurationsverwaltung auf dem Computer installieren. Die kürzlich eingeführten Server mit Azure Arc-Unterstützung unterstützen die Installation der Log Analytics- und Dependency-Agent-[VM-Erweiterungen](../manage-vm-extensions.md) für Windows und Linux und ermöglichen es Azure Monitor, Daten von Ihren Nicht-Azure-VMs zu sammeln.
+[Azure Monitor](../overview.md) kann Daten direkt von Ihren Hybridcomputern zur detaillierten Analyse und Korrelation in einem Log Analytics-Arbeitsbereich sammeln. Normalerweise müssten Sie dazu den [Log Analytics-Agent](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) mithilfe eines Skripts, manuell oder mit einer automatisierten Methode gemäß Ihren Standards zur Konfigurationsverwaltung auf dem Computer installieren. Die kürzlich eingeführten Server mit Azure Arc-Unterstützung unterstützen die Installation der Log Analytics- und Dependency-Agent-[VM-Erweiterungen](../manage-vm-extensions.md) für Windows und Linux und ermöglichen es Azure Monitor, Daten von Ihren Nicht-Azure-VMs zu sammeln.
 
 In diesem Tutorial erfahren Sie, wie Sie die Konfiguration vornehmen und Daten von Ihren Linux- oder Windows-Computern sammeln, indem Sie Azure Monitor für VMs mithilfe vereinfachter Schritte aktivieren, die den Prozess optimieren und beschleunigen.  
 
@@ -22,9 +22,9 @@ In diesem Tutorial erfahren Sie, wie Sie die Konfiguration vornehmen und Daten v
 
 * Die Funktionalität der VM-Erweiterungen ist nur in den [unterstützten Regionen](../overview.md#supported-regions) aus der Liste verfügbar.
 
-* Vergewissern Sie sich unter [Unterstützte Betriebssysteme](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems), dass das Serverbetriebssystem, das Sie aktivieren, von Azure Monitor für VMs unterstützt wird.
+* Vergewissern Sie sich unter [Unterstützte Betriebssysteme](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems), dass das Serverbetriebssystem, das Sie aktivieren, von Azure Monitor für VMs unterstützt wird.
 
-* Überprüfen Sie die Firewallanforderungen für den Log Analytics-Agent in der [Übersicht über den Log Analytics-Agent](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). Der Dependency-Agent für das Zuordnungsfeature von Azure Monitor für VMs überträgt selbst keine Daten und erfordert keine Änderungen an Firewalls oder Ports.
+* Überprüfen Sie die Firewallanforderungen für den Log Analytics-Agent in der [Übersicht über den Log Analytics-Agent](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). Der Dependency-Agent für das Zuordnungsfeature von Azure Monitor für VMs überträgt selbst keine Daten und erfordert keine Änderungen an Firewalls oder Ports.
 
 ## <a name="sign-in-to-azure-portal"></a>Anmelden beim Azure-Portal
 

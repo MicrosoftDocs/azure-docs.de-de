@@ -1,18 +1,18 @@
 ---
 title: Verknüpfen der Partner-ID, um die Auswirkungen auf delegierte Ressourcen nachzuverfolgen
 description: Hier erfahren Sie, wie Sie Ihre Partner-ID zuordnen, um vom Partner erworbenes Guthaben (Partner Earned Credit, PEC) für Kundenressourcen zu erhalten, die Sie über Azure Lighthouse verwalten.
-ms.date: 10/30/2020
+ms.date: 01/28/2021
 ms.topic: how-to
-ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080276"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985970"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Verknüpfen der Partner-ID, um die Auswirkungen auf delegierte Ressourcen nachzuverfolgen 
 
-Als Mitglied des [Microsoft Partner Network](https://partner.microsoft.com/) können Sie Ihre Partner-ID mit den Anmeldeinformationen verknüpfen, die für die Verwaltung delegierter Kundenressourcen verwendet werden. Mithilfe des Partneradministratorlinks (PAL) kann Microsoft Partner ermitteln und würdigen, die zum Erfolg von Azure-Kunden beitragen. Dieser Link ermöglicht es [CSP](/partner-center/csp-overview)-Partnern (Cloud Solution Provider), [vom Partner erworbenes Guthaben (Partner Earned Credit, PEC)](/partner-center/partner-earned-credit) für Kunden zu erhalten, die die [Microsoft-Kundenvereinbarung (MCA) unterschrieben](/partner-center/confirm-customer-agreement) haben und den [Azure-Plan](/partner-center/azure-plan-get-started) verwenden.
+Wenn Sie Mitglied des [Microsoft Partner Network](https://partner.microsoft.com/) sind, können Sie Ihre Partner-ID mit den Anmeldeinformationen verknüpfen, die für die Verwaltung delegierter Kundenressourcen verwendet werden, sodass Microsoft die Partner ermitteln und würdigen kann, die zum Erfolg von Azure-Kunden beitragen. Dieser Link ermöglicht es [CSP](/partner-center/csp-overview)-Partnern (Cloud Solution Provider), [vom Partner erworbenes Guthaben (Partner Earned Credit, PEC)](/partner-center/partner-earned-credit) für Kunden zu erhalten, die die [Microsoft-Kundenvereinbarung (MCA) unterschrieben](/partner-center/confirm-customer-agreement) haben und den [Azure-Plan](/partner-center/azure-plan-get-started) verwenden.
 
 Wenn Sie das [Onboarding von Kunden mit Angeboten für verwaltete Dienste im Azure Marketplace durchführen](publish-managed-services-offers.md), erfolgt diese Verknüpfung automatisch unter Verwendung der MPN-ID des Partner Center-Kontos, mit dem die Angebote veröffentlicht wurden. Es sind keine weiteren Schritte erforderlich, um die Auswirkungen für diese Kunden nachzuverfolgen.
 
@@ -30,7 +30,7 @@ Der Einfachheit halber empfiehlt es sich, ein Dienstprinzipalkonto in Ihrem Mand
 
 Durch diese Schritte wird jeder von Ihnen verwaltete Kundenmandant mit Ihrer Partner-ID verknüpft. „Provider Automation Account“ muss sich nicht authentifizieren oder Aktionen im Kundenmandanten ausführen.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Abbildung: PAL-Prozess mit Azure Lighthouse.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagramm zur Darstellung des Partner-ID-Verknüpfungsvorgangs mit Azure Lighthouse.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Hinzufügen Ihrer Partner-ID zu Kunden, für die bereits ein Onboarding durchgeführt wurde
 

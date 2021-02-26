@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
-ms.date: 09/25/2019
-ms.openlocfilehash: fed568d67c688a8c2adab979eb68eaf384a72172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 02/03/2021
+ms.openlocfilehash: 359f268f69918ccfd9fe34a28c3f8d1c79988393
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539272"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575613"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Onlinemigration von MongoDB zur Azure Cosmos DB-API für MongoDB mit DMS
 
@@ -68,6 +68,18 @@ Für dieses Tutorial benötigen Sie Folgendes:
 * Vergewissern Sie sich, dass die folgenden Kommunikationsports nicht durch Regeln für Netzwerksicherheitsgruppen (NSGs) des virtuellen Netzwerks blockiert werden: 53, 443, 445, 9354 und 10000-20000. Ausführlichere Informationen zur NSG-Datenverkehrsfilterung in einem virtuellen Netzwerk finden Sie im Artikel [Filtern des Netzwerkdatenverkehrs mit Netzwerksicherheitsgruppen](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Öffnen Sie Ihre Windows-Firewall, damit Azure Database Migration Service auf den MongoDB-Quellserver zugreifen kann (standardmäßig TCP-Port 27017).
 * Wenn Sie eine Firewallappliance vor Ihren Quelldatenbanken verwenden, müssen Sie möglicherweise Firewallregeln hinzufügen, um Azure Database Migration Service den Zugriff auf die Quelldatenbanken für die Migration zu ermöglichen.
+
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>Konfigurieren serverseitiger Wiederholungen für Azure Cosmos DB für eine effiziente Migration
+
+Kunden, die von MongoDB zu Azure Cosmos DB migrieren, profitieren von Ressourcengovernancefunktionen, die die vollständige Nutzung Ihres bereitgestellten Durchsatzes (RU/s) garantieren. Von Azure Cosmos DB können im Laufe der Migration ggf. Data Migration Service-Anforderungen gedrosselt werden, wenn bei ihnen die vom Container bereitgestellte Menge an RU/s überschritten wird. In diesem Fall muss die Anforderung wiederholt werden. Data Migration Service kann zwar Wiederholungsversuche durchführen, die Roundtripzeit für den Netzwerkhop zwischen Data Migration Service und Azure Cosmos DB wirkt sich allerdings insgesamt nachteilig auf die Antwortzeit der Anforderung aus. Durch die Verbesserung der Antwortzeit für gedrosselte Anforderungen kann die Gesamtdauer der Migration verkürzt werden. Das Feature *Serverseitige Wiederholung* von Azure Cosmos DB ermöglicht es dem Dienst, drosselungsbedingte Fehlercodes abzufangen und eine Wiederholung mit wesentlich kürzerer Roundtripzeit durchzuführen, wodurch sich die Antwortzeiten von Anforderungen erheblich verbessern.
+
+Die Funktion „Serverseitige Wiederholung“ (Server Side Retry, SSR) finden Sie im Azure Cosmos DB-Portal auf dem Blatt *Features*.
+
+![Screenshot: Serverseitige Wiederholung von MongoDB](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-feature.png)
+
+Ist das Feature *deaktiviert*, wird empfohlen, es wie im Anschluss gezeigt zu aktivieren:
+
+![Screenshot: Aktivieren der serverseitigen Wiederholung von MongoDB](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrieren des Ressourcenanbieters „Microsoft.DataMigration“
 

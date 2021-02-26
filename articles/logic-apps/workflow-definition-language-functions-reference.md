@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234221"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507247"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referenzhandbuch für die Verwendung von Funktionen in Ausdrücken für Azure Logic Apps und Power Automate
 
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 In diesem Beispiel werden 10 Tage zu dem angegebenen Zeitstempel addiert:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-Dies ist das zurückgegebene Ergebnis: `"2018-03-25T00:00:0000000Z"`
+Dies ist das zurückgegebene Ergebnis: `"2018-03-25T00:00:00.0000000Z"`
 
 *Beispiel 2*
 
@@ -582,7 +582,7 @@ In diesem Beispiel werden 10 Tage vom angegebenen Zeitstempel subtrahiert:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-Dies ist das zurückgegebene Ergebnis: `"2018-03-10T00:00:0000000Z"`
+Dies ist das zurückgegebene Ergebnis: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ In diesem Beispiel werden 10 Stunden zu dem angegebenen Zeitstempel addiert:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-Dies ist das zurückgegebene Ergebnis: `"2018-03-15T10:00:0000000Z"`
+Das Ergebnis „2018-03-15T10:00:00.0000000Z“ wird zurückgegeben.
 
 *Beispiel 2*
 
@@ -624,7 +624,7 @@ In diesem Beispiel werden 10 Stunden vom angegebenen Zeitstempel subtrahiert:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-Dies ist das zurückgegebene Ergebnis: `"2018-03-15T10:00:0000000Z"`
+Dies ist das zurückgegebene Ergebnis: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Nein | String | Ein einzelner [Formatbezeichner](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) für den zurückgegebenen GUID. Das Standardformat ist „D“, Sie können  aber „N“, „D“, „B“, „P“ oder „X“ verwenden. |
+| <*format*> | Nein | String | Ein einzelner [Formatbezeichner](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) für den zurückgegebenen GUID. Das Standardformat ist „D“, Sie können  aber „N“, „D“, „B“, „P“ oder „X“ verwenden. |
 |||||
 
 | Rückgabewert | type | BESCHREIBUNG |
@@ -4011,7 +4011,7 @@ In diesem Beispiel wird ein Tag von diesem Zeitstempel subtrahiert:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-Dies ist das zurückgegebene Ergebnis: `"2018-01-01T00:00:00:0000000Z"`
+Dies ist das zurückgegebene Ergebnis: `"2018-01-01T00:00:00.0000000Z"`
 
 *Beispiel 2*
 
@@ -4063,7 +4063,7 @@ Dies sind die zurückgegebenen Ergebnisse:
 
 ### <a name="ticks"></a>ticks
 
-Gibt die Anzahl der Ticks zurück, bei denen es sich um 100-Nanosekunden-Intervalle handelt, seit dem 1. Januar 0001 12:00:00 Mitternacht (oder DateTime.Ticks in C# ) bis zum angegebenen Zeitstempel. Weitere Informationen finden Sie in diesem Thema: [DateTime.Ticks-Eigenschaft (System)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Gibt die Anzahl der Ticks zurück, bei denen es sich um 100-Nanosekunden-Intervalle handelt, seit dem 1. Januar 0001 12:00:00 Mitternacht (oder DateTime.Ticks in C# ) bis zum angegebenen Zeitstempel. Weitere Informationen finden Sie in diesem Thema: [DateTime.Ticks-Eigenschaft (System)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

@@ -1,19 +1,17 @@
 ---
 title: Datenzugriffsstrategien
 description: Azure Data Factory unterstützt jetzt statische IP-Adressbereiche.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632769"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389245"
 ---
 # <a name="data-access-strategies"></a>Datenzugriffsstrategien
 

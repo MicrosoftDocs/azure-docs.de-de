@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623753"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522579"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Aktivieren und Einrichten der lokalen Verwaltungskonsole 
 
@@ -316,6 +316,6 @@ So heben Sie die Zuweisung eines Sensors auf und löschen ihn:
 
 3. Zum Löschen des nicht zugewiesenen Sensors aus dem Standort wählen Sie ihn aus der Liste der nicht zugewiesenen Sensoren und dann :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: aus.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Behandeln von Problemen mit dem Sensor und der lokalen Verwaltungskonsole](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

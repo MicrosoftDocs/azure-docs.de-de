@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060009"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980574"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Übersicht zu Isolation und Datenschutz bei virtuellen Netzwerken
 
@@ -137,6 +137,15 @@ Das folgende Netzwerkdiagramm zeigt einen geschützten Azure Machine Learning-Ar
 ### <a name="limitations"></a>Einschränkungen
 - AKS-Cluster müssen demselben VNET angehören wie der Arbeitsbereich und die zugehörigen Ressourcen. 
 
+## <a name="optional-enable-public-access"></a>Optional: Aktivieren des öffentlichen Zugriffs
+
+Sie können den Arbeitsbereich hinter einem VNet mithilfe eines privaten Endpunkts schützen und weiterhin den Zugriff über das öffentliche Internet zulassen. Die anfängliche Konfiguration entspricht der zum [Schützen von Arbeitsbereich und zugehörigen Ressourcen](#secure-the-workspace-and-associated-resources). 
+
+Nachdem Sie den Arbeitsbereich mit einer privaten Verbindung geschützt haben, [aktivieren Sie den öffentlichen Zugriff](how-to-configure-private-link.md#enable-public-access). Anschließend können Sie über das öffentliche Internet und das VNet auf den Arbeitsbereich zugreifen.
+
+### <a name="limitations"></a>Einschränkungen
+
+- Wenn Sie Azure Machine Learning Studio über das öffentliche Internet verwenden, können einige Features wie der Designer möglicherweise nicht auf Ihre Daten zugreifen. Dieses Problem tritt auf, wenn die Daten in einem Dienst gespeichert werden, der hinter dem VNet geschützt ist. Dies gilt z. B. für ein Azure Storage-Konto.
 ## <a name="optional-enable-studio-functionality"></a>Aktivieren der Studio-Funktionalität (optional)
 
 [Schützen des Arbeitsbereichs](#secure-the-workspace-and-associated-resources) > [Schützen der Trainingsumgebung](#secure-the-training-environment) > [Schützen der Rückschlussumgebung](#secure-the-inferencing-environment) > **Aktivieren der Studio-Funktionalität** > [Konfigurieren der Firewalleinstellungen](#configure-firewall-settings)

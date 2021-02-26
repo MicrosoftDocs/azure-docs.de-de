@@ -79,6 +79,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Floating IP-Konfiguration
       href: load-balancer-floating-ip.md
+    - name: Verteilungsmodi
+      href: distribution-mode-concepts.md
     - name: Sicherheit
       items:
         - name: Sicherheitsbaseline

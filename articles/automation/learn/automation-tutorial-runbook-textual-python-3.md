@@ -3,14 +3,14 @@ title: Erstellen eines Python 3-Runbooks (Vorschau) in Azure Automation
 description: In diesem Artikel wird beschrieben, wie Sie ein einfaches Python 3-Runbook (Vorschau) erstellen, testen und veröffentlichen.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
-ms.openlocfilehash: cf028722c8c7174aac42f9485e31a599d7713ba3
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c19f7e177d51a3de75e7d7ae2b83442e23efd243
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734061"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546141"
 ---
 # <a name="tutorial-create-a-python-3-runbook-preview"></a>Tutorial: Erstellen eines Python 3-Runbooks (Vorschau)
 
@@ -39,7 +39,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
    * Wenn Sie bei sich sowohl Python 2 als auch Python 3 installiert haben und beide Arten von Runbooks ausführen möchten, müssen Sie die folgenden Umgebungsvariablen konfigurieren:
 
      * Python 2: Erstellen Sie eine neue Umgebungsvariable mit dem Namen `PYTHON_2_PATH`, und geben Sie dafür den Installationsordner an. Wenn der Installationsordner beispielsweise `C:\Python27` ist, muss dieser Pfad der Variablen hinzugefügt werden.
-     
+
      * Python 3: Erstellen Sie eine neue Umgebungsvariable mit dem Namen `PYTHON_3_PATH`, und geben Sie dafür den Installationsordner an. Wenn der Installationsordner beispielsweise `C:\Python3` ist, muss dieser Pfad der Variablen hinzugefügt werden.
 
 ## <a name="create-a-new-runbook"></a>Erstellen eines neuen Runbooks
@@ -128,44 +128,34 @@ Dazu muss das Skript bei der Authentifizierung die Anmeldeinformationen für Ihr
 
 2. Fügen Sie für die Authentifizierung bei Azure den folgenden Code hinzu:
 
-   ```python
-   import os
-   from azure.mgmt.compute import ComputeManagementClient
-   import azure.mgmt.resource 
-   import automationassets 
-   
-   def get_automation_runas_credential(runas_connection): 
-   from OpenSSL import crypto 
-   import binascii 
-   from msrestazure import azure_active_directory 
-   import adal 
+    ```python
+    from OpenSSL import crypto 
+    import binascii 
+    from msrestazure import azure_active_directory 
+    import adal 
+
+    # Get the Azure Automation RunAs service principal certificate 
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
+    pks12_cert = crypto.load_pkcs12(cert) 
+    pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
     
-   # Get the Azure Automation RunAs service principal certificate 
-   cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
-   pks12_cert = crypto.load_pkcs12(cert) 
-   pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
+    # Get run as connection information for the Azure Automation service principal 
+    application_id = runas_connection["ApplicationId"] 
+    thumbprint = runas_connection["CertificateThumbprint"] 
+    tenant_id = runas_connection["TenantId"] 
     
-   # Get run as connection information for the Azure Automation service principal 
-   application_id = runas_connection["ApplicationId"] 
-   thumbprint = runas_connection["CertificateThumbprint"] 
-   tenant_id = runas_connection["TenantId"] 
-    
-   # Authenticate with service principal certificate 
-   resource ="https://management.core.windows.net/" 
-   authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
-   context = adal.AuthenticationContext(authority_url) 
-   return azure_active_directory.AdalAuthentication( 
-   lambda: context.acquire_token_with_client_certificate( 
-           resource, 
-           application_id, 
-           pem_pkey, 
-           thumbprint) 
-   ) 
-    
-   # Authenticate to Azure using the Azure Automation RunAs service principal 
-   runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 
-   azure_credential = get_automation_runas_credential(runas_connection) 
-   ```
+    # Authenticate with service principal certificate 
+    resource ="https://management.core.windows.net/" 
+    authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
+    context = adal.AuthenticationContext(authority_url) 
+    return azure_active_directory.AdalAuthentication( 
+      lambda: context.acquire_token_with_client_certificate( 
+          resource, 
+          application_id, 
+          pem_pkey, 
+          thumbprint) 
+    ) 
+    ```
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Hinzufügen von Code zum Erstellen eines Python-Computeclients und Starten des virtuellen Computers
 

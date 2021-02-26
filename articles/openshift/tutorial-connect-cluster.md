@@ -4,14 +4,14 @@ description: Hier erfahren Sie, wie Sie eine Verbindung mit einem Microsoft Azur
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 132a9b7ad3eef17f4ca27fb76a0c05f94c82fd37
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31abf5008c082fbb54e873b0502876c2fce5d440
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428277"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635964"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Herstellen einer Verbindung mit einem Azure Red Hat OpenShift 4-Cluster
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555898"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574956"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrieren und Überprüfen einer lokalen SQL Server-Datenquelle
 
@@ -50,33 +50,32 @@ Es gibt nur eine Möglichkeit, die Authentifizierung für eine lokale SQL Server
 
 ### <a name="sql-authentication"></a>SQL-Authentifizierung
 
-Die SQL-Identität muss Zugriff auf die primäre Datenbank haben. Dieser Speicherort ist derjenige, in dem `sys.databases` gespeichert ist. Der Purview-Scanner muss `sys.databases` durchlaufen, um alle SQL-Datenbankinstanzen auf dem Server zu finden.
+Das SQL-Konto muss Zugriff auf die **Masterdatenbank** besitzen. Dies liegt daran, dass sich `sys.databases` in der Masterdatenbank befindet. Der Purview-Scanner muss `sys.databases` durchlaufen, um alle SQL-Datenbankinstanzen auf dem Server zu finden.
 
 #### <a name="using-an-existing-server-administrator"></a>Verwenden eines vorhandenen Serveradministrators
 
 Wenn Sie einen vorhandenen Serveradministrator (sa) verwenden möchten, um Ihre lokale SQL Server-Datenquelle zu überprüfen, stellen Sie Folgendes sicher:
 
-1. `sa` ist kein Windows-Authentifizierungstyp.
+1. `sa` ist kein Windows-Authentifizierungskonto.
 
-2. Der Benutzer auf Serverebene, den Sie verwenden möchten, muss die Serverrollen „public“ und „sysadmin“ haben. Sie können dies überprüfen, indem Sie zu SQL Server Management Studio (SSMS) navigieren, eine Verbindung mit dem Server herstellen, zu „Sicherheit“ navigieren, den Anmeldenamen auswählen, den Sie verwenden möchten, mit der rechten Maustaste auf **Eigenschaften** klicken und dann **Serverrollen** auswählen.
+2. Die Anmeldung auf Serverebene, die Sie verwenden möchten, muss die Serverrollen „public“ und „sysadmin“ aufweisen. Sie können dies überprüfen, indem Sie eine Verbindung mit dem Server herstellen, zu SQL Server Management Studio (SSMS) navigieren, zu „Sicherheit“ navigieren, den Anmeldenamen auswählen, den Sie verwenden möchten, mit der rechten Maustaste auf **Eigenschaften** klicken und dann **Serverrollen** auswählen.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Anmeldung auf Serverebene":::
-
-3. Die Datenbanken werden einem Benutzer zugeordnet, der mindestens „db_datareader“- Zugriff für jede Datenbank hat.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="Benutzerzuordnung für sa":::
 
 #### <a name="creating-a-new-login-and-user"></a>Erstellen einer neuen Anmeldung und eines neuen Benutzers
 
 Führen Sie die folgenden Schritte aus, wenn Sie eine neue Anmeldung und einen neuen Benutzer erstellen möchten, der Ihre SQL Server-Datenquelle überprüfen (scannen) kann:
 
+> [!Note]
+   > Alle nachfolgenden Schritte können mit dem [hier](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql) bereitgestellten Code ausgeführt werden.
+
 1. Navigieren Sie zu SQL Server Management Studio (SSMS), stellen Sie eine Verbindung mit dem Server her, navigieren Sie zu „Sicherheit“, klicken Sie mit der rechten Maustaste auf „Anmeldung“, und erstellen Sie eine neue Anmeldung. Wählen Sie „SQL Server-Authentifizierung“ aus.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Eine neue Anmeldung und einen neuen Benutzer erstellen":::
 
-2. Wählen Sie „Serverrollen“ im linken Navigationsbereich aus, und aktivieren Sie sowohl „public“ als auch „sysadmin“.
+2. Wählen Sie „Serverrollen“ im linken Navigationsbereich aus, und stellen Sie sicher, dass die Rolle „public“ zugewiesen ist.
 
-3. Wählen Sie „Benutzerzuordnung“ im linken Navigationsbereich aus, und wählen Sie alle Datenbanken in der Zuordnung (Struktur) aus.
+3. Wählen Sie „Benutzerzuordnung“ im linken Navigationsbereich aus, wählen Sie alle Datenbanken in der Zuordnung aus, und wählen Sie dann die folgende Datenbankrolle aus: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="Benutzerzuordnung":::
 
@@ -88,8 +87,7 @@ Führen Sie die folgenden Schritte aus, wenn Sie eine neue Anmeldung und einen n
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Speichern Ihres SQL-Anmeldekennworts in einem Schlüsseltresor und Erstellen von Anmeldeinformationen in Purview
 
-1. Navigieren Sie im Azure-Portal zu Ihrem Schlüsseltresor.
-1. Wählen Sie **Einstellungen > Geheimnisse** aus.
+1. Navigieren Sie im Azure-Portal1 zu Ihrem Schlüsseltresor. Wählen Sie **Einstellungen > Geheimnisse** aus.
 1. Wählen Sie **+ Generieren/Importieren** aus, und geben Sie den **Namen** und **Wert** als *Kennwort* aus Ihrer  SQL Server-Anmeldung ein.
 1. Wählen Sie **Erstellen** aus, um den Vorgang abzuschließen.
 1. Falls für Ihren Schlüsseltresor noch keine Verbindung mit Purview hergestellt wurde, müssen Sie eine [neue Schlüsseltresorverbindung erstellen](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
@@ -115,5 +113,5 @@ Führen Sie die folgenden Schritte aus, wenn Sie eine neue Anmeldung und einen n
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Browsen im Azure Purview-Datenkatalog](how-to-browse-catalog.md)
-- [Suchen im Azure Purview-Datenkatalog](how-to-search-catalog.md)
+- [Browsen im Azure Purview-Datenkatalog](how-to-browse-catalog.md)
+- [Suchen im Azure Purview-Datenkatalog](how-to-search-catalog.md)

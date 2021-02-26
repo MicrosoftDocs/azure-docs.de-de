@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465401"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493911"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Aktivieren von Azure Monitor auf Ihrem Azure Stack Edge Pro-GPU-Gerät
 
@@ -118,8 +118,8 @@ Führen Sie die folgenden Schritte aus, um Container Insights für Ihren Arbeits
 
 1. Rufen Sie die Ressourcen-ID und den Speicherort ab. Gehe zu `Your Log Analytics workspace > General > Properties`. Kopieren Sie die folgenden Informationen:
 
-    - **resource ID**: die vollqualifizierte Azure-Ressourcen-ID des Azure Log Analytics-Arbeitsbereichs 
-    - **location**: die Azure-Region
+    - **resource ID:** die vollqualifizierte Azure-Ressourcen-ID des Azure Log Analytics-Arbeitsbereichs 
+    - **location:** die Azure-Region
 
     ![Eigenschaften des Log Analytics-Arbeitsbereichs](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Führen Sie die folgenden Schritte aus, um Container Insights für Ihren Arbeits
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Erfahren Sie, wie Sie [Kubernetes-Workloads über das Kubernetes-Dashboard überwachen](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Erfahren Sie, wie Sie [Warnbenachrichtigungen zu Geräteereignissen verwalten](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

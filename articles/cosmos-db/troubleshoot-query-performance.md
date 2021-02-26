@@ -4,16 +4,16 @@ description: Erfahren Sie, wie Sie Probleme mit SQL-Abfragen in Azure Cosmos DB 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905110"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524304"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Behandeln von Problemen bei Verwendung von Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Die folgenden Abschnitte sollen Ihnen helfen, die relevanten Abfrageoptimierunge
 - [Schließen Sie die erforderlichen Pfade in die Indizierungsrichtlinie ein.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Informieren Sie sich, welche Systemfunktionen den Index verwenden.](#understand-which-system-functions-use-the-index)
+
+- [Verbessern der Ausführung von Systemfunktionen mit Zeichenfolgen.](#improve-string-system-function-execution)
 
 - [Informieren Sie sich, welche Aggregatabfragen den Index verwenden.](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,23 +200,37 @@ Sie können der Indizierungsrichtlinie jederzeit Eigenschaften hinzufügen, ohne
 
 Die meisten Systemfunktionen verwenden Indizes. Es folgt eine Liste einiger allgemeiner Zeichenfolgenfunktionen, die Indizes verwenden:
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, aber nur, wenn der erste num_expr-Wert „0“ ist
+- StartsWith
+- Enthält
+- RegexMatch
+- Left
+- Teilzeichenfolge, aber nur, wenn die erste num_expr den Wert „0“ hat
 
-Nachstehend sind einige allgemeine Systemfunktionen aufgeführt, die den Index nicht verwenden und jedes Dokument laden müssen:
+Nachstehend sind einige allgemeine Systemfunktionen aufgeführt, die den Index nicht verwenden und jedes Dokument laden müssen, wenn sie in einer `WHERE`-Klausel verwendet werden:
 
 | **Systemfunktion**                     | **Vorschläge für Optimierungen**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Normalisieren Sie die Groß-/Kleinschreibung beim Einfügen, statt die Systemfunktion zum Normalisieren der Daten für Vergleiche zu verwenden. Eine Abfrage wie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` wird zu ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Upper/Lower                         | Normalisieren Sie die Groß-/Kleinschreibung beim Einfügen, statt die Systemfunktion zum Normalisieren der Daten für Vergleiche zu verwenden. Eine Abfrage wie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` wird zu ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Berechnen Sie die aktuelle Zeit vor der Abfrageausführung, und verwenden Sie diesen Zeichenfolgenwert in der `WHERE`-Klausel. |
 | Mathematische Funktionen (Nicht-Aggregate) | Wenn Sie in der Abfrage einen Wert häufig berechnen müssen, sollten Sie diesen Wert als Eigenschaft in Ihrem JSON-Dokument speichern. |
 
-------
+Wenn er in der `SELECT`-Klausel verwendet wird, wirken sich ineffiziente Systemfunktionen nicht auf die Verwendung von Indizes durch Abfragen aus.
 
-Wenn eine Systemfunktion Indizes verwendet und dennoch eine hohe RU-Gebühr aufweist, können Sie versuchen, der Abfrage `ORDER BY` hinzuzufügen. In einigen Fällen kann das Hinzufügen von `ORDER BY` zu einer verbesserten Indexnutzung der Systemfunktion führen, insbesondere dann, wenn die Abfrage eine lange Ausführungsdauer hat oder mehrere Seiten umfasst.
+### <a name="improve-string-system-function-execution"></a>Verbessern der Ausführung von Systemfunktionen mit Zeichenfolgen
 
-Sehen Sie sich beispielsweise die folgende Abfrage mit `CONTAINS` an. `CONTAINS` sollte einen Index verwenden. Stellen Sie sich jedoch vor, dass Sie nach dem Hinzufügen des entsprechenden Indexes weiterhin eine sehr hohe RU-Gebühr beobachten, wenn Sie die folgende Abfrage ausführen:
+Bei einigen Systemfunktionen, die Indizes verwenden, können Sie die Abfrageausführung verbessern, indem Sie der Abfrage eine `ORDER BY`-Klausel hinzufügen. 
+
+Genauer gesagt kann jede Systemfunktion, deren RU-Gebühr zunimmt, wenn die Kardinalität der Eigenschaft ansteigt, von einer `ORDER BY`-Klausel in der Abfrage profitieren. Diese Abfragen führen einen Indexscan durch, und durch das Sortieren der Abfrageergebnisse kann die Abfrage effizienter werden.
+
+Diese Optimierung kann die Ausführung für die folgenden Systemfunktionen verbessern:
+
+- StartsWith (mit „case-insensitive = true“)
+- StringEquals (mit „case-insensitive = true“)
+- Enthält
+- RegexMatch
+- EndsWith
+
+Sehen Sie sich beispielsweise die folgende Abfrage mit `CONTAINS` an. `CONTAINS` verwendet Indizes. Manchmal ist jedoch nach dem Hinzufügen des entsprechenden Indexes weiterhin eine sehr hohe RU-Gebühr zu beobachten, wenn Sie die Abfrage unten ausführen.
 
 Ursprüngliche Abfrage:
 
@@ -224,13 +240,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Aktualisierte Abfrage mit `ORDER BY`:
+Sie können die Abfrageausführung verbessern, indem Sie `ORDER BY` hinzufügen:
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+Die gleiche Optimierung kann bei Abfragen mit zusätzlichen Filtern helfen. In diesem Fall empfiehlt es sich, der `ORDER BY`-Klausel auch Eigenschaften mit Gleichheitsfiltern hinzuzufügen.
+
+Ursprüngliche Abfrage:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+Sie können die Abfrageausführung verbessern, indem Sie `ORDER BY` und [einen zusammengesetzten Index](index-policy.md#composite-indexes) für (c.name, c.town) hinzufügen:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Verstehen, welche Aggregatabfragen den Index verwenden

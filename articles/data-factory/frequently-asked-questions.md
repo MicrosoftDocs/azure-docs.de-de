@@ -1,20 +1,17 @@
 ---
 title: 'Azure Data Factory: Häufig gestellte Fragen '
 description: Hier finden Sie Antworten auf häufig gestellte Fragen zu Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d1b9f0e25c460b7f26c31c3d2c6ebe51d958017
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485013"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386304"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory: Häufig gestellte Fragen
 
@@ -22,42 +19,51 @@ ms.locfileid: "96485013"
 
 Dieser Artikel enthält Antworten auf häufig gestellte Fragen zu Azure Data Factory.  
 
-## <a name="what-is-azure-data-factory"></a>Was ist Azure Data Factory? 
+## <a name="what-is-azure-data-factory"></a>Was ist Azure Data Factory?
+
 Data Factory ist ein vollständig verwalteter, cloudbasierter ETL-Datenintegrationsdienst, der das Verschieben und Transformieren von Daten automatisiert. Genau wie ein Betrieb, in dem Anlagen Rohmaterialien in Endprodukte umwandeln, organisiert Azure Data Factory vorhandene Dienste so, dass Rohdaten gesammelt und in nutzbare Informationen transformiert werden. 
 
-Sie können mithilfe von Azure Data Factory datengesteuerte Workflows zum Verschieben von Daten zwischen lokalen Datenspeichern und Clouddatenspeichern erstellen. Darüber hinaus können Sie Daten mit Datenflüssen verarbeiten und transformieren. ADF unterstützt außerdem mithilfe von Computediensten wie Azure HDInsight, Azure Databricks und SQL Server Integration Services (SSIS) Integration Runtime externe Computeengines für manuell programmierte Transformationen. 
+Sie können mithilfe von Azure Data Factory datengesteuerte Workflows zum Verschieben von Daten zwischen lokalen Datenspeichern und Clouddatenspeichern erstellen. Darüber hinaus können Sie Daten mit Datenflüssen verarbeiten und transformieren. ADF unterstützt außerdem mithilfe von Computediensten wie Azure HDInsight, Azure Databricks und SQL Server Integration Services (SSIS) Integration Runtime externe Computeengines für manuell programmierte Transformationen.
 
 Mit Data Factory können Sie die Datenverarbeitung in einem Azure-basierten Clouddienst oder in Ihrer eigenen selbstgehosteten Compute-Umgebung wie SSIS, SQL Server oder Oracle ausführen. Nachdem Sie eine Pipeline erstellt haben, die die gewünschte Aktion ausführt, können Sie die regelmäßige Ausführung der Pipeline planen (beispielsweise stündlich, täglich oder wöchentlich), einen Plan mit Zeitfenstern aufstellen oder die Pipeline über ein Ereignis auslösen. Weitere Informationen finden Sie unter [Einführung in Azure Data Factory](introduction.md).
 
-### <a name="control-flows-and-scale"></a>Ablaufsteuerungen und Skalierung 
+## <a name="compliance-and-security-considerations"></a>Überlegungen zu Compliance und Sicherheit
+
+Azure Data Factory erfüllt eine Reihe von Compliancezertifizierungen, einschließlich _SOC 1, 2, 3_, _HIPAA BAA_ und _HITRUST_. Eine vollständige (und ständig wachsende) Liste der Zertifizierungen finden Sie [hier](data-movement-security-considerations.md). Digitale Kopien für Überwachungsberichte und Compliancezertifizierungen finden Sie im [Service Trust Center](https://servicetrust.microsoft.com/).
+
+### <a name="control-flows-and-scale"></a>Ablaufsteuerungen und Skalierung
+
 Zur Unterstützung der vielfältigen Integrationsabläufe und -muster eines modernen Data Warehouse ermöglicht Data Factory eine flexible Modellierung der Datenpipeline. Dies beinhaltet umfassende Paradigmen für die Programmierung der Ablaufsteuerung. Hierzu zählen etwa bedingte Ausführung, Verzweigung in Datenpipelines und die Möglichkeit zum expliziten Übergeben von Parametern für diese Abläufe (intern und übergreifend). Außerdem umfasst die Ablaufsteuerung die Transformation von Daten per Aktivitätsverteilung auf externe Ausführungsmodule und Datenflussfunktionen (beispielsweise bedarfsabhängige Datenverschiebungen) über die Kopieraktivität.
 
-Mit Data Factory können Sie nun flexibel einen beliebigen Ablaufstil modellieren, der für die Datenintegration benötigt wird und entweder bedarfsabhängig oder nach einem bestimmten Zeitplan angewendet werden soll. Einige allgemeine Abläufe, die mit diesem Modell ermöglicht werden, sind:   
+Mit Data Factory können Sie nun flexibel einen beliebigen Ablaufstil modellieren, der für die Datenintegration benötigt wird und entweder bedarfsabhängig oder nach einem bestimmten Zeitplan angewendet werden soll. Einige allgemeine Abläufe, die mit diesem Modell ermöglicht werden, sind:
 
 - Ablaufsteuerungen:
     - Aktivitäten können innerhalb einer Pipeline zu einer Sequenz verkettet werden.
     - Aktivitäten können innerhalb einer Pipeline verzweigt werden.
     - Parameter:
-        - Parameter können auf der Pipelineebene definiert und Argumente beim bedarfs- oder triggergesteuerten Aufrufen der Pipeline übergeben werden.
-        - Aktivitäten können die an die Pipeline übergebenen Argumente nutzen.
+        * Parameter können auf der Pipelineebene definiert und Argumente beim bedarfs- oder triggergesteuerten Aufrufen der Pipeline übergeben werden.
+        * Aktivitäten können die an die Pipeline übergebenen Argumente nutzen.
     - Übergeben von benutzerdefinierten Zuständen:
-        - Aktivitätsausgaben (einschließlich des Zustands) können von einer Folgeaktivität in der Pipeline genutzt werden.
+        * Aktivitätsausgaben (einschließlich des Zustands) können von einer Folgeaktivität in der Pipeline genutzt werden.
     - Schleifencontainer:
-        - Die ForEach-Aktivität durchläuft eine bestimmte Sammlung von Aktivitäten in einer Schleife. 
+        * Die ForEach-Aktivität durchläuft eine bestimmte Sammlung von Aktivitäten in einer Schleife. 
 - Triggerbasierte Abläufe:
     - Pipelines können nach Bedarf oder zeitgesteuert ausgelöst werden.
 - Deltaabläufe:
-    - Sie können mithilfe von Parametern die Obergrenze für Deltakopien beim Verschieben von Dimensions- oder Referenztabellen aus einem relationalen Speicher (entweder lokal oder in der Cloud) definieren, um die Daten in den Lake zu laden. 
+    - Sie können mithilfe von Parametern die Obergrenze für Deltakopien beim Verschieben von Dimensions- oder Referenztabellen aus einem relationalen Speicher (entweder lokal oder in der Cloud) definieren, um die Daten in den Lake zu laden.
 
 Weitere Informationen finden Sie im [Tutorial: Ablaufsteuerungen](tutorial-control-flow.md).
 
 ### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Nach Bedarf transformierte Daten mit Pipelines ohne Code
+
 Die neue browserbasierte Toolumgebung ermöglicht die Erstellung und Bereitstellung von Pipelines ohne Code mit einer modernen, interaktiven webbasierten Benutzeroberfläche.
 
 Für Entwickler visueller Daten und Datentechniker ist die Data Factory-Webbenutzeroberfläche die codefreie Entwurfsumgebung für die Pipelineerstellung. Sie ist vollständig in Visual Studio Online Git integriert und ermöglicht die Integration für CI/CD sowie die iterative Entwicklung mit Debugoptionen.
 
 ### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Umfassende plattformübergreifende SDKs für erfahrene Benutzer
+
 Data Factory V2 bietet verschiedenste SDKs für die Erstellung, Verwaltung und Überwachung von Pipelines in Ihrer bevorzugten IDE:
+
 * Python SDK
 * PowerShell CLI
 * C# SDK
@@ -65,20 +71,25 @@ Data Factory V2 bietet verschiedenste SDKs für die Erstellung, Verwaltung und 
 Benutzer können außerdem die dokumentierten REST-APIs verwenden, um mit Data Factory V2 zu interagieren.
 
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Iteratives Entwickeln und Debuggen mit visuellen Tools
-Die visuellen Tools von Azure Data Factory ermöglichen iteratives Entwickeln und Debuggen. Mit der Funktion **Debuggen** auf der Pipelinecanvas können Sie Pipelines erstellen und Testläufe durchführen, ohne eine einzige Codezeile zu schreiben. Die Ergebnisse der Testläufe können auf der Pipelinecanvas im Fenster **Ausgabe** angezeigt werden. Nach erfolgreicher Durchführung des Testlaufs können Sie der Pipeline weitere Aktivitäten hinzufügen und das iterative Debuggen fortsetzen. Bereits gestartete Testläufe können abgebrochen werden. 
 
-Sie müssen Ihre Änderungen nicht für den Data Factory-Dienst veröffentlichen, bevor Sie **Debuggen** auswählen. Dies ist hilfreich, wenn Sie sich vergewissern möchten, dass die neuen Elemente oder Änderungen wie erwartet funktionieren, bevor Sie Ihre Data Factory-Workflows in Entwicklungs-, Test- oder Produktionsumgebungen aktualisieren. 
+Die visuellen Tools von Azure Data Factory ermöglichen iteratives Entwickeln und Debuggen. Mit der Funktion **Debuggen** auf der Pipelinecanvas können Sie Pipelines erstellen und Testläufe durchführen, ohne eine einzige Codezeile zu schreiben. Die Ergebnisse der Testläufe können auf der Pipelinecanvas im Fenster **Ausgabe** angezeigt werden. Nach erfolgreicher Durchführung des Testlaufs können Sie der Pipeline weitere Aktivitäten hinzufügen und das iterative Debuggen fortsetzen. Bereits gestartete Testläufe können abgebrochen werden.
 
-### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Möglichkeit zum Bereitstellen von SSIS-Paketen in Azure 
+Sie müssen Ihre Änderungen nicht für den Data Factory-Dienst veröffentlichen, bevor Sie **Debuggen** auswählen. Dies ist hilfreich, wenn Sie sich vergewissern möchten, dass die neuen Elemente oder Änderungen wie erwartet funktionieren, bevor Sie Ihre Data Factory-Workflows in Entwicklungs-, Test- oder Produktionsumgebungen aktualisieren.
+
+### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Möglichkeit zum Bereitstellen von SSIS-Paketen in Azure
+
 Wenn Sie Ihre SSIS-Workloads verschieben möchten, können Sie eine Data Factory-Instanz erstellen und eine Azure-SSIS-Integration Runtime bereitstellen. Eine Azure-SSIS Integration Runtime ist ein vollständig verwalteter Cluster mit virtuellen Azure-Computern (Knoten), die speziell für die Ausführung von SSIS-Paketen in der Cloud bestimmt sind. Eine ausführliche Anleitung finden Sie im Tutorial [Bereitstellen von SSIS-Paketen in Azure](./tutorial-deploy-ssis-packages-azure.md). 
- 
+
 ### <a name="sdks"></a>SDKs
+
 Für erfahrene Benutzer, die auf der Suche nach einer befehlsorientierten Benutzerschnittstelle sind, bietet Data Factory ein breites Spektrum an SDKs zum Erstellen, Verwalten und Überwachen von Pipelines mit Ihrer bevorzugten IDE. Die Sprachunterstützung umfasst .NET, PowerShell, Python und REST.
 
 ### <a name="monitoring"></a>Überwachung
-Sie können Ihre Data Factorys per PowerShell, SDK oder mit den visuellen Überwachungstools auf der Benutzeroberfläche des Browsers überwachen. Sie können bedarfsabhängige, triggerbasierte und zeitgesteuerte benutzerdefinierte Datenflüsse auf effiziente und effektive Weise überwachen und verwalten. Brechen Sie vorhandene Aufgaben ab, nutzen Sie die Fehlerübersicht, zeigen Sie Detailinformationen an, um ausführliche Fehlermeldungen zu erhalten, und debuggen Sie alle Probleme an einem zentralen Ort, ohne den Kontext wechseln oder zwischen Bildschirmen navigieren zu müssen. 
+
+Sie können Ihre Data Factorys per PowerShell, SDK oder mit den visuellen Überwachungstools auf der Benutzeroberfläche des Browsers überwachen. Sie können bedarfsabhängige, triggerbasierte und zeitgesteuerte benutzerdefinierte Datenflüsse auf effiziente und effektive Weise überwachen und verwalten. Brechen Sie vorhandene Aufgaben ab, nutzen Sie die Fehlerübersicht, zeigen Sie Detailinformationen an, um ausführliche Fehlermeldungen zu erhalten, und debuggen Sie alle Probleme an einem zentralen Ort, ohne den Kontext wechseln oder zwischen Bildschirmen navigieren zu müssen.
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Neue Features für SSIS in Data Factory
+
 Seit der ersten öffentlichen Vorschauversion im Jahr 2017 wurden mit Data Factory folgende Features für SSIS hinzugefügt:
 
 -    Unterstützung von drei weiteren Konfigurationen/Varianten von Azure SQL-Datenbank zum Hosten der SSIS-Datenbank (SSISDB) mit Projekten/Paketen:
@@ -91,37 +102,44 @@ Seit der ersten öffentlichen Vorschauversion im Jahr 2017 wurden mit Data Fact
 -    Unterstützung der Enterprise Edition der Azure-SSIS Integration Runtime mit erweiterten Features, Premium-Features, einer Schnittstelle für das benutzerdefinierte Setup, um zusätzliche Komponenten/Erweiterungen zu installieren, sowie mit einem Partnerökosystem. Weitere Informationen finden Sie unter [Enterprise Edition, benutzerdefiniertes Setup und Erweiterbarkeit durch Drittanbieter für SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
 -    Tiefere Integration von SSIS in Data Factory, die Ihnen das Aufrufen bzw. Auslösen erstklassiger Aktivitäten zum Ausführen des SSIS-Pakets in Data Factory-Pipelines und die Planung per SSMS ermöglicht. Weitere Informationen finden Sie unter [Modernisieren und Erweitern von ETL/ELT-Workflows mit SSIS-Aktivitäten in ADF-Pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
-
 ## <a name="what-is-the-integration-runtime"></a>Was ist die Integration Runtime?
+
 Die Integration Runtime ist die Computeinfrastruktur, mit der Azure Data Factory die folgenden Datenintegrationsfunktionen für verschiedene Netzwerkumgebungen bereitstellt:
 
 - **Datenverschiebung:** Zur Datenverschiebung werden die Daten von der Integration Runtime zwischen dem Quell- und Zieldatenspeicher verschoben, während gleichzeitig Unterstützung für integrierte Connectors, Formatkonvertierungen, Spaltenzuordnungen und leistungsfähige sowie skalierbare Datenübertragungen bereitgestellt wird.
 - **Verteilungsaktivitäten:** Für die Transformation bietet die Integration Runtime Funktionen zur nativen Ausführung von SSIS-Paketen.
 - **SSIS-Pakete ausführen:** Die Integration Runtime führt SSIS-Pakete nativ in einer verwalteten Azure-Computeumgebung aus. Zudem unterstützt die Integration Runtime die Übermittlung und Überwachung von Transformationsaktivitäten, die in verschiedensten Computediensten wie Azure HDInsight, Azure Machine Learning, SQL-Datenbank und SQL Server ausgeführt werden.
 
-Sie können zum Verschieben und Transformieren von Daten je nach Bedarf eine oder mehrere Integration Runtime-Instanzen bereitstellen. Die Integration Runtime kann in einem öffentlichen Azure-Netzwerk oder in einem privaten Netzwerk (lokal, Azure Virtual Network oder Virtual Private Cloud (VPC) von Amazon Web Services) ausgeführt werden. 
+Sie können zum Verschieben und Transformieren von Daten je nach Bedarf eine oder mehrere Integration Runtime-Instanzen bereitstellen. Die Integration Runtime kann in einem öffentlichen Azure-Netzwerk oder in einem privaten Netzwerk (lokal, Azure Virtual Network oder Virtual Private Cloud (VPC) von Amazon Web Services) ausgeführt werden.
 
 Weitere Informationen finden Sie unter [Integrationslaufzeit in Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Welcher Grenzwert besteht hinsichtlich der Anzahl von Integrationslaufzeiten?
+
 Es gibt keine festen Grenzwerte hinsichtlich der Anzahl von Integration Runtime-Instanzen in einer Data Factory. Es gibt jedoch einen Grenzwert hinsichtlich der Anzahl von VM-Kernen, die von Integration Runtime pro Abonnement für die Ausführung von SSIS-Paketen verwendet werden können. Weitere Informationen finden Sie unter [Data Factory-Grenzwerte](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Wie lauten die Hauptkonzepte von Azure Data Factory?
+
 Ein Azure-Abonnement kann über mindestens eine Azure Data Factory-Instanz (oder Data Factory) verfügen. Azure Data Factory enthält vier Hauptkomponenten, die zusammen als Plattform fungieren, auf der Sie datengesteuerte Workflows mit Schritten zum Verschieben und Transformieren von Daten zusammenstellen können.
 
 ### <a name="pipelines"></a>Pipelines
+
 Eine Data Factory kann eine oder mehrere Pipelines haben. Bei einer Pipeline handelt es sich um eine logische Gruppierung von Aktivitäten zur Durchführung einer Arbeitseinheit. Gemeinsam führen die Aktivitäten einer Pipeline eine Aufgabe durch. Eine Pipeline kann beispielsweise eine Gruppe von Aktivitäten enthalten, die Daten aus einem Azure-Blob erfasst, und anschließend eine Hive-Abfrage in einem HDInsight-Cluster ausführen, um die Daten zu partitionieren. Der Vorteil ist, dass Sie eine Pipeline zum Verwalten der Aktivitäten als Gruppe verwenden können, statt jede Aktivität einzeln zu verwalten. Sie können die Aktivitäten in einer Pipeline miteinander verketten, um sie sequenziell auszuführen. Sie können sie aber auch unabhängig voneinander parallel ausführen.
 
 ### <a name="data-flows"></a>Datenflüsse
+
 Bei Datenflüssen handelt es sich um Objekte, die Sie visuell in Data Factory erstellen und die Daten bedarfsorientiert für Spark-Back-End-Dienste transformieren. Sie müssen nicht mit der Programmierung oder mit Spark vertraut sein. Entwerfen Sie einfach Ihre Datentransformationsabsicht mithilfe von Graphen (Mapping) oder Tabellenkalkulationen (Wrangling).
 
 ### <a name="activities"></a>activities
+
 Aktivitäten stellen einen Verarbeitungsschritt in einer Pipeline dar. Beispielsweise können Sie eine Kopieraktivität verwenden, um Daten zwischen zwei Datenspeichern zu kopieren. Analog dazu können Sie eine Hive-Aktivität verwenden, die eine Hive-Abfrage für einen Azure HDInsight-Cluster ausführt, um Ihre Daten zu transformieren oder zu analysieren. Data Factory unterstützt drei Arten von Aktivitäten: Datenverschiebungsaktivitäten, Datentransformationsaktivitäten und Steuerungsaktivitäten.
 
 ### <a name="datasets"></a>Datasets
+
 Datasets stellen Datenstrukturen in den Datenspeichern dar, die einfach auf die Daten zeigen bzw. verweisen, die Sie in Ihren Aktivitäten als Eingaben oder Ausgaben verwenden möchten. 
 
 ### <a name="linked-services"></a>Verknüpfte Dienste
+
 Verknüpfte Dienste ähneln Verbindungszeichenfolgen, mit denen die Verbindungsinformationen definiert werden, die für Data Factory zum Herstellen einer Verbindung mit externen Ressourcen erforderlich sind. Das können Sie sich wie folgt vorstellen: Ein verknüpfter Dienst definiert die Verbindung mit der Datenquelle, und ein Dataset stellt die Struktur der Daten dar. So gibt etwa ein verknüpfter Azure Storage-Dienst die Verbindungszeichenfolge an, um eine Verbindung mit einem Azure Storage-Konto herzustellen. Und ein Azure-Blobdataset gibt den Blobcontainer und den Ordner an, der die Daten enthält.
 
 Verknüpfte Dienste haben in Data Factory zwei Funktionen:
@@ -130,12 +148,15 @@ Verknüpfte Dienste haben in Data Factory zwei Funktionen:
 - Sie stellen eine *Computeressource* dar, die die Ausführung einer Aktivität hosten kann. So wird beispielsweise die HDInsight-Hive-Aktivität in einem HDInsight-Hadoop-Cluster ausgeführt. Eine Liste mit Transformationsaktivitäten und unterstützten Compute-Umgebungen finden Sie unter [Transformieren von Daten in Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Trigger
+
 Trigger stellen Verarbeitungseinheiten dar, die bestimmen, wann eine Pipelineausführung initiiert wird. Es gibt verschiedene Arten von Triggern für unterschiedliche Arten von Ereignissen. 
 
 ### <a name="pipeline-runs"></a>Pipelineausführungen
+
 Eine Pipelineausführung ist eine Instanz einer ausgeführten Pipeline. Zur Instanziierung einer Pipelineausführung werden in der Regel die Argumente an die in Pipelines definierten Parameter übergeben. Die Argumente können manuell oder im Rahmen der Triggerdefinition übergeben werden.
 
 ### <a name="parameters"></a>Parameter
+
 Parameter sind Schlüssel-Wert-Paare in einer schreibgeschützten Konfiguration. Sie definieren Parameter in einer Pipeline, und Sie übergeben die Argumente für die definierten Parameter während der Ausführung über einen Ausführungskontext. Der Ausführungskontext wird durch einen Trigger oder über eine Pipeline erstellt, die Sie manuell ausführen. Die Parameterwerte werden von Aktivitäten in der Pipeline genutzt.
 
 Ein Dataset ist ein stark typisierter Parameter und eine Entität, die Sie wiederverwenden oder auf die Sie verweisen können. Eine Aktivität kann auf Datasets verweisen und die Eigenschaften nutzen, die in der Datasetdefinition festgelegt sind.
@@ -143,6 +164,7 @@ Ein Dataset ist ein stark typisierter Parameter und eine Entität, die Sie wiede
 Bei einem verknüpften Dienst handelt es sich ebenfalls um einen stark typisierten Parameter mit Verbindungsinformationen für einen Datenspeicher oder eine Compute-Umgebung. Er ist auch eine Entität, die Sie wiederverwenden oder auf die Sie verweisen können.
 
 ### <a name="control-flows"></a>Ablaufsteuerungen
+
 Ablaufsteuerungen orchestrieren Pipelineaktivitäten. Dies umfasst die Verkettung von Aktivitäten in einer Sequenz, Verzweigungen, auf Pipelineebene definierte Parameter sowie Argumente, die beim bedarfs- oder triggergesteuerten Aufrufen der Pipeline übergeben werden. Ablaufsteuerungen umfassen zudem das Übergeben von benutzerdefinierten Zuständen und Schleifencontainern (ForEach-Iteratoren).
 
 
@@ -153,34 +175,42 @@ Weitere Informationen zu den Data Factory-Konzepten finden Sie in den folgenden 
 - [Integrationslaufzeit](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>Wie sieht das Preismodell für Data Factory aus?
+
 Preisinformationen zu Azure Data Factory finden Sie unter [Data Factory – Preisübersicht](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Wie kann ich hinsichtlich der Informationen zu Data Factory auf dem neuesten Stand bleiben?
+
 Aktuelle Informationen zu Azure Data Factory finden Sie auf den folgenden Websites:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Startseite der Dokumentation](./index.yml)
 - [Produktstartseite](https://azure.microsoft.com/services/data-factory/)
 
-## <a name="technical-deep-dive"></a>Technischer Einblick 
+## <a name="technical-deep-dive"></a>Technischer Einblick
 
-### <a name="how-can-i-schedule-a-pipeline"></a>Wie kann ich eine Pipeline planen? 
+### <a name="how-can-i-schedule-a-pipeline"></a>Wie kann ich eine Pipeline planen?
+
 Sie können den Planer-Trigger oder Zeitfenster-Trigger verwenden, um eine Pipeline zu planen. Der Trigger verwendet einen Kalenderplan. Dadurch können Pipelines periodisch oder mit einem kalenderbasierten Wiederholungsmuster (etwa jeden Montag um 18:00 Uhr und jeden Donnerstag um 21:00 Uhr) geplant werden. Weitere Informationen finden Sie unter [Pipelineausführung und -trigger](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run"></a>Kann ich Parameter an eine Pipelineausführung übergeben?
+
 Ja. Parameter sind ein wichtiges Konzept in Data Factory. Sie können Parameter auf Pipelineebene definieren und Argumente übergeben, während die Pipelineausführung bei Bedarf oder mithilfe eines Triggers gestartet wird.  
 
-### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Kann ich Standardwerte für die Pipelineparameter definieren? 
-Ja. Sie können Standardwerte für die Parameter in den Pipelines definieren. 
+### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Kann ich Standardwerte für die Pipelineparameter definieren?
 
-### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Kann eine Aktivität in einer Pipeline Argumente verarbeiten, die an eine Pipelineausführung übergeben werden? 
+Ja. Sie können Standardwerte für die Parameter in den Pipelines definieren.
+
+### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Kann eine Aktivität in einer Pipeline Argumente verarbeiten, die an eine Pipelineausführung übergeben werden?
+
 Ja. Jede Aktivität innerhalb der Pipeline kann den Parameterwert verwenden, der über das `@parameter`-Konstrukt an die Pipelineausführung übergeben wird. 
 
-### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kann die Ausgabeeigenschaft einer Aktivität in einer anderen Aktivität verwendet werden? 
+### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kann die Ausgabeeigenschaft einer Aktivität in einer anderen Aktivität verwendet werden?
+
 Ja. Die Ausgabe einer Aktivität kann mit dem `@activity`-Konstrukt in einer nachfolgenden Aktivität verwendet werden.
  
-### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Wie werden NULL-Werte ordnungsgemäß in der Ausgabe einer Aktivität behandelt? 
-NULL-Werte können mithilfe des `@coalesce`-Konstrukts in den Ausdrücken ordnungsgemäß behandelt werden. 
+### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Wie werden NULL-Werte ordnungsgemäß in der Ausgabe einer Aktivität behandelt?
+
+NULL-Werte können mithilfe des `@coalesce`-Konstrukts in den Ausdrücken ordnungsgemäß behandelt werden.
 
 ## <a name="mapping-data-flows"></a>Zuordnen von Datenflüssen
 
@@ -199,6 +229,7 @@ Verwenden Sie die Kopieraktivität, um Daten aus einem der anderen Connectors be
 Die selbstgehostete IR ist ein ADF-Pipelinekonstrukt, das Sie mit der Kopieraktivität zum Abrufen oder Verschieben von Daten in und aus lokalen oder VM-basierten Datenquellen und -senken verwenden können. Stellen Sie die Daten zuerst mit einem Kopiervorgang, dann einem Datenfluss für die Transformation und dann einem nachfolgenden Kopiervorgang bereit, wenn Sie die transformierten Daten zurück in den lokalen Speicher verschieben müssen.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Bedient die Datenfluss-Computerengine mehrere Mandanten?
+
 Cluster werden nie gemeinsam genutzt. Wir garantieren die Isolation für jede Auftragsausführung in Produktionsläufen. Bei einem Debugszenario erhält eine einzige Person einen Cluster, und alle Debuggingfehler werden in diesen Cluster verschoben, der von dem betreffenden Benutzer gestartet wird.
 
 ## <a name="wrangling-data-flows"></a>Wranglingdatenflüsse
@@ -277,6 +308,7 @@ Der Wranglingdatenfluss unterstützt die folgenden Datentypen in SQL. Bei Verwen
 In Zukunft werden weitere Datentypen unterstützt.
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 Schritt-für-Schritt-Anleitungen zum Erstellen einer Data Factory-Instanz finden Sie in den folgenden Tutorials:
 
 - [Schnellstart: Erstellen einer Data Factory](quickstart-create-data-factory-dot-net.md)

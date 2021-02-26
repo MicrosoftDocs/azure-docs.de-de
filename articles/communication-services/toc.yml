@@ -38,16 +38,28 @@
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Beitreten mit einer Telefonie-App zu einer Teams-Besprechung
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Benutzeroberflächen-Framework
+      items:
+        - name: Erste Schritte mit zusammengesetzten Komponenten
+          href: quickstarts/ui-framework/get-started-with-composites.md
+        - name: Erste Schritte mit Basiskomponenten
+          href: quickstarts/ui-framework/get-started-with-components.md
+        - name: Erstellen einer eigenen Komponente für das Benutzeroberflächen-Framework
+          href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials
   expanded: false
   items:
     - name: Erstellen eines vertrauenswürdigen Authentifizierungsdiensts mithilfe von Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Signieren einer HTTP-Anforderung mit einer HMAC-Signatur mithilfe von C#
+      href: tutorials/hmac-header-tutorial.md
     - name: Vorbereiten einer Web-App für Communication Services (Node.js)
       href: tutorials/building-app-start.md
 - name: Konzepte
   expanded: false
   items:
+    - name: Teams-Interoperabilität
+      href: concepts/teams-interop.md
     - name: Chat
       items:
         - name: Übersicht über die Clientbibliothek für Chats
@@ -68,12 +80,18 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Sprach- und Videokonzepte
           href: concepts/voice-video-calling/about-call-types.md
-        - name: Teams-Interoperabilität
-          href: concepts/voice-video-calling/teams-interop.md
+    - name: Benutzeroberflächen-Framework
+      items:
+        - name: Übersicht über das Benutzeroberflächen-Framework
+          href: concepts/ui-framework/ui-sdk-overview.md
+        - name: Funktionen des Benutzeroberflächen-Frameworks
+          href: concepts/ui-framework/ui-sdk-features.md
     - name: Client- und Serverarchitektur
       href: concepts/client-and-server-architecture.md
     - name: Anrufflows
       href: concepts/call-flows.md
+    - name: Aufrufen von Flowtopologien
+      href: concepts/detailed-call-flows.md
     - name: Clientbibliotheken und REST-APIs
       href: concepts/sdk-options.md
     - name: Preismodell
@@ -94,6 +112,8 @@
       href: concepts/metrics.md
     - name: Problembehandlung
       href: concepts/troubleshooting-info.md
+    - name: Bekannte Probleme
+      href: concepts/known-issues.md
 - name: Proben
   items:
     - name: Hero-Beispiel für Gruppenanrufe

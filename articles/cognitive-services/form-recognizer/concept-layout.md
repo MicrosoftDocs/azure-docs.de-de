@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: d529e74614a4fd5ee49d7e6161c65f68e8e76fce
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845558"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585057"
 ---
 # <a name="form-recognizer-layout-service"></a>Layoutdienst für die Formularerkennung
 
@@ -89,7 +89,7 @@ Layout extrahiert auch Auswahlmarkierungen aus Dokumenten. Extrahierte Auswahlma
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Ausprobieren Ihrer eigenen Layoutextraktion mithilfe der [Beispielbenutzeroberfläche für die Formularerkennung](https://fott-preview.azurewebsites.net/)
-- Arbeiten Sie einen [Schnellstart für die Formularerkennung](quickstarts/client-library.md) durch, um die ersten Schritte zum Extrahieren von Layouts in der Sprache Ihrer Wahl auszuführen.
+- Arbeiten Sie einen [Schnellstart für die Formularerkennung](quickstarts/client-library.md) durch, um die ersten Schritte zum Extrahieren von Layouts in der Entwicklungssprache Ihrer Wahl auszuführen.
 
 ## <a name="see-also"></a>Weitere Informationen
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b346cf37a8275b1783e94e0f51859b8c87eb9b67
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185540"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546821"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutorial: Übertragen von Daten an Speicherkonten mit einem Azure Stack Edge Pro-Gerät mit GPU 
 
@@ -137,9 +137,9 @@ Die einzelnen Schritte werden in den folgenden Abschnitten beschrieben.
 
 Der Zugriff auf Blob Storage über HTTPS erfordert ein SSL-Zertifikat für das Gerät. Sie laden außerdem dieses Zertifikat als *PFX*-Datei mit einem angefügten privaten Schlüssel auf Ihr Azure Stack Edge Pro-Gerät hoch. Weitere Informationen zum Erstellen (nur für Test- und Entwicklungszwecke) und Hochladen dieser Zertifikate auf Ihr Azure Stack Edge Pro-Gerät finden Sie unter:
 
-- [Erstellen des Blob-Endpunktzertifikats](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional)
-- [Hochladen des Blob-Endpunktzertifikats](azure-stack-edge-j-series-manage-certificates.md#upload-certificates)
-- [Importieren von Zertifikaten auf den Client, der auf das Gerät zugreift](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
+- [Erstellen des Blob-Endpunktzertifikats](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional)
+- [Hochladen des Blob-Endpunktzertifikats](azure-stack-edge-gpu-manage-certificates.md#upload-certificates)
+- [Importieren von Zertifikaten auf den Client, der auf das Gerät zugreift](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
 
 ### <a name="import-certificate"></a>Importieren des Zertifikats
 

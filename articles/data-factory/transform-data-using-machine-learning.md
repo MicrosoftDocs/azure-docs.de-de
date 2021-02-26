@@ -3,19 +3,16 @@ title: Erstellen von Vorhersagepipelines für Daten
 description: Hier erfahren Sie, wie Sie mithilfe der Batchausführungsaktivität von Azure Machine Learning Studio (Classic) eine Vorhersagepipeline in Azure Data Factory erstellen.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637733"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375662"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Erstellen einer Vorhersagepipeline mithilfe von Azure Machine Learning Studio (Classic) und Azure Data Factory
 
@@ -27,9 +24,9 @@ ms.locfileid: "92637733"
 
 [Azure Machine Learning Studio (Classic)](https://azure.microsoft.com/documentation/services/machine-learning/) ermöglicht es Ihnen, Predictive Analytics-Lösungen zu erstellen, zu testen und bereitzustellen. Allgemein betrachtet, geschieht dies in drei Schritten:
 
-1. **Erstellen eines Trainingsexperiments** . Dieser Schritt wird mithilfe von Azure Machine Learning Studio (klassisch) ausgeführt. Azure Machine Learning Studio (klassisch) ist eine zusammenarbeitsorientierte visuelle Entwicklungsumgebung, mit der Sie ein Predictive Analytics-Modell anhand von Trainingsdaten trainieren und testen können.
-2. **Konvertierten in ein Vorhersageexperiment** . Sobald Ihr Modell mit vorhandenen Daten trainiert wurde, können Sie es verwenden, um neue Daten zu bewerten. Sie bereiten das Experiment auf die Bewertung vor und optimieren es.
-3. **Bereitstellen des Experiments als Webdienst** . Sie können das Bewertungsexperiment als Azure-Webdienst veröffentlichen. Sie können Daten über diesen Webdienstendpunkt an Ihr Modell senden und Ergebnisvorhersagen vom Modell empfangen.
+1. **Erstellen eines Trainingsexperiments**. Dieser Schritt wird mithilfe von Azure Machine Learning Studio (klassisch) ausgeführt. Azure Machine Learning Studio (klassisch) ist eine zusammenarbeitsorientierte visuelle Entwicklungsumgebung, mit der Sie ein Predictive Analytics-Modell anhand von Trainingsdaten trainieren und testen können.
+2. **Konvertierten in ein Vorhersageexperiment**. Sobald Ihr Modell mit vorhandenen Daten trainiert wurde, können Sie es verwenden, um neue Daten zu bewerten. Sie bereiten das Experiment auf die Bewertung vor und optimieren es.
+3. **Bereitstellen des Experiments als Webdienst**. Sie können das Bewertungsexperiment als Azure-Webdienst veröffentlichen. Sie können Daten über diesen Webdienstendpunkt an Ihr Modell senden und Ergebnisvorhersagen vom Modell empfangen.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory und Azure Machine Learning Studio (Classic)
 Azure Data Factory ermöglicht die einfache Erstellung von Pipelines, die einen veröffentlichten [Azure Machine Learning Studio (Classic)](https://azure.microsoft.com/documentation/services/machine-learning)-Webdienst für Predictive Analytics nutzen. Bei Verwendung der **Batchausführungsaktivität** in einer Azure Data Factory-Pipeline können Sie einen Webdienst von Azure Machine Learning Studio (klassisch) aufrufen, um Vorhersagen auf der Grundlage der Daten im Batch zu erstellen.
@@ -68,7 +65,7 @@ Sie können einen verknüpften **Azure Machine Learning Studio (Classic)** -Dien
 
 Im Artikel zu [von Azure Data Factory unterstützten Compute-Umgebungen](compute-linked-services.md) finden Sie Beschreibungen der Eigenschaften in der JSON-Definition.
 
-Azure Machine Learning Studio (Classic) unterstützt für Ihr Vorhersageexperiment sowohl klassische als auch neue Webdienste. Sie können denjenigen wählen, den Sie in Data Factory verwenden möchten. Um die Informationen zur Erstellung des verknüpften Azure Machine Learning Studio (Classic)-Diensts zu erhalten, besuchen Sie https://services.azureml.net. Hier sind alle Ihre neuen und klassischen Webdienste aufgelistet. Klicken Sie auf den Webdienst, auf den Sie zugreifen möchten, und klicken Sie auf die Seite **Consume** . Kopieren Sie **Primary Key** für die **apiKey** -Eigenschaft und **Batch Requests** für die **mlEndpoint** -Eigenschaft.
+Azure Machine Learning Studio (Classic) unterstützt für Ihr Vorhersageexperiment sowohl klassische als auch neue Webdienste. Sie können denjenigen wählen, den Sie in Data Factory verwenden möchten. Um die Informationen zur Erstellung des verknüpften Azure Machine Learning Studio (Classic)-Diensts zu erhalten, besuchen Sie https://services.azureml.net. Hier sind alle Ihre neuen und klassischen Webdienste aufgelistet. Klicken Sie auf den Webdienst, auf den Sie zugreifen möchten, und klicken Sie auf die Seite **Consume**. Kopieren Sie **Primary Key** für die **apiKey**-Eigenschaft und **Batch Requests** für die **mlEndpoint**-Eigenschaft.
 
 ![Azure Machine Learning Studio (Classic)-Webdienste](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +127,7 @@ Der folgende JSON-Codeausschnitt definiert eine Azure Machine Learning Studio (C
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Name der Aktivität in der Pipeline     | Ja      |
 | description       | Ein Text, der beschreibt, was mit der Aktivität ausgeführt wird.  | Nein       |
-| type              | Für die Data Lake Analytics-U-SQL-Aktivität ist der Aktivitätstyp **AzureMLBatchExecution** . | Ja      |
+| type              | Für die Data Lake Analytics-U-SQL-Aktivität ist der Aktivitätstyp **AzureMLBatchExecution**. | Ja      |
 | linkedServiceName | Mit dem verknüpften Azure Machine Learning Studio (Classic)-Dienst verknüpfte Dienste. Weitere Informationen zu diesem verknüpften Dienst finden Sie im Artikel [Von Azure Data Factory unterstützten Compute-Umgebungen](compute-linked-services.md). | Ja      |
 | webServiceInputs  | Schlüssel, Wertpaare, Zuordnung der Namen von Eingaben in den Azure Machine Learning Studio (Classic)-Webdienst. Der Schlüssel muss mit den Eingabeparametern übereinstimmen, die im veröffentlichten Azure Machine Learning Studio (Classic)-Webdienst definiert sind. Der Wert ist ein Paar aus verknüpften Azure Storage-Diensten und „FilePath“-Eigenschaften zum Angeben der Speicherorte von Eingabeblobs. | Nein       |
 | webServiceOutputs | Schlüssel, Wertpaare, Zuordnung der Namen von Ausgaben aus dem Azure Machine Learning Studio (Classic)-Webdienst. Der Schlüssel muss mit den Ausgabeparametern übereinstimmen, die im veröffentlichten Azure Machine Learning Studio (Classic)-Webdienst definiert sind. Der Wert ist ein Paar aus verknüpften Azure Storage-Diensten und „FilePath“-Eigenschaften zum Angeben der Speicherorte von Ausgabeblobs. | Nein       |

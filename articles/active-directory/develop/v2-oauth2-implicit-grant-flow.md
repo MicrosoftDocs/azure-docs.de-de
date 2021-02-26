@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752751"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226487"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform und der Flow für die implizite Genehmigung
 
@@ -44,7 +44,7 @@ Das folgende Diagramm zeigt, wie der gesamte implizite Anmeldevorgang aussieht, 
 Zur anfänglichen Anmeldung des Benutzers bei Ihrer App können Sie eine [OpenID Connect](v2-protocols-oidc.md)-Authentifizierungsanforderung senden und ein `id_token` von Microsoft Identity Platform abrufen.
 
 > [!IMPORTANT]
-> Um ein ID-Token und/oder ein Zugriffstoken erfolgreich anfordern zu können, muss für die App-Registrierung im [Azure-Portal auf der Seite „App-Registrierungen“](https://go.microsoft.com/fwlink/?linkid=2083908) der entsprechende Flow zur impliziten Genehmigung aktiviert sein. Zu diesem Zweck wählen Sie im Abschnitt **Implizite Genehmigung** die Option **ID-Token** und/oder **Zugriffstoken** aus. Wenn sie nicht aktiviert ist, wird ein Fehler des Typs `unsupported_response` zurückgegeben: **The provided value for the input parameter ‚response_type‘ is not allowed for this client. Expected value is ‚code‘.** (Der angegebene Wert für den Eingabeparameter ‚response_type‘ ist für diesen Client nicht zulässig. Erwarteter Wert: ‚code‘.)
+> Um ein ID-Token und/oder ein Zugriffstoken erfolgreich anfordern zu können, muss für die App-Registrierung im [Azure-Portal auf der Seite „App-Registrierungen“](https://go.microsoft.com/fwlink/?linkid=2083908) der entsprechende Flow zur impliziten Genehmigung aktiviert sein. Wählen Sie hierzu **ID-Token** und **Zugriffstoken** im Abschnitt **Implizite Genehmigung und Hybridflows** aus. Andernfalls wird ein Fehler vom Typ `unsupported_response` zurückgegeben: `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only

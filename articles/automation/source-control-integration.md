@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579452"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050769"
 ---
 # <a name="use-source-control-integration"></a>Verwenden der Integration der Quellcodeverwaltung
 
@@ -29,7 +29,7 @@ Azure Automation unterstützt drei Arten von Quellcodeverwaltung:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein Quellcodeverwaltungsrepository (GitHub oder Azure Repos)
-* Ein [ausführendes Konto](manage-runas-account.md).
+* Ein [ausführendes Konto](automation-security-overview.md#run-as-accounts).
 * Die [neuesten Azure-Module](automation-update-azure-modules.md) in Ihrem Automation-Konto, einschließlich des `Az.Accounts`-Moduls (Az-Modul-Entsprechung von `AzureRM.Profile`).
 
 > [!NOTE]
@@ -209,4 +209,4 @@ Derzeit können Sie das PAT in der Quellcodeverwaltung nicht über das Azure-Por
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Weitere Informationen zum Integrieren der Quellcodeverwaltung in Azure Automation finden Sie unter [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) (Azure Automation: Integration der Quellcodeverwaltung in Azure Automation).  
-* Weitere Informationen zum Integrieren der Quellcodeverwaltung für Runbooks mit Visual Studio Online finden Sie unter [Azure Automation: Integrating Runbook Source Control using Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/) (Azure Automation: Integrieren der Runbook-Quellcodeverwaltung mithilfe von Visual Studio Online).
+* Weitere Informationen zum Integrieren der Quellcodeverwaltung für Runbooks mit Visual Studio Codespaces finden Sie unter [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/) (Azure Automation: Integrieren der Runbook-Quellcodeverwaltung mithilfe von Visual Studio Codespaces).

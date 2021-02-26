@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791119"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550877"
 ---
 # <a name="what-is-azure-sql"></a>Was ist Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Azure SQL ist eine Familie verwalteter, sicherer und intelligenter Produkte, die die SQL Server-Datenbank-Engine in der Azure-Cloud nutzen.
 
-- **Azure SQL-Datenbank** : Unterstützen Sie moderne Cloudanwendungen mit einem intelligenten, verwalteten Datenbankdienst, der serverloses Compute einschließt. 
-- **Azure SQL Managed Instance** : Modernisieren Sie Ihre vorhandenen SQL Server-Anwendungen nach Maß mit einer intelligenten, vollständig verwalteten Instanz als Dienst mit nahezu 100 %-iger Featureparität mit der SQL Server-Datenbank-Engine. Ideal für die meisten Migrationen in die Cloud.
-- **SQL Server auf virtuellen Azure-Computern** : Migrieren Sie Ihre SQL Server-Workloads per Lift & Shift, und sichern Sie sich 100 %-ige SQL Server-Kompatibilität und Zugriff auf Betriebssystemebene. 
+- **Azure SQL-Datenbank**: Unterstützen Sie moderne Cloudanwendungen mit einem intelligenten, verwalteten Datenbankdienst, der serverloses Compute einschließt. 
+- **Azure SQL Managed Instance**: Modernisieren Sie Ihre vorhandenen SQL Server-Anwendungen nach Maß mit einer intelligenten, vollständig verwalteten Instanz als Dienst mit nahezu 100 %-iger Featureparität mit der SQL Server-Datenbank-Engine. Ideal für die meisten Migrationen in die Cloud.
+- **SQL Server auf virtuellen Azure-Computern**: Migrieren Sie Ihre SQL Server-Workloads per Lift & Shift, und sichern Sie sich 100 %-ige SQL Server-Kompatibilität und Zugriff auf Betriebssystemebene. 
  
 Azure SQL baut auf der vertrauten SQL Server-Engine auf, sodass Sie Anwendungen problemlos migrieren und weiterhin die Tools, Sprachen und Ressourcen nutzen können, die Ihnen vertraut sind. Ihre Kompetenzen und Erfahrungen werden in die Cloud übertragen, sodass Sie mit der vorhandenen Infrastruktur noch mehr erreichen können. 
 
@@ -53,7 +53,7 @@ Verbringen Sie mehr Zeit mit Innovationen und weniger Zeit mit dem Patchen, Aktu
 
 Azure überwacht Ihre Daten ständig auf Bedrohungen. Azure SQL bietet folgende Möglichkeiten:
 
-- Beseitigen Sie potenzielle Bedrohungen in Echtzeit durch intelligente [erweiterte Bedrohungserkennung](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) und proaktive Warnungen zur Beurteilung von Sicherheitsrisiken. 
+- Beseitigen Sie potenzielle Bedrohungen in Echtzeit durch intelligente [erweiterte Bedrohungserkennung](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) und proaktive Warnungen zur Beurteilung von Sicherheitsrisiken. 
 - Profitieren Sie von branchenweit führendem, mehrschichtigem Schutz mit [integrierten Sicherheitskontrollen](https://azure.microsoft.com/overview/security/) einschließlich T-SQL, Authentifizierung, Netzwerk und Schlüsselverwaltung. 
 - Kommen Sie in den Genuss der umfassendsten [Konformität](https://azure.microsoft.com/overview/trusted-cloud/compliance/) aller Datenbankdienste in der Cloud. 
 

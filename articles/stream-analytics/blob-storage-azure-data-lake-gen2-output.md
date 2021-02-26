@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882160"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935146"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Blobspeicher- und Azure Data Lake Gen2-Ausgabe von Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Die folgende Tabelle enthält die Eigenschaftennamen und die entsprechenden Besc
 Wenn Sie Blobspeicher als Ausgabe verwenden, wird in den folgenden Fällen eine neue Datei im Blob erstellt:
 
 * Wenn die Datei die maximale Anzahl von zulässigen Blöcken (derzeit 50.000) überschreitet. Sie können die maximale zulässige Anzahl von Blöcken erreichen, ohne die maximal zulässige Blobgröße zu erreichen. Wenn die Ausgaberate z.B. hoch ist, können Sie mehr Bytes pro Block vorhanden sein, und die Datei ist größer. Wenn die Ausgaberate niedrig ist, weist jeder Block weniger Daten auf, und die Datei ist kleiner.
-* Wenn es eine Schemaänderung in der Ausgabe gibt und das Ausgabeformat ein festes Schema erfordert (CSV und Avro).
+* Wenn es eine Schemaänderung in der Ausgabe gibt und das Ausgabeformat ein festes Schema erfordert (CSV, Avro, Parquet).
 * Wenn ein Auftrag neu gestartet wird, entweder extern, weil er von einem Benutzer beendet und gestartet wurde, oder intern zu Systemwartungs- oder Fehlerbehebungszwecken.
 * Wenn die Abfrage vollständig partitioniert ist und für jede Ausgabepartition eine neue Datei erstellt wird.
 * Wenn der Benutzer eine Datei oder einen Container des Speicherkontos löscht.

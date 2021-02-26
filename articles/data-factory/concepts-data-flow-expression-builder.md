@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145706"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584922"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Erstellen von Ausdrücken im Zuordnungsdatenfluss
 
@@ -106,6 +106,9 @@ Einige Beispiele für Zeichenfolgeninterpolation:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> Bei Verwendung der Syntax für Zeichenfolgeninterpolation in SQL-Quellabfragen muss die Abfragezeichenfolge in einer einzigen Zeile (ohne ‚/n‘) stehen.
 
 ## <a name="commenting-expressions"></a>Kommentieren von Ausdrücken
 

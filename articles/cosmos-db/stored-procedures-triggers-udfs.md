@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340701"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575956"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB ermöglicht die in die JavaScript-Sprache integrierte, transaktionale Ausführung von JavaScript. Wenn Sie die SQL-API in Azure Cosmos DB verwenden, können Sie **gespeicherte Prozeduren** , **Trigger** und **benutzerdefinierte Funktionen** (User-Defined Functions, UDFs) in der JavaScript-Sprache schreiben. Sie können Ihre Logik in JavaScript-Code schreiben, der in der Datenbank-Engine ausgeführt wird. Sie können Trigger, gespeicherte Prozeduren und benutzerdefinierte Funktionen im [Azure-Portal](https://portal.azure.com/), mithilfe der [JavaScript-Language Integrated Query-API in Azure Cosmos DB](javascript-query-api.md) oder mit den [SQL-API-Client-SDKs von Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) erstellen und ausführen.
+Azure Cosmos DB ermöglicht die in die JavaScript-Sprache integrierte, transaktionale Ausführung von JavaScript. Wenn Sie die SQL-API in Azure Cosmos DB verwenden, können Sie **gespeicherte Prozeduren**, **Trigger** und **benutzerdefinierte Funktionen** (User-Defined Functions, UDFs) in der JavaScript-Sprache schreiben. Sie können Ihre Logik in JavaScript-Code schreiben, der in der Datenbank-Engine ausgeführt wird. Sie können Trigger, gespeicherte Prozeduren und benutzerdefinierte Funktionen im [Azure-Portal](https://portal.azure.com/), mithilfe der [JavaScript-Language Integrated Query-API in Azure Cosmos DB](javascript-query-api.md) oder mit den [SQL-API-Client-SDKs von Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) erstellen und ausführen.
 
 ## <a name="benefits-of-using-server-side-programming"></a>Nutzen der serverseitigen Programmierung
 
@@ -72,7 +72,7 @@ Gespeicherte Prozeduren und Trigger werden immer auf dem primären Replikat eine
 
 ## <a name="bounded-execution"></a>Gebundene Ausführung
 
-Alle Azure Cosmos DB-Vorgänge müssen innerhalb des angegebenen Zeitlimits abgeschlossen werden. Diese Einschränkung gilt auch für JavaScript-Funktionen, d. h. für gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen. Wird ein Vorgang nicht innerhalb des Zeitlimits abgeschlossen, wird für die Transaktion ein Rollback ausgeführt.
+Alle Azure Cosmos DB-Vorgänge müssen innerhalb des angegebenen Zeitlimits abgeschlossen werden. Für gespeicherte Prozeduren gilt ein Zeitlimit von 5 Sekunden. Diese Einschränkung gilt auch für JavaScript-Funktionen, d. h. für gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen. Wird ein Vorgang nicht innerhalb des Zeitlimits abgeschlossen, wird für die Transaktion ein Rollback ausgeführt.
 
 Sie können entweder sicherstellen, dass Ihre JavaScript-Funktionen innerhalb des Zeitlimits abgeschlossen werden oder ein auf der Fortführung basierendes Modell implementieren, um die Ausführung in einem Batch zusammenzufassen/fortzusetzen. Um die Entwicklung gespeicherter Prozeduren und Trigger zur Behandlung von Zeitlimits zu vereinfachen, geben alle Funktionen unter dem Azure Cosmos-Container (z. B. Erstellen, Lesen, Ersetzen und Löschen von Elementen) einen booleschen Wert zurück, der angibt, ob der jeweilige Vorgang abgeschlossen wird. Lautet dieser Wert „false“, weist dies darauf hin, dass die Prozedur die Ausführung beenden muss, weil das Skript mehr Zeit oder bereitgestellten Durchsatz beansprucht als der konfigurierte Wert zulässt. Vorgänge, die vor dem ersten nicht angenommenen Speichervorgang in die Warteschlange gestellt wurden, werden garantiert abgeschlossen, wenn die gespeicherte Prozedur rechtzeitig abgeschlossen wird und keine weiteren Anforderungen in die Warteschlange stellt. Daher sollten Vorgänge mithilfe der Rückrufkonvention von JavaScript nacheinander in die Warteschlange eingereiht werden, um die Ablaufsteuerung des Skripts zu verwalten. Da Skripts in einer serverseitigen Umgebung ausgeführt werden, unterliegen sie einen strikten Kontrolle und Steuerung. Skripts, die wiederholt Ausführungsgrenzen verletzt haben, werden möglicherweise als inaktiv markiert und können nicht ausgeführt werden. Sie sollten unter Berücksichtigung der Ausführungsgrenzen neu erstellt werden.
 

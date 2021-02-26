@@ -5,22 +5,32 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f0f9832a8128a447970535f18cceca3cd4dccc69
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 217a804b0155d7886a068283f8669ace0bc81856
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880252"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218518"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-Protokollierung
 
 Storage Analytics protokolliert ausführliche Informationen zu erfolgreichen und nicht erfolgreichen Anforderungen an einen Speicherdienst. Anhand dieser Informationen können einzelne Anforderungen überwacht und Probleme mit einem Speicherdienst untersucht werden. Anforderungen werden auf Grundlage der besten Leistung protokolliert.
 
- Die Storage Analytics-Protokollierung ist für Ihr Speicherkonto nicht standardmäßig aktiviert. Sie können sie im [Azure-Portal](https://portal.azure.com/) aktivieren. Details finden Sie unter [Überwachen eines Speicherkontos im Azure-Portal](./storage-monitor-storage-account.md). Sie können die Speicheranalyse auch programmgesteuert über die REST-API oder die Clientbibliothek aktivieren. Über die Vorgänge [Get Blob Service Properties](/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](/rest/api/storageservices/Get-Queue-Service-Properties) und [Get Table Service Properties](/rest/api/storageservices/Get-Table-Service-Properties) können Sie Storage Analytics für jeden Dienst aktivieren.
+> [!NOTE]
+> Wir empfehlen, Azure Storage-Protokolle in Azure Monitor (statt Storage Analytics-Protokollen) zu verwenden. Azure Storage-Protokolle in Azure Monitor befinden sich in der öffentlichen Vorschauphase und stehen in allen Regionen für die öffentliche Cloud für Vorschautests zur Verfügung. Diese Vorschau unterstützt Protokolle für Blobdateien (einschließlich Azure Data Lake Storage Gen2), Dateien, Warteschlangen und Tabellen. Weitere Informationen finden Sie in einem der folgenden Artikel:
+>
+> - [Überwachen von Azure Blob Storage](../blobs/monitor-blob-storage.md)
+> - [Überwachen von Azure Files](../files/storage-files-monitoring.md)
+> - [Überwachen von Azure Queue Storage](../queues/monitor-queue-storage.md)
+> - [Überwachen von Azure-Tabellenspeicher](../tables/monitor-table-storage.md)
+
+ Die Storage Analytics-Protokollierung ist für Ihr Speicherkonto nicht standardmäßig aktiviert. Sie können sie im [Azure-Portal](https://portal.azure.com/) oder mithilfe von PowerShell oder der Azure CLI aktivieren. Eine Schrittanleitung finden Sie unter [Aktivieren und Verwalten von Azure Storage Analytics-Protokollen (klassisch)](manage-storage-analytics-logs.md). 
+
+Sie können Azure Storage Analytics auch programmgesteuert über die REST-API oder Clientbibliothek aktivieren. Über die Vorgänge [Get Blob Service Properties](/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](/rest/api/storageservices/Get-Queue-Service-Properties) und [Get Table Service Properties](/rest/api/storageservices/Get-Table-Service-Properties) können Sie Storage Analytics für jeden Dienst aktivieren. Ein Beispiel für die Aktivierung von Storage Analytics-Protokollen mithilfe von .NET finden Sie unter [Aktivieren von Protokollen](manage-storage-analytics-logs.md).
 
  Protokolleinträge werden nur erstellt, wenn Anforderungen für den Dienstendpunkt gestellt wurden. Wenn ein Speicherkonto beispielsweise Aktivität im Blobendpunkt, jedoch nicht im Tabellen- oder Warteschlangenendpunkt aufweist, werden nur Protokolle für den Blob-Dienst erstellt.
 
@@ -125,91 +135,10 @@ Informationen zum programmgesteuerten Auflisten von Blobs finden Sie unter [Aufl
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-## <a name="enable-storage-logging"></a>Aktivieren der Speicherprotokollierung
-
-Sie können die Speicherprotokollierung im Azure-Portal, über PowerShell und mit Storage SDKs aktivieren.
-
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Aktivieren der Speicherprotokollierung im Azure-Portal  
-
-Verwenden Sie im Azure-Portal zum Steuern der Speicherprotokollierung das Blatt **Diagnoseeinstellungen (klassisch)** , auf das im Abschnitt **Überwachung (klassisch)** des **Menüblatts** eines Speicherkontos zugegriffen werden kann.
-
-Sie können die zu protokollierenden Speicherdienste und den Aufbewahrungszeitraum (in Tagen) für die protokollierten Daten angeben.  
-
-### <a name="enable-storage-logging-using-powershell"></a>Aktivieren der Speicherprotokollierung mithilfe von PowerShell  
-
- Sie können PowerShell auf Ihrem lokalen Computer zum Konfigurieren der Speicherprotokollierung in Ihrem Speicherkonto verwenden: Mit dem Azure PowerShell-Cmdlet **Get-AzStorageServiceLoggingProperty** können Sie die aktuellen Einstellungen abrufen, und mit dem Cmdlet **Set-AzStorageServiceLoggingProperty** können Sie die aktuellen Einstellungen ändern.  
-
- Die Cmdlets, über die die Speicherprotokollierung gesteuert wird, verwenden einen **LoggingOperations**-Parameter. Dabei handelt es sich um eine Zeichenfolge mit einer durch Trennzeichen getrennten Liste von zu protokollierenden Anforderungstypen. Die drei möglichen Anforderungstypen sind **read**, **write** und **delete**. Um die Protokollierung zu deaktivieren, verwenden Sie den Wert **none** für den Parameter **LoggingOperations**.  
-
- Mit dem folgenden Befehl wird die Protokollierung für read-, write- und delete-Anforderungen im Warteschlangendienst mit einem Aufbewahrungszeitraum von fünf Tagen in Ihrem Standardspeicherkonto aktiviert:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
-
- Mit dem folgenden Befehl wird die Protokollierung für den Tabellenspeicherdienst in Ihrem Standardspeicherkonto deaktiviert:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
-
- Informationen zum Konfigurieren der Azure PowerShell-Cmdlets für Ihr Azure-Abonnement sowie zum Auswählen des zu verwendenden Standardspeicherkontos finden Sie unter: [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/).  
-
-### <a name="enable-storage-logging-programmatically"></a>Programmgesteuertes Aktivieren der Speicherprotokollierung  
-
- Neben der Verwendung des Azure-Portals oder der Azure PowerShell-Cmdlets zum Steuern der Speicherprotokollierung können Sie auch eine der Azure Storage-APIs verwenden. Wenn Sie beispielsweise eine .NET-Programmiersprache verwenden, können Sie die Speicherclientbibliothek verwenden.  
-
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
-
-queueClient.SetServiceProperties(serviceProperties);  
-```  
-
----
-
-
- Weitere Informationen zum Verwenden einer .NET-Programmiersprache zum Konfigurieren der Speicherprotokollierung finden Sie in der [Referenz zur Speicherclientbibliothek](/previous-versions/azure/dn261237(v=azure.100)).  
-
- Allgemeine Informationen zum Konfigurieren der Speicherprotokollierung mithilfe der REST-API finden Sie unter [Aktivieren und Konfigurieren von Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
-
-## <a name="download-storage-logging-log-data"></a>Herunterladen von Protokolldaten der Speicherprotokollierung
-
- Zum Anzeigen und Analysieren der Protokolldaten sollten Sie die Blobs, die die gewünschten Protokolldaten enthalten, auf einen lokalen Computer herunterladen. Mit vielen Tools zum Durchsuchen des Speichers können Sie Blobs von Ihrem Speicherkonto herunterladen. Außerdem können Sie das vom Azure Storage-Team bereitgestellte Befehlszeilentool Azure Copy ([AzCopy](storage-use-azcopy-v10.md)) zum Herunterladen der Protokolldaten verwenden.  
- 
->[!NOTE]
-> Der Container `$logs` ist nicht in Event Grid integriert. Sie erhalten daher keine Benachrichtigungen, wenn Protokolldateien geschrieben werden. 
-
- So stellen Sie sicher, dass Sie die gewünschten Protokolldaten herunterladen und dieselben Protokolldaten nicht mehrmals herunterladen  
-
--   Verwenden Sie die Benennungskonvention für Datum und Uhrzeit für Blobs, die Protokolldaten enthalten, um nachzuverfolgen, welche Blobs bereits zur Analyse heruntergeladen wurden, und zu vermeiden, dass dieselben Daten mehrmals erneut heruntergeladen werden.  
-
--   Verwenden Sie die Metadaten für die Blobs mit Protokolldaten, um den jeweiligen Zeitraum zu identifizieren, für den das Blob Protokolldaten enthält, und so zu das genaue herunterzuladende Blob zu ermitteln.  
-
-Informationen zu den ersten Schritten mit AzCopy finden Sie unter [Erste Schritte mit AzCopy](storage-use-azcopy-v10.md). 
-
-Im folgenden Beispiel wird veranschaulicht, wie Sie die Protokolldaten für den Warteschlangendienst für die Stunden ab 9 Uhr, 10 Uhr und 11 Uhr am 20. Mai 2014 herunterladen können.
-
-```
-azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
-```
-
-Weitere Informationen zum Herunterladen bestimmter Dateien finden Sie unter [Herunterladen bestimmter Dateien](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#transfer-data).
-
-Nach dem Herunterladen der Protokolldaten können Sie die Protokolleinträge in den Dateien anzeigen. Diese Protokolldateien verwenden ein durch Trennzeichen getrenntes Textformat, das viele Protokolllesetools analysieren können. (Weitere Informationen finden Sie im Leitfaden [Microsoft Azure Storage: Überwachung, Diagnose und Problembehandlung](storage-monitoring-diagnosing-troubleshooting.md).) Die verschiedenen Tools umfassen unterschiedliche Funktionen zum Formatieren, Filtern, Sortieren und Durchsuchen der Inhalte der Protokolldateien. Weitere Informationen zum Format und Inhalt von Protokolldateien der Speicherprotokollierung finden Sie unter [Storage Analytics-Protokollformat](/rest/api/storageservices/storage-analytics-log-format) und [Protokollierte Vorgänge und Statusmeldungen in Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+* [Aktivieren und Verwalten von Azure Storage Analytics-Protokollen (klassisch)](manage-storage-analytics-logs.md)
 * [Protokollformat der Speicheranalyse](/rest/api/storageservices/storage-analytics-log-format)
 * [Protokollierte Speicheranalysevorgänge und Statusmeldungen](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Metriken von Storage Analytics (klassisch)](storage-analytics-metrics.md)

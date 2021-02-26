@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 9ea5fb26a52c967c5296f1a83976e748c86c9e18
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763675"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475038"
 ---
-Die Größe eines virtuellen Computers bestimmt die Menge an Computeressourcen (CPU, GPU und Arbeitsspeicher), die für den virtuellen Computer zur Verfügung gestellt werden. Virtuelle Computer müssen mit einer Größe erstellt werden, die für die erwartete Workload angemessen ist. Auch wenn alle Computer auf derselben Hardware ausgeführt werden, gibt es bei den Computergrößen unterschiedliche Grenzwerte für den Datenträgerzugriff, was Ihnen helfen kann, den gesamten Datenträgerzugriff über Ihre VMs hinweg zu verwalten. Bei einer Zunahme der Workload kann die Größe eines vorhandenen virtuellen Computers auch geändert werden.
+Die VM-Größe bestimmt den Umfang der Computeressourcen (CPU, GPU und Arbeitsspeicher), die für die VM zur Verfügung gestellt werden. Sie müssen VMs mit einer für die Workload geeigneten Größe erstellen. Auch wenn alle VMs auf derselben Hardware ausgeführt werden, gibt es bei den VM-Größen unterschiedliche Grenzwerte für den Datenträgerzugriff. Dies kann Ihnen helfen, den gesamten Datenträgerzugriff auf allen Ihren VMs zu verwalten. Wenn eine Workload zunimmt, können Sie auch die Größe einer vorhandenen VM ändern.
 
-Die folgenden VMs werden für die Erstellung auf Azure Stack Edge-Geräten unterstützt.
+Die folgenden VMs werden für die Erstellung auf Ihrem Azure Stack Edge-Gerät unterstützt.
 
 ### <a name="dv2-series"></a>Dv2-Serie
 |Size     |vCPU     |Arbeitsspeicher (GiB) | Größe des Ressourcendatenträgers (GiB)  | Größe des Betriebssystemdatenträgers (GiB) | Max. Anzahl Datenträger | Maximale Anzahl NICs |
@@ -40,7 +40,7 @@ Die folgenden VMs werden für die Erstellung auf Azure Stack Edge-Geräten unter
 |**Standard_DS13_v2**|8   |56  |112|32000 |1000 |16 |8 |
 
 
-Weitere Informationen finden Sie unter [Dv2-Serie auf universellen VM-Größen](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+Weitere Informationen finden Sie unter [Dv2- und DSv2-Serie](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### <a name="ncast4_v3-series-preview"></a>NCasT4_v3-Serie (Vorschau)
 
@@ -51,7 +51,7 @@ Diese Größen werden GPU-VMs auf Ihrem Gerät unterstützt und sind für comput
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1000|1 |16  |8 |
 
-Weitere Informationen finden Sie unter [NCasT4_v3-Serie auf GPU-optimierten VM-Größen](../articles/virtual-machines/nct4-v3-series.md).
+Weitere Informationen finden Sie unter [NCasT4_v3-Serie](../articles/virtual-machines/nct4-v3-series.md).
 
 ### <a name="f-series"></a>F-Serie
 
@@ -70,5 +70,5 @@ Diese Serien sind für Computeworkloads optimiert und laufen auf Intel Xeon-Proz
 | Standard_F8s | 8 | 16 |32 |1000| 32 |  8 |
 | Standard_F16s | 16 | 32 |64 |1000| 64 |  8 |
 
-Weitere Informationen finden Sie unter [Fsv2_v3-Serie auf Compute-optimierten VM-Größen](../articles/virtual-machines/fsv2-series.md).
+Weitere Informationen finden Sie unter [Fsv2-Serie](../articles/virtual-machines/fsv2-series.md).
 

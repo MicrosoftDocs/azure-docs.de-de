@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340052"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063195"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Erstellen von Indexerverbindungen über einen privaten Endpunkt
 
@@ -31,9 +31,9 @@ Private Endpunkte von gesicherten Ressourcen, die über Azure Cognitive Search-A
 
 Über seine Verwaltungs-REST-API stellt Azure Cognitive Search einen [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate)-Vorgang bereit, mit dem Sie den Zugriff aus einem Azure Cognitive Search-Indexer konfigurieren können.
 
-Sie können private Endpunktverbindungen zu einigen Ressourcen nur mithilfe der Vorschauversion der Search Management-API (Version *2020-08-01-Preview* oder höher) erstellen, die in der folgenden Tabelle als *Vorschau* bezeichnet wird. Ressourcen ohne eine *Vorschau* -Bezeichnung können entweder mit der Vorschauversion oder der allgemein verfügbaren API-Version ( *2020-08-01* oder höher) erstellt werden.
+Sie können private Endpunktverbindungen zu einigen Ressourcen nur mithilfe der Vorschauversion der Search Management-API (Version *2020-08-01-Preview* oder höher) erstellen, die in der folgenden Tabelle als *Vorschau* bezeichnet wird. Ressourcen ohne eine *Vorschau*-Bezeichnung können entweder mit der Vorschauversion oder der allgemein verfügbaren API-Version (*2020-08-01* oder höher) erstellt werden.
 
-In der folgenden Tabelle sind die Azure-Ressourcen aufgeführt, für die Sie ausgehende private Endpunkte aus Azure Cognitive Search erstellen können. Zum Erstellen einer freigegebenen Private Link-Ressource geben Sie die **Gruppen-ID** -Werte genau so ein, wie sie in der API geschrieben werden. Bei den Werten wird Groß- und Kleinschreibung unterschieden.
+In der folgenden Tabelle sind die Azure-Ressourcen aufgeführt, für die Sie ausgehende private Endpunkte aus Azure Cognitive Search erstellen können. Zum Erstellen einer freigegebenen Private Link-Ressource geben Sie die **Gruppen-ID**-Werte genau so ein, wie sie in der API geschrieben werden. Bei den Werten wird Groß- und Kleinschreibung unterschieden.
 
 | Azure-Ressource | Gruppen-ID |
 | --- | --- |
@@ -47,14 +47,14 @@ In der folgenden Tabelle sind die Azure-Ressourcen aufgeführt, für die Sie aus
 
 Sie können die Azure-Ressourcen, bei denen ausgehende private Endpunktverbindungen unterstützt werden, auch anhand der [Liste unterstützter APIs](/rest/api/searchmanagement/privatelinkresources/listsupported) abfragen.
 
-Im restlichen Teil dieses Artikels wird zur Veranschaulichung der REST-API-Aufrufe eine Mischung aus [ARMClient](https://github.com/projectkudu/ARMClient)- und [Postman](https://www.postman.com/)-APIs verwendet.
+Im weiteren Verlauf dieses Artikels wird zur Veranschaulichung der REST-API-Aufrufe eine Mischung aus [Azure CLI](https://docs.microsoft.com/cli/azure/) (oder [ARMClient](https://github.com/projectkudu/ARMClient), falls bevorzugt) und [Postman](https://www.postman.com/) (oder ein anderer HTTP-Client wie [cURL](https://curl.se/), falls bevorzugt) verwendet.
 
 > [!NOTE]
 > Die Beispiele in diesem Artikel basieren auf den folgenden Annahmen:
-> * Der Name des Suchdiensts lautet _contoso-search_ . Er ist in der Ressourcengruppe _contoso_ eines Abonnements mit der Abonnement-ID _00000000-0000-0000-0000-000000000000_ enthalten. 
-> * Die Ressourcen-ID dieses Suchdiensts lautet _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_ .
+> * Der Name des Suchdiensts lautet _contoso-search_. Er ist in der Ressourcengruppe _contoso_ eines Abonnements mit der Abonnement-ID _00000000-0000-0000-0000-000000000000_ enthalten. 
+> * Die Ressourcen-ID dieses Suchdiensts lautet _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_.
 
-In den restlichen Beispielen wird gezeigt, wie der _contoso-search_ -Dienst so konfiguriert werden kann, dass seine Indexer auf Daten aus dem sicheren Speicherkonto _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_ zugreifen können.
+In den restlichen Beispielen wird gezeigt, wie der _contoso-search_-Dienst so konfiguriert werden kann, dass seine Indexer auf Daten aus dem sicheren Speicherkonto _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_ zugreifen können.
 
 ## <a name="secure-your-storage-account"></a>Schützen Ihres Speicherkontos
 
@@ -69,11 +69,15 @@ Konfigurieren Sie das Speicherkonto so, dass der [Zugriff nur von bestimmten Sub
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Schritt 1: Erstellen einer freigegebenen Private Link-Ressource zum Speicherkonto
 
-Wenn Sie bei Azure Cognitive Search anfordern möchten, dass eine ausgehende private Endpunktverbindung mit dem Speicherkonto erstellt wird, führen Sie den folgenden API-Aufruf aus: 
+Wenn Sie bei Azure Cognitive Search die Erstellung einer ausgehenden privaten Endpunktverbindung mit dem Speicherkonto anfordern möchten, führen Sie den folgenden API-Aufruf aus (beispielsweise mithilfe der [Azure CLI](https://docs.microsoft.com/cli/azure/)): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+Alternativ können Sie auch [ARMClient](https://github.com/projectkudu/ARMClient) verwenden:
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
-Der Inhalt der Datei *create-pe.json* , die den Anforderungstext für die API darstellt, lautet so:
+Der Inhalt der Datei *create-pe.json*, die den Anforderungstext für die API darstellt, lautet so:
 
 ```json
 {
@@ -98,7 +102,11 @@ Wie bei allen asynchronen Azure-Vorgängen gibt der `PUT`-Aufruf einen `Azure-As
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-Sie können diesen URI in regelmäßigen Abständen abrufen, um den Status des Vorgangs zu erhalten. Bevor Sie den Vorgang fortsetzen, sollten Sie warten, bis der Status des freigegebenen Private Link-Ressourcenvorgangs einen Endzustand erreicht hat (d. h., der Status des Vorgangs lautet *Erfolgreich* ).
+Sie können diesen URI in regelmäßigen Abständen abrufen, um den Status des Vorgangs zu erhalten. Bevor Sie den Vorgang fortsetzen, sollten Sie warten, bis der Status des freigegebenen Private Link-Ressourcenvorgangs einen Endzustand erreicht hat (d. h., der Status des Vorgangs lautet *Erfolgreich*).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+Vorgehensweise mit „ARMClient“:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -130,6 +138,10 @@ Nachdem die Anforderung für die private Endpunktverbindung genehmigt wurde, *ka
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Schritt 2b: Abfragen des Status der freigegebenen Private Link-Ressource
 
 Zur Bestätigung, dass die freigegebene Private Link-Ressource nach der Genehmigung aktualisiert wurde, rufen Sie deren Status über die [GET-API](/rest/api/searchmanagement/sharedprivatelinkresources/get) ab.
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+Vorgehensweise mit „ARMClient“:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

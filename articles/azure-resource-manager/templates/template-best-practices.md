@@ -3,12 +3,12 @@ title: Bewährte Methoden für Vorlagen
 description: In diesem Artikel werden empfohlene Vorgehensweisen zum Erstellen von Azure Resource Manager-Vorlagen (ARM-Vorlagen) beschrieben. Bietet Vorschläge zur Vermeidung häufig auftretender Probleme bei der Verwendung von Vorlagen.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696345"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257996"
 ---
 # <a name="arm-template-best-practices"></a>Bewährte Methoden für ARM-Vorlagen
 
@@ -276,6 +276,8 @@ Die folgenden Informationen können bei der Arbeit mit [Ressourcen](template-syn
 
    > [!NOTE]
    > Zum Sicherzustellen der Verschlüsselung von Geheimnissen, die als Parameter an virtuelle Computer und Erweiterungen übergeben werden, verwenden Sie die `protectedSettings`-Eigenschaft der entsprechenden Erweiterungen.
+
+* Geben Sie für Eigenschaften mit Standardwerten, die sich im Lauf der Zeit ändern können, explizite Werte an. Wenn Sie z. B. einen AKS-Cluster bereitstellen, können Sie die `kubernetesVersion`-Eigenschaft angeben oder weglassen. Wenn Sie sie nicht angeben, wird für den [Cluster standardmäßig die N-1-Nebenversion und der neueste Patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions) verwendet. Wenn Sie den Cluster mithilfe einer ARM-Vorlage bereitstellen, entspricht dieses Standardverhalten möglicherweise nicht Ihren Erwartungen. Wenn Sie die Vorlage erneut bereitstellen, wird der Cluster möglicherweise unerwartet auf eine neue Kubernetes-Version aktualisiert. Geben Sie stattdessen eine explizite Versionsnummer an, und ändern Sie diese dann manuell, wenn Sie für das Upgrade Ihres Clusters bereit sind.
 
 ## <a name="use-test-toolkit"></a>Verwenden des Testtoolkits
 

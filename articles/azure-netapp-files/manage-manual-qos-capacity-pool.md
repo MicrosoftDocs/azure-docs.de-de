@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 566cc3b1192d632bbffb8f9ef091f291b4bcc6e6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929216"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581147"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Verwalten eines manuellen QoS-Kapazitätspools
 
@@ -59,7 +59,8 @@ So erstellen Sie einen neuen Kapazitätspool mit dem QoS-Typ „Manuell“:
 Sie können einen Kapazitätspool, für den derzeit der QoS-Typ „Automatisch“ verwendet wird, so ändern, dass der QoS-Typ „Manuell“ verwendet wird.  
 
 > [!IMPORTANT]
-> Beim Festlegen des QoS-Kapazitätstyps auf „Manuell“ handelt es sich um eine permanente Änderung. Das bedeutet, dass ein QoS-Kapazitätspool vom Typ „Manuell“ nicht auf den QoS-Kapazitätspooltyp „Automatisch“ umgestellt werden kann. 
+> Beim Festlegen des QoS-Kapazitätstyps auf „Manuell“ handelt es sich um eine permanente Änderung. Das bedeutet, dass ein QoS-Kapazitätspool vom Typ „Manuell“ nicht auf den QoS-Kapazitätspooltyp „Automatisch“ umgestellt werden kann.  
+> Während der Konvertierung wird der Durchsatz möglicherweise auf die Durchsatzlimits für Volumes des manuellen QoS-Typs begrenzt. Weitere Informationen finden Sie unter [Ressourcenlimits für Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
 1. Navigieren Sie zum Blatt für die Verwaltung Ihres NetApp-Kontos, und klicken Sie auf **Kapazitätspools**, um vorhandene Kapazitätspools anzuzeigen.   
  

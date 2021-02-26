@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 594dd2fd154b37eed49c069cef1b539e13ca6876
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445641"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094241"
 ---
 # <a name="managed-hsm-role-management"></a>Rollenverwaltung für verwaltetes HSM
 
@@ -81,6 +81,9 @@ Alle Rollenzuweisungen auf der HSM-Ebene für einen bestimmten Benutzer ( **user
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
+
+> [!NOTE]
+> Wird für Bereich „/“ (oder „/keys“) festgelegt, werden mit dem Auflistungsbefehl nur alle Rollenzuweisungen auf der obersten Ebene aufgeführt, aber keine Rollenzuweisungen auf der Ebene einzelner Schlüssel.
 
 Alle Rollenzuweisungen für einen bestimmten Benutzer ( **user2@contoso.com** ) und einen bestimmten Schlüssel (**myrsakey**).
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 4c63a9833e6b9a9b243d289d79428ddef1468253
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992753"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833880"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Schnellstart: Überwachen Ihrer Geräte mithilfe von Azure IoT Central
 
@@ -50,6 +50,10 @@ Eine Änderung am Gerät können Sie über die Seite **Gerät verwalten** vorneh
 Ändern Sie **Zieltemperatur** in „80“, um das Gerät zu erwärmen und die Luftfeuchtigkeit zu verringern. Wählen Sie **Speichern** aus, um das Gerät zu aktualisieren. Wenn das Gerät die Einstellungsänderung bestätigt, ändert sich der Status der Eigenschaft in **Synchronisiert**:
 
 :::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot: Aktualisierte Zieltemperatureinstellung für das Gerät":::
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

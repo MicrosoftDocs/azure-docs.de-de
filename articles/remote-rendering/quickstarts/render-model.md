@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724929"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593992"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Schnellstart: Rendern eines Modells mit Unity
 
@@ -74,8 +74,8 @@ Das von uns gerenderte Standardmodell ist ein [integriertes Beispielmodell](../s
 ![ARR-Kontoinformationen](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Legen Sie **AccountDomain** auf `<region>.mixedreality.azure.com` fest, wobei `<region>` für [eine der verfügbaren Regionen in Ihrer Nähe](../reference/regions.md) steht.\
-> Legen Sie **AccountAuthenticationDomain** gemäß der Anzeige im Azure-Portal auf die [Kontodomäne](../how-tos/create-an-account.md#retrieve-the-account-information) fest.
+> Legen Sie **RemoteRenderingDomain** auf `<region>.mixedreality.azure.com` fest, wobei `<region>` für [eine der verfügbaren Regionen in Ihrer Nähe](../reference/regions.md) steht.\
+> Legen Sie **AccountDomain** gemäß der Anzeige im Azure-Portal auf die [Kontodomäne](../how-tos/create-an-account.md#retrieve-the-account-information) fest.
 
 Wir möchten dieses Projekt später für ein HoloLens-Gerät bereitstellen und dafür eine Verbindung mit dem Remote Rendering-Dienst herstellen. Da es keine einfache Möglichkeit zum Eingeben der Anmeldeinformationen auf dem Gerät gibt, werden die **Anmeldeinformationen in der Unity-Szene gespeichert**.
 

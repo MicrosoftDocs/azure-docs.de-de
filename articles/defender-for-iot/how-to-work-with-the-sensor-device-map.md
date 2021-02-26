@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976757"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523837"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Untersuchen von Sensorerkennungen in der Geräteübersicht
 
@@ -63,7 +63,7 @@ Die folgende Abbildung zeigt ein zugeklapptes IT-Subnetz mit 27 IT-Netzwerkelem
 
 So aktivieren Sie die Zuklappfunktion für IT-Netzwerke
 
-- Vergewissern Sie sich im Fenster „Systemeinstellung“, dass die Funktion „IT-Netzwerke“ aktiviert ist.
+- Vergewissern Sie sich im Fenster **Systemeinstellungen**, dass die Funktion „IT-Netzwerkgruppierung umschalten“ aktiviert ist.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Fenster „Systemeinstellung“":::
 
@@ -76,7 +76,7 @@ So klappen Sie ein IT-Subnetz auf
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Subnetzkonfiguration":::
 
-2. Deaktivieren Sie im Fenster „Edit Subnets Configuration“ (Konfiguration der Subnetze bearbeiten) das ICS-Subnetz jedes Subnetzes, das Sie als IT-Subnetz definieren möchten. Die IT-Subnetze werden in der Geräteübersicht mit den Benachrichtigungen für ICS-Geräte, wie z. B. Controller oder SPS, in IT-Netzwerken zugeklappt dargestellt.
+2. Deaktivieren Sie im Fenster **Edit Subnets Configuration** (Konfiguration der Subnetze bearbeiten) das Kontrollkästchen **ICS-Subnetz** für jedes Subnetz, das Sie als IT-Subnetz definieren möchten. Die IT-Subnetze werden in der Geräteübersicht mit den Benachrichtigungen für ICS-Geräte, wie z. B. Controller oder SPS, in IT-Netzwerken zugeklappt dargestellt.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Konfiguration der Subnetze bearbeiten":::
 
@@ -106,13 +106,13 @@ Das Zuklappsymbol wird mit der aktualisierten Anzahl der aufgeklappten IT-Subnet
 
 ## <a name="view-or-highlight-device-groups"></a>Anzeigen oder Hervorheben von Gerätegruppen
 
-Sie können die Anzeige der Übersicht auf Grundlage von Gerätegruppen anpassen. Ein Beispiel sind Gruppen von Geräten, die einem bestimmten VLAN oder Subnetz zugeordnet sind. Vordefinierte Gruppen sind verfügbar, benutzerdefinierte Gruppen können erstellt werden.
+Sie können die Anzeige der Übersicht auf Grundlage von Gerätegruppen anpassen. Ein Beispiel sind Gruppen von Geräten, die einem bestimmten OT-Protokoll, VLAN oder Subnetz zugeordnet sind. Vordefinierte Gruppen sind verfügbar, benutzerdefinierte Gruppen können erstellt werden.
 
 Zeigen Sie Gruppen durch Ausführen der folgenden Aufgaben an:
 
   - **Hervorheben**: Heben Sie die zu einer bestimmten Gruppe gehörenden Geräte blau hervor.
 
-  - **Filtern**: Zeigen Sie in der Übersicht nur Geräte an, die zu einer bestimmten Gruppe gehören.
+  - **Filtern**: Zeigen Sie nur die zu einer bestimmten Gruppe gehörenden Geräte an.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Standardansicht Ihres Ports":::
 
@@ -120,17 +120,18 @@ Die folgenden vordefinierten Gruppen sind verfügbar:
 
 | Gruppenname | BESCHREIBUNG |
 |--|--|
-| **Bekannte Anwendungen oder nicht standardmäßige Ports (Standard)** | Geräte, die reservierte Ports verwenden, wie z. B. TCP. Geräte, die nicht standardmäßige Ports oder Ports verwenden, denen kein Alias zugewiesen wurde. |
-| **OT-Protokolle (Standard)** | Geräte, die den OT-Datenverkehr verarbeiten. |
-| **Autorisierung (Standard)** | Geräte, die während des Lernprozesses im Netzwerk erkannt wurden oder dem Netzwerk offiziell hinzugefügt wurden |
+| **Bekannte Anwendungen** | Geräte, die reservierte Ports verwenden, wie z. B. TCP.  |
+| **Nicht standardmäßige Ports (Standard)** | Geräte, die nicht standardmäßige Ports oder Ports verwenden, denen kein Alias zugewiesen wurde. |
+| **OT-Protokolle (Standard)** | Geräte, die den bekannten OT-Datenverkehr verarbeiten. |
+| **Autorisierung (Standard)** | Geräte, die während des Lernprozesses im Netzwerk ermittelt oder offiziell im Netzwerk autorisiert wurden. |
 | **Filter für den Gerätebestand** | Geräte, die gemäß den Filtern gruppiert sind, werden in der Tabelle „Gerätebestand“ gespeichert. |
 | **Abrufintervalle** | Geräte, die nach Abrufintervallen gruppiert sind. Abrufintervalle werden automatisch anhand von zyklischen Kanälen bzw. Zeiträumen generiert. Beispiel: 15,0 Sekunden, 3,0 Sekunden, 1,5 Sekunden oder beliebiges Intervall. Durch Überprüfung dieser Informationen können Sie feststellen, ob Systeme zu schnell oder zu langsam abrufen. |
-| **Programmieren** | Engineeringstationen und programmierte Steuerungen |
+| **Programmieren** | Engineeringstationen und Programmiercomputer. |
 | **Subnetze** | Geräte, die zu einem bestimmten Subnetz gehören. |
 | **VLAN** | Geräte, die einer bestimmten VLAN-ID zugeordnet sind. |
-| **Verbindung zwischen Subnetzen** | Geräte, die einer subnetzübergreifenden Verbindung zugeordnet sind |
+| **Subnetzübergreifende Verbindungen** | Geräte, die von einem Subnetz mit einem anderen Subnetz kommunizieren. |
 | **Angeheftete Warnungen** | Geräte, für die der Benutzer eine Warnung angeheftet hat |
-| **Angriffsvektorsimulationen** | Gefährdete Geräte, die in Berichten zu Angriffsvektoren erkannt wurden. Um diese Geräte in der Übersicht anzuzeigen, aktivieren Sie das Kontrollkästchen **Display on Device Map** (In Geräteübersicht anzeigen), wenn der Angriffsvektor generiert wird. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Hinzufügen von Angriffsvektorsimulationen"::: |
+| **Angriffsvektorsimulationen** | Gefährdete Geräte, die in Berichten zu Angriffsvektoren erkannt wurden. Um diese Geräte in der Übersicht anzuzeigen, aktivieren Sie das Kontrollkästchen **Display on Device Map** (In Geräteübersicht anzeigen), wenn der Angriffsvektor generiert wird. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Hinzufügen von Angriffsvektorsimulationen":::. |
 | **Zuletzt gesehen** | Geräte, gruppiert nach dem Zeitrahmen, in dem sie zuletzt erkannt wurden, z. B.: eine Stunde, sechs Stunden, ein Tag, sieben Tage. |
 | **Nicht in Active Directory** | Alle Nicht-SPS-Geräte, die nicht mit Active Directory kommunizieren. |
 
@@ -142,7 +143,7 @@ So lassen sich Geräte hervorheben oder filtern
 
 3. Wählen Sie im Bereich „Gruppen“ die Gruppe aus, die Sie hervorheben oder deren Geräte Sie filtern möchten.
 
-4. Wählen Sie **Hervorheben** oder **Filtern** aus.
+4. Wählen Sie **Hervorheben** oder **Filtern** aus. Schalten Sie dieselbe Auswahl ein, um die Hervorhebung oder den Filter zu entfernen.
 
 ## <a name="define-custom-groups"></a>Definieren benutzerdefinierter Gruppen
 
@@ -155,20 +156,20 @@ So erstellen Sie eine Gruppe:
 
 1. Wählen Sie im seitlichen Menü **Geräte** aus. Die Geräteübersicht wird angezeigt.
 
-2. Wählen Sie :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Gruppeneinstellung"::: aus, um die Gruppeneinstellungen anzuzeigen.
+1. Wählen Sie :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Gruppeneinstellung"::: aus, um die Gruppeneinstellungen anzuzeigen.
 
-3. Wählen Sie :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="Gruppen"::: aus, um eine neue benutzerdefinierte Gruppe zu erstellen.
+1. Wählen Sie :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="Gruppen"::: aus, um eine neue benutzerdefinierte Gruppe zu erstellen.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Bildschirm zum Erstellen einer benutzerdefinierten Gruppe":::
 
-4. Fügen Sie den Namen der Gruppe mit maximal 30 Zeichen hinzu.
+1. Fügen Sie den Namen der Gruppe mit maximal 30 Zeichen hinzu.
 
-5. Wählen Sie die relevanten Geräte wie folgt aus:
+1. Wählen Sie die relevanten Geräte wie folgt aus:
 
    - Fügen Sie die Geräte aus diesem Menü hinzu, indem Sie sie in der Liste auswählen (auf die Pfeilschaltfläche klicken).<br /> Oder <br /> 
    - Fügen Sie die Geräte aus diesem Menü hinzu, indem Sie sie aus einer ausgewählten Gruppe kopieren (mit der Pfeilschaltfläche auswählen).
 
-6. Wählen Sie **Gruppe hinzufügen** aus.
+1. Wählen Sie **Gruppe hinzufügen** aus, um vorhandene Gruppen zu benutzerdefinierten Gruppen hinzuzufügen.
 
 ### <a name="add-devices-to-a-custom-group"></a>Hinzufügen von Geräten zu einer benutzerdefinierten Gruppe
 
@@ -176,13 +177,13 @@ Sie können Geräte einer benutzerdefinierten Gruppe hinzufügen oder eine neue 
 
 1. Klicken Sie in der Übersicht mit der rechten Maustaste auf ein oder mehrere Geräte.
 
-2. Wählen Sie **Zu Gruppe hinzufügen** aus.
+1. Wählen Sie **Zu Gruppe hinzufügen** aus.
 
-3. Geben Sie im Feld „Gruppe“ einen Gruppennamen ein und wählen Sie „+“ aus. Eine neue Gruppe wird angezeigt. Wenn die Gruppe bereits vorhanden ist, wird Sie der vorhandenen benutzerdefinierten Gruppe hinzugefügt.
+1. Geben Sie im Feld „Gruppe“ einen Gruppennamen ein und wählen Sie „+“ aus. Eine neue Gruppe wird angezeigt. Wenn die Gruppe bereits vorhanden ist, wird Sie der vorhandenen benutzerdefinierten Gruppe hinzugefügt.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Gruppenname":::
 
-4. Fügen Sie einer Gruppe Geräte hinzu, indem Sie die Schritte 1-3 wiederholen.
+1. Fügen Sie einer Gruppe Geräte hinzu, indem Sie die Schritte 1-3 wiederholen.
 
 ## <a name="map-zoom-views"></a>Zoomansichten der Übersicht
 
@@ -319,12 +320,12 @@ Die folgenden Informationen können manuell geändert werden. Manuell eingegeben
 | Basic Information | Die benötigten grundlegenden Informationen. |
 | Name | Den Gerätenamen. <br /> Standardmäßig erkennt der Sensor den Gerätenamen entsprechend seiner Festlegung im Netzwerk. Beispielsweise ein Name, der im DNS-Server festgelegt ist. <br /> Wenn keine derartigen Namen festgelegt wurden, wird in diesem Feld die IP-Adresse des Geräts angezeigt. <br /> Sie können einen Gerätenamen manuell ändern. Geben Sie Ihren Geräten aussagekräftige Namen, die ihre Funktionalität widerspiegeln. |
 | type | Der vom Sensor erkannte Gerätetyp. <br /> Weitere Informationen finden Sie unter [Anzeigen von Gerätetypen](#view-device-types). |
-| Hersteller | Der Gerätehersteller. |
-| Betriebssystem | Das Betriebssystem des Geräts. |
+| Hersteller | Der Gerätehersteller. Dies wird durch die führenden Zeichen der MAC-Adresse des Geräts bestimmt. Dieses Feld ist schreibgeschützt. |
+| Betriebssystem | Das vom Sensor erkannte Betriebssystem des Geräts. |
 | Purdue-Ebene | Die vom Sensor für dieses Gerät erkannte Purdue-Ebene wie z. B.: <br /> Automatisch <br /> Prozesssteuerung <br /> Aufsicht <br /> – Enterprise |
 | BESCHREIBUNG | Ein Feld für die freie Texteingabe. <br /> Fügen Sie weitere Informationen zum Gerät hinzu. |
-| Attribute | Alle zusätzlichen Informationen, die in der Lernphase über das Gerät entdeckt wurden und nicht zu anderen Kategorien gehören, werden im Abschnitt „Attribute“ angezeigt. <br /> Diese Informationen sind schreibgeschützt. |
-| Einstellungen | Sie können Geräteeinstellungen manuell ändern, um falsch positive Ergebnisse zu vermeiden: <br /> - **Autorisiertes Gerät**: In der Lernphase werden alle im Netzwerk erkannten Geräte als autorisierte Geräte identifiziert. Wenn ein Gerät nach der Lernphase erkannt wird, wird es standardmäßig als nicht autorisiertes Gerät ausgewiesen. Sie können diese Festlegung manuell ändern. <br /> - **Als Scanner bekannt**: Aktivieren Sie diese Option, wenn Sie wissen, dass dieses Gerät als Scanner bekannt ist und keine Notwendigkeit besteht, Sie davor zu warnen. <br /> - **Programmiergerät**: Aktivieren Sie diese Option, wenn Sie wissen, dass dieses Gerät als Programmiergerät bekannt ist und keine Notwendigkeit besteht, Sie davor zu warnen. |
+| Attributes | Alle zusätzlichen Informationen, die in der Lernphase über das Gerät entdeckt wurden und nicht zu anderen Kategorien gehören, werden im Abschnitt „Attribute“ angezeigt. <br /> Diese Informationen sind schreibgeschützt. |
+| Einstellungen | Sie können Geräteeinstellungen manuell ändern, um falsch positive Ergebnisse zu vermeiden: <br /> - **Autorisiertes Gerät**: In der Lernphase werden alle im Netzwerk erkannten Geräte als autorisierte Geräte identifiziert. Wenn ein Gerät nach der Lernphase erkannt wird, wird es standardmäßig als nicht autorisiertes Gerät ausgewiesen. Sie können diese Festlegung manuell ändern. <br /> - **Als Scanner bekannt**: Aktivieren Sie diese Option, wenn Sie wissen, dass dieses Gerät als Scanner bekannt ist und keine Notwendigkeit besteht, Sie davor zu warnen. <br /> - **Programmiergerät**: Aktivieren Sie diese Option, wenn Sie wissen, dass dieses Gerät als Programmiergerät bekannt ist und zur Vornahme von Programmierungsänderungen verwendet wird. Wenn Sie es als Programmiergerät identifizieren, werden Warnungen wegen Programmierungsänderungen verhindert, die von dieser Ressource stammen. |
 | Benutzerdefinierte Gruppen | Die benutzerdefinierten Gruppen in der Geräteübersicht, zu denen dieses Gerät gehört. |
 | State | Der Sicherheits- und Autorisierungsstatus des Geräts: <br /> Der Status ist `Secured`, wenn keine Warnungen vorhanden sind. <br /> Wenn Warnungen zum Gerät vorliegen, wird die Anzahl der Warnungen angezeigt. <br /> Der Status `Unauthorized` wird für Geräte angezeigt, die nach der Lernphase dem Netzwerk hinzugefügt wurden. Sie können das Gerät in den Einstellungen manuell als `Authorized Device` festlegen. <br /> Für den Fall, dass die Adresse dieses Geräts als dynamische Adresse festgelegt ist, wird `DHCP` dem Status hinzugefügt. |
 
@@ -360,7 +361,7 @@ In der folgenden Tabelle sind alle Typen im System aufgeführt:
 |--|--|
 | ICS | Engineeringstation <br /> SPS <br />Historian <br />HMI <br />IED <br />DCS-Controller <br />RTU <br />Industrielle Packanlage <br />Industrieller Maßstab <br />Industrieroboter <br />Slot <br />Zähler <br />Frequenzumrichter  <br />Robotersteuerung <br />Servoantrieb <br />Pneumatisches Gerät <br />Marquee |
 | IT | Domänencontroller <br />Datenbankserver <br />Arbeitsstation <br />Server <br />Endstation <br />Storage <br />Smart Phone <br />Tablet <br />Sicherungsserver |
-| Internet der Dinge | IP-Kamera <br />Drucker  <br />Stechuhr <br />ATM <br />Smart TV <br />Spielkonsole <br />DVR <br />Türbedienfeld <br />Heizung, Lüftung, Klimatechnik <br />Thermostat <br />Feuermelder <br />Intelligentes Lichtsystem <br />Intelligenter Zwischenstecker <br />Brandmelder <br />IP-Telefon <br />Alarmanlage <br />Alarmsirene <br />Motion Detector <br />Aufzug <br />Feuchtigkeitssensor <br />Barcodescanner <br />Unterbrechungsfreie Stromversorgung <br />Personenzählsystem <br />Intercom <br />Drehkreuz |
+| IoT | IP-Kamera <br />Drucker  <br />Stechuhr <br />ATM <br />Smart TV <br />Spielkonsole <br />DVR <br />Türbedienfeld <br />Heizung, Lüftung, Klimatechnik <br />Thermostat <br />Feuermelder <br />Intelligentes Lichtsystem <br />Intelligenter Zwischenstecker <br />Brandmelder <br />IP-Telefon <br />Alarmanlage <br />Alarmsirene <br />Motion Detector <br />Aufzug <br />Feuchtigkeitssensor <br />Barcodescanner <br />Unterbrechungsfreie Stromversorgung <br />Personenzählsystem <br />Intercom <br />Drehkreuz |
 | Netzwerk | Drahtloser Zugriffspunkt <br />Router <br />Schalter <br />Firewall <br />VPN Gateway <br />NTP Server <br />WLAN-Ananas <br />Physischer Standort <br />E/A-Adapter <br /> Protokollkonverter |
 
 So zeigen Sie Geräteinformationen an
@@ -369,7 +370,7 @@ So zeigen Sie Geräteinformationen an
 
 2. Klicken Sie mit der rechten Maustaste auf ein Gerät, und wählen Sie **Eigenschaften anzeigen** aus. Das Fenster „Geräteeigenschaften“ wird angezeigt.
 
-3. Wählen Sie die gewünschte Warnung am unteren Rand des Fensters aus, um detaillierte Informationen zu den Warnungen für dieses Gerät anzuzeigen.
+3. Wählen Sie die gewünschte Warnung aus, um detaillierte Informationen zu den Warnungen für dieses Gerät anzuzeigen.
 
 ### <a name="backplane-properties"></a>Eigenschaften der Rückwandplatine
 
@@ -429,7 +430,7 @@ Verbessern Sie die Forensik, indem Sie Programmierereignisse anzeigen, die auf I
 
 Sie können ein programmiertes Gerät anzeigen und durch verschiedene Programmieränderungen scrollen, die von anderen Geräten an diesem Gerät vorgenommen wurden.
 
-Zeigen Sie Code an, der vom Programmiergerät hinzugefügt, geändert, entfernt oder nicht verändert wurde. Suchen Sie nach Programmieränderungen auf Basis von Dateitypen, Datumsangaben oder Uhrzeiten von Interesse.
+Zeigen Sie Code an, der vom Programmiergerät hinzugefügt, geändert, entfernt oder neu geladen wurde. Suchen Sie nach Programmieränderungen auf Basis von Dateitypen, Datumsangaben oder Uhrzeiten von Interesse.
 
 ### <a name="when-to-review-programming-activity"></a>Zeitpunkt der Überprüfung der Programmieraktivität 
 
@@ -443,7 +444,7 @@ In folgenden Fällen müssen Sie die Programmieraktivität überprüfen:
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Änderungsprotokoll der Programmierung":::
 
-Weitere Optionen ermöglichen Ihnen Folgendes:
+Andere Optionen sind:
 
   - Markieren von Ereignissen von Interesse mit einem Stern
 
@@ -463,7 +464,7 @@ Sie haben folgende Möglichkeiten des Zugriffs auf das Fenster für die Programm
 
 - [Warnungen zu nicht autorisierter Programmierung](#unauthorized-programming-alerts)
 
-### <a name="event-timeline"></a>Ereigniszeitachse
+### <a name="event-timeline"></a>Zeitskala der Ereignisse
 
 Die Zeitskala der Ereignisse zeigt Ereignisse, bei denen Programmieränderungen erkannt wurden.
 
@@ -476,7 +477,7 @@ Warnungen werden ausgelöst, wenn nicht autorisierte Programmiergeräte Programm
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Warnungen zu nicht autorisierter Programmierung":::
 
 > [!NOTE]
-> Sie können auch grundlegende Programmierinformationen in den Fenstern „Geräteeigenschaften“ und „Gerätebestand“ einsehen. Weitere Informationen finden Sie unter [Informationen zur Geräteprogrammierung: weitere Standorte](#device-programming-information-additional-locations).
+> Sie können auch grundlegende Programmierinformationen in den Fenstern „Geräteeigenschaften“ und „Gerätebestand“ einsehen.
 
 ### <a name="working-in-the-programming-timeline-window"></a>Arbeiten im Fenster mit der Zeitskala der Programmierung
 
@@ -539,7 +540,7 @@ So erfolgt der Vergleich
 
 5. Die im Bereich „Aktuelle Ereignisse/Dateien“ ausgewählte Datei wird stets auf der rechten Seite angezeigt.
 
-### <a name="device-programming-information-additional-locations"></a>Informationen zur Geräteprogrammierung: zusätzliche Standorte
+### <a name="device-programming-information-other-locations"></a>Informationen zur Geräteprogrammierung: Andere Orte
 
 Zusätzlich zur Überprüfung von Details auf der Zeitskala der Programmierung können Sie in den Fenstern „Geräteeigenschaften“ und „Gerätebestand“ auf Programmierinformationen zugreifen.
 
@@ -556,7 +557,7 @@ Der Sensor aktualisiert oder beeinflusst Geräte nicht direkt im Netzwerk. Hier 
 
 Möglicherweise möchten Sie ein Gerät löschen, wenn die gewonnenen Informationen nicht relevant sind. Beispiel:
 
-  - Ein Vertragspartner an einer Engineeringstation verbindet sich mit dem Gerät, um die Konfiguration zu aktualisieren. Nach Abschluss der Aufgabe soll das Gerät nicht mehr überwacht werden.
+  - Ein Vertragspartner an einer Engineeringstation verbindet sich vorübergehend mit dem Gerät, um die Konfiguration zu aktualisieren. Nach Abschluss der Aufgabe wird das Gerät entfernt.
 
   - Aufgrund von Änderungen im Netzwerk sind einige Geräte nicht mehr verbunden.
 
@@ -566,7 +567,7 @@ Sie erhalten möglicherweise eine Warnung, dass das Gerät nicht reagiert, wenn 
 
 Das Gerät wird aus den Berichten „Geräteübersicht“, „Gerätebestand“ und „Data Mining“ entfernt. Andere Informationen, z. B. in Widgets gespeicherte Informationen, bleiben erhalten.
 
-Das Gerät muss mindestens 10 Minuten aktiv sein, damit es gelöscht werden kann.
+Das Gerät muss mindestens 10 Minuten inaktiv sein, damit es gelöscht werden kann.
 
 So löschen Sie ein Gerät aus der Geräteübersicht
 
@@ -576,15 +577,17 @@ So löschen Sie ein Gerät aus der Geräteübersicht
 
 ### <a name="merge-devices"></a>Zusammenführen von Geräten
 
-Unter bestimmten Umständen müssen Sie Geräte möglicherweise zusammenführen. Dies kann erforderlich sein, wenn der Sensor separate Netzwerkentitäten erkennt, die zu einem einzigen Gerät gehören. Beispiel:
+Unter bestimmten Umständen müssen Sie Geräte möglicherweise zusammenführen. Dies kann erforderlich sein, wenn der Sensor separate Netzwerkentitäten erkennt, die einem einzigen Gerät zugeordnet sind. Beispiel:
 
-  - Eine SPS mit vier Netzwerkkarten
+  - Eine SPS mit vier Netzwerkkarten.
 
-  - Einen Laptop mit WLAN und physischer Netzwerkkarte
+  - Einen Laptop mit WLAN und physischer Netzwerkkarte.
+  
+  - Eine Arbeitsstation mit zwei oder mehr Netzwerkkarten.
 
 Beim Zusammenführen weisen Sie den Sensor an, die Geräteeigenschaften von zwei Geräten zu einem Gerät zusammenzufassen. Wenn Sie dies tun, werden das Fenster „Geräteeigenschaften“ und die Sensorberichte mit den neuen Details zu den Geräteeigenschaften aktualisiert.
 
-Wenn Sie z. B. zwei Geräte mit einer IP-Adresse zusammenführen, werden beide IP-Adressen als separate Schnittstellen im Fenster „Geräteeigenschaften“ angezeigt. Sie können nur autorisierte Geräte zusammenführen.
+Wenn Sie z. B. zwei Geräte, jedes mit einer IP-Adresse, zusammenführen, werden beide IP-Adressen als separate Schnittstellen im Fenster „Geräteeigenschaften“ angezeigt. Sie können nur autorisierte Geräte zusammenführen.
 
 :::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Fenster „Geräteeigenschaften“":::
 
@@ -596,7 +599,7 @@ Das Zusammenführen von Geräten kann nicht rückgängig gemacht werden. Wenn Si
 
 So führen Sie Geräte zusammen
 
-1. Wählen Sie zwei Geräte aus, und klicken Sie mit der rechten Maustaste darauf.
+1. Wählen Sie zwei Geräte aus (UMSCHALT+Klick), und klicken Sie dann mit der rechten Maustaste auf eins der Geräte.
 
 2. Wählen Sie **Zusammenführen** aus, um die Geräte zusammenzuführen. Die Zusammenführung kann bis zu zwei Minuten dauern.
 
@@ -622,7 +625,7 @@ Wenn Sie ein Gerät in der Übersicht verschieben oder die Geräteeigenschaften 
 
 #### <a name="unauthorized-devices---attack-vectors-and-risk-assessment-reports"></a>Nicht autorisierte Geräte: Berichte zu Angriffsvektoren und Risikobewertung
 
-Nicht autorisierte Geräte werden in Berichten zu Risikobewertung und Angriffsvektoren berechnet.
+Nicht autorisierte Geräte werden in Berichten zu Risikobewertung und Angriffsvektoren berücksichtigt.
 
 - **Berichte zu Angriffsvektoren:** Als nicht autorisiert markierte Geräte werden im Angriffsvektor als mutmaßlich nicht autorisierte Geräte aufgelöst, die eine Bedrohung für das Netzwerk darstellen können.
 
@@ -706,6 +709,6 @@ So erfolgt das Exportieren
 
 1. Wählen Sie eine Exportoption aus.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Untersuchen von Sensorerkennungen in einem Gerätebestand](how-to-investigate-sensor-detections-in-a-device-inventory.md)

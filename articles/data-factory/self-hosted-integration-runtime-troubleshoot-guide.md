@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942040"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551075"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Problembehandlung bei der selbstgehosteten Integration Runtime
 
@@ -710,7 +710,7 @@ Diese Benachrichtigung gilt für die folgenden Szenarios:
 
 So bestimmen Sie, ob Sie betroffen sind:
 
-- *Sie sind nicht betroffen*, wenn Sie Firewallregeln anhand von vollqualifizierten Domänennamen (FQDNs) definieren und den unter [Einrichten einer Firewallkonfiguration und Positivliste für IP-Adressen](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) beschriebenen Ansatz verwenden.
+- *Sie sind nicht betroffen*, wenn Sie Firewallregeln anhand von vollqualifizierten Domänennamen (FQDNs) definieren und den unter [Einrichten einer Firewallkonfiguration und Positivliste für IP-Adressen](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses) beschriebenen Ansatz verwenden.
 
 - *Sie sind betroffen*, wenn Sie die Positivliste für ausgehende IP-Adressen in Ihrer Unternehmensfirewall ausdrücklich aktivieren.
 

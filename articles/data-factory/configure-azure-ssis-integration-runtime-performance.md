@@ -1,21 +1,17 @@
 ---
 title: Konfigurieren der Leistung für Azure-SSIS Integration Runtime
 description: Hier erfahren Sie, wie Sie die Eigenschaften von Azure-SSIS Integration Runtime für hohe Leistung konfigurieren.
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635319"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364391"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurieren von Azure-SSIS Integration Runtime für hohe Leistung
 
@@ -118,7 +114,7 @@ Die Y-Achse zeigt die Anzahl von Paketen, deren Ausführung innerhalb einer Stun
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** passt die Integration Runtime-Skalierbarkeit an. Der Integration Runtime-Durchsatz ist proportional zu **AzureSSISNodeNumber** . Legen Sie **AzureSSISNodeNumber** zunächst auf einen niedrigen Wert fest, überwachen Sie den Integration Runtime-Durchsatz, und passen Sie den Wert anschließend für Ihr Szenario an. Informationen zum Ändern der Konfiguration der Workerknotenanzahl finden Sie unter [Verwalten einer Azure-SSIS-Integrationslaufzeit](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** passt die Integration Runtime-Skalierbarkeit an. Der Integration Runtime-Durchsatz ist proportional zu **AzureSSISNodeNumber**. Legen Sie **AzureSSISNodeNumber** zunächst auf einen niedrigen Wert fest, überwachen Sie den Integration Runtime-Durchsatz, und passen Sie den Wert anschließend für Ihr Szenario an. Informationen zum Ändern der Konfiguration der Workerknotenanzahl finden Sie unter [Verwalten einer Azure-SSIS-Integrationslaufzeit](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
@@ -145,7 +141,7 @@ Wenn Sie bereits einen leistungsstarken Workerknoten für die Paketausführung v
 | Standard\_E32\_v3| 32   | 256         | 800                    | 48000/750/375                                          | 32/96 x 500                       | 8/16000                                      |
 | Standard\_E64\_v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192 x 500                      | 8 / 30000                                      |
 
-Richtlinien für das Festlegen des passenden Werts für die Eigenschaft **AzureSSISMaxParallelExecutionsPerNode** : 
+Richtlinien für das Festlegen des passenden Werts für die Eigenschaft **AzureSSISMaxParallelExecutionsPerNode**: 
 
 1. Verwenden Sie zunächst einen niedrigen Wert.
 2. Erhöhen Sie ihn geringfügig, um zu überprüfen, ob sich der Durchsatz insgesamt verbessert.

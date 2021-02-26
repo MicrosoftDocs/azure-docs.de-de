@@ -4,21 +4,18 @@ description: In diesem Thema werden die Schritte zum Konfigurieren eines benutze
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506807"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490995"
 ---
-# <a name="configure-a-custom-domain-name"></a>Konfigurieren eines benutzerdefinierten Domänennamens
+# <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Konfigurieren eines benutzerdefinierten Domänennamens für ein selbstgehostetes Gateway
 
 Wenn Sie ein [selbstgehostetes Azure API Management-Gateway](self-hosted-gateway-overview.md) bereitstellen, wird ihm kein Hostname zugewiesen, und es muss über seine IP-Adresse darauf verwiesen werden. In diesem Artikel erfahren Sie, wie Sie einem selbstgehosteten Gateway einen vorhandenen benutzerdefinierten DNS-Namen (auch als Hostname bezeichnet) zuordnen.
 
@@ -34,18 +31,16 @@ Zum Ausführen der in diesem Artikel beschriebenen Schritte benötigen Sie Folge
 - Ein selbstgehostetes Gateway. Weitere Informationen finden Sie unter [Bereitstellen eines selbstgehosteten Gateways in Azure API Management](api-management-howto-provision-self-hosted-gateway.md).
 -   Einen benutzerdefinierten Domänennamen, der sich in Ihrem Besitz oder im Besitz Ihrer Organisation befindet. Dieses Thema enthält keine Anleitung zum Erwerben eines benutzerdefinierten Domänennamens.
 -   Ein DNS-Eintrag, der auf einem DNS-Server gehostet wird, der den benutzerdefinierten Domänennamen der IP-Adresse des selbstgehosteten Gateways zuordnet. Dieses Thema enthält keine Anleitung zum Hosten eines DNS-Eintrags.
--   Sie benötigen ein gültiges Zertifikat mit einem öffentlichen und privaten Schlüssel (.pfx). Der Antragstellername oder der alternative Antragstellername (Subject Alternative Name, SAN) muss dem Domänennamen entsprechen, damit die API Management-Instanz auf sichere Weise URLs über TLS verfügbar machen kann.
+-   Sie benötigen ein gültiges Zertifikat mit einem öffentlichen und privaten Schlüssel (.pfx). Der Antragstellername oder der alternative Antragstellername (Subject Alternative Name, SAN) muss dem Domänennamen entsprechen, damit die API Management-Instanz auf sichere Weise URLs über TLS verfügbar machen kann.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Hinzufügen eines benutzerdefinierten Domänenzertifikats zum API Management-Dienst
 
-1. Wählen Sie **Zertifikate** unter **Sicherheit** aus.
-2. Wählen Sie **+ Hinzufügen**.
-3. Geben Sie in das Feld **ID** einen Ressourcennamen für das Zertifikat ein.
-4. Wählen Sie die Datei aus, die das Zertifikat (.PFX) enthält, indem Sie das Feld **Zertifikat** oder das Ordnersymbol daneben auswählen.
-5. Geben Sie das Kennwort für das Zertifikat in das Feld **Kennwort** ein.
-6. Wählen Sie **Erstellen** aus, um das Zertifikat dem API Management-Dienst hinzuzufügen.
+Fügen Sie die Datei eines benutzerdefinierten Domänenzertifikats (.PFX) zu Ihrer API Management-Instanz hinzu, oder verweisen Sie auf ein in Azure Key Vault gespeichertes Zertifikat. Führen Sie die Schritte unter [Sichern von Back-End-Diensten über eine Clientzertifikatauthentifizierung in Azure API Management](api-management-howto-mutual-certificates.md) aus.
+
+> [!NOTE]
+> Es empfiehlt sich, ein Schlüsseltresorzertifikat für die Domäne des selbstgehosteten Gateways zu verwenden.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Festlegen eines benutzerdefinierten Domänennamens für Ihr selbstgehostetes Gateway über das Azure-Portal
 

@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5d5278c33c24c7f95459b9c121bca9e960615b9c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879880"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260179"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtern von Daten mithilfe der Abfragebeschleunigung für Azure Data Lake Storage
 
@@ -178,10 +178,10 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Installieren Sie Version `12.5.0-preview.6` der Azure Blob Storage-Clientbibliothek für das .NET-Paket mit dem Befehl `dotnet add package`. 
+2. Installieren Sie Version `12.5.0-preview.6` oder höher der Azure Blob Storage-Clientbibliothek für das .NET-Paket mit dem Befehl `dotnet add package`. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.6.0
+   dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
 3. In den Beispielen in diesem Artikel wird eine CSV-Datei mithilfe der Bibliothek [CsvHelper](https://www.nuget.org/packages/CsvHelper/) analysiert. Führen Sie den folgenden Befehl aus, um diese Bibliothek zu verwenden.
@@ -356,11 +356,11 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
-                    Console.Out.WriteLine(String.Join(" ", parser.Context.Record));
+                    Console.Out.WriteLine(String.Join(" ", parser.Parser.Record));
                 }
             }
         }

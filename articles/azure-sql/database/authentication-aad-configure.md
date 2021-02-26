@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: e19bf5b4ee5b6c48f002ca79711646cca7b0ec5f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729123"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094942"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurieren und Verwalten der Azure Active Directory-Authentifizierung mit Azure SQL
 
@@ -71,7 +71,7 @@ Bei Verwendung von Azure Active Directory mit Georeplikation muss der Azure Acti
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Bereitstellen eines Azure AD-Administrators (SQL Managed Instance)
 
 > [!IMPORTANT]
-> Führen Sie diese Schritte nur aus, wenn Sie SQL Managed Instance bereitstellen. Dieser Vorgang kann nur von einem globalen Administrator/Unternehmensadministrator oder von einem Administrator für privilegierte Rollen in Azure AD durchgeführt werden.
+> Führen Sie diese Schritte nur aus, wenn Sie SQL Managed Instance bereitstellen. Dieser Vorgang kann nur von einem globalen Administrator oder einem Administrator für privilegierte Rollen in Azure AD ausgeführt werden.
 >
 > In der **öffentlichen Vorschau** können Sie die Rolle **Verzeichnisleseberechtigte** einer Gruppe in Azure AD zuweisen. Die Gruppenbesitzer können dann die Identität der verwalteten Instanz als Mitglied dieser Gruppe hinzufügen. Dadurch können Sie einen Azure AD-Administrator für die verwaltete SQL-Instanz bereitstellen. Weitere Informationen zu diesem Feature finden Sie unter [Rolle „Verzeichnisleseberechtigte“ in Azure Active Directory für Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -79,7 +79,7 @@ Für SQL Managed Instance werden Leseberechtigungen für Azure AD benötigt, da
 
 ### <a name="azure-portal"></a>Azure-Portal
 
-Um Ihrer Instanz von SQL Managed Instance über das Azure-Portal Leseberechtigungen für Azure AD zu erteilen, melden Sie sich als globaler Administrator/Unternehmensadministrator in Azure AD an und führen die folgenden Schritte aus:
+Wenn Sie Ihrer Instanz von SQL Managed Instance über das Azure-Portal Leseberechtigungen für Azure AD erteilen möchten, melden Sie sich in Azure AD als globaler Administrator an, und führen Sie die folgenden Schritte aus:
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com) in der oberen rechten Ecke Ihre Verbindung über die Dropdownliste der möglichen Active Directory-Verzeichnissen aus.
 
@@ -126,7 +126,7 @@ Um Ihrer Instanz von SQL Managed Instance über PowerShell Azure AD-Leseberechti
 
 ```powershell
 # Gives Azure Active Directory read permission to a Service Principal representing the SQL Managed Instance.
-# Can be executed only by a "Company Administrator", "Global Administrator", or "Privileged Role Administrator" type of user.
+# Can be executed only by a "Global Administrator" or "Privileged Role Administrator" type of user.
 
 $aadTenant = "<YourTenantId>" # Enter your tenant ID
 $managedInstanceName = "MyManagedInstance"

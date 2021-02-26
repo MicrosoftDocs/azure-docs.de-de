@@ -4,7 +4,7 @@ description: Die Sicherheitsaspekte bei Verwendung des Azure AD-Anwendungsproxys
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3c98bce0be2b456220815a359aae1ee697f3ca2c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649567"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254964"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Sicherheitsaspekte beim Remotezugriff auf Apps mit dem Azure AD-Anwendungsproxy
 
@@ -108,7 +108,7 @@ Der Connector verwendet ein Clientzertifikat, um den Anwendungsproxydienst für 
 Bei der Ersteinrichtung des Connectors treten die folgenden Flow-Ereignisse ein:
 
 1. Die Connectorregistrierung beim Dienst erfolgt im Rahmen der Connectorinstallation. Benutzer werden aufgefordert, ihre Azure AD-Administratoranmeldeinformationen einzugeben.  Das aus dieser Authentifizierung abgerufene Token wird dann an den Azure AD-Anwendungsproxydienst übermittelt.
-2. Der Anwendungsproxydienst wertet das Token aus. Er überprüft, ob der Benutzer ein Unternehmensadministrator im Mandanten ist.  Wenn der Benutzer kein Administrator ist, wird der Prozess beendet.
+2. Der Anwendungsproxydienst wertet das Token aus. Er überprüft, ob der Benutzer ein Unternehmensadministrator des Mandanten ist.  Wenn der Benutzer kein Administrator ist, wird der Prozess beendet.
 3. Der Connector generiert eine Clientzertifikatanforderung und übergibt sie mit dem Token an den Anwendungsproxydienst. Der Dienst überprüft wiederum das Token und signiert die Clientzertifikatanforderung.
 4. Der Connector verwendet dieses Clientzertifikat für die zukünftige Kommunikation mit dem Anwendungsproxydienst.
 5. Der Connector führt einen ersten Abruf der Systemkonfigurationsdaten vom Dienst durch, indem das dazugehörige Clientzertifikat verwendet wird, und ist jetzt zum Verarbeiten von Anforderungen bereit.

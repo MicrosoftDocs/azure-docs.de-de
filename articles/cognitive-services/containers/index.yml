@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/27/2020
   ms.author: aahi
-  ms.openlocfilehash: 28eb8450201280e58e24dd5ad9b8826165b614c3
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: 93465d2c184094d716f57d3e4784a6d9bfdb89b0
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93328071"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100369984"
 landingContent:
 - title: Informationen zu Cognitive Services-Containern
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     - text: Was sind Cognitive Services-Container?
       url: ../cognitive-services-container-support.md
     - text: Häufig gestellte Fragen
-      url: container-faq.md
+      url: container-faq.yml
     - text: Containerimagetags
       url: container-image-tags.md
 - title: Containeranleitungen

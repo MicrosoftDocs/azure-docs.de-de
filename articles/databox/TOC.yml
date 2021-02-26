@@ -243,7 +243,9 @@
           href: /powershell/module/az.databox
         - name: .NET-APIs
           href: /dotnet/api/overview/azure/databox/management
-        - name: Integrierte Azure Policy-Aktionen
+        - name: .NET SDK
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DataBox/'
+        - name: Azure Policy-Integrationen
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
     - name: Ressourcen

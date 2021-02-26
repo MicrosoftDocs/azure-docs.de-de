@@ -1,5 +1,5 @@
 ---
-title: Verstehen von Blob Storage-Daten mithilfe von KI
+title: Verwenden von KI zum Anreichern von Blobinhalten
 titleSuffix: Azure Cognitive Search
 description: In diesem Artikel erfahren Sie mehr über die Analysefunktionen für natürliche Sprache und Bilder in Azure Cognitive Search sowie darüber, wie diese Vorgänge auf Inhalte angewendet werden können, die in Azure-Blobs gespeichert sind.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362796"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222047"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Verstehen von Blob Storage-Daten mithilfe von KI
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Verwenden von KI zum Verarbeiten und Analysieren von Blobinhalten in Azure Cognitive Search
 
-Daten in Azure Blob Storage sind häufig eine Vielzahl unstrukturierter Inhalte wie Bilder, längere Texte, PDFs und Office-Dokumente. Mithilfe der KI-Funktionen in Azure Cognitive Search können Sie auf verschiedene Arten wertvolle Informationen aus Blobdaten extrahieren und sie so besser verstehen. Beispiele für die Anwendung von KI auf Blobinhalte umfassen:
+Inhalte in Azure Blob Storage, die aus Bildern oder einem langen, nicht differenzierten Text bestehen, können eine Deep Learning-Analyse durchlaufen, um nützliche Informationen für Downstreamanwendungen zu ermitteln und zu extrahieren. Durch die Verwendung der [KI-Anreicherung](cognitive-search-concept-intro.md) können Sie Folgendes erreichen:
 
 + Extrahieren von Text aus Bildern mithilfe der optischen Zeichenerkennung (OCR)
 + Erzeugen einer Szenenbeschreibung oder von Tags aus einem Foto
@@ -26,23 +26,23 @@ Daten in Azure Blob Storage sind häufig eine Vielzahl unstrukturierter Inhalte 
 
 Obwohl Sie möglicherweise nur eine dieser KI-Funktionen benötigen, ist es üblich, mehrere davon in derselben Pipeline zu kombinieren (z. B. das Extrahieren von Text aus einem gescannten Bild und das anschließende Auffinden aller darin referenzierten Datumsangaben und Orte). Es ist auch üblich, eine benutzerdefinierte KI oder Machine-Learning-Verarbeitung in Form von zukunftsweisenden externen Paketen oder internen Modellen zu integrieren, die auf Ihre Daten und Anforderungen zugeschnitten sind.
 
-KI-Anreicherung erstellt neue Informationen, die als Text erfasst und in Feldern gespeichert werden. Nach der Anreicherung können Sie mithilfe von Volltextsuche über einen Suchindex auf diese Informationen zugreifen, oder Sie können angereicherte Dokumente zurück an Azure Storage senden, um neue Anwendungserfahrungen zu unterstützen, die das Erkunden von Daten für Ermittlungs- oder Analyseszenarien umfassen. 
+Sie können die KI-Anreicherung zwar auf jede Datenquelle anwenden, die von einem Suchindexer unterstützt wird, aber Blobs sind die am häufigsten verwendeten Strukturen in einer Anreicherungspipeline. Ergebnisse werden in einen Suchindex für die Volltextsuche übernommen, oder an Azure Storage zurückgesendet, um neue Anwendungserfahrungen zu unterstützen, die das Erkunden von Daten für Ermittlungs- oder Analyseszenarien umfassen. 
 
 In diesem Artikel betrachten wir die KI-Anreicherung aus einem breiten Blickwinkel, sodass Sie den gesamten Prozess schnell erfassen können, von der Transformation von Rohdaten in Blobs bis hin zu abfragbaren Informationen in einem Suchindex oder einem Wissensspeicher.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Was es bedeutet, Blobdaten mittels KI „anzureichern“
 
-*KI-Anreicherung* ist Teil der Indizierungsarchitektur von Azure Cognitive Search, die die integrierte KI von Microsoft oder eine benutzerdefinierte KI, die Sie bereitstellen, integriert. Sie hilft Ihnen bei der Implementierung von End-to-End-Szenarien, in denen Sie Blobs verarbeiten müssen (sowohl vorhandene als auch neue, wenn sie eingehen oder aktualisiert werden), beim Entschlüsseln und Öffnen aller Dateiformate, um Bilder und Text zu extrahieren, beim Extrahieren der gewünschten Informationen mittels verschiedener KI-Funktionen sowie bei deren Indizierung in einem Suchindex für schnelles Suchen, Abrufen und Erkunden. 
+*KI-Anreicherung* ist Teil der Indizierungsarchitektur von Azure Cognitive Search, die Machine Learning-Modelle von Microsoft oder benutzerdefinierte Lernmodelle, die Sie bereitstellen, integriert. Sie hilft Ihnen bei der Implementierung von End-to-End-Szenarien, in denen Sie Blobs verarbeiten müssen (sowohl vorhandene als auch neue, wenn sie eingehen oder aktualisiert werden), beim Entschlüsseln und Öffnen aller Dateiformate, um Bilder und Text zu extrahieren, beim Extrahieren der gewünschten Informationen mittels verschiedener KI-Funktionen sowie bei deren Indizierung in einem Suchindex für schnelles Suchen, Abrufen und Erkunden. 
 
 Als Eingaben fungieren Ihre Blobs in einem einzelnen Container in Azure Blob Storage. Blobs können aus nahezu beliebigen Arten von Text- oder Bilddaten bestehen. 
 
 Die Ausgabe ist stets ein Suchindex, der für schnelles Suchen, Abrufen und Erkunden von Texten in Clientanwendungen genutzt wird. Darüber hinaus kann die Ausgabe auch ein [*Wissensspeicher*](knowledge-store-concept-intro.md) sein, der angereicherte Dokumente in Azure-Blobs oder Azure-Tabellen für die Downstreamanalyse in Tools wie Power BI oder in Data-Science-Workloads projiziert.
 
-Dazwischen befindet sich die Pipelinearchitektur selbst. Die Pipeline basiert auf der *Indexer*-Funktion, der Sie ein *Skillset * zuweisen können, das aus einer oder mehreren *Skills* (Fähigkeiten) besteht, die die KI bereitstellen. Der Zweck der Pipeline besteht darin, *angereicherte Dokumente* zu erzeugen, die als Rohdateninhalt eingegeben werden, aber zusätzliche Struktur, Kontext und Informationen beim Durchlaufen der Pipeline aufnehmen. Angereicherte Dokumente werden während der Indizierung genutzt, um invertierte Indizes und andere Strukturen zu erstellen, die bei der Volltextsuche oder Erkundung und Analyse verwendet werden.
+Dazwischen befindet sich die Pipelinearchitektur selbst. Die Pipeline basiert auf den [*Indexern*](search-indexer-overview.md), denen Sie ein [*Skillset*](cognitive-search-working-with-skillsets.md) zuweisen können, das aus einer oder mehreren *Skills* (Fähigkeiten) besteht, die die KI bereitstellen. Der Zweck der Pipeline besteht darin, *angereicherte Dokumente* zu erzeugen, die als Rohdateninhalt in die Pipeline eingehen, aber zusätzliche Struktur, Kontext und Informationen beim Durchlaufen der Pipeline aufnehmen. Angereicherte Dokumente werden während der Indizierung genutzt, um invertierte Indizes und andere Strukturen zu erstellen, die bei der Volltextsuche oder Erkundung und Analyse verwendet werden.
 
 ## <a name="required-resources"></a>Erforderliche Ressourcen
 
-Sie benötigen Azure Blob Storage, Azure Cognitive Search sowie einen weiteren Dienst oder Mechanismus, der die KI bereitstellt:
+Zusätzlich zu Azure Blob Storage und Azure Cognitive Search benötigen Sie einen weiteren Dienst oder Mechanismus, der die KI bereitstellt:
 
 + Für eine integrierte KI wird Cognitive Search mit der API für maschinelles Sehen sowie der API für die Verarbeitung natürlicher Sprache von Azure Cognitive Services integriert. Sie können [eine Cognitive Services-Ressource anfügen](cognitive-search-attach-cognitive-services.md), um die optische Zeichenerkennung (Optical Character Recognition, OCR), die Bildanalyse oder die Verarbeitung natürlicher Sprache (Sprachenerkennung, Textübersetzung, Entitätserkennung, Schlüsselbegriffserkennung) hinzuzufügen. 
 
@@ -78,7 +78,7 @@ In Azure Cognitive Search sind *Skills* die einzelnen Komponenten der KI-Verarbe
 
 + Benutzerdefinierte Skills sind benutzerdefinierter Code, der von einer [Schnittstellendefinition](cognitive-search-custom-skill-interface.md) umschlossen wird, die die Integration in die Pipeline ermöglicht. Bei Kundenlösungen ist es gängige Praxis, beides zu verwenden, wobei benutzerdefinierte Skills Open-Source-, Drittanbieter- oder Erstanbieter-KI-Module bereitstellen.
 
-Ein *Skillset * ist die Sammlung von Skills (Fertigkeiten), die in einer Pipeline verwendet wird. Es wird aufgerufen, nachdem der Inhalt durch die Dokumententschlüsselungsphase verfügbar gemacht worden ist. Ein Indexer kann exakt ein Skillset nutzen, wobei dieses Skillset aber unabhängig von einem Indexer existiert, sodass Sie es in anderen Szenarien wiederverwenden können.
+Ein *Skillset* ist die Sammlung von Skills (Fertigkeiten), die in einer Pipeline verwendet wird. Es wird aufgerufen, nachdem der Inhalt durch die Dokumententschlüsselungsphase verfügbar gemacht worden ist. Ein Indexer kann exakt ein Skillset nutzen, wobei dieses Skillset aber unabhängig von einem Indexer existiert, sodass Sie es in anderen Szenarien wiederverwenden können.
 
 Benutzerdefinierte Skills können komplex klingen, sind aber im Hinblick auf die Implementierung einfach und unkompliziert sein. Wenn Sie vorhandene Pakete besitzen, die Musterabgleichs- oder Klassifizierungsmodelle bereitstellen, kann der Inhalt, den Sie aus Blobs extrahieren, zur Verarbeitung an diese Modelle übergeben werden. Da die KI-Anreicherung Azure-basiert ist, sollte sich Ihr Modell ebenfalls in Azure befinden. Einige gängige Hostingmethoden umfassen unter anderem die Verwendung von [Azure Functions](cognitive-search-create-custom-skill-example.md) oder [Containern](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

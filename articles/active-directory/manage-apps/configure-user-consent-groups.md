@@ -3,7 +3,7 @@ title: Konfigurieren der Gruppenbesitzereinwilligung für Apps, die auf Gruppend
 description: Hier erfahren Sie, ob Gruppen- und Teambesitzer in Anwendungen einwilligen können, die Zugriff auf die Daten der Gruppe bzw. des Teams haben werden.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d14e4808d5bec03dff9406f37e63ee4c76e601f8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cd1eb98fca9fe25b6672863c02b8a78e57063e5a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033220"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259320"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurieren der Gruppenbesitzereinwilligung für Apps, die auf Gruppendaten zugreifen
 
@@ -31,7 +31,7 @@ Sie können konfigurieren, welche Benutzer in den Zugriff von Apps auf die Daten
 
 Führen Sie die folgenden Schritte zum Verwalten der Gruppenbesitzereinwilligung für Apps aus, die auf Gruppendaten zugreifen:
 
-1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator--company-administrator) beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator) beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie **Azure Active Directory** > **Unternehmensanwendungen** > **Einwilligung und Berechtigungen** > **Einstellungen für Benutzereinwilligung** aus.
 3. Wählen Sie unter **Gruppenbesitzereinwilligung für Apps für Datenzugriff** die Option aus, die Sie aktivieren möchten.
 4. Klicken Sie auf **Save** (Speichern), um Ihre Einstellungen zu speichern.
@@ -124,4 +124,4 @@ Weitere Informationen:
 * [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 So erhalten Sie Hilfe oder finden Antworten auf Ihre Fragen:
-* [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD bei Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

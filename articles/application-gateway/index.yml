@@ -3,19 +3,19 @@ title: Dokumentation zu Azure Application Gateway
 summary: Erfahren Sie, wie Anwendungsgateways erstellt werden. Diese Dokumentation hilft Ihnen beim Planen, Bereitstellen und Verwalten von Webdatenverkehr zu Ihren Azure-Ressourcen.
 metadata:
   title: Dokumentation zu Azure Application Gateway
-  description: Erfahren Sie, wie Sie Azure Firewall bereitstellen, einen cloudbasierten Netzwerksicherheitsdienst.
+  description: Hier erfahren Sie mehr über Azure Application Gateway, ein Lastenausgleichsmodul für Webdatenverkehr, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/24/2020
-  ms.openlocfilehash: df125820d56aa5c2edda29306c69cef00e012a12
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+  ms.date: 02/08/2021
+  ms.openlocfilehash: 7493683355ea3be24bf086dab1a968f9f03b1e05
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059533"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99833251"
 landingContent:
 - title: Informationen zu Application Gateway
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
       url: application-gateway-faq.yml
   - linkListType: whats-new
     links:
-    - text: Neuigkeiten
+    - text: Neues
       url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
 - title: Unterstützung von hohen Datenverkehrsvolumen
   linkLists:

@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941181"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594433"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrieren von Apache Spark und Apache Hive unter Azure HDInsight per Hive Warehouse Connector
 
@@ -38,7 +38,11 @@ Einige Vorgänge, die von Hive Warehouse Connector unterstützt werden, sind:
 ## <a name="hive-warehouse-connector-setup"></a>Hive Warehouse Connector-Setup
 
 > [!IMPORTANT]
-> Die Verwendung der auf den Enterprise-Sicherheitspaket-Clustern von Spark 2.4 installierten HiveServer2 Interactive-Instanz mit dem Hive Warehouse Connector wird nicht unterstützt. Stattdessen müssen Sie einen eigenständigen HiveServer2 Interactive-Cluster konfigurieren, um Ihre HiveServer2 Interactive-Workloads zu hosten. Eine Hive Warehouse Connector-Konfiguration, die einen einzelnen Spark 2.4-Cluster verwendet, wird nicht unterstützt.
+> - Die Verwendung der auf den Enterprise-Sicherheitspaket-Clustern von Spark 2.4 installierten HiveServer2 Interactive-Instanz mit dem Hive Warehouse Connector wird nicht unterstützt. Stattdessen müssen Sie einen eigenständigen HiveServer2 Interactive-Cluster konfigurieren, um Ihre HiveServer2 Interactive-Workloads zu hosten. Eine Hive Warehouse Connector-Konfiguration, die einen einzelnen Spark 2.4-Cluster verwendet, wird nicht unterstützt.
+> - Die HWC-Bibliothek (Hive Warehouse Connector) wird nicht für die Verwendung mit Interactive Query-Clustern unterstützt, in denen die Funktion zur Workloadverwaltung (Workload Management, WLM) aktiviert ist. <br>
+In einem Szenario, in dem Sie nur über Spark-Workloads verfügen und die HWC-Bibliothek verwenden möchten, müssen Sie sicherstellen, dass für den Interactive Query-Cluster nicht das Feature zur Workloadverwaltung aktiviert ist (die Konfiguration `hive.server2.tez.interactive.queue` ist in den Hive-Konfigurationen nicht festgelegt). <br>
+In einem Szenario, das sowohl Spark-Workloads (HWC) als auch native LLAP-Workloads umfasst, müssen Sie zwei separate Interactive Query-Cluster mit einer freigegebenen Metastore-Datenbank erstellen: einen Cluster für native LLAP-Workloads, bei denen die Funktion zur Workloadverwaltung bedarfsabhängig aktiviert werden kann, und einen weiteren Cluster für HWC-Workloads, bei denen die Funktion zur Workloadverwaltung nicht konfiguriert wird.
+Beachten Sie, dass Sie die Ressourcenpläne für die Workloadverwaltung aus beiden Clustern anzeigen können, auch wenn die Funktion nur in einem Cluster aktiviert ist. Nehmen Sie keine Änderungen an den Ressourcenplänen in dem Cluster vor, in dem die Funktion zur Workloadverwaltung deaktiviert ist, da sich dies auf die Funktionalität der Workloadverwaltung im anderen Clustern auswirken kann.
 
 Für Hive Warehouse Connector werden separate Cluster für Spark- und Interactive Query-Workloads benötigt. Führen Sie diese Schritte aus, um diese Cluster in Azure HDInsight einzurichten.
 

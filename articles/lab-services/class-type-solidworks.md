@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999262"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626103"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Einrichten eines Labs für Engineeringkurse mithilfe von SOLIDWORKS
 
@@ -57,7 +57,7 @@ Verwenden Sie beim Einrichten eines Classroom-Labs die Einstellungen in der unte
 > Die VM-Größe **Kleine GPU (Visualisierung)** ist so konfiguriert, dass eine leistungsstarke Grafikdarstellung ermöglicht wird.  Weitere Informationen zu dieser VM-Größe finden Sie im Artikel zum [Einrichten eines Labs mit GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Vergessen Sie nicht, **vor** dem Erstellen des Labs ein [Peering für das virtuelle Netzwerk](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) für das Lab-Konto und das virtuelle Netzwerk für den Lizenzserver durchzuführen.
+> Vergessen Sie nicht, **vor** dem Erstellen des Labs ein [Peering für das virtuelle Netzwerk](./how-to-connect-peer-virtual-network.md) für das Lab-Konto und das virtuelle Netzwerk für den Lizenzserver durchzuführen.
 
 ## <a name="template-virtual-machine-configuration"></a>Vorlage für die Konfiguration des virtuellen Computers
 

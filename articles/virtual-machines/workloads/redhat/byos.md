@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872891"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391019"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Bring-Your-Own-Subscription-Gold-Images für Red Hat Enterprise Linux in Azure
 
@@ -30,9 +30,6 @@ Red Hat Enterprise Linux-Images (RHEL) sind in Azure über nutzungsbasierte Beza
 - Die VMs, die von Red Hat Gold-Images bereitgestellt werden, enthalten keine RHEL-Gebühren, die mit RHEL-PAYG-Images verknüpft sind.
 - Die Bilder sind nicht berechtigt. Sie müssen für die Registrierung und zum Abonnieren der VMs den Red Hat-Abonnement-Manager verwenden, um Updates direkt von Red Hat zu erhalten.
 - Sie können über den [Azure-Hybridvorteil](../../linux/azure-hybrid-benefit-linux.md) von Images mit nutzungsbasierter Bezahlung zu einem BYOS-Modell wechseln. Es ist aber nicht möglich, von einem ursprünglich als BYOS bereitgestellten Modell zu Modellen mit nutzungsbasierter Bezahlung für Linux-Images zu wechseln. Um das Abrechnungsmodell von BYOS auf nutzungsbasierte Bezahlung umzustellen, müssen Sie die VM aus dem entsprechenden Image erneut bereitstellen.
-
->[!NOTE]
-> BYOS-Images der Generation 2 für RHEL sind zurzeit nicht über das Marketplace-Angebot verfügbar. Wenn Sie ein BYOS-Image der Generation 2 für RHEL benötigen, besuchen Sie das Cloud Access-Dashboard in der Red Hat-Abonnementverwaltung. Weitere Informationen finden Sie in der [Dokumentation zu Red Hat](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Anforderungen und Bedingungen für den Zugriff auf die Red Hat Gold-Images
 

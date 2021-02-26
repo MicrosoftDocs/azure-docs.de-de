@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: d9491c43382def26ca9106675997e1dc4f071535
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 74cc0686c2eec631b0be84285ab88365bf8b3a2d
+  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756897"
+  ms.lasthandoff: 02/03/2021
+  ms.locfileid: "99507598"
 landingContent:
 - title: Informationen zur Sprachsynthese
   linkLists:
@@ -40,12 +40,12 @@ landingContent:
       url: long-audio-api.md
   - linkListType: concept
     links:
+    - text: Worum handelt es sich bei „Benutzerdefinierte neuronale Stimme“?
+      url: custom-neural-voice.md
     - text: Erste Schritte mit Custom Voice
       url: how-to-custom-voice.md
     - text: Erstellen und Verwenden von Custom Voice-Modellen
       url: how-to-custom-voice-create-voice.md
-    - text: Abgrenzung von Custom Voice
-      url: concepts-gating-overview.md
 - title: Verweis
   linkLists:
   - linkListType: reference

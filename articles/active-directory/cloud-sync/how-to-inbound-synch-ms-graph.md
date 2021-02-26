@@ -1,5 +1,5 @@
 ---
-title: Eingehende Synchronisierung für die Cloudsynchronisierung mit der MS Graph-API
+title: Programmgesteuertes Konfigurieren der Cloudsynchronisierung mithilfe der Microsoft Graph-API
 description: In diesem Thema wird beschrieben, wie Sie die eingehende Synchronisierung nur mit der Graph-API aktivieren.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682037"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593159"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Eingehende Synchronisierung für die Cloudsynchronisierung mit der MS Graph-API
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Programmgesteuertes Konfigurieren der Cloudsynchronisierung mithilfe der Microsoft Graph-API
 
 Im folgenden Dokument wird beschrieben, wie Sie ein Synchronisierungsprofil mithilfe von MS Graph-APIs von Grund auf neu replizieren.  
 Die Vorgehensweise umfasst folgende Schritte.  Sie lauten wie folgt:
@@ -28,6 +28,7 @@ Die Vorgehensweise umfasst folgende Schritte.  Sie lauten wie folgt:
 - [Erstellen des Synchronisierungsauftrags](#create-sync-job)
 - [Aktualisieren der Zieldomäne](#update-targeted-domain)
 - [Aktivieren der Synchronisierung von Kennworthashes](#enable-sync-password-hashes-on-configuration-blade)
+- [Versehentliche Löschvorgänge](#accidental-deletes)
 - [Starten des Synchronisierungsauftrags](#start-sync-job)
 - [Überprüfen des Status](#review-status)
 
@@ -210,6 +211,71 @@ Dabei ist der hervorgehobene Wert „Domain“ der Name der lokalen Active Direc
 ```
 
  Fügen Sie das Schema in den Anforderungstext ein. 
+
+## <a name="accidental-deletes"></a>Versehentliche Löschvorgänge
+In diesem Abschnitt wird erläutert, wie Sie [versehentliche Löschvorgänge](how-to-accidental-deletes.md) programmgesteuert aktivieren, deaktivieren und verwenden.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Aktivieren und Festlegen des Schwellenwerts
+Es gibt zwei Einstellungen pro Auftrag, die Sie verwenden können:
+
+ - „DeleteThresholdEnabled“ ermöglicht das Verhindern versehentlicher Löschvorgänge für den Auftrag, wenn diese Einstellung auf „true“ festgelegt wurde. Die Standardeinstellung lautet „true“.
+ - „DeleteThresholdValue“ definiert die maximale Anzahl von Löschvorgängen, die bei einer Ausführung des Auftrags zulässig sind, wenn die Einstellung zum Verhindern versehentlicher Löschvorgänge aktiviert ist. Standardmäßig ist der Wert auf „500“ festgelegt.  Wenn der Wert also auf „500“ festgelegt ist, beträgt die maximale Anzahl von Löschvorgängen pro Ausführung 499.
+
+Die Schwellenwerteinstellungen für Löschvorgänge sind Teil der `SyncNotificationSettings` und können über Graph geändert werden. 
+
+Sie müssen die SyncNotificationSettings aktualisieren, auf die diese Konfiguration abzielt. Aktualisieren Sie daher die Geheimnisse.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Fügen Sie das folgende Schlüssel-Wert-Paar in das unten angegebene Wertarray ein, je nachdem, was Sie ausführen möchten:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+Die Einstellung „Enabled“ im obigen Beispiel dient zum Aktivieren bzw. Deaktivieren von Benachrichtigungs-E-Mails, wenn der Auftrag unter Quarantäne gestellt wird.
+
+
+Zurzeit werden keine PATCH-Anforderungen für Geheimnisse unterstützt, weshalb Sie (wie im obigen Beispiel) alle Werte im Text der PUT-Anforderung hinzufügen müssen, um die anderen Werte beizubehalten.
+
+Die vorhandenen Werte für alle Geheimnisse können wie folgt abgerufen werden: 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Löschvorgänge werden zugelassen
+Damit die Löschvorgänge durchlaufen werden können, nachdem der Auftrag unter Quarantäne gestellt wurde, müssen Sie einen Neustart nur mit „ForceDeletes“ als Bereich ausgeben. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## <a name="start-sync-job"></a>Starten des Synchronisierungsauftrags
 Der Auftrag kann mit dem folgenden Befehl erneut abgerufen werden:

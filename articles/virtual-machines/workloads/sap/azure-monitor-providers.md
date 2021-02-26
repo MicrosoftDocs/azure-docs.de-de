@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968603"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007413"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Anbieter von Azure Monitor für SAP-Lösungen (Vorschau)
 
@@ -41,7 +41,7 @@ Wenn Kunden zum Zeitpunkt der Bereitstellung der SAP-Monitorressource keine Anbi
 
 Kunden können einen oder mehrere Anbieter des Anbietertyps *SAP HANA* konfigurieren, um die Datenerfassung aus der SAP HANA-Datenbank zu ermöglichen. Der SAP HANA-Anbieter stellt über den SQL-Port eine Verbindung mit der SAP HANA-Datenbank her, pullt Telemetriedaten aus der Datenbank und pusht sie in den Log Analytics-Arbeitsbereich des Kundenabonnements. Der SAP HANA-Anbieter führt die Erfassung aus der SAP HANA-Datenbank jede Minute durch.  
 
-In der öffentlichen Vorschau können Kunden die folgenden Daten mit dem SAP HANA-Anbieter erwarten: Nutzung der zugrundeliegenden Infrastruktur, Status des SAP HANA-Hosts, SAP HANA-Systemreplikation und Telemetriedaten für SAP HANA-Sicherungen. Zur Konfiguration des SAP HANA-Anbieters sind die Host-IP-Adresse, die HANA SQL-Portnummer und der SYSTEMDB-Benutzername sowie das Kennwort erforderlich. Kunden wird empfohlen, den SAP-HANA-Anbieter für SYSTEMDB zu konfigurieren. Zusätzliche Anbieter können jedoch auch für andere Datenbankmandanten konfiguriert werden.
+In der öffentlichen Vorschau können Kunden die folgenden Daten mit dem SAP HANA-Anbieter erwarten: Nutzung der zugrundeliegenden Infrastruktur, Status des SAP HANA-Hosts, SAP HANA-Systemreplikation und Telemetriedaten für SAP HANA-Sicherungen. Zur Konfiguration des SAP HANA-Anbieters sind die Host-IP-Adresse, die HANA SQL-Portnummer und der SYSTEMDB-Benutzername sowie das Kennwort erforderlich. Kunden wird empfohlen, den SAP HANA-Anbieter für SYSTEMDB zu konfigurieren. Weitere Anbieter können jedoch auch für andere Datenbankmandanten konfiguriert werden.
 
 ![Anbieter von Azure Monitor für SAP-Lösungen – SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
@@ -68,10 +68,38 @@ Die Konfiguration eines Anbieters von Hochverfügbarkeitsclustern erfolgt in zwe
    Zum Konfigurieren des Anbieters für Hochverfügbarkeitscluster sind die folgenden Informationen erforderlich:
    
    - **Name**. Ein Name für diesen Anbieter. Dieser sollte für die Instanz der Azure Monitor für SAP-Lösung eindeutig sein.
-   - **Prometheus-Endpunkt:** In der Regel „http\://\<servername or ip address\>:9664/metrics“.
+   - **Prometheus-Endpunkt:** http\://\<servername or ip address\>:9664/metrics.
    - **SID:** Verwenden Sie für SAP-Systeme die SAP-SID. Verwenden Sie für andere Systeme (z. B. NFS-Cluster) einen aus drei Zeichen bestehenden Namen für den Cluster. Die SID muss sich von anderen überwachten Clustern unterscheiden.   
    - **Clustername:** Der Clustername, der beim Erstellen des Clusters verwendet wird. Sie finden den Clusternamen in der Clustereigenschaft `cluster-name`.
    - **Hostname**. Der Linux-Hostname der VM.  
+
+
+## <a name="provider-type-os-linux"></a>Anbietertyp für Betriebssystem (Linux)
+Kunden können einen oder mehrere Anbieter für den Bereitstellungstyp (Linux) konfigurieren, damit die Datensammlung von BareMetal- oder VM-Knoten aktiviert wird. Der Betriebssystemanbieter (Linux) verbindet sich mit BareMetal- oder VM-Knoten, verwendet den Endpunkt  [Node_Exporter](https://github.com/prometheus/node_exporter) , ruft Telemetriedaten von den Knoten ab und überträgt sie in den Log Analytics-Arbeitsbereich im Abonnement des Kunden. Der Betriebssystemanbieter (Linux) sammelt alle 60 Sekunden Daten für die meisten Metriken von den Knoten. 
+
+In der öffentlichen Vorschau können Kunden die folgenden Daten beim Betriebssystemanbieter (Linux) erwarten: 
+   - CPU-Auslastung, CPU-Auslastung nach Prozess 
+   - Datenträgerauslastung, E/A für Lese- und Schreibvorgänge 
+   - Arbeitsspeicherverteilung, Arbeitsspeicherauslastung, Auslastung des Auslagerungsspeichers 
+   - Netzwerkauslastung, Details zum im Netzwerk ein- und ausgehenden Datenverkehr 
+
+Die Konfiguration eines Betriebssystemanbieters (Linux) erfolgt in zwei Hauptschritten:
+1. Installieren Sie  [Node_Exporter](https://github.com/prometheus/node_exporter)  auf allen BareMetal- oder VM-Knoten.
+   Für das Installieren von [Node_Exporter](https://github.com/prometheus/node_exporter) gibt es zwei Möglichkeiten: 
+      - Für die Azure Automation-Installation mit Ansible verwenden Sie [Node_Exporter](https://github.com/prometheus/node_exporter) auf jedem BareMetal- oder VM-Knoten, um den Betriebssystemanbieter (Linux) zu installieren.  
+      - Führen Sie eine  [manuelle Installation](https://prometheus.io/docs/guides/node-exporter/) aus.
+
+2. Konfigurieren Sie einen Betriebssystemanbieter (Linux) für jede BareMetal- oder VM-Knoteninstanz in Ihrer Umgebung. 
+   Zum Konfigurieren des Betriebssystemanbieters (Linux) sind die folgenden Informationen erforderlich: 
+      - Name. Ein Name für diesen Anbieter. Dieser sollte für die Instanz der Azure Monitor für SAP-Lösung eindeutig sein. 
+      - Endpunkt von Node Exporter. In der Regel http://<servername or ip address>:9100/metrics 
+
+> [!NOTE]
+> 9100 ist ein Port, der für den Endpunkt von Node_Exporter verfügbar gemacht wird.
+
+> [!Warning]
+> Stellen Sie sicher, dass Node Exporter nach dem Neustart des Knotens weiter ausgeführt wird. 
+
 
 ## <a name="provider-type-microsoft-sql-server"></a>Anbietertyp „Microsoft SQL Server“
 

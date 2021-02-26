@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756073"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102698"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anpassen von Ansprüchen im SAML-Token für Unternehmensanwendungen
 
@@ -81,10 +81,8 @@ Weitere Informationen finden Sie in [Table 3: Valid ID values per source (Tabell
 
 Sie können in Azure AD definierten Ansprüchen einen beliebigen konstanten (statischen) Wert zuweisen. Führen Sie folgende Schritte aus, um einen konstanten Wert zuzuweisen:
 
-1. Klicken Sie im <a href="https://portal.azure.com/" target="_blank">Azure-Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> im Abschnitt **Benutzerattribute und Ansprüche** auf das Symbol **Bearbeiten**, um die Ansprüche zu bearbeiten.
-
+1. Klicken Sie im <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> im Abschnitt **Benutzerattribute und Ansprüche** auf das Symbol **Bearbeiten**´, um die Ansprüche zu bearbeiten.
 1. Klicken Sie auf den erforderlichen Anspruch, den Sie ändern möchten.
-
 1. Geben Sie als **Quellattribut** den konstanten Wert (ohne Anführungszeichen) entsprechend Ihrer Organisation ein, und klicken Sie auf **Speichern**.
 
     ![Abschnitt „Organisationsattribute und Ansprüche“ im Azure-Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)

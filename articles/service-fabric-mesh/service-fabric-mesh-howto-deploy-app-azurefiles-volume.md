@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40d10568e13ad455bc5178821da80e89f4132e93
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007391"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625836"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Einbinden eines auf Azure Files basierenden Volumes in einer Service Fabric Mesh-Anwendung 
+
+> [!IMPORTANT]
+> Die Vorschauversion von Azure Service Fabric Mesh wurde eingestellt. Neue Bereitstellungen werden nicht mehr über die Service Fabric Mesh-API gestattet. Vorhandene Bereitstellungen werden noch bis zum 28. April 2021 unterstützt.
+> 
+> Einzelheiten finden Sie unter [Einstellung der Vorschauversion von Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 In diesem Artikel wird das Einbinden eines auf Azure Files basierenden Volumes in einen Dienst einer Service Fabric Mesh-Anwendung beschrieben.  Bei dem Azure Files-Volumetreiber handelt es sich um einen Docker-Volumetreiber, der verwendet wird, um eine Azure Files-Freigabe in einen Container einzubinden, der zum Speichern eines Dienststatus verwendet wird. Volumes bieten Ihnen einen universellen Dateispeicher und ermöglichen das Lesen und Schreiben von Dateien über normale Datenträger-E/A-Datei-APIs.  Weitere Informationen zu Volumes und Optionen für das Speichern von Anwendungsdaten finden Sie unter [Zustandsspeicherung](service-fabric-mesh-storing-state.md).
 

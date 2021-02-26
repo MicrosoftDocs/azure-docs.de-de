@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b36a4089a15118499b0ce57500f221b74af82242
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753744"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832571"
 ---
 # <a name="azure-migrate-common-questions"></a>Von der Azure Häufig gestellte Fragen
 
@@ -33,10 +33,10 @@ Verwenden Sie Azure Migrate, um lokale Infrastrukturen, Anwendungen und Daten in
 [Azure Migrate](migrate-services-overview.md) stellt einen zentralisierten Hub für die Bewertung und Migration zu Azure bereit. 
 
 - Die Verwendung von Azure Migrate bietet Interoperabilität und ermöglicht eine zukünftige Erweiterbarkeit mit Azure Migrate-Tools, anderen Azure-Diensten und Tools von Drittanbietern.
-- Das Servermigrationstool von Azure Migrate ist speziell für die Servermigration zu Azure konzipiert. Es ist für die Migration optimiert. Sie müssen sich nicht mit Konzepten und Szenarien vertraut machen, die in keiner direkten Relation zur Migration stehen. 
+- Azure Migrate: Das Servermigrationstool ist speziell für die Servermigration zu Azure konzipiert. Es ist für die Migration optimiert. Sie müssen sich nicht mit Konzepten und Szenarien vertraut machen, die in keiner direkten Relation zur Migration stehen. 
 - Ab dem Startzeitpunkt der Replikation für eine VM fallen 180 Tage lang keine Gebühren für die Nutzung des Tools an. So haben Sie genügend Zeit, um die Migration abzuschließen. Sie zahlen lediglich für die bei der Replikation verwendeten Speicher- und Netzwerkressourcen sowie für Computeressourcen, die bei Testmigrationen genutzt werden.
-- Azure Migrate unterstützt alle Migrationsszenarios, die von Site Recovery unterstützt werden. Darüber hinaus bietet Azure Migrate für VMware-VMs eine Migrationsoption ohne Agent.
-- Neue Migrationsfeatures werden nur für das Azure Migrate-Tool für die Servermigration priorisiert. Diese Features sind für Site Recovery nicht vorgesehen.
+- Azure Migrate unterstützt alle Migrationsszenarios, die von Site Recovery unterstützt werden. Außerdem bietet Azure Migrate für VMware-VMs eine Migrationsoption ohne Agent.
+- Wir priorisieren nur neue Migrationsfeatures für das Servermigrationstool von Azure Migrate. Diese Features sind für Site Recovery nicht vorgesehen.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) sollte nur für die Notfallwiederherstellung verwendet werden.
 
@@ -44,7 +44,7 @@ Azure Migrate: Servermigration: Dieses Tool nutzt bestimmte Site Recovery-Back-E
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Ich habe ein Projekt mit der vorherigen klassischen Erfahrung von Azure Migrate. Wie beginne ich mit der Verwendung der neuen Version?
 
-Sie können keine Projekte oder Komponenten aus der vorherigen Version in die neue Version aktualisieren. Sie müssen [ein neues Azure Migrate-Projekt](create-manage-projects.md) erstellen und ihm [Bewertungs- und Migrationstools](./create-manage-projects.md) hinzufügen. Verwenden Sie die Tutorials, um zu verstehen, wie die verfügbaren Bewertungs- und Migrationstools verwendet werden. Wenn Sie einen Log Analytics-Arbeitsbereich mit einem klassischen Projekt verknüpft haben, können Sie ihn an ein Projekt der aktuellen Version anfügen, nachdem Sie das klassische Projekt gelöscht haben.
+Die klassische Version von Azure Migrate wird im Februar 2024 eingestellt. Ab Februar 2024 wird die klassische Version von Azure Migrate nicht mehr unterstützt, und die Bestandsmetadaten im klassischen Projekt werden gelöscht. Sie können keine Projekte oder Komponenten aus der vorherigen Version in die neue Version aktualisieren. Sie müssen [ein neues Azure Migrate-Projekt](create-manage-projects.md) erstellen und ihm [Bewertungs- und Migrationstools](./create-manage-projects.md) hinzufügen. Verwenden Sie die Tutorials, um zu verstehen, wie die verfügbaren Bewertungs- und Migrationstools verwendet werden. Wenn Sie einen Log Analytics-Arbeitsbereich mit einem klassischen Projekt verknüpft haben, können Sie ihn an ein Projekt der aktuellen Version anfügen, nachdem Sie das klassische Projekt gelöscht haben.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Was ist der Unterschied zwischen der Serverbewertung von Azure Migrate und dem MAP Toolkit?
 

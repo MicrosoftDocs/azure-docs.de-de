@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f49abd4ca1cc1ccdcb7ba2b0fab3bad953dede5d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217888"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380541"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Merkmale sind Informationen über Aktionen und Kontext.
 
@@ -80,7 +80,7 @@ JSON-Objekte können geschachtelte JSON-Objekte und einfache Eigenschaften/Werte
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": ["47.6", "-122.1"]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {

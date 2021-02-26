@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
-ms.openlocfilehash: b15238a4308fe055f914d1a684b79b38a2c64870
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121795"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556838"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Zuweisen von Administratorzugriff für ein Azure-Abonnement
 
@@ -89,6 +89,6 @@ Die Zuweisung von Rollen zum Gewähren von Zugriff auf Azure-Ressourcen erfolgt 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](role-assignments-portal.md)
+- [Zuweisen von Azure-Rollen über das Azure-Portal](role-assignments-portal.md)
 - [Auflisten von Azure-Rollenzuweisungen über das Azure-Portal](role-assignments-list-portal.md)
 - [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](../governance/management-groups/overview.md)

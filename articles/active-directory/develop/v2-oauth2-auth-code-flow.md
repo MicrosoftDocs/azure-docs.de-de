@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2687141ea870b0af0a4405ebef2261c5a303c767
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756130"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584111"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform und der OAuth 2.0-Autorisierungscodeflow
 
@@ -44,11 +44,11 @@ Wenn Sie versuchen, den Autorisierungscodeflow zu verwenden, und der folgende Fe
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-Dann müssen Sie Ihre App-Registrierung aufrufen und den Umleitungs-URI für Ihre App auf den Typ `spa` aktualisieren.
+Rufen Sie dann Ihre App-Registrierung auf, und ändern Sie den Umleitungs-URI für Ihre App in den Typ `spa`.
 
 ## <a name="request-an-authorization-code"></a>Anfordern eines Autorisierungscodes
 
-Der Autorisierungscodefluss beginnt damit, dass der Client den Benutzer auf den `/authorize` -Endpunkt leitet. In dieser Anforderung fordert der Client die Berechtigungen `openid`, `offline_access` und `https://graph.microsoft.com/mail.read ` vom Benutzer an.  Einige Berechtigungen sind auf Administratoren beschränkt, z. B. das Schreiben von Daten in das Verzeichnis einer Organisation mithilfe von `Directory.ReadWrite.All`. Wenn Ihre Anwendung von einem Organisationsbenutzer Zugriff auf eine dieser Berechtigungen anfordert, wird dem Benutzer in einer Fehlermeldung mitgeteilt, dass er nicht befugt ist, den Berechtigungen Ihrer App zuzustimmen. Zugriff auf Bereiche, die auf Administratoren beschränkt sind, sollten Sie direkt von einem Unternehmensadministrator anfordern.  Weitere Informationen finden Sie unter [Auf Administratoren beschränkte Berechtigungen](v2-permissions-and-consent.md#admin-restricted-permissions).
+Der Autorisierungscodefluss beginnt damit, dass der Client den Benutzer auf den `/authorize` -Endpunkt leitet. In dieser Anforderung fordert der Client die Berechtigungen `openid`, `offline_access` und `https://graph.microsoft.com/mail.read ` vom Benutzer an.  Einige Berechtigungen sind auf Administratoren beschränkt, z. B. das Schreiben von Daten in das Verzeichnis einer Organisation mithilfe von `Directory.ReadWrite.All`. Wenn Ihre Anwendung von einem Organisationsbenutzer Zugriff auf eine dieser Berechtigungen anfordert, wird dem Benutzer in einer Fehlermeldung mitgeteilt, dass er nicht befugt ist, den Berechtigungen Ihrer App zuzustimmen. Zugriff auf Bereiche, die auf Administratoren beschränkt sind, sollten Sie direkt von einem globalen Administrator anfordern.  Weitere Informationen finden Sie unter [Auf Administratoren beschränkte Berechtigungen](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only

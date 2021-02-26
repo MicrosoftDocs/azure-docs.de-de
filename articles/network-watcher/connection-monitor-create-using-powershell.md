@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 99bcef2ba702235279c1327a2a5e51a8c6ab806d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7f175d82b650871437a506ea4513f0ae28360f68
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018478"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833030"
 ---
 # <a name="create-a-connection-monitor-by-using-powershell"></a>Erstellen eines Verbindungsmonitors mithilfe von PowerShell
+
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 ist es nicht mehr möglich, neue Tests in einem vorhandenen Arbeitsbereich hinzufügen oder einen neuen Arbeitsbereich im Netzwerkleistungsmonitor zu aktivieren. Sie können auch keine neuen Verbindungsmonitore mehr in Verbindungsmonitor (klassisch) hinzufügen. Sie können weiterhin die Tests und Verbindungsmonitore verwenden, die vor dem 1. Juli 2021 erstellt wurden. Führen Sie vor dem 29. Februar 2024 eine Migration [Ihrer Tests aus dem Netzwerkleistungsmonitor](migrate-to-connection-monitor-from-network-performance-monitor.md) oder [vom Verbindungsmonitor (klassisch)](migrate-to-connection-monitor-from-connection-monitor-classic.md) zum neuen Verbindungsmonitor in Azure Network Watcher durch, um Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
+
 
 Erfahren Sie, wie Sie mit dem Feature Verbindungsmonitor von Azure Network Watcher die Kommunikation zwischen Ihren Ressourcen überwachen.
 

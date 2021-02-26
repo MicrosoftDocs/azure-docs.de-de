@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740600"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071261"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegieren von App-Registrierungsberechtigungen in Azure Active Directory
 
 In diesem Artikel wird beschrieben, wie Sie über Berechtigungen, die von benutzerdefinierten Rollen in Azure Active Directory (Azure AD) gewährt werden, Ihre Anforderungen an die Anwendungsverwaltung erfüllen können. In Azure AD können Sie die Anwendungserstellung und Verwaltungsberechtigungen wie folgt delegieren:
 
-- [Einschränken, welche Benutzer Anwendungen erstellen können](#restrict-who-can-create-applications), und Verwalten der erstellten Anwendungen. Standardmäßig können in Azure AD alle Benutzer Anwendungsregistrierungen registrieren und alle Aspekte der Anwendungen verwalten, die sie erstellen. Dies kann so eingeschränkt werden, dass diese Berechtigung nur für ausgewählte Personen gilt.
+- [Einschränken, welche Benutzer Anwendungen erstellen können](#restrict-who-can-create-applications), und Verwalten der erstellten Anwendungen. Standardmäßig können in Azure AD alle Benutzer Anwendungen registrieren und alle Aspekte der Anwendungen verwalten, die sie erstellen. Dies kann so eingeschränkt werden, dass diese Berechtigung nur für ausgewählte Personen gilt.
 - [Zuweisen eines oder mehrerer Besitzer zu einer Anwendung](#assign-application-owners). Dies ist eine einfache Möglichkeit, einer Person die Berechtigung zu erteilen, alle Aspekte der Azure AD-Konfiguration für eine bestimmte Anwendung zu verwalten.
 - [Zuweisen einer integrierten Administratorrolle](#assign-built-in-application-admin-roles), mit der Zugriff zum Verwalten der Konfiguration in Azure AD für alle Anwendungen gewährt wird. Dies ist die empfohlene Vorgehensweise, um IT-Experten Zugriff zum Verwalten von umfassenden Berechtigungen für die Anwendungskonfiguration zu gewähren, ohne Zugriff auf die Verwaltung anderer Bereiche von Azure AD zu gewähren, die nicht mit der Anwendungskonfiguration zusammenhängen.
 - [Erstellen einer benutzerdefinierten Rolle](#create-and-assign-a-custom-role-preview), die sehr spezifische Berechtigungen definiert, und Zuweisen dieser Rolle zu einem Benutzer im Bereich einer einzelnen Anwendung als eingeschränkter Besitzer oder im Verzeichnisbereich (alle Anwendungen) als eingeschränkter Administrator.
@@ -34,7 +34,7 @@ Es ist aus zwei Gründen wichtig, den Zugriff mithilfe einer der oben genannten 
 
 ## <a name="restrict-who-can-create-applications"></a>Einschränken, welche Benutzer Anwendungen erstellen können
 
-Standardmäßig können in Azure AD alle Benutzer Anwendungsregistrierungen registrieren und alle Aspekte der Anwendungen verwalten, die sie erstellen. Alle Benutzer haben außerdem die Möglichkeit einzuwilligen, dass Apps in ihrem Namen auf Unternehmensdaten zugreifen. Sie können diese Berechtigungen selektiv erteilen, indem Sie die globalen Optionen auf „Nein“ festlegen und die ausgewählten Benutzer der Rolle „Anwendungsentwickler“ hinzufügen.
+Standardmäßig können in Azure AD alle Benutzer Anwendungen registrieren und alle Aspekte der Anwendungen verwalten, die sie erstellen. Alle Benutzer haben außerdem die Möglichkeit einzuwilligen, dass Apps in ihrem Namen auf Unternehmensdaten zugreifen. Sie können diese Berechtigungen selektiv erteilen, indem Sie die globalen Optionen auf „Nein“ festlegen und die ausgewählten Benutzer der Rolle „Anwendungsentwickler“ hinzufügen.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>So deaktivieren Sie die Standardoption zum Erstellen von Anwendungsregistrierungen oder Erteilen der Einwilligung für Anwendungen
 

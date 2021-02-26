@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Abfragen von Protokollen über „VMs außerhalb der Geschäftszeiten starten/beenden“
           href: automation-solution-vm-management-logs.md
+        - name: Entfernen von „VMs außerhalb der Geschäftszeiten starten/beenden“
+          href: automation-solution-vm-management-remove.md
         - name: Problembehandlung für „VMs außerhalb der Geschäftszeiten starten/beenden“
           href: troubleshoot/start-stop-vm.md
     - name: Updateverwaltung

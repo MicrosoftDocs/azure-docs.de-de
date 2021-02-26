@@ -1,14 +1,14 @@
 ---
 title: Überwachen von delegierten Ressourcen in beliebigem Umfang
 description: Erfahren Sie, wie Sie Azure Monitor-Protokolle für alle von Ihnen verwalteten Mandanten auf skalierbare Weise verwenden.
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131150"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575905"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Überwachen von delegierten Ressourcen in beliebigem Umfang
 
@@ -49,9 +49,9 @@ Nachdem Sie Ihre Richtlinien bereitgestellt haben, werden Daten in die Log Analy
 
 Sie können [Warnungen](../../azure-monitor/platform/alerts-overview.md) für die delegierten Abonnements in den von Ihnen verwalteten Kundenmandanten anzeigen.
 
-Filtern Sie die Warnungen mit einer [Azure Resource Graph](../../governance/resource-graph/overview.md)-Abfrage, um die Warnungen für mehrere Kunden zu aktualisieren. Sie können die Abfrage an Ihr Dashboard anheften und alle zugehörigen Kunden und Abonnements auswählen.
+Von Ihrem verwaltenden Mandanten aus können Sie [Aktivitätsprotokollwarnungen im Azure-Portal oder über APIs und Verwaltungstools erstellen, anzeigen und verwalten](../../azure-monitor/platform/alerts-activity-log.md).
 
-Mit der folgenden Beispielabfrage werden Warnungen mit den Schweregraden 0 und 1 angezeigt, die alle 60 Minuten aktualisiert werden.
+Filtern Sie die Warnungen mit einer [Azure Resource Graph](../../governance/resource-graph/overview.md)-Abfrage, um die Warnungen für mehrere Kunden zu aktualisieren. Sie können die Abfrage an Ihr Dashboard anheften und alle zugehörigen Kunden und Abonnements auswählen. Mit der folgenden Abfrage werden z. B. Warnungen mit den Schweregraden 0 und 1 angezeigt, die alle 60 Minuten aktualisiert werden.
 
 ```kusto
 alertsmanagementresources

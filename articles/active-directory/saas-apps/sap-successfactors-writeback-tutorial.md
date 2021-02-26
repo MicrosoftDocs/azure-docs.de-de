@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006437"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526974"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Konfigurieren des Rückschreibens von Attributen aus Azure AD in SAP SuccessFactors
 In diesem Tutorial werden die Schritte zum Rückschreiben von Attributen aus Azure AD in SuccessFactors Employee Central beschrieben. 
@@ -282,7 +282,7 @@ In diesem Abschnitt konfigurieren Sie den Fluss von Benutzerdaten aus SuccessFac
    | 3 | 8448 | emailType | Dieser konstante Wert ist der SuccessFactors-ID-Wert, der mit der geschäftlichen E-Mail-Adresse verknüpft ist. Aktualisieren Sie diesen Wert, und passen Sie ihn an Ihre SuccessFactors-Umgebung an. Die Schritte zum Festlegen dieses Werts sind im Abschnitt [Abrufen des konstanten Werts für „emailType“](#retrieve-constant-value-for-emailtype) beschrieben. |
    | 4 | true | emailIsPrimary | Verwenden Sie dieses Attribut, um die geschäftliche E-Mail-Adresse in SuccessFactors als primäre Adresse festzulegen. Wenn die geschäftliche E-Mail-Adresse nicht als primäre Adresse verwendet werden soll, setzen Sie dieses Flag auf „ false“. |
    | 5 | userPrincipalName | [custom01 – custom15] | Mit der Option **Neue Zuordnung hinzufügen** können Sie optional „userPrincipalName“ oder jedes andere Azure AD-Attribut in ein benutzerdefiniertes Attribut schreiben, das im SuccessFactors-Benutzerobjekt verfügbar ist.  |
-   | 6 | on-prem-samAccountName | username | Mit der Option **Neue Zuordnung hinzufügen** können Sie optional das lokale Attribut „samAccountName“ zum SuccessFactors-Attribut „username“ hinzufügen. |
+   | 6 | On Prem SamAccountName | username | Mit der Option **Neue Zuordnung hinzufügen** können Sie optional das lokale Attribut „samAccountName“ zum SuccessFactors-Attribut „username“ hinzufügen. Nutzen Sie die Informationen unter [Azure AD Connect Sync: Verzeichniserweiterungen](../hybrid/how-to-connect-sync-feature-directory-extensions.md), um „samAccountName“ mit Azure AD zu synchronisieren. Der Wert wird in der Dropdownliste für die Quelle als *extension_yourTenantGUID_samAccountName* angezeigt. |
    | 7 | SSO | loginMethod | Wenn der SuccessFactors-Mandant für das [partielle einmalige Anmelden](https://apps.support.sap.com/sap/support/knowledge/en/2320766) eingerichtet ist, können Sie über „Neue Zuordnung hinzufügen“ das Attribut „loginMethod“ optional auf den konstanten Wert „SSO“ oder „KENNWORT“ festlegen. |
    | 8 | telephoneNumber | businessPhoneNumber | Verwenden Sie diese Zuordnung, um *telephoneNumber* von Azure AD an die geschäftliche Telefonnummer von SuccessFactors zu übergeben. |
    | 9 | 10605 | businessPhoneType | Dieser konstante Wert ist der SuccessFactors-ID-Wert, der mit der geschäftlichen Telefonnummer verknüpft ist. Aktualisieren Sie diesen Wert, und passen Sie ihn an Ihre SuccessFactors-Umgebung an. Die Schritte zum Festlegen dieses Werts sind im Abschnitt [Abrufen des konstanten Werts für „phoneType“](#retrieve-constant-value-for-phonetype) beschrieben. |

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202945"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951242"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Verwenden der REST-APIs
 
@@ -92,7 +92,7 @@ So konfigurieren Sie Azure Purview, sodass der Dienst dem neuen Dienstprinzipal
 
 1. Behalten Sie unter **Zugriff zuweisen zu** den Standardwert **Benutzer, Gruppe oder Dienstprinzipal** bei.
 
-1. Geben Sie unter **Auswählen** den Namen des zuzuweisenden Benutzers, der zuzuweisenden Azure Active Directory-Gruppe oder des zuzuweisenden Dienstprinzipals ein, und klicken Sie anschließend im Ergebnisbereich auf den entsprechenden Namen.
+1. Geben Sie unter **Auswählen** den Namen des zuvor erstellten Dienstprinzipals ein, den Sie zuweisen möchten, und klicken Sie anschließend im Ergebnisbereich auf den entsprechenden Namen.
 
 1. Klicken Sie im Menü „Einstellungen“ auf **Speichern**
 

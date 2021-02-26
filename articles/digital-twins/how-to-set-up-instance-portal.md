@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882444"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953749"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Einrichten einer Azure Digital Twins-Instanz und der Authentifizierung (Portal)
 
@@ -40,7 +40,7 @@ Suchen Sie im Suchfeld nach *Azure Digital Twins*, und wählen Sie den Dienst **
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Auswählen von „Erstellen“ auf der Seite „Azure Digital Twins-Dienst“":::
 
-Geben Sie auf der folgenden Seite *Ressource erstellen* die unten angegebenen Werte ein:
+Geben Sie auf der folgenden Seite **Ressource erstellen** die unten angegebenen Werte ein:
 * **Abonnement**: Das Azure-Abonnement, das Sie verwenden.
   - **Ressourcengruppe**: Eine Ressourcengruppe, in der die Instanz bereitgestellt werden soll. Wenn Sie nicht bereits eine vorhandene Ressourcengruppe in Erwägung ziehen, können Sie hier eine Ressourcengruppe erstellen, indem Sie den Link *Neu erstellen* auswählen und einen Namen für eine neue Ressourcengruppe eingeben
 * **Standort**: Eine für Azure Digital Twins aktivierte Region für die Bereitstellung. Weitere Informationen zur regionalen Unterstützung finden Sie unter [*Verfügbare Azure-Produkte nach Region (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ Geben Sie auf der folgenden Seite *Ressource erstellen* die unten angegebenen We
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Eingeben der beschriebenen Werte zum Erstellen einer Azure Digital Twins-Ressource":::
 
-Wenn Sie fertig sind, wählen Sie _Überprüfen und erstellen_ aus. Dadurch gelangen Sie zu einer Zusammenfassungsseite, auf der Sie die eingegebenen Instanzdetails überprüfen und _Erstellen_ auswählen können. 
+Wenn Sie fertig sind, können Sie auf **Überprüfen + erstellen** klicken, wenn Sie keine weiteren Einstellungen für Ihre Instanz konfigurieren möchten. Dadurch gelangen Sie zu einer Zusammenfassungsseite, auf der Sie die eingegebenen Instanzdetails überprüfen und den Vorgang durch Klicken auf **Erstellen** abschließen können. 
+
+Wenn Sie weitere Details für Ihre Instanz konfigurieren möchten, finden Sie Informationen zu den übrigen Registerkarten für die Einrichtung im nächsten Abschnitt.
+
+### <a name="additional-setup-options"></a>Zusätzliche Optionen für die Einrichtung
+
+Im Folgenden finden Sie die zusätzlichen Optionen, die Sie während der Einrichtung mithilfe der anderen Registerkarten im Prozess **Ressource erstellen** verwenden können.
+
+* **Netzwerk**: Auf dieser Registerkarte können Sie private Endpunkte mithilfe von [Azure Private Link](../private-link/private-link-overview.md) aktivieren, um zu verhindern, dass über ein öffentliches Netzwerk auf Ihre Instanz zugegriffen werden kann. Anweisungen dazu finden Sie unter [*Gewusst wie: Aktivieren des privaten Zugriffs mit Private Link (Vorschau)* ](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Erweitert**: Auf dieser Registerkarte können Sie eine [vom System verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md) für Ihre Instanz aktivieren, die beim Weiterleiten von Ereignissen an [Endpunkte](concepts-route-events.md) verwendet werden kann. Anweisungen dazu finden Sie unter [*Gewusst wie: Aktivieren verwalteter Identitäten für das Weiterleiten von Ereignissen (Vorschau)* ](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Tags**: Auf dieser Registerkarte können Sie Ihrer Instanz Tags hinzufügen, die Ihnen dabei helfen, die Instanz und andere Azure-Ressourcen zu verwalten. Weitere Informationen zu den Azure-Ressourcentags finden Sie unter [*Verwenden von Tags zum Organisieren von Azure-Ressourcen und Verwaltungshierarchie*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Überprüfen des Erfolgs und Erfassen wichtiger Werte
 
-Nachdem Sie *Erstellen* ausgewählt haben, können Sie den Status der Bereitstellung Ihrer Instanz in Ihren Azure-Benachrichtigungen auf der Symbolleiste des Portals anzeigen. In der Benachrichtigung wird angezeigt, wenn die Bereitstellung erfolgreich war, und Sie können die Schaltfläche _Zu Ressource wechseln_ auswählen, um Ihre erstellte Instanz anzuzeigen.
+Nachdem Sie die Einrichtung Ihrer Instanz durch das Klicken auf **Erstellen** abgeschlossen haben, können Sie in Ihren Azure-Benachrichtigungen auf der Symbolleiste des Portals den Bereitstellungsstatus Ihrer Instanz anzeigen. In der Benachrichtigung wird angezeigt, wenn die Bereitstellung erfolgreich war, und Sie können die Schaltfläche _Zu Ressource wechseln_ auswählen, um Ihre erstellte Instanz anzuzeigen.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Ansicht von Azure-Benachrichtigungen mit einer erfolgreichen Bereitstellung und Hervorhebung der Schaltfläche „Zu Ressource wechseln“":::
 

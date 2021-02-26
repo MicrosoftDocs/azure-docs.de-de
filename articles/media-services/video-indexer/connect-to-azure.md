@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702617"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576277"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Erstellen eines Video Indexer-Kontos mit Azure-Verbindung
+# <a name="create-a-video-indexer-account"></a>Erstellen eines Video Indexer-Kontos
 
 Beim Erstellen eines Video Indexer-Kontos können Sie ein kostenloses Testkonto (mit einer bestimmten Anzahl von kostenlosen Indizierungsminuten) oder eine kostenpflichtige Option wählen (ohne Einschränkung durch eine Kontingentvorgabe). Bei einer kostenlosen Testversion stellt Video Indexer bis zu 600 Minuten an kostenloser Indizierungszeit für Websitebenutzer und bis zu 2400 Minuten an kostenloser Indizierungszeit für API-Benutzer bereit. Bei der kostenpflichtigen Option erstellen Sie ein Video Indexer-Konto, das mit Ihrem Azure-Abonnement verbunden ist. Sie bezahlen pro Minute Indizierungszeit. Weitere Informationen finden Sie unter [Media Services – Preise](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -25,7 +25,9 @@ In diesem Artikel wird veranschaulicht, wie Sie ein Video Indexer-Konto erstelle
 
 Wenn Sie von einem *Test-* zu einem *kostenpflichtigen* Video Indexer-Konto wechseln, haben Sie die Möglichkeit, alle Videos und Modellanpassungen in das neue Konto zu kopieren, wie im Abschnitt [Importieren Ihrer Inhalte aus dem Testkonto](#import-your-content-from-the-trial-account) erörtert.
 
-## <a name="prerequisites"></a>Voraussetzungen
+Der Artikel behandelt auch das [Verknüpfen eines Video Indexer-Kontos mit Azure Government](#video-indexer-in-azure-government).
+
+## <a name="prerequisites-for-connecting-to-azure"></a>Voraussetzungen zum Herstellen einer Verbindung mit Azure
 
 * Ein Azure-Abonnement.
 
@@ -37,7 +39,7 @@ Wenn Sie von einem *Test-* zu einem *kostenpflichtigen* Video Indexer-Konto wech
 
     Bei diesem Benutzer sollte es sich um einen Azure AD Benutzer mit einem Geschäfts-, Schul-oder Unikonto handeln. Verwenden Sie kein persönliches Konto, wie outlook.com, live.com oder hotmail.com.
 
-    ![Alle AAD-Benutzer](./media/create-account/all-aad-users.png)
+    ![Alle Azure AD-Benutzer](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>Zusätzliche Voraussetzungen für den automatischen Flow
 
@@ -59,7 +61,7 @@ Wenn Sie von einem *Test-* zu einem *kostenpflichtigen* Video Indexer-Konto wech
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account"></a>Erstellen eines neuen Kontos
+## <a name="create-a-new-account-on-azure"></a>Erstellen eines neuen Kontos in Azure 
 
 > [!NOTE]
 > Wenn für Ihr Azure-Abonnement die zertifikatbasierte mehrstufige Authentifizierung verwendet wird, ist es wichtig, die folgenden Schritte auf einem Gerät auszuführen, auf dem die erforderlichen Zertifikate installiert sind.
@@ -155,7 +157,7 @@ Geben Sie im Dialogfeld die folgenden Informationen ein:
 |Anwendungs-ID|Die Azure AD-Anwendungs-ID (mit Berechtigungen für das angegebene Media Services-Konto), die Sie im vorherigen Abschnitt erstellt haben.|
 |Anwendungsschlüssel|Der Azure AD-Anwendungsschlüssel, den Sie im vorherigen Abschnitt erstellt haben. |
 
-## <a name="import-your-content-from-the-trial-account"></a>Importieren Ihrer Inhalte aus dem *Testkonto*
+### <a name="import-your-content-from-the-trial-account"></a>Importieren Ihrer Inhalte aus dem *Testkonto*
 
 Beim Erstellen eines neuen Kontos haben Sie die Möglichkeit, Ihre Inhalte aus dem *Testkonto* in das neue Konto zu importieren. Wenn Sie die Option *Importieren* im Dialogfeld **Neues Konto für ein Azure-Abonnement erstellen** aktivieren, werden alle Medien und Inhaltsmodellanpassungen aus dem *Testkonto* in das neue Konto kopiert.
 
@@ -163,16 +165,10 @@ Die Möglichkeit, den Inhalt zu importieren, gilt für den oben beschriebenen au
 
 > [!NOTE]
 > Der Inhalt kann aus jedem Konto nur einmal importiert werden.
+>
+> Das *Testkonto* ist in der Azure Government-Cloud nicht verfügbar.
 
-## <a name="delete-the-account"></a>Löschen des Kontos
-
-Wenn Sie das Konto später löschen möchten, ist dies auf der Video Indexer-Website möglich. Sie müssen der Besitzer sein, um das Konto zu löschen.
-
-Klicken Sie auf das Konto und dann auf **Einstellungen** -> **Dieses Konto löschen**. 
-
-Das Konto wird in 90 Tagen dauerhaft gelöscht.
-
-## <a name="considerations"></a>Überlegungen
+## <a name="azure-media-services-considerations"></a>Überlegungen zu Azure Media Services
 
 Für Azure Media Services gilt Folgendes:
 
@@ -199,11 +195,54 @@ Die Automatisierung des Erstellens des Kontos ist ein Prozess in zwei Schritten:
 1. Verwenden von Azure Resource Manager zum Erstellen eines Azure Media Services-Kontos und einer Azure AD-Anwendung.
 
     Ein Beispiel für die Vorlage zum Erstellen eines Media Services-Kontos finden Sie [hier](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Aufrufen von [Create-Account mit Media Services und der Azure AD-Anwendung](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Aufrufen von [Create-Account mit Media Services und der Azure AD-Anwendung](https://videoindexer.ai.azure.us/account/login?source=apim).
+
+## <a name="video-indexer-in-azure-government"></a>Video Indexer in Azure Government
+
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Voraussetzungen zum Herstellen einer Verbindung mit Azure Government
+
+-   Ein Abonnement in [Azure Government](https://docs.microsoft.com/azure/azure-government/)
+- Ein Azure AD-Konto in Azure Government
+- Alle Voraussetzungen für Berechtigungen und Ressourcen, wie oben unter [Voraussetzungen zum Herstellen einer Verbindung mit Azure](#prerequisites-for-connecting-to-azure) beschrieben.
+
+### <a name="create-new-account-via-the-azure-government-portal"></a>Erstellen eines neuen Kontos über das Azure Government-Portal
+
+> [!NOTE]
+> Die Azure Government-Cloud umfasst keine *Testversion* von Video Indexer.
+
+So erstellen Sie ein kostenpflichtiges Konto über das Video Indexer-Portal
+
+1. Besuchen Sie https://videoindexer.ai.azure.us. 
+1. Melden Sie sich mit Ihrem Azure AD-Konto für Azure Government an.
+1.  Wenn Sie über keine Video Indexer-Konten in Azure Government verfügen, bei denen Sie Besitzer oder Mitwirkender sind, erhalten Sie eine leere Umgebung, von der aus Sie Ihr Konto erstellen können. 
+
+    Der Rest des Flows ist wie oben beschrieben. Nur die Regionen, aus denen ausgewählt wird, sind Government-Regionen, in denen Video Indexer verfügbar ist. 
+
+    Wenn Sie bereits Mitwirkender oder Administrator eines bestehenden Video Indexer-Kontos in Azure Government sind, werden Sie zu diesem Konto weitergeleitet und können von dort aus bei Bedarf die Schritte zum Erstellen eines weiteren Kontos ausführen (wie oben beschrieben).
+    
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Erstellen eines neuen Kontos über die API in Azure Government
+
+Um ein kostenpflichtiges Konto in Azure Government zu erstellen, folgen Sie den Anweisungen zum [Erstellen eines kostenpflichtigen Kontos](/azure/media-services/video-indexer/connect-to-azure). Dieser API-Endpunkt umfasst nur Government-Cloudregionen.
+
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Einschränkungen von Video Indexer in Azure Government
+
+*   In der Government-Cloud ist keine manuelle Inhaltsmoderation verfügbar. 
+
+    Wenn in der öffentlichen Cloud Inhalte aufgrund einer Inhaltsmoderation als anstößig erachtet werden, kann der Kunde einen Mitarbeiter anfordern, der sich diese Inhalte ansieht und die Entscheidung möglicherweise rückgängig machen kann.  
+*   Keine Testkonten. 
+* Bing-Beschreibung – In der Government-Cloud werden wir keine Beschreibung der identifizierten Prominenten und benannten Entitäten präsentieren. Dies ist nur eine Funktion der Benutzeroberfläche. 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Nachdem Sie dieses Tutorial abgeschlossen haben, löschen Sie Ressourcen, die Sie nicht verwenden möchten.
+
+### <a name="delete-a-video-indexer-account"></a>Löschen eines Video Indexer-Kontos
+
+Wenn Sie ein Video Indexer-Konto löschen möchten, ist dies auf der Video Indexer-Website möglich. Sie müssen der Besitzer sein, um das Konto zu löschen.
+
+Klicken Sie auf das Konto und dann auf **Einstellungen** -> **Dieses Konto löschen**. 
+
+Das Konto wird in 90 Tagen dauerhaft gelöscht.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

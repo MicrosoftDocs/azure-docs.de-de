@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489385"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986123"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Einrichten eines Azure Marketplace-Abonnements für gehostete Testversionen
 
@@ -70,7 +70,7 @@ In diesem Artikel erfahren Sie, wie Sie ein Azure Marketplace-Abonnement und ein
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Hinzufügen eines geheimen Clientschlüssels":::
 
-5. Manchmal dauert es länger als erwartet, einen Benutzer aus Azure AD mit einer CRM-Instanz zu synchronisieren. Es wurde ein Prozess zum Erzwingen der Benutzersynchronisierung hinzugefügt, um dies zu unterstützen, jedoch muss die Azure AD-Anwendung hierfür von Partner Center zur Whitelist hinzugefügt werden. Informationen dazu finden Sie unter [Synchronisieren von Benutzern mit Customer Engagement-Instanzen](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
+5. Manchmal dauert es länger als erwartet, einen Benutzer aus Azure AD mit einer CRM-Instanz zu synchronisieren. Es wurde ein Prozess zum Erzwingen der Benutzersynchronisierung hinzugefügt, um dies zu unterstützen, jedoch muss die Azure AD-Anwendung hierfür von Partner Center der Positivliste hinzugefügt werden. Informationen dazu finden Sie unter [Synchronisieren von Benutzern mit Customer Engagement-Instanzen](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
 6. Fügen Sie die Dienstprinzipalrolle zur Anwendung hinzu, um der Azure AD-App das Entfernen von Benutzern aus Ihrem Azure-Mandanten zu erlauben.
     1. Öffnen Sie eine PowerShell-Eingabeaufforderung auf Verwaltungsebene.
     2. Führen Sie den Befehl „Install-Module MSOnline“ aus, wenn MSOnline noch nicht installiert ist.

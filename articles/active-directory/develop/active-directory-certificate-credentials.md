@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795624"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582025"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft Identity Platform-Zertifikatanmeldeinformationen für die Anwendungsauthentifizierung
 
@@ -101,12 +101,12 @@ In der Azure-App-Registrierung für die Clientanwendung:
 
 ### <a name="updating-the-application-manifest"></a>Aktualisieren des Anwendungsmanifests
 
-Wenn Sie über ein Zertifikat verfügen, berechnen Sie Folgendes:
+Berechnen Sie nach dem Erwerb eines Zertifikats die folgenden Werte:
 
 - `$base64Thumbprint`: Base64-codierter Wert des Zertifikathashs
 - `$base64Value`: Base64-codierter Wert der Zertifikatrohdaten
 
-Geben Sie außerdem eine GUID an, um den Schlüssel im Anwendungsmanifest (`$keyId`) zu identifizieren.
+Geben Sie eine GUID an, um den Schlüssel im Anwendungsmanifest (`$keyId`) zu identifizieren.
 
 In der Azure-App-Registrierung für die Clientanwendung:
 1. Wählen Sie **Manifest** aus, um das Anwendungsmanifest zu öffnen.

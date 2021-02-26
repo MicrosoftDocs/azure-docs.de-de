@@ -1,24 +1,20 @@
 ---
 title: Pushen von Data Factory-Herkunftsdaten an Azure Purview
 description: Erfahren Sie, wie Sie Data Factory-Herkunftsdaten an Azure Purview pushen
-services: data-factory
 ms.author: lle
 author: lrtoyou1223
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3f2297ae619145ec19b53ba79d70b7c085cbcaab
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935467"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361450"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Pushen von Data Factory-Herkunftsdaten an Azure Purview (Vorschau)
 

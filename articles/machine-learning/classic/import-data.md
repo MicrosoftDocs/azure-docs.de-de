@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Importieren von Trainingsdaten – Azure'
 description: Erfahren Sie, wie Sie Trainingsdaten aus verschiedenen Datenquellen in Azure Machine Learning Studio (klassisch) importieren. Erfahren Sie, welche Datentypen und Datenformate unterstützt werden.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302772"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520373"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importieren von Trainingsdaten aus verschiedenen Datenquellen in Azure Machine Learning Studio (klassisch)
 
@@ -73,12 +73,12 @@ Die folgenden Datentypen werden von Studio (klassisch) erkannt:
 * Datetime
 * TimeSpan
 
-Von Studio wird ein interner Datentyp namens **Datentabelle** verwendet, um Daten zwischen Modulen zu übergeben. Mit dem Modul [Convert to Dataset][convert-to-dataset] (In Dataset konvertieren) können Sie Daten explizit in das data table-Format konvertieren.
+Studio verwendet einen internen Datentyp mit dem Namen ***data table*** zum Übergeben von Daten zwischen Modulen. Mit dem Modul [Convert to Dataset][convert-to-dataset] (In Dataset konvertieren) können Sie Daten explizit in das data table-Format konvertieren.
 
 Jedes Modul, das andere Formate als data table akzeptiert, konvertiert die Daten im Hintergrund vor der Übergabe an das nächste Modul in das data table-Format.
 
 Bei Bedarf können Sie das data table-Format mit anderen Konvertierungsmodulen wieder in die Formate CSV, TSV, ARFF oder SVMLight konvertieren.
-Suchen Sie im Abschnitt *Data Format Conversions* (Datenformatkonvertierungen) der Modulpalette nach Modulen, von denen diese Funktionen ausgeführt werden.
+Suchen Sie im Abschnitt **Data Format Conversions** der Modulpalette nach Modulen, die diese Funktionen ausführen.
 
 ## <a name="data-capacities"></a>Datenkapazitäten
 

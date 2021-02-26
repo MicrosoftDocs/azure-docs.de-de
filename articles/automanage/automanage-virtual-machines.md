@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695669"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550783"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Automatische Azure-Verwaltung für virtuelle Computer
 
@@ -42,7 +42,6 @@ Und schließlich ist die Benutzererfahrung unglaublich einfach.
 Es gibt mehrere Voraussetzungen zu beachten, bevor Sie versuchen, die automatische Azure-Verwaltung auf Ihren virtuellen Computern zu aktivieren.
 
 - Nur Windows Server-VMs
-- VMs müssen aktiv sein
 - VMs müssen sich in einer unterstützten Region befinden (siehe folgender Absatz)
 - Benutzer muss über die richtigen (im folgenden Absatz beschriebenen) Berechtigungen verfügen.
 - Automatische Verwaltung unterstützt zurzeit keine Sandboxabonnements.

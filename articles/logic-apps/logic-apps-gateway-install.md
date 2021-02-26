@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322511"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054770"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installieren des lokalen Datengateways für Azure Logic Apps
 
@@ -138,9 +138,15 @@ Dieser Artikel zeigt, wie Sie Ihr lokales Datengateway herunterladen, installier
 
 1. [Erstellen Sie jetzt die Azure-Ressource für Ihre Gatewayinstallation](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Überprüfen oder Anpassen von Kommunikationseinstellungen
 
-Das lokale Datengateway ist für Cloudkonnektivität von [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) abhängig und richtet die entsprechenden ausgehenden Verbindungen zu der dem Gateway zugeordneten Azure-Region ein. Wenn in Ihrer Arbeitsumgebung der Datenverkehr über einen Proxy oder eine Firewall an das Internet weitergeleitet werden muss, verhindert diese Einschränkung unter Umständen, dass das lokale Datengateway eine Verbindung mit dem Gatewayclouddienst und Azure Service Bus Messaging herstellt. Das Gateway verfügt über mehrere Kommunikationseinstellungen, die Sie anpassen können. Weitere Informationen finden Sie in den folgenden Themen:
+Das lokale Datengateway ist für Cloudkonnektivität von [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) abhängig und richtet die entsprechenden ausgehenden Verbindungen zu der dem Gateway zugeordneten Azure-Region ein. Wenn in Ihrer Arbeitsumgebung der Datenverkehr über einen Proxy oder eine Firewall an das Internet weitergeleitet werden muss, verhindert diese Einschränkung unter Umständen, dass das lokale Datengateway eine Verbindung mit dem Gatewayclouddienst und Azure Service Bus Messaging herstellt. Das Gateway verfügt über mehrere Kommunikationseinstellungen, die Sie anpassen können.
+
+In einem Beispielszenario verwenden Sie benutzerdefinierte Connectors, die auf lokale Ressourcen zugreifen, indem Sie die lokale Datengatewayressource in Azure verwenden. Wenn Sie auch über eine Firewall verfügen, die den Datenverkehr an bestimmte IP-Adressen einschränkt, müssen Sie die Gatewayinstallation einrichten, um den Zugriff auf die entsprechenden *[ausgehenden IP-Adressen](logic-apps-limits-and-config.md#outbound) der verwalteten Connectors* zu ermöglichen. Für *alle* Logik-Apps in derselben Region werden dieselben IP-Adressbereiche verwendet.
+
+Weitere Informationen finden Sie in den folgenden Themen:
 
 * [Anpassen von Kommunikationseinstellungen für das lokale Datengateway](/data-integration/gateway/service-gateway-communication)
 * [Konfigurieren von Proxyeinstellungen für das lokale Datengateway](/data-integration/gateway/service-gateway-proxy)

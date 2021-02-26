@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352999"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052988"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Nicht in reservierten Azure-VM-Instanzen enthaltene Softwarekosten
 
@@ -61,7 +61,7 @@ Rabatte für reservierte VM-Instanzen und SQL-Kapazitäten gelten nur für Infra
 
 ## <a name="get-rates-for-azure-meters"></a>Abrufen der Tarife für Azure-Verbrauchseinheiten
 
-Sie können die Kosten jeder dieser Verbrauchseinheiten über die Azure RateCard-API abrufen. Informationen zum Abrufen der Tarife für eine Azure-Verbrauchseinheit finden Sie unter [Abrufen von Preis- und Metadateninformationen für in einem Azure-Abonnement verwendete Ressourcen](/previous-versions/azure/reference/mt219004(v=azure.100)).
+Sie können die Kosten für die einzelnen Verbrauchseinheiten über die API für Azure-Einzelhandelspreise abrufen. Informationen zum Abrufen der Preise für eine Azure-Verbrauchseinheit finden Sie unter [Übersicht über Azure-Einzelhandelspreise](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zu Reservierungen für Azure finden Sie in den folgenden Artikeln:

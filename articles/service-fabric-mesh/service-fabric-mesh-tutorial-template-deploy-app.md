@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499831"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625415"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Bereitstellen einer Anwendung in Service Fabric Mesh mithilfe einer Vorlage
+
+> [!IMPORTANT]
+> Die Vorschauversion von Azure Service Fabric Mesh wurde eingestellt. Neue Bereitstellungen über die Service Fabric Mesh-API werden nicht mehr gestattet. Unterstützung für vorhandene Bereitstellungen wird bis zum 28. April 2021 fortgesetzt.
+> 
+> Einzelheiten finden Sie unter [Ausmusterung der Vorschauversion von Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Dieses Tutorial ist der erste Teil einer Serie. Hier lernen Sie, wie Sie mithilfe einer Vorlage eine Azure Service Fabric Mesh-Anwendung bereitstellen.  Die Anwendung setzt sich aus einem ASP.NET-Web-Front-End-Dienst und einem ASP.NET Core-Web-API-Back-End-Dienst zusammen, die in Docker Hub enthalten sind.  Sie rufen die beiden Containerimages aus Docker Hub ab und übertragen sie per Push an Ihre eigene private Registrierung. Anschließend erstellen Sie eine Azure RM-Vorlage für die Anwendung und stellen die Anwendung aus Ihrer Containerregistrierung in Service Fabric Mesh bereit. Wenn Sie fertig sind, besitzen Sie eine einfache Aufgabenlistenanwendung, die in Service Fabric Mesh ausgeführt wird.
 

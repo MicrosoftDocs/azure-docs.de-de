@@ -2,13 +2,13 @@
 title: Verwenden der Funktionalität öffentlicher IP-Adressen in Azure VMware Solution
 description: In diesem Artikel wird erläutert, wie Sie die Funktion „öffentliche IP-Adresse“ in Azure Virtual WAN verwenden.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517902"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581379"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Verwenden der Funktionalität öffentlicher IP-Adressen in Azure VMware Solution
 
@@ -118,7 +118,7 @@ Nachdem alle Komponenten bereitgestellt wurden, können Sie diese in der hinzuge
 
 1. Geben Sie auf der Registerkarte **Grundlagen** die erforderlichen Details ein, und wählen Sie **Weiter: DNS-Einstellungen** aus. 
 
-1. Wählen Sie auf der Registerkarte **DNS** die Option **Deaktivieren** aus, und klicken Sie dann auf **Weiter: Regeln**.
+1. Wählen Sie auf der Registerkarte **DNS** die Option **Deaktivieren** aus und dann **Weiter: Regeln**.
 
 1. Wählen Sie **Regelsammlung hinzufügen** aus, und geben Sie die folgenden Details an. Wählen Sie **Hinzufügen** aus, und wählen Sie dann **Weiter: Threat Intelligence** aus.
 
@@ -128,8 +128,8 @@ Nachdem alle Komponenten bereitgestellt wurden, können Sie diese in der hinzuge
    -  Regelsammlungsaktion – Zulassen
    -  Name der Regel
    -  Quelltyp – **IPaddress**
-   -  Quelle – * *\** _
-   -  Protokoll – *TCP**
+   -  Quelle – **\***
+   -  Protokoll – **TCP**
    -  Zielport – **80**
    -  Zieltyp – **IP-Adresse**
    -  Ziel – **öffentliche IP-Adresse**
@@ -144,11 +144,11 @@ Nachdem alle Komponenten bereitgestellt wurden, können Sie diese in der hinzuge
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Der Screenshot zeigt die ausgewählten Hubs, die in geschützte virtuelle Hubs konvertiert werden." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Wählen Sie **Weiter: Tags**. 
+1. Klicken Sie auf **Weiter: Tags**. 
 
 1. (Optional) Erstellen Sie Name- und Wert-Paare, um Ihre Ressourcen zu kategorisieren. 
 
-1. Wählen Sie **Weiter: Überprüfen und erstellen** und dann **Erstellen** aus.
+1. Klicken Sie auf **Weiter: Überprüfen und erstellen** und dann **Erstellen** aus.
 
 ## <a name="limitations"></a>Einschränkungen
 
@@ -156,5 +156,7 @@ Pro SDDC sind 100 öffentliche IP-Adressen zulässig.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über das Nutzen öffentlicher IP-Adressen unter Verwendung von [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Nachdem Sie nun erfahren haben, wie Sie die Funktion für öffentliche IP-Adressen in Azure VMware Solution verwenden, informieren Sie sich über die folgenden Themen:
 
+- Verwenden von öffentlichen IP-Adressen mit [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md)
+- [Erstellen eines IPsec-Tunnels zu Azure VMware Solution](create-ipsec-tunnel.md)

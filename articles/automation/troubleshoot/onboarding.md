@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896510"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008161"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Beheben von Problemen bei der Featurebereitstellung
 
@@ -148,7 +148,7 @@ Entfernen Sie die Ressourcen für die folgenden Features aus Ihrem Arbeitsbereic
 Nachdem Sie die Featureressourcen entfernt haben, können Sie die Verknüpfung mit Ihrem Arbeitsbereich aufheben. Es ist wichtig, alle vorhandenen Artefakte dieser Features aus Ihrem Arbeitsbereich und Ihrem Automation-Konto zu entfernen:
 
 * Für „Updateverwaltung“ entfernen Sie **Updatebereitstellungen (Zeitpläne)** aus Ihrem Automation-Konto.
-* Für „VMs außerhalb der Geschäftszeiten starten/beenden“ entfernen Sie alle Sperren für die Komponenten des Features in Ihrem Automation-Konto unter **Einstellungen** > **Sperren**. Weitere Informationen finden Sie unter [Entfernen von Features](../automation-solution-vm-management.md#remove-the-feature).
+* Für „VMs außerhalb der Geschäftszeiten starten/beenden“ entfernen Sie alle Sperren für die Komponenten des Features in Ihrem Automation-Konto unter **Einstellungen** > **Sperren**. Weitere Informationen finden Sie unter [Entfernen von Features](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Fehler der Log Analytics für Windows-Erweiterung
 

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 9b88397f6ed507f2685bcd293ba16e55a6836f28
-  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+  ms.openlocfilehash: bd06b7cc04f47b517b7dc7913a2716e132b39941
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/30/2020
-  ms.locfileid: "97813155"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100520492"
 landingContent:
 - title: Informationen zu Custom Vision
   linkLists:
@@ -96,10 +96,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Trainings-API
-      url: https://go.microsoft.com/fwlink/?linkid=865446
-    - text: Vorhersage-API
-      url: https://go.microsoft.com/fwlink/?linkid=865445
+    - text: REST-API
+      url: https://docs.microsoft.com/rest/api/custom-vision/
     - text: .NET SDK
       url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
     - text: Python SDK

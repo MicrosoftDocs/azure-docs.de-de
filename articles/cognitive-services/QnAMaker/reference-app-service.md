@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345667"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896459"
 ---
 # <a name="service-configuration"></a>Dienstkonfiguration
 
@@ -34,6 +34,7 @@ Sie können eine einzelne Einstellung entweder über die Liste der Anwendungsein
 |UserAppInsightsAppId|Chatprotokoll und Telemetrie|
 |UserAppInsightsKey|Chatprotokoll und Telemetrie|
 |UserAppInsightsName|Chatprotokoll und Telemetrie|
+|QNAMAKER_EXTENSION_VERSION|Legen Sie diese Einstellung immer auf _Neueste_ fest. Mit dieser Einstellung wird die QnA Maker-Websiteerweiterung in App Service initialisiert.|
 
 Sie müssen den Dienst über die Seite **Übersicht** des Azure-Portals **neu starten**, sobald Sie mit den Änderungen fertig sind.
 

@@ -3,12 +3,12 @@ title: Bereitstellen des Medien-Blaupausenbeispiels
 description: Bereitstellungsschritte für das Medien-Blaupausenbeispiel, einschließlich Details zum Blaupausenartefaktparameter
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035001"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577296"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Bereitstellen des Medien-Blaupausenbeispiels
 
@@ -93,12 +93,12 @@ Die folgende Tabelle enthält eine Aufstellung der Parameter des Blaupausenartef
 
 Artefaktname|Artefakttyp|Parametername|BESCHREIBUNG|
 |-|-|-|-|
-|\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Linux-VMs |Richtlinienzuweisung |Log Analytics-Arbeitsbereich für virtuelle Linux-Computer |Weitere Informationen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Linux-VMs |Richtlinienzuweisung |Log Analytics-Arbeitsbereich für virtuelle Linux-Computer |Weitere Informationen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Linux-VMs |Richtlinienzuweisung |Optional: Liste der VM-Images mit unterstütztem Linux-Betriebssystem zum Hinzufügen zum Bereich |Mit einem leeren Array wird angegeben, dass keine optionalen Parameter verwendet werden: `[]` |
 |\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Windows-VMs |Richtlinienzuweisung |Optional: Liste der VM-Images mit unterstütztem Windows-Betriebssystem zum Hinzufügen zum Bereich |Mit einem leeren Array wird angegeben, dass keine optionalen Parameter verwendet werden: `[]` |
-|\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Windows-VMs |Richtlinienzuweisung |Log Analytics-Arbeitsbereich für virtuelle Windows-Computer |Weitere Informationen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Vorschau\]: Bereitstellen des Log Analytics-Agents für Windows-VMs |Richtlinienzuweisung |Log Analytics-Arbeitsbereich für virtuelle Windows-Computer |Weitere Informationen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Vorschau\]: Mediensteuerungen überwachen und bestimmte VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen bereitstellen |Richtlinienzuweisung |ID des Log Analytics-Arbeitsbereichs, für den die VMs konfiguriert werden sollen |Dies ist die ID (GUID) des Log Analytics-Arbeitsbereichs, für den die virtuellen Computer konfiguriert werden sollen. |
-|\[Vorschau\]: Mediensteuerungen überwachen und bestimmte VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen bereitstellen |Richtlinienzuweisung |Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen |Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Vorschau\]: Mediensteuerungen überwachen und bestimmte VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen bereitstellen |Richtlinienzuweisung |Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen |Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Vorschau\]: Mediensteuerungen überwachen und bestimmte VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen bereitstellen |Richtlinienzuweisung |Gruppe „Administratoren“ |Gruppe. Beispiel: `Administrator; myUser1; myUser2` |
 |\[Vorschau\]: Mediensteuerungen überwachen und bestimmte VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen bereitstellen |Richtlinienzuweisung |Liste der Benutzer, die in der Gruppe der Windows-VM-Administratoren enthalten sein sollen |Eine durch Semikolon getrennte Liste von Mitgliedern, die in der Gruppe der lokalen Administratoren enthalten sein sollen. Beispiel: `Administrator; myUser1; myUser2` |
 |Bereitstellen von Advanced Threat Protection für Speicherkonten |Richtlinienzuweisung |Wirkung |Informationen zu Richtlinienauswirkungen finden Sie unter [Grundlegendes zu Azure Policy-Auswirkungen](../../../policy/concepts/effects.md). |

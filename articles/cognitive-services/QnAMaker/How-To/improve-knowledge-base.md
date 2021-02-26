@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164939"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592023"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akzeptieren von Fragevorschlägen des aktiven Lernens in der Wissensdatenbank
 
@@ -49,28 +49,55 @@ Damit vorgeschlagene Fragen angezeigt werden, müssen Sie für Ihre QnA Maker-R
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>Vorschläge für aktives Lernen werden in der exportierten Wissensdatenbank gespeichert.
+
+Wenn aktives Lernen für Ihre App aktiviert ist Sie die App exportieren, enthält die Spalte `SuggestedQuestions` in der TSV-Datei die Daten für aktives Lernen.
+
+Die Spalte `SuggestedQuestions` ist ein JSON-Objekt mit Informationen zu implizitem (`autosuggested`) und explizitem (`usersuggested`) Feedback. Ein Beispiel für dieses JSON-Objekt für eine einzelne, vom Benutzer übermittelte Bitte um `help` ist:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Wenn Sie diese App erneut importieren, erfasst das aktive Lernen weiterhin Informationen und empfiehlt Vorschläge für Ihre Wissensdatenbank.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Architekturfluss für die Verwendung der GenerateAnswer- und der Trainings-API über einen Bot
 
 Von einem Bot oder einer anderen Clientanwendung muss zur Verwendung des aktiven Lernens der folgende Architekturfluss verwendet werden:
 
 * Der Bot [ruft die Antwort aus der Wissensdatenbank ab](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) (mit der GenerateAnswer-API) und verwendet dabei die Eigenschaft `top`, um eine Reihe von Antworten zu erhalten.
+
+    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Verwenden der Eigenschaft „top“ in der GenerateAnswer-Anforderung, um mehrere passende Antworten abzurufen
+
+    Wenn Sie eine Frage zur Beantwortung an QnA Maker senden, legt die Eigenschaft `top` im JSON-Text die Anzahl der zurückzugebenden Antworten fest.
+
+    ```json
+    {
+        "question": "wi-fi",
+        "isTest": false,
+        "top": 3
+    }
+    ```
+
 * Der Bot bestimmt explizites Feedback:
     * Niedrige Bewertungen werden mit Ihrer eigenen [benutzerdefinierten Geschäftslogik](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user) herausgefiltert.
     * Im Bot oder in der Clientanwendung wird dem Benutzer eine Liste mit möglichen Antworten angezeigt und die vom Benutzer ausgewählte Antwort abgerufen.
 * Der Bot [sendet die ausgewählte Antwort an QnA Maker zurück](#bot-framework-sample-code) (mit der [Trainings-API](#train-api)).
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Verwenden der Eigenschaft „top“ in der GenerateAnswer-Anforderung, um mehrere passende Antworten abzurufen
-
-Wenn Sie eine Frage zur Beantwortung an QnA Maker senden, legt die Eigenschaft `top` im JSON-Text die Anzahl der zurückzugebenden Antworten fest.
-
-```json
-{
-    "question": "wi-fi",
-    "isTest": false,
-    "top": 3
-}
-```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Verwenden der Eigenschaft „score“ in Kombination mit Geschäftslogik, um eine Liste mit Antworten abzurufen, die dem Benutzer angezeigt werden kann
 
@@ -309,33 +336,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktives Lernen wird in der exportierten Wissensdatenbank gespeichert.
-
-Wenn aktives Lernen für Ihre App aktiviert ist Sie die App exportieren, enthält die Spalte `SuggestedQuestions` in der TSV-Datei die Daten für aktives Lernen.
-
-Die Spalte `SuggestedQuestions` ist ein JSON-Objekt mit Informationen zu implizitem (`autosuggested`) und explizitem (`usersuggested`) Feedback. Ein Beispiel für dieses JSON-Objekt für eine einzelne, vom Benutzer übermittelte Bitte um `help` ist:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-Wenn Sie diese App erneut importieren, erfasst das aktive Lernen weiterhin Informationen und empfiehlt Vorschläge für Ihre Wissensdatenbank.
-
-
 
 ## <a name="best-practices"></a>Bewährte Methoden
 

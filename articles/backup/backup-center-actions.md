@@ -3,14 +3,14 @@ title: Ausführen von Aktionen mit Backup Center
 description: In diesem Artikel erfahren Sie, wie Sie Aktionen mithilfe von Backup Center ausführen.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854425"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894574"
 ---
-# <a name="perform-actions-using-backup-center"></a>Ausführen von Aktionen mit Backup Center
+# <a name="perform-actions-using-backup-center-preview"></a>Ausführen von Aktionen mithilfe von Backup Center (Vorschau)
 
 Backup Center ermöglicht das Ausführen wichtiger sicherungsbezogener Aktionen über eine zentrale Oberfläche, ohne zu einem einzelnen Tresor navigieren zu müssen. Mit Backup Center können unter anderem folgende Aktionen ausgeführt werden:
 
@@ -23,26 +23,28 @@ Backup Center ermöglicht das Ausführen wichtiger sicherungsbezogener Aktionen 
 
 ## <a name="supported-scenarios"></a>Unterstützte Szenarien
 
-* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern und Azure Database for PostgreSQL-Servern unterstützt.
+* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern, für SQL in Azure-VM-Sicherungen, für SAP HANA in Azure-VM-Sicherungen, für Azure Files-Sicherungen und für Azure Database for PostgreSQL-Serversicherungen unterstützt.
 * Eine ausführliche Liste der unterstützten und nicht unterstützten Szenarien finden Sie in der [Supportmatrix](backup-center-support-matrix.md).
 
 ## <a name="configure-backup"></a>Konfigurieren der Sicherung
 
+Wenn Sie Azure-VMs, SQL auf Azure-VMs, SAP HANA auf Azure-VMs oder Azure Files sichern, sollten Sie einen Recovery Services-Tresor verwenden. Wenn Sie Azure Database for PostgreSQL-Server sichern, sollten Sie einen Sicherungstresor verwenden. 
+
 Führen Sie die entsprechenden Schritte für die Art der zu sichernden Datenquelle aus:
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Konfigurieren der Sicherung für virtuelle Azure-Computer
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Konfigurieren der Sicherung in einem Recovery Services-Tresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **+ Sichern** aus.
 
     ![Backup Center-Übersicht](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Wählen Sie die Art der zu sichernden Datenquelle aus (in diesem Fall „Virtueller Azure-Computer“).
+2. Wählen Sie den Typ der Datenquelle aus, die Sie sichern möchten.
 
     ![Auswählen der Datenquelle zum Konfigurieren einer VM-Sicherung](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Wählen Sie einen Recovery Services-Tresor und anschließend **Fortfahren** aus. Daraufhin gelangen Sie zur gleichen Sicherungskonfiguration wie über einen Recovery Services-Tresor. Weitere Informationen zum Konfigurieren einer Sicherung für virtuelle Azure-Computer mit einem Recovery Services-Tresor finden Sie [hier](tutorial-backup-vm-at-scale.md).
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Konfigurieren der Sicherung für einen Azure Database for PostgreSQL-Server
+### <a name="configure-backup-to-a-backup-vault"></a>Konfigurieren der Sicherung in einen Sicherungstresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **+ Sichern** aus.
 2. Wählen Sie die Art der zu sichernden Datenquelle aus (in diesem Fall „Azure Database for PostgreSQL-Server“).
@@ -55,19 +57,19 @@ Führen Sie die entsprechenden Schritte für die Art der zu sichernden Datenquel
 
 Führen Sie die entsprechenden Schritte für die Art der wiederherzustellenden Datenquelle aus:
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Wiederherstellen eines virtuellen Azure-Computers
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Bei der Wiederherstellung aus einem Recovery Services-Tresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **Wiederherstellen** aus.
 
     ![Backup Center-Übersicht für die VM-Wiederherstellung](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Wählen Sie die Art der wiederherzustellenden Datenquelle aus (in diesem Fall „Virtueller Azure-Computer“).
+2. Wählen Sie den Typ der Datenquelle aus, die Sie wiederherstellen möchten.
 
     ![Auswählen der Datenquelle für die VM-Wiederherstellung](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Wählen Sie eine Sicherungsinstanz und anschließend **Fortsetzen** aus. Daraufhin gelangen Sie zu den gleichen Wiederherstellungseinstellungen wie über einen Recovery Services-Tresor. Weitere Informationen zum Wiederherstellen eines virtuellen Azure-Computers mit einem Recovery Services-Tresor finden Sie [hier](backup-azure-arm-restore-vms.md#before-you-start).
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Wiederherstellen eines Azure Database for PostgreSQL-Servers
+### <a name="if-youre-restoring-from-a-backup-vault"></a>Bei der Wiederherstellung aus einem Sicherungstresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **Wiederherstellen** aus.
 2. Wählen Sie den Typ der wiederherzustellenden Datenquelle aus (in diesem Fall „Azure Database for PostgreSQL-Server“).
@@ -89,19 +91,19 @@ Sie können einen neuen Tresor erstellen, indem Sie zu Backup Center navigieren 
 
 Führen Sie die entsprechenden Schritte für die Art der zu sichernden Datenquelle aus:
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Sichern eines virtuellen Azure-Computers
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Bei der Sicherung in einen Recovery Services-Tresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **+ Richtlinie** aus.
 
     ![Backup Center-Übersicht für die Sicherungsrichtlinie](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Wählen Sie die Art der zu sichernden Datenquelle aus (in diesem Fall „Virtueller Azure-Computer“).
+2. Wählen Sie den Typ der Datenquelle aus, die Sie sichern möchten.
 
     ![Auswählen der Datenquelle für die Richtlinie für eine VM-Sicherung](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Wählen Sie einen Recovery Services-Tresor und anschließend **Fortfahren** aus. Daraufhin gelangen Sie zur gleichen Richtlinienerstellung wie über einen Recovery Services-Tresor. Weitere Informationen zum Erstellen einer neuen Sicherungsrichtlinie für einen virtuellen Azure-Computer mit einem Recovery Services-Tresor finden Sie [hier](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Sichern eines Azure Database for PostgreSQL-Servers
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>Bei der Sicherung in einen Sicherungstresor
 
 1. Navigieren Sie zu Backup Center, und wählen Sie oben auf der Registerkarte **Übersicht** die Option **+ Richtlinie** aus.
 2. Wählen Sie die Art der zu sichernden Datenquelle aus (in diesem Fall „Azure Database for PostgreSQL-Server“).
@@ -136,6 +138,6 @@ Weitere Informationen zum Beenden der Sicherung für Azure Database for PostgreS
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Überwachen und Betreiben von Sicherungen mit Backup Center](backup-center-monitor-operate.md)
+* [Überwachen und Betreiben von Sicherungen](backup-center-monitor-operate.md)
 * [Steuern Ihres Sicherungsbestands mit Backup Center](backup-center-govern-environment.md)
-* [Gewinnen von Erkenntnissen mit Backup Center](backup-center-obtain-insights.md)
+* [Gewinnen von Einblicken in Ihre Sicherungen](backup-center-obtain-insights.md)

@@ -1,19 +1,17 @@
 ---
 title: Planen und Verwalten von Kosten für Azure Data Factory
 description: In diesem Artikel wird beschrieben, wie Sie die Kosten für Azure Data Factory planen und verwalten können.
-documentationcenter: ''
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 6271b83749c078b64c168a27f887ed7055e37d96
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: d89275acdb8e13a792ea3166d874fabf911bb686
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678898"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372891"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planen und Verwalten von Kosten für Azure Data Factory
 

@@ -1,24 +1,9 @@
 ---
-title: Streamen von Inhalten mit CDN-Integration
-titleSuffix: Azure Media Services
-description: Erfahren Sie mehr über das Streamen von Inhalten mit CDN-Integration sowie den Vorabruf und den CDN-Vorabruf mit Ursprungsunterstützung.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001370"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pflichtfelder. Weitere Informationen finden Sie unter aka.ms/skyeye/meta.
+Titel: Streamen von Inhalten mit CDN-Integration: Azure Media Services description: Erfahren Sie mehr über das Streamen von Inhalten mit CDN-Integration sowie den Vorabruf und den CDN-Vorabruf mit Ursprungsunterstützung.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Streamen von Inhalten mit CDN-Integration
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

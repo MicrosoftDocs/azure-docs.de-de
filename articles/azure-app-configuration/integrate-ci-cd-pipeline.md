@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928448"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979843"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrieren in eine CI/CD-Pipeline
 
@@ -35,9 +35,9 @@ Für die Ausführung der Schritte dieses Tutorials können Sie einen beliebigen 
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Wenn Sie die App lokal erstellen möchten, laden Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest) herunter, und installieren Sie sie (sofern noch nicht geschehen).
+Wenn Sie die App lokal erstellen möchten, laden Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli) herunter, und installieren Sie sie (sofern noch nicht geschehen).
 
-Für einen Cloud-Build (etwa mit Azure DevOps) muss die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest) auf Ihrem Buildsystem installiert sein.
+Für einen Cloud-Build (etwa mit Azure DevOps) muss die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli) auf Ihrem Buildsystem installiert sein.
 
 ### <a name="export-an-app-configuration-store"></a>Exportieren eines App Configuration-Speichers
 
@@ -107,4 +107,4 @@ Für einen Cloud-Build (etwa mit Azure DevOps) muss die [Azure-Befehlszeilenschn
 In diesem Tutorial haben Sie in einer Bereitstellungspipeline zu verwendende Azure App Configuration-Daten exportiert. Fahren Sie mit den Azure CLI-Beispielen fort, um mehr über die Verwendung von App Configuration zu erfahren.
 
 > [!div class="nextstepaction"]
-> [Azure-Befehlszeilenschnittstelle](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure-Befehlszeilenschnittstelle](/cli/azure/appconfig)

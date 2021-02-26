@@ -1,17 +1,17 @@
 ---
 title: 'Compute- und Speicheroptionen – Azure Database for MySQL: Flexible Server'
 description: 'In diesem Artikel werden die Compute- und Speicheroptionen in Azure Database for MySQL: Flexible Server beschrieben.'
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/28/2021
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534669"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581447"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Compute- und Speicheroptionen in Azure Database for MySQL: Flexible Server (Vorschau)
 
@@ -71,6 +71,9 @@ Die detaillierten Spezifikationen der verfügbaren Servertypen lauten wie folgt:
 
 Weitere Informationen zu den verfügbaren Computeserien finden Sie in der Azure VM-Dokumentation für [Burstfähig (B-Serie)](../../virtual-machines/sizes-b-series-burstable.md), [Allgemeiner Zweck (Ddsv4-Serie)](../../virtual-machines/ddv4-ddsv4-series.md) und [Arbeitsspeicheroptimiert (Edsv4-Serie)](../../virtual-machines/edv4-edsv4-series.md).
 
+>[!NOTE]
+>Bei der [burstfähigen Computeebene (B-Serie)](../../virtual-machines/sizes-b-series-burstable.md) geht das Guthaben möglicherweise verloren, wenn der virtuelle Computer gestartet/beendet oder neu gestartet wird. Weitere Informationen finden Sie in den [häufig gestellten Fragen zur burstfähigen Serie (B-Serie)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+
 ## <a name="storage"></a>Storage
 
 Der von Ihnen bereitgestellte Speicher definiert die Speicherkapazität, die für Ihren flexiblen Server zur Verfügung steht. Der Speicher wird für die Datenbankdateien, temporären Dateien, Transaktionsprotokolle und MySQL-Serverprotokolle verwendet. Auf allen Computeebenen werden mindestens 5 GiB und maximal 16 TiB Speicherplatz unterstützt. Der Speicher wird in Schritten von 1 GiB skaliert und kann nach der Erstellung des Servers hochskaliert werden.
@@ -99,15 +102,14 @@ Wir empfehlen Folgendes: <!--turn on storage auto-grow or to--> Sie sollten eine
 Die automatische Speichervergrößerung ist für Azure Database for MySQL Flexible Server noch nicht verfügbar.
 
 ## <a name="iops"></a>IOPS
-Der minimale effektive IOPS-Wert beträgt 100 über alle Computegrößen und die maximale effektive IOPS-Anzahl wird durch die beiden folgenden Attribute bestimmt: 
-- Compute: Die maximalen effektiven IOPS können durch die maximal verfügbaren IOPS der gewählten Computegröße begrenzt sein.
-- Speicher: Auf allen Computeebenen wird die IOPS-Größe mit der bereitgestellten Speichergröße in einem Verhältnis von 3:1 skaliert.
 
-Sie können die verfügbaren effektiven IOPS skalieren, indem Sie den bereitgestellten Speicherplatz erhöhen oder zu einer größeren Computegröße wechseln (falls Ihre IOPS durch die Computegröße begrenzt sind). In der Vorschau beträgt die maximale Anzahl unterstützter effektiver IOPS 20.000 IOPS.
+Flexible Azure Database for MySQL-Server unterstützen die Bereitstellung zusätzlicher IOPS. Diese Funktion ermöglicht Ihnen, zusätzlich zum kostenlosen IOPS-Limit weitere IOPS bereitzustellen. Mit dieser Funktion können Sie die Anzahl der IOPS basierend auf Ihren Workloadanforderungen jederzeit erhöhen oder verringern. 
 
-Nachstehend erfahren Sie mehr über die maximalen effektiven IOPS pro Computegröße unter Verwendung der Kombination von Compute und Speicher: 
+Der minimale IOPS-Wert beträgt für alle Computegrößen 100, und der maximale IOPS-Wert wird durch die ausgewählte Computegröße bestimmt. In der Vorschauversion beträgt die maximale Anzahl unterstützter IOPS 20.000.
 
-| Computegröße         | Maximale Anzahl effektiver IOPS  | 
+Weitere Informationen zum maximalen IOPS-Wert pro Computegröße finden Sie weiter unten: 
+
+| Computegröße         | Maximale IOPS-Anzahl        | 
 |----------------------|---------------------|
 | **Burstfähig**        |                     |
 | Standard_B1s         | 320                 |
@@ -130,11 +132,14 @@ Nachstehend erfahren Sie mehr über die maximalen effektiven IOPS pro Computegr�
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-Die maximale Anzahl effektiver IOPS ist abhängig von den maximal verfügbaren IOPS pro Computegröße. Weitere Informationen finden Sie in der nachstehenden Formel und in der Spalte *Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBit/s* in der Dokumentation zur [B-Serie](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-Serie](../../virtual-machines/ddv4-ddsv4-series.md) und [Edsv4-Serie](../../virtual-machines/edv4-edsv4-series.md).
+Die maximale Anzahl von IOPS ist abhängig von den maximal verfügbaren IOPS pro Computegröße. Weitere Informationen finden Sie in der Spalte *Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBit/s* in der Dokumentation zur [B-Serie](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-Serie](../../virtual-machines/ddv4-ddsv4-series.md) und [Edsv4-Serie](../../virtual-machines/edv4-edsv4-series.md).
 
-**Maximale Anzahl effektiver IOPS** = MINIMUM( *"Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBit/s"* von Computegröße, bereitgestellter Speicher in GiB * 3)
+> [!Important]
+> Die **zusätzlichen IOPS** werden wie folgt berechnen: MINIMUM(„Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBit/s“ laut Computegröße, bereitgestellter Speicher in GiB × 3)<br>
+> Der **minimale IOPS-Wert** ist für alle Computegrößen 100.<br>
+> Der **maximale IOPS-Wert** wird durch die ausgewählte Computegröße bestimmt. In der Vorschauversion beträgt die maximale Anzahl unterstützter IOPS 20.000.
 
-Sie können Ihren E/A-Verbrauch im Azure-Portal (mit Azure Monitor) mit der Metrik [E/A in Prozent](./concepts-monitoring.md) überwachen. Wenn Sie mehr IOPS benötigen, müssen Sie verstehen, ob Sie durch die Computegröße oder den bereitgestellten Speicher eingeschränkt sind. Skalieren Sie die Computegröße oder den bereitgestellten Speicher Ihres Servers entsprechend.
+Sie können Ihren E/A-Verbrauch im Azure-Portal (mit Azure Monitor) mit der Metrik [E/A in Prozent](./concepts-monitoring.md) überwachen. Wenn Sie mehr IOPS benötigen, müssen Sie Ihre Computegröße skalieren, da der maximale IOPS-Wert auf der Computegröße basiert.
 
 ## <a name="backup"></a>Backup
 

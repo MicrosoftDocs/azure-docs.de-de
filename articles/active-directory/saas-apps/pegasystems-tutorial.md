@@ -9,35 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 4fb117b7f7b9a0c7a6a67e2714380a01cd53a4e0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4cd767736d6349199f4c82b00cb0b35db36cdb44
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515640"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Azure Active Directory-Integration mit Pega Systems
 
-In diesem Tutorial erfahren Sie, wie Sie Pega Systems in Azure Active Directory (Azure AD) integrieren.
+In diesem Tutorial erfahren Sie, wie Sie Pega Systems in Azure Active Directory (Azure AD) integrieren. Die Integration von Pega Systems in Azure AD ermöglicht Folgendes:
 
-Diese Integration bietet die folgenden Vorteile:
-
-* Sie können Azure AD verwenden, um zu steuern, wer Zugriff auf Pega Systems hat.
-* Sie können Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Pega Systems anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten an einem zentralen Ort verwalten: im Azure-Portal.
-
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free/), bevor Sie beginnen.
+* Steuern Sie in Azure AD, wer Zugriff auf Pega Systems hat.
+* Ermöglichen Sie es Ihren Benutzern, sich mit ihren Azure AD-Konten automatisch bei Pega Systems anzumelden.
+* Verwalten Sie Ihre Konten zentral im Azure-Portal.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um die Azure AD-Integration mit Pega Systems konfigurieren zu können, benötigen Sie Folgendes:
+Für die ersten Schritte benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie sich für eine [einmonatige Testversion](https://azure.microsoft.com/pricing/free-trial/) registrieren.
-* Ein Pega Systems-Abonnement, für das einmaliges Anmelden aktiviert ist.
+* Ein Azure AD-Abonnement Falls Sie über kein Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein Pega Systems-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
@@ -47,55 +41,37 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 ## <a name="add-pega-systems-from-the-gallery"></a>Hinzufügen von Pega Systems aus dem Katalog
 
-Zum Einrichten der Integration von Pega Systems in Azure AD müssen Sie Pega Systems aus dem Katalog der Liste der verwalteten SaaS-Apps hinzufügen.
+Um die Integration von Pega Systems in Azure AD zu konfigurieren, müssen Sie Pega Systems aus dem Katalog zu Ihrer Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-1. Klicken Sie im linken Bereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory** :
+1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim Azure-Portal an.
+1. Wählen Sie im linken Navigationsbereich den Dienst **Azure Active Directory** aus.
+1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie dann **Alle Anwendungen** aus.
+1. Wählen Sie zum Hinzufügen einer neuen Anwendung **Neue Anwendung** aus.
+1. Geben Sie im Abschnitt **Aus Katalog hinzufügen** den Suchbegriff **Pega Systems** in das Suchfeld ein.
+1. Wählen Sie im Ergebnisbereich **Pega Systems** aus, und fügen Sie dann die App hinzu. Warten Sie einige Sekunden, während die App Ihrem Mandanten hinzugefügt wird.
 
-    ![Wählen Sie „Azure Active Directory“.](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-pega-systems"></a>Konfigurieren und Testen des einmaligen Anmeldens von Azure AD für Pega Systems
 
-2. Navigieren Sie zu **Unternehmensanwendungen** > **Alle Anwendungen** .
+Konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit Pega Systems mithilfe eines Testbenutzers namens **B. Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Pega Systems eingerichtet werden.
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+Führen Sie zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit Pega Systems die folgenden Schritte aus:
 
-3. Um eine Anwendung hinzuzufügen, wählen Sie oben im Fenster die Option **Neue Anwendung** :
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-sso)** , um Ihren Benutzern die Verwendung dieses Features zu ermöglichen.
+    1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit dem Testbenutzer B. Simon zu testen.
+    1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um B. Simon die Verwendung des einmaligen Anmeldens von Azure AD zu ermöglichen.
+1. **[Konfigurieren des einmaligen Anmeldens für Pega Systems](#configure-pega-systems-sso)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+    1. **[Erstellen eines Pega Systems-Testbenutzers](#create-pega-systems-test-user)** , um ein Pendant von B. Simon in Pega Systems zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
+1. **[Testen des einmaligen Anmeldens](#test-sso)** , um zu überprüfen, ob die Konfiguration funktioniert
 
-    ![Auswählen von „Neue Anwendung“](common/add-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Konfigurieren des einmaligen Anmeldens (Single Sign-On, SSO) von Azure AD
 
-4. Geben Sie im Suchfeld **Pega Systems** ein. Wählen Sie in den Suchergebnissen den Eintrag **Pega Systems** aus, und wählen Sie dann **Hinzufügen** aus.
+Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal zu aktivieren.
 
-     ![Suchergebnisse](common/search-new-app.png)
+1. Navigieren Sie im Azure-Portal auf der Anwendungsintegrationsseite für **Pega Systems** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
+1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
-
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Pega Systems mithilfe eines Testbenutzers namens Britta Simon.
-Damit einmaliges Anmelden funktioniert, müssen Sie eine Beziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Pega Systems einrichten.
-
-Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Pega Systems müssen Sie die folgenden Schritte ausführen:
-
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden der Funktion zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Pega Systems](#configure-pega-systems-single-sign-on)** auf der Anwendungsseite.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD für den Benutzer zu aktivieren.
-5. **[Erstellen eines Pega Systems-Testbenutzers](#create-a-pega-systems-test-user)** , der mit der Darstellung des Benutzers in Azure AD verknüpft ist.
-6. **[Testen des einmaligen Anmeldens](#test-single-sign-on)** , um sicherzustellen, dass die Konfiguration funktioniert.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
-
-In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
-
-Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Pega Systems die folgenden Schritte aus:
-
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Pega Systems** die Option **Einmaliges Anmelden** aus:
-
-    ![„Einmaliges Anmelden“ auswählen](common/select-sso.png)
-
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren:
-
-    ![SSO-Methode auswählen](common/select-saml-option.png)
-
-3. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** das Symbol **Bearbeiten** aus, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen:
-
-    ![Symbol „Bearbeiten“](common/edit-urls.png)
+   ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
 4. Führen Sie im Dialogfeld **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie die Anwendung im IDP-initiierten Modus konfigurieren möchten.
 
@@ -109,7 +85,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Pega Sys
 
        `https://<customername>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
-5. Wenn Sie die Anwendung im SP-initiierten Modus konfigurieren möchten, klicken Sie auf **Zusätzliche URLs festlegen** , und führen Sie die folgenden Schritte aus.
+5. Wenn Sie die Anwendung im SP-initiierten Modus konfigurieren möchten, klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie die folgenden Schritte aus.
 
     ![SSO-Informationen zur Domäne und zu den URLs für Pega Systems](common/both-advanced-urls.png)
 
@@ -154,7 +130,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Pega Sys
 
     1. Wählen Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert aus.
 
-    1. Klicken Sie auf **OK** .
+    1. Klicken Sie auf **OK**.
 
     1. Wählen Sie **Speichern** aus.
 
@@ -166,27 +142,45 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Pega Sys
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    1. **Anmelde-URL**
+### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-    1. **Azure AD-Bezeichner**
+In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Namen B. Simon.
 
-    1. **Abmelde-URL** :
+1. Wählen Sie im linken Bereich des Microsoft Azure-Portals **Azure Active Directory** > **Benutzer** > **Alle Benutzer** aus.
+1. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+1. Führen Sie unter den Eigenschaften für **Benutzer** die folgenden Schritte aus:
+   1. Geben Sie im Feld **Name** die Zeichenfolge `B.Simon` ein.  
+   1. Geben Sie im Feld **Benutzername** die Zeichenfolge username@companydomain.extension ein. Beispiel: `B.Simon@contoso.com`.
+   1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
+   1. Klicken Sie auf **Erstellen**.
 
-### <a name="configure-pega-systems-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Pega Systems
+### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-1. Zum Konfigurieren des einmaligen Anmeldens auf **Pega Systems** -Seite melden Sie sich in einem anderen Browserfenster mit einem Administratorkonto beim Pega-Portal an.
+In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Pega Systems gewähren.
+
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** aus.
+1. Wählen Sie in der Anwendungsliste den Eintrag **Pega Systems** aus.
+1. Navigieren Sie auf der Übersichtsseite der App zum Abschnitt **Verwalten**, und wählen Sie **Benutzer und Gruppen** aus.
+1. Wählen Sie **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **B. Simon** aus, und klicken Sie dann unten auf dem Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wenn den Benutzern eine Rolle zugewiesen werden soll, können Sie sie im Dropdownmenü **Rolle auswählen** auswählen. Wurde für diese App keine Rolle eingerichtet, ist die Rolle „Standardzugriff“ ausgewählt.
+1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+
+### <a name="configure-pega-systems-sso"></a>Konfigurieren des einmaligen Anmeldens für Pega Systems
+
+1. Zum Konfigurieren des einmaligen Anmeldens auf **Pega Systems**-Seite melden Sie sich in einem anderen Browserfenster mit einem Administratorkonto beim Pega-Portal an.
 
 2. Wählen Sie **Create** (Erstellen) > **SysAdmin** (Systemadministrator) > **Authentication Service** (Authentifizierungsdienst) aus:
 
-    ![Authentifizierungsdienst auswählen](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
+    ![Authentifizierungsdienst auswählen](./media/pegasystems-tutorial/admin.png)
     
 3. Führen Sie im Bildschirm **Create Authentication Service** (Authentifizierungsdienst erstellen) die folgenden Schritte aus.
 
-    ![Bildschirm zum Erstellen des Authentifizierungsdiensts](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![Bildschirm zum Erstellen des Authentifizierungsdiensts](./media/pegasystems-tutorial/admin1.png)
 
     1. Wählen Sie in der Liste **Type** (Typ) den Eintrag **SAML 2.0** aus.
 
-    1. Geben Sie in das Feld **Name** den gewünschten Namen ein (z.B. **Azure AD SSO** ).
+    1. Geben Sie in das Feld **Name** den gewünschten Namen ein (z.B. **Azure AD SSO**).
 
     1. Geben Sie in das Feld **Short description** (Kurzbeschreibung) eine Beschreibung ein.  
 
@@ -194,88 +188,44 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Pega Sys
     
 4. Wählen Sie im Abschnitt **Identity Provider (IdP) information** (Informationen zum Identitätsanbieter) die Option **Import IdP metadata** (IDP-Metadaten importieren) aus, und navigieren Sie zu der Metadatendatei, die Sie aus dem Azure-Portal heruntergeladen haben. Klicken Sie auf **Submit** (Senden), um die Metadaten zu laden:
 
-    ![Abschnitt mit Informationen zum Identitätsanbieter](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+    ![Abschnitt mit Informationen zum Identitätsanbieter](./media/pegasystems-tutorial/admin2.png)
     
     Durch den Importvorgang werden die IDP-Daten wie hier gezeigt eingetragen:
 
-    ![Importierte IDP-Daten](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
+    ![Importierte IDP-Daten](./media/pegasystems-tutorial/idp.png)
     
 6. Führen Sie im Abschnitt **Service Provider (SP) settings** (Einstellungen für den Dienstanbieter) die folgenden Schritte aus.
 
-    ![Einstellungen für den Dienstanbieter](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![Einstellungen für den Dienstanbieter](./media/pegasystems-tutorial/sp.png)
 
     1. Kopieren Sie den Wert im Feld **Entity Identification** (Entitätsidentifizierung), und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Feld **Bezeichner** ein.
 
     1. Kopieren Sie den Wert im Feld **Assertion Consumer Service (ACS) location** (ACS-Speicherort), und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Feld **Antwort-URL** ein.
 
-    1. Aktivieren Sie **Disable request signing** .
+    1. Aktivieren Sie **Disable request signing**.
 
 7. Wählen Sie **Speichern** aus.
 
-### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
-
-In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin namens „Britta Simon“.
-
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** aus, und wählen Sie dann **Benutzer** und anschließend **Alle Benutzer** aus:
-
-    ![„Alle Benutzer“ auswählen](common/users.png)
-
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus:
-
-    ![„Neuer Benutzer“ auswählen](common/new-user.png)
-
-3. Führen Sie im Dialogfeld **Benutzer** die folgenden Schritte aus.
-
-    ![Dialogfeld „Benutzer“](common/user-properties.png)
-
-    a. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
-  
-    b. Geben Sie in das Feld **Benutzername** den Namen **brittasimon@\<yourcompanydomain>.\<extension>** ein. (Beispiel: BrittaSimon@contoso.com.)
-
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen** , und notieren Sie sich den im Feld **Kennwort** angezeigten Wert.
-
-    d. Klicken Sie auf **Erstellen** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
-
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Pega Systems gewähren.
-
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** , danach **Alle Anwendungen** und dann **Pega Systems** aus.
-
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
-
-2. Wählen Sie in der Liste der Anwendungen den Eintrag **Pega Systems** aus.
-
-    ![Liste der Anwendungen](common/all-applications.png)
-
-3. Wählen Sie im linken Bereich die Option **Benutzer und Gruppen** aus:
-
-    ![Benutzer und Gruppen auswählen](common/users-groups-blade.png)
-
-4. Wählen Sie die Schaltfläche **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
-
-    ![Auswählen von „Benutzer hinzufügen“](common/add-assign-user.png)
-
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste den Eintrag **Britta Simon** aus, und klicken Sie dann am unteren Bildschirmrand auf die Schaltfläche **Auswählen** .
-
-6. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Klicken Sie am unteren Bildschirmrand auf die Schaltfläche **Auswählen** .
-
-7. Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Zuweisen** aus.
-
-### <a name="create-a-pega-systems-test-user"></a>Erstellen eines Pega Systems-Testbenutzers
+### <a name="create-pega-systems-test-user"></a>Erstellen eines Pega Systems-Testbenutzers
 
 Als Nächstes müssen Sie in Pega Systems einen Benutzer mit dem Namen Britta Simon erstellen. Wenden Sie sich an das [Supportteam von Pega Systems](https://www.pega.com/contact-us), um Benutzer zu erstellen.
 
-### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
+### <a name="test-sso"></a>Testen des einmaligen Anmeldens
 
-Jetzt müssen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich testen.
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mit den folgenden Optionen: 
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Pega Systems“ klicken, sollten Sie automatisch bei der Pega Systems-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>SP-initiiert:
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+* Klicken Sie im Azure-Portal auf **Diese Anwendung testen**. Dadurch werden Sie zur Anmelde-URL für Pega Systems weitergeleitet, wo Sie den Anmeldeflow initiieren können.  
 
-- [Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory](./tutorial-list.md)
+* Rufen Sie direkt die Pega Systems-Anmelde-URL auf, und initiieren Sie den Anmeldeflow.
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP-initiiert:
 
-- [Was ist bedingter Zugriff?](../conditional-access/overview.md)
+* Klicken Sie im Azure-Portal auf **Diese Anwendung testen**. Dadurch sollten Sie automatisch bei der Pega Systems-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. 
+
+Sie können auch den Microsoft-Bereich „Meine Apps“ verwenden, um die Anwendung in einem beliebigen Modus zu testen. Beim Klicken auf die Kachel „Pega Systems“ in „Meine Apps“ geschieht Folgendes: Wenn Sie den SP-Modus konfiguriert haben, werden Sie zum Initiieren des Anmeldeflows zur Anmeldeseite der Anwendung weitergeleitet. Wenn Sie den IDP-Modus konfiguriert haben, sollten Sie automatisch bei der Pega Systems-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zu „Meine Apps“ finden Sie in [dieser Einführung](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Nach dem Konfigurieren von Pega Systems können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.

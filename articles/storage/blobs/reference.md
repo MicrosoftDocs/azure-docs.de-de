@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912279"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054075"
 ---
 # <a name="azure-blob-storage-reference"></a>Azure Blob Storage-Referenz
 
@@ -26,7 +26,7 @@ Die folgende Tabelle enthält die Referenz- und Beispieldokumentation zu .NET-AP
 |  Version  | Referenzdokumentation | Paket | Schnellstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Blob Storage-Clientbibliothek für .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Schnellstart: Azure Blob Storage-Clientbibliothek v12 für .NET](./storage-quickstart-blobs-dotnet.md) |
-| 11.x | [Microsoft.Azure.Storage.Blob (Namespace)](/dotnet/api/microsoft.azure.storage.blob) | [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Schnellstart: Azure Blob Storage-Clientbibliothek v11 für .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 11.x | [Microsoft.Azure.Storage.Blob (Namespace)](/dotnet/api/microsoft.azure.storage.blob) | [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Schnellstart: Azure Blob Storage-Clientbibliothek v11 für .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Speicherverwaltung
 

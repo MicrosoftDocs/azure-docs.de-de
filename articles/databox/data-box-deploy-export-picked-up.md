@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680841"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537356"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Zurücksenden von Azure Data Box
 
@@ -172,9 +172,27 @@ Den Support von Quantium Solution erreichen Sie bei Bedarf wie folgt (in japanis
 
 Sollten irgendwelche Probleme auftreten, senden Sie eine E-Mail an Data Box Operations Asia ([adbo@microsoft.com](mailto:adbo@microsoft.com)). Geben Sie dabei im Betreff den Auftragsnamen an, und beschreiben Sie das Problem.
 
+## <a name="united-arab-emirates"></a>[Vereinigte Arabische Emirate](#tab/in-uae)
+
+1. Bewahren Sie den Originalversandkarton des Geräts für den Rückversand auf.
+2. Vergewissern Sie sich, dass die Daten vollständig auf das Gerät kopiert wurden und dass der Schritt **Versandvorbereitung** erfolgreich war.
+3. Notieren Sie sich die Referenznummer, die auf der lokalen Webbenutzeroberfläche des Geräts auf der Seite **Versandvorbereitung** angezeigt wird.
+4. Schalten Sie das Gerät aus, und entfernen Sie die Kabel. Wickeln Sie das mitgelieferte Netzkabel auf, und befestigen Sie es sicher an der Rückseite des Geräts.
+6. Verpacken Sie das Gerät für den Rückversand im Originalkarton.
+7. Senden Sie eine E-Mail an [Azure Data Box Operations](mailto:adbops@microsoft.com), um eine ID zum Identifizieren des Pakets beim Eintreffen im Rechenzentrum zu erhalten.
+8. Notieren Sie diese ID gut sichtbar auf dem gedruckten Adressetikett neben der Adresse für den Rückversand.  
+9. Reservieren Sie online unter [DHL Express für VAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Schedule a Pickup (Buchen Sie eine Abholung)** einen Abholtermin.
+   - Geben Sie die Referenznummer an, die auf der lokalen Webbenutzeroberfläche des Geräts auf der Seite **Versandvorbereitung** im Feld für die Frachtbriefnummer angezeigt wird.
+   - Buchungen werden an sechs Tagen die Woche (außer freitags und an öffentlichen Feiertagen) von 9:00 Uhr bis 14:00 Uhr angenommen.
+   - Abholungsanforderungen müssen mindestens 90 Minuten vor Kundengeschäftsschluss erteilt werden.
+10. Wenn beim DHL-Buchungstool Probleme auftreten, können Sie sich wie folgt an DHL wenden:
+    - Rufen Sie DHL unter 04-2924545 an.
+    - Senden Sie eine E-Mail mit Einzelheiten zu den Problemen an [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an.
+    - Wenden Sie sich unter 600 567567 an den DHL-Kundensupport.
+
 ## <a name="self-managed"></a>[Selbst verwalteter Versand](#tab/in-selfmanaged)
 
-Wenn Sie Data Box in Japan, Singapur, Südkorea, Indien, Südafrika oder Westeuropa verwenden und bei der Auftragserstellung die Option für den selbst verwalteten Versand ausgewählt haben, gehen Sie wie folgt vor:
+Wenn Sie Data Box in Japan, Singapur, Südkorea, Indien, Südafrika, im Vereinigten Königreich, in Westeuropa oder Australien verwenden und bei der Auftragserstellung die Option für den selbst verwalteten Versand ausgewählt haben, gehen Sie wie folgt vor:
 
 1. Notieren Sie sich den Autorisierungscode, der auf der Seite „Für den Versand vorbereiten“ der lokalen Webbenutzeroberfläche von Data Box angezeigt wird, nachdem dieser Schritt erfolgreich abgeschlossen wurde.
 2. Schalten Sie das Gerät aus, und entfernen Sie die Kabel. Wickeln Sie das mitgelieferte Netzkabel auf, und befestigen Sie es sicher an der Rückseite des Geräts.
@@ -209,5 +227,3 @@ Im nächsten Artikel erfahren Sie, wie Sie Ihre Data Box verwalten.
 
 > [!div class="nextstepaction"]
 > [Verwalten von Data Box über das Azure-Portal](./data-box-portal-admin.md)
-
-

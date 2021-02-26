@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: justinha
-ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619732"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491164"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Häufig gestellte Fragen (FAQs) zu den Azure Active Directory (AD) Domain Services
 
@@ -106,7 +106,7 @@ Jedes Benutzerkonto, das Teil der verwalteten Domäne ist, kann einem virtuellen
 Nein. Ihnen werden keine Administratorrechte für die verwaltete Domäne gewährt. Die Berechtigungen für *Domänenadministrator* und *Unternehmensadministrator* stehen innerhalb der Domäne nicht zur Verfügung. Mitglieder von Domänenadministrator- oder Unternehmensadministratorengruppen in Ihrem Active Directory-Verzeichnis erhalten ebenfalls keine Domänen-/Unternehmensadministratorberechtigungen in der verwalteten Domäne.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Kann ich mithilfe von LDAP oder anderen AD-Verwaltungstools Gruppenmitgliedschaften in verwalteten Domänen ändern?
-Benutzer und Gruppen, die von Azure Active Directory mit Azure AD Domain Services synchronisiert werden, können nicht geändert werden, da sie ihren Ursprung in Azure Active Directory haben. Alle Benutzer oder Gruppen, die ihren Ursprung in der verwalteten Domäne haben, können geändert werden.
+Benutzer und Gruppen, die von Azure Active Directory mit Azure AD Domain Services synchronisiert werden, können nicht geändert werden, da sie ihren Ursprung in Azure Active Directory haben. Dies umfasst das Verschieben von Benutzern oder Gruppen aus der verwalteten Organisationseinheit „AADDC-Benutzer“ in eine benutzerdefinierte Organisationseinheit. Alle Benutzer oder Gruppen, die ihren Ursprung in der verwalteten Domäne haben, können geändert werden.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Wie lange dauert es, bis Änderungen an meinem Azure AD-Verzeichnis in meiner verwalteten Domäne angezeigt werden?
 Sowohl über die Benutzeroberfläche von Azure AD als auch über PowerShell vorgenommene Änderungen an Ihrem Azure AD-Verzeichnis werden automatisch mit Ihrer verwalteten Domäne synchronisiert. Diese Synchronisation erfolgt im Hintergrund. Es gibt keinen definierten Zeitraum für die Synchronisierung, um alle Objektänderungen abzuschließen.

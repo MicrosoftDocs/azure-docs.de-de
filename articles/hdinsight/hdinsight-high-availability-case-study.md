@@ -5,12 +5,12 @@ keywords: Hochverfügbarkeit, Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945360"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508590"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Fallstudie für eine hochverfügbare Lösungsarchitektur für Azure HDInsight
 
@@ -71,7 +71,7 @@ Die folgende Abbildung zeigt die Architektur von Contoso Retail für Notfallwied
 
 **Hive und Spark** verwenden als Replikationsmodell im Normalbetrieb [einen aktiven primären Cluster und einen bedarfsgesteuerten sekundären Cluster](hdinsight-business-continuity-architecture.md#apache-spark). Der Hive-Replikationsprozess wird in regelmäßigen Abständen ausgeführt und begleitet die Replikation des Azure SQL-Hive-Metastores und des Hive-Speicherkontos. Das Spark-Speicherkonto wird in regelmäßigen Abständen mithilfe von ADF DistCP repliziert. Die nur vorübergehende Aktivität dieser Cluster trägt zur Kostenoptimierung bei. Replikationen sind für alle 4 Stunden geplant, um eine RPO zu gewährleisten, die die 5-Stunden-Anforderung problemlos erfüllt.
 
-Bei der **HBase**-Replikation wird im Normalbetrieb das [Leader-Follower-Modell](hdinsight-business-continuity-architecture.md#apache-hbase) verwendet, um sicherzustellen, dass Daten immer unabhängig von der Region bereitgestellt werden und die RPO 0 (null) ist.
+Bei der **HBase**-Replikation wird im Normalbetrieb das [Leader-Follower-Modell](hdinsight-business-continuity-architecture.md#apache-hbase) verwendet, um sicherzustellen, dass Daten immer unabhängig von der Region bereitgestellt werden und die RPO sehr gering ist.
 
 Bei einem regionalen Ausfall in der primären Region werden die Inhalte der Webseite und des Back-Ends 5 Stunden lang mit einer gewissen Veraltung von der sekundären Region bereitgestellt. Wenn das Dashboard zur Azure-Dienstintegrität keine Wiederherstellungs-ETA in diesem fünfstündigen Zeitfenster angibt, erstellt Contoso Retail die Hive- und Spark-Transformationsebene in der sekundären Region und dann Verweise für alle Upstreamdatenquellen in die sekundäre Region. Würde die sekundäre Region beschreibbar gemacht, so würde dadurch ein Failbackprozess ausgelöst, der eine Replikation zurück in die primäre Region umfasst.
 

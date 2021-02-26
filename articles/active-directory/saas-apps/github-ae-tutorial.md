@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632782"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221047"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit GitHub AE
 
@@ -71,7 +71,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
 1. Navigieren Sie im Azure-Portal auf der Anwendungsintegrationsseite für **GitHub AE** zum Abschnitt **Verwalten**, und wählen Sie **Einmaliges Anmelden** aus.
 1. Wählen Sie auf der Seite **SSO-Methode auswählen** die Methode **SAML** aus.
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Bearbeitungs- bzw. Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Stiftsymbol für **Grundlegende SAML-Konfiguration**, um die Einstellungen zu bearbeiten.
 
    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
@@ -93,11 +93,19 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![image](common/default-attributes.png)
 
-1. Darüber hinaus wird von der GitHub AE-Anwendung erwartet, dass in der SAML-Antwort noch einige weitere Attribute zurückgegeben werden (siehe unten). Diese Attribute werden ebenfalls vorab aufgefüllt, Sie können sie jedoch nach Bedarf überprüfen.
-    
-    | Name |  Quellattribut|
-    | ----------- | --------- |
-    | administrator | true |
+1. Bearbeiten Sie **Benutzerattribute und Ansprüche**.
+
+1. Klicken Sie auf **Neuen Anspruch hinzufügen**, und geben Sie in das Textfeld als Namen **Administrator** ein.
+
+1. Erweitern Sie **Anspruchsbedingungen**, und wählen Sie unter **Benutzertyp** die Option **Mitglieder** aus.
+
+1. Klicken Sie auf **Gruppen auswählen**, und suchen Sie nach der **Gruppe**, die Sie in diesen Anspruch einschließen möchten. Ihre Mitglieder müssen Administratoren für GHAE sein.
+
+1. Wählen Sie unter **Quelle** die Option **Attribut** aus, und geben Sie unter **Wert** den Wert **true** ein. 
+
+10. Klicken Sie auf **Speichern**.
+
+    ![Verwalten des Anspruchs](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > Anweisungen zum Hinzufügen eines Anspruchs finden Sie unter [diesem Link](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).

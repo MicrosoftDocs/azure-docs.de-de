@@ -44,9 +44,9 @@ Damit Sie die Schritte in diesem Artikel ausführen können, müssen Sie die fol
 
 ## <a name="assign-permissions"></a><a name="rights"></a>Zuweisen von Berechtigungen
 
-Damit das übergeordnete Abonnement mit dem virtuellen Hub die virtuellen Netzwerke im Remotemandanten ändern und auf diese zugreifen kann, müssen Sie dem übergeordneten Abonnement aus dem Remotemandantenabonnement **Mitwirkender** -Berechtigungen zuweisen.
+Damit das übergeordnete Abonnement mit dem virtuellen Hub die virtuellen Netzwerke im Remotemandanten ändern und auf diese zugreifen kann, müssen Sie dem übergeordneten Abonnement aus dem Remotemandantenabonnement **Mitwirkender**-Berechtigungen zuweisen.
 
-1. Fügen Sie dem übergeordneten Konto (dem mit dem virtuellen WAN-Hub) die **Mitwirkender** -Rollenzuweisung hinzu. Sie können zum Zuweisen dieser Rolle entweder PowerShell oder das Azure-Portal verwenden. Weitere Informationen finden Sie in den folgenden Artikeln zum **Hinzufügen oder Entfernen von Rollenzuweisungen** :
+1. Fügen Sie dem übergeordneten Konto (dem mit dem virtuellen WAN-Hub) die **Mitwirkender**-Rollenzuweisung hinzu. Sie können zum Zuweisen dieser Rolle entweder PowerShell oder das Azure-Portal verwenden. Weitere Informationen finden Sie in den folgenden Artikeln zum **Hinzufügen oder Entfernen von Rollenzuweisungen**:
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [Portal](../role-based-access-control/role-assignments-portal.md)

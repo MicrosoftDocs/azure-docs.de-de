@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092498"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095357"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Verwenden von Virtual Network-Dienstendpunkten und -Regeln für Server in Azure SQL-Datenbank
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*VNET-Regeln* sind ein Firewallsicherheitsfeature, das steuert, ob der Server für Ihre Datenbanken und Pools für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-paas-overview.md) oder für Ihre Datenbanken in [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden. In diesem Artikel wird erläutert, warum VNET-Regeln manchmal die beste Möglichkeit darstellen, um eine sichere Kommunikation mit Ihrer Datenbank in SQL-Datenbank und Azure Synapse Analytics zu ermöglichen.
+*VNET-Regeln* sind ein Firewallsicherheitsfeature, mit dem gesteuert wird, ob der Server für Ihre Datenbanken und Pools für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-paas-overview.md) oder für Ihre Datenbanken mit dediziertem SQL-Pool (ehemals SQL DW) in [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden. In diesem Artikel wird erläutert, warum VNET-Regeln manchmal die beste Möglichkeit darstellen, um eine sichere Kommunikation mit Ihrer Datenbank in SQL-Datenbank und Azure Synapse Analytics zu ermöglichen.
 
 > [!NOTE]
 > Dieser Artikel gilt sowohl für SQL-Datenbank als auch für Azure Synapse Analytics. Der Einfachheit halber wird der Begriff *Datenbank* verwendet, wenn auf Datenbanken sowohl in SQL-Datenbank als auch in Azure Synapse Analytics verwiesen wird. Ebenso bezieht sich der Begriff *Server* auf den [logischen SQL-Server](logical-servers.md), der SQL-Datenbank und Azure Synapse Analytics hostet.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323798"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584939"
 ---
 # <a name="evaluate-model-module"></a>Modul „Evaluate Model“
 
@@ -34,7 +34,7 @@ Mithilfe dieses Moduls können Sie die Genauigkeit eines trainierten Modells mes
 
 
 ## <a name="how-to-use-evaluate-model"></a>Verwenden von Evaluate Model
-1. Verbinden Sie die **Bewertetes Dataset** -Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von [Zuweisen von Daten zu Clustern](./assign-data-to-clusters.md) mit dem linken Eingangsport von **Evaluate Model** (Bewerten eines Modells). 
+1. Verbinden Sie die **Bewertetes Dataset**-Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von [Zuweisen von Daten zu Clustern](./assign-data-to-clusters.md) mit dem linken Eingangsport von **Evaluate Model** (Bewerten eines Modells). 
     > [!NOTE] 
     > Wenn Sie Module wie „Select Columns in Dataset“ (Spalten im Dataset auswählen) verwenden, um einen Teil des Eingabedatasets auszuwählen, stellen Sie sicher, dass die Spalte „Actual label“ (im Training verwendet), die Spalte „Scored Probabilities“ und die Spalte „Scored Labels“ vorhanden sind, um Metriken wie AUC, Genauigkeit für binäre Klassifizierung/Anomalieerkennung zu berechnen.
     > Die Spalten „Actual label“ und „Scored Labels“ sind vorhanden, um Metriken für die mehrklassige Klassifizierung/Regression zu berechnen.
@@ -48,7 +48,7 @@ Mithilfe dieses Moduls können Sie die Genauigkeit eines trainierten Modells mes
     > + Für die Mehrfachklassifizierungsaufgabe muss das auszuwertende Dataset über eine Spalte mit dem Namen `Multi Class Scored Labels` verfügen, die bewertete Bezeichnungen darstellt.
     > Wenn die Ausgaben des Upstreammoduls diese Spalten nicht enthalten, müssen Sie entsprechend den oben genannten Anforderungen Änderungen vornehmen.
 
-2. [Optional] Verbinden Sie die **Bewertetes Dataset** -Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von „Zuweisen von Daten zu Clustern“ für das zweite Modell mit dem **rechten** Eingangsport von **Evaluate Model** (Bewerten eines Modells). Sie können die Ergebnisse zweier verschiedener Modelle auf der Grundlage derselben Daten einfach vergleichen. Die beiden Eingabealgorithmen sollten denselben Algorithmustyp aufweisen. Sie können auch Ergebnisse zweier verschiedener Ausführungen über dieselben Daten mit unterschiedlichen Parametern vergleichen.
+2. [Optional] Verbinden Sie die **Bewertetes Dataset**-Ausgabe des [Bewertungsmodells](./score-model.md) oder die Ergebnisdataset-Ausgabe von „Zuweisen von Daten zu Clustern“ für das zweite Modell mit dem **rechten** Eingangsport von **Evaluate Model** (Bewerten eines Modells). Sie können die Ergebnisse zweier verschiedener Modelle auf der Grundlage derselben Daten einfach vergleichen. Die beiden Eingabealgorithmen sollten denselben Algorithmustyp aufweisen. Sie können auch Ergebnisse zweier verschiedener Ausführungen über dieselben Daten mit unterschiedlichen Parametern vergleichen.
 
     > [!NOTE]
     > Als Algorithmustyp sind zweiklassige Klassifizierung, mehrklassige Klassifizierung, Regression oder Clustering unter den Algorithmen für maschinelles Lernen möglich. 
@@ -57,10 +57,10 @@ Mithilfe dieses Moduls können Sie die Genauigkeit eines trainierten Modells mes
 
 ## <a name="results"></a>Ergebnisse
 
-Nachdem Sie **Evaluate Model** (Bewerten eines Modells) ausgeführt haben, wählen Sie das Modul, um den **Evaluate Model** -Navigationsbereich auf der rechten Seite zu öffnen.  Wählen Sie dann die Registerkarte **Ausgaben und Protokolle** aus. Auf der Registerkarte weist der Abschnitt **Datenausgaben** verschiedene Symbole auf. Das Symbol **Visualisieren** besitzt ein Balkendiagrammsymbol und stellt eine erste Möglichkeit dar, um die Ergebnisse anzuzeigen.
+Nachdem Sie **Evaluate Model** (Bewerten eines Modells) ausgeführt haben, wählen Sie das Modul, um den **Evaluate Model**-Navigationsbereich auf der rechten Seite zu öffnen.  Wählen Sie dann die Registerkarte **Ausgaben und Protokolle** aus. Auf der Registerkarte weist der Abschnitt **Datenausgaben** verschiedene Symbole auf. Das Symbol **Visualisieren** besitzt ein Balkendiagrammsymbol und stellt eine erste Möglichkeit dar, um die Ergebnisse anzuzeigen.
 
 Bei einer binären Klassifizierung können Sie nach dem Klicken auf das Symbol **Visualisieren** die binäre Konfusionsmatrix visualisieren.
-Bei einer Multiklassifizierung befindet sich die Plotdatei der Konfusionsmatrix auf der Registerkarte **Ausgaben und Protokolle** :
+Bei einer Multiklassifizierung befindet sich die Plotdatei der Konfusionsmatrix auf der Registerkarte **Ausgaben und Protokolle**:
 > [!div class="mx-imgBorder"]
 > ![Vorschau für hochgeladenes Image](media/module/multi-class-confusion-matrix.png)
 
@@ -94,7 +94,7 @@ Bei der Auswertung binärer Klassifizierungsmodellen werden folgende Metriken ge
   
 -   **F1 score** (F1-Score) wird als gewichteter Durchschnitt von Genauigkeit und Trefferquote zwischen „0“ und „1“ berechnet, wobei „1“ der ideale Wert für den F1-Score ist.  
   
--   **AUC** (Fläche unter der Kurve) misst den Bereich unter der Kurve, der mit wahren positiven Werten auf der y-Achse und falschen positiven Werten auf der x-Achse gezeichnet wurde. Diese Metrik ist nützlich, da sie einen einzelnen Wert liefert, mit dem Sie Modelle verschiedener Typen vergleichen können.  
+-   **AUC** (Fläche unter der Kurve) misst den Bereich unter der Kurve, der mit wahren positiven Werten auf der y-Achse und falschen positiven Werten auf der x-Achse gezeichnet wurde. Diese Metrik ist nützlich, da sie einen einzelnen Wert liefert, mit dem Sie Modelle verschiedener Typen vergleichen können. AUC ist hinsichtlich des Klassifizierungsschwellenwerts invariant. Es misst die Qualität der Vorhersagen des Modells, unabhängig davon, welcher Klassifikationsschwellenwert gewählt wird.
 
 
 ### <a name="metrics-for-regression-models"></a>Metriken für Regressionsmodelle

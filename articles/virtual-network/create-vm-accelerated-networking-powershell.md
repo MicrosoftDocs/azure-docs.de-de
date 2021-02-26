@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223634"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919968"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Erstellen eines virtuellen Windows-Computers mit beschleunigtem Netzwerkbetrieb mit Azure PowerShell
 
@@ -61,11 +61,9 @@ Die folgenden Distributionen werden direkt aus dem Azure-Katalog unterstützt:
 
 ### <a name="supported-vm-instances"></a>Unterstützte VM-Instanzen
 
-Der beschleunigte Netzwerkbetrieb wird für die meisten Größen universeller, computeoptimierter Instanzen mit mindestens zwei virtuellen CPUs (vCPUs) unterstützt.  Folgende Reihen werden unterstützt: Dv2/DSv2 und F/Fs
+Der beschleunigte Netzwerkbetrieb wird in den meisten universellen, computeoptimierten Instanzgrößen mit mindestens 2 vCPUs unterstützt. Bei Instanzen, die Hyperthreading unterstützen, wird der beschleunigte Netzwerkbetrieb auf VM-Instanzen mit mindestens 4 vCPUs unterstützt. 
 
-Bei Instanzen, die Hyperthreading unterstützen, wird der beschleunigte Netzwerkbetrieb auf VM-Instanzen mit mindestens vier vCPUs unterstützt. Folgende Reihen werden unterstützt: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms und Ms/Mmsv2.
-
-Weitere Informationen zu VM-Instanzen finden Sie unter [Größen für virtuelle Windows-Computer in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Informationen zur Unterstützung für beschleunigten Netzwerkbetrieb finden Sie in der Dokumentation zu den einzelnen [VM-Größen](../virtual-machines/sizes.md). 
 
 ### <a name="custom-images"></a>Benutzerdefinierte Images
 

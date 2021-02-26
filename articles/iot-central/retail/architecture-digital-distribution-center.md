@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/20/2019
-ms.openlocfilehash: b2e6993cd8dc77ccb9b43a3d5aef7b25fd9d7250
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f5f1a9a51c4aa68c11f1843424186a727be94621
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347114"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834305"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Architektur der IoT Central-Anwendungsvorlage für digitale Verteilzentren
 

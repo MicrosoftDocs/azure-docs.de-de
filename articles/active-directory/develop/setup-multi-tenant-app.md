@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: a075cfa921a17d47cbef84f1e7e8ec8e306c38d5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9564727cfe59f243fd1096c93d7eadf1d830be9e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063024"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052548"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Konfigurieren einer neuen mehrinstanzenfähigen Anwendung
 
@@ -29,4 +29,4 @@ Im Folgenden finden Sie eine Liste mit empfohlenen Themen und weiterführende In
 - Ausführlichere Informationen zur [Konfiguration mehrinstanzenfähiger Anwendungen und deren Programmierung](./howto-convert-app-to-be-multi-tenant.md), einschließlich Informationen zum Registrieren, zum Verwenden des gemeinsamen Endpunkts, zur Implementierung von Benutzer- und Administratorzustimmung sowie zur Implementierung von fortgeschrittenen Szenarien mit mehreren Ebenen
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Azure AD bei Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

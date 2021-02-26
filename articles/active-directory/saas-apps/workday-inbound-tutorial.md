@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569545"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954214"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Workday für die automatische Benutzerbereitstellung
 
@@ -157,7 +157,7 @@ In diesem Schritt gewähren Sie der Sicherheitsgruppe die Berechtigungen der Dom
 
 1. Suchen Sie nach der Sicherheitsgruppe, die Sie im vorherigen Schritt erstellt haben, und wählen Sie sie aus. 
    >[!div class="mx-imgBorder"]
-   >![Sicherheitsgruppe auswählen](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Sicherheitsgruppe auswählen](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Klicken Sie neben dem Gruppennamen auf die Auslassungszeichen (...), und wählen Sie im Menü die Option **Security Group > Maintain Domain Permissions for Security Group** (Sicherheitsgruppe > Domänenberechtigungen für Sicherheitsgruppe verwalten) aus.
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ In diesem Schritt gewähren Sie der Sicherheitsgruppe Berechtigungen der Sicherh
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Voraussetzungen für die Installation des Bereitstellungs-Agents
 
-Lesen Sie sich den Artikel zu den [Voraussetzungen für die Installation des Bereitstellungs-Agents](../cloud-provisioning/how-to-prerequisites.md) durch, bevor Sie mit dem nächsten Abschnitt fortfahren. 
+Lesen Sie sich den Artikel zu den [Voraussetzungen für die Installation des Bereitstellungs-Agents](../cloud-sync/how-to-prerequisites.md) durch, bevor Sie mit dem nächsten Abschnitt fortfahren. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Konfiguration der Benutzerbereitstellung aus Workday in Active Directory
 
@@ -267,7 +267,7 @@ Dieser Abschnitt enthält die Schritte zum Konfigurieren der Bereitstellung von 
 
 Um Active Directory lokal bereitzustellen, muss der Bereitstellungs-Agent auf einem in die Domäne eingebundenen Server installiert werden, der über Netzwerkzugriff auf die gewünschten Active Directory-Domänen verfügt.
 
-Übertragen Sie das heruntergeladene Installationsprogramm für den Agent auf den Serverhost, und führen Sie die Schritte im [Abschnitt zur **Installation des Agents**](../cloud-provisioning/how-to-install.md) aus, um die Konfiguration des Agents durchzuführen.
+Übertragen Sie das heruntergeladene Installationsprogramm für den Agent auf den Serverhost, und führen Sie die Schritte im [Abschnitt zur **Installation des Agents**](../cloud-sync/how-to-install.md) aus, um die Konfiguration des Agents durchzuführen.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Teil 3: Konfigurieren der Konnektivität zwischen Workday und Active Directory in der Bereitstellungs-App
 In diesem Schritt stellen Sie im Azure-Portal Konnektivität zwischen Workday und Active Directory her. 
@@ -336,7 +336,7 @@ In diesem Abschnitt konfigurieren Sie den Fluss von Benutzerdaten aus Workday in
       * Operator: IS NOT NULL
 
    > [!TIP]
-   > Wenn Sie die Bereitstellungs-App zum ersten Mal konfigurieren, müssen Sie Ihre Attributzuordnungen und Ausdrücke testen und überprüfen, um sicherzustellen, dass sie damit das gewünschte Ergebnis erzielen. Microsoft empfiehlt, die Bereichsfilter unter **Quellobjektbereich** zu verwenden, um Ihre Zuordnungen mit einigen Testbenutzern von Workday zu testen. Sobald Sie sich vergewissert haben, dass die Zuordnungen funktionieren, können Sie den Filter entweder entfernen oder schrittweise erweitern, um mehr Benutzer einzubinden.
+   > Wenn Sie die Bereitstellungs-App zum ersten Mal konfigurieren, müssen Sie Ihre Attributzuordnungen und Ausdrücke testen und überprüfen, um sicherzustellen, dass sie damit das gewünschte Ergebnis erzielen. Microsoft empfiehlt, die [Bereichsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) unter **Quellobjektbereich** und die [bedarfsorientierte Bereitstellung](../app-provisioning/provision-on-demand.md) zu verwenden, um Ihre Zuordnungen mit einigen Testbenutzern von Workday zu testen. Sobald Sie sich vergewissert haben, dass die Zuordnungen funktionieren, können Sie den Filter entweder entfernen oder schrittweise erweitern, um mehr Benutzer einzubinden.
 
    > [!CAUTION] 
    > Beim Standardverhalten des Bereitstellungsmoduls werden Benutzer deaktiviert/gelöscht, die sich außerhalb des gültigen Bereichs befinden. Dies ist bei Ihrer Integration von Workday in AD möglicherweise nicht wünschenswert. Informationen zum Außerkraftsetzen dieses Standardverhaltens finden Sie im Artikel [Überspringen des Löschens von Benutzerkonten außerhalb des gültigen Bereichs](../app-provisioning/skip-out-of-scope-deletions.md).
@@ -1065,7 +1065,8 @@ In Bezug auf die Datenaufbewahrung erstellt der Azure AD-Bereitstellungsdienst k
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+* [Erfahren Sie mehr zu Integrationsszenarien und Webdienstaufrufen für Azure AD und Workday.](../app-provisioning/workday-integration-reference.md)
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lesen Sie, wie Sie das einmalige Anmelden zwischen Workday und Azure Active Directory konfigurieren.](workday-tutorial.md)
-* [Erfahren Sie, wie Sie andere SaaS-Anwendungen in Azure Active Directory integrieren.](tutorial-list.md)
+* [Konfigurieren von Workday Writeback](workday-writeback-tutorial.md)
 * [Erfahren Sie, wie Sie Microsoft Graph-APIs verwenden, um die Bereitstellungskonfigurationen zu verwalten](/graph/api/resources/synchronization-overview)

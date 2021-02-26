@@ -1,30 +1,48 @@
 ---
 title: Informationen zum Bereitstellen von Windows 10 unter Azure mit mehrinstanzenfähigen Hostingrechten
 description: Erfahren Sie, wie Sie die Vorteile von Windows Software Assurance optimal nutzen, um lokale Lizenzen in Azure mit mehrinstanzenfähigen Hostingrechten zu verwenden.
-author: xujing
+author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/24/2018
+ms.date: 2/2/2021
 ms.author: mimckitt
-ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.custom: rybaker, chmimckitt
+ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881434"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625110"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Informationen zum Bereitstellen von Windows 10 unter Azure mit mehrinstanzenfähigen Hostingrechten 
-Für Kunden mit Windows 10 Enterprise E3/E5 pro Benutzer oder Windows Virtual Desktop Access pro Benutzer (Benutzerabonnementlizenzen oder Add-On-Benutzerabonnementlizenzen) können Sie Ihre Windows 10-Lizenzen mittels mehrinstanzenfähiger Hostingrechte für Windows 10 in der Cloud verwenden und virtuelle Windows 10-Computer in Azure ausführen, ohne eine weitere Lizenz erwerben zu müssen. Weitere Informationen finden Sie unter [Mehrinstanzenfähiges Hosting für Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+Für Kunden mit Windows 10 Enterprise E3/E5 pro Benutzer oder Windows Virtual Desktop Access pro Benutzer (Benutzerabonnementlizenzen oder Add-On-Benutzerabonnementlizenzen) können Sie Ihre Windows 10-Lizenzen mittels mehrinstanzenfähiger Hostingrechte für Windows 10 in der Cloud verwenden und virtuelle Windows 10-Computer in Azure ausführen, ohne eine weitere Lizenz erwerben zu müssen. Rechte für das Hosten mehrerer Mandanten sind nur für Windows 10 (Version 1703 oder höher) verfügbar.
+
+Weitere Informationen finden Sie unter [Mehrinstanzenfähiges Hosting für Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> In diesem Artikel erfahren Sie, wie Sie den Lizenzierungsvorteil für Windows 10 Pro-Desktopimages im Azure Marketplace implementieren.
-> - Windows 7, 8.1, 10 Enterprise-Images (x64) im Azure Marketplace für MSDN-Abonnements finden Sie unter [Verwenden des Windows-Clients in Azure für Entwicklungs-/Testszenarien](client-images.md).
+> - Weitere Informationen zur Verwendung von Images für Windows 7, Windows 8.1 und Windows 10 für die Entwicklung oder für Tests finden Sie unter [Verwenden des Windows-Clients in Azure für Entwicklungs-/Testszenarien](client-images.md).
 > - Die Vorteile der Windows Server-Lizenzierung werden unter [Azure-Hybridvorteil für Windows Server](hybrid-use-benefit-licensing.md) erläutert.
->
+
+## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Abonnementlizenzen, die sich für das Hosten mehrerer Mandanten qualifizieren
+
+Mithilfe des [Microsoft Admin Centers](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true) können Sie überprüfen, ob einem Benutzer eine von Windows 10 unterstützte Lizenz zugewiesen wurde.
+
+> [!IMPORTANT]
+> Benutzer müssen über eine der unten aufgeführten Abonnementlizenzen verfügen, um Windows 10-Images in Azure verwenden zu können. Wenn Sie nicht über eine dieser Abonnementlizenzen verfügen, können Sie diese über Ihren [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) oder direkt über [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1) erwerben.
+
+**Berechtigte Abonnementlizenzen:**
+
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 A3/A5 
+-   Windows 10 Enterprise E3/E5
+-   Windows 10 Education A3/A5 
+-   Windows VDA E3/E5
+
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Bereitstellen des Windows 10-Image aus dem Azure Marketplace 
-Für PowerShell-, CLI- und Azure Resource Manager-Vorlagenbereitstellungen können Windows 10-Images mithilfe von `PublisherName: MicrosoftWindowsDesktop` und `Offer: Windows-10` gefunden werden.
+Für PowerShell-, CLI- und Azure Resource Manager-Vorlagenbereitstellungen können Windows 10-Images mithilfe von `PublisherName: MicrosoftWindowsDesktop` und `Offer: Windows-10` gefunden werden. Windows 10 Version Creators Update (1809) oder höher wird für die Rechte zum Hosten mehrerer Mandanten unterstützt. 
 
 ```powershell
 Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
@@ -40,17 +58,6 @@ rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus
 ```
 
 Weitere Informationen zu verfügbaren Images finden Sie unter [Suchen und Verwenden von VM-Images im Azure Marketplace mit Azure PowerShell](./cli-ps-findimage.md).
-
-## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualifizieren für Rechte für mehrinstanzenfähiges Hosten 
-Benutzer müssen über eines der folgenden Abonnements verfügen, um sich für Rechte für das mehrinstanzenfähige Hosten und für die Ausführung von Windows 10-Images in Azure zu qualifizieren: 
-
--   Microsoft 365 E3/E5 
--   Microsoft 365 F3 
--   Microsoft 365 A3/A5 
--   Windows 10 Enterprise E3/E5
--   Windows 10 Education A3/A5 
--   Windows VDA E3/E5
-
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Hochladen der Windows 10-VHD in Azure
 Beachten Sie beim Hochladen einer generalisierten Windows 10-VHD, dass das integrierte Administratorkonto bei Windows 10 standardmäßig nicht aktiviert ist. Um das integrierte Administratorkonto zu aktivieren, schließen Sie den folgenden Befehl als Teil der benutzerdefinierten Skripterweiterung ein.
@@ -119,10 +126,7 @@ LicenseType              :
 ```
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Weitere Informationen für den Beitritt zu Azure AD
->[!NOTE]
->Azure stellt alle Windows-VMs mit integriertem Administratorkonto bereit, das nicht für den Beitritt zu AAD verwendet werden kann. Beispielsweise funktioniert der Pfad *Einstellungen > Konto > Auf Arbeits- oder Schulkonto zugreifen > +Verbinden* nicht. Sie müssen ein zweites Administratorkonto erstellen und sich darüber anmelden, um manuell Azure AD beizutreten. Sie können Azure AD auch mithilfe eines Bereitstellungspakets konfigurieren. Weitere Informationen finden Sie unter dem Link im Abschnitt *Nächste Schritte*.
->
->
+Azure stellt alle Windows-VMs mit integriertem Administratorkonto bereit, das nicht für den Beitritt zu AAD verwendet werden kann. Beispielsweise funktioniert der Pfad *Einstellungen > Konto > Auf Arbeits- oder Schulkonto zugreifen > +Verbinden* nicht. Sie müssen ein zweites Administratorkonto erstellen und sich darüber anmelden, um manuell Azure AD beizutreten. Sie können Azure AD auch mithilfe eines Bereitstellungspakets konfigurieren. Weitere Informationen finden Sie unter dem Link im Abschnitt *Nächste Schritte*.
 
 ## <a name="next-steps"></a>Nächste Schritte
 - Erfahren Sie mehr über das [Konfigurieren von VDA für Windows 10](/windows/deployment/vda-subscription-activation).

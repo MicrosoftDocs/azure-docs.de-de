@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792462"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575227"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Überwachen von App Service-Instanzen mit der Integritätsprüfung
 
 ![Fehler bei der Integritätsprüfung][2]
 
-In diesem Artikel wird die Integritätsprüfung im Azure-Portal verwendet, um App Service-Instanzen zu überwachen. Durch die Integritätsprüfung wird die Verfügbarkeit Ihrer Anwendung erhöht, indem fehlerhafte Instanzen entfernt werden. Ihr [App Service-Plan](/overview-hosting-plans) sollte auf zwei oder mehr Instanzen skaliert sein, um die Integritätsprüfung verwenden zu können. Der Pfad der Integritätsüberprüfung sollte die kritischen Komponenten Ihrer Anwendung überprüfen. Wenn Ihre Anwendung z. B. von einer Datenbank und einem Messagingsystem abhängig ist, sollte der Endpunkt der Integritätsüberprüfung eine Verbindung mit diesen Komponenten herstellen. Wenn die Anwendung keine Verbindung mit einer kritischen Komponente herstellen kann, sollte der Pfad einen Antwortcode auf 500-Ebene zurückgeben, um damit anzugeben, dass die App fehlerhaft ist.
+In diesem Artikel wird die Integritätsprüfung im Azure-Portal verwendet, um App Service-Instanzen zu überwachen. Durch die Integritätsprüfung wird die Verfügbarkeit Ihrer Anwendung erhöht, indem fehlerhafte Instanzen entfernt werden. Ihr [App Service-Plan](/azure/app-service/overview-hosting-plans) sollte auf zwei oder mehr Instanzen skaliert sein, um die Integritätsprüfung verwenden zu können. Der Pfad der Integritätsüberprüfung sollte die kritischen Komponenten Ihrer Anwendung überprüfen. Wenn Ihre Anwendung z. B. von einer Datenbank und einem Messagingsystem abhängig ist, sollte der Endpunkt der Integritätsüberprüfung eine Verbindung mit diesen Komponenten herstellen. Wenn die Anwendung keine Verbindung mit einer kritischen Komponente herstellen kann, sollte der Pfad einen Antwortcode auf 500-Ebene zurückgeben, um damit anzugeben, dass die App fehlerhaft ist.
 
 ## <a name="what-app-service-does-with-health-checks"></a>Verwendung von Integritätsprüfungen durch App Service
 

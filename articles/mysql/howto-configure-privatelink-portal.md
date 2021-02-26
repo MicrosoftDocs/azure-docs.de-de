@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998565"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221025"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Erstellen und Verwalten von Private Link für Azure Database for MySQL im Portal
 
@@ -223,10 +223,12 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Wenn der öffentliche Zugriff in den Firewalleinstellungen in Azure Database for MySQL Single Server deaktiviert ist. Diese Ping- und Telnet-Tests werden unabhängig von den Firewalleinstellungen erfolgreich ausgeführt. Mit diesen Tests wird die Netzwerkkonnektivität sichergestellt.
 
 3. Testen Sie die Verbindung über den privaten Link für den MySQL-Server mit einem beliebigen verfügbaren Client. Im folgenden Beispiel wird für diesen Vorgang [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) verwendet.
 
-4. Geben Sie in **Neue Verbindung** die folgenden Informationen ein, oder wählen Sie sie aus:
+4. Geben Sie in **Neue Verbindung** diese Informationen ein, oder wählen Sie sie aus:
 
     | Einstellung | Wert |
     | ------- | ----- |
@@ -243,7 +245,7 @@ Stellen Sie nach der Erstellung von **myVm** über das Internet eine Verbindung 
 
 7. (Optional) Erstellen Sie Informationen, oder fragen Sie sie vom MySQL-Server ab.
 
-8. Schließen Sie die Remotedesktopverbindung mit „myVm“.
+8. Schließen Sie die Remotedesktopverbindung mit myVm.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 Wenn Sie Ihre Arbeit mit dem privaten Endpunkt, dem MySQL-Server und dem virtuellen Computer abgeschlossen haben, löschen Sie die Ressourcengruppe und alle darin enthaltenen Ressourcen:

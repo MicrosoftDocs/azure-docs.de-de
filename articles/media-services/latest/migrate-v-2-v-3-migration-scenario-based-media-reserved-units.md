@@ -1,5 +1,5 @@
 ---
-title: Szenariobasierter Migrationsleitfaden für reservierte Einheiten für Medien (Media Reserved Units, MRUs) | Microsoft-Dokumentation
+title: Migrationsleitfaden für reservierte Einheiten für Medien (Media Reserved Units, MRUs)
 description: In diesem Artikel finden Sie einen szenariobasierten Migrationsleitfaden für reservierte Einheiten für Medien (MRUs), der Sie bei der Migration von Azure Media Services V2 zu V3 unterstützt.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1a6bcf5d75d5331875e38e473f115f32737e42a4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ca01bcea348b866c0f40f82ebe90dc31d032739
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689457"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927077"
 ---
 # <a name="media-reserved-units-mrus-scenario-based-migration-guidance"></a>Szenariobasierter Migrationsleitfaden für reservierte Einheiten für Medien (Media Reserved Units, MRUs)
 

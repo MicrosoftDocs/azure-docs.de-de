@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845576"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585074"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Vordefiniertes Rechnungsmodell für die Formularerkennung
 
@@ -107,7 +107,7 @@ Der Rechnungsdienst extrahiert den Text, die Tabellen und 26 Rechnungsfelder. N
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Probieren Sie Ihre eigenen Rechnungen und Beispiele in der [Beispielbenutzeroberfläche für die Formularerkennung](https://fott-preview.azurewebsites.net/) aus.
-- Sehen Sie sich die Informationen unter [Schnellstart: Verwenden der Clientbibliothek für die Formularerkennung](quickstarts/client-library.md) an, um damit zu beginnen, eine Rechnungsverarbeitungs-App mit Formularerkennung in der Sprache Ihrer Wahl zu schreiben.
+- Sehen Sie sich die Informationen unter [Schnellstart: Verwenden der Clientbibliothek für die Formularerkennung](quickstarts/client-library.md) an, um damit zu beginnen, eine Rechnungsverarbeitungs-App mit Formularerkennung in der Entwicklungssprache Ihrer Wahl zu schreiben.
 
 ## <a name="see-also"></a>Weitere Informationen
 

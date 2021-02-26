@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c766c78705a1c1e40a9385360d35ac06a3db3a5d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736270"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252236"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Hochladen einer VHD in Azure oder Kopieren eines verwalteten Datenträgers in eine andere Region – Azure PowerShell
 
@@ -49,14 +49,14 @@ Erstellen Sie nun für das Hochladen (Upload) einen leeren HDD Standard-Datentr�
 Ersetzen Sie `<yourdiskname>`, `<yourresourcegroupname>` und `<yourregion>`, und führen Sie dann die folgenden Befehle aus:
 
 > [!TIP]
-> Wenn Sie einen Betriebssystemdatenträger erstellen, fügen Sie „-HyperVGeneration '<yourGeneration>'“ zu `New-AzDiskConfig` hinzu.
+> Wenn Sie einen Betriebssystemdatenträger erstellen, fügen Sie `-HyperVGeneration '<yourGeneration>'` in `New-AzDiskConfig` hinzu.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
 Wenn Sie für den Upload einen SSD Premium- oder SSD Standard-Datenträger verwenden möchten, ersetzen Sie **Standard_LRS** durch **Premium_LRS** oder **StandardSSD_LRS**. Ultra Disks werden noch nicht unterstützt.

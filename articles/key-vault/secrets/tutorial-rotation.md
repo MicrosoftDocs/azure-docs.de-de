@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 61e1e729ab0aeac1f7b8e5ee6787da38c5fef108
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020144"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805229"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatisieren der Rotation eines Geheimnisses für Ressourcen mit einem Satz mit Anmeldeinformationen für die Authentifizierung
 
@@ -45,7 +45,7 @@ Sie können den unten angegebenen Bereitstellungslink verwenden, falls Sie nicht
 
 [![Bild einer Schaltfläche mit der Bezeichnung „Bereitstellung in Azure“](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Wählen Sie unter **Ressourcengruppe** die Option **Neu erstellen** aus. Geben Sie der Gruppe den Namen **akvrotation**.
+1. Wählen Sie unter **Ressourcengruppe** die Option **Neu erstellen** aus. Geben Sie einen Namen für die Gruppe ein. In diesem Tutorial wird **akvrotation** verwendet.
 1. Geben Sie unter **SQL-Administratoranmeldung** den Anmeldenamen des SQL-Administrators ein. 
 1. Klicken Sie auf **Überprüfen + erstellen**.
 1. Klicken Sie auf **Erstellen**
@@ -213,7 +213,7 @@ Wenn Sie ein Geheimnis mit einem kurzen Ablaufdatum erstellen, wird innerhalb vo
 
 Vergewissern Sie sich unter **Key Vault** > **Geheimnisse**, dass das Geheimnis rotiert wurde:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Navigieren zu „Geheimnisse“":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot: Zugriff auf „Key Vault“ > „Geheimnisse“":::
 
 Öffnen Sie das Geheimnis **sqlPassword**, und überprüfen Sie die ursprüngliche sowie die rotierte Version:
 

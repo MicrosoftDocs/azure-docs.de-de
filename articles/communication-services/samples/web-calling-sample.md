@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763051"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592788"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Erste Schritte mit dem Webanrufbeispiel
+
+Das Webanrufbeispiel ist eine Webanwendung, die als schrittweise exemplarische Vorgehensweise für die verschiedenen Funktionen der Webanruf-Clientclibliothek von Communication Services fungiert. 
+
+Dieses Beispiel wurde für Entwickler erstellt und erleichtert Ihnen den Einstieg in Communication Services. Seine Benutzeroberfläche ist in mehrere Abschnitte unterteilt, die jeweils eine Schaltfläche „Show Code“ (Code anzeigen) aufweisen, mit der Sie Code direkt aus Ihrem Browser in Ihre eigene Communication Services-Anwendung kopieren können.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Erste Schritte mit dem Webanrufbeispiel
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Dieses Beispiel ist auf GitHub ](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/) verfügbar.
 
-Das **Webanrufbeispiel** von Azure Communication Services veranschaulicht, wie die Communication Services-Clientbibliothek für Anrufe verwendet werden kann, um eine Benutzeroberfläche für Anrufe mit JavaScript zu erstellen.
-
-In dieser Beispiel-Schnellstartanleitung wird beschrieben, wie das Beispiel funktioniert, bevor wir es auf Ihrem lokalen Computer ausführen. Anschließend stellen wir das Beispiel in Azure bereit, indem wir Ihre eigenen Azure Communication Services-Ressourcen verwenden.
-
-## <a name="overview"></a>Übersicht
-
-Das Webanrufbeispiel ist eine Webanwendung, die als schrittweise exemplarische Vorgehensweise für die verschiedenen Funktionen der Webanruf-Clientclibliothek von Communication Services fungiert. 
-
-Dieses Beispiel wurde für Entwickler erstellt und erleichtert Ihnen den Einstieg in Communication Services. Seine Benutzeroberfläche ist in mehrere Abschnitte unterteilt, die jeweils eine Schaltfläche „Show Code“ (Code anzeigen) aufweisen, mit der Sie Code direkt aus Ihrem Browser in Ihre eigene Communication Services-Anwendung kopieren können.
-
+Halten Sie sich an „/Project/readme.md“, um das Projekt einzurichten und lokal auf Ihrem Computer auszuführen.
 Wenn das [Webanrufbeispiel](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) auf dem Computer ausgeführt wird, wird die folgende Landing Page angezeigt:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Web calling tutorial 1 (Webanrufe: Tutorial 1)" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web calling tutorial 2 (Webanrufe: Tutorial 2)" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Benutzerbereitstellung und SDK-Initialisierung 
-
-Um mit der Verwendung der Demo zu beginnen, geben Sie die Verbindungszeichenfolge aus der [Communication Services-Ressourcen](../quickstarts/create-communication-resource.md) in `config.json` ein. Diese wird verwendet, um ein [Benutzerzugriffstoken](../concepts/authentication.md) bereitzustellen, damit das aufrufende SDK initialisiert werden kann.
-
-Geben Sie unter „User Identity“ (Benutzeridentität) Ihren eigenen persönlichen Bezeichner ein. Wenn hier nichts angegeben wird, wird eine zufällige Benutzeridentität generiert. 
 
 Klicken Sie auf „Provisioning user and initialize SDK“ (Benutzer bereitstellen und SDK initialisieren), um das SDK mit einem Token zu initialisieren, das vom Back-End-Tokenbereitstellungsdienst bereitgestellt wird. Dieser Back-End-Dienst befindet sich in `/project/webpack.config.js`.
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/03/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836267"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523582"
 ---
 # <a name="view-information-in-alerts"></a>Anzeigen von Informationen in Warnungen
 
@@ -90,7 +90,7 @@ Wählen Sie zum Herunterladen der PCAP-Datei das Symbol :::image type="content" 
 
 Der Bereich **Empfehlung** einer Warnung enthält Informationen, die Ihnen helfen können, ein Ereignis besser zu verstehen. Sehen Sie sich diese Informationen an, bevor Sie das Warnungsereignis behandeln oder auf dem Gerät oder im Netzwerk Aktionen ausführen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Beschleunigen des Warnungsworkflows](how-to-accelerate-alert-incident-response.md)
 

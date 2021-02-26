@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Anzeigen und erneutes Ausführen von Experimenten (
 description: Verwalten von Experimentausführungen in Azure Machine Learning Studio (Classic). Sie können die vorherigen Testläufe der Experimente zu jedem beliebigen Zeitpunkt noch einmal überprüfen, um die vorherigen Annahmen infrage zu stellen, neu aufzugreifen und letztendlich entweder zu bestätigen oder zu verfeinern.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312875"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515953"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Verwalten von Experimentausführungen in Azure Machine Learning Studio (Classic)
 
@@ -33,7 +33,7 @@ Sie können die vorherigen Testläufe der Experimente zu jedem beliebigen Zeitpu
 ## <a name="view-the-prior-run"></a>Anzeigen des vorherigen Testlaufs
 Wenn ein Experiment geöffnet ist, das Sie mindestens einmal ausgeführt haben, können Sie den vorherigen Testlauf des Versuchs anzeigen, indem Sie im Eigenschaftenbereich auf **Prior Run** (Vorheriger Testlauf) klicken.
 
-Angenommen, Sie erstellen ein Experiment und führen Versionen dieses Experiments um 11:23 Uhr 11:42 Uhr und 11:55 Uhr aus. Wenn Sie den letzten Testlauf des Experiments (11:55) öffnen und auf **Prior Run** (Vorheriger Testlauf) klicken, wird die Version, die Sie um 11:42 Uhr ausgeführt haben, geöffnet.
+Angenommen, Sie erstellen ein Experiment und führen Versionen dieses Experiments um 11:23 Uhr 11:42 Uhr und 11:55 Uhr aus. Wenn Sie den letzten Testlauf des Experiments (11:55) öffnen und auf **Prior Run**(Vorheriger Testlauf) klicken, wird die Version, die Sie um 11:42 Uhr ausgeführt haben, geöffnet.
 
 ## <a name="view-the-run-history"></a>Anzeigen des Ausführungsverlaufs
 Sie können alle vorherigen Testläufe eines Experiments anzeigen, indem Sie in einem geöffneten Experiment auf **View Run History** (Ausführungsverlauf anzeigen) klicken.
@@ -47,7 +47,7 @@ Angenommen, Sie erstellen ein Experiment mit dem Modul [Linear Regression][linea
 | 0,4 |11.9.2014 16:28:36 |
 | 0.5 |11.9.2014 16:33:31 |
 
-Wenn Sie auf **VIEW RUN HISTORY** (AUSFÜHRUNGSVERLAUF ANZEIGEN) klicken, wird eine Liste aller Testläufe angezeigt:
+Wenn Sie auf **VIEW RUN HISTORY**(AUSFÜHRUNGSVERLAUF ANZEIGEN) klicken, wird eine Liste aller Testläufe angezeigt:
 
 ![Beispiel für einen Ausführungsverlauf](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -68,10 +68,10 @@ Wenn Sie ausgehend von der Konfiguration eines vorherigen Testlaufs eine Iterati
 Nehmen wir beispielsweise an, Sie haben den Ausführungsverlauf des Experiments aus dem vorherigen Abschnitt. Sie möchten sehen, was geschieht, wenn Sie den Parameter **Learning rate** (Lernrate) auf 0,4 festlegen und verschiedene Werte für den Parameter **Number of training epochs** (Anzahl der Trainingsperioden) ausprobieren.
 
 1. Klicken Sie auf **VIEW RUN HISTORY** (AUSFÜHRUNGSVERLAUF ANZEIGEN), und öffnen Sie die Iteration des Experiments, die Sie um 16:28:36 Uhr ausgeführt haben (in der Sie den Parameterwert 0,4 festgelegt haben).
-2. Klicken Sie auf **SAVE AS** (SPEICHERN UNTER).
+2. Klicken Sie auf **SAVE AS**(SPEICHERN UNTER).
 3. Geben Sie einen neuen Titel ein, und klicken Sie auf das Häkchen für **OK** . Es wird eine neue Kopie des Experiments erstellt.
 4. Ändern Sie den Parameter **Number of training epochs** (Anzahl der Trainingsperioden).
-5. Klicken Sie auf **RUN** (AUSFÜHREN).
+5. Klicken Sie auf **RUN**(AUSFÜHREN).
 
 Sie können diese Version  des Experiments nun weiterhin ändern und ausführen, wobei ein neuer Ausführungsverlauf zur Dokumentation Ihrer Arbeit erstellt wird.
 

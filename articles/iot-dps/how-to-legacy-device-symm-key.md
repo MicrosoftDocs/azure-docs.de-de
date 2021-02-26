@@ -3,17 +3,17 @@ title: 'Bereitstellen von Geräten mit symmetrischen Schlüsseln: Azure IoT Hub 
 description: Erfahren Sie, wie Sie symmetrische Schlüssel zum Bereitstellen von Geräten mit Ihrer Device Provisioning Service-Instanz (DPS) verwenden.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967311"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051108"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Bereitstellen von Geräten mit symmetrischen Schlüsseln für Registrierungsgruppen
 
@@ -21,9 +21,7 @@ In diesem Artikel wird gezeigt, wie Sie mehrere Geräte mit symmetrischen Schlü
 
 Einige Geräte verfügen unter Umständen nicht über ein Zertifikat, TPM oder ein anderes Sicherheitsfeature, über das das Gerät sicher identifiziert werden kann. Der Device Provisioning Service bietet ein Verfahren zum [Nachweis mit symmetrischen Schlüsseln](concepts-symmetric-key-attestation.md). Der Nachweis mit symmetrischen Schlüsseln kann genutzt werden, um ein Gerät anhand von eindeutigen Informationen wie der MAC-Adresse oder der Seriennummer zu identifizieren.
 
-Wenn Sie ohne größeren Aufwand ein [Hardwaresicherheitsmodul (HSM)](concepts-service.md#hardware-security-module) und ein Zertifikat installieren können, ist dies unter Umständen ein besserer Ansatz zum Identifizieren und Bereitstellen Ihrer Geräte. Bei diesem Ansatz können Sie nämlich ggf. die Aktualisierung des Codes umgehen, der auf Ihren Geräten bereitgestellt wird, und in Ihr Geräteimage ist kein geheimer Schlüssel eingebettet.
-
-In diesem Artikel wird vorausgesetzt, dass weder ein HSM noch ein Zertifikat eine geeignete Option darstellen. Es wird aber davon ausgegangen, dass Sie über eine Methode zum Aktualisieren des Gerätecodes verfügen, um den Device Provisioning Service für die Bereitstellung dieser Geräte zu nutzen. 
+Wenn Sie ohne größeren Aufwand ein [Hardwaresicherheitsmodul (HSM)](concepts-service.md#hardware-security-module) und ein Zertifikat installieren können, ist dies unter Umständen ein besserer Ansatz zum Identifizieren und Bereitstellen Ihrer Geräte. Bei Verwendung eines HSM können Sie nämlich ggf. die Aktualisierung des Codes umgehen, der auf Ihren Geräten bereitgestellt wird, und in Ihre Geräteimages ist kein geheimer Schlüssel eingebettet. In diesem Artikel wird vorausgesetzt, dass weder ein HSM noch ein Zertifikat eine geeignete Option darstellen. Es wird aber davon ausgegangen, dass Sie über eine Methode zum Aktualisieren des Gerätecodes verfügen, um den Device Provisioning Service für die Bereitstellung dieser Geräte zu nutzen. 
 
 Weiterhin wird in diesem Artikel davon ausgegangen, dass das Geräteupdate in einer sicheren Umgebung stattfindet, um den unberechtigten Zugriff auf den Hauptgruppenschlüssel oder den abgeleiteten Geräteschlüssel zu verhindern.
 
@@ -142,39 +140,18 @@ In diesem Beispiel wird eine Kombination aus MAC-Adresse und Seriennummer genutz
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Erstellen Sie eine eindeutige Registrierungs-ID für Ihr Gerät. Gültige Zeichen sind alphanumerische Kleinbuchstaben und Bindestriche („-“).
+Erstellen Sie eindeutige Registrierungs-IDs für jedes Gerät. Gültige Zeichen sind alphanumerische Kleinbuchstaben und Bindestriche („-“).
 
 
 ## <a name="derive-a-device-key"></a>Ableiten eines Geräteschlüssels 
 
-Verwenden Sie für die Generierung des Geräteschlüssels den Gruppenhauptschlüssel, um einen [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)-Wert für die eindeutige Registrierungs-ID für das Gerät zu berechnen und das Ergebnis in das Base64-Format zu konvertieren.
+Verwenden Sie zum Generieren von Geräteschlüsseln den Hauptschlüssel der Registrierungsgruppe, um einen [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)-Wert der Registrierungs-ID für jedes Gerät zu berechnen. Das Ergebnis wird dann für jedes Gerät in das Base64-Format konvertiert.
 
 > [!WARNING]
-> Der Gerätecode sollte nur den abgeleiteten Geräteschlüssel für das jeweilige Gerät enthalten. Fügen Sie Ihren Gruppenhauptschlüssel nicht in Ihren Gerätecode ein. Ein kompromittierter Hauptschlüssel kann die Sicherheit aller Geräte gefährden, die mit ihm authentifiziert werden.
+> Der Gerätecode für jedes Gerät sollte nur den entsprechenden abgeleiteten Geräteschlüssel für dieses Gerät enthalten. Fügen Sie Ihren Gruppenhauptschlüssel nicht in Ihren Gerätecode ein. Ein kompromittierter Hauptschlüssel kann die Sicherheit aller Geräte gefährden, die mit ihm authentifiziert werden.
 
 
-#### <a name="linux-workstations"></a>Linux-Arbeitsstationen
-
-Wenn Sie eine Linux-Arbeitsstation verwenden, können Sie Ihren abgeleiteten Geräteschlüssel mit OpenSSL generieren, wie im folgenden Beispiel gezeigt.
-
-Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
-
-Ersetzen Sie den Wert von **REG_ID** durch Ihre Registrierungs-ID.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Windows-Arbeitsstationen
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Wenn Sie eine Windows-Arbeitsstation verwenden, können Sie die abgeleiteten Geräteschlüssel mit PowerShell generieren, wie im folgenden Beispiel gezeigt.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-Ihr Gerät verwendet den abgeleiteten Geräteschlüssel mit Ihrer eindeutigen Registrierungs-ID, um während der Bereitstellung den Nachweis des symmetrischen Schlüssels mit der Registrierungsgruppe durchzuführen.
+Wenn Sie eine Linux-Arbeitsstation verwenden, können Sie Ihren abgeleiteten Geräteschlüssel mit OpenSSL generieren, wie im folgenden Beispiel gezeigt.
+
+Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
+
+Ersetzen Sie den Wert von **REG_ID** durch Ihre Registrierungs-ID.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Jedes Gerät verwendet den abgeleiteten Geräteschlüssel mit der eindeutigen Registrierungs-ID, um während der Bereitstellung den Nachweis symmetrischer Schlüssel mit der Registrierungsgruppe durchzuführen.
 
 
 
@@ -206,9 +204,9 @@ Ihr Gerät verwendet den abgeleiteten Geräteschlüssel mit Ihrer eindeutigen Re
 
 In diesem Abschnitt aktualisieren Sie ein Bereitstellungsbeispiel mit dem Namen **prov\_dev\_client\_sample** im Azure IoT C SDK, das Sie zuvor eingerichtet haben. 
 
-Dieser Beispielcode simuliert eine Gerätestartsequenz, von der die Bereitstellungsanforderung an die Instanz des Device Provisioning Service gesendet wird. Die Startsequenz bewirkt, dass das Gerät erkannt und dem IoT-Hub zugewiesen wird, den Sie in der Registrierungsgruppe konfiguriert haben.
+Dieser Beispielcode simuliert eine Gerätestartsequenz, von der die Bereitstellungsanforderung an die Instanz des Device Provisioning Service gesendet wird. Die Startsequenz bewirkt, dass das Gerät erkannt und dem IoT-Hub zugewiesen wird, den Sie in der Registrierungsgruppe konfiguriert haben. Dies wird für jedes Gerät durchgeführt, das mithilfe der Registrierungsgruppe bereitgestellt wird.
 
-1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_**.
+1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_** .
 
     ![Extrahieren von Informationen zum Device Provisioning Service-Endpunkt aus dem Portalblatt](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -280,10 +278,7 @@ Dieser Beispielcode simuliert eine Gerätestartsequenz, von der die Bereitstellu
 
 ## <a name="security-concerns"></a>Sicherheitsaspekte
 
-Beachten Sie, dass der abgeleitete Geräteschlüssel hierbei als Teil des Images vorliegt und dass dies nicht einer empfohlenen bewährten Sicherheitsmethode entspricht. Dies ist ein Grund, warum zwischen Sicherheit und Benutzerfreundlichkeit immer ein Kompromiss gefunden werden muss. 
-
-
-
+Beachten Sie, dass der abgeleitete Geräteschlüssel hierbei als Teil des Images für jedes Gerät vorliegt und dass dies nicht einer empfohlenen bewährten Sicherheitsmethode entspricht. Dies ist ein Grund, warum zwischen Sicherheit und Benutzerfreundlichkeit häufig ein Kompromiss gefunden werden muss. Sie müssen die Sicherheit Ihrer Geräte gemäß Ihren eigenen Anforderungen umfassend überprüfen.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

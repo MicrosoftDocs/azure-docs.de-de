@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548884"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102239"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Baseline und benutzerdefinierte Überprüfungen von Azure Defender für IoT
 
@@ -35,9 +35,13 @@ Benutzerdefinierte Überprüfungen der Baseline richten eine benutzerdefinierte 
 ## <a name="setting-baseline-properties"></a>Festlegen von Baseline-Eigenschaften
 
 1. Suchen und wählen Sie in Ihrem IoT Hub das Gerät aus, das Sie ändern möchten.
+
 1. Klicken Sie auf das Gerät, und klicken Sie dann auf das Modul **azureiotsecurity**.
+
 1. Klicken Sie auf **Zwilling der Modulkennung**.
+
 1. Laden Sie die Datei mit den **benutzerdefinierten Baseline-Überprüfungen** auf das Gerät hoch.
+
 1. Fügen Sie dem Sicherheitsmodul Baseline-Eigenschaften hinzu, und klicken Sie auf **Speichern**.
 
 ### <a name="baseline-custom-check-file-example"></a>Beispiel für eine Datei mit benutzerdefinierten Baseline-Überprüfungen

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357326"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368046"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Migrationsübersicht: SQL Server zu SQL-Datenbank
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ Das manuelle Setup der Hochverfügbarkeitsfeatures von SQL Server wie Always On-
 Neben der in SQL-Datenbank enthaltenen Hochverfügbarkeitsarchitektur gibt es auch das Feature für [Autofailover-Gruppen](../../database/auto-failover-group-overview.md), mit dem Sie die Replikation und das Failover von Datenbanken in einer verwalteten Instanz auf eine andere Region verwalten können. 
 
 #### <a name="sql-agent-jobs"></a>SQL-Agent-Aufträge
-SQL-Agent-Aufträge werden in Azure SQL-Datenbank nicht direkt unterstützt und müssen als [Aufträge für elastische Datenbanken (Vorschauversion)](../../database/job-automation-overview.md#elastic-database-jobs-preview) bereitgestellt werden.
+SQL-Agent-Aufträge werden in Azure SQL-Datenbank nicht direkt unterstützt und müssen als [Aufträge für elastische Datenbanken (Vorschauversion)](../../database/job-automation-overview.md) bereitgestellt werden.
 
 #### <a name="logins-and-groups"></a>Anmeldungen und Gruppen
 Verschieben Sie SQL-Anmeldungen aus der SQL Server-Quelldatenbank mithilfe von Database Migration Service (DMS) im Offlinemodus zu Azure SQL-Datenbank.  Verwenden Sie das Blatt **Selected logins** (Ausgewählte Anmeldungen) im **Migrations-Assistenten**, um Anmeldungen in Ihre Zielinstanz von SQL-Datenbank zu migrieren. 

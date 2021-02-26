@@ -23,6 +23,8 @@
       href: common-errors.md
     - name: Reparieren eines fehlerhaften Automanage-Kontos
       href: repair-automanage-account.md
+    - name: Regionsübergreifendes Verschieben eines virtuellen Automanaged-Computers
+      href: move-automanaged-vms.md
 - name: Ressourcen
   expanded: true
   items:

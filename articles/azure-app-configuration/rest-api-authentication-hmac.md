@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932709"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981390"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC-Authentifizierung – REST-API-Referenz
 
@@ -22,7 +22,7 @@ Sie können HTTP-Anforderungen mithilfe des HMAC-SHA256-Authentifizierungsschema
 - **Credential:** \<Access Key ID\>
 - **Secret:** Base64-decodierter Zugriffsschlüsselwert. ``base64_decode(<Access Key Value>)``
 
-Die Werte für „credential“ (auch als `id` bezeichnet) und „secret“ (auch `value` genannt) müssen von der Azure App Configuration-Instanz abgerufen werden. Dies kann mithilfe des [Azure-Portals](https://portal.azure.com) oder der [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) erfolgen.
+Die Werte für „credential“ (auch als `id` bezeichnet) und „secret“ (auch `value` genannt) müssen von der Azure App Configuration-Instanz abgerufen werden. Dies kann mithilfe des [Azure-Portals](https://portal.azure.com) oder der [Azure CLI](/cli/azure/) erfolgen.
 
 Geben Sie jede Anforderung mit allen für die Authentifizierung erforderlichen HTTP-Headern an. Folgende Header sind mindestens erforderlich:
 

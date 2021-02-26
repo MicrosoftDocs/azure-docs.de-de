@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 391c33e72f45e7c0c0b56128b32a8e73399e417a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762883"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834322"
 ---
 # <a name="object-replication-for-block-blobs"></a>Objektreplikation für Blockblobs
 
@@ -42,6 +42,8 @@ Die Objektreplikation erfordert, dass außerdem die folgenden Azure Storage-Funk
 - [Blobversionsverwaltung](versioning-overview.md): Muss für das Quell- und das Zielkonto aktiviert sein. Informationen zum Aktivieren der Versionsverwaltung finden Sie unter [Aktivieren und Verwalten der Blobversionsverwaltung](versioning-enable.md).
 
 Durch das Aktivieren des Änderungsfeeds und der Blobversionsverwaltung können zusätzliche Kosten entstehen. Weitere Informationen finden Sie auf der Seite [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+
+Die Objektreplikation wird nur für Speicherkonten vom Typ „Universell V2“ unterstützt. Sowohl das Quell- als auch das Zielkonto müssen vom Typ „Universell V2“ sein. 
 
 ## <a name="how-object-replication-works"></a>Funktionsweise der Objektreplikation
 

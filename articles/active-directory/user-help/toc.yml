@@ -72,6 +72,8 @@
       href: my-account-portal-sign-ins-page.md
     - name: Ändern der Portaleinstellungen
       href: my-account-portal-settings.md
+    - name: Ermitteln des Administrators für „Mein Konto“
+      href: my-account-find-administrator.md
     - name: Wechseln von Organisationen
       href: cross-tenant-switcher.md
 - name: 'Sicherheitsinformationen: Hilfe'

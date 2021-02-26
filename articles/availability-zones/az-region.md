@@ -1,18 +1,19 @@
 ---
 title: Azure-Dienste mit Unterstützung für Verfügbarkeitszonen
 description: Zur Erstellung hoch verfügbarer und robuster Anwendungen in Azure bieten Verfügbarkeitszonen physisch voneinander getrennte Orte für die Ressourcenausführung.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874607"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557019"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Azure-Dienste mit Unterstützung für Verfügbarkeitszonen
 
@@ -46,19 +47,19 @@ Um eine umfassende Geschäftskontinuität in Azure zu erreichen, erstellen Sie d
 ## <a name="azure-regions-with-availability-zones"></a>Azure-Regionen mit Verfügbarkeitszonen
 
 
-| Amerika           | Europa         | Deutschland              | Afrika              | Asien-Pazifik   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Kanada, Mitte     | Frankreich, Mitte | Deutschland, Westen-Mitte | Südafrika, Norden* | Japan, Osten     |
-| USA (Mitte)         | Nordeuropa   |                      |                     | Asien, Südosten |
-| East US            | UK, Süden       |                      |                     | Australien (Osten) |
-| USA (Ost) 2          | Europa, Westen    |                      |                     |                |
-| USA, Süden-Mitte |                |                      |                     |                |
-| US Gov Virginia* |                |                      |                     |                |
-| USA, Westen 2        |                |                      |                     |                |
+| Amerika           | Europa               | Afrika              | Asien-Pazifik   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Kanada, Mitte     | Frankreich, Mitte       | Südafrika, Norden* | Japan, Osten     |
+| USA (Mitte)         | Deutschland, Westen-Mitte |                     | Asien, Südosten |
+| East US            | Nordeuropa         |                     | Australien (Osten) |
+| USA (Ost) 2          | UK, Süden             |                     |                |
+| USA, Süden-Mitte | Europa, Westen          |                     |                |
+| US Government, Virginia    |                      |                     |                |
+| USA, Westen 2        |                      |                     |                |
 
 
-Weitere Informationen zur Unterstützung von Verfügbarkeitszonen und verfügbaren Diensten in diesen Regionen erhalten Sie von Ihrem Microsoft-Vertriebs- oder Kundenbeauftragten. Informationen zu den Regionen, die zukünftig Verfügbarkeitszonen unterstützen werden, finden Sie unter [Azure-Geografien](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Weitere Informationen zur Unterstützung von Verfügbarkeitszonen und verfügbaren Diensten in diesen Regionen erhalten Sie von Ihrem Microsoft-Vertriebs- oder Kundenbeauftragten. Informationen zu den Regionen, die zukünftig Verfügbarkeitszonen unterstützen werden, finden Sie unter [Azure-Geografien](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Azure-Dienste mit Unterstützung für Verfügbarkeitszonen

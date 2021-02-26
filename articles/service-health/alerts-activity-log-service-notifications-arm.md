@@ -4,12 +4,12 @@ description: Lassen Sie sich per SMS, E-Mail oder Webhook benachrichtigen, wenn 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630218"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594958"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Schnellstart: Erstellen von Aktivitätsprotokollwarnungen zu Dienstbenachrichtigungen mit einer ARM-Vorlage
 
@@ -17,7 +17,7 @@ In diesem Artikel wird veranschaulicht, wie Sie Aktivitätsprotokollwarnungen f�
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Benachrichtigungen zur Dienstintegrität werden im [Azure-Aktivitätsprotokoll](../azure-monitor/platform/platform-logs-overview.md) gespeichert. Angesichts der möglicherweise großen Menge an Informationen, die im Aktivitätsprotokoll gespeichert werden, ist eine separate Benutzeroberfläche vorhanden, um die Anzeige und Einrichtung von Benachrichtigungen zur Dienstintegrität zu erleichtern.
+Benachrichtigungen zur Dienstintegrität werden im [Azure-Aktivitätsprotokoll](../azure-monitor/essentials/platform-logs-overview.md) gespeichert. Angesichts der möglicherweise großen Menge an Informationen, die im Aktivitätsprotokoll gespeichert werden, ist eine separate Benutzeroberfläche vorhanden, um die Anzeige und Einrichtung von Benachrichtigungen zur Dienstintegrität zu erleichtern.
 
 Sie können eine Warnung erhalten, wenn Azure Benachrichtigungen zur Dienstintegrität an Ihr Azure-Abonnement sendet. Sie können die Warnung konfigurieren auf der Grundlage von:
 
@@ -34,7 +34,7 @@ Sie können auch konfigurieren, an wen die Warnung gesendet werden soll:
 - Wählen Sie eine vorhandene Aktionsgruppe aus.
 - Erstellen Sie eine neue Aktionsgruppe (die für zukünftige Warnungen verwendet werden kann).
 
-Weitere Informationen zu Aktionsgruppen finden Sie unter [Erstellen und Verwalten von Aktionsgruppen im Azure-Portal](../azure-monitor/platform/action-groups.md).
+Weitere Informationen zu Aktionsgruppen finden Sie unter [Erstellen und Verwalten von Aktionsgruppen im Azure-Portal](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Erfahren Sie, wie Sie [mobile Pushbenachrichtigungen für Azure Service Health einrichten](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Erfahren Sie, wie Sie [Webhookbenachrichtigungen für vorhandene Problemverwaltungssysteme konfigurieren](service-health-alert-webhook-guide.md).
 - Weitere Informationen zu [Dienstintegritätsbenachrichtigungen](service-notifications.md).
-- Erfahren Sie mehr über [Ratenlimits für SMS, E-Mail-Nachrichten und Webhooks](../azure-monitor/platform/alerts-rate-limiting.md).
-- Weitere Informationen zum [Webhookschema für Aktivitätsprotokollwarnungen](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Verschaffen Sie sich eine [Übersicht über Aktivitätsprotokollwarnungen](../azure-monitor/platform/alerts-overview.md), und erfahren Sie, wie Sie Warnungen empfangen können.
-- Weitere Informationen zu [Aktionsgruppen](../azure-monitor/platform/action-groups.md).
+- Erfahren Sie mehr über [Ratenlimits für SMS, E-Mail-Nachrichten und Webhooks](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Weitere Informationen zum [Webhookschema für Aktivitätsprotokollwarnungen](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Verschaffen Sie sich eine [Übersicht über Aktivitätsprotokollwarnungen](../azure-monitor/alerts/alerts-overview.md), und erfahren Sie, wie Sie Warnungen empfangen können.
+- Weitere Informationen zu [Aktionsgruppen](../azure-monitor/alerts/action-groups.md).

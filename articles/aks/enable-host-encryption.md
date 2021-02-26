@@ -3,13 +3,13 @@ title: Aktivieren der hostbasierten Verschlüsselung in Azure Kubernetes Service
 description: Erfahren Sie, wie Sie eine hostbasierte Verschlüsselung in einem Azure Kubernetes Service-Cluster (AKS) konfigurieren.
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/27/2021
+ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787823"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071849"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Hostbasierte Verschlüsselung in Azure Kubernetes Service (AKS) (Vorschau)
 
@@ -25,37 +25,7 @@ Diese Funktion kann nur bei der Erstellung des Clusters oder bei der Erstellung 
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-- Stellen Sie sicher, dass die `aks-preview`-CLI-Erweiterung v0.4.55 oder höher installiert ist.
-- Stellen Sie sicher, dass das `EnableEncryptionAtHostPreview`-Featureflag unter `Microsoft.ContainerService` aktiviert ist.
-
-Sie müssen das Feature für Ihr Abonnement aktivieren lassen, um die Verschlüsselung auf dem Host für Ihre virtuellen Computer oder VM-Skalierungsgruppen verwenden zu können. Senden Sie eine E-Mail mit Ihren Abonnement-IDs an encryptionAtHost@microsoft.com, um das Feature für Ihre Abonnements aktivieren zu lassen.
-
-### <a name="register-encryptionathost--preview-features"></a>Registrieren der `EncryptionAtHost`-Vorschaufunktionen
-
-> [!IMPORTANT]
-> Sie müssen eine E-Mail an encryptionAtHost@microsoft.com mit Ihren Abonnement-IDs senden, damit das Feature für Computeressourcen aktiviert wird. Sie können es für diese Ressourcen nicht selbst aktivieren. Sie können es selbst für den Containerdienst aktivieren.
-
-Sie müssen die Featureflags `EnableEncryptionAtHostPreview` und `EncryptionAtHost` in Ihrem Abonnement aktivieren, um einen AKS-Cluster zu erstellen, der eine hostbasierte Verschlüsselung verwendet.
-
-Registrieren Sie das `EncryptionAtHost`-Featureflag mit dem Befehl [az feature register][az-feature-register], wie im folgenden Beispiel gezeigt:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
-```
-
-Es dauert einige Minuten, bis der Status *Registered (Registriert)* angezeigt wird. Sie können den Registrierungsstatus mithilfe des Befehls [az feature list][az-feature-list] überprüfen:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
-```
-
-Wenn Sie fertig sind, aktualisieren Sie die Registrierung des `Microsoft.ContainerService`- und `Microsoft.Compute`-Ressourcenanbieters mit dem Befehl [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+- Stellen Sie sicher, dass die CLI-Erweiterung `aks-preview` (v0.4.73 oder höher) installiert ist.
 
 ### <a name="install-aks-preview-cli-extension"></a>Installieren der CLI-Erweiterung „aks-preview“
 
@@ -77,23 +47,23 @@ az extension update --name aks-preview
 
 ## <a name="use-host-based-encryption-on-new-clusters-preview"></a>Verwenden der hostbasierten Verschlüsselung in neuen Clustern (Vorschau)
 
-Konfigurieren Sie die Cluster-Agent-Knoten für die Verwendung der hostbasierten Verschlüsselung, wenn der Cluster erstellt wird. Verwenden Sie das `--aks-custom-headers`-Flag, um den `EnableEncryptionAtHost`-Header festzulegen.
+Konfigurieren Sie die Cluster-Agent-Knoten für die Verwendung der hostbasierten Verschlüsselung, wenn der Cluster erstellt wird. 
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Wenn Sie Cluster ohne hostbasierte Verschlüsselung erstellen möchten, lassen Sie den benutzerdefinierten Parameter `--aks-custom-headers` weg.
+Wenn Sie Cluster ohne hostbasierte Verschlüsselung erstellen möchten, lassen Sie den Parameter `--enable-encryption-at-host` weg.
 
 ## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>Verwenden der hostbasierten Verschlüsselung auf vorhandenen Clustern (Vorschau)
 
-Sie können die hostbasierte Verschlüsselung auf vorhandenen Clustern aktivieren, indem Sie dem Cluster einen neuen Knotenpool hinzufügen. Konfigurieren Sie einen neuen Knotenpool für die Verwendung der hostbasierten Verschlüsselung mit dem `--aks-custom-headers`-Flag.
+Sie können die hostbasierte Verschlüsselung auf vorhandenen Clustern aktivieren, indem Sie dem Cluster einen neuen Knotenpool hinzufügen. Konfigurieren Sie einen neuen Knotenpool für die Verwendung der hostbasierten Verschlüsselung mit dem Parameter `--enable-encryption-at-host`.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Wenn Sie neue Knotenpools ohne das Feature der hostbasierten Verschlüsselung erstellen möchten, lassen Sie den benutzerdefinierten Parameter `--aks-custom-headers` weg.
+Wenn Sie neue Knotenpools ohne das Feature der hostbasierten Verschlüsselung erstellen möchten, lassen Sie den Parameter `--enable-encryption-at-host` weg.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

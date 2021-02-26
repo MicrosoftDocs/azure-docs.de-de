@@ -1,23 +1,18 @@
 ---
 title: Datenverwaltungsgateway für Data Factory
 description: Verwenden Sie das Datenverwaltungsgateway in Azure Data Factory zum Verschieben Ihrer Daten.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c1bed8d94f73bc7794037b307618f4c36c4518
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450606"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375203"
 ---
 # <a name="data-management-gateway"></a>Gateway zur Datenverwaltung
 > [!NOTE]
@@ -380,7 +375,7 @@ Auf dieser Seite werden einige Einstellungen angezeigt, die mehr Sinn ergeben, w
 ### <a name="gateway-status"></a>Gatewaystatus
 Die folgende Tabelle enthält die möglichen Status eines **Gatewayknotens**:
 
-Status  | Kommentare/Szenarien
+Status    | Kommentare/Szenarien
 :------- | :------------------
 Online | Knoten, der mit dem Data Factory-Dienst verbunden ist.
 Offline | Knoten ist offline.

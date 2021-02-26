@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7bff21a17af3c908caeed6a1e60de8e2fe4efc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d148509af45b93dce8dbd99b9afc674276b149b6
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287588"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493971"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Konnektivitätsmodi und -anforderungen
 
@@ -37,12 +37,10 @@ Darüber hinaus können Azure Active Directory und rollenbasierte Azure-Zugriffs
 
 Schließlich sind einige mit Azure verbundene Dienste nur dann verfügbar, wenn sie direkt erreichbar sind, wie die Azure Defender-Sicherheitsdienste, Container Insights und Azure Backup in Blob Storage.
 
-Derzeit wird in der Vorschau nur der Modus „Indirekt verbunden“ unterstützt. 
-
 ||**Indirekt verbunden**|**Direkt verbunden**|**Nie verbunden**|
 |---|---|---|---|
 |**Beschreibung**|Der Modus „Indirekt verbunden“ bietet die meisten Verwaltungsdienste lokal in Ihrer Umgebung ohne direkte Verbindung mit Azure.  Eine minimale Datenmenge muss _nur_ zu Inventur- und Abrechnungszwecken an Azure gesendet werden. Sie wird in eine Datei exportiert und mindestens ein Mal pro Monat in Azure hochgeladen.  Es ist keine direkte oder kontinuierliche Verbindung mit Azure erforderlich.  Einige Features und Dienste, die eine Verbindung mit Azure erfordern, sind nicht verfügbar.|Der Modus „Direkt verbunden“bietet alle verfügbaren Dienste, wenn eine direkte Verbindung mit Azure hergestellt werden kann. Verbindungen werden stets _aus_ Ihrer Umgebung mit Azure initiiert und verwenden Standardports und -protokolle, z. B. HTTPS/443.|Es können keine Daten an oder aus Azure gesendet werden.|
-|**Aktuelle Verfügbarkeit**| In der Vorschau verfügbar.|Als Vorschau für die Zukunft geplant.|Wird derzeit nicht unterstützt.|
+|**Aktuelle Verfügbarkeit**| In der Vorschau verfügbar.|In der Vorschau verfügbar.|Wird derzeit nicht unterstützt.|
 |**Typische Anwendungsfälle**|Lokale Rechenzentren, die aufgrund von Geschäfts- oder gesetzlichen Compliancerichtlinien oder aufgrund von Bedenken hinsichtlich externer Angriffe oder Datenexfiltration keine Konnektivität in die oder aus der Datenregion des Rechenzentrums zulassen.  Typische Beispiele: Finanzinstitute, Gesundheitswesen, Behörden. <br/><br/>Edge-Standorte, an denen der Edge-Standort in der Regel über keine Verbindung mit dem Internet verfügt.  Typische Beispiele: Öl-/Gas- oder militärische Anwendungen.  <br/><br/>Edge-Standorte, die über zeitweilig auftretende Verbindungen mit langen Ausfallzeiten verfügen.  Typische Beispiele: Stadien, Kreuzfahrtschiffe. | Organisationen, die öffentliche Clouds verwenden.  Typische Beispiele: Azure, AWS oder Google Cloud.<br/><br/>Edge-Standorte, an denen eine Internetverbindung normalerweise vorhanden und zulässig ist.  Typische Beispiele: Einzelhandelsgeschäfte, Produktion.<br/><br/>Unternehmensrechenzentren mit restriktiveren Richtlinien für die Konnektivität in die bzw. aus der Datenregion des Rechenzentrums mit dem Internet.  Typische Beispiele: Nicht regulierte Unternehmen, kleine und mittelständische Unternehmen|Wirklich „luftdichte“ Umgebungen, in denen unter keinen Umständen Daten aus der Datenumgebung gesendet oder in sie eingehen dürfen. Typische Beispiele: streng geheime Regierungseinrichtungen.|
 |**Senden von Daten an Azure**|Es gibt drei Möglichkeiten, wie die Abrechnungs- und Inventardaten an Azure gesendet werden können:<br><br> 1) Daten werden durch einen automatisierten Prozess, der sowohl mit der sicheren Datenregion als auch mit Azure verbunden ist, aus der Datenregion exportiert.<br><br>2) Daten werden durch einen automatisierten Prozess innerhalb der Datenregion aus der Datenregion exportiert, automatisch in eine weniger sichere Region kopiert, und ein automatisierter Prozess in der weniger sicheren Region lädt die Daten in Azure hoch.<br><br>3) Daten werden von einem Benutzer innerhalb der sicheren Region manuell exportiert, manuell aus der sicheren Region herausgebracht und manuell in Azure hochgeladen. <br><br>Bei den ersten beiden Optionen handelt es sich um einen automatisierten kontinuierlichen Prozess, der so geplant werden kann, dass er häufig ausgeführt wird, sodass es nur minimale Verzögerungen bei der Übertragung von Daten in Azure gibt, abhängig ausschließlich von der verfügbaren Konnektivität mit Azure.|Daten werden automatisch und kontinuierlich an Azure gesendet.|Daten werden nie an Azure gesendet.|
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d477693667c8d78687d27b291d2b3c15612a0f30
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499780"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989035"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Aktivieren von Synapse-Arbeitsbereichsfunktionen in einem vorhandenen dedizierten SQL-Pool (vormals SQL DW)
 
@@ -32,7 +32,7 @@ Die folgenden Informationen gelten, wenn Sie eine Instanz eines dedizierten SQL 
 - **SQL-Funktionen** Alle SQL-Funktionen verbleiben auf dem logischen SQL-Server, nachdem die Synapse-Arbeitsbereichsfunktion aktiviert wurde. Der Zugriff auf den Server über den SQL-Ressourcenanbieter ist weiterhin möglich, nachdem der Arbeitsbereich aktiviert wurde. Alle Verwaltungsfunktionen können über den Arbeitsbereich initiiert werden, und der Vorgang wird auf der logischen SQL Server-Instanz durchgeführt, auf der Ihre SQL-Pools gehostet werden. Vorhandene Automatisierungen, Tools oder Verbindungen werden nicht beschädigt oder unterbrochen, wenn ein Arbeitsbereich aktiviert wird.  
 - **Ressourcenverschiebung** Wenn auf einem Server mit aktivierter Synapse-Arbeitsbereichsfunktion eine Ressourcenverschiebung initiiert wird, wird die Verknüpfung des Servers mit dem Arbeitsbereich getrennt. Dies führt dazu, dass Sie aus dem Arbeitsbereich nicht mehr auf Ihre Instanzen des vorhandenen dedizierten SQL-Pools (vormals SQL DW) zugreifen können. Wir empfehlen Ihnen, beide Ressourcen unter demselben Abonnement und in derselben Ressourcengruppe anzuordnen, um sicherzustellen, dass die Verbindung erhalten bleibt. 
 - **Überwachung** SQL-Anforderungen, die über Synapse Studio in einem für den Arbeitsbereich aktivierten dedizierten SQL-Pool (vormals SQL DW) übermittelt werden, können im Überwachungshub angezeigt werden. Für alle anderen Überwachungsaktivitäten können Sie die Überwachung von dedizierten SQL-Pools (vormals SQL DW) im Azure-Portal verwenden. 
-- **Sicherheit** und **Zugriffssteuerungen** Wie oben erwähnt, sind alle Verwaltungsfunktionen für Ihre SQL Server-Instanz und die Instanzen der dedizierten SQL-Pools (vormals SQL DW) weiterhin auf dem logischen SQL-Server vorhanden. Zu diesen Funktionen gehören die Verwaltung von Firewallregeln, die Einrichtung des Azure AD-Administrators des Servers und alle Zugriffssteuerungen für die Daten in Ihrem dedizierten SQL-Pool (vormals SQL DW). Die folgenden Schritte müssen ausgeführt werden, um sicherzustellen, dass Ihr dedizierter SQL-Pool (vormals SQL DW) verfügbar ist und über den Synapse-Arbeitsbereich verwendet werden kann. Mit der Zuweisung von Arbeitsbereichsrollen erhalten Benutzer keine Berechtigungen für die Daten der Instanzen des dedizierten SQL-Pools (vormals SQL DW). Halten Sie sich an Ihre üblichen Richtlinien für die [SQL-Authentifizierung](sql-data-warehouse-authentication.md), um sicherzustellen, dass Benutzer auf die Instanzen des dedizierten SQL-Pools (vormals SQL DW) auf dem logischen Server zugreifen können. 
+- **Sicherheit** und **Zugriffssteuerungen** Wie oben erwähnt, sind alle Verwaltungsfunktionen für Ihre SQL Server-Instanz und die Instanzen der dedizierten SQL-Pools (vormals SQL DW) weiterhin auf dem logischen SQL-Server vorhanden. Zu diesen Funktionen gehören die Verwaltung von Firewallregeln, die Einrichtung des Azure AD-Administrators des Servers und alle Zugriffssteuerungen für die Daten in Ihrem dedizierten SQL-Pool (vormals SQL DW). Die folgenden Schritte müssen ausgeführt werden, um sicherzustellen, dass Ihr dedizierter SQL-Pool (vormals SQL DW) verfügbar ist und über den Synapse-Arbeitsbereich verwendet werden kann. Mit der Zuweisung von Arbeitsbereichsrollen erhalten Benutzer keine Berechtigungen für die Daten der Instanzen des dedizierten SQL-Pools (vormals SQL DW). Halten Sie sich an Ihre üblichen Richtlinien für die [SQL-Authentifizierung](sql-data-warehouse-authentication.md), um sicherzustellen, dass Benutzer auf die Instanzen des dedizierten SQL-Pools (vormals SQL DW) auf dem logischen Server zugreifen können. Wenn dem Hostserver des dedizierten SQL-Pools (zuvor SQL DW) bereits eine verwaltete Identität zugewiesen ist, entspricht der Name dieser verwalteten Identität der vom Arbeitsbereich verwalteten Identität, die automatisch zur Unterstützung der Partnerdienste des Arbeitsbereichs (z. B. ADF-Pipelines) erstellt wird.  Zwei verwaltete Identitäten mit demselben Namen können in einem verbundenen Szenario vorhanden sein. Verwaltete Identitäten können anhand ihrer Azure AD-Objekt-IDs unterschieden werden. Die Funktionalität zum Erstellen von SQL-Benutzern anhand von Objekt-IDs wird in Kürze verfügbar sein.
 
     ```sql
     CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 

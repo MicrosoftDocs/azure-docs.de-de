@@ -1,22 +1,18 @@
 ---
 title: Kopieren von Daten in und aus Azure Databricks Delta Lake
 description: Es wird beschrieben, wie Sie Daten mit einer Kopieraktivität in einer Azure Data Factory-Pipeline für Azure Databricks Delta Lake kopieren.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221141"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364238"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopieren von Daten in und aus Azure Databricks Delta Lake mithilfe von Azure Data Factory
 
@@ -151,8 +147,8 @@ Beim Kopieren von Daten aus Azure Databricks Delta Lake werden die folgenden Eig
 | type                         | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf **AzureDatabricksDeltaLakeSource** festgelegt werden. | Ja      |
 | Abfrage          | Geben Sie die SQL-Abfrage an, um Daten zu lesen. Für die Zeitreisesteuerung folgen Sie dem folgenden Muster:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Nein       |
 | exportSettings | Erweiterte Einstellungen, die zum Abrufen von Daten aus der Delta-Tabelle verwendet werden. | Nein       |
-| ***Unter `exportSettings`:** _ |  |  |
-| type | Der Typ des Exportbefehls, festgelegt auf _*AzureDatabricksDeltaLakeExportCommand**. | Ja |
+| ***Unter `exportSettings`:*** |  |  |
+| type | Der Typ des Exportbefehls, festgelegt auf **AzureDatabricksDeltaLakeExportCommand**. | Ja |
 | dateFormat | Formatieren Sie den Datumstyp in eine Zeichenfolge mit einem Datumsformat. Benutzerdefinierte Datumsformate folgen den Formaten unter [datetime-Mustern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Wenn keine Angabe erfolgt, wird der Standardwert `yyyy-MM-dd` verwendet. | Nein |
 | timestampFormat | Formatieren Sie den Zeitstempeltyp in eine Zeichenfolge mit einem Zeitstempelformat. Benutzerdefinierte Datumsformate folgen den Formaten unter [datetime-Mustern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Wenn keine Angabe erfolgt, wird der Standardwert `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` verwendet. | Nein |
 
@@ -265,8 +261,8 @@ Beim Kopieren von Daten in Azure Databricks Delta Lake werden die folgenden Eige
 | type          | Die type-Eigenschaft der Senke der Kopieraktivität ist auf **AzureDatabricksDeltaLakeSink** festgelegt. | Ja      |
 | preCopyScript | Geben Sie eine SQL-Abfrage an, die bei jeder Ausführung von der Kopieraktivität ausgeführt werden soll, bevor Daten in die Databricks-Delta-Tabelle geschrieben werden. Sie können diese Eigenschaft verwenden, um die vorinstallierten Daten zu bereinigen oder eine „truncate table“- oder „Vacuum“-Anweisung hinzuzufügen. | Nein       |
 | importSettings | Erweiterte Einstellungen, die zum Schreiben von Daten in eine Delta-Tabelle verwendet werden. | Nein |
-| **_Unter `importSettings`:_* _ |                                                              |  |
-| type | Der Typ des Importbefehls, festgelegt auf _*AzureDatabricksDeltaLakeImportCommand**. | Ja |
+| ***Unter `importSettings`:*** |                                                              |  |
+| type | Der Typ des Importbefehls, festgelegt auf **AzureDatabricksDeltaLakeImportCommand**. | Ja |
 | dateFormat | Formatieren Sie die Zeichenfolge in einen Datumstyp mit einem Datumsformat. Benutzerdefinierte Datumsformate folgen den Formaten unter [datetime-Mustern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Wenn keine Angabe erfolgt, wird der Standardwert `yyyy-MM-dd` verwendet. | Nein |
 | timestampFormat | Formatieren Sie die Zeichenfolge in einen Zeitstempeltyp mit einem Zeitstempelformat. Benutzerdefinierte Datumsformate folgen den Formaten unter [datetime-Mustern](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Wenn keine Angabe erfolgt, wird der Standardwert `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` verwendet. | Nein |
 

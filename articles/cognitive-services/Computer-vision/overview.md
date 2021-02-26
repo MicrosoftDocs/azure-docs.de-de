@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: maschinelles Sehen, Anwendungen für maschinelles Sehen, Dienst für maschinelles Sehen
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033288"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575939"
 ---
 # <a name="what-is-computer-vision"></a>Worum handelt es sich bei maschinellem Sehen?
 
@@ -32,7 +32,7 @@ Sie können Anwendungen für maschinelles Sehen über ein [Clientbibliothek-SDK]
 
 ## <a name="optical-character-recognition-ocr"></a>Optische Zeichenerkennung (OCR)
 
-Maschinelles Sehen umfasst auch Funktionen für [optische Zeichenerkennung (Optical Character Recognition, OCR)](concept-recognizing-text.md). Sie können die neue Lese-API verwenden, um gedruckten und handschriftlichen Text aus Bildern und Dokumenten zu extrahieren. Hierbei werden die neuesten Modelle verwendet, und es wird Text auf vielen verschiedenen Flächen und Hintergründen verarbeitet. Beispiele hierfür sind Belege, Poster, Visitenkarten, Briefe und Whiteboards. Die zwei OCR-APIs unterstützen das Extrahieren von gedrucktem Text in [mehreren Sprachen](./language-support.md). Nutzen Sie einen [Schnellstart](./quickstarts-sdk/client-library.md), um erste Schritte auszuführen.
+Maschinelles Sehen umfasst auch Funktionen für [optische Zeichenerkennung (Optical Character Recognition, OCR)](concept-recognizing-text.md). Sie können die neue Lese-API verwenden, um gedruckten und handschriftlichen Text aus Bildern und Dokumenten zu extrahieren. Hierbei werden auf Deep Learning basierende Modelle verwendet, und es wird Text auf vielen verschiedenen Oberflächen und Hintergründen verarbeitet. Beispiele hierfür sind Geschäftsdokumente, Rechnungen, Belege, Poster, Visitenkarten, Briefe und Whiteboards. Die OCR-APIs unterstützen das Extrahieren von gedrucktem Text in [mehreren Sprachen](./language-support.md). Nutzen Sie einen [Schnellstart](./quickstarts-sdk/client-library.md), um erste Schritte auszuführen.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Maschinelles Sehen für Digital Asset Management (DAM)
 

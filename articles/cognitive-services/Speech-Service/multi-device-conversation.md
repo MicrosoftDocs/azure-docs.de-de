@@ -1,7 +1,7 @@
 ---
 title: 'Mehrgerätekonversation (Vorschau): Speech-Dienst'
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Mit der Mehrgerätekonversation können Sie auf einfache Weise eine Sprach- oder Textkonversation zwischen mehreren Clients erstellen und die zwischen ihnen gesendeten Nachrichten koordinieren.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025173"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932424"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Worum handelt es sich bei der Konversation mit mehreren Geräten (Vorschauversion)?
 
@@ -37,7 +37,7 @@ Während die [**Unterhaltungstranskription**](conversation-transcription.md) auf
 ## <a name="key-features"></a>Wichtige Features
 
 - **Echtzeittranskription:** Jeder Teilnehmer erhält ein Transkript der Konversation, um den Text in Echtzeit zu verfolgen oder für die spätere Verwendung zu speichern.
-- **Echtzeitübersetzung:** Bei mehr als 60 [unterstützten Sprachen](language-support.md#text-languages) für die Textübersetzung können Benutzer die Konversation in ihre bevorzugten Sprachen übersetzen.
+- **Echtzeitübersetzung:** Bei mehr als 70 [unterstützten Sprachen](language-support.md#text-languages) für die Textübersetzung können Benutzer die Konversation in ihre bevorzugten Sprachen übersetzen.
 - **Lesbare Transkriptionen:** Die Transkription und die Übersetzung können ganz einfach verfolgt werden, da sie auch Interpunktion und Satzumbrüche enthalten.
 - **Sprach- oder Texteingabe:** Jeder Benutzer kann in Abhängigkeit von den unterstützten Sprachfunktionen, die für die ausgewählte Sprache des Teilnehmers aktiviert sind, auf seinem eigenen Gerät Sprach- oder Texteingaben vornehmen. Weitere Informationen finden Sie unter [Sprachunterstützung](language-support.md#speech-to-text).
 - **Nachrichtenrelay:** Der Dienst für die Mehrgerätekonversation verteilt die von einem Client gesendeten Nachrichten in den gewünschten Sprachen.
@@ -58,9 +58,6 @@ Mithilfe von Echtzeittranskription und -übersetzung können Konversationen auch
 ### <a name="presentations"></a>Präsentationen
 
 Sie können auch Untertitel für Präsentationen und Vorträge auf dem Bildschirm und auf den eigenen Geräten der Teilnehmer bereitstellen. Nachdem die Teilnehmer mithilfe des Konversationscodes beigetreten sind, können sie die Aufzeichnung in ihrer bevorzugten Sprache auf ihrem eigenen Gerät anzeigen.
-
-> [!NOTE]
-> Ein Beispiel finden Sie unter [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/) (Präsentationsübersetzer), einem PowerPoint-Add-In, das den Konversationsdienst für mehrere Geräte nutzt. Sie können sie [hier](https://download.cnet.com/s/powerpoint-add-in/) herunterladen.
 
 ## <a name="how-it-works"></a>Funktionsweise
 

@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063653"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218229"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrieren von Anwendungen zur Microsoft Authentication Library (MSAL)
 
@@ -73,7 +73,7 @@ __F: Wie funktioniert MSAL mit AD FS?__
 A: MSAL.NET unterstützt bestimmte Szenarien für die Authentifizierung bei AD FS 2019. Wenn Ihre App Token direkt aus einer früheren Version von AD FS abrufen muss, sollten Sie ADAL beibehalten. [Weitere Informationen](msal-net-adfs-support.md)
 
 __F: Wie erhalte ich Hilfe bei der Migration meiner Anwendung?__  
-A: Weitere Informationen finden Sie im Abschnitt [Hinweise zur Migration](#migration-guidance) in diesem Artikel. Wenn Sie nach dem Lesen der Anleitung für Ihre App-Plattform noch Fragen haben, können Sie auf Stack Overflow einen Beitrag mit dem Tag `[adal-deprecation]` veröffentlichen oder im GitHub-Repository der Bibliothek ein Problem öffnen. Links zum Repository der einzelnen Bibliotheken finden Sie im Übersichtsartikel zu MSAL im Abschnitt [Sprachen und Frameworks](msal-overview.md#languages-and-frameworks).
+A: Weitere Informationen finden Sie im Abschnitt [Hinweise zur Migration](#migration-guidance) in diesem Artikel. Wenn Sie nach dem Lesen der Anleitung für Ihre App-Plattform noch Fragen haben, können Sie auf [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) einen Beitrag mit dem Tag `[azure-ad-adal-deprecation]` veröffentlichen oder im GitHub-Repository der Bibliothek ein Issue öffnen. Links zum Repository der einzelnen Bibliotheken finden Sie im Übersichtsartikel zu MSAL im Abschnitt [Sprachen und Frameworks](msal-overview.md#languages-and-frameworks).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

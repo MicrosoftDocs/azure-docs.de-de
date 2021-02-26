@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785362"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820788"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Offlinemigration von SQL Server zu Azure SQL-Datenbank mit DMS
 
@@ -237,6 +237,9 @@ Nachdem der Dienst erstellt wurde, suchen Sie diesen im Azure-Portal, öffnen Si
 1. Geben Sie auf dem Bildschirm **Ziel auswählen** die Verbindungsdetails für die Azure SQL-Datenbank-Zielinstanz an. Dies ist die vorab bereitgestellte Azure SQL-Datenbank-Instanz, für die das **Adventureworks2016**-Schema mit dem Datenmigrations-Assistenten bereitgestellt wurde.
 
     ![Auswählen des Ziels](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > Verbindungen mit privaten Endpunkten mit der Zielinstanz von Azure SQL-Datenbank werden von Azure Database Migration Service unterstützt, außer bei Verwendung eines benutzerdefinierten DNS-Namens. 
 
 2. Klicken Sie auf **Weiter: Map to target databases** (Den Zieldatenbanken zuordnen), um die Quell- und die Zieldatenbank für die Migration zuzuordnen.
 

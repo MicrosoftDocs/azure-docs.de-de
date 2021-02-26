@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: cc986f0b29798cef62df2746a5af9a5d34bcef16
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: de1668d62b283185c08e5c839da0ec8a815e5c99
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98737709"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100634599"
 landingContent:
 - title: Informationen zu maschinellem Sehen
   linkLists:
@@ -112,6 +112,8 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Übersicht über die räumliche Analyse
+      url: intro-to-spatial-analysis-public-preview.md
     - text: Installieren und Ausführen des Containers
       url: spatial-analysis-container.md
     - text: Konfigurieren von Vorgängen
@@ -146,14 +148,26 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Verwenden des Go SDK
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+- title: Verantwortungsvolle Verwendung von KI
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Hinweis zur Transparenz für die räumliche Analyse
+      url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - linkListType: concept
+    links:
+    - text: Verantwortungsvolle Verwendung bei der KI-Bereitstellung
+      url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - text: Daten, Datenschutz und Sicherheit
+      url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - title: Verweis
   linkLists:
   - linkListType: reference
     links:
+    - text: Maschinelles Sehen-API v3.2 (Vorschau)
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
     - text: Maschinelles Sehen-API v3.1
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-    - text: Maschinelles Sehen-API v3.0
-      url: https://aka.ms/computer-vision-v3-ref
     - text: Maschinelles Sehen-API v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
     - text: .NET SDK

@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 9d1ba226e3ca1276658f7e72e9094918f0379a77
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653536"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560225"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management-Richtlinien für die Integration von Dapr
 
@@ -83,13 +83,13 @@ Die Richtlinie `forward-request` wird hier der besseren Verständlichkeit halber
 
 ### <a name="elements"></a>Elemente
 
-| Element             | Beschreibung  | Erforderlich |
+| Element             | BESCHREIBUNG  | Erforderlich |
 |---------------------|--------------|----------|
 | set-backend-service | Stammelement | Ja      |
 
 ### <a name="attributes"></a>Attributes
 
-| attribute        | Beschreibung                     | Erforderlich | Standard |
+| Attribut        | BESCHREIBUNG                     | Erforderlich | Standard |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Muss auf „dapr“ festgelegt werden           | Ja      | N/V     |
 | dapr-app-id      | Der Name des Ziel-Microservice. Wird dem Parameter [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) Parameter in Dapr zugeordnet.| Ja | N/V |
@@ -111,7 +111,7 @@ Die Richtlinie geht davon aus, dass die Dapr-Runtime in einem Sidecar-Container 
 ### <a name="policy-statement"></a>Richtlinienanweisung
 
 ```xml
-<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic="topic-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -151,13 +151,13 @@ Der Abschnitt „backend“ ist leer, und die Anforderung wird nicht an das Back
 
 ### <a name="elements"></a>Elemente
 
-| Element             | Beschreibung  | Erforderlich |
+| Element             | BESCHREIBUNG  | Erforderlich |
 |---------------------|--------------|----------|
 | publish-to-dapr     | Stammelement | Ja      |
 
 ### <a name="attributes"></a>Attributes
 
-| attribute        | Beschreibung                     | Erforderlich | Standard |
+| Attribut        | BESCHREIBUNG                     | Erforderlich | Standard |
 |------------------|---------------------------------|----------|---------|
 | pubsub-name      | Der Name der PubSub-Zielkomponente. Wird dem Parameter [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) in Dapr zugeordnet. Falls nicht vorhanden, muss der Attributwert __Thema__ die Form `pubsub-name/topic-name` haben.    | Nein       | Keine    |
 | topic            | Der Name des Themas. Wird dem Parameter [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) in Dapr zugeordnet.               | Ja      | –     |
@@ -183,9 +183,9 @@ Die Richtlinie geht davon aus, dass die Dapr-Runtime in einem Sidecar-Container 
 ### <a name="policy-statement"></a>Richtlinienanweisung
 
 ```xml
-<invoke-dapr-binding name=”bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid content-type="application/json">
+<invoke-dapr-binding name="bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <metadata>
-        <item key=”item-name”><!-- item-value --></item>
+        <item key="item-name"><!-- item-value --></item>
     </metadata>
     <data>
         <!-- message content -->
@@ -234,7 +234,7 @@ Der Abschnitt „backend“ ist leer, und die Anforderung wird nicht an das Back
 
 ### <a name="elements"></a>Elemente
 
-| Element             | Beschreibung  | Erforderlich |
+| Element             | BESCHREIBUNG  | Erforderlich |
 |---------------------|--------------|----------|
 | invoke-dapr-binding | Stammelement | Ja      |
 | metadata            | Bindung spezifischer Metadaten in Form von Schlüssel-Wert-Paaren. Der Eigenschaft [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) in Dapr zugeordnet. | Nein |
@@ -243,7 +243,7 @@ Der Abschnitt „backend“ ist leer, und die Anforderung wird nicht an das Back
 
 ### <a name="attributes"></a>Attributes
 
-| attribute        | Beschreibung                     | Erforderlich | Standard |
+| Attribut        | BESCHREIBUNG                     | Erforderlich | Standard |
 |------------------|---------------------------------|----------|---------|
 | name            | Name der Zielbindung. Muss dem Namen der Bindungen entsprechen, die in Dapr [definiert](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) sind.           | Ja      | N/V     |
 | operation       | Name des Zielvorgangs (bindungsspezifisch). Der Eigenschaft [operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) in Dapr zugeordnet. | Nein | Keine |

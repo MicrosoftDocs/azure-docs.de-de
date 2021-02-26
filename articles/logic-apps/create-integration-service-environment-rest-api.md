@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
-ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.date: 02/03/2021
+ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967037"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550656"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Erstellen einer Integrationsdienstumgebung (Integration Service Environment, ISE) mithilfe der Logic Apps-REST-API
 
@@ -188,17 +188,28 @@ In diesem Beispielanforderungstext werden die Beispielwerte gezeigt:
 
 ## <a name="add-custom-root-certificates"></a>Hinzufügen benutzerdefinierter Stammzertifikate
 
-Häufig verwenden Sie eine ISE, um eine Verbindung mit benutzerdefinierten Diensten in Ihrem virtuellen Netzwerk oder Ihrem lokalen Netzwerk herzustellen. Diese benutzerdefinierten Dienste sind oft durch ein Zertifikat geschützt, das von einer benutzerdefinierten Stammzertifizierungsstelle ausgestellt wird (z. B. Unternehmenszertifizierungsstelle oder selbstsigniertes Zertifikat). Weitere Informationen zum Verwenden von selbstsignierten Zertifikaten finden Sie unter [Sicherer Zugriff und Daten: Zugriff für ausgehende Aufrufe anderer Dienste und Systeme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Damit Ihre ISE erfolgreich eine Verbindung mit diesen Diensten über die TLS (Transport Layer Security) herstellen kann, benötigt Ihre ISE Zugriff auf diese Stammzertifikate. Verwenden Sie diese `PATCH`-HTTPS-Anforderung, um Ihre ISE mit einem benutzerdefinierten vertrauenswürdigen Stammzertifikat zu aktualisieren:
+Häufig verwenden Sie eine ISE, um eine Verbindung mit benutzerdefinierten Diensten in Ihrem virtuellen Netzwerk oder Ihrem lokalen Netzwerk herzustellen. Diese benutzerdefinierten Dienste sind oft durch ein Zertifikat geschützt, das von einer benutzerdefinierten Stammzertifizierungsstelle ausgestellt wird (z. B. Unternehmenszertifizierungsstelle oder selbstsigniertes Zertifikat). Weitere Informationen zum Verwenden von selbstsignierten Zertifikaten finden Sie unter [Sicherer Zugriff und Daten: Zugriff für ausgehende Aufrufe anderer Dienste und Systeme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Damit Ihre ISE erfolgreich eine Verbindung mit diesen Diensten über die TLS (Transport Layer Security) herstellen kann, benötigt Ihre ISE Zugriff auf diese Stammzertifikate.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### <a name="considerations-for-adding-custom-root-certificates"></a>Überlegungen zum Hinzufügen von benutzerdefinierten Stammzertifikaten
 
-Lesen Sie sich die folgenden Überlegungen durch, bevor Sie diesen Vorgang ausführen:
+Bevor Sie Ihre ISE mit einem benutzerdefinierten vertrauenswürdigen Stammzertifikat aktualisieren, überprüfen Sie diese Aspekte:
 
 * Stellen Sie sicher, dass Sie das Stammzertifikat *und* alle Zwischenzertifikate hochladen. Es gilt eine maximale Anzahl von 20 Zertifikaten.
 
 * Das Hochladen von Stammzertifikaten ist ein Ersetzungsvorgang, bei dem der aktuelle Upload vorherige Uploads überschreibt. Wenn Sie beispielsweise eine Anforderung senden, die ein Zertifikat hochlädt, und dann eine weitere Anforderung senden, um ein anderes Zertifikat hochzuladen, verwendet Ihre ISE nur das zweite Zertifikat. Wenn Sie beide Zertifikate verwenden müssen, fügen Sie diese derselben Anforderung hinzu.  
 
 * Das Hochladen von Stammzertifikaten ist ein asynchroner Vorgang, der einige Zeit in Anspruch nehmen kann. Sie können mit demselben URI eine `GET`-Anforderung senden, um den Status oder das Ergebnis zu überprüfen. Die Antwortnachricht umfasst ein `provisioningState`-Feld, das den `InProgress`-Wert zurückgibt, wenn der Uploadvorgang noch ausgeführt wird. Wenn der `provisioningState`-Wert `Succeeded` ist, ist der Uploadvorgang abgeschlossen.
+
+#### <a name="request-syntax"></a>Anforderungssyntax
+
+Um Ihre ISE mit einem benutzerdefinierten vertrauenswürdigen Stammzertifikat zu aktualisieren, senden Sie die folgende HTTPS PATCH-Anforderung an die [Azure Resource Manager-URL, die sich je nach ihrer Azure-Umgebung unterscheidet](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), z. B.:
+
+| Umgebung | Azure Resource Manager-URL |
+|-------------|----------------------------|
+| Azure Global (mehrere Mandanten) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Microsoft Azure China 21Vianet | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Syntax des Anforderungstexts zum Hinzufügen von benutzerdefinierten Stammzertifikaten
 

@@ -3,16 +3,15 @@ title: Common Data Model-Format
 description: Transformieren von Daten mit dem Common Data Model-Metadatensystem
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854004"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387698"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Common Data Model-Format in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -85,6 +84,7 @@ Wenn Sie Entitätseigenschaften in der Senkentransformation Spalten für Zuordnu
 2. Suchen Sie nach der Eigenschaft „partitions.Location“. 
 3. Ändern Sie „blob.core.windows.net“ in „dfs.core.windows.net“.
 4. Korrigieren Sie eine „%2F“-Codierung in der URL in „/“.
+5. Bei Verwendung von ADF-Datenflüssen müssen Sonderzeichen im Dateipfad der Partition durch alphanumerische Werte ersetzt werden, oder Sie wechseln zu Synapse-Datenflüssen.
 
 ### <a name="cdm-source-data-flow-script-example"></a>Beispiel eines Datenflussskripts für eine CDM-Quelle
 

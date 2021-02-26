@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044780"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895270"
 ---
 # <a name="drawing-package-requirements"></a>Anforderungen für Zeichnungspakete
 
@@ -106,7 +106,7 @@ Das [resultierende Einrichtungsdataset](tutorial-creator-indoor-maps.md#create-a
 * Außenbereiche müssen als Polygon, Polylinie (geschlossen), Kreis oder Ellipse (geschlossen) gezeichnet werden.
 * Außenbereiche überschneiden sich zwar möglicherweise, werden jedoch zu einer einzelnen Geometrie aufgelöst.
 * Das resultierende Ebenenfeature muss mindestens 4 Quadratmeter betragen.
-* Das resultierende Ebenenfeature darf nicht größer als maximal 400 Quadratmeter sein.
+* Das resultierende Ebenenfeature darf nicht größer als maximal 400.000 Quadratmeter sein.
 
 Enthält die Schicht mehrere sich überschneidende Polylinien, werden diese zu einem einzelnen Ebenenfeature aufgelöst. Wenn die Schicht mehrere Polylinien ohne Überschneidung enthält, verfügt das resultierende Ebenenfeature alternativ über eine Multipolygondarstellung.
 

@@ -1,5 +1,5 @@
 ---
-title: Streaminglocators in Azure Media Services | Microsoft-Dokumentation
+title: Streaminglocators in Azure Media Services
 description: Dieser Artikel erläutert, was Streaminglocators sind und wie sie in Azure Media Services verwendet werden.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898137"
 ---
 # <a name="streaming-locators"></a>Streaminglocators
 
@@ -25,7 +25,7 @@ Um Videos im Ausgabeobjekt für die Wiedergabe durch Clients verfügbar zu mache
 
 Der Vorgang zum Erstellen eines **Streaminglocators** wird als „Veröffentlichen“ bezeichnet. Standardmäßig ist der **Streaminglocator** sofort nach dem Vornehmen der API-Aufrufe gültig und bleibt es auch, bis er gelöscht wird (es sei denn, Sie konfigurieren die optionalen Start- und Endzeiten). 
 
-Beim Erstellen eines **Streaminglocators** müssen Sie einen **Medienobjekt**namen und einen Namen für die **Streamingrichtlinie** angeben. Weitere Informationen finden Sie in den folgenden Themen:
+Beim Erstellen eines **Streaminglocators** müssen Sie einen **Medienobjekt** namen und einen Namen für die **Streamingrichtlinie** angeben. Weitere Informationen finden Sie in den folgenden Themen:
 
 * [Medienobjekte](assets-concept.md)
 * [Streamingrichtlinien](streaming-policy-concept.md)

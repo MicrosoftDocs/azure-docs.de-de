@@ -4,15 +4,15 @@ description: Beschreibt Datenquellen und Connectors, die für tabellarische Date
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/08/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685594"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981492"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>In Azure Analysis Services unterstützte Datenquellen
 
@@ -36,7 +36,7 @@ Datenquellen und -connectors, die im Datenabruf- oder Tabellenimport-Assistenten
 **Hinweise:**
 
 <a name="tab1400a">1</a>: Nur für tabellarische Modelle 1400 und höhere.  
-<a name="azprovider">2</a>: Bei Angabe als *Anbieterdatenquelle* in tabellarischen Modellen ab 1200 ist sowohl für In-Memory- als auch für DirectQuery-Modelle der Microsoft OLE DB-Treiber für SQL Server (MSOLEDBSQL; empfohlen), SQL Server Native Client 11.0 oder der .NET Framework-Datenanbieter für SQL Server erforderlich.  
+<a name="azprovider">2</a>: Bei Angabe als *Anbieterdatenquelle* in tabellarischen Modellen ab 1200 ist sowohl für In-Memory- als auch für DirectQuery-Modelle der Microsoft OLE DB-Treiber für SQL Server (MSOLEDBSQL; empfohlen) oder der .NET Framework-Datenanbieter für SQL Server erforderlich.  
 <a name="azsqlmanaged">3</a>: Verwaltete Azure SQL-Instanz wird unterstützt. Da SQL Managed Instance innerhalb von Azure-VNET mit einer privaten IP-Adresse ausgeführt wird, muss der öffentliche Endpunkt für die Instanz aktiviert sein. Andernfalls ist ein [lokales Datengateway](analysis-services-gateway.md) erforderlich.  
 <a name="databricks">4</a>: Azure Databricks mit Spark-Connector wird derzeit nicht unterstützt.  
 <a name="gen2">5</a>: Der ADLS Gen2-Connector wird derzeit zwar nicht unterstützt, aber der Azure Blob Storage-Connector kann mit einer ADLS Gen2-Datenquelle verwendet werden.
@@ -118,17 +118,12 @@ Für Clouddatenquellen:
 
 * Wenn Sie die SQL-Authentifizierung verwenden, sollte das Identitätswechselkonto ein Dienstkonto sein.
 
-## <a name="service-principal-authentication"></a>Dienstprinzipalauthentifizierung
-
-Wenn als Datenquelle *Anbieter* angegeben ist, unterstützt Azure Analysis Services für [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) die Azure Active Directory-Dienstprinzipalauthentifizierung für Azure SQL-Datenbank- und Azure Synapse-Datenquellen.
-
-`
-Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
-`
 
 ## <a name="oauth-credentials"></a>OAuth-Anmeldeinformationen
 
-Für tabellarische Modelle mit dem Kompatibilitätsgrad 1400 und höher, die den In-Memory-Modus verwenden, bieten Azure SQL-Datenbank, Azure Synapse, Dynamics 365 und SharePoint-Listen Unterstützung für OAuth-Anmeldeinformationen. Azure Analysis Services verwaltet die Tokenaktualisierung für OAuth-Datenquellen, um Timeouts für Aktualisierungsvorgänge mit langer Laufzeit zu vermeiden. Legen Sie Anmeldeinformationen mithilfe von Power Query fest, um gültige Token zu generieren.
+Für tabellarische Modelle mit dem Kompatibilitätsgrad 1.400 und höher, die den *In-Memory*-Modus verwenden, bieten Azure SQL-Datenbank, Azure Synapse, Dynamics 365 und SharePoint Unterstützung für Listen mit OAuth-Anmeldeinformationen. Legen Sie Anmeldeinformationen mithilfe von Power Query fest, um gültige Token zu generieren. Azure Analysis Services verwaltet die Tokenaktualisierung für OAuth-Datenquellen, um Timeouts für Aktualisierungsvorgänge mit langer Laufzeit zu vermeiden. 
+> [!NOTE]
+> Die Aktualisierung verwalteter Token wird nicht für Datenquellen unterstützt, auf die über ein Gateway zugegriffen wird. Dies trifft z. B. zu, wenn der Zugriff auf Datenquellen für Mashupabfragen über ein Gateway erfolgt oder wenn die [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md)-Eigenschaft auf **true** festgelegt ist. 
 
 Der Direktabfragemodus wird mit OAuth-Anmeldeinformationen nicht unterstützt.
 

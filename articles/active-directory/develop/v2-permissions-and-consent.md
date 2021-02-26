@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756056"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102477"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt
 
@@ -164,7 +164,7 @@ Wenn die Anwendung Anwendungsberechtigungen anfordert und ein Administrator dies
 
 Nach der Erteilung der Administratoreinwilligung über den Endpunkt für die Administratoreinwilligung sind keine weiteren Schritte erforderlich. Benutzer müssen nichts weiter tun. Nach Erteilung der Administratoreinwilligung können Benutzer ein Zugriffstoken über einen typischen Authentifizierungsfluss erhalten. Das resultierende Zugriffstoken verfügt über die Berechtigungen, für die die Einwilligung erteilt wurde.
 
-Wenn ein Unternehmensadministrator Ihre Anwendung verwendet und an den Autorisierungsendpunkt weitergeleitet wird, wird die Rolle des Benutzers von Microsoft Identity Platform erkannt. Der Unternehmensadministrator wird gefragt, ob er seine Einwilligung für die angeforderten Berechtigungen im Namen des gesamten Mandanten erteilen möchte. Stattdessen können Sie einen dedizierten Endpunkt für die Administratoreinwilligung verwenden, um einen Administrator proaktiv aufzufordern, eine Berechtigung für den gesamten Mandanten zu erteilen. Dieser Endpunkt wird auch zum Anfordern von Anwendungsberechtigungen benötigt. Anwendungsberechtigungen können nicht mithilfe des Autorisierungsendpunkts angefordert werden.
+Wenn ein globaler Administrator Ihre Anwendung verwendet und an den Autorisierungsendpunkt weitergeleitet wird, wird die Rolle des Benutzers von Microsoft Identity Platform erkannt. Der globale Administrator wird gefragt, ob er seine Einwilligung für die angeforderten Berechtigungen im Namen des gesamten Mandanten erteilen möchte. Stattdessen können Sie einen dedizierten Endpunkt für die Administratoreinwilligung verwenden, um einen Administrator proaktiv aufzufordern, eine Berechtigung für den gesamten Mandanten zu erteilen. Dieser Endpunkt wird auch zum Anfordern von Anwendungsberechtigungen benötigt. Anwendungsberechtigungen können nicht mithilfe des Autorisierungsendpunkts angefordert werden.
 
 Anhand dieser Schritte kann Ihre App Berechtigungen für alle Benutzer in einem Mandanten anfordern, einschließlich der auf Administratoren beschränkten Bereiche. Dieser Vorgang ist mit erhöhten Berechtigungen verbunden. Verwenden Sie ihn nur, wenn dies für Ihr Szenario erforderlich ist.
 
@@ -181,7 +181,7 @@ Im Allgemeinen sollten die Berechtigungen für eine bestimmte Anwendung statisch
 
 So konfigurieren Sie die Liste statisch angeforderter Berechtigungen für eine Anwendung:
 
-1. Navigieren Sie in der Schnellstartumgebung <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure-Portal: App-Registrierungen<span class="docon docon-navigate-external x-hidden-focus"></span></a> zu Ihrer Anwendung.
+1. Navigieren Sie in der Schnellstartumgebung <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure-Portal: App-Registrierungen</a> zu Ihrer Anwendung.
 1. Wählen Sie eine Anwendung aus, oder [erstellen Sie ggf. eine App](quickstart-register-app.md).
 1. Wählen Sie auf der Seite **Übersicht** der Anwendung unter **Verwalten** Folgendes aus: **API-Berechtigungen** > **Berechtigung hinzufügen**.
 1. Wählen Sie in der Liste der verfügbaren APIs die Option **Microsoft Graph** aus. Fügen Sie dann die von Ihrer App benötigten Berechtigungen hinzu.

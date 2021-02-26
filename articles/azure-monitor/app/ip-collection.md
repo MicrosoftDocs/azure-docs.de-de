@@ -4,12 +4,12 @@ description: Grundlegendes zur Handhabung von IP-Adressen und der Geolocation mi
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333306"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521916"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocation und Verarbeitung von IP-Adressen
 
@@ -241,7 +241,7 @@ requests
 
 Die neu erfassten IP-Adressen werden in der Spalte `customDimensions_client-ip` angezeigt. Für die Standardspalte `client-ip` werden die vier Oktette dennoch jeweils mit Nullen besetzt angezeigt. 
 
-Wenn Tests auf dem Localhost ausgeführt werden und der Wert für `customDimensions_client-ip` `::1` lautet, handelt es sich bei diesem Wert um das erwartete Verhalten. `::1` stellt die Loopbackadresse in IPv6 dar. Die Adresse entspricht `127.0.01` in IPv4.
+Wenn Tests auf dem Localhost ausgeführt werden und der Wert für `customDimensions_client-ip` `::1` lautet, handelt es sich bei diesem Wert um das erwartete Verhalten. `::1` stellt die Loopbackadresse in IPv6 dar. Die Adresse entspricht `127.0.0.1` in IPv4.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

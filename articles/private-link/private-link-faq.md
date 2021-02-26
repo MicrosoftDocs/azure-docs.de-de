@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901537"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582008"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure Private Link
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901537"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Wie wird der Datenverkehr bei der Verwendung von Private Link gesendet?
 Der Datenverkehr wird privat über den Microsoft-Backbone übertragen. Er gelangt nicht ins Internet. Azure Private Link speichert keine Kundendaten.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Worin besteht der Unterschied zwischen einem Dienstendpunkt und einem privaten Endpunkt?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>Worin besteht der Unterschied zwischen Dienstendpunkten und privaten Endpunkten?
 - Private Endpunkte gewähren Netzwerkzugriff auf bestimmte Ressourcen hinter einem bestimmten Dienst, der eine differenzierte Segmentierung bietet. Der Datenverkehr kann die Dienstressource von einem lokalen Standort ohne öffentliche Endpunkte erreichen.
 - Ein Dienstendpunkt ist weiterhin ein IP-Adresse, die öffentlich geroutet werden kann.  Ein privater Endpunkt ist eine private IP-Adresse im Adressraum des virtuellen Netzwerks, in dem der private Endpunkt konfiguriert wurde.
 
@@ -34,6 +34,9 @@ Der Datenverkehr wird privat über den Microsoft-Backbone übertragen. Er gelang
 Mehrere Ressourcentypen für private Links unterstützen den Zugriff über einen privaten Endpunkt. Zu den Ressourcen gehören Azure PaaS-Dienste und Ihr eigener Private Link-Dienst. Es handelt sich um eine 1:n-Beziehung. 
 
 Ein Private Link-Dienst empfängt Verbindungen von mehreren privaten Endpunkten. Ein privater Endpunkt stellt eine Verbindung mit einem privaten Private Link-Dienst her.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>Muss ich Netzwerkrichtlinien für den Private Link-Dienst deaktivieren?
+Ja. Sowohl für den privaten Endpunkt als auch für den Private Link-Dienst müssen Netzwerkrichtlinien deaktiviert werden, damit sie ordnungsgemäß funktionieren. Sie weisen beide voneinander unabhängige Eigenschaften auf.
 
 ## <a name="private-endpoint"></a>Privater Endpunkt 
  

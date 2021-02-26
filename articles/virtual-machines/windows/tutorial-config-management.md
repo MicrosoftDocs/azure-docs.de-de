@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a478d9c620219a768983570897715f924565a80f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736667"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594303"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Überwachen von Änderungen und Aktualisieren eines virtuellen Windows-Computers in Azure
 
@@ -76,7 +76,7 @@ Aktivieren Sie die Updateverwaltung für Ihre VM wie folgt:
 
 Eine Überprüfung wird durchgeführt, um festzustellen, ob die Updateverwaltung für diesen virtuellen Computer aktiviert ist. Bei der Überprüfung wird sichergestellt, dass ein Log Analytics-Arbeitsbereich und ein verknüpftes Automation-Konto vorhanden sind und sich die Lösung im Arbeitsbereich befindet.
 
-Sie nutzen einen [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)-Arbeitsbereich, um Daten zu sammeln, die von Features und Diensten wie der Updateverwaltung generiert werden. Der Arbeitsbereich ist ein zentraler Ort zum Überprüfen und Analysieren von Daten aus mehreren Quellen.
+Sie nutzen einen [Log Analytics](../../azure-monitor/logs/log-query-overview.md)-Arbeitsbereich, um Daten zu sammeln, die von Features und Diensten wie der Updateverwaltung generiert werden. Der Arbeitsbereich ist ein zentraler Ort zum Überprüfen und Analysieren von Daten aus mehreren Quellen.
 
 Zum Durchführen von zusätzlichen Aktionen für VMs, für die Updates erforderlich sind, können Sie Azure Automation verwenden, um Runbooks für VMs auszuführen. Zu diesen Aktionen gehört auch das Herunterladen oder Anwenden von Updates.
 
@@ -86,7 +86,7 @@ Wählen Sie im Fenster **Updateverwaltung aktivieren** den Log Analytics-Arbeits
 
 Falls beim Onboarding erkannt wird, dass die folgenden erforderlichen Komponenten fehlen, werden sie automatisch hinzugefügt:
 
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)-Arbeitsbereich
+* [Log Analytics](../../azure-monitor/logs/log-query-overview.md)-Arbeitsbereich
 * [Automation](../../automation/index.yml)
 * Ein [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), der auf dem virtuellen Computer aktiviert ist
 
@@ -113,7 +113,7 @@ Um eine neue Updatebereitstellung für den virtuellen Computer zu planen, klicke
 | **Name** |Geben Sie einen eindeutigen Namen zur Identifizierung der Updatebereitstellung ein. |
 |**Betriebssystem**| Wählen Sie **Linux** oder **Windows** aus.|
 | **Zu aktualisierende Gruppen** |Definieren Sie für virtuelle Computer, die in Azure gehostet werden, eine Abfrage, die auf einer Kombination aus Abonnement, Ressourcengruppen, Standorten und Tags basiert. Mit dieser Abfrage wird eine dynamische Gruppe mit in Azure gehosteten virtuellen Computern erstellt, die Teil der Bereitstellung sein sollen. </br></br>Wählen Sie für virtuelle Computer, die nicht in Azure gehostet werden, eine vorhandene gespeicherte Suche aus. Mit dieser Suche können Sie eine Gruppe dieser virtuellen Computer für die Bereitstellung auswählen. </br></br> Weitere Informationen finden Sie unter [Dynamische Gruppen](../../automation/update-management/configure-groups.md).|
-| **Zu aktualisierende Computer** |Wählen Sie **Gespeicherte Suche**, **Importierte Gruppe** oder **Computer** aus.<br/><br/>Bei der Option **Computer** können Sie in der Dropdownliste einzelne Computer auswählen. Die Bereitschaft der einzelnen Computer wird in der Spalte **BEREITSCHAFT DES UPDATE-AGENTS** der Tabelle angezeigt.</br></br> Weitere Informationen zu den verschiedenen Methoden zum Erstellen von Computergruppen in Azure Monitor-Protokollen finden Sie unter [Computergruppen in Azure Monitor-Protokollen](../../azure-monitor/platform/computer-groups.md). |
+| **Zu aktualisierende Computer** |Wählen Sie **Gespeicherte Suche**, **Importierte Gruppe** oder **Computer** aus.<br/><br/>Bei der Option **Computer** können Sie in der Dropdownliste einzelne Computer auswählen. Die Bereitschaft der einzelnen Computer wird in der Spalte **BEREITSCHAFT DES UPDATE-AGENTS** der Tabelle angezeigt.</br></br> Weitere Informationen zu den verschiedenen Methoden zum Erstellen von Computergruppen in Azure Monitor-Protokollen finden Sie unter [Computergruppen in Azure Monitor-Protokollen](../../azure-monitor/logs/computer-groups.md). |
 |**Updateklassifizierungen**|Wählen Sie alle erforderlichen Updateklassifizierungen aus.|
 |**Updates einschließen/ausschließen**|Wählen Sie diese Option aus, um den Bereich **Einschließen/ausschließen** zu öffnen. Die ein- und auszuschließenden Updates befinden sich auf separaten Registerkarten. Weitere Informationen zur Vorgehensweise beim Einschließen finden Sie unter [Planen einer Updatebereitstellung](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Zeitplaneinstellungen**|Wählen Sie eine Startzeit und dann entweder **Einmalig** oder **Wiederholt** aus.|

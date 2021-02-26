@@ -4,12 +4,12 @@ description: In diesem Tutorial konfigurieren Sie Azure Monitor-Protokolle für 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840675"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588247"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Überwachen von Windows-Containern unter Service Fabric mit Azure Monitor-Protokollen
 
@@ -230,6 +230,6 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 Nun haben Sie die Überwachung für Ihre Containeranwendung konfiguriert und können Folgendes versuchen:
 
 * Konfigurieren Sie mithilfe einer ähnlichen Vorgehensweise wie in diesem Tutorial Azure Monitor-Protokolle für einen Linux-Cluster. Nutzen Sie [diese Vorlage](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS), um Änderungen in der Resource Manager-Vorlage vorzunehmen.
-* Konfigurieren Sie Azure Monitor-Protokolle für die Einrichtung von [automatisierten Warnungen](../azure-monitor/platform/alerts-overview.md) zur Unterstützung bei der Erkennung und Diagnose.
+* Konfigurieren Sie Azure Monitor-Protokolle für die Einrichtung von [automatisierten Warnungen](../azure-monitor/alerts/alerts-overview.md) zur Unterstützung bei der Erkennung und Diagnose.
 * Untersuchen Sie die Service Fabric-Liste der [empfohlen Leistungsindikatoren](service-fabric-diagnostics-event-generation-perf.md), um Ihre Cluster zu konfigurieren.
-* Machen Sie sich mit den Features zur [Protokollsuche und -abfrage](../azure-monitor/log-query/log-query-overview.md) in Azure Monitor-Protokollen vertraut.
+* Machen Sie sich mit den Features zur [Protokollsuche und -abfrage](../azure-monitor/logs/log-query-overview.md) in Azure Monitor-Protokollen vertraut.

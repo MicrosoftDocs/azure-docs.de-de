@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 83d7263d430ed9dc8f2f61711fc4c1339ba03810
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 118ab33c8d8ce46559957236daa21ba494655e69
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662929"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526278"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Sprach- und Stimmunterstützung für den Speech-Dienst
 
@@ -392,10 +392,30 @@ Es stehen mehr als 75 Standardstimmen in mehr als 45 Sprachen und Gebietsschemas
 
 ### <a name="customization"></a>Anpassung
 
-Die Sprachanpassung ist für `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR`und `zh-CN` verfügbar. Wählen Sie das richtige Gebietsschema, das den Trainingsdaten entspricht, die Sie für das Training eines benutzerdefinierten Sprachmodells benötigen. Wenn die von Ihnen aufgenommenen Daten beispielsweise auf Englisch mit britischem Akzent gesprochen werden, wählen Sie `en-GB`.
+Custom Voice ist für die neuronale Ebene und die Standardebene verfügbar. Die für diese beiden Ebenen unterstützten Sprachen unterscheiden sich. 
+
+| Sprache | Gebietsschema | Standard | Neuronal |
+|--|--|--|--|
+| Chinesisch (Mandarin, vereinfacht) | `zh-CN` | Ja | Ja |
+| Chinesisch (Mandarin, vereinfacht), zweisprachig mit Englisch | `zh-CN` (zweisprachig) | Ja | Ja |
+| Englisch (Australien) | `en-AU` | Nein | Ja |
+| Englisch (Indien) | `en-IN` | Ja | Ja |
+| Walisisch (Großbritannien) | `en-GB` | Ja | Ja |
+| Englisch (USA) | `en-US` | Ja | Ja |
+| Französisch (Kanada) | `fr-CA` | Nein | Ja |
+| Französisch (Frankreich) | `fr-FR` | Ja | Ja |
+| Deutsch (Deutschland) | `de-DE` | Ja | Ja |
+| Italienisch (Italien) | `it-IT` | Ja | Ja |
+| Japanisch (Japan) | `ja-JP` | Nein | Ja |
+| Koreanisch (Korea) | `ko-KR` | Nein | Ja |
+| Portugiesisch (Brasilien) | `pt-BR` | Ja | Ja |
+| Spanisch (Mexiko) | `es-MX` | Ja | Ja |
+| Spanisch (Spanien) | `es-ES` | Nein | Ja |
+
+Wählen Sie das richtige Gebietsschema, das den Trainingsdaten entspricht, die Sie für das Training eines benutzerdefinierten Sprachmodells benötigen. Wenn die von Ihnen aufgenommenen Daten beispielsweise auf Englisch mit britischem Akzent gesprochen werden, wählen Sie `en-GB`.
 
 > [!NOTE]
-> Wir unterstützen kein zweisprachiges Modelltraining in Custom Voice, mit Ausnahme des zweisprachigen Chinesisch-Englisch. Wählen Sie „Chinesisch-Englisch zweisprachig“, wenn Sie eine chinesische Stimme trainieren möchten, die auch Englisch sprechen kann. Das Sprachtraining in allen Gebietsschemas beginnt mit einem Datenset mit mehr als 2.000 Äußerungen, mit Ausnahme von `en-US` und `zh-CN`, bei denen Sie mit einer beliebigen Größe von Trainingsdaten beginnen können.
+> Wir unterstützen kein zweisprachiges Modelltraining in Custom Voice, mit Ausnahme des zweisprachigen Chinesisch-Englisch. Wählen Sie „Chinesisch-Englisch zweisprachig“, wenn Sie eine chinesische Stimme trainieren möchten, die auch Englisch sprechen kann. Zweisprachiges Modelltraining für Chinesisch-Englisch mithilfe der Standardmethode ist nur in den Regionen „Europa, Norden“ und „USA, Norden-Mitte“ verfügbar. Training mit dem Feature „Benutzerdefinierte neuronale Stimme“ ist in den Regionen „Vereinigtes Königreich, Süden“ und „USA, Osten“ verfügbar.
 
 ## <a name="speech-translation"></a>Sprachübersetzung
 

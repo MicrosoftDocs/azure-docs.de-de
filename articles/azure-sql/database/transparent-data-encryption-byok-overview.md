@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
-ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/01/2021
+ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325195"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223439"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption mithilfe eines kundenseitig verwalteten Schlüssels
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -185,11 +185,9 @@ Ein weiterer zu berücksichtigender Aspekt für Protokolldateien: Gesicherte Pro
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Hochverfügbarkeit bei der kundenseitig verwalteten TDE
 
-Selbst ohne konfigurierte Georedundanz wird dringend empfohlen, den Server für die Verwendung von zwei verschiedenen Schlüsseltresoren in zwei unterschiedlichen Regionen mit demselben Schlüsselmaterial zu konfigurieren. Dazu wird mithilfe der primären Key Vault-Instanz in der gleichen Region wie der Server eine TDE-Schutzvorrichtung erstellt, und der Schlüssel wird in einen Schlüsseltresor in einer anderen Azure-Region geklont. So hat der Server Zugriff auf einen zweiten Schlüsseltresor, falls in der primären Schlüsseltresorumgebung ein Ausfall auftritt, während die Datenbank in Betrieb ist.
+Selbst ohne konfigurierte Georedundanz wird dringend empfohlen, den Server für die Verwendung von zwei verschiedenen Schlüsseltresoren in zwei unterschiedlichen Regionen mit demselben Schlüsselmaterial zu konfigurieren. Der Schlüssel im sekundären Schlüsseltresor in der anderen Region sollte nicht als TDE-Schutzvorrichtung gekennzeichnet werden. Daher ist dies auch nicht zulässig. Nur bei einem Ausfall, der den primären Schlüsseltresor betrifft, wechselt das System automatisch zum anderen verknüpften Schlüssel mit demselben Fingerabdruck im sekundären Schlüsseltresor (sofern vorhanden). Beachten Sie jedoch, dass der Wechsel nicht erfolgt, wenn auf die TDE-Schutzvorrichtung nicht zugegriffen werden kann, weil die Zugriffsrechte entzogen wurden oder weil der Schlüssel oder der Schlüsseltresor gelöscht wurde. Dies kann darauf hindeuten, dass der Kunde absichtlich den Zugriff des Servers auf den Schlüssel einschränken möchte.Die Bereitstellung desselben Schlüsselmaterials für zwei Schlüsseltresore in verschiedenen Regionen kann erfolgen, indem der Schlüssel außerhalb des Schlüsseltresors erstellt und in beide Schlüsseltresore importiert wird. 
 
-Rufen Sie mit dem Cmdlet „Backup-AzKeyVaultKey“ den Schlüssel in einem verschlüsselten Format aus dem primären Schlüsseltresor ab, und verwenden Sie dann das Cmdlet „Restore-AzKeyVaultKey“ um einen Schlüsseltresor in der zweiten Region für das Klonen des Schlüssels anzugeben. Alternativ können Sie das Azure-Portal verwenden, um den Schlüssel zu sichern und wiederherzustellen. Der Schlüssel im sekundären Schlüsseltresor in der anderen Region sollte nicht als TDE-Schutzvorrichtung gekennzeichnet werden. Daher ist dies auch nicht zulässig.
-
-Nur bei einem Ausfall, der den primären Schlüsseltresor betrifft, wechselt das System automatisch zum anderen verknüpften Schlüssel mit demselben Fingerabdruck im sekundären Schlüsseltresor (sofern vorhanden). Beachten Sie, dass dieser Wechsel nicht erfolgt, wenn die TDE-Schutzvorrichtung aufgrund von gesperrten Zugriffsrechten nicht zugänglich ist oder wenn der Schlüssel oder der Schlüsseltresor gelöscht wurden, da dies auf eine Kundenabsicht hinweist, um den Zugriff des Servers auf den Schlüssel einzuschränken.
+Alternativ kann der Schlüssel mithilfe des primären Schlüsseltresors generiert werden, der sich in der gleichen Region wie der Server befindet, und in einen Schlüsseltresor in einer anderen Azure-Region geklont werden. Rufen Sie mit dem Cmdlet [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) den Schlüssel in einem verschlüsselten Format aus dem primären Schlüsseltresor ab. Geben Sie dann mit dem Cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) einen Schlüsseltresor in der zweiten Region für das Klonen des Schlüssels an. Alternativ können Sie das Azure-Portal verwenden, um den Schlüssel zu sichern und wiederherzustellen. Der Sicherungs-/Wiederherstellungsvorgang für Schlüssel ist nur zwischen Schlüsseltresoren innerhalb desselben Azure-Abonnements und derselben [Azure-Region](https://azure.microsoft.com/global-infrastructure/geographies/) zulässig.  
 
 ![Hochverfügbarkeit bei Einzelservern](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

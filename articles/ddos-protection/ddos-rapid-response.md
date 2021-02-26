@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814192"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521780"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDoS Rapid Response
 
@@ -30,7 +30,7 @@ Während eines aktiven Zugriffs können sich Kunden mit Azure DDoS Protection St
 
 Sie sollten DRR nur in folgenden Situationen einsetzen: 
 
-- Wenn Sie während eines DDoS-Angriffs feststellen, dass die Leistung der geschützten Ressource erheblich beeinträchtig wird oder die Ressource nicht verfügbar ist. Überprüfen Sie obigen Schritt 2 zur Konfiguration von Monitoren zur Erkennung von Problemen bei der Ressourcenverfügbarkeit und Leistung.
+- Wenn Sie während eines DDoS-Angriffs feststellen, dass die Leistung der geschützten Ressource erheblich beeinträchtig wird oder die Ressource nicht verfügbar ist. 
 - Sie glauben, dass Ihre Ressource einem DDoS-Angriff ausgesetzt ist, aber der DDoS Protection-Dienst kann den Angriff nicht wirksam abwehren.
 - Wenn Sie ein virales Ereignis planen, dass zu einem beträchtlichen Anstieg Ihres Netzwerkdatenverkehrs führen wird.
 - Für Angriffe, die unternehmenskritische Auswirkungen haben.

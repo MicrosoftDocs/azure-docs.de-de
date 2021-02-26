@@ -3,18 +3,18 @@ title: 'Verwalten der Aufzeichnungsrichtlinie: Azure'
 description: In diesem Thema wird das Verwalten einer Aufzeichnungsrichtlinie erläutert.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011480"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224988"
 ---
 # <a name="manage-recording-policy"></a>Verwalten der Aufzeichnungsrichtlinie
 
 Sie können Live Video Analytics in IoT Edge für die [fortlaufende Videoaufzeichnung](continuous-video-recording-concept.md) verwenden. Die Videoaufzeichnungen können Sie für Wochen oder Monate in der Cloud speichern. Sie können die Dauer (in Tagen) dieses Cloudarchivs mithilfe der in Azure Storage integrierten [Tools zur Lebenszyklusverwaltung](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) verwalten.  
 
-Ihr Media Service-Konto ist mit einem Azure Storage-Konto verknüpft. Wenn Sie Videos in der Cloud aufzeichnen, wird der Inhalt in ein [Medienobjekt](../latest/assets-concept.md) in Media Services geschrieben. Jedes Medienobjekt wird einem Container im Speicherkonto zugeordnet. Mit der Lebenszyklusverwaltung können Sie eine [Richtlinie](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) für ein Speicherkonto definieren, in der Sie eine [Regel](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) wie die folgende angeben können.
+Ihr Media Service-Konto ist mit einem Azure Storage-Konto verknüpft. Wenn Sie Videos in der Cloud aufzeichnen, wird der Inhalt in ein [Medienobjekt](../latest/assets-concept.md) in Media Services geschrieben. Jedes Medienobjekt wird einem Container im Speicherkonto zugeordnet. Mithilfe der Lebenszyklusverwaltung können Sie eine [Richtlinie](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) für ein Speicherkonto definieren, in der Sie eine [Regel](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) wie die folgende angeben können.
 
 ```
 {
@@ -45,7 +45,7 @@ Für die obige Regel gilt Folgendes:
 * Sie gibt an, dass die Blobs, die älter als 30 Tage sind, von der [heißen in die kalte Speicherebene](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal) verschoben werden.
 * Wenn Blobs älter als 90 Tage sind, müssen sie gelöscht werden.
 
-Da Ihre Videos in Live Video Analytics in festgelegten Zeiteinheiten archiviert werden, enthält Ihr Medienobjekt eine Reihe von Blobs (jeweils ein Blob pro Segment). Wenn die Richtlinie zur Lebenszyklusverwaltung aktiv wird und ältere Blobs löscht, können Sie weiterhin über die Media Services-APIs auf die verbleibenden Blobs zugreifen und sie wiedergeben. Weitere Informationen finden Sie unter [Wiedergeben von Aufzeichnungen](playback-recordings-how-to.md). 
+Wenn Sie Live Video Analytics für die Aufzeichnung in einem Medienobjekt verwenden, geben Sie eine `segmentLength`-Eigenschaft an, die das Modul anweist, eine Mindestdauer des Videos (in Sekunden) zu aggregieren, ehe es in die Cloud geschrieben wird. Ihr Medienobjekt enthält eine Reihe von Segmenten, die jeweils einen Erstellungszeitstempel haben, der um `segmentLength` neuer ist als der vorherige. Wenn die Richtlinie für die Lebenszyklusverwaltung greift, werden Segmente gelöscht, die älter als der angegebene Schwellenwert sind. Sie können jedoch weiterhin über Media Service-APIs auf die restlichen Segmente zugreifen und diese wiedergeben. Weitere Informationen finden Sie unter [Wiedergeben von Aufzeichnungen](playback-recordings-how-to.md). 
 
 ## <a name="limitations"></a>Einschränkungen
 

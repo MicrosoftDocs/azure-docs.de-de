@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754798"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580845"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Unterschiede zwischen MSAL.js und ADAL.js
 
@@ -48,7 +48,7 @@ Wenn Benutzer mit früheren Versionen der [Active Directory-Verbunddienste (AD F
 
 Wenn in v1.0 die Autorität `https://login.microsoftonline.com/common` verwendet wird, können sich Benutzer mit jedem Azure AD-Konto (für jede Organisation) anmelden.
 
-Wenn in v2.0 die Autorität `https://login.microsoftonline.com/common` verwendet wird, können sich Benutzer mit jedem Azure AD-Organisationskonto oder einem persönlichen Microsoft-Konto (MSA) anmelden. Wenn Sie die Anmeldung nur auf Azure AD-Konten (gleiches Verhalten wie bei ADAL.js) beschränken möchten, müssen Sie `https://login.microsoftonline.com/organizations` verwenden. Weitere Informationen finden Sie im Artikel [Initialisieren von Clientanwendungen mithilfe von MSAL.js](msal-js-initializing-client-applications.md) unter der Konfigurationsoption `authority`.
+Wenn in v2.0 die Autorität `https://login.microsoftonline.com/common` verwendet wird, können sich Benutzer mit jedem Azure AD-Organisationskonto oder einem persönlichen Microsoft-Konto (MSA) anmelden. Verwenden Sie `https://login.microsoftonline.com/organizations`, um die Anmeldung nur auf Azure AD-Konten (gleiches Verhalten wie bei ADAL.js) zu beschränken. Weitere Informationen finden Sie im Artikel [Initialisieren von Clientanwendungen mithilfe von MSAL.js](msal-js-initializing-client-applications.md) unter der Konfigurationsoption `authority`.
 
 ### <a name="scopes-for-acquiring-tokens"></a>Geltungsbereiche für das Abrufen von Token
 * Verwendung von Geltungsbereichen anstelle von Ressourcenparametern in Authentifizierungsanforderungen zum Abrufen von Token

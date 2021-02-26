@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065285"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834373"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Erstellen einer Regel und Einrichten von Benachrichtigungen in Ihrer Azure IoT Central-Anwendung
 
@@ -107,6 +107,10 @@ Wählen Sie die Regel aus, die Sie aktivieren oder deaktivieren möchten. Verwen
 ## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Aktivieren oder Deaktivieren einer Regel für bestimmte Geräte
 
 Wählen Sie die Regel aus, die Sie anpassen möchten. Verwenden Sie im Abschnitt **Zielgeräte** einen oder mehrere Filter, um den Gültigkeitsbereich der Regel auf die Geräte zu beschränken, die Sie überwachen möchten.
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

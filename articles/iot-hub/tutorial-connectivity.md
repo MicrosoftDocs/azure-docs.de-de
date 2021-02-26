@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 060ed8bfc424fcb9dab8fc12faf5e3822fa86a31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621443"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538703"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Verwenden eines simulierten Geräts zum Testen der Konnektivität mit Ihrem IoT Hub
 
@@ -66,15 +66,15 @@ Ein Gerät muss für Ihren Hub authentifiziert werden, bevor es Daten mit dem Hu
 
 Melden Sie sich am Portal an, und navigieren Sie zu Ihrem IoT Hub. Navigieren Sie anschließend zum Tool **IoT-Geräte**:
 
-![Tool „IoT-Geräte“](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Tool „IoT-Geräte“":::
 
-Klicken Sie zum Registrieren eines neuen Geräts auf **+ Hinzufügen**, legen Sie die **Geräte-ID** auf **MyTestDevice** fest, und klicken Sie auf **Speichern**:
+Klicken Sie zum Registrieren eines neuen Geräts auf **+ Neu**, legen Sie die **Geräte-ID** auf **MyTestDevice** fest, und klicken Sie auf **Speichern**.
 
-![Hinzufügen eines neuen Geräts](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Hinzufügen eines neuen Geräts":::
 
-Klicken Sie zum Abrufen der Verbindungszeichenfolge für **MyTestDevice** in der Liste mit den Geräten darauf, und kopieren Sie anschließend den Wert von **Verbindungszeichenfolge – Primärschlüssel**. Die Verbindungszeichenfolge enthält den *Freigegebenen Zugriffsschlüssel* für das Gerät.
+Klicken Sie zum Abrufen der Verbindungszeichenfolge für **MyTestDevice** in der Liste mit den Geräten darauf, und kopieren Sie anschließend den Wert **Primäre Verbindungszeichenfolge**. Die Verbindungszeichenfolge enthält den *Freigegebenen Zugriffsschlüssel* für das Gerät.
 
-![Abrufen der Geräte-Verbindungszeichenfolge](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Abrufen der Geräte-Verbindungszeichenfolge":::
 
 Führen Sie zum Simulieren des Sendens von Telemetriedaten an Ihren IoT Hub per **MyTestDevice** die Node.js-Anwendung für die Gerätesimulation aus, die Sie zuvor heruntergeladen haben.
 
@@ -176,7 +176,7 @@ Nachdem für ein Gerät die Verbindung hergestellt wurde, wird normalerweise ver
 Rufen Sie zunächst mit dem folgenden Befehl die aktuelle Verbindungszeichenfolge für das simulierte Gerät ab:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 Navigieren Sie zum Ausführen eines simulierten Geräts, mit dem Nachrichten gesendet werden, im heruntergeladenen Code zum Ordner **iot-hub\Tutorials\ConnectivityTests**.

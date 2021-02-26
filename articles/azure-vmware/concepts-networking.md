@@ -2,13 +2,13 @@
 title: Konzepte – Netzwerkinterkonnektivität
 description: Erfahren Sie mehr über wichtige Aspekte und Anwendungsfälle für Netzwerke und Interkonnektivität in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575757"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538974"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware Solution – Netzwerk- und Interkonnektivitätskonzepte
 
@@ -53,15 +53,17 @@ Das nachstehende Diagramm zeigt die Interkonnektivität von lokalen zu privaten 
 * Hot/Cold Cross-vCenter vMotion
 * Verwaltungszugriff von der lokalen Umgebung auf die private Azure VMware Solution-Cloud
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Basiskonnektivität zwischen einem virtuellen Netzwerk und einer privaten Cloud" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Vollständige Konnektivität zwischen einem virtuellen Netzwerk und einer lokalen privaten Cloud" border="false":::
 
-Für eine vollständige Interkonnektivität mit Ihrer privaten Cloud aktivieren Sie ExpressRoute Global Reach und fordern dann einen Autorisierungsschlüssel und eine private Peering-ID für Global Reach im Azure-Portal an. Der Autorisierungsschlüssel und die Peering-ID werden verwendet, um Global Reach zwischen einer ExpressRoute-Leitung in Ihrem Abonnement und der ExpressRoute-Leitung für Ihre neue private Cloud zu aktivieren. Sobald die ExpressRoute-Leitungen verknüpft wurden, wird der Netzwerkdatenverkehr zwischen lokalen Umgebungen und der privaten Cloud über die beiden Leitungen geroutet.  Informationen über die Anforderung und Verwendung des Autorisierungsschlüssels und der Peering-ID finden Sie im [Tutorial zum Erstellen eines ExpressRoute Global Reach-Peerings zu einer privaten Cloud](tutorial-expressroute-global-reach-private-cloud.md).
-
-
+Für eine vollständige Interkonnektivität mit Ihrer privaten Cloud aktivieren Sie ExpressRoute Global Reach und fordern dann einen Autorisierungsschlüssel und eine private Peering-ID für Global Reach im Azure-Portal an. Der Autorisierungsschlüssel und die Peering-ID werden verwendet, um Global Reach zwischen einer ExpressRoute-Leitung in Ihrem Abonnement und der ExpressRoute-Leitung für Ihre neue private Cloud zu aktivieren. Sobald die ExpressRoute-Leitungen verknüpft wurden, wird der Netzwerkdatenverkehr zwischen lokalen Umgebungen und der privaten Cloud über die beiden Leitungen geroutet.  Weitere Informationen zum Anfordern und Verwenden von Autorisierungsschlüssel und Peering-ID finden Sie im [Tutorial zum Erstellen eines ExpressRoute Global Reach-Peerings mit einer privaten Cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Nächste Schritte 
-Erfahren Sie mehr über [Speicherkonzepte für private Clouds](concepts-storage.md).
 
+Nachdem Sie sich mit den Netzwerk- und Konnektivitätskonzepten bei Azure VMware Solution vertraut gemacht haben, informieren Sie sich über die folgenden Themen:
+
+- [Speicherkonzepte von Azure VMware Solution](concepts-storage.md)
+- [Identitätskonzepte von Azure VMware Solution](concepts-identity.md)
+- [Aktivieren einer Azure VMware Solution-Ressource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

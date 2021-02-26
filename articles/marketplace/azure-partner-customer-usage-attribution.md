@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 99e1e77a37afbdc1ed54767700574316ed03fae3
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062204"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525244"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Zuordnung der Nutzung durch Partner und Kunden des kommerziellen Marketplace
 
@@ -248,10 +248,8 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
 ## <a name="report"></a>Bericht
-
-Den Bericht für die Zuordnung der Nutzung durch Kunden finden Sie im Partner Center-Dashboard ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Um den Bericht anzuzeigen, müssen Sie sich mit Ihren Anmeldeinformationen für das Partner Center anmelden. Wenn beim Berichten oder Anmelden Probleme auftreten, erstellen Sie eine [Supportanfrage](#get-support).
+Die Berichterstellung für den Azure-Verbrauch, die über die Zuordnung der Nutzung durch Kunden nachverfolgt wird, ist heute für ISV-Partner nicht verfügbar. Die Berichterstellung für das Programm „Kommerzieller Marketplace“ in Partner Center zur Abdeckung der Kundennutzung soll in der zweiten Hälfte des Jahres 2021 hinzugefügt werden.
 
 ## <a name="notify-your-customers"></a>Benachrichtigen der Kunden
 

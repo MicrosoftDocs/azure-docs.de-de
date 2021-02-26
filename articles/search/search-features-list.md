@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951382"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538906"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search-Features
 
@@ -33,7 +33,7 @@ Azure Cognitive Search bietet eine Volltextsuche-Engine, die persistente Speiche
 |-------------------|----------|
 |KI-Verarbeitung während der Indizierung | [**KI-Anreicherung**](cognitive-search-concept-intro.md) für Bild- und Textanalyse kann auf eine Indizierungspipeline angewandt werden, um Textinformationen aus Rohdateninhalten zu extrahieren. Zu den [integrierten Skills](cognitive-search-predefined-skills.md) zählen beispielsweise die optische Zeichenerkennung (ermöglicht das Durchsuchen gescannter JPEG-Dateien), die Entitätserkennung (Ermitteln einer Organisation, eines Namens oder eines Standorts) und die Schlüsselbegriffserkennung. Sie können auch [benutzerdefinierte Skills codieren](cognitive-search-create-custom-skill-example.md) und sie an die Pipeline anfügen. Sie können auch [von Azure Machine Learning erstellte Qualifikationen integrieren](./cognitive-search-tutorial-aml-custom-skill.md). |
 | Speichern von angereicherten Inhalten für die Analyse und Nutzung in Szenarien ohne Suche | Der [**Wissensspeicher**](knowledge-store-concept-intro.md) ist eine alternative Ausgabe einer Indizierungspipeline. Anstatt tokenisierte Begriffe an einen Index zu senden, können Sie in Abhängigkeit von der Konfiguration von der Indizierungspipeline erstellte, erweiterte Dokumente an einen Wissensspeicher entweder in Azure Blob Storage oder in Table Storage senden. Wissensspeicher werden aus KI-basierten Indizierungen (Skillsets) erstellt. Der Zweck eines Wissensspeichers ist die Unterstützung von Downstreamanalysen oder -verarbeitungen. Mit neuen Informationen und Strukturen in einem Wissensspeicher können Sie diesen an einen Machine Learning-Prozess anfügen oder eine Verbindung von Power BI aus herstellen, um die Daten zu untersuchen.<br/><br/> |
-| Zwischengespeicherte Inhalte | Bei der [**inkrementellen Anreicherung (Vorschauversion)** ](cognitive-search-incremental-indexing-conceptual.md) ist die Verarbeitung auf nur die Dokumente beschränkt, die durch eine spezifische Bearbeitung der Pipeline geändert werden, wobei für die unveränderten Teile der Pipeline zwischengespeicherte Inhalte verwendet werden. |
+| Zwischengespeicherte Inhalte | Bei der [**inkrementellen Anreicherung (Vorschauversion)**](cognitive-search-incremental-indexing-conceptual.md) ist die Verarbeitung auf nur die Dokumente beschränkt, die durch eine spezifische Bearbeitung der Pipeline geändert werden, wobei für die unveränderten Teile der Pipeline zwischengespeicherte Inhalte verwendet werden. |
 
 ## <a name="query-and-user-experience"></a>Abfrage und Benutzeroberfläche
 
@@ -49,7 +49,7 @@ Azure Cognitive Search bietet eine Volltextsuche-Engine, die persistente Speiche
 
 | Kategorie &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
-| Datenverschlüsselung | Die [**von Microsoft verwaltete Verschlüsselung ruhender Daten**](search-security-overview.md#encrypted-transmissions-and-storage) ist in der internen Speicherebene integriert und unwiderruflich. <br/><br/>[**Kundenseitig verwaltete Verschlüsselungsschlüssel**](search-security-manage-encryption-keys.md), die Sie in Azure Key Vault erstellen und verwalten, können zur ergänzenden Verschlüsselung von Indizes und Synonymzuordnungen verwendet werden. Bei Diensten, die nach dem 1. August 2020 erstellt wurden, erstreckt sich die CMK-Verschlüsselung auch auf Daten auf temporären Datenträgern, um eine vollständige doppelte Verschlüsselung der indexierten Inhalte zu erreichen.|
+| Datenverschlüsselung | Die [**von Microsoft verwaltete Verschlüsselung ruhender Daten**](search-security-overview.md#encryption) ist in der internen Speicherebene integriert und unwiderruflich. <br/><br/>[**Kundenseitig verwaltete Verschlüsselungsschlüssel**](search-security-manage-encryption-keys.md), die Sie in Azure Key Vault erstellen und verwalten, können zur ergänzenden Verschlüsselung von Indizes und Synonymzuordnungen verwendet werden. Bei Diensten, die nach dem 1. August 2020 erstellt wurden, erstreckt sich die CMK-Verschlüsselung auch auf Daten auf temporären Datenträgern, um eine vollständige doppelte Verschlüsselung der indexierten Inhalte zu erreichen.|
 | Endpoint Protection | [**IP-Regeln für eingehende Firewallunterstützung**](service-configure-firewall.md) ermöglichen Ihnen das Einrichten von IP-Adressbereichen, über die der Suchdienst Anforderungen akzeptiert.<br/><br/>Sie können mithilfe von Azure Private Link [**einen privaten Endpunkt erstellen**](service-create-private-endpoint.md), um alle Anforderungen über ein virtuelles Netzwerk zu erzwingen. |
 | Ausgangssicherheit (Indexer) | Der [**Datenzugriff über private Endpunkte**](search-indexer-howto-access-private.md) ermöglicht einem Indexer das Herstellen einer Verbindung mit Azure-Ressourcen, die über Azure Private Link geschützt werden.<br/><br/>[**Datenzugriff mithilfe einer vertrauenswürdigen Identität**](search-howto-managed-identities-data-sources.md) bedeutet, dass die Verbindungszeichenfolgen zu externen Datenquellen Benutzernamen und Kennwörter weglassen können. Wenn ein Indexer eine Verbindung mit der Datenquelle herstellt, lässt die Ressource die Verbindung zu, wenn der Suchdienst zuvor als vertrauenswürdiger Dienst registriert wurde. |
 

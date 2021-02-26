@@ -3,7 +3,7 @@ title: 'Tutorial: Bereitstellen einer Python-Django-App mit Postgres'
 description: Hier erfahren Sie, wie Sie eine Python-Web-App mit einer PostgreSQL-Datenbank erstellen und in Azure bereitstellen. In diesem Tutorial wird das Django-Framework verwendet, und die App wird in Azure App Service für Linux gehostet.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6112247a99c519aad8aadf7946c7707480b3b491
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898588"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558422"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Bereitstellen einer Django-Web-App mit PostgreSQL in Azure App Service
 
@@ -39,7 +39,7 @@ Sie können auch die [auf dem Azure-Portal basierende Version dieses Tutorials](
 
 1. Sie benötigen ein Azure-Konto mit einem aktiven Abonnement. Sie können [kostenlos ein Konto erstellen](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Installieren Sie <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 oder höher</a>.
-1. Installieren Sie die <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 oder höher, mit der Sie Befehle in einer beliebigen Shell ausführen, um Azure-Ressourcen bereitzustellen und zu konfigurieren.
+1. Installieren Sie die <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 oder höher, mit der Sie Befehle in einer beliebigen Shell ausführen, um Azure-Ressourcen bereitzustellen und zu konfigurieren.
 
 Öffnen Sie ein Terminalfenster, und überprüfen Sie, ob mindestens die Python-Version 3.6 installiert ist:
 
@@ -63,11 +63,13 @@ py -3 --version
 
 ---
 
-Vergewissern Sie sich, dass Sie mindestens Version 2.0.80 der Azure CLI verwenden:
+Vergewissern Sie sich, dass Sie mindestens Version 2.18.0 der Azure CLI verwenden:
 
 ```azurecli
 az --version
 ```
+
+Wenn Sie ein Upgrade durchführen müssen, versuchen Sie es mit dem Befehl `az upgrade` (erfordert mindestens Version 2.11), oder lesen Sie die Informationen unter <a href="/cli/azure/install-azure-cli" target="_blank">Installieren der Azure CLI</a>.
 
 Melden Sie sich anschließend über die CLI bei Azure an:
 
@@ -229,7 +231,7 @@ Durch Django-Datenbankmigrationen wird sichergestellt, dass das Schema in der Po
 
     Ersetzen Sie `<app-name>` durch den Namen, den Sie zuvor in dem Befehl `az webapp up` verwendet haben.
 
-    Unter macOS und Linux können Sie alternativ mit dem Befehl [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) eine Verbindung mit einer SSH-Sitzung herstellen.
+    Sie können alternativ mit dem Befehl [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) eine Verbindung mit einer SSH-Sitzung herstellen. Unter Windows ist für diesen Befehl die Azure CLI 2.18.0 oder höher erforderlich.
 
     Können Sie keine Verbindung mit der SSH-Sitzung herstellen, konnte die App selbst nicht gestartet werden. Ausführliche Informationen finden Sie in den [Diagnoseprotokollen](#6-stream-diagnostic-logs). Wenn Sie beispielsweise nicht die erforderlichen App-Einstellungen im vorherigen Abschnitt erstellt haben, ist in den Protokollen `KeyError: 'DBNAME'`angegeben.
 
@@ -239,8 +241,11 @@ Durch Django-Datenbankmigrationen wird sichergestellt, dass das Schema in der Po
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -398,6 +403,7 @@ Da Sie Änderungen am Datenmodell vorgenommen haben, müssen Sie die Datenbankmi
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896361"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570845"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Überwachen der Netzwerkkommunikation zwischen zwei virtuellen Computern über das Azure-Portal
 
 > [!NOTE]
 > In diesem Tutorial geht es um den Verbindungsmonitor (klassisch). Testen Sie den neuen und verbesserten [Verbindungsmonitor](connection-monitor-overview.md), um eine verbesserte Konnektivitätsüberwachung zu erhalten.
+
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 können Sie keine neuen Verbindungsmonitore in Verbindungsmonitor (klassisch) mehr hinzufügen, vorhandene Verbindungsmonitore, die vor dem 1. Juli 2021 erstellt wurden, können Sie jedoch weiterhin verwenden. [Migrieren Sie vor dem 29. Februar 2024 vom Verbindungsmonitor (klassisch) zum neuen Verbindungsmonitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher, um Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
 
 Erfolgreiche Kommunikation zwischen einem virtuellen Computer (VM) und einem Endpunkt, z.B. einer anderen VM, kann für Ihre Organisation wichtig sein. In manchen Fällen werden Konfigurationsänderungen eingeführt, die die Kommunikation unterbrechen können. In diesem Tutorial lernen Sie Folgendes:
 
@@ -134,7 +137,7 @@ Warnungen werden von Warnungsregeln in Azure Monitor erstellt und können in reg
 2. Klicken Sie auf **Ziel auswählen**, und wählen Sie dann die gewünschten Ressourcen aus. Wählen Sie das **Abonnement** aus, und legen Sie **Ressourcentyp** fest, um nach dem zu verwendenden Verbindungsmonitor zu filtern.
 
     ![Fenster „Warnungen“ mit ausgewähltem Ziel](./media/connection-monitor/set-alert-rule.png)
-1. Nachdem Sie eine gewünschte Ressource ausgewählt haben, können Sie **Kriterien hinzufügen** wählen. Der Network Watcher enthält [Metriken zum Erstellen von Warnungen](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Legen Sie **Verfügbare Signale** auf die Metriken ProbesFailedPercent und AverageRoundtripMs fest:
+1. Nachdem Sie eine gewünschte Ressource ausgewählt haben, können Sie **Kriterien hinzufügen** wählen. Der Network Watcher enthält [Metriken zum Erstellen von Warnungen](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Legen Sie **Verfügbare Signale** auf die Metriken ProbesFailedPercent und AverageRoundtripMs fest:
 
     ![Seite „Warnungen“ mit ausgewählten Signalen](./media/connection-monitor/set-alert-signals.png)
 1. Geben Sie die Warnungsdetails an, z.B. Name, Beschreibung und Schweregrad der Warnungsregel. Sie können der Warnung auch eine Aktionsgruppe hinzufügen, um die Antwort auf die Warnung zu automatisieren und anzupassen.

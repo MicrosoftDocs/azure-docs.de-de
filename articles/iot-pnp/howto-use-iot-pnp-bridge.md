@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bf730dbc28d15c3d036e9ebeedbe035db087c5d8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 9bcf256b6144702254bbff4a57e5ff402abaa962
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673024"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834101"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Herstellen einer Verbindung eines IoT Plug & Play-Bridgebeispiels unter Linux oder Windows mit IoT-Hub
 
@@ -279,6 +279,8 @@ So laden Sie die Modelle für Azure IoT-Explorer herunter:
 Überprüfen Sie nach dem Start der Bridge mithilfe des Tools Azure IoT-Explorer, ob der Code funktioniert. Die im Modell `dtmi:com:example:PnpBridgeEnvironmentalSensor;1` definierten Telemetriedaten, Eigenschaften und Befehle werden angezeigt.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

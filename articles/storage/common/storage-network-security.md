@@ -5,20 +5,20 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.author: tamram
+ms.date: 01/27/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703503"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219908"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurieren von Azure Storage-Firewalls und virtuellen Netzwerken
 
-Azure Storage bietet ein mehrschichtiges Sicherheitsmodell. Mit diesem Modell können Sie die Zugriffsebene für Ihre Speicherkonten sichern und steuern, die von Ihren Anwendungen und Unternehmensumgebungen gefordert werden – abhängig vom Typ und der Teilmenge der verwendeten Netzwerke. Wenn Netzwerkregeln konfiguriert wurden, können nur Anwendungen, die Daten über die angegebene Gruppe von Netzwerken anfordern, auf ein Speicherkonto zugreifen. Sie können den Zugriff auf Ihr Speicherkonto auf Anforderungen beschränken, die aus angegebenen IP-Adressen, IP-Adressbereichen oder einer Liste von Subnetzen in einem virtuellen Azure-Netzwerk (VNet) stammen.
+Azure Storage bietet ein mehrschichtiges Sicherheitsmodell. Mit diesem Modell können Sie den für Ihre Anwendungen und Unternehmensumgebungen benötigten Zugriff auf Ihre Speicherkonten schützen und steuern – abhängig von der Art und der Teilmenge der verwendeten Netzwerke oder Ressourcen. Wenn Netzwerkregeln konfiguriert wurden, können nur Anwendungen, die Daten über die angegebene Gruppe von Netzwerken oder über die angegebenen Azure-Ressourcen anfordern, auf ein Speicherkonto zugreifen. Sie können den Zugriff auf Ihr Speicherkonto auf Anforderungen beschränken, die von angegebenen IP-Adressen, aus angegebenen IP-Adressbereichen, aus angegebenen Subnetzen in einem virtuellen Azure-Netzwerk (VNET) oder von angegebenen Ressourceninstanzen einiger Azure-Dienste stammen.
 
 Speicherkonten verfügen über einen öffentlichen Endpunkt, auf den über das Internet zugegriffen werden kann. Sie können auch [private Endpunkte für Ihr Speicherkonto](storage-private-endpoints.md) erstellen, das dem Speicherkonto eine private IP-Adresse aus Ihrem VNet zuweist und den gesamten Datenverkehr zwischen Ihrem VNet und dem Speicherkonto über einen privaten Link sichert. Die Azure Storage-Firewall ermöglicht Zugriffssteuerung für den öffentlichen Endpunkt Ihres Speicherkontos. Sie können die Firewall auch zum Blockieren des gesamten Zugriffs über den öffentlichen Endpunkt einsetzen, wenn private Endpunkte verwendet werden. Ihre Storage-Firewallkonfiguration ermöglicht auch die Auswahl vertrauenswürdiger Azure-Plattformdienste für sicheren Zugriff auf das Speicherkonto.
 
@@ -27,7 +27,7 @@ Eine Anwendung, die bei aktivierten Netzwerkregeln auf ein Speicherkonto zugreif
 > [!IMPORTANT]
 > Wenn Sie Firewallregeln für Ihr Speicherkonto aktivieren, werden eingehende Datenanforderungen standardmäßig blockiert – es sei denn, die Anforderungen stammen von einem Dienst, der innerhalb eines virtuellen Azure-Netzwerks (VNet) agiert, oder aus zulässigen öffentlichen IP-Adressen. Unter anderem werden Anforderungen von anderen Azure-Diensten, aus dem Azure-Portal und von Protokollierungs-/Metrikdiensten blockiert.
 >
-> Sie können Azure-Diensten, die innerhalb eines VNETs agieren, Zugriff gewähren, indem Sie Datenverkehr aus dem Subnetz zulassen, das die Dienstinstanz hostet. Sie können auch eine begrenzte Anzahl von Szenarien über den nachstehend beschriebenen Mechanismus [Ausnahmen](#exceptions) aktivieren. Der Zugriff auf Daten aus dem Speicherkonto über das Azure-Portal muss über einen Computer erfolgen, der sich innerhalb der von Ihnen eingerichteten vertrauenswürdigen Grenze (IP-Adresse oder VNET) befindet.
+> Sie können Azure-Diensten, die innerhalb eines VNETs agieren, Zugriff gewähren, indem Sie Datenverkehr aus dem Subnetz zulassen, das die Dienstinstanz hostet. Sie können auch eine begrenzte Anzahl von Szenarien über den nachstehend beschriebenen Ausnahmenmechanismus ermöglichen. Der Zugriff auf Daten aus dem Speicherkonto über das Azure-Portal muss über einen Computer erfolgen, der sich innerhalb der von Ihnen eingerichteten vertrauenswürdigen Grenze (IP-Adresse oder VNET) befindet.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Datenverkehr für VM-Datenträger (einschließlich Vorgängen zur Einbindung/Auf
 
 Firewalls und virtuelle Netzwerke werden von klassischen Speicherkonten nicht unterstützt.
 
-Sie können nicht verwaltete Datenträger in Speicherkonten mit angewendeten Netzwerkregeln verwenden, um virtuelle Computer durch Erstellung einer Ausnahme zu sichern und wiederherzustellen. Dieser Prozess ist in diesem Artikel im Abschnitt [Ausnahmen](#exceptions) dokumentiert. Firewallausnahmen gelten nicht für verwaltete Datenträger, da sie bereits von Azure verwaltet werden.
+Sie können nicht verwaltete Datenträger in Speicherkonten mit angewendeten Netzwerkregeln verwenden, um virtuelle Computer durch Erstellung einer Ausnahme zu sichern und wiederherzustellen. Dieser Prozess ist im Abschnitt [Verwalten von Ausnahmen](#manage-exceptions) dieses Artikels dokumentiert. Firewallausnahmen gelten nicht für verwaltete Datenträger, da sie bereits von Azure verwaltet werden.
 
 ## <a name="change-the-default-network-access-rule"></a>Ändern der Standard-Netzwerkzugriffsregel
 
@@ -60,59 +60,62 @@ Standardmäßig akzeptieren Speicherkonten Verbindungen von Clients in jedem Net
 
 Standardmäßige Netzwerkzugriffsregeln für Speicherkonten können über das Azure-Portal, über PowerShell oder per CLI v2 verwaltet werden.
 
-#### <a name="azure-portal"></a>Azure-Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigieren Sie zu dem Speicherkonto, das Sie schützen möchten.
 
-1. Klicken Sie auf das Einstellungsmenü namens **Netzwerk**.
+2. Wählen Sie das Einstellungsmenü **Netzwerk** aus.
 
-1. Wenn der Zugriff standardmäßig verweigert werden soll, wählen Sie aus, dass Zugriff über **Ausgewählte Netzwerke** gewährt werden soll. Wenn Sie Datenverkehr aus allen Netzwerken zulassen möchten, wählen Sie aus, dass der Zugriff über **Alle Netzwerke** gewährt werden soll.
+3. Wenn der Zugriff standardmäßig verweigert werden soll, wählen Sie aus, dass Zugriff über **Ausgewählte Netzwerke** gewährt werden soll. Wenn Sie Datenverkehr aus allen Netzwerken zulassen möchten, wählen Sie aus, dass der Zugriff über **Alle Netzwerke** gewährt werden soll.
 
-1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
+4. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell"></a>
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installieren Sie [Azure PowerShell](/powershell/azure/install-Az-ps), und [melden Sie sich an](/powershell/azure/authenticate-azureps).
 
-1. Zeigen Sie den Status der Standardregel für das Speicherkonto an.
+2. Zeigen Sie den Status der Standardregel für das Speicherkonto an.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
-1. Legen Sie die Standardregel auf das standardmäßige Verweigern jeglichen Netzwerkzugriffs fest.
+3. Legen Sie die Standardregel auf das standardmäßige Verweigern jeglichen Netzwerkzugriffs fest.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
-1. Legen Sie die Standardregel auf das standardmäßige Zulassen von Netzwerkzugriff fest.
+4. Legen Sie die Standardregel auf das standardmäßige Zulassen von Netzwerkzugriff fest.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-#### <a name="cliv2"></a>CLI v2
+#### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 1. Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli), und [melden Sie sich an](/cli/azure/authenticate-azure-cli).
 
-1. Zeigen Sie den Status der Standardregel für das Speicherkonto an.
+2. Zeigen Sie den Status der Standardregel für das Speicherkonto an.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
     ```
 
-1. Legen Sie die Standardregel auf das standardmäßige Verweigern jeglichen Netzwerkzugriffs fest.
+3. Legen Sie die Standardregel auf das standardmäßige Verweigern jeglichen Netzwerkzugriffs fest.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-1. Legen Sie die Standardregel auf das standardmäßige Zulassen von Netzwerkzugriff fest.
+4. Legen Sie die Standardregel auf das standardmäßige Zulassen von Netzwerkzugriff fest.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Gewähren des Zugriffs aus einem virtuellen Netzwerk
 
@@ -144,42 +147,42 @@ Das Speicherkonto und die virtuellen Netzwerke, denen Zugriff gewährt wurde, k�
 
 VNET-Regeln für Speicherkonten können über das Azure-Portal, über PowerShell oder per CLI v2 verwaltet werden.
 
-#### <a name="azure-portal"></a>Azure-Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigieren Sie zu dem Speicherkonto, das Sie schützen möchten.
 
-1. Klicken Sie auf das Einstellungsmenü namens **Netzwerk**.
+2. Wählen Sie das Einstellungsmenü **Netzwerk** aus.
 
-1. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
+3. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
 
-1. Wenn Sie mit einer neuen Netzwerkregel den Zugriff auf ein virtuelles Netzwerk zulassen möchten, klicken Sie unter **Virtuelle Netzwerke** auf **Vorhandenes virtuelles Netzwerk hinzufügen**, wählen Sie die Optionen **Virtuelle Netzwerke** und **Subnetze** aus, und klicken Sie anschließend auf **Hinzufügen**. Wenn Sie ein neues virtuelles Netzwerk erstellen und ihm Zugriff gewähren möchten, klicken Sie auf **Neues virtuelles Netzwerk hinzufügen**. Geben Sie die erforderlichen Informationen zum Erstellen des neuen virtuellen Netzwerks an, und klicken Sie anschließend auf **Erstellen**.
+4. Wenn Sie mit einer neuen Netzwerkregel den Zugriff auf ein virtuelles Netzwerk zulassen möchten, wählen Sie unter **Virtuelle Netzwerke** die Option **Vorhandenes virtuelles Netzwerk hinzufügen**, die Optionen **Virtuelle Netzwerke** und **Subnetze** und anschließend **Hinzufügen** aus. Wenn Sie ein neues virtuelles Netzwerk erstellen und ihm Zugriff gewähren möchten, wählen Sie **Neues virtuelles Netzwerk hinzufügen** aus. Geben Sie die erforderlichen Informationen zum Erstellen des neuen virtuellen Netzwerks an, und wählen Sie anschließend **Erstellen** aus.
 
     > [!NOTE]
     > Wenn für das ausgewählte virtuelle Netzwerk und die Subnetze noch kein Dienstendpunkt für Azure Storage konfiguriert wurde, können Sie dies im Rahmen dieses Vorgangs nachholen.
     >
     > Zurzeit werden nur virtuelle Netzwerke, die zu demselben Azure Active Directory-Mandanten gehören, während der Regelerstellung zur Auswahl angezeigt. Verwenden Sie PowerShell, die CLI oder REST-APIs, um den Zugriff auf ein Subnetz in einem virtuellen Netzwerk zu gewähren, das zu einem anderen Mandanten gehört.
 
-1. Wenn Sie eine Regel für virtuelle Netzwerke oder Subnetze entfernen möchten, klicken Sie auf **...** , um das Kontextmenü für das virtuelle Netzwerk oder Subnetz zu öffnen, und klicken Sie anschließend auf **Entfernen**.
+5. Wenn Sie eine Regel für virtuelle Netzwerke oder Subnetze entfernen möchten, wählen Sie **...** aus, um das Kontextmenü für das virtuelle Netzwerk oder Subnetz zu öffnen, und wählen Sie anschließend **Entfernen** aus.
 
-1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
+6. Wählen Sie **Speichern** aus, um Ihre Änderungen anzuwenden.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installieren Sie [Azure PowerShell](/powershell/azure/install-Az-ps), und [melden Sie sich an](/powershell/azure/authenticate-azureps).
 
-1. Listen Sie die VNET-Regeln auf.
+2. Listen Sie die VNET-Regeln auf.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
-1. Aktivieren Sie den Dienstendpunkt für Azure Storage in einem vorhandenen virtuellen Netzwerk und Subnetz.
+3. Aktivieren Sie den Dienstendpunkt für Azure Storage in einem vorhandenen virtuellen Netzwerk und Subnetz.
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
-1. Fügen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz hinzu.
+4. Fügen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz hinzu.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -189,7 +192,7 @@ VNET-Regeln für Speicherkonten können über das Azure-Portal, über PowerShell
     > [!TIP]
     > Wenn Sie eine Netzwerkregel für ein Subnetz in einem VNET hinzufügen möchten, das zu einem anderen Azure AD-Mandanten gehört, verwenden Sie einen voll qualifizierten **VirtualNetworkResourceId**-Parameter im Format „/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name“.
 
-1. Entfernen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz.
+5. Entfernen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -199,23 +202,23 @@ VNET-Regeln für Speicherkonten können über das Azure-Portal, über PowerShell
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
 
-#### <a name="cliv2"></a>CLI v2
+#### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 1. Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli), und [melden Sie sich an](/cli/azure/authenticate-azure-cli).
 
-1. Listen Sie die VNET-Regeln auf.
+2. Listen Sie die VNET-Regeln auf.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
     ```
 
-1. Aktivieren Sie den Dienstendpunkt für Azure Storage in einem vorhandenen virtuellen Netzwerk und Subnetz.
+3. Aktivieren Sie den Dienstendpunkt für Azure Storage in einem vorhandenen virtuellen Netzwerk und Subnetz.
 
     ```azurecli
     az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
     ```
 
-1. Fügen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz hinzu.
+4. Fügen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz hinzu.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -227,7 +230,7 @@ VNET-Regeln für Speicherkonten können über das Azure-Portal, über PowerShell
     >
     > Sie können den Parameter **Abonnement** verwenden, um die Subnetz-ID für ein VNET abzurufen, das zu einem anderen Azure AD-Mandanten gehört.
 
-1. Entfernen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz.
+5. Entfernen Sie eine Netzwerkregel für ein virtuelles Netzwerk und Subnetz.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -236,6 +239,8 @@ VNET-Regeln für Speicherkonten können über das Azure-Portal, über PowerShell
 
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
+
+---
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Gewähren von Zugriff aus einem Internet-IP-Adressbereich
 
@@ -268,49 +273,49 @@ Wenn Sie [ExpressRoute](../../expressroute/expressroute-introduction.md) lokal f
 
 IP-Netzwerkregeln für Speicherkonten können über das Azure-Portal, über PowerShell oder per CLI v2 verwaltet werden.
 
-#### <a name="azure-portal"></a>Azure-Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigieren Sie zu dem Speicherkonto, das Sie schützen möchten.
 
-1. Klicken Sie auf das Einstellungsmenü namens **Netzwerk**.
+2. Wählen Sie das Einstellungsmenü **Netzwerk** aus.
 
-1. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
+3. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
 
-1. Geben Sie unter **Firewall** > **Adressbereich** die IP-Adresse oder den IP-Adressbereich (im CIDR-Format) ein, um Zugriff auf einen Internet-IP-Adressbereich zu gewähren.
+4. Geben Sie unter **Firewall** > **Adressbereich** die IP-Adresse oder den IP-Adressbereich (im CIDR-Format) ein, um Zugriff auf einen Internet-IP-Adressbereich zu gewähren.
 
-1. Wenn Sie eine IP-Netzwerkregel entfernen möchten, klicken Sie auf das Papierkorbsymbol neben dem Adressbereich.
+5. Wenn Sie eine IP-Netzwerkregel entfernen möchten, wählen Sie das Papierkorbsymbol neben dem Adressbereich aus.
 
-1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
+6. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installieren Sie [Azure PowerShell](/powershell/azure/install-Az-ps), und [melden Sie sich an](/powershell/azure/authenticate-azureps).
 
-1. Listen Sie IP-Netzwerkregeln auf.
+2. Listen Sie IP-Netzwerkregeln auf.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-1. Fügen Sie eine Netzwerkregel für eine einzelne IP-Adresse hinzu.
+3. Fügen Sie eine Netzwerkregel für eine einzelne IP-Adresse hinzu.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Fügen Sie eine Netzwerkregel für einen IP-Adressbereich hinzu.
+4. Fügen Sie eine Netzwerkregel für einen IP-Adressbereich hinzu.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-1. Entfernen Sie eine Netzwerkregel für eine einzelne IP-Adresse.
+5. Entfernen Sie eine Netzwerkregel für eine einzelne IP-Adresse.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Entfernen Sie eine Netzwerkregel für einen IP-Adressbereich.
+6. Entfernen Sie eine Netzwerkregel für einen IP-Adressbereich.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
@@ -319,7 +324,7 @@ IP-Netzwerkregeln für Speicherkonten können über das Azure-Portal, über Powe
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
 
-#### <a name="cliv2"></a>CLI v2
+#### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 1. Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli), und [melden Sie sich an](/cli/azure/authenticate-azure-cli).
 
@@ -329,25 +334,25 @@ IP-Netzwerkregeln für Speicherkonten können über das Azure-Portal, über Powe
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. Fügen Sie eine Netzwerkregel für eine einzelne IP-Adresse hinzu.
+2. Fügen Sie eine Netzwerkregel für eine einzelne IP-Adresse hinzu.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Fügen Sie eine Netzwerkregel für einen IP-Adressbereich hinzu.
+3. Fügen Sie eine Netzwerkregel für einen IP-Adressbereich hinzu.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. Entfernen Sie eine Netzwerkregel für eine einzelne IP-Adresse.
+4. Entfernen Sie eine Netzwerkregel für eine einzelne IP-Adresse.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Entfernen Sie eine Netzwerkregel für einen IP-Adressbereich.
+5. Entfernen Sie eine Netzwerkregel für einen IP-Adressbereich.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
@@ -356,19 +361,199 @@ IP-Netzwerkregeln für Speicherkonten können über das Azure-Portal, über Powe
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
 
-## <a name="exceptions"></a>Ausnahmen
+---
 
-Mithilfe von Netzwerkregeln können Sie in den meisten Szenarien eine sichere Umgebung für Verbindungen zwischen Ihren Anwendungen und Ihren Daten erstellen. Einige Anwendungen sind jedoch von Azure-Diensten abhängig, die über Regeln für virtuelle Netzwerke oder IP-Adressen nicht eindeutig isoliert werden können. Diese Dienste müssen jedoch für den Speicher gewährt werden, um eine vollständige Anwendungsfunktionalität zu ermöglichen. In solchen Fällen können Sie über die Einstellung *_Vertrauenswürdige Microsoft-Dienste zulassen_* diesen Diensten den Zugriff auf Ihre Daten, Protokolle oder Analysen ermöglichen.
+<a id="grant-access-specific-instances"></a>
 
-### <a name="trusted-microsoft-services"></a>Vertrauenswürdige Microsoft-Dienste
+## <a name="grant-access-from-azure-resource-instances-preview"></a>Gewähren von Zugriff über Azure-Ressourceninstanzen (Vorschau)
 
-Einige Microsoft-Dienste werden aus Netzwerken betrieben, die in Ihren Netzwerkregeln nicht enthalten sein können. Sie können einer Teilmenge solcher vertrauenswürdiger Microsoft-Dienste Zugriff auf das Speicherkonto gewähren und gleichzeitig Netzwerkregeln für andere Apps beibehalten. Diese vertrauenswürdigen Dienste stellen dann mithilfe einer strengen Authentifizierung eine sichere Verbindung mit Ihrem Speicherkonto her. Wir haben zwei Modi für den vertrauenswürdigen Zugriff für Microsoft-Dienste ermöglicht.
+Manchmal ist eine Anwendung unter Umständen auf Azure-Ressourcen angewiesen, die nicht über ein virtuelles Netzwerk oder über eine IP-Adressregel isoliert werden können. Trotzdem soll der Zugriff auf das Speicherkonto geschützt und auf die Azure-Ressourcen Ihrer Anwendung beschränkt werden. In diesem Fall können Sie eine Ressourceninstanzregel erstellen, um Speicherkonten so zu konfigurieren, dass der Zugriff auf bestimmte Ressourceninstanzen einiger Azure-Dienste zugelassen wird. 
 
-- Ressourcen einiger Dienste können, **sofern sie in Ihrem Abonnement registriert sind**, für bestimmte Vorgänge auf Ihr Speicherkonto **im gleichen Abonnement** zugreifen. Hierzu zählen beispielsweise Sicherungsvorgänge und das Schreiben von Protokollen.
-- Ressourcen einiger Dienste kann durch **Zuweisen einer Azure-Rolle** zur vom System zugewiesenen verwalteten Identität der explizite Zugriff auf Ihr Speicherkonto gewährt werden.
+Die Arten von Vorgängen, die von einer Ressourceninstanz für Speicherkontodaten ausgeführt werden können, werden durch die [Azure-Rollenzuweisungen](storage-auth-aad.md#assign-azure-roles-for-access-rights) der Ressourceninstanz bestimmt. Ressourceninstanzen müssen aus dem gleichen Mandanten stammen wie Ihr Speicherkonto, können aber zu einem beliebigen Abonnement im Mandanten gehören.
 
+Die Liste mit den unterstützten Azure-Diensten finden Sie im Abschnitt [Vertrauenswürdiger Zugriff auf der Grundlage einer systemseitig zugewiesenen verwalteten Identität](#trusted-access-system-assigned-managed-identity) dieses Artikels.
 
-Wenn Sie die Einstellung **Vertrauenswürdige Microsoft-Dienste zulassen** festlegen, wird Ressourcen der folgenden Dienste, die im gleichen Abonnement registriert sind wie das Speicherkonto, Zugriff für eine eingeschränkte Gruppe von Vorgängen gewährt:
+> [!NOTE]
+> Dieses Feature befindet sich in der Public Preview-Phase und ist in allen öffentlichen Cloudregionen verfügbar. 
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Ressourcennetzwerkregeln können über das Azure-Portal hinzugefügt und entfernt werden.
+
+1. Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com/) an.
+
+2. Suchen Sie nach Ihrem Speicherkonto, und zeigen Sie die Kontoübersicht an.
+
+3. Wählen Sie **Netzwerk** aus, um die Konfigurationsseite für das Netzwerk anzuzeigen.
+
+4. Wählen Sie in der Dropdownliste **Ressourcentyp** den Ressourcentyp Ihrer Ressourceninstanz aus. 
+
+5. Wählen Sie in der Dropdownliste **Instanzname** die Ressourceninstanz aus. Sie können auch alle Ressourceninstanzen im aktiven Mandanten, im aktiven Abonnement oder in der aktiven Ressourcengruppe einschließen.
+
+6. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**. Die Ressourceninstanz wird auf der Seite mit den Netzwerkeinstellungen im Abschnitt **Resource instances** (Ressourceninstanzen) angezeigt. 
+
+Wenn Sie die Ressourceninstanz entfernen möchten, wählen Sie das Löschsymbol (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) neben der Ressourceninstanz aus.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Sie können PowerShell-Befehle verwenden, um Ressourcennetzwerkregeln hinzuzufügen oder zu entfernen.
+
+> [!IMPORTANT]
+> Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
+
+#### <a name="install-the-preview-module"></a>Installieren des Vorschaumoduls
+
+Installieren Sie die aktuelle Version des PowerShellGet-Moduls. Schließen Sie die PowerShell-Konsole, und öffnen Sie sie dann erneut.
+
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
+
+Installieren Sie **Az. Storage** (Vorschaumodul).
+
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
+
+Weitere Informationen zum Installieren von PowerShell-Modulen finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+#### <a name="grant-access"></a>Gewähren von Zugriff
+
+Fügen Sie eine Netzwerkregel hinzu, die Zugriff über eine Ressourceninstanz gewährt.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+
+```
+
+Geben Sie mehrere Ressourceninstanzen gleichzeitig an, indem Sie den Netzwerkregelsatz ändern.
+
+```powershell
+$resourceId1 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$resourceId2 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mySQLServer"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
+```
+
+#### <a name="remove-access"></a>Entfernen des Zugriffs
+
+Entfernen Sie eine Netzwerkregel, die Zugriff über eine Ressourceninstanz gewährt.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Remove-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId  
+```
+
+Entfernen Sie alle Netzwerkregeln, die Zugriff über Ressourceninstanzen gewähren.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Anzeigen einer Liste zulässiger Ressourceninstanzen
+
+Zeigen Sie eine umfassende Liste mit Ressourceninstanzen an, denen Zugriff auf das Speicherkonto gewährt wurde.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+$rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+$rule.ResourceAccessRules 
+```
+
+### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+
+Sie können Azure CLI-Befehle verwenden, um Ressourcennetzwerkregeln hinzuzufügen oder zu entfernen.
+
+#### <a name="install-the-preview-extension"></a>Installieren der Vorschauerweiterung
+
+1. Öffnen Sie [Azure Cloud Shell](../../cloud-shell/overview.md), oder falls Sie die Azure-Befehlszeilenschnittstelle lokal [installiert](/cli/azure/install-azure-cli) haben, öffnen Sie eine Befehlskonsolenanwendung wie Windows PowerShell.
+
+2. Vergewissern Sie sich anschließend mithilfe des folgenden Befehls, dass mindestens die Azure CLI-Version `2.13.0` installiert ist:
+
+   ```azurecli
+   az --version
+   ```
+
+   Wenn Ihre Version der Azure-Befehlszeilenschnittstelle kleiner als `2.13.0` ist, dann installieren Sie eine neuere Version. Weitere Informationen finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
+
+3. Geben Sie den folgenden Befehl ein, um die Vorschauerweiterung zu installieren:
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### <a name="grant-access"></a>Gewähren von Zugriff
+
+Fügen Sie eine Netzwerkregel hinzu, die Zugriff über eine Ressourceninstanz gewährt.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="remove-access"></a>Entfernen des Zugriffs
+
+Entfernen Sie eine Netzwerkregel, die Zugriff über eine Ressourceninstanz gewährt.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Anzeigen einer Liste zulässiger Ressourceninstanzen
+
+Zeigen Sie eine umfassende Liste mit Ressourceninstanzen an, denen Zugriff auf das Speicherkonto gewährt wurde.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+---
+
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
+## <a name="grant-access-to-trusted-azure-services"></a>Gewähren von Zugriff für vertrauenswürdige Azure-Dienste 
+
+Einige Azure-Dienste werden in Netzwerken betrieben, die nicht in Ihre Netzwerkregeln eingeschlossen werden können. Sie können einer Teilmenge solcher vertrauenswürdiger Azure-Dienste Zugriff auf das Speicherkonto gewähren und gleichzeitig Netzwerkregeln für andere Apps beibehalten. Diese vertrauenswürdigen Dienste stellen dann unter Verwendung einer strengen Authentifizierung eine sichere Verbindung mit Ihrem Speicherkonto her.
+
+Sie können vertrauenswürdigen Azure-Diensten Zugriff gewähren, indem Sie eine Netzwerkregelausnahme erstellen. Eine ausführliche Anleitung finden Sie im Abschnitt [Verwalten von Ausnahmen](#manage-exceptions) dieses Artikels.
+
+Wenn Sie vertrauenswürdigen Azure-Diensten Zugriff gewähren, erteilen Sie folgende Arten von Zugriff:
+
+- Vertrauenswürdiger Zugriff auf in Ihrem Abonnement registrierte Ressourcen für ausgewählte Vorgänge
+- Vertrauenswürdiger Zugriff auf Ressourcen auf der Grundlage einer systemseitig zugewiesenen verwalteten Identität
+
+<a id="trusted-access-resources-in-subscription"></a>
+
+### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Vertrauenswürdiger Zugriff für Ressourcen, die in Ihrem Abonnement registriert sind
+
+Ressourcen einiger Dienste können, **sofern sie in Ihrem Abonnement registriert sind**, für bestimmte Vorgänge auf Ihr Speicherkonto **im gleichen Abonnement** zugreifen. Hierzu zählen beispielsweise Sicherungsvorgänge und das Schreiben von Protokollen.  In der folgenden Tabelle werden die einzelnen Dienste und die zulässigen Vorgänge beschrieben: 
 
 | Dienst                  | Name des Ressourcenanbieters     | Zulässige Vorgänge                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -384,62 +569,77 @@ Wenn Sie die Einstellung **Vertrauenswürdige Microsoft-Dienste zulassen** festl
 | Azure-Netzwerke         | Microsoft.Network          | Speichern und analysieren Sie Netzwerk-Datenverkehrsprotokolle, beispielsweise mit Network Watcher und Traffic Analytics-Diensten. [Weitere Informationen](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Aktivieren Sie die Replikation für die Notfallwiederherstellung von virtuellen Azure-IaaS-Computern bei Verwendung von firewallfähigen Cache-, Quell- oder Zielspeicherkonten.  [Weitere Informationen](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
 
-Die Einstellung **Hiermit erlauben Sie vertrauenswürdigen Microsoft-Diensten ...** ermöglicht auch einer bestimmten Instanz der folgenden Dienste den Zugriff auf das Speicherkonto, wenn Sie der [vom System zugewiesenen verwalteten Identität](../../active-directory/managed-identities-azure-resources/overview.md) für diese Ressourceninstanz explizit [eine Azure-Rolle zuweisen](storage-auth-aad.md#assign-azure-roles-for-access-rights). In diesem Fall entspricht der Zugriffsbereich für die Instanz der Azure-Rolle, die der verwalteten Identität zugewiesen ist.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Vertrauenswürdiger Zugriff auf der Grundlage einer systemseitig zugewiesenen verwalteten Identität
+
+Die folgende Tabelle enthält eine Liste mit Diensten, die Zugriff auf Ihre Speicherkontodaten haben, wenn den Ressourceninstanzen dieser Dienste die entsprechende Berechtigung erteilt wird. Um die Berechtigung zu erteilen, müssen Sie der [systemseitig zugewiesenen verwalteten Identität](../../active-directory/managed-identities-azure-resources/overview.md) für jede Ressourceninstanz explizit [eine Azure-Rolle zuweisen](storage-auth-aad.md#assign-azure-roles-for-access-rights). In diesem Fall entspricht der Zugriffsbereich für die Instanz der Azure-Rolle, die der verwalteten Identität zugewiesen ist. 
+
+> [!TIP]
+> Soll Zugriff auf bestimmte Ressourcen gewährt werden, empfiehlt sich die Verwendung von Ressourceninstanzregeln. Informationen zum Gewähren von Zugriff auf bestimmte Ressourceninstanzen finden Sie im Abschnitt [Gewähren von Zugriff über Azure-Ressourceninstanzen (Vorschau)](#grant-access-specific-instances) dieses Artikels.
+
 
 | Dienst                        | Name des Ressourcenanbieters                 | Zweck            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Ermöglicht dem API Management-Dienst Zugriff auf Speicherkonten hinter der Firewall mithilfe von Richtlinien. [Weitere Informationen](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Ermöglicht Cognitive Search-Diensten den Zugriff auf Speicherkonten zur Indizierung, Verarbeitung und Abfrage. |
-| Azure Cognitive Services       | Microsoft.CognitiveService             | Ermöglicht Cognitive Services den Zugriff auf Speicherkonten. |
+| Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Ermöglicht Cognitive Services den Zugriff auf Speicherkonten. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks können beim Erstellen von Containerimages auf Speicherkonten zugreifen. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Ermöglicht den Zugriff auf Speicherkonten über die ADF Runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Ermöglicht den Zugriff auf Speicherkonten über Data Share. |
+| Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Ermöglicht den Zugriff auf Speicherkonten über DevTest Labs. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Ermöglicht das Schreiben von Daten aus einem IoT-Hub in den Blobspeicher. [Weitere Informationen](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Ermöglicht Logik-Apps den Zugriff auf Speicherkonten. [Weitere Informationen](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
-| Azure Machine Learning-Dienst | Microsoft.MachineLearningServices      | Autorisierte Azure Machine Learning-Arbeitsbereiche schreiben Experimentausgaben, Modelle und Protokolle in Blob Storage und lesen die Daten. [Weitere Informationen](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Ermöglicht den Import und Export von Daten aus bestimmten SQL-Datenbanken unter Verwendung der COPY-Anweisung oder von PolyBase. [Weitere Informationen](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
-| Azure SQL-Datenbank       | Microsoft.Sql                          | Ermöglicht den [Import](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) von Daten aus Speicherkonten sowie das [Schreiben](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) von Überwachungsdaten in Speicherkonten hinter einer Firewall. |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Ermöglicht das Schreiben von Daten aus einem Streamingauftrag in den BLOB-Speicher. [Weitere Informationen](../../stream-analytics/blob-output-managed-identity.md) |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Dies ermöglicht in Azure Storage den Zugriff auf Daten von Azure Synapse Analytics. |
+| Azure Machine Learning-Dienst | Microsoft.MachineLearningServices      | Autorisierte Azure Machine Learning-Arbeitsbereiche schreiben Experimentausgaben, Modelle und Protokolle in Blob Storage und lesen die Daten. [Weitere Informationen](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) |
+| Azure Media Services           | Microsoft.Media/mediaservices          | Ermöglicht den Zugriff auf Speicherkonten über Media Services. |
+| Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Ermöglicht den Zugriff auf Speicherkonten über Azure Migrate. |
+| Azure Purview                  | Microsoft.Purview/accounts             | Ermöglicht den Zugriff auf Speicherkonten durch Purview. |
+| Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Ermöglicht den Zugriff auf Speicherkonten über Remote Rendering. |
+| Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Ermöglicht den Zugriff auf Speicherkonten über Site Recovery. |
+| Azure SQL-Datenbank             | Microsoft.Sql                          | Ermöglicht das [Schreiben](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) von Überwachungsdaten in Speicherkonten hinter einer Firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Ermöglicht das Importieren und Exportieren von Daten aus bestimmten SQL-Datenbanken mithilfe der COPY-Anweisung, per PolyBase (in dediziertem Pool) oder mithilfe der Funktion `openrowset` und externer Tabellen in einem serverlosen Pool. [Weitere Informationen](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics              | Ermöglicht das Schreiben von Daten aus einem Streamingauftrag in den BLOB-Speicher. [Weitere Informationen](../../stream-analytics/blob-output-managed-identity.md) |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Dies ermöglicht in Azure Storage den Zugriff auf Daten von Azure Synapse Analytics. |
 
+## <a name="grant-access-to-storage-analytics"></a>Gewähren von Zugriffs für die Speicheranalyse
 
-### <a name="storage-analytics-data-access"></a>Zugriff auf Storage Analytics-Daten
+In manchen Fällen ist der Lesezugriff auf Ressourcenprotokolle und -metriken von außerhalb des Netzwerks erforderlich. Wenn Sie für vertrauenswürdige Dienste den Zugriff auf das Speicherkonto konfigurieren, können Sie Lesezugriff für die Protokolldateien, für die Metriktabellen oder für beides erlauben, indem Sie eine Netzwerkregelausnahme erstellen. Eine ausführliche Anleitung finden Sie im Anschluss im Abschnitt **Verwalten von Ausnahmen**. Weitere Informationen zur Verwendung der Speicheranalyse finden Sie unter [Speicheranalyse](./storage-analytics.md). 
 
-In manchen Fällen ist der Lesezugriff auf Ressourcenprotokolle und -metriken von außerhalb des Netzwerks erforderlich. Wenn Sie für vertrauenswürdige Dienste den Zugriff auf das Speicherkonto konfigurieren, können Sie den Lesezugriff für die Protokolldateien, Metriktabellen oder beides erlauben. [Weitere Informationen zum Arbeiten mit Storage Analytics](./storage-analytics.md)
+<a id="manage-exceptions"></a>
 
-### <a name="managing-exceptions"></a>Verwalten von Ausnahmen
+## <a name="manage-exceptions"></a>Verwalten von Ausnahmen
 
 Netzwerkregelausnahmen können über das Azure-Portal, über PowerShell oder per Azure CLI v2 verwaltet werden.
 
-#### <a name="azure-portal"></a>Azure-Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigieren Sie zu dem Speicherkonto, das Sie schützen möchten.
 
-1. Klicken Sie auf das Einstellungsmenü namens **Netzwerk**.
+2. Wählen Sie das Einstellungsmenü **Netzwerk** aus.
 
-1. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
+3. Vergewissern Sie sich, dass Sie den Zugriff über **Ausgewählte Netzwerke** ausgewählt haben.
 
-1. Wählen Sie unter **Ausnahmen** die Ausnahmen aus, die Sie gewähren möchten.
+4. Wählen Sie unter **Ausnahmen** die Ausnahmen aus, die Sie gewähren möchten.
 
-1. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
+5. Klicken Sie zum Übernehmen der Änderungen auf **Speichern**.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installieren Sie [Azure PowerShell](/powershell/azure/install-Az-ps), und [melden Sie sich an](/powershell/azure/authenticate-azureps).
 
-1. Zeigen Sie die Ausnahmen für die Speicherkonto-Netzwerkregeln an.
+2. Zeigen Sie die Ausnahmen für die Speicherkonto-Netzwerkregeln an.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
-1. Konfigurieren Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
+3. Konfigurieren Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
-1. Entfernen Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
+4. Entfernen Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
@@ -448,23 +648,23 @@ Netzwerkregelausnahmen können über das Azure-Portal, über PowerShell oder per
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls hat das Entfernen von Ausnahmen keine Wirkung.
 
-#### <a name="cliv2"></a>CLI v2
+#### <a name="azure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 1. Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli), und [melden Sie sich an](/cli/azure/authenticate-azure-cli).
 
-1. Zeigen Sie die Ausnahmen für die Speicherkonto-Netzwerkregeln an.
+2. Zeigen Sie die Ausnahmen für die Speicherkonto-Netzwerkregeln an.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
     ```
 
-1. Konfigurieren Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
+3. Konfigurieren Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
-1. Entfernen Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
+4. Entfernen Sie die Ausnahmen von den Speicherkonto-Netzwerkregeln.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -472,6 +672,8 @@ Netzwerkregelausnahmen können über das Azure-Portal, über PowerShell oder per
 
 > [!IMPORTANT]
 > Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls hat das Entfernen von Ausnahmen keine Wirkung.
+
+---
 
 ## <a name="next-steps"></a>Nächste Schritte
 

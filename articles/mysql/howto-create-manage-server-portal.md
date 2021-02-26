@@ -1,21 +1,25 @@
 ---
 title: Verwalten eines Servers – Azure-Portal – Azure Database for MySQL
 description: Erfahren Sie, wie Sie Azure Database for MySQL-Server aus dem Azure-Portal verwalten.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541452"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897984"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Erstellen eines Servers für Azure Database for MySQL über das Azure-Portal
 
 In diesem Artikel erfahren Sie, wie Sie Ihre Azure Database for MySQL-Server verwalten. Zu den Verwaltungsaufgaben gehören die Compute- und Speicherskalierung, das Zurücksetzen des Administratorkennworts und das Anzeigen von Serverdetails.
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff _Slave_, einen Begriff, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
+>
 
 ## <a name="sign-in"></a>Anmelden
 
@@ -83,6 +87,13 @@ Sie können das Kennwort für die Administratorrolle über das Azure-Portal änd
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot des Azure-Portals für das Zurücksetzen des Kennworts und das Speichern in Azure Database for MySQL":::
 
 3. Wählen Sie **OK** aus, um das neue Kennwort zu speichern.
+ 
+
+> [!IMPORTANT]
+> Durch das Zurücksetzen des Serveradministratorkennworts werden die Serveradministratorrechte automatisch auf die Standardeinstellungen zurückgesetzt. Setzen Sie das Serveradministratorkennwort zurück, wenn Sie versehentlich ein oder mehrere Serveradministratorrechte widerrufen haben.
+   
+> [!NOTE]
+> Der Serveradministratorbenutzer verfügt standardmäßig über die folgenden Berechtigungen: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 ## <a name="delete-a-server"></a>Löschen eines Servers
 

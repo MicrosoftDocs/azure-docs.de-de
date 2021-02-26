@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064843"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583975"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Bekannte Probleme bei Browsern mit Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ Der Grund ist, dass JavaScript-Zusagen von Internet Explorer nicht nativ unterst
 Die Bereitstellung Ihrer Anwendung in der Produktion (z. B. in Azure-Web-Apps) funktioniert, sofern der Endbenutzer Popups akzeptiert hat. Wir haben dies mit Internet Explorer 11 getestet.
 
 ### <a name="running-locally"></a>Lokales Ausführen
-Falls Sie Ihre in Internet Explorer ausgeführte Anwendung lokal ausführen und debuggen möchten, sollten Sie über folgende Aspekte Bescheid wissen (Annahme: Sie möchten Ihre Anwendung als *http://localhost:1234* ausführen):
+Falls Sie Ihre in Internet Explorer ausgeführte Anwendung lokal ausführen und debuggen möchten, beachten Sie Folgendes (davon ausgehend, dass Sie Ihre Anwendung als *http://localhost:1234* ausführen möchten):
 
 - Internet Explorer verfügt über den Sicherheitsmechanismus „Geschützter Modus“, der verhindert, dass „MSAL.js“ richtig funktioniert. Eines der Symptome nach dem Anmelden kann darin bestehen, dass die Seite an http://localhost:1234/null umgeleitet wird.
 

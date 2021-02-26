@@ -1,5 +1,5 @@
 ---
-title: Erstellen einer einfachen Abfrage
+title: Erstellen einer Abfrage
 titleSuffix: Azure Cognitive Search
 description: Erfahren Sie, wie Sie in Cognitive Search eine Abfrageanforderung erstellen, welche Tools und APIs Sie für Tests und beim Programmieren verwenden können und welchen Einfluss der Indexentwurf auf Abfrageentscheidungen hat.
 manager: nitinme
@@ -7,74 +7,80 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 02/03/2021
+ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118641"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536831"
 ---
-# <a name="create-a-query-in-azure-cognitive-search"></a>Erstellen einer Abfrage in Azure Cognitive Search
+# <a name="creating-queries-in-azure-cognitive-search"></a>Erstellen von Abfragen in Azure Cognitive Search
 
-Wenn Sie zum ersten Mal eine Abfrage erstellen, finden Sie in diesem Artikel eine Beschreibung der benötigten Tools und APIs. Außerdem erfahren Sie, welche Methoden zum Erstellen einer Abfrage verwendet werden und wie sich Indexstruktur und -inhalt auf die Abfrageergebnisse auswirken. Eine Einführung in Abfrageanforderungen finden Sie unter [Abfragetypen und -erstellung](search-query-overview.md).
+Wenn Sie zum ersten Mal eine Abfrage erstellen, finden Sie in diesem Artikel Ansätze und Methoden zum Einrichten von Abfragen. Außerdem wird eine Abfrageanforderung vorgestellt und erklärt, wie Feldattribute und linguistische Analysemodule die Abfrageergebnisse beeinflussen können.
 
-## <a name="choose-tools-and-apis"></a>Auswählen der Tools und APIs
+## <a name="whats-a-query-request"></a>Was ist eine Abfrageanforderung?
 
-Sie benötigen ein Tool oder eine API, um eine Abfrage erstellen zu können. Die folgenden Vorschläge eignen sich für Test- und Produktionsworkloads.
+Eine Abfrage ist eine Nur-Lese-Anforderung an die Dokumentsammlung eines einzelnen Suchindexes. Sie gibt ein queryType-Element und einen Abfrageausdruck durch den search-Parameter an. Der Abfrageausdruck kann Suchbegriffe, einen in Anführungszeichen angegebenen Ausdruck und Operatoren enthalten.
 
-| Methodik | BESCHREIBUNG |
-|-------------|-------------|
-| Portal| Der [Suchexplorer (Portal)](search-explorer.md) ist eine Abfrageschnittstelle im Azure-Portal, mit dem Sie Indizes im zugrunde liegenden Suchdienst abfragen können. Im Portal werden im Hintergrund REST-API-Aufrufe an den Vorgang [Dokumente suchen](/rest/api/searchservice/search-documents) durchgeführt. Aufrufe von „AutoVervollständigen“, „Vorschläge“ oder „Dokumentsuche“ sind hingegen nicht möglich.<br/><br/> Sie können einen beliebigen Index und eine REST-API-Version auswählen (einschließlich der Vorschauversion). Für die Abfragezeichenfolge kann die einfache oder vollständige Syntax mit Unterstützung für alle Abfrageparameter (filter, select, searchFields usw.) verwendet werden. Wenn Sie im Portal einen Index öffnen, können Sie den Suchexplorer zusammen mit der JSON-Indexdefinition in parallelen Registerkarten nutzen, um einfacher auf Feldattribute zugreifen zu können. Überprüfen Sie beim Testen Ihrer Abfragen, welche Felder durchsuchbar, sortierbar, filterbar und facettierbar sind. <br/>Empfohlen für das erste Erkunden, Testen und Validieren. [Weitere Informationen.](search-explorer.md) |
-| Webtesttools| [Postman](search-get-started-rest.md) oder [Visual Studio Code](search-get-started-vs-code.md) bieten leistungsstarke Optionen für das Formulieren einer Anforderung vom Typ [Dokumente suchen](/rest/api/searchservice/search-documents) und jeder anderen Anforderung in REST. Die REST-APIs unterstützen jeden möglichen programmgesteuerten Vorgang in Azure Cognitive Search. Wenn Sie ein Tool wie Postman oder Visual Studio Code verwenden, können Sie Anforderungen interaktiv ausführen, um ihre Funktion besser zu verstehen, bevor Sie Arbeit in Code investieren. Ein Webtesttool ist auch eine gute Wahl, wenn Sie nicht die Berechtigungen „Mitwirkender“ oder „Administrator“ im Azure-Portal haben. Wenn Sie über eine Such-URL und einen Abfrage-API-Schlüssel verfügen, können Sie mit den Tools Abfragen für einen vorhandenen Index ausführen. |
-| Azure SDK | Wenn Sie bereit sind, Code zu schreiben, können Sie die Clientbibliotheken von Azure.Search.Document in den Azure SDKs für .NET, Python, JavaScript oder Java verwenden. Für jedes SDK gilt ein eigener Veröffentlichungszeitplan, Sie können aber in allen Indizes erstellen und abfragen. <br/><br/>Mit [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) können Sie einen Suchindex in C# abfragen.  [Weitere Informationen.](search-howto-dotnet-sdk.md)<br/><br/>Mit [SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) können Sie einen Suchindex in Python abfragen. [Weitere Informationen.](search-get-started-python.md)<br/><br/>Mit [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) können Sie einen Suchindex in JavaScript abfragen. [Weitere Informationen.](search-get-started-javascript.md) |
-
-## <a name="set-up-a-search-client"></a>Einrichten eines Suchclients
-
-Ein Suchclient authentifiziert sich beim Suchdienst, sendet Anforderungen und verarbeitet die Antworten. Ein Suchclient muss unabhängig vom verwendeten Tool oder der API über Folgendes verfügen:
-
-| Eigenschaften | BESCHREIBUNG |
-|------------|-------------|
-| Endpunkt | Ein Suchdienst ist eine URL, die im folgenden Format adressierbar ist: `https://[service-name].search.windows.net`. |
-| API-Zugriffsschlüssel (Administrator oder Abfrage) | Authentifiziert die Anforderung beim Suchdienst |
-| Indexname | Abfragen werden immer an die Dokumentsammlung eines einzelnen Index weitergeleitet. Es ist nicht möglich, Indizes zu verknüpfen oder benutzerdefinierte oder temporäre Datenstrukturen als Abfrageziel zu erstellen. |
-| API-Version | REST-Aufrufe erfordern explizit die `api-version` in der Anforderung. Im Gegensatz dazu werden Clientbibliotheken im Azure SDK für eine bestimmte REST-API-Version versioniert. Bei SDKs ist die `api-version` implizit. |
-
-### <a name="in-the-portal"></a>Im Portal
-
-Der Suchexplorer und andere Tools im Portal verfügen über eine integrierte Clientverbindung mit dem Dienst mit direktem Zugriff auf Indizes und andere Objekte auf den Seiten im Portal. Der Zugriff auf Tools, Assistenten und Objekte erfordert die Mitgliedschaft in der Rolle „Mitwirkender“ oder höher für den Dienst. 
-
-### <a name="using-rest"></a>Verwenden von REST
-
-Bei REST-Aufrufen können Sie [Postman oder ähnliche Tools](search-get-started-rest.md) als Client verwenden, um eine Anforderung vom Typ [Dokumente suchen](/rest/api/searchservice/search-documents) anzugeben. Jede Anforderung ist eigenständig. Daher müssen Sie den Endpunkt, den Indexnamen und die API-Version für jede Anforderung angeben. Andere Eigenschaften, der Inhaltstyp und die API-Schlüssel werden im Anforderungsheader weitergegeben. 
-
-Sie können einen Index mit POST oder GET abfragen. POST ist bei Angabe der Parameter im Anforderungstext einfacher zu verwenden. Wenn Sie POST verwenden, müssen Sie `docs/search` in die URL einschließen:
+Eine Abfrage kann auch ein count-Element enthalten, um die Anzahl der gefundenen Übereinstimmungen im Index zurückzugeben, ein select-Element zum Auswählen der im Suchergebnis zurückgegebenen Felder sowie ein orderby-Element, um die Ergebnisse zu sortieren. Das folgende Beispiel zeigt eine Teilmenge der verfügbaren Parameter, um Ihnen eine allgemeine Vorstellung von einer Abfrageanforderung zu geben. Weitere Informationen zur Abfragekomposition finden Sie unter [Abfragetypen und -kompositionen](search-query-overview.md) sowie [Dokumente durchsuchen (REST)](/rest/api/searchservice/search-documents).
 
 ```http
-POST https://myservice.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "simple",
-    "search": "*"
+    "queryType": "simple"
+    "search": "`New York` +restaurant",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-### <a name="using-azure-sdks"></a>Verwenden von Azure SDKs
+## <a name="choose-a-client"></a>Auswählen eines Clients
 
-Wenn Sie ein Azure SDK verwenden, erstellen Sie den Client im Code. Alle SDKs stellen Suchclients bereit, die den Zustand beibehalten können, sodass die Verbindungen wiederverwendet werden können. Für Abfragevorgänge instanziieren Sie einen **`SearchClient`** und geben Werte für die folgenden Eigenschaften an: Endpoint, Key und Index. Sie können dann die **`Search method`** aufrufen, um die Abfragezeichenfolge zu übergeben. 
+Sie benötigen ein Tool (z. B. Azure-Portal oder Postman) oder Code, der einen Abfrageclient mithilfe von APIs instanziiert. Für die anfängliche Entwicklung sowie für Proof of Concept-Tests empfiehlt sich die Verwendung des Azure-Portals oder der REST-APIs.
 
-| Sprache | Client | Beispiel |
-|----------|--------|---------|
-| C# und .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [Senden einer ersten Suchabfrage in C#](/dotnet/api/overview/azure/search.documents-readme#send-your-first-search-query) |
-| Python      | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [Senden einer ersten Suchabfrage in Python](/python/api/overview/azure/search-documents-readme#send-your-first-search-request) |
-| Java        | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [Senden einer ersten Suchabfrage in Java](/java/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
-| JavaScript  | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [Senden einer ersten Suchabfrage in JavaScript](/javascript/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
+### <a name="permissions"></a>Berechtigungen
 
-## <a name="choose-a-parser-simple--full"></a>Auswählen eines Parsers: einfach | vollständig
+Alle Vorgänge, einschließlich Abfrageanforderungen, können unter einem [Administrator-API-Schlüssel](search-security-api-keys.md) verwendet werden, aber Abfrageanforderungen können optional einen [Abfrage-API-Schlüssel](search-security-api-keys.md#create-query-keys) verwenden. Abfrage-API-Schlüssel werden dringend empfohlen. Sie können bis zu 50 Schlüssel pro Dienst erstellen und den verschiedenen Anwendungen unterschiedliche Schlüssel zuweisen.
 
-Wenn es sich bei der Abfrage um eine Volltextsuche handelt, wird der Inhalt des Suchparameters mithilfe eines Parsers verarbeitet. Azure Cognitive Search bietet zwei Abfrageparser. Der einfache Parser versteht die [einfache Abfragesyntax](query-simple-syntax.md). Dieser Parser wird standardmäßig verwendet, da er bei Abfragen von Freiformtext eine hohe Geschwindigkeit und Effizienz bietet. Die Syntax unterstützt gängige Suchoperatoren (AND, OR, NOT) für die Suche nach Begriffen und Ausdrücken und die Präfixsuche (`*`, wie in „Sea*“ für „Seattle“ und „Seaside“). Ganz allgemein wird empfohlen, zuerst den einfachen Parser auszuprobieren und nur dann zum vollständigen Parser zu wechseln, wenn Anwendungsanforderungen leistungsfähigere Abfragen erfordern.
+Im Azure-Portal erfordert der Zugriff auf Tools, Assistenten und Objekte die Mitgliedschaft in der Rolle „Mitwirkender“ oder höher für den Dienst. 
 
-Die [vollständige Lucene-Abfragesyntax](query-Lucene-syntax.md#bkmk_syntax), die beim Hinzufügen von `queryType=full` zur Anforderung aktiviert wird, basiert auf dem [Apache Lucene-Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+### <a name="use-azure-portal-to-query-an-index"></a>Abfragen eines Indexes über das Azure-Portal
+
+Der [Suchexplorer (Portal)](search-explorer.md) ist eine Abfrageschnittstelle im Azure-Portal, mit dem Sie Indizes im zugrunde liegenden Suchdienst abfragen können. Intern stellt das Portal [Dokumente durchsuchen](/rest/api/searchservice/search-documents)-Anforderungen, kann aber keine automatische Vervollständigung, keine Vorschläge und keine Dokumentensuche aufrufen. 
+
+Sie können einen beliebigen Index und eine REST-API-Version auswählen (einschließlich der Vorschauversion). Für die Abfragezeichenfolge kann die einfache oder vollständige Syntax mit Unterstützung für alle Abfrageparameter (filter, select, searchFields usw.) verwendet werden. Wenn Sie im Portal einen Index öffnen, können Sie den Suchexplorer zusammen mit der JSON-Indexdefinition in parallelen Registerkarten nutzen, um einfacher auf Feldattribute zugreifen zu können. Überprüfen Sie beim Testen Ihrer Abfragen, welche Felder durchsuchbar, sortierbar, filterbar und facettierbar sind.
+
+### <a name="use-a-rest-client"></a>Verwenden eines REST-Clients
+
+Sowohl Postman als auch Visual Studio Code (mit einer Erweiterung für Azure Cognitive Search) kann als Abfrageclient fungieren. Mit beiden Tools können Sie eine Verbindung mit Ihrem Suchdienst herstellen und die Anforderung [Dokumente durchsuchen (REST)](/rest/api/searchservice/search-documents) senden. Das Abfragen von Indizes mithilfe von REST-Clients wird in zahlreichen Tutorials und Beispielen veranschaulicht. 
+
+Weitere Informationen zum jeweiligen Client finden Sie in den folgenden Artikeln (beide enthalten Anweisungen für Abfragen):
+
++ [Schnellstart: Erstellen eines Azure Cognitive Search-Index mithilfe von REST-APIs](search-get-started-rest.md)
++ [Erste Schritte mit Visual Studio Code und Azure Cognitive Search](search-get-started-vs-code.md)
+
+Jede Anforderung ist eigenständig. Daher müssen Sie den Endpunkt, den Indexnamen und die API-Version für jede Anforderung angeben. Andere Eigenschaften, der Inhaltstyp und die API-Schlüssel werden im Anforderungsheader weitergegeben. Weitere Informationen finden Sie unter [Dokumente durchsuchen (REST)](/rest/api/searchservice/search-documents), um Hilfe bei der Formulierung von Abfrageanforderungen zu erhalten.
+
+### <a name="use-an-sdk"></a>Verwenden eines SDK
+
+Für Cognitive Search werden von den Azure-SDKs allgemein verfügbare Features implementiert. Daher kann jedes der SDKs zum Abfragen eines Suchindex verwendet werden. Alle stellen einen **SearchClient** zur Verfügung, der über Methoden zur Interaktion mit einem Index verfügt, vom Laden eines Index mit Suchdokumenten bis hin zur Formulierung von Abfrageanforderungen.
+
+| Azure SDK | Client | Beispiele |
+|-----------|--------|----------|
+| .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
+| Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
+| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
+| Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query.py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
+
+## <a name="choose-a-query-type-simple--full"></a>Auswählen eines Abfragetyps: Einfach | vollständig
+
+Wenn Ihre Abfrage eine Volltextsuche ist, wird ein Abfrageparser verwendet, um jeden Text zu verarbeiten, der als Suchbegriffe und -Ausdrücke übergeben wird. Azure Cognitive Search bietet zwei Abfrageparser. 
+
++ Der einfache Parser versteht die [einfache Abfragesyntax](query-simple-syntax.md). Dieser Parser wird standardmäßig verwendet, da er bei Abfragen von Freiformtext eine hohe Geschwindigkeit und Effizienz bietet. Die Syntax unterstützt gängige Suchoperatoren (AND, OR, NOT) für die Suche nach Begriffen und Ausdrücken und die Präfixsuche (`*`, wie in „Sea*“ für „Seattle“ und „Seaside“). Ganz allgemein wird empfohlen, zuerst den einfachen Parser auszuprobieren und nur dann zum vollständigen Parser zu wechseln, wenn Anwendungsanforderungen leistungsfähigere Abfragen erfordern.
+
++ Die [vollständige Lucene-Abfragesyntax](query-Lucene-syntax.md#bkmk_syntax), die beim Hinzufügen von `queryType=full` zur Anforderung aktiviert wird, basiert auf dem [Apache Lucene-Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
 Vollständige Syntax und einfache Syntax stimmen darin überein, dass beide dieselben Präfix- und booleschen Vorgänge unterstützen. Bei der vollständigen Syntax stehen Ihnen allerdings mehr Operatoren zur Verfügung. Beim vollständigen Parser gibt es mehr Operatoren für boolesche Ausdrücke und mehr Operatoren für komplexere Abfragen, wie z. B. die Fuzzysuche, die Platzhaltersuche, die NEAR-Suche und reguläre Ausdrücke.
 
@@ -92,7 +98,7 @@ Die Suche ist im Grunde genommen ein vom Benutzer gesteuerter Vorgang, bei dem B
 
 ## <a name="know-your-field-attributes"></a>Verstehen der Feldattribute
 
-Wenn Sie sich bereits mit den [Grundlagen einer Abfrageanforderung](search-query-overview.md) vertraut gemacht haben, erinnern Sie sich möglicherweise daran, dass die Parameter in der Abfrageanforderung davon abhängen, wie Feldern in einem Index Attribute zugeordnet werden. Damit ein Feld beispielsweise in einer Abfrage, einem Filter oder einer Sortierreihenfolge verwendet werden kann, muss es *durchsuchbar*, *filterbar* und *sortierbar* sein. Darüber hinaus können in Ergebnissen nur Felder angezeigt werden, die als *abrufbar* gekennzeichnet sind. Wenn Sie damit beginnen, in Ihrer Anforderung die Parameter `search`, `filter` und `orderby` anzugeben, sollten Sie unbedingt die Attribute überprüfen, um unerwartete Ergebnisse zu vermeiden.
+Wenn Sie sich bereits mit den [Abfragetypen und -komposition](search-query-overview.md) vertraut gemacht haben, erinnern Sie sich möglicherweise daran, dass die Parameter in der Abfrageanforderung davon abhängen, wie Feldern in einem Index Attribute zugeordnet werden. Damit ein Feld beispielsweise in einer Abfrage, einem Filter oder einer Sortierreihenfolge verwendet werden kann, muss es *durchsuchbar*, *filterbar* und *sortierbar* sein. Darüber hinaus können in Ergebnissen nur Felder angezeigt werden, die als *abrufbar* gekennzeichnet sind. Wenn Sie damit beginnen, in Ihrer Anforderung die Parameter `search`, `filter` und `orderby` anzugeben, sollten Sie unbedingt die Attribute überprüfen, um unerwartete Ergebnisse zu vermeiden.
 
 Im folgenden Screenshot des Portals mit dem [Beispielindex für Hotels](search-get-started-portal.md) können nur die letzten beiden Felder „LastRenovationDate“ und „Rating“ in einer `"$orderby"`-Klausel verwendet werden.
 
@@ -102,13 +108,13 @@ Eine Beschreibung der Feldattribute finden Sie unter [Erstellen eines Index (RES
 
 ## <a name="know-your-tokens"></a>Verstehen der Token
 
-Während der Indizierung verwendet die Abfrage-Engine ein Analysetool, um Textanalysen für Zeichenfolgen durchzuführen und so die Wahrscheinlichkeit von Übereinstimmungen zur Abfragezeit zu maximieren. Zeichenfolgen sind mindestens kleingeschrieben. Sie können aber auch eine Lemmatisierung und Stoppwortentfernung durchlaufen. Größere Zeichenfolgen oder zusammengesetzte Wörter werden in der Regel an Leerzeichen, Bindestrichen oder Gedankenstrichen aufgeteilt und als separate Token indiziert. 
+Während der Indizierung verwendet die Suchmaschine ein Analysetool, um Textanalysen für Zeichenfolgen durchzuführen und so die Wahrscheinlichkeit von Übereinstimmungen zur Abfragezeit zu maximieren. Zeichenfolgen sind mindestens kleingeschrieben. Sie können aber auch eine Lemmatisierung und Stoppwortentfernung durchlaufen. Größere Zeichenfolgen oder zusammengesetzte Wörter werden in der Regel an Leerzeichen, Bindestrichen oder Gedankenstrichen aufgeteilt und als separate Token indiziert. 
 
 Sie sollten also immer davon ausgehen, dass der Index etwas anderes enthält, als Sie erwarten. Wenn Ihre Abfragen nicht die erwarteten Ergebnisse zurückgeben, können Sie die vom Analysetool erstellten Token mit [Text analysieren (REST-API)](/rest/api/searchservice/test-analyzer) überprüfen. Weitere Informationen zur Tokenisierung und ihrer Auswirkungen auf Abfragen finden Sie unter [Suche nach Teilausdrücken und Mustern mit Sonderzeichen](search-query-partial-matching.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie nun ein besseres Verständnis von der Erstellung von Abfrageanforderungen haben, können Sie in den folgenden Schnellstarts praktische Erfahrungen sammeln.
+Nachdem Sie nun ein besseres Verständnis von der Funktionsweise von Abfrageanforderungen haben, können Sie in den folgenden Schnellstarts praktische Erfahrungen sammeln.
 
 + [Suchexplorer](search-explorer.md)
 + [Abfragen des Azure Search-Index mit der REST-API](search-get-started-rest.md)

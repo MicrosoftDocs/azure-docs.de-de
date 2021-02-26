@@ -1,33 +1,33 @@
 ---
-title: Anpassen der Benutzeroberfläche
+title: Anpassen der Benutzeroberfläche mit HTML-Vorlagen
 titleSuffix: Azure AD B2C
-description: In diesem Artikel erfahren Sie, wie Sie die Benutzeroberfläche Ihrer Anwendungen anpassen, die Azure Active Directory B2C verwenden.
+description: Hier erfahren Sie, wie Sie mit HTML-Vorlagen die Benutzeroberfläche für Ihre Anwendungen anpassen, die Azure Active Directory B2C verwenden.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058666"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050542"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassen der Benutzeroberfläche in Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Anpassen der Benutzeroberfläche mit HTML-Vorlagen in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Das Branding und Anpassen der Benutzeroberfläche, die Azure Active Directory B2C (Azure AD B2C) für Ihre Kunden anzeigt, trägt zu einer nahtlosen Benutzererfahrung in Ihrer Anwendung bei. Diese Benutzererfahrung umfasst Registrieren, Anmelden, Bearbeiten von Profilen und Zurücksetzen von Kennwörtern. In diesem Artikel werden die Methoden zum Anpassen der Benutzeroberfläche (User Interface, UI) erläutert. 
 
 > [!TIP]
-> Wenn Sie nur das Bannerlogo, das Hintergrundbild und die Hintergrundfarbe Ihrer Benutzerflowseiten ändern möchten, können Sie das Feature [Unternehmensbranding](company-branding.md) ausprobieren.
+> Wenn Sie nur das Bannerlogo, das Hintergrundbild und die Hintergrundfarbe Ihrer Benutzerflowseiten ändern möchten, können Sie das Feature [Unternehmensbranding](customize-ui.md) ausprobieren.
 
 ## <a name="custom-html-and-css-overview"></a>Übersicht zu benutzerdefiniertem HTML und CSS
 
@@ -387,7 +387,15 @@ So verwenden Sie das Beispiel
 1. Ändern Sie nun die Richtlinie, die auf Ihre HTML-Datei verweist, wie zuvor erwähnt.
 1. Falls Schriftarten, Bilder oder CSS-Dateien fehlen, überprüfen Sie die Verweise in der Erweiterungsrichtlinie und die HTML-Dateien (\*.html).
 
+## <a name="use-company-branding-assets-in-custom-html"></a>Verwenden von Unternehmensbrandingobjekten in benutzerdefiniertem HTML
+
+Wenn Sie [Unternehmensbrandingobjekte](customize-ui.md#configure-company-branding) in benutzerdefiniertem HTML-Code verwenden möchten, fügen Sie die folgenden Tags außerhalb des Tags `<div id="api">` hinzu. Die Bildquelle wird durch die des Hintergrundbilds und Bannerlogos ersetzt.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie, wie Sie [clientseitigen JavaScript-Code](javascript-and-page-layout.md) aktivieren.
-

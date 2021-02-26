@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761370"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580937"
 ---
 # <a name="application-configuration-options"></a>Anwendungskonfigurationsoptionen
 
@@ -73,7 +73,7 @@ Wenn Sie keine Instanz angeben, wird als Ziel Ihrer App eine Instanz der öffent
 
 Die Zielgruppe für die Anmeldung richtet sich nach den geschäftlichen Anforderungen Ihrer App:
 
-- Wenn Sie eine Branchenanwendung entwickeln, erstellen Sie wahrscheinlich eine Einzelinstanzanwendung, die nur in Ihrer Organisation verwendet wird. In diesem Fall müssen Sie die Organisation entweder anhand ihrer Mandanten-ID (der ID Ihrer Azure AD-Instanz) oder anhand eines Domänennamens angeben, der mit der Azure AD-Instanz verknüpft ist.
+- Wenn Sie eine Branchenanwendung entwickeln, erstellen Sie wahrscheinlich eine Einzelinstanzanwendung, die nur in Ihrer Organisation verwendet wird. Definieren Sie in diesem Fall die Organisation entweder anhand der Mandanten-ID (ID Ihrer Azure AD-Instanz) oder anhand eines Domänennamens, der mit der Azure AD-Instanz verknüpft ist.
 - Wenn Sie ein unabhängiger Softwareanbieter sind, möchten Sie wahrscheinlich, dass sich Benutzer mit ihren Geschäfts-, Schul- und Unikonten in einer beliebigen Organisation oder in mehreren Organisationen anmelden können (mehrinstanzenfähige App). Möglicherweise möchten Sie aber auch, dass Benutzer sich mit persönlichen Microsoft-Konten anmelden können.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Angeben der Zielgruppe im Code bzw. der Konfiguration
@@ -122,9 +122,9 @@ Wenn Sie eine öffentliche Client-App entwickeln und die MSAL verwenden, gilt Fo
   | UWP | Wert von `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Dies ermöglicht SSO mit dem Browser, indem der Wert auf das Ergebnis von WebAuthenticationBroker.GetCurrentApplicationCallbackUri() festgelegt wird, das Sie aufzeichnen müssen. |
   | .NET Core | `https://localhost`. Dies ermöglicht dem Benutzer, den Systembrowser für die interaktive Authentifizierung zu verwenden, da .NET Core derzeit keine Benutzeroberfläche für die eingebettete Webansicht hat. |
 
-- Sie müssen keinen Umleitungs-URI hinzufügen, wenn Sie eine Xamarin Android- und iOS-Anwendung erstellen, die keinen Broker unterstützt (der Umleitungs-URI wird für Xamarin Android und iOS automatisch auf `msal{ClientId}://auth` gesetzt).
+- Sie brauchen keinen Umleitungs-URI hinzuzufügen, wenn Sie eine Xamarin Android- und iOS-Anwendung erstellen, die den Umleitungs-URI des Brokers nicht unterstützt. Er wird für Xamarin Android und iOS automatisch auf `msal{ClientId}://auth` festgelegt.
 
-- Sie müssen den Umleitungs-URI auf der Seite [App registrations](https://aka.ms/appregistrations) (App-Registrierungen) konfigurieren:
+- Konfigurieren Sie den Umleitungs-URI auf der Seite [App-Registrierungen](https://aka.ms/appregistrations):
 
    ![Umleitungs-URI auf der Seite „App-Registrierungen“](media/msal-client-application-configuration/redirect-uri.png)
 

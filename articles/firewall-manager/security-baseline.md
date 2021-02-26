@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b8dc91851ee736fd15f1fed8ef50c2cd7c7ab778
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5ef40b048fbc50174afb662aecd3335d97eb0106
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788297"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095971"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Azure-Sicherheitsbaseline für Azure Firewall Manager
 
@@ -129,7 +129,7 @@ Azure Advanced Threat Protection (ATP) ist eine Sicherheitslösung, die Active 
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Schützen und Einschränken stark privilegierter Benutzer
 
 **Leitfaden**: Bei Azure Firewall Manager wird Azure Active Directory (Azure AD) für Identitäts- und Zugriffszwecke verwendet. Die wichtigsten integrierten Rollen in Azure AD sind „Globaler Administrator“ und „Administrator für privilegierte Rollen“, da Benutzer, die diesen beiden Rollen zugeordnet sind, Administratorrollen delegieren können:
-- Globaler Administrator/Unternehmensadministrator: Benutzer mit dieser Rolle haben Zugriff auf alle administrativen Funktionen in Azure AD sowie auf Dienste, die Azure AD-Identitäten verwenden.
+- Globaler Administrator: Benutzer mit dieser Rolle haben Zugriff auf alle administrativen Funktionen in Azure AD sowie auf Dienste, die Azure AD-Identitäten verwenden.
 - Administrator für privilegierte Rollen: Benutzer mit dieser Rolle können Rollenzuweisungen in Azure AD und Azure AD Privileged Identity Management (PIM) verwalten. Überdies ermöglicht diese Rolle Verwaltung aller Aspekte von PIM und administrativer Einheiten.
 
 Möglicherweise verfügen Sie über weitere kritische Rollen, die geregelt werden müssen, wenn Sie benutzerdefinierte Rollen mit bestimmten zugewiesenen privilegierten Berechtigungen verwenden. Es empfiehlt sich, ähnliche Kontrollelemente auch auf das Administratorkonto für kritische Unternehmensressourcen anzuwenden.

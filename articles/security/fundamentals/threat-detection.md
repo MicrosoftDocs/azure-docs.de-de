@@ -1,10 +1,10 @@
 ---
-title: Erweiterte Bedrohungserkennung von Azure | Microsoft-Dokumentation
-description: Erfahren Sie mehr über die integrierten Funktionen zur erweiterten Bedrohungserkennung für Azure, beispielsweise über den Dienst Azure AD Identity Protection.
+title: Azure-Bedrohungsschutz | Microsoft-Dokumentation
+description: Hier erfahren Sie mehr über die integrierten Funktionen für den Bedrohungsschutz für Azure, beispielsweise über den Dienst Azure AD Identity Protection.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
-ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747272"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549928"
 ---
-# <a name="azure-advanced-threat-detection"></a>Erweiterte Bedrohungserkennung von Azure
+# <a name="azure-threat-protection"></a>Azure-Bedrohungsschutz
 
-Azure enthält integrierte Funktionen zur erweiterten Bedrohungserkennung über Dienste wie Azure Active Directory (Azure AD), Azure Monitor-Protokolle und Azure Security Center. Diese Auflistung von Sicherheitsdiensten und -funktionen bietet eine einfache und schnelle Möglichkeit zu verstehen, was innerhalb Ihrer Azure-Bereitstellungen abläuft.
+Azure bietet integrierte Funktionen für den Bedrohungsschutz über Dienste wie Azure Active Directory (Azure AD), Azure Monitor-Protokolle und Azure Security Center. Diese Auflistung von Sicherheitsdiensten und -funktionen bietet eine einfache und schnelle Möglichkeit zu verstehen, was innerhalb Ihrer Azure-Bereitstellungen abläuft.
 
 Azure bietet eine Vielzahl von Optionen zum Konfigurieren und Anpassen der Sicherheit, um den Anforderungen Ihrer App-Bereitstellungen zu entsprechen. In diesem Artikel wird beschrieben, wie Sie diese Anforderungen erfüllen.
 
@@ -84,23 +84,9 @@ Zusätzlich zur Bereitstellung wertvoller Dienste kann Azure Monitor in System C
 
 ### <a name="holistic-security-and-compliance-posture"></a>Ganzheitlicher Ansatz für den Sicherheits- und Konformitätsstatus
 
-Das [Log Analytics-Dashboard für Sicherheit und Überwachung](../../security-center/security-center-introduction.md) bietet dank integrierter Suchabfragen für relevante Probleme, die Ihre Aufmerksamkeit erfordern, einen umfassenden Einblick in die Lage der IT-Sicherheit Ihres Unternehmens. Das Dashboard „Sicherheit und Überwachung“ ist die Startseite für sämtliche Sicherheitsaspekte in Azure Monitor-Protokolle. Hier erhalten Sie einen allgemeinen Überblick über den Sicherheitszustand Ihres Computers. Sie können auch alle Ereignisse der letzten 24 Stunden, 7 Tage oder für einen anderen benutzerdefinierten Zeitraum anzeigen.
+[Azure Security Center](../../security-center/security-center-introduction.md) bietet mit integrierten Suchabfragen für relevante Probleme, die Ihre Aufmerksamkeit erfordern, einen umfassenden Einblick in die Lage der IT-Sicherheit Ihres Unternehmens. Hier erhalten Sie einen allgemeinen Überblick über den Sicherheitszustand Ihres Computers. Sie können auch alle Ereignisse der letzten 24 Stunden, 7 Tage oder für einen anderen benutzerdefinierten Zeitraum anzeigen.
 
 Azure Monitor-Protokolle helfen Ihnen dabei, den Gesamtsicherheitsstatus einer beliebigen Umgebung schnell und einfach im Kontext von IT-Vorgängen zu erfassen. Hierzu zählen unter anderem die Bewertung von Softwareupdates, Antischadsoftwarebewertungen und Konfigurationsgrundwerte. Die Sicherheitsprotokolldaten sind leicht zugänglich, um die Überwachungsprozesse für Sicherheit und Konformität zu optimieren.
-
-![Das Log Analytics-Dashboard „Sicherheit und Überwachung“](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-Das Log Analytics-Dashboard „Sicherheit und Überwachung“ ist in vier Hauptkategorien unterteilt:
-
--   **Sicherheitsdomänen:** Ermöglichen es Ihnen, die Sicherheitsdatensätze in Abhängigkeit der Zeit näher zu untersuchen. Außerdem können Sie auf Schadsoftwarebewertungen zugreifen, Bewertungen aktualisieren, Informationen zu Netzwerksicherheit, Identität und Zugriff anzeigen, Computer mit Sicherheitsereignissen anzeigen und schnell auf das Azure Security Center-Dashboard zugreifen.
-
--   **Relevante Probleme:** Mit dieser Option können Sie schnell die Anzahl von aktiven Problemen und den jeweiligen Schweregrad ermitteln.
-
--   **Erkennungen (Vorschau):** Ermöglicht Ihnen, Angriffsmuster zu identifizieren, indem Sicherheitswarnungen für Ihre Ressourcen beim Auftreten angezeigt werden.
-
--   **Informationen zu Bedrohungen:** Ermöglicht Ihnen, Angriffsmuster zu identifizieren, indem die Gesamtanzahl von Servern mit ausgehendem schädlichem IP-Datenverkehr, die Art der Bedrohung und eine Karte mit den Standorten der IP-Adressen angezeigt werden.
-
--   **Allgemeine Sicherheitsabfragen:** Diese Option liefert eine Liste mit den gängigsten Sicherheitsabfragen, die Sie zum Überwachen der Umgebung verwenden können. Wenn Sie eine Abfrage auswählen, wird der Suchbereich geöffnet, und die Ergebnisse der Abfrage werden angezeigt.
 
 ### <a name="insight-and-analytics"></a>Insight und Analytics
 Im Mittelpunkt von [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) steht das Repository, das von Azure gehostet wird.
@@ -109,21 +95,16 @@ Im Mittelpunkt von [Azure Monitor](../../azure-monitor/log-query/log-query-overv
 
 Sie sammeln Daten von verbundenen Quellen im Repository, indem Sie Datenquellen konfigurieren und Ihrem Abonnement Lösungen hinzufügen.
 
-![Das Dashboard von Azure Monitor](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Für Datenquellen und Lösungen werden jeweils separate Datensatztypen mit eigenen Eigenschaften erstellt, aber Sie können sie mit Abfragen für das Repository trotzdem zusammen analysieren. Sie können die gleichen Tools und Methoden verwenden, um mit den unterschiedlichsten Daten zu arbeiten, die über verschiedene Quellen erfasst werden.
-
 
 Der größte Teil der Interaktion mit Azure Monitor-Protokollen erfolgt über das Azure-Portal, das in jedem Browser verwendet werden kann und Ihnen Zugriff auf Konfigurationseinstellungen und verschiedene Tools bietet, mit denen Sie die gesammelten Daten analysieren und entsprechend reagieren können. Im Portal können Sie Folgendes nutzen:
 * [Protokollsuchen](../../azure-monitor/log-query/log-query-overview.md), mit denen Sie Abfragen zum Analysieren von gesammelten Daten erstellen.
 * [Dashboards](../../azure-monitor/learn/tutorial-logs-dashboards.md), die Sie mit grafischen Ansichten Ihrer wertvollsten Suchen anpassen können.
 * [Lösungen](../../azure-monitor/insights/solutions.md), mit denen zusätzliche Funktionen und Analysetools bereitgestellt werden.
 
-![Analysetools](./media/threat-detection/azure-threat-detection-fig6.png)
-
 Lösungen fügen Azure Monitor-Protokolle weitere Funktionalität hinzu. Sie werden primär in der Cloud ausgeführt und ermöglichen die Analyse von Daten, die im Log Analytics-Repository gesammelt wurden. Lösungen definieren ggf. auch neue Datensatztypen, die gesammelt und mit Protokollsuchvorgängen oder über eine zusätzliche Benutzeroberfläche analysiert werden können, die von der Lösung auf dem Log Analytics-Dashboard bereitgestellt wird.
 
-Das Dashboard „Sicherheit und Überwachung“ ist ein Beispiel für diese Arten von Lösungen.
+Security Center ist ein Beispiel für diese Arten von Lösungen.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automation & Control: Warnung zu Abweichungen von der Sicherheitskonfiguration
 
@@ -216,7 +197,7 @@ Azure Security Center arbeitet mit Sicherheitsforschungs- und Data Science-Teams
 
 Diese kombinierten Verfahren führen zu neuen und verbesserten Erkennungsergebnissen, von denen Sie sofort profitieren können. Sie müssen hierfür nichts unternehmen.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Features für die erweiterte Bedrohungserkennung: Weitere Azure-Dienste
+## <a name="threat-protection-features-other-azure-services"></a>Features für den Bedrohungsschutz: Weitere Azure-Dienste
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Virtuelle Computer: Microsoft Antimalware
 
@@ -367,7 +348,7 @@ Mit Cloud App Security wird die Sichtbarkeit für Ihre Cloud wie folgt integrier
 
 Beim Erfassen der Daten aus diesen Quellen führt Cloud App Security ausgereifte Analysen dafür durch. Sie werden sofort über ungewöhnliche Aktivitäten informiert und erhalten einen umfassenden Einblick in die Cloudumgebung. Sie können eine Richtlinie in Cloud App Security konfigurieren und damit alles in Ihrer Cloudumgebung schützen.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Drittanbieterfunktionen für die erweiterte Bedrohungserkennung über Azure Marketplace
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Bedrohungsschutzfunktionen von Drittanbietern über den Azure Marketplace
 
 ### <a name="web-application-firewall"></a>Web Application Firewall
 

@@ -116,6 +116,8 @@
               href: use-dynamic-groups.md
             - name: Grundlegendes zu B2B-Benutzern
               href: user-properties.md
+            - name: Zurücksetzen des Einlösungsstatus
+              href: reset-redemption-status.md
             - name: B2B für integrierte Azure AD-Apps
               href: configure-saas-apps.md
         - name: Verwalten des Gastzugriffs in einer Hybridorganisation

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684004"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545937"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Erstellen einer End-to-End-Lösung
 
@@ -124,8 +124,6 @@ Kehren Sie zu Ihrem Visual Studio-Fenster zurück, in dem das Projekt _**AdtE2E
 ### <a name="assign-permissions-to-the-function-app"></a>Zuweisen von Berechtigungen zur Funktions-App
 
 Um für die Funktions-App den Zugriff auf Azure Digital Twins zu ermöglichen, müssen Sie als Nächstes die Schritte zum Konfigurieren einer App-Einstellung, Zuweisen einer vom System verwalteten Azure AD-Identität zur App und Erteilen der Rolle *Azure Digital Twins Data Owner* (Azure Digital Twins-Datenbesitzer) für diese Identität in der Azure Digital Twins-Instanz ausführen. Diese Rolle ist für alle Benutzer oder Funktionen erforderlich, von denen auf der Instanz viele Datenebenenaktivitäten durchgeführt werden sollen. Weitere Informationen zu Sicherheits- und Rollenzuweisungen finden Sie unter [*Konzepte: Sicherheit für Azure Digital Twins-Lösungen*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Verwenden Sie in Azure Cloud Shell den folgenden Befehl, um eine Anwendungseinstellung festzulegen, die von Ihrer Funktions-App zum Verweisen auf Ihre Azure Digital Twins-Instanz verwendet wird. Geben Sie für die Platzhalter die Details Ihrer Ressourcen an. (Zur Erinnerung: Die URL der Azure Digital Twins-Instanz setzt sich aus *https://* und dem Hostnamen zusammen.)
 
@@ -401,18 +399,15 @@ Hier wird das in diesem Tutorial erstellte Szenario noch einmal zusammengefasst.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie die in diesem Tutorial erstellten Ressourcen nicht mehr benötigen, können Sie die folgenden Schritte zum Löschen ausführen. 
+Nach Abschluss dieses Tutorials können Sie die zu entfernenden Ressourcen auswählen, abhängig davon, wie Sie weiter vorgehen möchten.
 
-Bei Verwendung von [Azure Cloud Shell](https://shell.azure.com) können Sie alle Azure-Ressourcen in einer Ressourcengruppe mit dem Befehl [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) löschen. Hierdurch werden die Ressourcengruppe, die Azure Digital Twins-Instanz, der IoT-Hub und die Registrierung des Hubgeräts, das Event Grid-Thema und die zugehörigen Abonnements sowie beide Azure Functions-Apps einschließlich beider Funktionen zugeordneter Ressourcen wie Speicher entfernt.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> Das Löschen einer Ressourcengruppe kann nicht rückgängig gemacht werden. Die Ressourcengruppe und alle darin enthaltenen Ressourcen werden unwiderruflich gelöscht. Achten Sie daher darauf, dass Sie nicht versehentlich die falsche Ressourcengruppe oder die falschen Ressourcen löschen. 
+* **Wenn Sie die in diesem Artikel eingerichtete Azure Digital Twins-Instanz weiterhin verwenden, aber einige oder alle ihrer Modelle, Zwillinge und Beziehungen entfernen möchten**, können Sie die CLI-Befehle vom Typ [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) in einem [Azure Cloud Shell](https://shell.azure.com)-Fenster verwenden, um die gewünschten Elemente zu löschen.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Mit dieser Option werden keine der anderen in diesem Tutorial erstellten Azure-Ressourcen (IoT Hub, Azure Functions-App usw.) entfernt. Sie können diese einzeln mithilfe der entsprechenden [dt-Befehle](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) für jeden Ressourcentyp löschen.
 
-Löschen Sie abschließend den Projektbeispielordner, den Sie auf Ihren lokalen Computer heruntergeladen haben.
+Löschen Sie ggf. auch den Projektordner von Ihrem lokalen Computer.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

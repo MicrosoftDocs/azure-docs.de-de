@@ -1,5 +1,5 @@
 ---
-title: Unterschiede beim API-Zugriff zwischen Azure Media Services V2 und V3 | Microsoft-Dokumentation
+title: API-Zugriff zwischen Media Services V2 und V3
 description: In diesem Artikel werden die Unterschiede beim API-Zugriff zwischen Azure Media Services V2 und V3 beschrieben.
 services: media-services
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 746f2d61d05b5b721e86aaea9ef56e2ca0621280
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 831bc737fbd54685cdc8358642bc37e7b2df2c42
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689537"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953715"
 ---
 # <a name="api-access-differences-between-azure-media-services-v2-to-v3-api"></a>Unterschiede beim API-Zugriff zwischen Azure Media Services V2 und V3
 

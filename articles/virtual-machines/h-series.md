@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 656113df50936acf6f9a6b7e9cc8cb01a8aec2a8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4aa0e498736ac804ec3ce5593cfd86417d09c126
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931749"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096866"
 ---
 # <a name="h-series"></a>H-Reihe
 
@@ -22,9 +22,11 @@ Virtuelle Computer der H-Serie sind für Anwendungen optimiert, für die Anforde
 [ACU](acu.md): 290-300<br>
 [Storage Premium](premium-storage-performance.md): Nicht unterstützt<br>
 [Storage Premium-Zwischenspeicherung:](premium-storage-performance.md) Nicht unterstützt<br>
-[Livemigration](maintenance-and-updates.md): Nicht unterstützt<br>
-[Updates mit Speicherbeibehaltung](maintenance-and-updates.md): Nicht unterstützt<br>
+[Livemigration:](maintenance-and-updates.md) Nicht unterstützt<br>
+[Updates mit Speicherbeibehaltung:](maintenance-and-updates.md) Nicht unterstützt<br>
 [Unterstützung von VM-Generationen](generation-2.md): Generation 1<br>
+[Beschleunigter Netzwerkbetrieb:](../virtual-network/create-vm-accelerated-networking-cli.md) Nicht unterstützt<br>
+[Kurzlebige Betriebssystemdatenträger:](ephemeral-os-disks.md) Nicht unterstützt <br>
 <br>
 
 | Size | vCPU | Prozessor | Arbeitsspeicher (GiB) | Speicherbandbreite GB/s | Basis-CPU-Frequenz (GHz) | Frequenz für alle Kerne (GHz, Spitze) | Frequenz für Einzelkern (GHz, Spitze) | RDMA-Leistung (Gbit/s) | MPI-Unterstützung | Temporärer Speicher (GiB) | Max. Anzahl Datenträger | Max. Datenträger-Datendurchsatz: IOPS | Max. virtuelle Ethernet-Netzwerkkarten (vNICs) |

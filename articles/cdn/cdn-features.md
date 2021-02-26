@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3a794d8915c820abecd530911f05ac649e5e538c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020962"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379912"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Wie sehen die Vergleiche zwischen Azure CDN-Produktfeatures aus?
 
@@ -57,7 +57,7 @@ In der folgenden Tabelle werden die Features der einzelnen Produkte gegenüberge
 | [Tokenauthentifizierung](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS-Schutz](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bereitstellen eines eigenen Zertifikats](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
-| Unterstützte TLS-Versionen | TLS 1.2, TLS 1.0/1.1 ([konfigurierbar](/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters)) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
+| Unterstützte TLS-Versionen | TLS 1.2, TLS 1.0/1.1 ([konfigurierbar](/rest/api/cdn/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters)) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Analysen und Berichte** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
 | [Azure-Diagnoseprotokolle](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |

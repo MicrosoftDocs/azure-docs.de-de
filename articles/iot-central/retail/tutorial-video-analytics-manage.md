@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874797"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832605"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Überwachen und Verwalten einer Anwendung vom Typ „Videoanalyse: Objekt- und Bewegungserkennung“
 
@@ -61,7 +61,7 @@ Wenn Sie zwei Kameras an Ihr IoT Edge-Gatewaygerät angeschlossen haben, sollten
 
 Wählen Sie die Registerkarte **Nachgeschaltete Geräte** für das Gerät **LVA-Gateway 001** aus, um die eben hinzugefügten Kamerageräte anzuzeigen:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Überprüfen":::
 
 Die Kamerageräte werden auch in der Liste auf der Seite **Geräte** der Anwendung angezeigt.
 
@@ -98,7 +98,7 @@ Wählen Sie **Speichern** aus.
 
 Nach einigen Sekunden wird die Bestätigungsmeldung **Accepted** (Akzeptiert) für jede Einstellung angezeigt:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Objekterkennung":::
 
 ## <a name="start-lva-processing"></a>Starten der LVA-Verarbeitung
 
@@ -108,13 +108,13 @@ Führen Sie den Befehl **Start LVA Processing** (LVA-Verarbeitung starten) aus.
 
 Zeigen Sie nach Abschluss des Befehls den Befehlsverlauf an, um sicherzustellen, dass keine Fehler vorhanden sind:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Befehl „Start LVA processing“ (LVA-Verarbeitung starten)":::
 
 ## <a name="monitor-the-cameras"></a>Überwachen der Kameras
 
 Navigieren Sie zum Gerät **camera-003**, und wählen Sie die Registerkarte **Dashboard** aus:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Dashboard für Kamera":::
 
 Auf der Kachel **Detection Count** (Erkennungsanzahl) wird die durchschnittliche Erkennungsanzahl jeweils für das ausgewählte Erkennungsklassenobjekt für ein Erkennungsintervall von einer Sekunde angezeigt.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Navigieren Sie zum Gerät **camera-003**, und wählen Sie die Registerkarte **Dashboard** aus. Klicken Sie anschließend auf der Kachel **Inference Event Video** (Rückschlussereignis-Video) auf einen der Hyperlinks der erfassten Ereignisse für die Bewegungserkennung. Das Video wird auf einer Seite des lokalen Videoplayers angezeigt:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Videocodeausschnitt":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Ändern der simulierten Geräte auf Anwendungsdashboards
 
@@ -182,7 +182,7 @@ Die Anwendungsdashboards werden ursprünglich mit Telemetriedaten und Eigenschaf
 
 Im Dashboard **Real Camera Monitor** (Überwachung für echte Kamera) werden jetzt Werte Ihres echten Kamerageräts angezeigt:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Kamera hinzufügen":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Anwendungsdashboard für echte Kameras":::
 
 ## <a name="pause-processing"></a>Anhalten der Verarbeitung
 
@@ -195,7 +195,7 @@ Sie können die Verarbeitung der Livevideoanalyse in der Anwendung anhalten:
     * Klicken Sie auf die Ressource **Streamingendpunkt**.
     * Wählen Sie auf der Seite **Streamingendpunktdetails** die Option **Beenden** aus.
 
-## <a name="tidy-up"></a>Aufräumen
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Wenn Sie die Anwendung nicht mehr benötigen, können Sie alle erstellten Ressourcen wie folgt entfernen:
 

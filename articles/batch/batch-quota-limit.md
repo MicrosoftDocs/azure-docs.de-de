@@ -2,14 +2,14 @@
 title: Dienstkontingente und Limits
 description: Erfahren Sie mehr über Azure Batch-Standardkontingente, Limits und Einschränkungen sowie die Anforderung von Kontingentsteigerungen.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814634"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052379"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch-Dienst – Kontingente und Limits
 
@@ -33,19 +33,7 @@ Beachten Sie, dass Kontingente keine garantierten Werte darstellen. Kontingente 
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Kernkontingente im Batch-Dienstmodus
 
-Die Erzwingung dedizierter Kernkontingente wurde verbessert. Die Änderungen werden in Phasen bereitgestellt und bis Ende Januar 2021 für alle Batch-Konten abgeschlossen.
-
-Kernkontingente sind für alle VM-Serien verfügbar, die von Batch unterstützt werden. Sie werden im Portal auf der Seite **Kontingente** angezeigt. Kontingentgrenzen für VM-Serien können wie unten beschrieben über eine Supportanfrage aktualisiert werden.
-
-Wenn der bestehende Mechanismus eingestellt wird, werden die Kontingentgrenzen für die VM-Serien nicht überprüft, sondern es werden nur die Kontingentgrenzen für das Konto erzwungen. Es ist somit eventuell möglich, mehr Kerne für eine VM-Serie zuzuordnen, als durch das Kontingent der VM-Serie angegeben wird, und zwar bis zur Höchstgrenze für das Kontingent des Kontos.
-
-Beim neuen Verfahren werden zusätzlich zum Kontingent für das gesamte Konto auch die Kontingente für die VM-Serie erzwungen. Im Rahmen der Umstellung auf den neuen Mechanismus werden eventuell die Kontingentwerte für die VM-Serie aktualisiert, um Zuordnungsfehler zu vermeiden. Bei VM-Serien, die in den letzten Monaten verwendet wurden, wird das Kontingent der VM-Serie entsprechend dem Gesamtkontokontingent aktualisiert. Diese Änderung ermöglicht nicht die Verwendung von mehr Kapazität, als bisher bereits verfügbar war.
-
-Sie können ermitteln, ob das Erzwingen der Kontingente der VM-Serie für ein Batch-Konto bereits aktiviert wurde, indem Sie Folgendes überprüfen:
-
-* Die [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount)-API-Eigenschaft des Batch-Kontos
-
-* Den Text auf der Seite **Kontingente** für das Batch-Konto im Portal
+Kernkontingente sind für alle VM-Serien verfügbar, die von Batch unterstützt werden. Sie werden im Portal auf der Seite **Kontingente** angezeigt. Kontingentgrenzen für VM-Serien können wie unten beschrieben über eine Supportanfrage aktualisiert werden. Bei dedizierten Knoten erzwingt Batch eine Kernkontingentgrenze für jede VM-Serie sowie eine Kernkontingentgrenze für das gesamte Batch-Konto. Bei Knoten mit niedriger Priorität erzwingt Batch nur ein Gesamtkernkontingent für das Batch-Konto ohne Unterscheidung zwischen unterschiedlichen VM-Serien.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Kontingente für Kerne im Modus „Benutzerabonnement“
 

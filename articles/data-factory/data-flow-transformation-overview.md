@@ -3,16 +3,15 @@ title: Zuordnungsdatenfluss – Übersicht über Transformationen
 description: Eine Übersicht über die verschiedenen Transformationen, die im Zuordnungsdatenfluss zur Verfügung stehen
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 9d44890e84e97a413543a4291d1331fee0f04841
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490889"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367910"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Zuordnungsdatenfluss – Übersicht über Transformationen
 

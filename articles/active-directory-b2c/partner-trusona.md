@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489468"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573686"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrieren von Trusona mit Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Zunächst benötigen Sie Folgendes:
 
 * Ein Azure AD-Abonnement Falls Sie über kein Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) verwenden.
 * [Einen Azure AD B2C-Mandanten](tutorial-create-tenant.md), der mit Ihrem Azure-Abonnement verknüpft ist.
-* Ein [Testkonto](https://www.trusona.com/aadb2c) bei Trusona.
+* Ein [Testkonto](https://www.trusona.com/) bei Trusona.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
@@ -53,7 +53,7 @@ In diesem Szenario fungiert Trusona als Identitätsanbieter für Azure AD B2C, u
 
 ## <a name="onboard-with-trusona"></a>Durchführen des Onboardings mit Trusona
 
-1. Füllen Sie das [Formular](https://www.trusona.com/aadb2c) aus, um ein Trusona-Konto zu erstellen und zu beginnen.
+1. Füllen Sie das [Formular](https://www.trusona.com/) aus, um ein Trusona-Konto zu erstellen und zu beginnen.
 
 2. Laden Sie die mobile Trusona-App aus dem App Store herunter. Installieren Sie die App, und registrieren Sie Ihre E-Mail-Adresse.
 

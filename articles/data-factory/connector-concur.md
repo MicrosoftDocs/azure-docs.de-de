@@ -1,22 +1,17 @@
 ---
 title: Kopieren von Daten aus Concur mithilfe von Azure Data Factory (Vorschau)
 description: Erfahren Sie, wie Daten aus Concur mithilfe einer Kopieraktivität in eine Azure Data Factory-Pipeline in unterstützte Senkendatenspeicher kopiert werden.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030797"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383669"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopieren von Daten aus Concur mithilfe von Azure Data Factory (Vorschau)
 
@@ -53,7 +48,7 @@ Folgende Eigenschaften werden für den mit Concur verknüpften Dienst unterstüt
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Concur** | Ja |
 | connectionProperties | Eine Gruppe von Eigenschaften zum Definieren, wie eine Verbindung mit Concur hergestellt werden soll. | Ja |
-| **_Unter `connectionProperties`:_* _ | | |
+| ***Unter `connectionProperties`:*** | | |
 | authenticationType | Zulässige Werte sind `OAuth_2.0_Bearer` und `OAuth_2.0` (Legacy). Die Option für die OAuth 2.0-Authentifizierung funktioniert mit der alten Concur-API, die seit Februar 2017 als veraltet eingestuft ist. | Ja |
 | host | Der Endpunkt des Concur-Servers, z. B. `implementation.concursolutions.com`.  | Ja |
 | baseUrl | Die Basis-URL Ihrer Concur-Autorisierungs-URL. | Ja für die `OAuth_2.0_Bearer`-Authentifizierung |
@@ -65,7 +60,7 @@ Folgende Eigenschaften werden für den mit Concur verknüpften Dienst unterstüt
 | useHostVerification | Gibt an, ob der Hostname im Zertifikat des Servers mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über TLS hergestellt wird. Der Standardwert lautet „true“.  | Nein |
 | usePeerVerification | Gibt an, ob die Identität des Servers überprüft werden soll, wenn eine Verbindung über TLS hergestellt wird. Der Standardwert lautet „true“.  | Nein |
 
-_ *Beispiel:* *
+**Beispiel:**
 
 ```json
 { 

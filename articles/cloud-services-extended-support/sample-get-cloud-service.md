@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 522ba95a5d6d97a8fde242274b1b0af969af20a5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fc16c9e0d47cfe015f7ec5ceb766053635840abb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881500"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475335"
 ---
 # <a name="retrieve-information-about-your-azure-cloud-service-extended-support-deployments"></a>Abrufen von Informationen zu Ihren Azure-Clouddienstbereitstellungen mit erweitertem Support
 
@@ -22,7 +22,7 @@ In diesen Beispielen werden verschiedene Möglichkeiten zum Abrufen von Informat
 ## <a name="get-all-cloud-services-under-a-resource-group"></a>Abrufen aller Cloud Services-Instanzen in einer Ressourcengruppe
 
 ```powershell
-Get-AzCloudService -ResourceGroup "ContosOrg"
+Get-AzCloudService -ResourceGroupName "ContosOrg"
 
 ResourceGroupName Name              Location    ProvisioningState
 ----------------- ----              --------    -----------------
@@ -32,69 +32,83 @@ ContosOrg         ContosoCSTest     eastus2euap Failed
 
 ## <a name="get-single-cloud-service"></a>Abrufen eines einzelnen Clouddiensts
 ```powershell
-Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
+Get-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS"
 
 ResourceGroupName Name              Location    ProvisioningState
 ----------------- ----              --------    -----------------
 ContosOrg         ContosoCS         eastus2euap Succeeded
 
-$cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
-$cloudService | Format-List
-ResourceGroupName                       : ContosOrg
-Configuration                           : <?xml version="1.0" encoding="utf-8"?>
-                                          <ServiceConfiguration 
-                                          xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-                                          </ServiceConfiguration>
-ConfigurationUrl                        :
-ExtensionProfileExtension               : {RDPExtension}
-Id                                      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ContosOrg/providers/Microsoft.Compute/cloudServices/ContosoCS
-Location                                : eastus2euap
-Name                                    : ContosoCS
-NetworkProfileLoadBalancerConfiguration : {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
-OSProfileSecret                         : {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
-PackageUrl                              : https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-ProvisioningState                       : Succeeded
-RoleProfileRole                         : {ContosoFrontEnd, ContosoBackEnd}
-StartCloudService                       :
-SwappableCloudServiceId                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/ContosOrg/providers/Microsoft.Compute/cloudServices/ContosoCSTest
-Tag                                     : {
-                                            "Owner": "Contos"
-                                          }
-Type                                    : Microsoft.Compute/cloudServices
-UniqueId                                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-UpgradeMode                             : Auto
+PS C:\> $cloudService = Get-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS"
+PS C:\> $cloudService | Format-List
+ResourceGroupName : ContosOrg
+Configuration     : xxxxxxxx
+ConfigurationUrl  :
+ExtensionProfile  : xxxxxxxx
+Id                : xxxxxxxx
+Location          : East US
+Name              : ContosoCS
+NetworkProfile    : xxxxxxxx
+OSProfile         : xxxxxxxx
+PackageUrl        : xxxxxxxx
+ProvisioningState : Succeeded
+RoleProfile       : xxxxxxxx
+StartCloudService :
+Tag               : {
+                      "Owner": "Contos"
+                    }
+Type              : Microsoft.Compute/cloudServices
+UniqueId          : xxxxxxxx
+UpgradeMode       : Auto
 ```
 
 ## <a name="get-cloud-service-instance-view"></a>Abrufen der Clouddienst-Instanzansicht
 ```powershell
-Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS" -InstanceView | Format-List
+PS C:\>$cloudServiceInstanceView = Get-AzCloudServiceInstanceView -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS"
 
-RoleInstanceStatusesSummary : {{
-                                "code": "ProvisioningState/succeeded",
-                                "count": 4
-                              }, {
-                                "code": "PowerState/started",
-                                "count": 4
-                              }}
-Statuses                    : {{
-                                "code": "ProvisioningState/succeeded",
-                                "displayStatus": "Provisioning succeeded",
-                                "level": "Info",
-                                "time": "2020-10-20T13:13:45.0067685Z"
-                              }, {
-                                "code": "PowerState/started",
-                                "displayStatus": "Started",
-                                "level": "Info",
-                                "time": "2020-10-20T13:13:45.0067685Z"
-                              }, {
-                                "code": "CurrentUpgradeDomain/-1",
-                                "displayStatus": "Current Upgrade Domain of Cloud Service is -1.",
-                                "level": "Info"
-                              }, {
-                                "code": "MaxUpgradeDomain/1",
-                                "displayStatus": "Max Upgrade Domain of Cloud Service is 1.",
-                                "level": "Info"
-                              }}
+PS C:\>$cloudServiceInstanceView
+RoleInstanceStatusesSummary                                   Statuses
+---------------------------                                   --------
+{{ProvisioningState/succeeded : 4}, {PowerState/started : 4}} {Provisioning succeeded, Started, Current Upgrade Domain of cloud service is -1., Max Upgrade Domain of cloud service is 1.}
+
+PS C:\>$cloudServiceInstanceView.ToJsonString()
+{
+  "roleInstance": {
+    "statusesSummary": [
+      {
+        "code": "ProvisioningState/succeeded",
+        "count": 4
+      },
+      {
+        "code": "PowerState/started",
+        "count": 4
+      }
+    ]
+  },
+  "statuses": [
+    {
+      "code": "ProvisioningState/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "time": "2020-10-28T13:26:48.8109686Z"
+    },
+    {
+      "code": "PowerState/started",
+      "displayStatus": "Started",
+      "level": "Info",
+      "time": "2020-10-28T13:26:48.8109686Z"
+    },
+    {
+      "code": "CurrentUpgradeDomain/-1",
+      "displayStatus": "Current Upgrade Domain of cloud service is -1.",
+      "level": "Info"
+    },
+    {
+      "code": "MaxUpgradeDomain/1",
+      "displayStatus": "Max Upgrade Domain of cloud service is 1.",
+      "level": "Info"
+    }
+  ]
+}
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte

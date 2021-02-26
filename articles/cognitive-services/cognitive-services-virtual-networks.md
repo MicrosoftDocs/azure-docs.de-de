@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940047"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989077"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurieren von virtuellen Netzwerken für Azure Cognitive Services
 
@@ -59,7 +59,7 @@ Virtuelle Netzwerke (VNETs) werden unterstützt in [Regionen, in denen Cognitive
 
 
 > [!NOTE]
-> Wenn Sie den LUIS verwenden, ermöglicht es Ihnen der **CognitiveServicesManagement**-Tag nur, dass Sie den Dienst mithilfe des SDK oder der REST-API verwenden. Für den Zugriff auf das LUIS-Portal und seine Verwendung in einem virtuellen Netzwerk müssen Sie die folgenden Tags verwenden:  
+> Wenn Sie den LUIS oder Speech-Dienste verwenden, ermöglicht es Ihnen der **CognitiveServicesManagement**-Tag nur, dass Sie den Dienst mithilfe des SDK oder der REST-API verwenden. Für den Zugriff auf das LUIS-Portal und/oder Speech Studio und dessen Verwendung in einem virtuellen Netzwerk müssen Sie die folgenden Tags verwenden:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Standardmäßige Netzwerkzugriffsregeln für Cognitive Services-Ressourcen könn
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Gewähren des Zugriffs aus einem virtuellen Netzwerk
 
@@ -169,7 +169,7 @@ Jede Cognitive Services-Ressource unterstützt bis zu 100 VNet-Regeln, die mit [
 
 ### <a name="required-permissions"></a>Erforderliche Berechtigungen
 
-Wenn Sie eine VNet-Regel auf eine Cognitive Services-Ressource anwenden möchten, muss der Benutzer über geeignete Berechtigungen für die hinzuzufügenden Subnetze verfügen. Die erforderliche Berechtigung ist die Standardrolle _Mitwirkender* oder die Rolle *Cognitive Services-Mitwirkender*. Erforderliche Berechtigungen können aber auch benutzerdefinierten Rollendefinitionen hinzugefügt werden.
+Wenn Sie eine VNet-Regel auf eine Cognitive Services-Ressource anwenden möchten, muss der Benutzer über geeignete Berechtigungen für die hinzuzufügenden Subnetze verfügen. Die erforderliche Berechtigung ist die Standardrolle *Mitwirkender* oder die Rolle *Cognitive Services-Mitwirkender*. Erforderliche Berechtigungen können aber auch benutzerdefinierten Rollendefinitionen hinzugefügt werden.
 
 Die Cognitive Services-Ressource und die virtuellen Netzwerke, denen Zugriff gewährt wurde, können sich in verschiedenen Abonnements befinden – einschließlich Abonnements, die zu einem anderen Azure AD-Mandanten gehören.
 
@@ -325,10 +325,10 @@ Regeln für virtuelle Netzwerke für Cognitive Services-Ressourcen können über
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Die Standardregel muss auf _*Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
+> Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Gewähren von Zugriff aus einem Internet-IP-Adressbereich
 
@@ -472,10 +472,10 @@ Regeln für IP-Netzwerke für Cognitive Services-Ressourcen können über das Az
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Die Standardregel muss auf _*Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
+> Die Standardregel muss auf **Verweigern** festgelegt sein (siehe [Festlegen der Standardregel](#change-the-default-network-access-rule)). Andernfalls haben die Netzwerkregeln keine Wirkung.
 
 ## <a name="use-private-endpoints"></a>Verwenden privater Endpunkte
 

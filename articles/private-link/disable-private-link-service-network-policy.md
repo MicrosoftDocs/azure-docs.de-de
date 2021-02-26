@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744339"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548798"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Deaktivieren von Netzwerkrichtlinien für die Quell-IP-Adresse eines Private Link-Diensts
 
 Damit Sie eine Quell-IP-Adresse für den Private Link-Dienst auswählen können, ist im Subnetz die explizite Einstellung zum Deaktivieren (`privateLinkServiceNetworkPolicies`) erforderlich. Diese Einstellung gilt nur für die spezifische private IP-Adresse, die Sie als Quell-IP-Adresse des Private Link-Diensts ausgewählt haben. Für andere Ressourcen im Subnetz wird der Zugriff basierend auf der Definition von Sicherheitsregeln der Netzwerksicherheitsgruppen (NSG) gesteuert. 
  
-Wenn Sie einen Azure-Client (PowerShell, CLI oder Vorlagen) verwenden, ist ein zusätzlicher Schritt erforderlich, um diese Eigenschaft zu ändern. Sie können die Richtlinie mithilfe von Cloud Shell aus dem Azure-Portal oder lokalen Installationen von Azure PowerShell, der Azure CLI oder von Azure Resource Manager Vorlagen deaktivieren.  
+Wenn Sie das Portal zum Erstellen eines Private Link-Diensts verwenden, wird diese Einstellung im Rahmen des Erstellungsprozesses automatisch deaktiviert. Bei Bereitstellungen mithilfe eines Azure-Clients (PowerShell, CLI oder Vorlagen) ist ein zusätzlicher Schritt erforderlich, um diese Eigenschaft zu ändern. Sie können die Richtlinie mithilfe von Cloud Shell aus dem Azure-Portal oder lokalen Installationen von Azure PowerShell, der Azure CLI oder von Azure Resource Manager Vorlagen deaktivieren.  
  
 Befolgen Sie die nachfolgenden Schritte, um Netzwerkrichtlinien eines Private Link-Diensts für ein virtuelles Netzwerk namens *myVirtualNetwork* mit einem *standardmäßigen* Subnetz zu deaktivieren, das in einer Ressourcengruppe namens *myResourceGroup* gehostet wird. 
 

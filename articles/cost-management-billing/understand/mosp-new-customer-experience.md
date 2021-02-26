@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133559"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575465"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Erste Schritte mit Ihrem aktualisierten Azure-Abrechnungskonto
 
@@ -42,7 +42,7 @@ Wenn Ihr Konto aktualisiert wird, wird für jedes Abonnement automatisch ein Abr
 
 Die Rollen für die Abrechnungsprofile verfügen über Berechtigungen zum Anzeigen und Verwalten von Rechnungen und Zahlungsmethoden. Diese Rollen sollten Benutzern zugewiesen werden, die Rechnungen bezahlen. Bei diesen Benutzern handelt es sich beispielsweise um Mitglieder des Buchhaltungsteams in einer Organisation. Weitere Informationen finden Sie unter [Rollen und Aufgaben für ein Abrechnungsprofil](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Wenn Ihr Konto aktualisiert wird, gilt für jedes Abonnement, für das Sie anderen Benutzern Berechtigungen zum [Anzeigen von Rechnungen](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) gewährt haben, Folgendes: Benutzer, die über eine Azure-Rolle vom Typ „Besitzer“, „Mitwirkender“, „Leser“ oder „Abrechnungsleser“ verfügen, erhalten für das entsprechende Abrechnungsprofil die Rolle „Leser“.
+Wenn Ihr Konto aktualisiert wird, gilt für jedes Abonnement, für das Sie anderen Benutzern Berechtigungen zum [Anzeigen von Rechnungen](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice) gewährt haben, Folgendes: Benutzer, die über eine Azure-Rolle vom Typ „Besitzer“, „Mitwirkender“, „Leser“ oder „Abrechnungsleser“ verfügen, erhalten für das entsprechende Abrechnungsprofil die Rolle „Leser“.
 
 ## <a name="invoice-sections"></a>Rechnungsabschnitte
 

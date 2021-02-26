@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696090"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220903"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Regionsübergreifende Replikation von Azure NetApp Files-Volumes
 
@@ -28,26 +29,31 @@ Die Replikationsfunktion für Azure NetApp Files bietet Datenschutz durch region
 > [!IMPORTANT]
 > Das Features für die regionsübergreifende Replikation befindet sich derzeit in der öffentlichen Vorschauversion. Sie müssen eine Wartelistenanforderung für den Zugriff auf das Feature über die [Seite für Wartelistenanforderungen für die regionsübergreifende Replikation von Azure NetApp Files-Volumes](https://aka.ms/anfcrrpreviewsignup) übermitteln. Warten Sie auf eine offizielle Bestätigungs-E-Mail des Azure NetApp Files-Teams, bevor Sie das Feature für die regionsübergreifende Replikation verwenden.
 
-## <a name="supported-region-pairs"></a>Unterstützte Regionspaare
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Unterstützte regionsübergreifende Replikationspaare
 
-Die Azure NetApp Files-Volumereplikation ist derzeit in den folgenden festen Regionspaaren verfügbar:  
+Die Azure NetApp Files-Volumereplikation wird zwischen verschiedenen [Azure-Regionspaaren](/azure/best-practices-availability-paired-regions#azure-regional-pairs) und Nicht-Paaren unterstützt. Die Azure NetApp Files-Volumereplikation ist derzeit zwischen den folgenden Regionen verfügbar:  
 
-* USA, Westen und USA, Osten
-* USA, Westen 2 und USA, Osten 
-* USA, Süden-Mitte und USA, Mitte 
-* USA, Süden-Mitte und USA, Osten
-* USA, Süden-Mitte und USA, Osten 2 
-* „USA, Osten“ und „USA, Osten 2“  
-* USA, Osten 2 und USA, Mitte 
+### <a name="azure-regional-pairs"></a>Azure-Regionspaare
+
+* „USA, Osten“ und „USA, Westen“
+* „USA, Osten 2“ und „USA, Mitte“
 * Australien, Osten und Australien, Südosten
 * Kanada, Mitte und Kanada, Osten
-* „Indien, Mitte“ und „Indien, Süden“
+* „Indien, Süden“ und „Indien, Mitte“ 
 * „Deutschland, Westen-Mitte“ und „Deutschland, Norden“
 * Japan, Osten und Japan, Westen
 * Europa, Norden und Europa, Westen
-* Asien, Südosten und Australien, Osten
-* Vereinigtes Königreich, Süden und Deutschland, Westen-Mitte
 * Vereinigtes Königreich, Süden und Vereinigtes Königreich, Westen
+
+### <a name="azure-regional-non-pairs"></a>Azure-Nicht-Regionspaare
+
+*   „USA, Westen 2“ und „USA, Osten“
+*   „USA, Süden-Mitte“ und „USA, Mitte“
+*   „USA, Süden-Mitte“ und „USA, Osten“
+*   „USA, Süden-Mitte“ und „USA, Osten 2“
+*   „USA, Osten“ und „USA, Osten 2“
+*   „Australien, Osten“ und „Asien, Südosten“ 
+*   „Deutschland, Westen-Mitte“ und „Vereinigtes Königreich, Süden“
 
 ## <a name="service-level-objectives"></a>Servicelevel-Zielpunkte (SLO)
 

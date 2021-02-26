@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955453"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Verwalten von Computeressourcen auf Ihrem Azure Stack Edge Pro-GPU-Gerät
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-In diesem Artikel wird beschrieben, wie Sie Computeressourcen auf Ihrem Azure Stack Edge Pro-Gerät verwalten. Die Computekonfiguration kann über das Azure-Portal oder über die lokale Webbenutzeroberfläche verwaltet werden. Verwenden Sie das Azure-Portal, um Module, Trigger und die Computekonfiguration zu verwalten, und die lokale Webbenutzeroberfläche, um Computeeinstellungen zu verwalten.
+In diesem Artikel erfahren Sie, wie Sie Computeressourcen per IoT Edge-Dienst auf Ihrem Azure Stack Edge Pro-GPU-Gerät verwalten. Die Computekonfiguration kann über das Azure-Portal oder über die lokale Webbenutzeroberfläche verwaltet werden. Verwenden Sie das Azure-Portal, um Module, Trigger und die IoT Edge-Konfiguration zu verwalten, und die lokale Webbenutzeroberfläche, um Compute-Netzwerkeinstellungen zu verwalten.
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 > [!div class="checklist"]
 > * Verwalten von Triggern
-> * Verwalten der Computekonfiguration
+> * Verwalten der IoT Edge-Konfiguration
 
 
 ## <a name="manage-triggers"></a>Verwalten von Triggern
@@ -40,7 +40,7 @@ Ein Ereignis ist etwas, das in Ihrer Cloudumgebung oder auf Ihrem Gerät passier
 
 Gehen Sie im Azure-Portal wie folgt vor, um einen Trigger zu erstellen:
 
-1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **Edgecomputing > Trigger**. Wählen Sie auf der Befehlsleiste die Option **+ Trigger hinzufügen** aus.
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **IoT Edge**. Navigieren Sie zu **Trigger**, und wählen Sie auf der Befehlsleiste die Option **+ Trigger hinzufügen** aus.
 
     ![Auswählen von „Trigger hinzufügen“](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -82,32 +82,32 @@ Gehen Sie im Azure-Portal wie folgt vor, um einen Trigger zu löschen:
 
 Die Triggerliste wird nach dem Löschvorgang entsprechend aktualisiert.
 
-## <a name="manage-compute-configuration"></a>Verwalten der Computekonfiguration
+## <a name="manage-iot-edge-configuration"></a>Verwalten der IoT Edge-Konfiguration
 
 Im Azure-Portal können Sie die Computekonfiguration anzeigen, eine vorhandene Computekonfiguration entfernen oder die Computekonfiguration aktualisieren, um Zugriffsschlüssel für das IoT-Gerät und das IoT Edge-Gerät für Azure Stack Edge Pro zu aktualisieren.
 
-### <a name="view-compute-configuration"></a>Anzeigen der Computekonfiguration
+### <a name="view-iot-edge-configuration"></a>Anzeigen der IoT Edge-Konfiguration
 
-Gehen Sie im Azure-Portal wie folgt vor, um die Computekonfiguration für Ihr Gerät anzuzeigen:
+Gehen Sie im Azure-Portal wie folgt vor, um die IoT Edge-Konfiguration für Ihr Gerät anzuzeigen:
 
-1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **Edgecomputing > Module**. Wählen Sie auf der Befehlsleiste die Option **View compute** (Compute anzeigen) aus.
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **IoT Edge**. Nachdem der IoT Edge-Dienst auf Ihrem Gerät aktiviert wurde, wird auf der Übersichtsseite angezeigt, dass der IoT Edge-Dienst ordnungsgemäß ausgeführt wird.
 
     ![Auswählen von „View compute“ (Compute anzeigen)](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. Notieren Sie sich die Computekonfiguration auf Ihrem Gerät. Wenn Sie Computeeinstellungen konfiguriert haben, haben Sie eine IoT Hub-Ressource erstellt. Unter dieser IoT Hub-Ressource sind ein IoT-Gerät und ein IoT Edge-Gerät konfiguriert. Auf dem IoT Edge-Gerät wird nur die Ausführung der Linux-Module unterstützt.
+2. Navigieren Sie zu **Eigenschaften**, um die IoT Edge-Konfiguration auf Ihrem Gerät anzuzeigen. Wenn Sie Computeeinstellungen konfiguriert haben, haben Sie eine IoT Hub-Ressource erstellt. Unter dieser IoT Hub-Ressource sind ein IoT-Gerät und ein IoT Edge-Gerät konfiguriert. Auf dem IoT Edge-Gerät wird nur die Ausführung der Linux-Module unterstützt.
 
     ![Anzeigen der Konfiguration](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>Entfernen der Computekonfiguration
+### <a name="remove-iot-edge-service"></a>Entfernen des IoT Edge-Diensts
 
-Gehen Sie im Azure-Portal wie folgt vor, um die vorhandene Edgecomputingkonfiguration für Ihr Gerät zu entfernen:
+Gehen Sie im Azure-Portal wie folgt vor, um die vorhandene IoT Edge-Konfiguration für Ihr Gerät zu entfernen:
 
-1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **Edgecomputing > Erste Schritte**. Wählen Sie auf der Befehlsleiste die Option **Compute entfernen** aus.
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **IoT Edge**. Navigieren Sie zu **Übersicht**, und wählen Sie auf der Befehlsleiste die Option **Entfernen** aus.
 
     ![Auswählen von „Compute entfernen“](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. Wenn Sie die Computekonfiguration entfernen, müssen Sie Ihr Gerät neu konfigurieren, um Compute wieder verwenden zu können. Wählen Sie **Ja** aus, wenn Sie zur Bestätigung aufgefordert werden.
+2. Das Entfernen des IoT Edge-Diensts kann nicht rückgängig gemacht werden. Die von Ihnen erstellten Module und Trigger werden ebenfalls gelöscht. Falls Sie IoT Edge erneut verwenden möchten, müssen Sie Ihr Gerät neu konfigurieren. Wählen Sie **OK** aus, wenn Sie zur Bestätigung aufgefordert werden.
 
     ![Auswählen von „Compute entfernen“ 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
@@ -121,7 +121,7 @@ Wenn die Schlüssel Ihres IoT-Geräts und Ihres IoT Edge-Geräts rotiert wurden
 
 Gehen Sie im Azure-Portal wie folgt vor, um die Zugriffsschlüssel für Ihr Gerät zu synchronisieren:
 
-1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **Edgecomputing > Erste Schritte**. Wählen Sie auf der Befehlsleiste die Option **Konfiguration aktualisieren** aus.
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure Stack Edge-Ressource und anschließend zu **IoT Edge**. Navigieren Sie zu **Übersicht**, und wählen Sie auf der Befehlsleiste die Option **Konfiguration aktualisieren** aus.
 
     ![Auswählen von „Konfiguration aktualisieren“](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 

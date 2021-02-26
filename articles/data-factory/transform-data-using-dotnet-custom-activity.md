@@ -1,21 +1,18 @@
 ---
 title: Verwenden von benutzerdefinierten Aktivitäten in einer Pipeline
 description: Erfahren Sie, wie Sie benutzerdefinierte Aktivitäten mithilfe von .NET erstellen und dann die Aktivitäten in einer Azure Data Factory-Pipeline verwenden.
-services: data-factory
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ec1e7c77c44cf1969e472a6e7288d1af5d6640e1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632106"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374795"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Verwenden von benutzerdefinierten Aktivitäten in einer Azure Data Factory-Pipeline
 
@@ -29,7 +26,7 @@ Es existieren zwei Aktivitätstypen, die Sie in einer Azure Data Factory-Pipelin
 - [Datenverschiebungsaktivitäten](copy-activity-overview.md) zum Verschieben von Daten zwischen [unterstützten Quell- und Senkendatenspeichern](copy-activity-overview.md#supported-data-stores-and-formats).
 - [Datentransformationsaktivitäten](transform-data.md) zum Transformieren von Daten mithilfe von Computediensten wie Azure HDInsight, Azure Batch und Azure Machine Learning.
 
-Wenn Sie Daten in einen bzw. aus einem von Data Factory nicht unterstützten Datenspeicher verschieben oder auf eine Weise transformieren/verarbeiten müssen, die von Data Factory nicht unterstützt wird, können Sie auch eine **benutzerdefinierte Aktivität** mit Ihrer eigenen Datenverschiebungs- bzw. -transformationslogik erstellen und in einer Pipeline verwenden. Die benutzerdefinierte Aktivität führt Ihre angepasste Codelogik in einem **Azure Batch** -Pool mit virtuellen Computern aus.
+Wenn Sie Daten in einen bzw. aus einem von Data Factory nicht unterstützten Datenspeicher verschieben oder auf eine Weise transformieren/verarbeiten müssen, die von Data Factory nicht unterstützt wird, können Sie auch eine **benutzerdefinierte Aktivität** mit Ihrer eigenen Datenverschiebungs- bzw. -transformationslogik erstellen und in einer Pipeline verwenden. Die benutzerdefinierte Aktivität führt Ihre angepasste Codelogik in einem **Azure Batch**-Pool mit virtuellen Computern aus.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -108,7 +105,7 @@ Die folgende Tabelle beschreibt die Namen und Eigenschaften, die für diese Akti
 | linkedServiceName     | Mit Azure Batch verknüpfter Dienst. Weitere Informationen zu diesem verknüpften Dienst finden Sie im Artikel [Von Azure Data Factory unterstützten Compute-Umgebungen](compute-linked-services.md).  | Ja      |
 | command               | Befehl der benutzerdefinierten Anwendung, der ausgeführt werden soll. Wenn die Anwendung bereits auf dem Knoten des Azure Batch-Pools verfügbar ist, können „resourceLinkedService“ und „folderPath“ übersprungen werden. Sie können beispielsweise den Befehl `cmd /c dir` angeben, was vom Knoten des Azure Batch-Pools nativ unterstützt wird. | Ja      |
 | resourceLinkedService | Mit dem Speicherkonto verknüpfter Azure Storage-Dienst, in dem die benutzerdefinierte Anwendung gespeichert wird. | Nein&#42;       |
-| folderPath            | Pfad zum Ordner der benutzerdefinierten Anwendung und allen ihren abhängigen Elementen<br/><br/>Wenn Sie Abhängigkeiten in Unterordnern gespeichert haben (also in einer hierarchischen Ordnerstruktur unter *folderPath* ), wird die Ordnerstruktur zurzeit abgeflacht, wenn die Dateien nach Azure Batch kopiert werden. Das heißt, alle Dateien werden in einen einzigen Ordner ohne Unterordner kopiert. Um dieses Verhalten zu umgehen, sollten Sie die Dateien komprimieren, die komprimierte Datei kopieren und dann mit benutzerdefiniertem Code am gewünschten Speicherort entpacken. | Nein&#42;       |
+| folderPath            | Pfad zum Ordner der benutzerdefinierten Anwendung und allen ihren abhängigen Elementen<br/><br/>Wenn Sie Abhängigkeiten in Unterordnern gespeichert haben (also in einer hierarchischen Ordnerstruktur unter *folderPath*), wird die Ordnerstruktur zurzeit abgeflacht, wenn die Dateien nach Azure Batch kopiert werden. Das heißt, alle Dateien werden in einen einzigen Ordner ohne Unterordner kopiert. Um dieses Verhalten zu umgehen, sollten Sie die Dateien komprimieren, die komprimierte Datei kopieren und dann mit benutzerdefiniertem Code am gewünschten Speicherort entpacken. | Nein&#42;       |
 | referenceObjects      | Array vorhandener verknüpfter Dienste und Datasets. Die referenzierten verknüpften Dienste und Datasets werden im JSON-Format an die benutzerdefinierte Anwendung übergeben, sodass Ihr benutzerdefinierter Code auf Data Factory-Ressourcen verweisen kann. | Nein       |
 | extendedProperties    | Benutzerdefinierte Eigenschaften, die im JSON-Format an die benutzerdefinierte Anwendung übergeben werden können, sodass Ihr benutzerdefinierter Code auf zusätzliche Eigenschaften verweisen kann. | Nein       |
 | retentionTimeInDays | Die Vermerkdauer für die Dateien, die für die benutzerdefinierte Aktivität übermittelt werden. Der Standardwert ist 30 Tage. | Nein |
@@ -310,7 +307,7 @@ Sie können benutzerdefinierte Werte aus Ihrem Code in einer benutzerdefinierten
 
 ## <a name="retrieve-securestring-outputs"></a>Abrufen von SecureString-Ausgaben
 
-Vertrauliche Eigenschaftswerte, die als Typ *SecureString* definiert sind (wie in einigen der Beispiele in diesem Artikel gezeigt), werden auf der Registerkarte „Überwachung“ in der Benutzeroberfläche von Data Factory ausgeblendet.  Bei der tatsächlichen Ausführung der Pipeline wird jedoch eine *SecureString* -Eigenschaft als JSON innerhalb der `activity.json`-Datei als Nur-Text serialisiert. Beispiel:
+Vertrauliche Eigenschaftswerte, die als Typ *SecureString* definiert sind (wie in einigen der Beispiele in diesem Artikel gezeigt), werden auf der Registerkarte „Überwachung“ in der Benutzeroberfläche von Data Factory ausgeblendet.  Bei der tatsächlichen Ausführung der Pipeline wird jedoch eine *SecureString*-Eigenschaft als JSON innerhalb der `activity.json`-Datei als Nur-Text serialisiert. Beispiel:
 
 ```json
 "extendedProperties": {
@@ -387,5 +384,5 @@ In den folgenden Artikeln erfahren Sie, wie Daten auf andere Weisen transformier
 * [MapReduce-Aktivität](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop-Streamingaktivität](transform-data-using-hadoop-streaming.md)
 * [Spark-Aktivität](transform-data-using-spark.md)
-* [Batchausführungsaktivität für Azure Machine Learning Studio (Classic)](transform-data-using-machine-learning.md)
+* [Batchausführungsaktivität für Azure Machine Learning Studio (klassisch)](transform-data-using-machine-learning.md)
 * [Aktivität „Gespeicherte Prozedur“](transform-data-using-stored-procedure.md)

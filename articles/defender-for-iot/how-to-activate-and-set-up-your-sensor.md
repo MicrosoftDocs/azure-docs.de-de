@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 56f6c9d3ff3093c3acd28b670e37f823ad5e9f9a
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623588"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522511"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Aktivieren und Einrichten des Sensors
 
@@ -81,7 +81,7 @@ So erfolgen Anmeldung und Aktivierung
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender für IoT-Sensor.":::
 
-1. Geben Sie die bei der Sensorinstallation festgelegten Anmeldeinformationen ein. Wenn Sie einen vorkonfigurierten Sensor von Arrow erworben haben, generieren Sie zunächst ein Kennwort. Weitere Informationen zur Kennwortwiederherstellung finden Sie unter [Untersuchen von Kennwortfehlern bei der ersten Anmeldung](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Geben Sie die Anmeldeinformationen ein, die Sie bei der Sensorinstallation definiert haben, oder klicken Sie auf **Password recovery** (Kennwortwiederherstellung). Wenn Sie einen vorkonfigurierten Sensor von Arrow erworben haben, generieren Sie zunächst ein Kennwort. Weitere Informationen zur Kennwortwiederherstellung finden Sie unter [Untersuchen von Kennwortfehlern bei der ersten Anmeldung](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Nach der Anmeldung wird das Dialogfeld **Aktivierung** geöffnet. Wählen Sie **Hochladen** aus, und wechseln Sie zur Aktivierungsdatei, die Sie beim Onboarding des Sensors heruntergeladen haben.
 
@@ -136,7 +136,7 @@ Nach der Anmeldung wird die Azure Defender für IoT-Konsole geöffnet.
 
 Nach Ihrer ersten Anmeldung beginnt der Azure Defender für IoT-Sensor automatisch mit der Überwachung Ihres Netzwerks. Netzwerkgeräte werden in den Abschnitten mit der Gerätezuordnung und dem Gerätebestand angezeigt. Azure Defender für IoT beginnt mit der Erkennung und Warnung bei allen Sicherheits- und Betriebsvorfällen, die in Ihrem Netzwerk auftreten. Sie können anschließend Berichte und Abfragen auf Grundlage der erkannten Informationen erstellen.
 
-Zunächst erfolgt diese Aktivität im Lernmodus, der Ihren Sensor anweist, die übliche Aktivität Ihres Netzwerks zu erfassen. Der Sensor erfasst z. B. in Ihrem Netzwerk entdeckte Geräte, im Netzwerk erkannte Protokolle und zwischen bestimmten Geräten stattfindende Dateiübertragungen. Diese Aktivität wird zur Baselineaktivität Ihres Netzwerks.
+Zunächst erfolgt diese Aktivität im Lernmodus, wodurch Ihr Sensor angewiesen wird, die übliche Aktivität Ihres Netzwerks zu erfassen. Der Sensor erfasst z. B. in Ihrem Netzwerk entdeckte Geräte, im Netzwerk erkannte Protokolle und zwischen bestimmten Geräten stattfindende Dateiübertragungen. Diese Aktivität wird zur Baselineaktivität Ihres Netzwerks.
 
 ### <a name="review-and-update-basic-system-settings"></a>Überprüfen und Aktualisieren grundlegender Systemeinstellungen
 
@@ -152,7 +152,7 @@ Legen Sie die Systemeinstellungen des Sensors fest. Beispiel:
 
 - Wenn DHCP verwendet wird, bestimmen Sie zulässige DHCP-Bereiche.
 
-- Bestimmen Sie die Integration in Active Directory und E-Mail-Server.
+- Bestimmen Sie entsprechend die Integration mit Active Directory und dem E-Mail-Server.
 
 ### <a name="disable-learning-mode"></a>Deaktivieren des Lernmodus
 
@@ -181,7 +181,7 @@ Sie greifen über das seitliche Menü auf Konsolentools zu.
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Zeigt eine intuitive Momentaufnahme des Sicherheitsstatus des Netzwerks. |
 | Geräteübersicht | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Zeigt Netzwerkgeräte, Geräteverbindungen und -eigenschaften in einer Übersicht. Zum Anzeigen Ihres Netzwerks stehen verschiedene Optionen zum Zoomen, Hervorheben und Filtern zur Verfügung. |
-| Gerätebestand | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | Im Gerätebestand wird eine umfangreiche Palette der von diesem Sensor erfassten Geräteattribute angezeigt. Folgende Optionen stehen zur Verfügung: <br /> Filtern der Informationen gemäß den Tabellenfeldern und Prüfen der angezeigten gefilterten Informationen <br /> Exportieren von Informationen in eine CSV-Datei <br /> Importieren von Windows-Registrierungsdetails|
+| Gerätebestand | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | Im Gerätebestand wird eine umfangreiche Liste der von diesem Sensor erkannten Geräteattribute angezeigt. Folgende Optionen stehen zur Verfügung: <br /> Sortieren oder Filtern der Informationen gemäß den Tabellenfeldern und Prüfen der angezeigten gefilterten Informationen <br /> Exportieren von Informationen in eine CSV-Datei <br /> Importieren von Windows-Registrierungsdetails|
 | Warnungen | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Zeigt Warnungen an, wenn gegen Richtlinien verstoßen wird, Abweichungen vom Baselineverhalten auftreten oder verdächtige Aktivitäten im Netzwerk erkannt werden. |
 | Berichte | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Zeigt Berichte, die auf Data Mining-Abfragen basieren. |
 
@@ -196,7 +196,7 @@ Sie greifen über das seitliche Menü auf Konsolentools zu.
 | Fenster | Symbol | BESCHREIBUNG |
 |---|---|---|
 | Data Mining | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Generiert umfassende und detaillierte Informationen zu den Geräten in Ihrem Netzwerk auf verschiedenen Ebenen. |
-| Trends und Statistiken | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Zeigt Trends und Statistiken in einer Vielzahl von Widgets. |
+| Untersuchung | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Zeigt Trends und Statistiken in einer Vielzahl von Widgets. |
 | Risikobewertung | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Zeigt das Fenster **Sicherheitsrisiken** an. |
 
 **Administrator**
@@ -204,7 +204,7 @@ Sie greifen über das seitliche Menü auf Konsolentools zu.
 | Fenster | Symbol | BESCHREIBUNG |
 |---|---|---|
 | Benutzer | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Dient zum Festlegen von Benutzern und Rollen mit verschiedenen Zugriffsebenen. |
-| Weiterleitung | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Leitet Warnungsinformation u. a. an Partner, die in Defender für IoT integriert sind, E-Mail-Adressen und Webhookserver weiter. <br /> Einzelheiten finden Sie unter [Weiterleiten von Warnungsinformationen](how-to-forward-alert-information-to-partners.md). |
+| Weiterleitung | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Leiten Sie Warnungsinformationen beispielsweise an Partner und interne Quellen (z. B. Azure Sentinel), die mit Defender for IoT integriert sind, an E-Mail-Adressen und Webhookserver weiter. <br /> Einzelheiten finden Sie unter [Weiterleiten von Warnungsinformationen](how-to-forward-alert-information-to-partners.md). |
 | Systemeinstellungen | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Dient zum Konfigurieren der Systemeinstellungen. Sie können beispielsweise DHCP-Einstellungen festlegen, Details zum E-Mail-Server angeben oder Portaliase erstellen. |
 | Importieren von Einstellungen | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Zeigt das Fenster **Importeinstellungen** an. Sie können an den Informationen eines Geräts manuell Änderungen vornehmen.<br /> Einzelheiten finden Sie unter [Importieren von Geräteinformationen](how-to-import-device-information.md). |
 
@@ -214,7 +214,7 @@ Sie greifen über das seitliche Menü auf Konsolentools zu.
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Wenden Sie sich an den [Microsoft-Support](https://support.microsoft.com/), um Hilfe zu erhalten. |
 
-### <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Integrieren eines Sensors](getting-started.md#4-onboard-a-sensor)
 

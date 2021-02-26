@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 507ceef0f13951eafdcb02d586f35c1d61764c4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465480"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981036"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Sicherheitsanweisungen für Azure Stack Edge Mini R
 
@@ -37,6 +37,7 @@ Beim Einrichten und Ausführen des Azure Stack Edge Mini R-Geräts sind die fol
 | Symbol | BESCHREIBUNG |
 |:--- |:--- |
 | ![Alle Anleitungen zuvor lesen](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png) | Alle Anleitungen zuvor lesen |
+| ![Symbol „Hinweis“](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **HINWEIS:** | Zeigt als wichtig erachtete Informationen an, die allerdings nicht mit Gefahren in Verbindung stehen. |
 | ![Gefahrensymbol](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) | Gefahrensymbol |
 | ![Symbol "Stromschlag"](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) | Gefahr eines Stromschlags |
 | ![Nur für den Gebrauch im Innenbereich](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) | Nur für den Gebrauch im Innenbereich |
@@ -142,20 +143,71 @@ Das Gerät wurde für den Betrieb in folgenden Umgebungen konzipiert:
 | Spezifikationen zur relativen Luftfeuchtigkeit | <ul><li>Speicher: 5–95 % relative Luftfeuchtigkeit</li><li>Betrieb: 10–90 % relative Luftfeuchtigkeit</li></ul>|
 | Spezifikationen für die maximale Höhe | <ul><li>Betrieb: 4.572 m (15.000 Fuß)</li><li>Außerhalb des Betriebs: 12.192 m (40.000 Fuß)</li></ul>|
 
-> ![Symbol „Hinweis“](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **HINWEIS:** &nbsp;Änderungen oder Modifikationen am Gerät, die nicht ausdrücklich von Microsoft genehmigt wurden, können zum Erlöschen der Betriebserlaubnis des Benutzers für das Gerät führen.
+> ![Hinweissymbol 2](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **HINWEIS:** &nbsp;Änderungen oder Modifikationen am Gerät, die nicht ausdrücklich von Microsoft genehmigt wurden, können zum Erlöschen der Betriebserlaubnis des Benutzers für das Gerät führen.
 
-Kanada und USA:
+#### <a name="canada-and-usa"></a>Kanada und USA:
 
-HINWEIS: Dieses Gerät wurde getestet und entspricht den Grenzwerten für ein Digitalgerät der Klasse A gemäß Teil 15 der FCC-Vorschriften. Diese Grenzwerte dienen dazu, einen angemessenen Schutz vor schädlichen Störungen zu bieten, wenn das Gerät in einer gewerblichen Umgebung betrieben wird. Dieses Gerät erzeugt und nutzt Hochfrequenzenergie und kann diese ausstrahlen. Wenn es nicht gemäß Bedienungsanleitung installiert und eingesetzt wird, kann es zu schädlichen Störungen der Hochfrequenzkommunikation kommen. Der Betrieb dieses Geräts in einem Wohngebiet kann zu schädlichen Störungen führen. In einem solchen Fall ist der Benutzer verpflichtet, die Störungen auf eigene Kosten zu beseitigen.
+> ![Hinweissymbol 3](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **HINWEIS:** &nbsp; Dieses Gerät wurde getestet und entspricht den Grenzwerten für ein Digitalgerät der Klasse A gemäß Teil 15 der FCC-Vorschriften. Diese Grenzwerte dienen dazu, einen angemessenen Schutz vor schädlichen Störungen zu bieten, wenn das Gerät in einer gewerblichen Umgebung betrieben wird. Dieses Gerät erzeugt und nutzt Hochfrequenzenergie und kann diese ausstrahlen. Wenn es nicht gemäß Bedienungsanleitung installiert und eingesetzt wird, kann es zu schädlichen Störungen der Hochfrequenzkommunikation kommen. Der Betrieb dieses Geräts in einem Wohngebiet kann zu schädlichen Störungen führen. In einem solchen Fall ist der Benutzer verpflichtet, die Störungen auf eigene Kosten zu beseitigen.
+
+Der USB-WLAN-Adapter Netgear A6150, der mit diesem Gerät bereitgestellt wird, ist für das Tragen am menschlichen Körper vorgesehen und wurde auf Einhaltung der SAR-Grenzwerte (Specific Absorption Rate, spezifische Absorptionsrate) getestet. Der von der FCC festgelegte SAR-Grenzwert beträgt im Mittel 1,6 W/kg auf 1 g Gewebe. Wenn Sie das Produkt am Körper tragen oder verwenden, halten Sie einen Abstand von 10 mm vom Körper ein, um die HF-Anforderungen einzuhalten.
+
+Der USB-WLAN-Adapter Netgear A6150 entspricht ANSI/IEEE C95.1-1999 und wurde gemäß den Messmethoden und -verfahren getestet, die im OET-Bulletin 65 unter Ergänzung C angegeben sind.
+
+Netgear A6150: spezifische Absorptionsrate (SAR): Im Mittel 1,18 W/kg über 1 g Gewebe
+
+Der USB-WLAN-Adapter Netgear A6150 darf nur mit zugelassenen Antennen verwendet werden. Das Gerät und seine Antennen dürfen nicht in der Nähe von anderen Antennen oder Transmittern oder in Verbindung mit diesen betrieben werden, außer in Übereinstimmung mit den von der FCC festgeschriebenen Verfahren für den Einsatz mehrerer Transmitter. Für Produkte, die in den USA verfügbar sind, können nur die Kanäle 1–11 genutzt werden. Die Auswahl anderer Kanäle ist nicht möglich.
+
+Der Betrieb im Band 5.150–5.250 MHz ist nur für die Verwendung im Innenbereich vorgesehen, um das Risiko von Störungen durch die Nutzung gemeinsamer Kanäle mit Satellitensystemen zu verringern.
+
+![Rechtliche Informationen, Warnung zur Verwendung im Innenbereich](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
+
+
+Es wird empfohlen, Hochleistungsradars als primäre Benutzer (Prioritätsbenutzer) der Bänder 5.250–5.350 MHz und 5.650–5.850 MHz zuzuordnen. Diese Radars können zu Interferenzen führen und Schäden bei LE-LAN-Geräten verursachen.
+
+Dieses Gerät erzeugt und nutzt Hochfrequenzenergie und kann diese ausstrahlen. Wenn es nicht gemäß Bedienungsanleitung installiert und eingesetzt wird, kann es zu schädlichen Störungen der Hochfrequenzkommunikation kommen. Es kann jedoch auch bei einer sachgemäßen Installation nicht garantiert werden, dass keine Störungen auftreten.
+
+Wenn dieses Gerät den Radio- oder Fernsehempfang stört (erkennbar durch das Aus- und Einschalten des Geräts), sollten Sie versuchen, die Störungen durch eine oder mehrere der folgenden Maßnahmen zu beheben:
+
+- Ändern Sie die Ausrichtung oder den Standort der Empfangsantenne.
+- Vergrößern Sie den Abstand zwischen dem Gerät und dem Empfänger.
+- Schließen Sie das Gerät an einen anderen Stromkreis als den Empfänger an.
+- Wenden Sie sich für weitere Hilfe an den Händler oder einen versierten Radio-/TV-Techniker.
+
+Weitere Informationen zu Problemen mit Interferenzen finden Sie auf der FCC-Website unter [fcc.gov/cgb/consumerfacts/interference.html](https://www.fcc.gov/consumers/guides/interference-radio-tv-and-telephone-signals). Sie können sich auch telefonisch unter „1-888-CALL FCC“ an die FCC wenden, um Datenblätter zu Störungen und Telefoninterferenzen zu erhalten.
+
+Weitere Informationen zur Sicherheit bei Funkfrequenzen finden Sie auf der FCC-Website unter [https://www.fcc.gov/general/radio-frequency-safety-0](https://www.fcc.gov/general/radio-frequency-safety-0) und auf der Website von Industry Canada unter [http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html](http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html).
+
+Die EMC-Konformität dieses Geräts wurde unter Bedingungen getestet, in denen kompatible Peripheriegeräte und abgeschirmte Kabel zwischen den Systemkomponenten verwendet wurden. Es ist wichtig, zwischen Systemkomponenten kompatible Peripheriegeräte und abgeschirmte Kabel zu verwenden, um Störungen bei Radios, TV-Geräten und anderen elektronischen Geräten zu vermeiden.
 
 Dieses Gerät entspricht Teil 15 der Lizenzbestimmungen von FCC Rules and Industry Canada – ausgenommen RSS-Standard(s). Der Betrieb unterliegt den beiden folgenden Bedingungen: 1.) Dieses Gerät darf keine schädlichen Störungen verursachen. 2.) Dieses Gerät muss alle empfangenen Störungen akzeptieren, einschließlich Störungen, die einen unerwünschten Betrieb des Geräts verursachen können.
 
 ![Rechtliche Informationen, Warnung 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
-CAN ICES-3(A)/NMB-3(A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
-USA: (800) 426-9400, Kanada: (800) 933-4750
+CAN ICES-3(A)/NMB-3(A)
 
-EUROPÄISCHE UNION: Eine Kopie der EU-Konformitätserklärung anfordern.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
+
+USA: (800) 426-9400
+
+Kanada: (800) 933-4750
+
+FCC-ID des Netgear A6150-USB-WLAN-Adapters: PY318300429
+ 
+IC-ID des Netgear A6150-USB-WLAN-Adapters: 4054A-18300429
+
+Der USB-WLAN-Adapter Netgear A6150, der mit diesem Gerät bereitgestellt wird, entspricht dem SAR-Wert für die Verwendung durch die allgemeine Bevölkerung bzw. die unkontrollierte Verwendung laut IC RSS-102 und wurde gemäß den in IEEE 1528 festgelegten Messmethoden und -verfahren getestet. Halten Sie beim Tragen am Körper einen Mindestabstand von 10 mm ein.
+
+Der USB-WLAN-Adapter Netgear A6150 entspricht dem HF-Grenzwert für Kanada in einer unkontrollierten Umgebung und wurde als sicher für den laut Handbuch vorgesehenen Einsatzbereich eingestuft. Um die HF-Strahlenbelastung weiter zu reduzieren, sollten Sie das Produkt so weit wie möglich vom Körper weg halten oder eine niedrigere Ausgabeleistung festlegen, sofern eine solche Funktion verfügbar ist.
+
+Eine Tabelle mit dem SAR-Wert (Specific Absorption Rate, spezifische Absorptionsrate) über einen Mittelwert von 1 g Gewebe für jedes Produkt finden Sie im obigen Abschnitt zu den USA.
+
+![Rechtliche Informationen, Warnung 2](./media/azure-stack-edge-mini-r-safety/regulatory-information-2.png)
+
+#### <a name="european-union"></a>EUROPÄISCHE UNION:
+
+Fordern Sie eine Kopie der EU-Konformitätserklärung für dieses Gerät an.
+
+Der USB-WLAN-Adapter Netgear A6150, der mit diesem Gerät bereitgestellt wird, ist mit der Direktive 2014/53/EU konform, die auf Anforderung bereitgestellt wird.
 
 > ![Warnsymbol 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) Dies ist ein Produkt der Klasse A. In einem Privathaushalt kann dieses Produkt Funkstörungen verursachen. In einem solchen Fall kann der Benutzer aufgefordert werden, geeignete Maßnahmen zu ergreifen.
 
@@ -166,7 +218,37 @@ Entsorgung von Altbatterien sowie Elektro- und Elektronikgeräten:
 Dieses Symbol auf dem Produkt oder seinen Batterien oder seiner Verpackung bedeutet, dass dieses Produkt und alle darin enthaltenen Batterien nicht über den Hausmüll entsorgt werden dürfen. Stattdessen liegt es in Ihrer Verantwortung, diese an einer geeigneten Sammelstelle für das Recycling von Batterien und Elektro- und Elektronikgeräten abzugeben. Diese getrennte Sammlung und Verwertung trägt dazu bei, natürliche Ressourcen zu schonen und mögliche negative Folgen für die menschliche Gesundheit und die Umwelt zu vermeiden, die sich aus dem möglichen Vorhandensein gefährlicher Stoffe in Batterien und Elektro- und Elektronikgeräten ergeben können, die durch unsachgemäße Entsorgung verursacht werden könnten. Weitere Informationen dazu, wo Sie Ihre Batterien und Ihren Elektro- und Elektronikschrott entsorgen können, erhalten Sie bei Ihrer Stadtverwaltung, Ihrem Hausmüllentsorger oder dem Geschäft, in dem Sie dieses Produkt gekauft haben. Kontaktieren Sie erecycle@microsoft.com, um weitere Informationen über die Entsorgung von Elektro- und Elektronikgeräten zu erhalten.
 
 Dieses Produkt enthält Knopfzellenbatterien.
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL, Telefonnummer: +353 1 295 3826, Faxnummer: +353 1 706 4110
+
+Der USB-WLAN-Adapter Netgear A6150, der mit diesem Gerät bereitgestellt wird, ist für das Tragen am menschlichen Körper vorgesehen und wurde auf Einhaltung der SAR-Grenzwerte (Specific Absorption Rate, spezifische Absorptionsrate) für am Körper getragene Geräte getestet. (Die Werte finden Sie weiter unten.) Wenn Sie das Produkt am Körper tragen oder verwenden, halten Sie einen Abstand von 10 mm vom Körper ein, um die HF-Anforderungen einzuhalten.
+
+**Netgear A6150: spezifische Absorptionsrate (SAR):** Im Mittel 0,54 W/kg über 10 g Gewebe
+
+ 
+Dieses Gerät darf in allen Mitgliedsstaaten der EU betrieben werden. Beachten Sie die nationalen und lokalen Vorschriften am Einsatzort des Geräts. Dieses Gerät darf in den folgenden Ländern nur in Innenräumen und im Frequenzbereich von 5.150–5.350 MHz betrieben werden:  
+
+![EU-Länder mit Einschränkung auf den Gebrauch im Innenbereich](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+
+Die folgende Tabelle enthält die Frequenzbänder, die gemäß Artikel 10.8(a) und 10.8(b) der RED genutzt werden dürfen, sowie die maximale HF-Sendeleistung von drahtlosen Netgear-Produkten, die für den Verkauf in der EU zugelassen sind:
+
+**WiFi**
+
+| Frequenzbereich (MHz) | Verwendete Kanäle | Maximale Sendeleistung (dBm/mW) |
+| --------------------- | ------------- | --------------------------- |
+| 2400–2483,5 | 1–13    | ODFM: 19,9 dBm (97,7 mW) <br> CCK: 17,9 dBm (61,7 mW) |
+| 5\.150–5.320   | 36–48   | 22,9 dBm (195 mW) |
+| 5250–5350   | 52–64   | 22,9 dBm (195 mW) mit TPC <br> 19,9 dBm (97,7 mW) ohne TPC |
+| 5470–5725   | 100–140 | 29,9 dBm (977 mW) mit TPC <br> 29,6 dBm (490 mW) ohne TPC |
+
+Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+
+Rufnummer: +353 1 295 3826
+
+Faxnummer: +353 1 706 4110
+
+#### <a name="singapore"></a>SINGAPUR:
+
+Der Netgear A6150-USB-WLAN-Adapter, der mit diesem Gerät bereitgestellt wird, erfüllt die IMDA-Standards.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

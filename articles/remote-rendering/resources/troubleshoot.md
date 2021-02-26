@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722231"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593332"
 ---
 # <a name="troubleshoot"></a>Problembehandlung
 
@@ -191,9 +191,9 @@ Innerhalb des C++-NuGet-Pakets gibt es die Datei `microsoft.azure.remoterenderin
 
 Wenn bei Kopfbewegungen auch gerenderte Objekte bewegt werden, liegen möglicherweise Probleme mit der *Late Stage Reprojection* (LSR) vor. Hinweise zur Vorgehensweise in einer solchen Situation finden Sie im Abschnitt zur [Late Stage Reprojection](../overview/features/late-stage-reprojection.md).
 
-Ein weiterer Grund für instabile Hologramme (wabernde, verzerrte, zitternde oder springende Hologramme) kann eine schlechte Netzwerkkonnektivität sein, insbesondere unzureichende Netzwerkbandbreite oder zu hohe Latenz. Ein guter Indikator für die Qualität der Netzwerkverbindung ist der [Leistungsstatistikwert](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused`. Wiederverwendete Frames deuten auf Situationen hin, in denen ein altes Videoframe auf der Clientseite wiederverwendet werden musste, da kein neues Videoframe verfügbar war – beispielsweise aufgrund von Paketverlusten oder von Schwankungen der Netzwerklatenz. Wenn `ARRServiceStats.VideoFramesReused` häufig größer als null ist, deutet dies auf ein Netzwerkproblem hin.
+Ein weiterer Grund für instabile Hologramme (wabernde, verzerrte, zitternde oder springende Hologramme) kann eine schlechte Netzwerkkonnektivität sein, insbesondere unzureichende Netzwerkbandbreite oder zu hohe Latenz. Ein guter Indikator für die Qualität der Netzwerkverbindung ist der [Leistungsstatistikwert](../overview/features/performance-queries.md) `ServiceStatistics.VideoFramesReused`. Wiederverwendete Frames deuten auf Situationen hin, in denen ein altes Videoframe auf der Clientseite wiederverwendet werden musste, da kein neues Videoframe verfügbar war – beispielsweise aufgrund von Paketverlusten oder von Schwankungen der Netzwerklatenz. Wenn `ServiceStatistics.VideoFramesReused` häufig größer als null ist, deutet dies auf ein Netzwerkproblem hin.
 
-Ein anderer Wert, der untersucht werden kann, ist `ARRServiceStats.LatencyPoseToReceiveAvg`. Er sollte konstant weniger als 100 ms betragen. Höhere Werte können darauf hinweisen, dass Sie mit einem zu weit entfernten Rechenzentrum verbunden sind.
+Ein anderer Wert, der untersucht werden kann, ist `ServiceStatistics.LatencyPoseToReceiveAvg`. Er sollte konstant weniger als 100 ms betragen. Höhere Werte können darauf hinweisen, dass Sie mit einem zu weit entfernten Rechenzentrum verbunden sind.
 
 Eine Liste der möglichen Entschärfungen finden Sie in den [Richtlinien für die Netzwerkkonnektivität](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

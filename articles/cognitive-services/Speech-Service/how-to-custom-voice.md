@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573087"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007294"
 ---
 # <a name="get-started-with-custom-voice"></a>Erste Schritte mit Custom Voice
 
@@ -66,6 +66,18 @@ Wählen Sie zum Erstellen Ihres ersten Projekts die Registerkarte **Text-to-Spee
 
 > [!IMPORTANT]
 > Das [Custom Voice-Portal](https://aka.ms/custom-voice) wurde kürzlich aktualisiert! Wenn Sie vorherige Daten, Modelle, Tests und veröffentlichte Endpunkte im CRIS.ai-Portal oder mit APIs erstellt haben, müssen Sie im neuen Portal ein neues Projekt erstellen, um eine Verbindung mit diesen alten Entitäten herzustellen.
+
+## <a name="how-to-migrate-to-custom-neural-voice"></a>Migrieren zur benutzerdefinierten neuronalen Stimme
+
+Wenn Sie die nicht neuronale (oder standardmäßige) benutzerdefinierte Stimme verwenden, sollten Sie eine Migration zur benutzerdefinierten neuronalen Stimme in Erwägung ziehen, indem Sie die folgenden Schritte ausführen. Der Wechsel zur benutzerdefinierten neuronalen Stimme hilft Ihnen dabei, realistischere Stimmen für noch natürlichere Konversationsschnittstellen zu entwickeln. So können Sie es Ihren Kunden und Endbenutzern ermöglichen, die Vorteile der aktuellen Text-zu-Sprache-Technologie verantwortungsvoll zu nutzen. 
+
+1. [Hier](https://aka.ms/gating-overview) erhalten Sie weitere Informationen zu unserer Richtlinie zur Zugriffsbeschränkung. [Hier](https://aka.ms/customneural) können Sie den Zugriff anfordern. Beachten Sie, dass der Zugriff auf den Dienst für die benutzerdefinierte neuronale Stimme im alleinigen Ermessen von Microsoft auf der Grundlage unserer Qualifizierungskriterien liegt. Kunden erhalten erst dann Zugriff auf die Technologie, wenn ihre Anwendung geprüft wurde und sie sich verpflichtet haben, sie in Übereinstimmung mit unseren [Prinzipien für verantwortungsbewusste KI](https://microsoft.com/ai/responsible-ai) und den [Verhaltensregeln](https://aka.ms/custom-neural-code-of-conduct) zu verwenden. 
+2. Sobald Ihre Anwendung genehmigt ist, erhalten Sie Zugriff auf das „neuronale“ Trainingsfeature. Stellen Sie sicher, dass Sie sich mithilfe desselben Azure-Abonnements, das Sie in Ihrer Anwendung bereitstellen, beim [Custom Voice-Portal](https://speech.microsoft.com/customvoice) anmelden. 
+    > [!IMPORTANT]
+    > Um Sprecher zu schützen und das Training von Stimmmodellen mit nicht autorisierten Aufzeichnungen oder ohne die Zustimmung des Sprechers zu verhindern, erfordern wir vom Kunden das Hochladen einer aufgezeichneten Erklärung des Sprechers, in der er seine Zustimmung gibt. Stellen Sie beim Vorbereiten des Aufzeichnungsskripts sicher, dass Sie den folgenden Satz einschließen. „Ich [Vor- und Nachname nennen] akzeptiere, dass die Aufzeichnungen meiner Stimme von [Name des Unternehmens nennen] verwendet werden, um eine synthetische Version meiner Stimme zu erstellen und diese zu verwenden.“
+    > Dieser Satz muss als Metadatendatei auf die Registerkarte **Sprecher** hochgeladen werden. Anhand dieses Satzes wird überprüft, ob die Aufzeichnungen in den Trainingsdatasets von der Person stammen, die die Zustimmung erteilt hat.
+3. Nachdem das benutzerdefinierte neuronale Stimmmodell erstellt wurde, stellen Sie das Stimmmodell auf einem neuen Endpunkt bereit. Navigieren Sie zum Erstellen eines benutzerdefinierten Stimmendpunkts mit Ihrem neuronalen Stimmmodell zu **Sprachsynthese > Custom Voice > Bereitstellung**. Wählen Sie **Modell bereitstellen** aus, und geben Sie unter **Name** einen Namen und unter **Beschreibung** eine Beschreibung für Ihren benutzerdefinierten Endpunkt ein. Wählen Sie dann das benutzerdefinierte neuronale Stimmmodell aus, das Sie diesem Endpunkt zuordnen möchten, und bestätigen Sie die Bereitstellung.  
+4. Aktualisieren Sie Ihren Code in Ihren Apps, wenn Sie einen neuen Endpunkt mit einem neuen Modell erstellt haben. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

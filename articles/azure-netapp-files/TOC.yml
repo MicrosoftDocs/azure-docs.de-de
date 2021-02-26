@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: Worum handelt es sich beim Tool für konsistente Momentaufnahmen in Azure-Anwendungen?
       href: azacsnap-introduction.md
+    - name: Bedeutung der Umstellung auf harte Kontingentgrenzen für Volumes
+      href: volume-hard-quota-guidelines.md
 - name: Anleitungen
   items:
     - name: Registrieren für Azure NetApp Files
@@ -75,6 +77,8 @@
       href: manage-manual-qos-capacity-pool.md
     - name: Delegieren eines Subnetzes an Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
+    - name: "Erstellen und Verwalten von Active\_Directory-Verbindungen"
+      href: create-active-directory-connections.md
     - name: Erstellen und Verwalten eines NFS-Volumes
       items:
         - name: Erstellen eines NFS-Volumes
@@ -123,7 +127,7 @@
           href: troubleshoot-capacity-pools.md
         - name: Problembehandlung für die regionsübergreifende Replikation
           href: troubleshoot-cross-region-replication.md
-        - name: Problembehandlung für Volumes mit dualem Protokoll
+        - name: Problembehandlung für SMB-Volumes und Volumes mit dualem Protokoll
           href: troubleshoot-dual-protocol-volumes.md
         - name: Problembehandlung für NFSv4.1-Kerberos-Volumes
           href: troubleshoot-nfsv41-kerberos-volumes.md

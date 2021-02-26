@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555565"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591938"
 ---
 # <a name="pbr-materials"></a>PBR-Materialien
 
@@ -92,9 +92,9 @@ Eine Konvertierung von *Specular-Glossiness* in *Metalness-Roughness* ist nicht 
 ## <a name="api-documentation"></a>API-Dokumentation
 
 * [C# PbrMaterial-Klasse](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [C++ PbrMaterial-Klasse](/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

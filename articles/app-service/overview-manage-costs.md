@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736220"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573363"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planen und Verwalten von Kosten für Azure App Service
 
@@ -125,7 +125,7 @@ Wenn Sie beabsichtigen, eine bekannte Mindestanzahl von Compute-Instanzen für e
 
 Die Preise für reservierte Instanzen gelten für die anwendbaren Instanzen in Ihrem Abonnement bis zu der Anzahl der Instanzen, die Sie reservieren. Die reservierten Instanzen sind Gegenstand der Abrechnung und nicht an bestimmte Compute-Instanzen gebunden. Wenn Sie zu einem beliebigen Zeitpunkt während des Reservierungszeitraums weniger Instanzen als reserviert ausführen, bezahlen Sie weiterhin für die reservierten Instanzen. Wenn Sie zu einem beliebigen Zeitpunkt während des Reservierungszeitraums mehr Instanzen als reserviert ausführen, bezahlen Sie die normalen, für die zusätzlichen Instanzen anfallenden Kosten.
 
-Der Tarif **Isoliert** (App Service-Umgebung) unterstützt auch 1-Jahres- und 3-Jahres-Reservierungen zu reduzierten Preisen. Weitere Informationen finden Sie unter [Wie Reservierungsrabatte auf Azure App Service-Stempelgebühren (isoliert) angewendet werden](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+Der Tarif **Isoliert** (App Service-Umgebung) unterstützt auch 1-Jahres- und 3-Jahres-Reservierungen zu reduzierten Preisen. Weitere Informationen finden Sie unter [Anwendung von Reservierungsrabatten auf Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Überwachen der Kosten
 

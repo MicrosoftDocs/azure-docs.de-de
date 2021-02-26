@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706199"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581991"
 ---
 # <a name="branding-guidelines-for-applications"></a>Brandingrichtlinien für Anwendungen
 
@@ -27,7 +27,7 @@ Wenn Sie Anwendungen mit der Microsoft Identity Platform entwickeln, müssen Sie
 In diesem Artikel werden die folgenden Themen behandelt:
 
 - Weitere Informationen zu den beiden Arten von Benutzerkonten, die von Microsoft verwaltet werden, und dazu, wie Sie auf Azure AD-Konten in Ihrer Anwendung verweisen können.
-- Informationen dazu, wie Sie vorgehen müssen, um das Microsoft-Logo für die Verwendung in Ihrer App hinzuzufügen.
+- Informationen zu den Anforderungen für die Verwendung des Microsoft-Logos in Ihrer App
 - Herunterladen der offiziellen **Anmelden**- oder **Bei Microsoft anmelden**-Bilder zu Verwendung in Ihrer App.
 - Informationen zum Branding und zu Navigationsempfehlungen und -einschränkungen.
 

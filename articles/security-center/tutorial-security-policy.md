@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756671"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986598"
 ---
 # <a name="manage-security-policies"></a>Verwalten von Sicherheitsrichtlinien
 
@@ -54,7 +54,7 @@ Zeigen Sie Ihre Sicherheitsrichtlinien in Security Center wie folgt an:
 
 1. Die Seite „Sicherheitsrichtlinie“ für dieses Abonnement bzw. diese Verwaltungsgruppe wird angezeigt. Sie enthält die verfügbaren und die zugewiesenen Richtlinien.
 
-   ![Richtlinienseite](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Seite mit Sicherheitsrichtlinien von Security Center" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Wenn neben Ihrer Standardrichtlinie die Bezeichnung „Verwaltungsgruppe geerbt“ steht, bedeutet dies, dass die Richtlinie einer Verwaltungsgruppe zugewiesen und vom angezeigten Abonnement geerbt wurde.
@@ -102,7 +102,7 @@ Weitere Informationen zu Empfehlungen finden Sie unter [Verwalten von Sicherheit
 
 1. Wählen Sie in Security Center im Abschnitt **Richtlinie und Konformität** die Option **Sicherheitsrichtlinie** aus.
 
-   ![Richtlinienverwaltung](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starten des Richtlinienverwaltungsvorgangs in Azure Security Center":::
 
 2. Wählen Sie das Abonnement aus, für das Sie die Empfehlung deaktivieren möchten.
 
@@ -111,7 +111,7 @@ Weitere Informationen zu Empfehlungen finden Sie unter [Verwalten von Sicherheit
 
 1. Wählen Sie **Effektive Richtlinie anzeigen** aus.
 
-   ![Richtlinie anzeigen](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Öffnen der Ihrem Abonnement zugewiesenen effektiven Richtlinie":::
 
 1. Wählen Sie die zugewiesene Richtlinie aus.
 
@@ -126,10 +126,8 @@ Weitere Informationen zu Empfehlungen finden Sie unter [Verwalten von Sicherheit
    > [!NOTE]
    > Es kann bis zu 12 Stunden dauern, bis die Änderungen zum Deaktivieren der Richtlinie wirksam werden.
 
-
-
 ## <a name="next-steps"></a>Nächste Schritte
-In diesem Artikel werden die Sicherheitsrichtlinien beschrieben. Weitere Informationen finden Sie in den folgenden Artikeln:
+Auf dieser Seite werden die Sicherheitsrichtlinien beschrieben. Zugehörige Informationen finden Sie auf den folgenden Seiten:
 
 - [Schnellstart: Erstellen einer Richtlinienzuweisung zum Identifizieren nicht konformer Ressourcen mit Azure PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung](../governance/policy/tutorials/create-and-manage.md) - 

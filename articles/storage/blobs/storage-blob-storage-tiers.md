@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165687"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928805"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Zugriffsebenen für Azure Blob Storage: „Heiß“, „Kalt“ und „Archiv“
 
@@ -86,7 +86,7 @@ Beispielszenarien für die Verwendung der Archivzugriffsebene:
 - Compliance- und Archivdaten, die über einen langen Zeitraum gespeichert werden müssen und auf die selten zugegriffen wird
 
 > [!NOTE]
-> Die Archivspeicherebene wird für ZRS-, GZRS- oder RA-GZRS-Konten nicht unterstützt.
+> Die Archivspeicherebene wird für ZRS-, GZRS- oder RA-GZRS-Konten nicht unterstützt. Die Migration von LRS zu GRS wird nicht unterstützt, wenn das Speicherkonto Blobs auf Archivspeicherebene enthält.
 
 ## <a name="account-level-tiering"></a>Tiering auf Kontoebene
 

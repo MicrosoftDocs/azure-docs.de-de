@@ -1,23 +1,18 @@
 ---
 title: Verschieben von Daten aus SAP Business Warehouse mithilfe von Azure Data Factory
 description: Erfahren Sie, wie Sie Daten aus SAP Business Warehouse mithilfe von Azure Data Factory verschieben.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 513d6b28908b99594eaa525e86690fa75bffb103
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508287"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386967"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Verschieben von Daten aus SAP Business Warehouse mithilfe von Azure Data Factory
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -288,7 +283,7 @@ Beim Verschieben von Daten aus SAP BW werden die folgenden Zuordnungen zwischen 
 
 Datentyp im ABAP-Wörterbuch | .NET-Datentyp
 -------------------------------- | --------------
-ACCP |  Int
+ACCP |    Int
 CHAR | String
 CLNT | String
 CURR | Decimal

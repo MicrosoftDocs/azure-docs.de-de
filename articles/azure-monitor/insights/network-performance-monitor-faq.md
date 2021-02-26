@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625164"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833013"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Netzwerkleistungsmonitor-Lösung: häufig gestellte Fragen
 
 ![Symbol des Netzwerkleistungsmonitors](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 ist es nicht mehr möglich, neue Tests in einem vorhandenen Arbeitsbereich hinzufügen oder einen neuen Arbeitsbereich im Netzwerkleistungsmonitor zu aktivieren. Sie können weiterhin die Tests verwenden, die vor dem 1. Juli 2021 erstellt wurden. [Migrieren Sie Ihre Tests vor dem 29. Februar 2024 aus dem Netzwerkleistungsmonitor zum neuen Verbindungsmonitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher, um die Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
 
 Dieser Artikel umfasst die häufig gestellten Fragen (FAQs) zum Netzwerkleistungsmonitor (NPM) in Azure.
 
@@ -255,9 +258,9 @@ Möglich sind folgende Ursachen:
 * Die zur Überwachung der ExpressRoute-Leitung in der Überwachungskonfiguration ausgewählten lokalen und Azure-Knoten sind über die vorgesehene ExpressRoute-Leitung nicht miteinander verbunden. Vergewissern Sie sich, dass Sie die richtigen Knoten ausgewählt haben, die über die zu überwachende ExpressRoute-Leitung miteinander verbunden sind.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Warum meldet der ExpressRoute-Monitor meine Leitung bzw. Peeringverbindung als fehlerhaft, obwohl diese verfügbar ist und Daten übergibt?
-Der ExpressRoute-Monitor vergleicht die vom Agent bzw. Dienst gemeldeten Netzwerkleistungswerte (Verlust, Latenz und Bandbreitenauslastung) mit den bei der Konfiguration festgelegten Schwellenwerten. Wenn die gemeldete Bandbreitenauslastung einer Leitung größer ist als der in der Konfiguration festgelegte Schwellenwert, wird die Leitung als fehlerhaft gekennzeichnet. Wenn die gemeldeten Werte für Verlust, Latenz oder Bandbreitenauslastung eines Peerings größer sind als die in der Konfiguration festgelegten Schwellenwert, wird das Peering als fehlerhaft gekennzeichnet. NPM verwendet keine Metriken oder andere Arten von Daten, um Entscheidungen über den Integritätszustand zu treffen.
+Der ExpressRoute-Monitor vergleicht die vom Agent bzw. Dienst gemeldeten Netzwerkleistungswerte (Verlust, Latenz und Bandbreitenauslastung) mit den bei der Konfiguration festgelegten Schwellenwerten. Wenn die gemeldete Bandbreitenauslastung einer Leitung größer ist als der in der Konfiguration festgelegte Schwellenwert, wird die Leitung als fehlerhaft gekennzeichnet. Wenn die gemeldeten Werte für Verlust, Latenz oder Bandbreitenauslastung eines Peerings größer sind als die in der Konfiguration festgelegten Schwellenwerte, wird das Peering als fehlerhaft gekennzeichnet. NPM verwendet keine Metriken oder andere Arten von Daten, um Entscheidungen über den Integritätszustand zu treffen.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Warum meldet der ExpressRoute-Monitor bei der Bandbreitenauslastung einen Wert, der sich von der Metrik für ein- und ausgehende Bits unterscheidet?
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Warum meldet der ExpressRoute-Monitor bei der Bandbreitenauslastung einen Wert, der sich von der Metrik für ein- und ausgehende Bits unterscheidet?
 Im ExpressRoute-Monitor ist die Bandbreitenauslastung der Durchschnitt der ein- und ausgehenden Bandbreite in den letzten 20 Minuten. Dieser Wert wird in Bits/s ausgedrückt. Bei ExpressRoute-Metriken sind ein- und ausgehende Bits minutenbasierte Datenpunkte. Intern wird für beide Angaben dasselbe Dataset verwendet, aber die Aggregation erfolgt in NPM und ExpressRoute-Metriken unterschiedlich. Um eine differenzierte, minutengenaue Überwachung und schnelle Warnungen zu erhalten, empfiehlt es sich, Warnungen direkt für die ExpressRoute-Metriken festzulegen.
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Beim Konfigurieren der Überwachung der ExpressRoute-Leitung werden die Azure-Knoten nicht erkannt
@@ -300,4 +303,3 @@ Der Netzwerkleistungsmonitor rundet die Latenzzeiten in der Benutzeroberfläche 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen zum Netzwerkleistungsmonitor finden Sie unter [Netzwerkleistungsmonitor-Lösung in Azure](./network-performance-monitor.md).
-

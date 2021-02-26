@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 1: Informieren Sie sich über die Vorteile der Migration zur Media Services-API V3 | Microsoft-Dokumentation'
+title: Vorteile der Migration zur Media Services-API V3
 description: In diesem Artikel werden die Vorteile der Migration von Media Services V2 zu V3 aufgeführt.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1e3fae35ff249b4435cf2fdcd2bf691bc393d56
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689536"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955070"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Schritt 1: Informieren Sie sich über die Vorteile der Migration zur Media Services-API V3
 

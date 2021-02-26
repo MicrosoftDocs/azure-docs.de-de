@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 029e3ba799e5f239bde0ef049316dd268ebe4c8f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780902"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588780"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Einrichten und Verwenden von Azure Monitor-Protokollen mit einer mehrinstanzenfähigen SaaS-App für Azure SQL-Datenbank
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In diesem Tutorial richten Sie [Azure Monitor-Protokolle](../../azure-monitor/log-query/log-query-overview.md) zum Überwachen von Pools für elastische Datenbanken sowie Datenbanken ein. Dieses Tutorial baut auf dem [Tutorial zum Überwachen und Verwalten der Leistung](saas-dbpertenant-performance-monitoring.md) auf. Es zeigt, wie Sie mit Azure Monitor-Protokollen die im Azure-Portal bereitgestellte Überwachungs- und Warnungsfunktionalität erweitern können. Azure Monitor-Protokolle unterstützen die Überwachung von zigtausend Pools für elastische Datenbanken und mehreren hunderttausend Datenbanken. Mit Azure Monitor-Protokollen verfügen Sie über eine zentrale Überwachungslösung, in der die Überwachung von unterschiedlichen Anwendungen und Azure-Diensten für mehrere Azure-Abonnements integriert werden kann.
+In diesem Tutorial richten Sie [Azure Monitor-Protokolle](../../azure-monitor/logs/log-query-overview.md) zum Überwachen von Pools für elastische Datenbanken sowie Datenbanken ein. Dieses Tutorial baut auf dem [Tutorial zum Überwachen und Verwalten der Leistung](saas-dbpertenant-performance-monitoring.md) auf. Es zeigt, wie Sie mit Azure Monitor-Protokollen die im Azure-Portal bereitgestellte Überwachungs- und Warnungsfunktionalität erweitern können. Azure Monitor-Protokolle unterstützen die Überwachung von zigtausend Pools für elastische Datenbanken und mehreren hunderttausend Datenbanken. Mit Azure Monitor-Protokollen verfügen Sie über eine zentrale Überwachungslösung, in der die Überwachung von unterschiedlichen Anwendungen und Azure-Diensten für mehrere Azure-Abonnements integriert werden kann.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -48,7 +48,7 @@ OMS-Arbeitsbereiche werden jetzt als Log Analytics-Arbeitsbereiche bezeichnet. L
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Erstellen von Leistungsdiagnosedaten durch Simulieren einer Arbeitsauslastung für Ihre Mandanten 
 
-1. Öffnen Sie in der PowerShell ISE „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1* “. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
+1. Öffnen Sie in der PowerShell ISE „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*“. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
 1. Falls noch nicht geschehen, stellen Sie einen Batch von Mandanten bereit, um einen interessanteren Überwachungskontext herzustellen. Dieser Vorgang dauert einige Minuten.
 
    a. Legen Sie **$DemoScenario = 1** fest – _Bereitstellen eines Batchs von Mandanten_
@@ -69,7 +69,7 @@ Die Skripts und der Anwendungsquellcode der mehrinstanzenfähigen Wingtip Ticket
 
 Azure Monitor ist ein separater Dienst, der konfiguriert werden muss. Azure Monitor-Protokolle erfassen Protokoll- und Telemetriedaten sowie Metriken in einem Log Analytics-Arbeitsbereich. Ein Log Analytics-Arbeitsbereich muss wie andere Ressourcen in Azure erstellt werden. Der Arbeitsbereich muss nicht in derselben Ressourcengruppe erstellt werden, in der sich auch die überwachten Anwendungen befinden. In den meisten Fällen ist das jedoch am sinnvollsten. Bei der Wingtip Tickets-App wird durch das Verwenden einer einzigen Ressourcengruppe sichergestellt, dass der Arbeitsbereich mit der Anwendung gelöscht wird.
 
-1. Öffnen Sie in der PowerShell ISE *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1* .
+1. Öffnen Sie in der PowerShell ISE *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Drücken Sie F5, um das Skript auszuführen.
 
 Jetzt können Sie Azure Monitor-Protokolle im Azure-Portal öffnen. Es dauert einige Minuten, bis Telemetriedaten im Log Analytics-Arbeitsbereich erfasst und angezeigt werden. Je länger Sie dem System Zeit zum Sammeln von Diagnosedaten lassen, desto interessanter wird das Ergebnis. 
@@ -92,7 +92,7 @@ Jetzt können Sie Azure Monitor-Protokolle im Azure-Portal öffnen. Es dauert ei
     > [!IMPORTANT]
     > Es kann einige Minuten dauern, bis die Lösung aktiv ist. 
 
-1. Klicken Sie auf die Kachel **Azure SQL-Analyse** , um sie zu öffnen.
+1. Klicken Sie auf die Kachel **Azure SQL-Analyse**, um sie zu öffnen.
 
     ![Übersichtskachel](./media/saas-dbpertenant-log-analytics/overview.png)
 
@@ -135,7 +135,7 @@ Im Log Analytics-Arbeitsbereich können Sie die Protokoll- und Metrikdaten weite
 
 Überwachung und Warnung in Azure Monitor-Protokollen beruhen – im Gegensatz zu den Warnungen, die im Azure-Portal für jede Ressource definiert werden – auf Abfragen der Daten im Arbeitsbereich. Da Warnungen auf Abfragen beruhen, können Sie statt einer Warnung pro Datenbank eine einzige Warnung definieren, die alle Datenbanken abdeckt. Abfragen sind nur durch die im Arbeitsbereich verfügbaren Daten beschränkt.
 
-Weitere Informationen zum Abfragen und Festlegen von Warnungen mit Azure Monitor-Protokollen finden Sie unter [Arbeiten mit Warnungsregeln in Azure Monitor-Protokollen](../../azure-monitor/platform/alerts-metric.md).
+Weitere Informationen zum Abfragen und Festlegen von Warnungen mit Azure Monitor-Protokollen finden Sie unter [Arbeiten mit Warnungsregeln in Azure Monitor-Protokollen](../../azure-monitor/alerts/alerts-metric.md).
 
 Die Rechnungsstellung für Azure Monitor-Protokolle für SQL-Datenbank basiert auf dem jeweiligen Datenvolumen im Arbeitsbereich. In diesem Tutorial haben Sie einen kostenlosen Arbeitsbereich erstellt, der auf 500 MB pro Tag beschränkt ist. Sobald dieser Grenzwert erreicht wird, werden dem Arbeitsbereich keine Daten mehr hinzugefügt.
 

@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Erstellen einer App für die vernetzte Abfallwirtschaft mit Azure IoT Central'
-description: Hier erfahren Sie, wie Sie mit Azure IoT Central-Anwendungsvorlagen eine Anwendung für die vernetzte Abfallwirtschaft erstellen.
+description: 'Tutorial: Hier erfahren Sie, wie Sie mit Azure IoT Central-Anwendungsvorlagen eine Anwendung für die vernetzte Abfallwirtschaft erstellen.'
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881343"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820078"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Erstellen einer App für die vernetzte Abfallwirtschaft
 
@@ -20,13 +20,13 @@ In diesem Tutorial erfahren Sie, wie Sie mithilfe von Azure IoT Central eine A
 
 Dabei wird insbesondere Folgendes vermittelt: 
 
-* Verwenden der Azure IoT Central-Vorlage *Vernetzte Abfallwirtschaft* für die App-Erstellung
-* Erkunden und Anpassen des Operatordashboards 
-* Erkunden der Gerätevorlage für vernetzte Abfallbehälter
-* Erkunden von simulierten Geräten
-* Erkunden und Konfigurieren von Regeln
-* Konfigurieren von Aufträgen
-* Anpassen des Brandings Ihrer Anwendung
+> [!div class="checklist"]
+> Verwenden der Azure IoT Central-Vorlage *Vernetzte Abfallwirtschaft* für die App-Erstellung
+> Erkunden und Anpassen des Operatordashboards Erkunden der Gerätevorlage für vernetzte Abfallbehälter
+> Erkunden von simulierten Geräten
+> Erkunden und Konfigurieren von Regeln
+> Konfigurieren von Aufträgen
+> Anpassen des Brandings Ihrer Anwendung
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

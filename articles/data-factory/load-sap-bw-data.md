@@ -1,22 +1,18 @@
 ---
 title: Laden von Daten aus SAP Business Warehouse
 description: Verwenden von Azure Data Factory zum Kopieren von Daten aus SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370698"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopieren von Daten aus SAP Business Warehouse mithilfe von Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -77,7 +73,7 @@ Wechseln Sie im Azure-Portal zu Ihrer Data Factory. Klicken Sie auf **Erstellen 
 
 6. Geben Sie bei Bedarf einen Filter an. Wenn Ihr OHD nur Daten aus einer einzelnen Ausführung eines Datenübertragungsprozesses (Data Transfer Process, DTP) mit einer einzelnen Anforderungs-ID enthält, oder wenn Sie sicher sind, dass Ihr DTP fertig gestellt ist und Sie die Daten kopieren möchten, deaktivieren Sie das Dialogfeld **Letzte Anforderung ausschließen**.
 
-   Weitere Informationen zu diesen Einstellungen finden Sie im Abschnitt [SAP BW Open Hub Destination-Konfigurationen](#sap-bw-open-hub-destination-configurations) dieses Artikels. Wählen Sie **Überprüfen** aus, um nochmal zu prüfen, welche Daten zurückgegeben werden. Wählen Sie **Weiter**aus.
+   Weitere Informationen zu diesen Einstellungen finden Sie im Abschnitt [SAP BW Open Hub Destination-Konfigurationen](#sap-bw-open-hub-destination-configurations) dieses Artikels. Wählen Sie **Überprüfen** aus, um nochmal zu prüfen, welche Daten zurückgegeben werden. Wählen Sie **Weiter** aus.
 
    ![Konfigurieren des SAP BW Open Hub-Filters](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +84,9 @@ Wechseln Sie im Azure-Portal zu Ihrer Data Factory. Klicken Sie auf **Erstellen 
    ![Seite zum Erstellen eines verknüpften ADLS Gen2-Diensts](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Wählen Sie in der Dropdownliste **Name** das Data Lake Storage Gen2-fähige Konto aus.
-   2. Wählen Sie **Fertig stellen** aus, um die Verbindung zu erstellen. Wählen Sie **Weiter**aus.
+   2. Wählen Sie **Fertig stellen** aus, um die Verbindung zu erstellen. Wählen Sie **Weiter** aus.
 
-9. Geben Sie auf der Seite **Ausgabedatei oder -ordner auswählen** als Ausgabeordnernamen **copyfromopenhub** ein. Wählen Sie **Weiter**aus.
+9. Geben Sie auf der Seite **Ausgabedatei oder -ordner auswählen** als Ausgabeordnernamen **copyfromopenhub** ein. Wählen Sie **Weiter** aus.
 
    ![Seite zum Auswählen des Ausgabeordners](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +94,11 @@ Wechseln Sie im Azure-Portal zu Ihrer Data Factory. Klicken Sie auf **Erstellen 
 
     ![Seite zum Angeben des Senkenformats](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Erweitern Sie auf der Seite **Einstellungen** den Eintrag **Leistungseinstellungen**. Geben Sie einen Wert für **Parallelitätsgrad des Kopierens** ein, z.B. „5“, zum parallelen Laden aus SAP BW. Wählen Sie **Weiter**aus.
+11. Erweitern Sie auf der Seite **Einstellungen** den Eintrag **Leistungseinstellungen**. Geben Sie einen Wert für **Parallelitätsgrad des Kopierens** ein, z.B. „5“, zum parallelen Laden aus SAP BW. Wählen Sie **Weiter** aus.
 
     ![Konfigurieren von Kopiereinstellungen](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Wählen Sie **Weiter**aus.
+12. Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen. Wählen Sie **Weiter** aus.
 
 13. Klicken Sie auf der Seite **Bereitstellung** auf **Überwachen**, um die Pipeline zu überwachen.
 

@@ -1,10 +1,10 @@
 - name: Docker-Dokumentation
   href: index.yml
 - name: Schnellstart
-  expanded: true
   items:
     - name: Bereitstellen eines virtuellen Ubuntu-Computers mit Docker
       href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
+  expanded: true
 - name: Tutorials
   items:
     - name: Python-Web-App mit Docker und PostgreSQL
@@ -15,8 +15,6 @@
   items:
     - name: Docker-VM-Erweiterung
       href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
-    - name: Docker-Computer
-      href: ../virtual-machines/linux/docker-machine.md
     - name: Docker-Containerregistrierung
       href: ../container-registry/container-registry-get-started-portal.md
 - name: Ressourcen

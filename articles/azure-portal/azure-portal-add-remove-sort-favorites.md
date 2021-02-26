@@ -13,7 +13,7 @@ ms.locfileid: "96745790"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Hinzufügen, Entfernen und Neuanordnen von Favoriten
 
-Sie können Elemente in der Liste Ihrer **Favoriten** hinzufügen oder entfernen, sodass Sie schnell zu den Diensten navigieren können, die Sie am häufigsten verwenden. Wir haben der Liste der **Favoriten** bereits einige häufiger verwendete Dienste hinzugefügt, wahrscheinlich möchten Sie sie jedoch anpassen. Nur Sie allein können die an der Liste der **Favoriten** vorgenommenen Änderungen sehen.
+Sie können Elemente in der Liste Ihrer **Favoriten** hinzufügen oder entfernen, so dass Sie schnell zu den Diensten navigieren können, die Sie am häufigsten verwenden. Wir haben der Liste der **Favoriten** bereits einige häufiger verwendete Dienste hinzugefügt, wahrscheinlich möchten Sie sie jedoch anpassen. Nur Sie allein können die an der Liste der **Favoriten** vorgenommenen Änderungen sehen.
 
 ## <a name="add-a-favorite"></a>Hinzufügen von Favoriten
 

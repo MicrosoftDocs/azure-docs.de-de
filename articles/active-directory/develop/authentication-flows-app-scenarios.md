@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4147adb004947c22ec39349f408d794bca160ef5
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755785"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582178"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Authentifizierungsflows und Anwendungsszenarien
 
@@ -42,8 +42,8 @@ In den folgenden Abschnitten werden die Anwendungskategorien beschrieben.
 
 Die Authentifizierungsszenarien beinhalten zwei Aktivitäten:
 
-- **Abrufen von Sicherheitstoken für eine geschützte Web-API:** Es wird empfohlen, [von Microsoft unterstützte Clientbibliotheken](reference-v2-libraries.md#microsoft-supported-client-libraries) zu verwenden, um Token abzurufen. Insbesondere wird die Microsoft Authentication Library (MSAL)-Familie empfohlen.
-- **Schützen einer Web-API oder einer Web-App:** Eine der Herausforderungen beim Schutz dieser Ressourcen besteht in der Überprüfung des Sicherheitstokens. Für einige Plattformen bietet Microsoft [Middlewarebibliotheken](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) an.
+- **Abrufen von Sicherheitstoken für eine geschützte Web-API:** Wir empfehlen, die von Microsoft entwickelte und unterstützte [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) zu verwenden.
+- **Schützen einer Web-API oder einer Web-App:** Eine der Herausforderungen beim Schutz dieser Ressourcen besteht in der Überprüfung des Sicherheitstokens. Für einige Plattformen bietet Microsoft [Middlewarebibliotheken](reference-v2-libraries.md) an.
 
 ### <a name="with-users-or-without-users"></a>Mit Benutzern oder ohne Benutzer
 
@@ -65,7 +65,7 @@ Sicherheitstoken können von verschiedenen Arten von Anwendungen abgerufen werde
   - Desktop-Apps, die Web-APIs im Namen angemeldeter Benutzer aufrufen
   - Mobile Apps
   - Apps, die auf Geräten ohne Browser ausgeführt werden (etwa IoT-Geräte)
-  
+
 - **Vertrauliche Clientanwendungen:** Apps in dieser Kategorie umfassen:
   - Web-Apps, die eine Web-API aufrufen
   - Web-APIs, die eine Web-API aufrufen
@@ -95,7 +95,7 @@ Anwendungen verwenden die verschiedenen Authentifizierungsflows, um Benutzer anz
 
 Viele moderne Web-Apps werden als clientseitige Single-Page-Anwendungen (SPAs) erstellt. Diese Anwendungen verwenden JavaScript oder ein Framework wie Angular, Vue und React. Diese Anwendungen werden in einem Webbrowser ausgeführt.
 
-Single-Page-Webanwendungen unterscheiden sich im Hinblick auf die Authentifizierungsmerkmale von herkömmlichen serverseitigen Web-Apps. Durch die Nutzung von Microsoft Identity Platform können Single-Page-Webanwendungen Benutzer anmelden und Token für den Zugriff auf Back-End-Dienste oder Web-APIs beziehen. Microsoft Identity Platform bietet zwei Gewährungstypen für JavaScript-Anwendungen: 
+Single-Page-Webanwendungen unterscheiden sich im Hinblick auf die Authentifizierungsmerkmale von herkömmlichen serverseitigen Web-Apps. Durch die Nutzung von Microsoft Identity Platform können Single-Page-Webanwendungen Benutzer anmelden und Token für den Zugriff auf Back-End-Dienste oder Web-APIs beziehen. Microsoft Identity Platform bietet zwei Gewährungstypen für JavaScript-Anwendungen:
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -160,9 +160,9 @@ Weitere Informationen finden Sie unter [Szenario: Mobile App, die Web-APIs aufru
 
 ### <a name="protected-web-api"></a>Geschützte Web-API
 
-Mit Microsoft Identity Platform können Sie Webdienste wie etwa die RESTful-Web-API Ihrer App schützen. Eine geschützte Web-API wird über ein Zugriffstoken aufgerufen. Das Token schützt die Daten der API und authentifiziert eingehende Anforderungen. Der Aufrufer einer Web-API fügt an den Autorisierungsheader einer HTTP-Anforderung ein Zugriffstoken an.
+Mit dem Microsoft Identity Plattform-Endpunkt können Sie Webdienste wie etwa die RESTful-Web-API Ihrer App schützen. Eine geschützte Web-API wird über ein Zugriffstoken aufgerufen. Das Token schützt die Daten der API und authentifiziert eingehende Anforderungen. Der Aufrufer einer Web-API fügt an den Autorisierungsheader einer HTTP-Anforderung ein Zugriffstoken an.
 
-Wenn Sie Ihre ASP.NET- oder ASP.NET Core-Web-API schützen möchten, müssen Sie das Zugriffstoken validieren. Für diese Validierung wird die JWT-Middleware für ASP.NET verwendet. Die Validierung wird nicht von MSAL.NET, sondern von der Bibliothek [IdentityModel-Erweiterungen für .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) durchgeführt.
+Validieren Sie das Zugriffstoken, wenn Sie Ihre ASP.NET- oder ASP.NET Core-Web-API schützen möchten. Für diese Validierung wird die JWT-Middleware für ASP.NET verwendet. Die Validierung wird nicht von MSAL.NET, sondern von der Bibliothek [IdentityModel-Erweiterungen für .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) durchgeführt.
 
 Weitere Informationen finden Sie unter [Szenario: Geschützte Web-API](scenario-protected-web-api-overview.md).
 
@@ -309,7 +309,7 @@ Wenn in der Windows-Spalte der folgenden Tabelle .NET Core angegeben ist, ist i
 | [Daemon-App](scenario-daemon-overview.md) <br/> [![Daemon-App](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [Web-API, die Web-APIs aufruft](scenario-web-api-call-api-overview.md) <br/><br/> [![Web-API, die Web-APIs aufruft](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Weitere Informationen finden Sie unter [Von Microsoft unterstützte Bibliotheken nach Betriebssystem/Sprache](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Weitere Informationen finden Sie unter [Microsoft Identity Platform-Authentifizierungsbibliotheken](reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

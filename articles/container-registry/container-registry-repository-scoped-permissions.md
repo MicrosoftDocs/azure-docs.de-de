@@ -2,17 +2,17 @@
 title: Berechtigungen für Repositorys in Azure Container Registry
 description: Erstellen eines Tokens mit Berechtigungen, die für bestimmte Repositorys in einer Premium-Registrierung gelten, um Images zu pullen oder zu pushen bzw. andere Aktionen auszuführen
 ms.topic: article
-ms.date: 05/27/2020
-ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 02/04/2021
+ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381234"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988252"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Erstellen eines Token mit repositorybezogenen Berechtigungen
 
-In diesem Artikel wird beschrieben, wie Sie Token und Bereichszuordnungen zur Verwaltung von Berechtigungen in Ihrer Containerregistrierung erstellen, die sich auf das Repository beziehen. Durch die Erstellung von Token kann ein Registrierungsbesitzer Benutzern oder Diensten einen bereichsbezogenen, zeitlich begrenzten Zugriff auf Repositorys gewähren, um Images zu pullen oder zu pushen oder andere Aktionen durchzuführen. Ein Token bietet detailliertere Berechtigungen als andere [Authentifizierungsoptionen](container-registry-authentication.md) für Registrierungen, die Berechtigungen für eine gesamte Registrierung umfassen. 
+In diesem Artikel wird beschrieben, wie Sie Token und Bereichszuordnungen erstellen, um den Zugriff auf bestimmte Repositorys in Ihrer Containerregistrierung zu verwalten. Durch die Erstellung von Token kann ein Registrierungsbesitzer Benutzern oder Diensten einen bereichsbezogenen, zeitlich begrenzten Zugriff auf Repositorys gewähren, um Images zu pullen oder zu pushen oder andere Aktionen durchzuführen. Ein Token bietet detailliertere Berechtigungen als andere [Authentifizierungsoptionen](container-registry-authentication.md) für Registrierungen, die Berechtigungen für eine gesamte Registrierung umfassen. 
 
 Zu den Szenarien für die Erstellung eines Tokens gehören die folgenden:
 
@@ -61,9 +61,9 @@ In der folgenden Abbildung wird die Beziehung zwischen Token und Gültigkeitsber
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* **Azure CLI** : Azure CLI-Befehle zum Erstellen und Verwalten von Token sind in Azure CLI Version 2.0.76 oder höher verfügbar. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
-* **Docker** : Um sich zum Pullen oder Pushen von Images bei der Registrierung zu authentifizieren, benötigen Sie eine lokale Docker-Installation. Docker-Installationsanleitungen stehen für Systeme unter [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) und [Linux](https://docs.docker.com/engine/installation/#supported-platforms) zur Verfügung.
-* **Containerregistrierung** : Erstellen Sie in Ihrem Azure-Abonnement eine Premium-Containerregistrierung, wenn noch keine Registrierung vorhanden ist, oder führen Sie ein Upgrade für eine vorhandene Registrierung durch. Verwenden Sie beispielsweise das [Azure-Portal](container-registry-get-started-portal.md) oder die [Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Azure CLI**: Für die Azure CLI-Befehlsbeispiele in diesem Artikel ist eine Azure CLI-Version ab 2.17.0 erforderlich. Führen Sie `az --version` aus, um die Version zu ermitteln. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sie bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
+* **Docker**: Um sich zum Pullen oder Pushen von Images bei der Registrierung zu authentifizieren, benötigen Sie eine lokale Docker-Installation. Docker-Installationsanleitungen stehen für Systeme unter [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) und [Linux](https://docs.docker.com/engine/installation/#supported-platforms) zur Verfügung.
+* **Containerregistrierung**: Erstellen Sie in Ihrem Azure-Abonnement eine Premium-Containerregistrierung, wenn noch keine Registrierung vorhanden ist, oder führen Sie ein Upgrade für eine vorhandene Registrierung durch. Verwenden Sie beispielsweise das [Azure-Portal](container-registry-get-started-portal.md) oder die [Azure CLI](container-registry-get-started-azure-cli.md). 
 
 ## <a name="create-token---cli"></a>Token erstellen – Befehlszeilenschnittstelle
 
@@ -79,7 +79,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-Die Ausgabe zeigt Details zum Token an. Standardmäßig werden zwei Kennwörter generiert. Es wird empfohlen, die Kennwörter an einem sicheren Ort zu speichern, um sie später für die Authentifizierung zu verwenden. Die Kennwörter können nicht erneut abgerufen werden, aber es können neue Kennwörter generiert werden.
+Die Ausgabe zeigt Details zum Token an. Standardmäßig werden zwei Kennwörter generiert, die nicht ablaufen. Sie können jedoch optional ein Ablaufdatum festlegen. Es wird empfohlen, die Kennwörter an einem sicheren Ort zu speichern, um sie später für die Authentifizierung zu verwenden. Die Kennwörter können nicht erneut abgerufen werden, aber es können neue Kennwörter generiert werden.
 
 ```console
 {
@@ -113,7 +113,7 @@ Die Ausgabe zeigt Details zum Token an. Standardmäßig werden zwei Kennwörter 
 ```
 
 > [!NOTE]
-> Wenn Sie Tokenkennwörter erneut generieren und Kennwort-Ablaufzeiten festlegen möchten, nutzen Sie die Informationen unter [Erneutes Generieren von Tokenkennwörtern](#regenerate-token-passwords) weiter unten in diesem Artikel.
+> Informationen zum erneuten Generieren von Tokenkennwörtern und Ablauffristen finden Sie unter [Erneutes Generieren von Tokenkennwörtern](#regenerate-token-passwords) weiter unten in diesem Artikel.
 
 Die Ausgabe enthält Details über die vom Befehl erstellte Gültigkeitsbereichszuordnung. Mit der Gültigkeitsbereichszuordnung, hier unter der Bezeichnung `MyToken-scope-map`, können Sie dieselben Repositoryaktionen auf andere Token anwenden. Oder aktualisieren Sie die Gültigkeitsbereichszuordnung später, um die Berechtigungen der zugeordneten Token zu ändern.
 
@@ -141,7 +141,7 @@ az acr token create --name MyToken \
 Die Ausgabe zeigt Details zum Token an. Standardmäßig werden zwei Kennwörter generiert. Es wird empfohlen, die Kennwörter an einem sicheren Ort zu speichern, um sie später für die Authentifizierung zu verwenden. Die Kennwörter können nicht erneut abgerufen werden, aber es können neue Kennwörter generiert werden.
 
 > [!NOTE]
-> Wenn Sie Tokenkennwörter erneut generieren und Kennwort-Ablaufzeiten festlegen möchten, nutzen Sie die Informationen unter [Erneutes Generieren von Tokenkennwörtern](#regenerate-token-passwords) weiter unten in diesem Artikel.
+> Informationen zum erneuten Generieren von Tokenkennwörtern und Ablauffristen finden Sie unter [Erneutes Generieren von Tokenkennwörtern](#regenerate-token-passwords) weiter unten in diesem Artikel.
 
 ## <a name="create-token---portal"></a>Token erstellen – Portal
 
@@ -162,7 +162,7 @@ Das folgende Beispiel erstellt ein Token und erstellt eine Gültigkeitsbereichsz
         :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Erstellen einer Gültigkeitsbereichszuordnung im Portal":::
 
     1. Nachdem Sie Repositorys und Berechtigungen hinzugefügt haben, wählen Sie **Hinzufügen** aus, um die Gültigkeitsbereichszuordnung hinzuzufügen.
-1. Akzeptieren Sie den **Status** des Standardtokens von **Aktiviert** , und wählen Sie dann **Erstellen** aus.
+1. Akzeptieren Sie den **Status** des Standardtokens von **Aktiviert**, und wählen Sie dann **Erstellen** aus.
 
 Nachdem das Token überprüft und erstellt wurde, werden die Details des Tokens auf dem Bildschirm **Token** angezeigt.
 
@@ -198,13 +198,13 @@ In den folgenden Beispielen wird das zuvor in diesem Artikel erstellte Token ver
 
 ### <a name="pull-and-tag-test-images"></a>Pullen und Kennzeichnen von Testimages
 
-Für die folgenden Beispiele pullen Sie die Images `hello-world` und `alpine` aus dem Docker Hub und kennzeichnen sie für Ihre Registrierung und Ihr Repository.
+Pullen Sie für die folgenden Beispiele die öffentlichen Images `hello-world` und `nginx` aus Microsoft Container Registry, und markieren Sie sie für Ihre Registrierung und Ihr Repository.
 
 ```bash
-docker pull hello-world
-docker pull alpine
-docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag alpine myregistry.azurecr.io/samples/alpine:v1
+docker pull mcr.microsoft.com/hello-world
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+docker tag mcr.microsoft.com/hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Authentifizierung mithilfe des Tokens
@@ -234,17 +234,17 @@ Versuchen Sie nach erfolgreicher Anmeldung, die markierten Images in die Registr
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Das Token hat keine Berechtigungen für das `samples/alpine`-Repository, sodass beim folgenden Pushversuch ein Fehler auftritt, der `requested access to the resource is denied` ähnelt:
+Das Token hat keine Berechtigungen für das `samples/nginx`-Repository, sodass beim folgenden Pushversuch ein Fehler auftritt, der `requested access to the resource is denied` ähnelt:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="update-token-permissions"></a>Aktualisieren von Tokenberechtigungen
 
 Um Berechtigungen eines Tokens zu aktualisieren, aktualisieren Sie die Berechtigungen in der zugehörigen Gültigkeitsbereichszuordnung. Die aktualisierte Gültigkeitsbereichszuordnung wird sofort auf alle zugeordneten Token angewendet. 
 
-Aktualisieren Sie z. B. `MyToken-scope-map` mit den Aktionen `content/write` und `content/read` im `samples/alpine`-Repository, und entfernen Sie die Aktion `content/write` im `samples/hello-world`-Repository.  
+Aktualisieren Sie z. B. `MyToken-scope-map` mit den Aktionen `content/write` und `content/read` im `samples/ngnx`-Repository, und entfernen Sie die Aktion `content/write` im `samples/hello-world`-Repository.  
 
 Führen Sie [az acr scope-map update][az-acr-scope-map-update] zum Aktualisieren der Gültigkeitsbereichszuordnung aus, um die Azure CLI zu verwenden:
 
@@ -252,21 +252,21 @@ Führen Sie [az acr scope-map update][az-acr-scope-map-update] zum Aktualisieren
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/write content/read \
-  --remove samples/hello-world content/write 
+  --add-repository samples/nginx content/write content/read \
+  --remove-repository samples/hello-world content/write 
 ```
 
 Führen Sie im Azure-Portal die folgenden Schritte aus:
 
 1. Navigieren Sie zu Ihrer Containerregistrierung.
 1. Wählen Sie unter **Repositoryberechtigungen** die Option **Bereichszuordnungen (Vorschau)** aus, und wählen Sie die zu aktualisierende Bereichszuordnung aus.
-1. Unter **Repositorys** geben Sie `samples/alpine` ein, und unter **Berechtigungen** wählen Sie `content/read` und `content/write` aus. Wählen Sie dann **+Hinzufügen** aus.
+1. Unter **Repositorys** geben Sie `samples/nginx` ein, und unter **Berechtigungen** wählen Sie `content/read` und `content/write` aus. Wählen Sie dann **+Hinzufügen** aus.
 1. Unter **Repositorys** wählen Sie `samples/hello-world` aus, und unter **Berechtigungen** deaktivieren Sie `content/write`. Klicken Sie dann auf **Speichern**.
 
 Nach der Aktualisierung der Gültigkeitsbereichszuordnung wird der folgende Pushvorgang erfolgreich durchgeführt:
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 Da die Gültigkeitsbereichszuordnung nur die `content/read`-Berechtigung für das `samples/hello-world`-Repository besitzt, tritt jetzt ein Fehler beim Pushversuch für das `samples/hello-world`-Repository auf:
@@ -278,12 +278,12 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 Das Pullen von Images aus beiden Repositorys wird erfolgreich durchgeführt, da die Gültigkeitsbereichszuordnung `content/read`-Berechtigungen für beide Repositorys bereitstellt:
 
 ```bash
-docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/nginx:v1
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### <a name="delete-images"></a>Löschen von Images
 
-Aktualisieren Sie die Gültigkeitsbereichszuordnung durch Hinzufügen der Aktion `content/delete` zum `alpine`-Repository. Diese Aktion ermöglicht das Löschen von Images im Repository oder das Löschen des gesamten Repositorys.
+Aktualisieren Sie die Gültigkeitsbereichszuordnung durch Hinzufügen der Aktion `content/delete` zum `nginx`-Repository. Diese Aktion ermöglicht das Löschen von Images im Repository oder das Löschen des gesamten Repositorys.
 
 Der Kürze halber zeigen wir nur den Befehl [az acr scope-map update][az-acr-scope-map-update] zur Aktualisierung der Gültigkeitsbereichszuordnung an:
 
@@ -291,16 +291,16 @@ Der Kürze halber zeigen wir nur den Befehl [az acr scope-map update][az-acr-sco
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/delete
+  --add-repository samples/nginx content/delete
 ``` 
 
 Informationen zum Aktualisieren der Bereichszuordnung über das Portal finden Sie im [vorherigen Abschnitt](#update-token-permissions).
 
-Verwenden Sie den folgenden Befehl [az acr repository delete][az-acr-repository-delete], um das `samples/alpine`-Repository zu löschen. Um Images oder Repositorys zu löschen, übergeben Sie den Namen und das Kennwort des Tokens an den Befehl. Das folgende Beispiel verwendet die zuvor in diesem Artikel erstellten Umgebungsvariablen:
+Verwenden Sie den folgenden Befehl [az acr repository delete][az-acr-repository-delete], um das `samples/nginx`-Repository zu löschen. Um Images oder Repositorys zu löschen, übergeben Sie den Namen und das Kennwort des Tokens an den Befehl. Das folgende Beispiel verwendet die zuvor in diesem Artikel erstellten Umgebungsvariablen:
 
 ```azurecli
 az acr repository delete \
-  --name myregistry --repository samples/alpine \
+  --name myregistry --repository samples/nginx \
   --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
@@ -314,7 +314,7 @@ Der Kürze halber zeigen wir nur den Befehl [az acr scope-map update][az-acr-sco
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/hello-world metadata/read 
+  --add-repository samples/hello-world metadata/read 
 ```  
 
 Informationen zum Aktualisieren der Bereichszuordnung über das Portal finden Sie im [vorherigen Abschnitt](#update-token-permissions).
@@ -382,7 +382,7 @@ Das folgende Beispiel generiert einen neuen Wert für „password1“ für das T
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 

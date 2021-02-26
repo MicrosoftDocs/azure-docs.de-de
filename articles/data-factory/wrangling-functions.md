@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633619"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896662"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Transformationsfunktionen in Power Query für Data Wrangling
 
@@ -24,7 +24,7 @@ Data Wrangling in Azure Data Factory ermöglicht codefreie agile Datenaufbereitu
 
 Derzeit werden nicht alle Power Query M-Funktionen für Data Wrangling unterstützt, obwohl sie während der Erstellung verfügbar sind. Beim Erstellen Ihrer Mash-Ups wird die folgende Fehlermeldung angezeigt, wenn eine Funktion nicht unterstützt wird:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Die unterstützten Power Query M-Funktionen sind im Folgenden aufgeführt.
 
@@ -96,7 +96,7 @@ Verwenden Sie [Table.Sort](/powerquery-m/table-sort), um Werte zu sortieren.
 | Table.Distinct | Das Entfernen doppelter Zeilen wird nicht unterstützt. |
 | Table.RemoveLastN | Das Entfernen der unteren Zeilen wird nicht unterstützt. |
 | Table.RowCount | Nicht unterstützt, kann jedoch durch Hinzufügen einer benutzerdefinierten Spalte mit dem Wert „1“ und anschließendes Aggregieren dieser Spalte mit „List.Sum“ erreicht werden. Table.Group wird unterstützt. | 
-| Fehlerbehandlung auf Zeilenebene | Die Fehlerbehandlung auf Zeilenebene wird derzeit nicht unterstützt. Wenn Sie z. B. nicht numerische Werte aus einer Spalte herausfiltern möchten, können Sie u. a. die Textspalte in eine Zahl transformieren. Jede Zelle, die nicht transformiert werden kann, weist einen Fehlerstatus auf und muss gefiltert werden. Dieses Szenario ist in einem Wranglingdatenfluss nicht möglich. |
+| Fehlerbehandlung auf Zeilenebene | Die Fehlerbehandlung auf Zeilenebene wird derzeit nicht unterstützt. Wenn Sie z. B. nicht numerische Werte aus einer Spalte herausfiltern möchten, können Sie u. a. die Textspalte in eine Zahl transformieren. Jede Zelle, die nicht transformiert werden kann, weist einen Fehlerstatus auf und muss gefiltert werden. Dieses Szenario ist bei M-Funktionen mit horizontaler Skalierung nicht möglich. |
 | Table.Transpose | Nicht unterstützt |
 | Table.Pivot | Nicht unterstützt |
 

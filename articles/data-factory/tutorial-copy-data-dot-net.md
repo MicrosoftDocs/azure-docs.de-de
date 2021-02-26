@@ -1,22 +1,17 @@
 ---
 title: Kopieren von Daten aus Azure Blob Storage nach Azure SQL-Datenbank mithilfe von Azure Data Factory
 description: Dieses Tutorial bietet Schrittanleitungen zum Kopieren von Daten von Azure Blob Storage nach Azure SQL-Datenbank.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513259"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380881"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopieren von Daten aus Azure Blob Storage nach Azure SQL-Datenbank mithilfe von Azure Data Factory
 
@@ -97,7 +92,7 @@ Erstellen Sie mithilfe von Visual Studio eine C# .NET-Konsolenanwendung.
 
 1. Öffnen Sie Visual Studio.
 2. Wählen Sie im Fenster **Start** die Option **Neues Projekt erstellen** aus.
-3. Wählen Sie im Fenster **Neues Projekt erstellen** in der Liste mit den Projekttypen die C#-Version von **Konsolen-App (.NET Framework)** aus. Wählen Sie **Weiter**aus.
+3. Wählen Sie im Fenster **Neues Projekt erstellen** in der Liste mit den Projekttypen die C#-Version von **Konsolen-App (.NET Framework)** aus. Wählen Sie **Weiter** aus.
 4. Geben Sie im Fenster **Neues Projekt konfigurieren** unter **Projektname** die Zeichenfolge *ADFv2Tutorial* ein. Navigieren Sie unter **Speicherort** zu dem Verzeichnis, in dem das Projekt gespeichert werden soll, oder erstellen Sie es. Klicken Sie anschließend auf **Erstellen**. Das neue Projekt wird in der Visual Studio-IDE angezeigt.
 
 ## <a name="install-nuget-packages"></a>Installieren von NuGet-Paketen

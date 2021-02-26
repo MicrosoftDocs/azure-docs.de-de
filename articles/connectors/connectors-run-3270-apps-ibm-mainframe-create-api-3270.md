@@ -7,19 +7,16 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: estfan, valthom
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 02/03/2021
 tags: connectors
-ms.openlocfilehash: ae99e3fa287cc9012e317142cc1e6aef36ce90d6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7873076618125241d9bdf4f225c194572553d060
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094998"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573431"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrieren von bildschirmgesteuerten 3270-Apps auf IBM Mainframes mit Azure mithilfe von Azure Logic Apps und IBM 3270-Connector
-
-> [!NOTE]
-> Dieser Connector ist eine [*öffentliche Vorschauversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Mit Azure Logic Apps und dem IBM 3270-Connector können Sie auf IBM Mainframe-Apps zugreifen und diese ausführen, die Sie normalerweise mittels Navigation in 3270-Emulatorbildschirmen steuern. Auf diese Weise können Sie Ihre IBM Mainframe-Apps in Azure, Microsoft und andere Apps, Dienste und Systeme integrieren, indem Sie automatisierte Workflows mit Azure Logic Apps erstellen. Der Connector kommuniziert mit IBM Mainframes unter Verwendung des TN3270-Protokolls, und er ist in allen Azure Logic Apps-Regionen verfügbar, außer in Azure Government und Azure China 21Vianet. Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
@@ -55,7 +52,7 @@ Nachdem Sie die Metadatendatei aus dem Designtool generiert haben, fügen Sie di
   Wenn Sie eine ISE verwenden, wählen Sie diese als Ort für Ihre Logik-App aus.
 
 * [Laden Sie das 3270-Designtool herunter, und installieren Sie es](https://aka.ms/3270-design-tool-download).
-Die einzige Voraussetzung ist [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
+Die einzige Voraussetzung ist [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
   Dieses Tool hilft Ihnen bei der Aufzeichnung der Bildschirme, Navigationspfade, Methoden und Parameter für die Aufgaben in Ihrer App, die Sie als 3270-Connectoraktionen hinzufügen und ausführen. Das Tool generiert eine HIDX-Datei (Host Integration Designer XML), die die notwendigen Metadaten für den Connector bereitstellt, um damit Ihre Mainframe-App zu steuern.
   
@@ -75,22 +72,21 @@ Die einzige Voraussetzung ist [Microsoft .NET Framework 4.6.1](https://aka.ms/ne
 
 ## <a name="create-metadata-overview"></a>Übersicht über das Erstellen von Metadaten
 
-In einer bildschirmgesteuerten 3270-App sind die Bildschirme und Datenfelder für Ihre Szenarien eindeutig. Daher benötigt der 3270-Connector diese Informationen über Ihre App, die Sie als Metadaten bereitstellen können. Diese Metadaten beschreiben Informationen, die Ihrer Logik-App helfen, Bildschirme zu identifizieren und zu erkennen, sie beschreiben, wie Sie zwischen Bildschirmen navigieren, wo Sie Daten eingeben, und wo Ergebnisse zu erwarten sind. Um diese Metadaten anzugeben und zu generieren, verwenden Sie das 3270-Designtool, das Sie durch diese spezifischen *Modi* , oder auch Phasen, führt, wie weiter unten ausführlicher beschrieben:
+In einer bildschirmgesteuerten 3270-App sind die Bildschirme und Datenfelder für Ihre Szenarien eindeutig. Daher benötigt der 3270-Connector diese Informationen über Ihre App, die Sie als Metadaten bereitstellen können. Diese Metadaten beschreiben Informationen, die Ihrer Logik-App helfen, Bildschirme zu identifizieren und zu erkennen, sie beschreiben, wie Sie zwischen Bildschirmen navigieren, wo Sie Daten eingeben, und wo Ergebnisse zu erwarten sind. Um diese Metadaten anzugeben und zu generieren, verwenden Sie das 3270-Designtool, das Sie durch diese spezifischen *Modi*, oder auch Phasen, führt, wie weiter unten ausführlicher beschrieben:
 
 * **Capture** (Erfassen): In diesem Modus zeichnen Sie die Bildschirme auf, die für das Durchführen einer bestimmten Aufgabe mit Ihrer Mainframe-App erforderlich sind, z. B. das Abrufen eines Kontostands.
 
-* **Navigation** : In diesem Modus geben Sie den Plan oder Pfad dafür an, wie durch die Bildschirme Ihrer Mainframe-App für die spezifische Aufgabe zu navigieren ist.
+* **Navigation**: In diesem Modus geben Sie den Plan oder Pfad dafür an, wie durch die Bildschirme Ihrer Mainframe-App für die spezifische Aufgabe zu navigieren ist.
 
-* **Methods** (Methoden): In diesem Modus definieren Sie die Methode, z. B. `GetBalance`, die den Bildschirmnavigationspfad beschreibt. Sie wählen auch die Felder auf jedem Bildschirm aus, die zu Eingabe- und Ausgabeparametern der Methode werden.
+* **Methods** (Methoden): In diesem Modus definieren Sie die Methode, z. B. `GetBalance`, die den Bildschirmnavigationspfad beschreibt. Sie wählen auch die Felder auf jedem Bildschirm aus, die zu Ein- und Ausgabeparametern der Methode werden.
 
 ### <a name="unsupported-elements"></a>Nicht unterstützte Elemente
 
 Das Designtool unterstützt folgende Elemente nicht:
 
 * Partielle IBM BMS-Zuordnungen (Basic Mapping Support, BMS): Wenn Sie eine BMS-Zuordnung importieren, ignoriert das Designtool partielle Bildschirmdefinitionen.
-* E/A-Parameter: Sie können keine E/A-Parameter definieren.
-* Menüverarbeitung: In der Vorschauversion nicht unterstützt.
-* Arrayverarbeitung: In der Vorschauversion nicht unterstützt.
+
+* Menüverarbeitung
 
 <a name="capture-screens"></a>
 
@@ -100,9 +96,9 @@ In diesem Modus markieren Sie ein Element in jedem 3270-Bildschirm, das den Bild
 
 1. Falls Sie dies noch nicht getan haben, öffnen Sie das 3270-Designtool. Wählen Sie auf der Symbolleiste **Capture** (Erfassen) aus, um den Erfassungsmodus zu starten.
 
-1. Zum Starten der Aufzeichnung drücken Sie die F5-Taste, oder wählen Sie im Menü **Recording** (Aufzeichnung) **Start Recording** (Aufzeichnung starten) aus. 
-
 1. Wählen Sie im Menü **Session** (Sitzung) den Eintrag **Connect** (Verbinden) aus.
+
+1. Zum Starten der Aufzeichnung wählen Sie im Menü **Recording** (Aufzeichnung) die Option **Start Recording** (Aufzeichnung starten) aus. (Tastatur: STRG+E)
 
 1. Durchlaufen Sie im Bereich **Capture** (Erfassen), beginnend mit dem ersten Bildschirm in Ihrer App, Ihre App für die spezifische Aufgabe, die Sie aufzeichnen möchten.
 
@@ -110,7 +106,7 @@ In diesem Modus markieren Sie ein Element in jedem 3270-Bildschirm, das den Bild
 
 1. Wählen Sie im Menü **Session** (Sitzung) den Eintrag **Disconnect** (Trennen) aus.
 
-1. Zum Starten der Aufzeichnung drücken Sie die F5-Taste, oder wählen Sie im Menü **Recording** (Aufzeichnung) **Start Recording** (Aufzeichnung starten) aus.
+1. Zum Beenden der Aufzeichnung wählen Sie im Menü **Recording** (Aufzeichnung) die Option **Stop Recording** (Aufzeichnung beenden) aus. (Tastatur: STRG+UMSCHALT+E)
 
    Nachdem Sie die Bildschirme für eine Aufgabe erfasst haben, werden im Designtool Miniaturansichten angezeigt, die diese Bildschirme darstellen. Ein paar Anmerkungen zu diesen Miniaturansichten:
 
@@ -176,13 +172,13 @@ In diesem Modus definieren Sie den Fluss oder die Schritte zum Navigieren durch 
 
 ### <a name="create-plans"></a>Pläne erstellen
 
-1. Wählen Sie in der Symbolleiste des 3270-Designtools **Navigation** aus, um in den Navigationsmodus zu wechseln.
+1. Wählen Sie auf der Symbolleiste des 3270-Designtools **Navigation** aus, um in den Navigationsmodus zu wechseln.
 
-1. Um Ihren Plan zu starten, wählen Sie im Bereich **Navigation** den Eintrag **New Plan** (Neuer Plan) aus.
+1. Um Ihren Plan zu starten, wählen Sie im Bereich **Navigation** die Option **New Plan** (Neuer Plan) aus.
 
 1. Geben Sie unter **Choose New Plan Name** (Namen für neuen Plan auswählen) einen Namen für Ihren Plan ein. Wählen Sie in der Liste **Type** (Typ) den Plantyp aus:
 
-   | Plantyp | BESCHREIBUNG |
+   | Plantyp | Beschreibung |
    |-----------|-------------|
    | **Prozess** | Für eigenständige oder kombinierte Pläne |
    | **Herstellen einer Verbindung** | Für „Connect“-Pläne |
@@ -195,7 +191,7 @@ In diesem Modus definieren Sie den Fluss oder die Schritte zum Navigieren durch 
 
 1. Ordnen Sie die Bildschirme in der Reihenfolge an, die die Aufgabe beschreibt, die Sie definieren.
 
-1. Wählen Sie zum Definieren des Flusspfads zwischen den Bildschirmen, einschließlich Forks und Zusammenführungen (Joins), in der Symbolleiste des Designtools **Flow** (Fluss) aus.
+1. Wählen Sie zum Definieren des Flowpfads zwischen den Bildschirmen, einschließlich Forks und Zusammenführungen (Joins), auf der Symbolleiste des Designtools **Flow** aus.
 
 1. Wählen Sie den ersten Bildschirm im Fluss aus. Ziehen und zeichnen Sie eine Verbindung zum nächsten Bildschirm im Fluss.
 
@@ -220,7 +216,7 @@ Wir gehen außerdem davon aus, dass Sie diese Schritte wiederholen, dabei aber f
 
 * MSG-10
 * CICS Welcome (Begrüßungsbildschirm)
-* Leer
+* Empty
 * WBGB_1 (Eingabe)
 * WBGB_2 (Fehler)
 * Empty_1
@@ -260,7 +256,7 @@ Das Designtool ermöglicht es Ihnen, Erkennungsattribute hinzuzufügen, z. B. ei
 
 In diesem Modus definieren Sie eine Methode, die Ihrem Navigationsplan zugeordnet ist. Für jeden Methodenparameter geben Sie den Datentyp wie Zeichenfolge, ganze Zahl, Datum oder Uhrzeit usw. an. Wenn Sie fertig sind, können Sie Ihre Methode auf dem Livehost testen und bestätigen, dass die Methode wie erwartet funktioniert. Dann generieren Sie die Metadatendatei oder HIDX-Datei (Host Integration Designer XML), die jetzt die Methodendefinitionen enthält, die zum Erstellen und Ausführen einer Aktion für den IBM 3270-Connector verwendet werden sollen.
 
-1. Wählen Sie in der Symbolleiste des 3270-Designtools **Methods** (Methoden) aus, um in den Methodenmodus zu wechseln. 
+1. Wählen Sie auf der Symbolleiste des 3270-Designtools **Methods** (Methoden) aus, um in den Methodenmodus zu wechseln. 
 
 1. Wählen Sie im Bereich **Navigation** den Bildschirm aus, der die gewünschten Eingabefelder enthält.
 
@@ -271,7 +267,7 @@ In diesem Modus definieren Sie eine Methode, die Ihrem Navigationsplan zugeordne
       > [!TIP]
       > Um alle Felder anzuzeigen und sicherzustellen, dass Sie das vollständige Feld auswählen, wählen Sie im Menü **View** (Ansicht) **All Fields** (Alle Felder) aus.
 
-   1. Wählen Sie in der Symbolleiste des Designtools **Input Field** (Eingabefeld) aus. 
+   1. Wählen Sie auf der Symbolleiste des Designtools **Input Field** (Eingabefeld) aus. 
 
    Um weitere Eingabeparameter hinzuzufügen, wiederholen Sie die vorherigen Schritte für jeden Parameter.
 
@@ -282,7 +278,7 @@ In diesem Modus definieren Sie eine Methode, die Ihrem Navigationsplan zugeordne
       > [!TIP]
       > Um alle Felder anzuzeigen und sicherzustellen, dass Sie das vollständige Feld auswählen, wählen Sie im Menü **View** (Ansicht) **All Fields** (Alle Felder) aus.
 
-   1. Wählen Sie in der Symbolleiste des Designtools **Output Field** (Ausgabefeld) aus.
+   1. Wählen Sie auf der Symbolleiste des Designtools **Output Field** (Ausgabefeld) aus.
 
    Um weitere Ausgabeparameter hinzuzufügen, wiederholen Sie die vorherigen Schritte für jeden Parameter.
 
@@ -291,8 +287,8 @@ In diesem Modus definieren Sie eine Methode, die Ihrem Navigationsplan zugeordne
    | Eigenschaftenname | Mögliche Werte | 
    |---------------|-----------------|
    | **Datentyp** | Byte, Date Time, Decimal, Int, Long, Short, String |
-   | **Field Fill Technique** (Feldauffüllmethode) | Parameter unterstützen folgende Auffülltypen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird: <p><p>- **Type** : Zeichen sequenziell in das Feld eingeben. <p>- **Fill** : Den Inhalt des Felds durch Zeichen ersetzen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird. <p>- **EraseEofType** : Das Feld löschen und dann Zeichen sequenziell in das Feld eingeben. |
-   | **Format String** (Formatzeichenfolge) | Manche Parameterdatentypen verwenden eine Formatzeichenfolge, die dem 3270-Connector mitteilt, wie Text aus dem Bildschirm in einen .NET-Datentyp zu konvertieren ist: <p><p>- **DateTime** : Die Formatzeichenfolge „DateTime“ richtet sich nach den [benutzerdefinierten .NET-Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). Z. B. verwendet das Datum `06/30/2019` die Formatzeichenfolge `MM/dd/yyyy`. <p>- **Decimal** : Die Formatzeichenfolge „Decimal“ verwendet die [COBOL Picture-Klausel](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Z. B. verwendet die Zahl `100.35` die Formatzeichenfolge `999V99`. |
+   | **Field Fill Technique** (Feldauffüllmethode) | Parameter unterstützen folgende Auffülltypen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird: <p><p>- **Type**: Zeichen sequenziell in das Feld eingeben. <p>- **Fill**: Den Inhalt des Felds durch Zeichen ersetzen, wobei erforderlichenfalls mit Leerzeichen aufgefüllt wird. <p>- **EraseEofType**: Das Feld löschen und dann Zeichen sequenziell in das Feld eingeben. |
+   | **Format String** (Formatzeichenfolge) | Manche Parameterdatentypen verwenden eine Formatzeichenfolge, die dem 3270-Connector mitteilt, wie Text aus dem Bildschirm in einen .NET-Datentyp zu konvertieren ist: <p><p>- **DateTime**: Die Formatzeichenfolge „DateTime“ richtet sich nach den [benutzerdefinierten .NET-Formatzeichenfolgen für Datum und Uhrzeit](/dotnet/standard/base-types/custom-date-and-time-format-strings). Z. B. verwendet das Datum `06/30/2019` die Formatzeichenfolge `MM/dd/yyyy`. <p>- **Decimal**: Die Formatzeichenfolge „Decimal“ verwendet die [COBOL Picture-Klausel](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Z. B. verwendet die Zahl `100.35` die Formatzeichenfolge `999V99`. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Speichern und Anzeigen von Metadaten
@@ -310,7 +306,7 @@ Wenn Sie jedoch versuchen, Änderungen an der RAP-Beispieldatei zu speichern ode
 
 ## <a name="test-your-method"></a>Testen Ihrer Methode
 
-1. Um Ihre Methode auf dem Livehost auszuführen, während Sie sich noch im Methodenmodus befinden, drücken Sie die F5-Taste, oder wählen Sie in der Symbolleiste des Designtools **Run** (Ausführen) aus.
+1. Um Ihre Methode auf dem Livehost auszuführen, während Sie sich noch im Methodenmodus befinden, drücken Sie die F5-Taste, oder wählen Sie auf der Symbolleiste des Designtools **Test** aus.
 
    > [!TIP]
    > Sie können den Modus jederzeit wechseln. Wählen Sie im Menü **File** (Datei) den Eintrag **Mode** (Modus) und anschließend den gewünschten Modus aus.
@@ -327,7 +323,7 @@ Wenn Sie jedoch versuchen, Änderungen an der RAP-Beispieldatei zu speichern ode
 
 Wenn Sie fertig sind, generieren Sie die HIDX-Datei, damit Sie sie in Ihr Integrationskonto hochladen können. Das 3270-Designtool erstellt die HIDX-Datei in einem neuen Unterordner, in dem Sie Ihre RAP-Datei gespeichert haben.
 
-1. Wählen Sie in der Symbolleiste des 3270-Designtools **Generate Code** (Code generieren) aus.
+1. Wählen Sie im 3270-Designtool im Menü **Tools** (Extras) die Option **Generate Definitions** (Definitionen generieren) aus. (Tastatur: F6)
 
 1. Wechseln Sie zu dem Ordner, der Ihre RAP-Datei enthält, und öffnen Sie den Unterordner, den das Tool nach dem Generieren Ihrer HIDX-Datei erstellt hat. Vergewissern Sie sich, dass das Tool die HIDX-Datei erstellt hat.
 
@@ -347,14 +343,13 @@ Wenn Sie alle diese Schritte abgeschlossen haben, können Sie die Aktion, die Si
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie Ihre Logik-App im Logik-App-Designer, sofern sie nicht bereits geöffnet ist.
 
-1. Wählen Sie im letzten Schritt zum Hinzufügen einer Aktion die Option **Neuer Schritt** aus, und wählen Sie dann **Aktion hinzufügen** aus. 
+1. Wählen Sie im letzten Schritt zum Hinzufügen einer Aktion die Option **Neuer Schritt** **>** **Aktion hinzufügen** aus. 
 
-1. Wählen Sie unter dem Suchfeld **Unternehmen** aus. Geben Sie in das Suchfeld „3270“ als Filter ein. Wählen Sie in der Liste mit den Aktionen diese Aktion aus: **Führt ein Mainframeprogramm über eine TN3270-Verbindung aus**
+1. Wählen Sie unter dem Suchfeld die Option **Enterprise** aus. Geben Sie im Suchfeld den Begriff `3270` als Filter ein. Wählen Sie in der Aktionsliste die Aktion **Führt ein Mainframeprogramm über eine TN3270-Verbindung aus** aus.
 
    ![Auswählen einer 3270-Aktion](./media/connectors-create-api-3270/select-3270-action.png)
 
-   Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
+   Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. Wählen Sie das angezeigte Pluszeichen ( **+** ) aus, und wählen Sie dann **Aktion hinzufügen** aus.
 
 1. Wenn noch keine Verbindung besteht, geben Sie die erforderlichen Informationen für Ihre Verbindung an, und wählen Sie **Erstellen** aus.
 

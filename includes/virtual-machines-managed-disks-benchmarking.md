@@ -5,102 +5,70 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25404837d5bc66ff415be8d8670eb6650475c30f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028282"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094627"
 ---
-*Auffüllen des Caches*  
-Der Datenträger mit der Hostcache-Einstellung „ReadOnly“ bietet eine IOPS-Rate, die höher als das Datenträgerlimit ist. Um diese maximale Leseleistung aus dem Hostcache zu erzielen, müssen zuerst Sie den Cache dieses Datenträgers mit gültigen Daten auffüllen. Dies stellt sicher, dass die Lese-E/As, die das Benchmarktool auf dem Volume „CacheReads“ erzeugt, tatsächlich den Cache und nicht direkt den Datenträger abfragen. Die Cachetreffer führen zu weiteren IOPS auf dem einzelnen Datenträger mit aktiviertem Cache.
+## <a name="warm-up-the-cache"></a>Auffüllen des Caches
+
+Der Datenträger mit der Hostzwischenspeicherungseinstellung ReadOnly bietet eine IOPS-Rate, die höher als der Datenträgergrenzwert ist. Um diese maximale Leseleistung aus dem Hostcache zu erzielen, müssen zuerst Sie den Cache dieses Datenträgers mit gültigen Daten auffüllen. Dies stellt sicher, dass die Lese-E/As, die das Benchmarktool auf dem Volume „CacheReads“ erzeugt, tatsächlich den Cache und nicht direkt den Datenträger abfragen. Die Cachetreffer führen zu mehr IOPS auf dem einzelnen Datenträger mit aktiviertem Cache.
 
 > [!IMPORTANT]
 > Immer wenn die VM neu gestartet wird, müssen Sie den Cache vor dem Ausführen von Benchmarktests auffüllen.
 
-## <a name="iometer"></a>Iometer
+## <a name="diskspd"></a>DISKSPD
 
-[das Tool Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) auf den virtuellen Computer herunter.
+[Laden Sie das Tool DISKSP](https://github.com/Microsoft/diskspd) auf die VM herunter. DISKSPD ist ein Tool, das Sie anpassen können, um Ihre eigenen synthetischen Workloads zu erstellen. Wir nutzen die gleiche Einrichtung wie oben beschrieben, um Benchmarktests durchzuführen. Sie können die Spezifikationen ändern, um verschiedene Workloads zu testen.
 
-### <a name="test-file"></a>Testdatei
+In diesem Beispiel werden die folgenden Baselineparameter verwendet:
 
-Iometer verwendet eine Testdatei, die auf dem Volume gespeichert wird, auf dem Sie den Benchmarktest ausführen. Iometer erzeugt Lese- und Schreibvorgänge für diese Testdatei, um IOPS und Durchsatz des Datenträgers zu messen. Iometer erstellt diese Datei, falls Sie keine bereitgestellt haben. Erstellen Sie die 200 GB große Testdatei „iobw.tst“ auf den Volumes „CacheReads“ und „NoCacheWrites“.
+- -c200G: Erstellt die Beispieldatei, die im Test verwendet wird (oder erstellt sie neu). Die Größe kann in Bytes, KiB, MiB, GiB oder Blöcken festgelegt werden. In diesem Fall wird eine große Zieldatei von 200 GiB verwendet, um das Zwischenspeichern im Arbeitsspeicher zu minimieren.
+- -w100: Gibt den Prozentsatz der Vorgänge an, bei denen es sich um Schreibanforderungen handelt (-w0 entspricht 100 % Leseanforderungen).
+- -b4K: Gibt die Blockgröße in Bytes, KiB, MiB oder GiB an. In diesem Fall wurde die Blockgröße 4K verwendet, um einen E/A-Test nach dem Zufallsprinzip zu simulieren.
+- -F4: Legt insgesamt vier Threads fest.
+- -r: Gibt E/A-Test nach dem Zufallsprinzip an (überschreibt den Parameter -s).
+- -o128: Gibt die Anzahl der ausstehenden E/A-Anforderungen pro Ziel pro Thread an. Dies wird auch als Warteschlangenlänge bezeichnet. In diesem Fall wird 128 verwendet, um die CPU zu belasten.
+- -W7200: Gibt die Dauer der Auffüllphase an, bevor Messungen gestartet werden.
+- -d30: Gibt die Dauer des Tests ohne Auffüllphase an.
+- -Sh: Deaktiviert für Software und Hardware das Zwischenspeichern von Schreibvorgängen (gleichbedeutend mit -Suw).
 
-### <a name="access-specifications"></a>Zugriffsspezifikationen
+Eine vollständige Liste der Parameter finden Sie im [GitHub-Repository](https://github.com/Microsoft/diskspd/wiki/Command-line-and-parameters).
 
-Die Angaben „request IO size“, „% read/write“ und „% random/sequential“ werden in Iometer auf der Registerkarte „Access Specifications“ konfiguriert. Erstellen Sie eine Zugriffsspezifikation für jedes der nachstehend beschriebenen Szenarien. Erstellen Sie die Zugriffsspezifikationen, und speichern Sie sie unter einem geeigneten Namen wie „RandomWrites\_8K“, „RandomReads\_8K“. Wählen Sie beim Ausführen des Testszenarios die entsprechende Spezifikation aus.
+### <a name="maximum-write-iops"></a>Maximale Schreib-IOPS
+Wir verwenden eine hohe Warteschlangenlänge von 128, eine kleine Blockgröße von 8 KB und vier Arbeitsthreads für das Erzeugen von Schreibvorgängen. Die Arbeitsthreads für Schreibvorgänge erzeugen Datenverkehr auf dem Volume NoCacheWrites, das drei Datenträger mit der Cacheeinstellung „None“ aufweist.
 
-Ein Beispiel für Zugriffsspezifikationen für das Szenario „Maximale Schreib-IOPS“ wird nachstehend gezeigt:  
-    ![Beispiel für Zugriffsspezifikationen für maximale Schreib-IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+Führen Sie den folgenden Befehl 30 Sekunden lang zum Auffüllen und 30 Sekunden lang zum Messen aus:
 
-### <a name="maximum-iops-test-specifications"></a>Testspezifikationen für maximale IOPS
+`diskspd -c200G -w100 -b8K -F4 -r -o128 -W30 -d30 -Sh testfile.dat`
 
-Wählen Sie zum Demonstrieren von maximalen IOPS eine kleinere Anforderungsgröße. Wählen Sie die Anforderungsgröße 8 KB, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
+Die Ergebnisse zeigen, dass die VM Standard_D8ds_v4 ihren maximalen IOPS-Grenzwert von 12.800 für Schreibvorgänge ausschöpft.
 
-| Zugriffsspezifikation | Anforderungsgröße | Random % | Read % |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 KB |100 |0 |
-| RandomReads\_8K |8 KB |100 |100 |
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-write-io-per-second.png" alt-text="3.208.642.560 Bytes insgesamt, maximal insgesamt 391.680 E/A-Vorgänge, mit insgesamt 101,97 MiB/s und insgesamt 13052,65 E/A-Vorgängen pro Sekunde.":::
 
-### <a name="maximum-throughput-test-specifications"></a>Testspezifikationen für maximalen Durchsatz
+### <a name="maximum-read-iops"></a>Maximale Lese-IOPS
 
-Wählen Sie zum Demonstrieren eines maximalen Durchsatzes eine höhere Anforderungsgröße. Wählen Sie die Anforderungsgröße 64 KB aus, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
+Wir verwenden eine hohe Warteschlangenlänge von 128, eine kleine Blockgröße von 4 KB und vier Arbeitsthreads für das Erzeugen von Lesevorgängen. Die Arbeitsthreads für Lesevorgänge erzeugen Datenverkehr auf dem Volume „CacheReads“, das einen Datenträger mit der Cacheeinstellung „ReadOnly“ aufweist.
 
-| Zugriffsspezifikation | Anforderungsgröße | Random % | Read % |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 K |100 |0 |
-| RandomReads\_64K |64 K |100 |100 |
+Führen Sie den folgenden Befehl zwei Stunden lang zum Auffüllen und 30 Sekunden lang zum Messen aus:
 
-### <a name="run-the-iometer-test"></a>Ausführen des Iometer-Tests
+`diskspd -c200G -b4K -F4 -r -o128 -W7200 -d30 -Sh testfile.dat`
 
-Führen Sie die folgenden Schritte aus, um den Cache aufzufüllen.
+Die Ergebnisse zeigen, dass die VM Standard_D8ds_v4 ihren maximalen IOPS-Grenzwert von 77.000 für Lesevorgänge ausschöpft.
 
-1. Erstellen Sie zwei Zugriffsspezifikationen mit unten aufgeführten Werten:
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-read-io-per-second.png" alt-text="Bei 9.652.785.152 Bytes insgesamt gab es insgesamt 2.356.637 E/A-Vorgänge, bei 306,72 MiB/s insgesamt und insgesamt 78521,23 E/A-Vorgängen pro Sekunde.":::
 
-   | Name | Anforderungsgröße | Random % | Read % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 MB |100 |0 |
-   | RandomReads\_1MB |1 MB |100 |100 |
-1. Führen Sie den Iometer-Test zum Initialisieren des Cachedatenträgers mit folgenden Parametern aus. Verwenden Sie drei Arbeitsthreads für das Zielvolume und die Warteschlangenlänge 128. Legen Sie auf der Registerkarte „Test Setup“ unter „Run time“ die Laufzeit des Tests auf 2 Stunden fest.
+### <a name="maximum-throughput"></a>Maximaler Durchsatz
 
-   | Szenario | Zielvolume | Name | Duration |
-   | --- | --- | --- | --- |
-   | Cachedatenträger initialisieren |CacheReads |RandomWrites\_1MB |2 Stunden |
-1. Führen Sie den Iometer-Test zum Auffüllen des Cachedatenträgers mit folgenden Parametern aus. Verwenden Sie drei Arbeitsthreads für das Zielvolume und die Warteschlangenlänge 128. Legen Sie auf der Registerkarte „Test Setup“ unter „Run time“ die Laufzeit des Tests auf 2 Stunden fest.
-
-   | Szenario | Zielvolume | Name | Duration |
-   | --- | --- | --- | --- |
-   | Auffüllen des Cachedatenträgers |CacheReads |RandomReads\_1MB |2 Stunden |
-
-Nachdem der Cachedatenträger aufgefüllt wurde, fahren Sie mit den nachstehenden Testszenarien fort. Verwenden Sie zum Ausführen des Iometer-Tests mindestens drei Arbeitsthreads für **jedes** Zielvolume. Wählen Sie für jeden Arbeitsthread das Zielvolume aus, legen Sie die Warteschlangenlänge fest, und wählen Sie eine der gespeicherten Testspezifikationen, wie in der folgenden Tabelle gezeigt, um das entsprechenden Testszenario auszuführen. Die Tabelle enthält auch erwartete Ergebnisse für IOPS und Durchsatz beim Ausführen dieser Tests. Bei allen Szenarien wird eine kleine E/A-Größe von 8 KB und die hohe Warteschlangenlänge 128 verwendet.
-
-| Testszenario | Zielvolume | Name | Ergebnis |
-| --- | --- | --- | --- |
-| Maximal Lese-IOPS |CacheReads |RandomWrites\_8K |50.000 IOPS |
-| Maximal Schreib-IOPS |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
-| Maximal Kombinierte IOPS |CacheReads |RandomWrites\_8K |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Maximal Lesen – MB/s |CacheReads |RandomWrites\_64K |524 MB/s |
-| Maximal Schreiben – MB/s |NoCacheWrites |RandomReads\_64K |524 MB/s |
-| Kombiniert – MB/s |CacheReads |RandomWrites\_64K |1\.000 MB/s |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Nachstehend sehen Sie Screenshots der Iometer-Testergebnisse für kombinierte IOPS- und Durchsatz-Szenarien
-
-### <a name="combined-reads-and-writes-maximum-iops"></a>Kombiniert Lese- und Schreibvorgänge – Maximale IOPS
-
-![Kombiniert Lese- und Schreibvorgänge – Maximale IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
-
-### <a name="combined-reads-and-writes-maximum-throughput"></a>Kombiniert Lese- und Schreibvorgänge – Maximaler Durchsatz
-
-![Kombiniert Lese- und Schreibvorgänge – Maximaler Durchsatz](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
-
+Um den maximalen Lese-und Schreibdurchsatz zu erzielen, können Sie zu einer größeren Blockgröße von 64 KB wechseln.
 ## <a name="fio"></a>FIO
 
-FIO ist ein beliebtes Tool für Benchmarktests des Speichers von Linux-VMs. Es ermöglicht die flexible Auswahl unterschiedlicher E/A-Größen sowie sequenzieller oder zufälliger Lese- und Schreibvorgänge. FIO erzeugt Arbeitsthreads oder Prozesse zum Ausführen der angegebenen E/A-Vorgänge. Mithilfe von Auftragsdateien können Sie den Typ der E/A-Vorgänge angeben, den jeder Arbeitsthread ausführen soll. Wir haben eine Auftragsdatei pro Szenario erstellt, was in den folgenden Beispielen veranschaulicht wird. Sie können die Spezifikationen in diesen Auftragsdateien ändern, um Benchmarktests für verschiedene Workloads in Storage Premium auszuführen. In den Beispielen verwenden wir eine Standard-VM vom Typ DS 14 unter **Ubuntu**. Verwenden Sie die gleiche Einrichtung wie am Anfang des Abschnitts zu Benchmarktests beschrieben, und wärmen Sie den Cache vor dem Ausführen der Benchmarktests auf.
+FIO ist ein beliebtes Tool für Benchmarktests des Speichers von Linux-VMs. Es ermöglicht die flexible Auswahl unterschiedlicher E/A-Größen sowie sequenzieller oder zufälliger Lese- und Schreibvorgänge. FIO erzeugt Arbeitsthreads oder Prozesse zum Ausführen der angegebenen E/A-Vorgänge. Mithilfe von Auftragsdateien können Sie den Typ der E/A-Vorgänge angeben, den jeder Arbeitsthread ausführen soll. Wir haben eine Auftragsdatei pro Szenario erstellt, was in den folgenden Beispielen veranschaulicht wird. Sie können die Spezifikationen in diesen Auftragsdateien ändern, um Benchmarktests für verschiedene Workloads in Storage Premium auszuführen. In den Beispielen verwenden wir eine VM des Typs Standard_D8ds_v4 unter **Ubuntu**. Verwenden Sie die gleiche Einrichtung wie am Anfang des Abschnitts zu Benchmarktests beschrieben, und füllen Sie den Cache vor dem Ausführen der Benchmarktests auf.
 
 Laden Sie zunächst [FIO](https://github.com/axboe/fio) herunter, und installieren Sie es auf dem virtuellen Computer.
 
@@ -110,7 +78,7 @@ Führen Sie den folgenden Befehl für Ubuntu aus:
 apt-get install fio
 ```
 
-Wir verwenden je vier Arbeitsthreads zum Erzeugen von Schreib- und Lesevorgängen auf den Datenträgern. Die Arbeitsthreads für Schreibvorgänge erzeugen Datenverkehr auf dem Volume „NoCache“, das 10 Datenträger mit der Cacheeinstellung „None“ aufweist. Die Arbeitsthreads für Lesevorgänge erzeugen Datenverkehr auf dem Volume „readcache“, das einen Datenträger mit der Cacheeinstellung „ReadOnly“ aufweist.
+Wir verwenden je vier Arbeitsthreads zum Erzeugen von Schreib- und Lesevorgängen auf den Datenträgern. Die Arbeitsthreads für Schreibvorgänge erzeugen Datenverkehr auf dem Volume „nocache“, das drei Datenträger mit der Cacheeinstellung „None“ aufweist. Die Arbeitsthreads für Lesevorgänge erzeugen Datenverkehr auf dem Volume „readcache“, das einen Datenträger mit der Cacheeinstellung „ReadOnly“ aufweist.
 
 ### <a name="maximum-write-iops"></a>Maximale Schreib-IOPS
 
@@ -122,7 +90,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [writer1]
@@ -133,7 +101,7 @@ directory=/mnt/nocache
 Beachten Sie, dass die folgenden wichtigen Aspekte in Einklang mit den in den vorherigen Abschnitten erörterten Entwurfsrichtlinien sind. Diese Spezifikationen sind zum Erzielen der maximalen IOPS wichtig:  
 
 * Eine hohe Warteschlangenlänge von 256  
-* Eine kleine Blockgröße von 8 KB.  
+* Eine kleine Blockgröße von 4 KB.  
 * Mehrere Threads, die sequentielle Lesevorgänge ausführen
 
 Führen Sie den folgenden Befehl aus, um einen 30-sekündigen FIO-Test zu starten:  
@@ -142,8 +110,8 @@ Führen Sie den folgenden Befehl aus, um einen 30-sekündigen FIO-Test zu starte
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-Während der Testausführung können Sie die Anzahl der Schreib-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, schöpft die DS14-VM ihre maximale IOPS-Schreibkapazität von 50.000 IOPS aus.  
-    ![Anzahl der Schreib-IOPS, die VM- und Premium-Datenträger liefern](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+Während der Testausführung können Sie die Anzahl der Schreib-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, schöpft die VM des Typs Standard_D8ds_v4 ihre maximale IOPS-Schreibkapazität von 12.800 IOPS aus.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-uncached-writes-1.jpg" alt-text="Anzahl der IOPS-Schreibvorgänge (13.100), die VM und Premium-SSDs ausschöpfen.":::
 
 ### <a name="maximum-read-iops"></a>Maximale Lese-IOPS
 
@@ -155,7 +123,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [reader1]
@@ -166,7 +134,7 @@ directory=/mnt/readcache
 Beachten Sie, dass die folgenden wichtigen Aspekte in Einklang mit den in den vorherigen Abschnitten erörterten Entwurfsrichtlinien sind. Diese Spezifikationen sind zum Erzielen der maximalen IOPS wichtig:
 
 * Eine hohe Warteschlangenlänge von 256  
-* Eine kleine Blockgröße von 8 KB.  
+* Eine kleine Blockgröße von 4 KB.  
 * Mehrere Threads, die sequentielle Lesevorgänge ausführen
 
 Führen Sie den folgenden Befehl aus, um einen 30-sekündigen FIO-Test zu starten:
@@ -175,8 +143,8 @@ Führen Sie den folgenden Befehl aus, um einen 30-sekündigen FIO-Test zu starte
 sudo fio --runtime 30 fioread.ini
 ```
 
-Während der Testausführung können Sie die Anzahl der Lese-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, schöpft die DS14-VM ihre maximale IOPS-Lesekapazität von 64.000 IOPS aus. Dies ist eine Kombination aus Datenträger- und Cacheleistung.  
-    ![Screenshot der Anzahl der Schreib-IOPS, die VM- und Premium-Datenträger liefern](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+Während der Testausführung können Sie die Anzahl der Lese-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, schöpft die VM des Typs Standard_D8ds_v4 ihre maximale IOPS-Lesekapazität von 77.000 IOPS aus. Dies ist eine Kombination aus Datenträger- und Cacheleistung.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-cached-reads-1.jpg" alt-text="Screenshot der Anzahl der Schreibvorgänge (78.600) in IOPS, die VM und SSD Premium-Datenträger ausschöpfen":::
 
 ### <a name="maximum-read-and-write-iops"></a>Maximale Lese- und Schreib-IOPS
 
@@ -198,7 +166,7 @@ directory=/mnt/readcache
 [writer1]
 rw=randwrite
 directory=/mnt/nocache
-rate_iops=12500
+rate_iops=3200
 ```
 
 Beachten Sie, dass die folgenden wichtigen Aspekte in Einklang mit den in den vorherigen Abschnitten erörterten Entwurfsrichtlinien sind. Diese Spezifikationen sind zum Erzielen der maximalen IOPS wichtig:
@@ -213,8 +181,8 @@ Führen Sie den folgenden Befehl aus, um einen 30-sekündigen FIO-Test zu starte
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-Während der Testausführung können Sie die Anzahl der kombinierten Lese- und Schreib-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, bietet die DS14-VM kombinierte Lese- und Schreib-IOPS von über 100.000. Dies ist eine Kombination aus Datenträger- und Cacheleistung.  
-    ![Kombinierte Lese- und Schreib-IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+Während der Testausführung können Sie die Anzahl der kombinierten Lese- und Schreib-IOPS erkennen, die die VM- und Premium-Datenträger zu bieten haben. Wie im folgenden Beispiel gezeigt, schöpft die VM des Typs Standard_D8ds_v4 kombinierte Lese- und Schreib-IOPS von über 90.000 aus. Dies ist eine Kombination aus Datenträger- und Cacheleistung.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-both-1.jpg" alt-text="Der kombinierte IOPS-Wert für Lese- und Schreibvorgänge steht für 78.300 Lese- und 12.600 Schreibvorgänge.":::
 
 ### <a name="maximum-combined-throughput"></a>Maximaler kombinierter Durchsatz
 

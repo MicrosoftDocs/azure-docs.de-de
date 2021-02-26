@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Lösungen für den Einzelhandel mit Azure IoT Central | Microsoft-Dokumentation
+title: Informationen zu den Azure IoT Central-Lösungen für den Einzelhandel | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie mithilfe von Azure IoT Central-Anwendungsvorlagen Lösungen für die Bereiche vernetzte Logistik, digitales Verteilzentrum, In-Store-Analyse, Bedingungsüberwachung, Kasse, intelligente Bestandsverwaltung und Einzelhandel erstellen.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124961"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832282"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Erstellen von Lösungen für den Einzelhandel mit Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>Welche IoT Central-Lösungen für den Einzelhandel gibt es?
 
 Azure IoT Central ist eine IoT-App-Plattform, die Aufwand und Kosten im Zusammenhang mit der Entwicklung, Verwaltung und Wartung von IoT-Lösungen auf Unternehmensniveau verringert. Die Entscheidung zur Entwicklung mit Azure IoT Central gibt Ihnen die Möglichkeit, Zeit, Geld und Energie auf die Transformation Ihres Unternehmens mit IoT-Daten zu konzentrieren, anstatt sich lediglich mit der Wartung und Aktualisierung einer komplexen und sich ständig weiterentwickelnden IoT-Infrastruktur zu beschäftigen.
 
@@ -41,9 +41,9 @@ Eine Lösung für vernetzte Logistik hat unter anderem folgende Vorteile:
 
 Die folgenden Screenshots zeigen das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot: Obere Hälfte des Dashboards für Abläufe der vernetzten Logistik":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot: Untere Hälfte des Dashboards für Abläufe der vernetzten Logistik":::
 
 Weitere Informationen finden Sie im Tutorial [Bereitstellung und exemplarische Vorgehensweise für eine Anwendungsvorlage für vernetzte Logistik](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ Ein digitales Verteilzentrum hat unter anderem folgende Vorteile:
 
 Der folgende Screenshot zeigt das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Digitales Verteilzentrum: Dashboard":::
 
 Weitere Informationen finden Sie im Tutorial [Bereitstellen und Durchlaufen einer Anwendungsvorlage für digitale Verteilzentren](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ Die Anwendungsvorlage verfügt über eine Reihe von Gerätevorlagen und nutzt me
 
 Der folgende Screenshot zeigt das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="In-Store-Analyse – Bedingungsüberwachung":::
 
 Weitere Informationen finden Sie im Tutorial [Erstellen einer Anwendung für die In-Store-Analyse in Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ Die Anwendungsvorlage verfügt über eine Reihe von Gerätevorlagen und nutzt me
 
 Der folgende Screenshot zeigt das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="In-Store-Analyse – Auschecken":::
 
 Weitere Informationen finden Sie im Tutorial [Erstellen einer Anwendung für die In-Store-Analyse in Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Bei dieser Anwendungsvorlage stehen die Gerätekonnektivität sowie die Konfigur
 
 Der folgende Screenshot zeigt das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Intelligente Bestandsverwaltung: Dashboard":::
 
 Weitere Informationen finden Sie im Tutorial [Bereitstellen und Durchlaufen einer Anwendungsvorlage für intelligente Bestandsverwaltung](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ Die Anwendungsvorlage ermöglicht Folgendes:
 
 Der folgende Screenshot zeigt das Standarddashboard in der Anwendungsvorlage. Das Dashboard kann vollständig an Ihre individuellen Lösungsanforderungen angepasst werden:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Micro-Fulfillment-Center":::
 
 Weitere Informationen finden Sie im Tutorial [Bereitstellen und Durchlaufen einer Anwendungsvorlage für intelligente Bestandsverwaltung](./tutorial-micro-fulfillment-center.md).
 
@@ -165,7 +165,7 @@ Die Anwendungsvorlage enthält vier Anwendungsdashboards:
 * **(Sample) Real Camera Management** ((Beispiel) Verwaltung echter Kameras) nutzt simulierte Kameras, um zu veranschaulichen, wie Sie Ihre Kameras über die Anwendung verwalten können.
 * **(Sample) Real Camera Monitor** ((Beispiel) Überwachung für echte Kamera) nutzt simulierte Kameras, um zu veranschaulichen, wie Sie Ihre Kameras über die Anwendung überwachen können.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Azure IoT: Übersicht für den Bereich Einzelhandel":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Videoanalyse: Objekt- und Bewegungserkennung":::
 
 Weitere Informationen zur Architektur der Lösung finden Sie unter [Videoanalyse: Anwendungsarchitektur für die Objekt- und Bewegungserkennung](architecture-video-analytics.md).
 
@@ -180,9 +180,5 @@ Eine Bereitstellungsanleitung für die Lösung finden Sie im Tutorial [Erstellen
 Gehen Sie wie folgt vor, um eine Lösung für den Einzelhandel zu erstellen:
 
 * Beginnen Sie mit dem Tutorial [Erstellen einer Anwendung für die In-Store-Analyse in Azure IoT Central](./tutorial-in-store-analytics-create-app.md). Darin erfahren Sie Schritt für Schritt, wie Sie eine Lösung mit einer der Anwendungsvorlagen für die In-Store-Analyse erstellen.
-* [Bereitstellung und exemplarische Vorgehensweise für eine Anwendungsvorlage für vernetzte Logistik](./tutorial-iot-central-connected-logistics.md)
-* [Bereitstellen und Durchlaufen einer Anwendungsvorlage für digitale Verteilzentren](./tutorial-iot-central-digital-distribution-center.md)
-* [Bereitstellen und Durchlaufen einer Anwendungsvorlage für intelligente Bestandsverwaltung](./tutorial-iot-central-smart-inventory-management.md)
-* [Bereitstellen und Durchlaufen einer Anwendungsvorlage für intelligente Bestandsverwaltung](./tutorial-micro-fulfillment-center.md)
 * [Bereitstellung und exemplarische Vorgehensweise für die Anwendungsvorlage für die Videoanalyse](./tutorial-video-analytics-deploy.md)
-* Weitere Informationen zu IoT Central finden Sie in der [Übersicht über IoT Central](../core/overview-iot-central.md).
+* [Bereitstellung und exemplarische Vorgehensweise für eine Anwendungsvorlage für vernetzte Logistik](./tutorial-iot-central-connected-logistics.md)

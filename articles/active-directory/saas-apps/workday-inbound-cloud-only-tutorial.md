@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358591"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954088"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Konfigurieren der Benutzerbereitstellung aus Workday in Azure AD
 In diesem Tutorial werden die Schritte veranschaulicht, die Sie ausführen müssen, um Mitarbeiterdaten aus Workday in Azure Active Directory bereitzustellen. 
@@ -51,8 +51,8 @@ Diese Lösung zur Benutzerbereitstellung von Workday in Azure Active Directory e
 
 In diesem Abschnitt wird die Lösungsarchitektur der End-to-End-Benutzerbereitstellung für ausschließliche Cloudbenutzer beschrieben. Es gibt zwei zugehörige Flows:
 
-* **Autoritativer Personaldatenfluss – von Workday zu Azure Active Directory** : In diesem Flow treten mitarbeiterbezogene Ereignisse (z. B. Neueinstellungen, Wechsel, Kündigungen) zuerst in Workday auf und werden dann in Azure Active Directory übertragen. Abhängig vom Ereignis kann dies dann in Azure AD zu Erstellungs-, Aktualisierungs-, Aktivierungs- oder Deaktivierungsvorgängen führen.
-* **Rückschreibedatenfluss – aus lokalem Active Directory zu Workday** : Nach Abschluss der Kontoerstellung in Active Directory wird das Konto über Azure AD Connect mit Azure AD synchronisiert. Anschließend kann für Informationen wie E-Mail-Adresse, Benutzername und Telefonnummer das Rückschreiben in Workday durchgeführt werden.
+* **Autoritativer Personaldatenfluss – von Workday zu Azure Active Directory**: In diesem Flow treten mitarbeiterbezogene Ereignisse (z. B. Neueinstellungen, Wechsel, Kündigungen) zuerst in Workday auf und werden dann in Azure Active Directory übertragen. Abhängig vom Ereignis kann dies dann in Azure AD zu Erstellungs-, Aktualisierungs-, Aktivierungs- oder Deaktivierungsvorgängen führen.
+* **Rückschreibedatenfluss – aus lokalem Active Directory zu Workday**: Nach Abschluss der Kontoerstellung in Active Directory wird das Konto über Azure AD Connect mit Azure AD synchronisiert. Anschließend kann für Informationen wie E-Mail-Adresse, Benutzername und Telefonnummer das Rückschreiben in Workday durchgeführt werden.
 
   ![Übersicht](./media/workday-inbound-tutorial/workday-cloud-only-provisioning.png)
 
@@ -93,13 +93,13 @@ Die folgenden Abschnitte beschreiben Schritte zur Konfiguration der Benutzerbere
 
 1. Gehe zu <https://portal.azure.com>.
 
-2. Suchen Sie im Azure-Portal nach **Azure Active Directory** , und wählen Sie es aus.
+2. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
 
 3. Klicken Sie auf **Unternehmensanwendungen** und dann auf **Alle Anwendungen**.
 
-4. Klicken Sie auf **Anwendung hinzufügen** , und wählen Sie dann die Kategorie **Alle** aus.
+4. Klicken Sie auf **Anwendung hinzufügen**, und wählen Sie dann die Kategorie **Alle** aus.
 
-5. Suchen Sie nach **Workday to Azure AD user provisioning** , und fügen Sie die App aus dem Katalog hinzu.
+5. Suchen Sie nach **Workday to Azure AD user provisioning**, und fügen Sie die App aus dem Katalog hinzu.
 
 6. Sobald die App hinzugefügt wurde und der Bildschirm mit den App-Details angezeigt wird, wählen Sie **Bereitstellung** aus.
 
@@ -124,7 +124,7 @@ Die folgenden Abschnitte beschreiben Schritte zur Konfiguration der Benutzerbere
      > Beispiel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v34.0` <br>
      > <br> Wenn Sie eine WWS-API der Version 30.0 oder höher verwenden, müssen Sie vor der Aktivierung des Bereitstellungsauftrags unter **Attributzuordnung > Erweiterte Optionen > Attributliste für Workday bearbeiten** die **XPath-API-Ausdrücke** aktualisieren (entsprechende Verweise finden Sie im Abschnitt [Verwalten Ihrer Konfiguration](workday-inbound-tutorial.md#managing-your-configuration) und in der [Workday-Attributreferenz](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)).  
 
-   * **Benachrichtigungs-E-Mail** : Geben Sie Ihre E-Mail-Adresse ein, und aktivieren Sie das Kontrollkästchen „E-Mail senden, wenn Fehler auftritt“.
+   * **Benachrichtigungs-E-Mail**: Geben Sie Ihre E-Mail-Adresse ein, und aktivieren Sie das Kontrollkästchen „E-Mail senden, wenn Fehler auftritt“.
 
    * Klicken Sie auf die Schaltfläche **Verbindung testen**.
 
@@ -156,34 +156,34 @@ In diesem Abschnitt konfigurieren Sie den Fluss von Benutzerdaten aus Workday in
 
 4. Im Abschnitt **Attributzuordnungen** können Sie definieren, wie einzelne Workday-Attribute Active Directory-Attributen zugeordnet werden.
 
-5. Klicken Sie auf eine vorhandene Attributzuordnung, um sie zu aktualisieren. Oder klicken Sie am unteren Bildschirmrand auf **Neue Zuordnung hinzufügen** , um neue Zuordnungen hinzuzufügen. Eine einzelne Attributzuordnung unterstützt die folgenden Eigenschaften:
+5. Klicken Sie auf eine vorhandene Attributzuordnung, um sie zu aktualisieren. Oder klicken Sie am unteren Bildschirmrand auf **Neue Zuordnung hinzufügen**, um neue Zuordnungen hinzuzufügen. Eine einzelne Attributzuordnung unterstützt die folgenden Eigenschaften:
 
    * **Zuordnungstyp**
 
-      * **Direkt** : Schreibt den Wert des Workday-Attributs unverändert in das AD-Attribut.
+      * **Direkt**: Schreibt den Wert des Workday-Attributs unverändert in das AD-Attribut.
 
-      * **Konstant** : Schreibt einen statischen, konstanten Zeichenfolgenwert in das AD-Attribut.
+      * **Konstant**: Schreibt einen statischen, konstanten Zeichenfolgenwert in das AD-Attribut.
 
-      * **Ausdruck** : Ermöglicht das Schreiben eines benutzerdefinierten Werts basierend auf einem oder mehreren Workday-Attributen in das AD-Attribut. [Weitere Informationen finden Sie im Artikel zu Ausdrücken](../app-provisioning/functions-for-customizing-application-data.md).
+      * **Ausdruck**: Ermöglicht das Schreiben eines benutzerdefinierten Werts basierend auf einem oder mehreren Workday-Attributen in das AD-Attribut. [Weitere Informationen finden Sie im Artikel zu Ausdrücken](../app-provisioning/functions-for-customizing-application-data.md).
 
-   * **Quellattribut** : Das Benutzerattribut aus Workday. Wenn das gesuchte Attribut nicht vorhanden ist, finden Sie weitere Informationen unter [Anpassen der Liste der Workday-Benutzerattribute](workday-inbound-tutorial.md#customizing-the-list-of-workday-user-attributes).
+   * **Quellattribut**: Das Benutzerattribut aus Workday. Wenn das gesuchte Attribut nicht vorhanden ist, finden Sie weitere Informationen unter [Anpassen der Liste der Workday-Benutzerattribute](workday-inbound-tutorial.md#customizing-the-list-of-workday-user-attributes).
 
-   * **Standardwert** : Optional. Wenn das Quellattribut einen leeren Wert aufweist, wird von der Zuordnung stattdessen dieser Wert geschrieben.
+   * **Standardwert**: Optional. Wenn das Quellattribut einen leeren Wert aufweist, wird von der Zuordnung stattdessen dieser Wert geschrieben.
             Die meisten Konfigurationen sehen vor, dieses Feld leer zu lassen.
 
-   * **Zielattribut** : Das Benutzerattribut in Azure AD.
+   * **Zielattribut**: Das Benutzerattribut in Azure AD.
 
-   * **Objekte mit diesem Attribut abgleichen** : Gibt an, ob dieses Attribut zum eindeutigen Bestimmen von Benutzern zwischen Workday und Azure AD verwendet werden soll. Diese Wert wird meist auf das Feld „Worker-ID“ für Workday festgelegt, das in der Regel dem „Worker-ID“-Attribut (neu) oder einem Erweiterungsattribut in Azure AD zugeordnet wird.
+   * **Objekte mit diesem Attribut abgleichen**: Gibt an, ob dieses Attribut zum eindeutigen Bestimmen von Benutzern zwischen Workday und Azure AD verwendet werden soll. Diese Wert wird meist auf das Feld „Worker-ID“ für Workday festgelegt, das in der Regel dem „Worker-ID“-Attribut (neu) oder einem Erweiterungsattribut in Azure AD zugeordnet wird.
 
-   * **Rangfolge für Abgleich** : Es können mehrere Attribute für den Abgleich festgelegt werden. Falls mehrere vorhanden sind, werden sie entsprechend der in diesem Feld festgelegten Reihenfolge ausgewertet. Sobald eine Übereinstimmung gefunden wird, werden keine weiteren Attribute für den Abgleich mehr ausgewertet.
+   * **Rangfolge für Abgleich**: Es können mehrere Attribute für den Abgleich festgelegt werden. Falls mehrere vorhanden sind, werden sie entsprechend der in diesem Feld festgelegten Reihenfolge ausgewertet. Sobald eine Übereinstimmung gefunden wird, werden keine weiteren Attribute für den Abgleich mehr ausgewertet.
 
    * **Diese Zuordnung anwenden**
 
-     * **Immer** : Wenden Sie diese Zuordnung sowohl bei der Aktion zum Erstellen eines Benutzers als auch bei der zum Aktualisieren eines Benutzers an.
+     * **Immer**: Wenden Sie diese Zuordnung sowohl bei der Aktion zum Erstellen eines Benutzers als auch bei der zum Aktualisieren eines Benutzers an.
 
-     * **Nur während der Erstellung** : Wenden Sie diese Zuordnung nur bei der Aktion zum Erstellen eines Benutzers an.
+     * **Nur während der Erstellung**: Wenden Sie diese Zuordnung nur bei der Aktion zum Erstellen eines Benutzers an.
 
-6. Klicken Sie oben im Abschnitt „Attributzuordnung“ auf **Speichern** , um Ihre Zuordnungen zu speichern.
+6. Klicken Sie oben im Abschnitt „Attributzuordnung“ auf **Speichern**, um Ihre Zuordnungen zu speichern.
 
 
 ## <a name="enable-and-launch-user-provisioning"></a>Aktivieren und Starten der Benutzerbereitstellung
@@ -208,11 +208,11 @@ Nachdem die Konfiguration der Workday-Bereitstellungs-App abgeschlossen ist, kö
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+* [Erfahren Sie mehr zu Integrationsszenarien und Webdienstaufrufen für Azure AD und Workday.](../app-provisioning/workday-integration-reference.md)
 * [Weitere Informationen zu unterstützten Workday-Attributen für die eingehende Bereitstellung](../app-provisioning/workday-attribute-reference.md)
 * [Konfigurieren von Workday Writeback](workday-writeback-tutorial.md)
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lesen Sie, wie Sie das einmalige Anmelden zwischen Workday und Azure Active Directory konfigurieren.](workday-tutorial.md)
-* [Erfahren Sie, wie Sie andere SaaS-Anwendungen in Azure Active Directory integrieren.](tutorial-list.md)
 * [Weitere Informationen zum Exportieren und Importieren von Bereitstellungskonfigurationen](../app-provisioning/export-import-provisioning-configuration.md)
 
 

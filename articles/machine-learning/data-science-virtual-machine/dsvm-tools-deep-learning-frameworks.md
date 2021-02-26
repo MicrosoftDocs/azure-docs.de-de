@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Verfügbare Deep Learning-Frameworks und -Tools unter Azure Data Science Virtual Machine
 keywords: Data Science-Tools, virtuelle Computer für Data Science, Tools für Data Science, Linux Data Science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309034"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519489"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Deep Learning- und KI-Frameworks für Azure Data Science VM
 Die in DSVM verfügbaren Deep Learning-Frameworks sind nachstehend aufgelistet.
@@ -146,5 +145,5 @@ Die in DSVM verfügbaren Deep Learning-Frameworks sind nachstehend aufgelistet.
 | ------------- | ------------- |
 | Unterstützte Versionen | 1.0.3 |
 | Unterstützte DSVM-Editionen      | Ubuntu 16.04 |
-| Konfiguration/Installation auf der DSVM  |Theano ist in der Python 2.7-Umgebung ( _root_ ) sowie in der Python 3.5-Umgebung ( _py35_ ) installiert. |
+| Konfiguration/Installation auf der DSVM  |Theano ist in der Python 2.7-Umgebung (_root_) sowie in der Python 3.5-Umgebung (_py35_) installiert. |
 | Zur Ausführung      |  Terminal: Aktivieren Sie die gewünschte Python-Version („root“ oder „py35“), führen Sie Python aus, und importieren Sie dann Theano.<br/>* Jupyter: Wählen Sie den Python 2.7- oder den Python 3.5-Kernel aus, und importieren Sie dann Theano.  <br/>Zur Umgehung eines aktuellen MKL-Fehlers müssen Sie zunächst die MKL-Threadingebene wie folgt festlegen:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

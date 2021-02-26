@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813597"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577380"
 ---
 # <a name="communication-services-notifications"></a>Communication Services-Benachrichtigungen
 
@@ -91,7 +91,7 @@ Falls auf Ihrem Gerät keine Pushbenachrichtigungen angezeigt werden, gibt es dr
 
 Der erste Punkt, an dem eine Benachrichtigung verworfen werden kann (Benachrichtigung von Azure Communication Services wurde von Azure Notification Hubs nicht akzeptiert), ist unten beschrieben. Weitere Informationen finden Sie unter [Diagnostizieren verworfener Benachrichtigungen in Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-Eine Möglichkeit zur Ermittlung, ob von Ihrer Communication Services-Ressource Benachrichtigungen an Azure Notification Hubs gesendet werden, ist die Metrik `incoming messages`, die Teil der verknüpften [Azure Notification Hub-Metriken](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) ist.
+Eine Möglichkeit zur Ermittlung, ob von Ihrer Communication Services-Ressource Benachrichtigungen an Azure Notification Hubs gesendet werden, ist die Metrik `incoming messages`, die Teil der verknüpften [Azure Notification Hub-Metriken](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) ist.
 
 Unten sind einige häufige Fehlkonfigurationen angegeben, die der Grund dafür sein können, warum Azure Notification Hub die Benachrichtigungen von Ihrer Communication Services-Ressource nicht akzeptiert.
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97110984"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525143"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Aktivieren der Multi-Factor Authentication in Azure Active Directory B2C
 
@@ -40,8 +40,13 @@ Mithilfe dieses Features können Anwendungen beispielsweise diese Szenarien hand
 1. Wählen Sie **Benutzerflows** aus.
 1. Wählen Sie den Benutzerflow aus, für den Sie die mehrstufige Authentifizierung (Multifactor Authentication, MFA) aktivieren möchten. beispielsweise *B2C_1_signinsignup*.
 1. Wählen Sie **Eigenschaften** aus.
-1. Wählen Sie im Abschnitt **Mehrstufige Authentifizierung** die gewünschte **MFA-Methode** und anschließend unter **Erzwingung der MFA** die Option **Immer aktiviert** oder **[Bedingt](conditional-access-user-flow.md) (Empfohlen)** aus. Erstellen Sie bei „Bedingt“eine [Richtlinie für bedingten Zugriff](conditional-access-identity-protection-setup.md), und geben Sie die Apps an, für die die Richtlinie gelten soll. 
-1. Wählen Sie „Speichern“ aus. MFA ist für diesen Benutzerflow jetzt aktiviert.
+1. Wählen Sie im Abschnitt **Mehrstufige Authentifizierung** die gewünschte **MFA-Methode** und anschließend unter **Erzwingung der MFA** die Option **Immer aktiviert** oder **Bedingt (Empfohlen)** aus.
+   > [!NOTE]
+   >
+   > - Wenn Sie **Bedingt (empfohlen)** auswählen, müssen Sie auch eine [Richtlinie für bedingten Zugriff hinzufügen](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) und die Apps angeben, für die die Richtlinie gelten soll.
+   > - Die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) ist bei Benutzerflows für die Registrierung standardmäßig deaktiviert. In Benutzerflows mit telefonischer Registrierung ist es zwar möglich, MFA zu aktivieren. Als zweiter Authentifizierungsfaktor steht jedoch nur die Einmalkennung per E-Mail zur Verfügung, da die Telefonnummer als primärer Bezeichner verwendet wird.
+
+1. Wählen Sie **Speichern** aus. MFA ist für diesen Benutzerflow jetzt aktiviert.
 
 Sie können die Benutzeroberflächenfunktion mit **Benutzerflow ausführen** überprüfen. Bestätigen Sie das folgende Szenario:
 

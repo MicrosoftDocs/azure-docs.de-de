@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535830"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538050"
 ---
 # <a name="caching-with-azure-front-door"></a>Zwischenspeicherung mit Azure Front Door
 In diesem Dokument werden die Verhaltensweisen von Azure Front Door Service mit Routingregeln mit aktivierter Zwischenspeicherung erläutert. Front Door ist ein modernes Content Delivery Network (CDN) mit Beschleunigung dynamischer Websites und Lastenausgleich und unterstützt zudem wie jedes andere CDN auch Zwischenspeicherungsverhaltensweisen.
@@ -24,13 +24,13 @@ In diesem Dokument werden die Verhaltensweisen von Azure Front Door Service mit 
 ## <a name="delivery-of-large-files"></a>Übermittlung großer Dateien
 Azure Front Door übermittelt große Dateien ohne Beschränkung der Dateigröße. Bei Azure Front Door Service kommt eine Technik namens Objektblockerstellung zum Einsatz. Wenn eine große Datei angefordert wird, ruft Azure Front Door Service kleinere Teile der Datei vom Back-End ab. Nach dem Empfang einer vollständigen oder auf einen Bytebereich beschränkten Anforderung fordert eine Front Door-Umgebung die Datei in Blöcken von 8 MB vom Back-End an.
 
-</br>Nachdem der Block in der Azure Front Door Service-Umgebung angekommen ist, wird er zwischengespeichert und sofort für den Benutzer bereitgestellt. Azure Front Door Service ruft den nächsten Block dann parallel dazu ab. Durch diesen Vorabruf wird sichergestellt, dass der Inhalt dem Benutzer immer einen Block voraus ist, sodass sich die Wartezeit reduziert. Dieser Prozess wird fortgesetzt, bis die gesamte Datei heruntergeladen wurde (falls angefordert) oder der Client die Verbindung beendet.
+Nachdem der Block in der Azure Front Door Service-Umgebung angekommen ist, wird er zwischengespeichert und sofort für den Benutzer bereitgestellt. Azure Front Door Service ruft den nächsten Block dann parallel dazu ab. Durch diesen Vorabruf wird sichergestellt, dass der Inhalt dem Benutzer immer einen Block voraus ist, sodass sich die Wartezeit reduziert. Dieser Prozess wird fortgesetzt, bis die gesamte Datei heruntergeladen wurde (falls angefordert) oder der Client die Verbindung beendet.
 
-</br>Weitere Informationen zur Bytebereichsanforderung finden Sie unter [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Weitere Informationen zur Bytebereichsanforderung finden Sie unter [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Alle Blöcke werden von Azure Front Door Service zwischengespeichert, sobald sie eingetroffen sind, sodass nicht die gesamte Datei im Cache von Front Door zwischengespeichert werden muss. Nachfolgende Anforderungen für die Datei oder Bytebereiche werden über den Cache verarbeitet. Wenn nicht alle Blöcke zwischengespeichert werden, werden mittels Vorabruf Blöcke vom Back-End angefordert. Diese Optimierung beruht auf der Fähigkeit des Back-Ends, Bytebereichanforderungen zu unterstützen. Wenn das Back-End keine Anforderungen für Bytebereiche unterstützt, ist diese Optimierung nicht effektiv.
 
 ## <a name="file-compression"></a>Dateikomprimierung
-Azure Front Door Service kann Inhalte dynamisch am Edge komprimieren, wodurch die Antwort an Ihre Clients kleiner ist und schneller erfolgt. Alle Dateien können komprimiert werden. Eine Datei muss allerdings vom MIME-Typ sein, um sich für die Komprimierung zu qualifizieren. Gegenwärtig lässt Front Door keine Änderungen an dieser Liste zu. Die aktuelle Liste umfasst folgende Typen:</br>
+Azure Front Door Service kann Inhalte dynamisch am Edge komprimieren, wodurch die Antwort an Ihre Clients kleiner ist und schneller erfolgt. Damit eine Datei für die Komprimierung geeignet ist, muss die Zwischenspeicherung aktiviert sein, und die Datei muss einen MIME-Typ aufweisen, damit sie komprimiert werden kann. Gegenwärtig lässt Front Door keine Änderungen an dieser Liste zu. Die aktuelle Liste umfasst folgende Typen:
 - application/eot
 - application/font
 - application/font-sfnt

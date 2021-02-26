@@ -4,19 +4,18 @@ summary: Azure Data Science Virtual Machine (DSVM) ist ein VM-Image mit vorab ge
 metadata:
   title: 'Dokumentation zu Data Science Virtual Machine: Azure'
   description: Azure Data Science Virtual Machine (DSVM) ist ein VM-Image mit vorab geladenen Data Science- und Machine Learning-Tools.
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
+  ms.service: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
   author: gvashishtha
   ms.author: gopalv
   ms.date: 09/13/2019
-  ms.openlocfilehash: 6cce3a1c8ec5c330c84009a8c20cbddd769b129c
-  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+  ms.openlocfilehash: f6f844875d69584052625c33aa8d3d42be2fd2dd
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94985772"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100518469"
 landingContent:
 - title: Erste Schritte mit Data Science Virtual Machine
   linkLists:

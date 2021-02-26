@@ -1,19 +1,16 @@
 ---
 title: 'Schnellstart: Erstellen eines ML Services-Clusters mit einer Vorlage: Azure HDInsight'
 description: In dieser Schnellstartanleitung wird veranschaulicht, wie Sie eine Resource Manager-Vorlage verwenden, um einen ML Services-Cluster in Azure HDInsight zu erstellen.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: ad1b08110e91457f1c9031f864ba67086872f22e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15e06d959510d74078a738db2606778d313ad65
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943986"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Schnellstart: Erstellen eines ML Services-Clusters in Azure HDInsight mit einer ARM-Vorlage
 

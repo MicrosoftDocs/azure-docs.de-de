@@ -3,7 +3,7 @@ title: Konfigurieren der Art der Endbenutzereinwilligung für Anwendungen in Azu
 description: Erfahren Sie, wie Sie verwalten können, wie und wann Benutzer Anwendungen zustimmen können, die Zugriff auf die Daten Ihrer Organisation haben.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6dd95dafbd079e79247110ee227121483dc372e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033611"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259303"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurieren der Art und Weise, wie Endbenutzer Anwendungen zustimmen können
 
@@ -48,7 +48,7 @@ Indem Sie auswählen, welche Richtlinien zur Einwilligung für die App für alle
 
 So konfigurieren Sie die Einstellungen für die Benutzereinwilligung über das Azure-Portal:
 
-1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator--company-administrator) beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator) beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie **Azure Active Directory** > **Unternehmensanwendungen** > **Einwilligung und Berechtigungen** > **Einstellungen für Benutzereinwilligung** aus.
 1. Wählen Sie unter **Benutzereinwilligung für Anwendungen** aus, welche Einwilligungseinstellung für alle Benutzer konfiguriert werden soll.
 1. Klicken Sie auf **Save** (Speichern), um Ihre Einstellungen zu speichern.
@@ -185,4 +185,4 @@ Weitere Informationen:
 * [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 So erhalten Sie Hilfe oder finden Antworten auf Ihre Fragen:
-* [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD bei Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

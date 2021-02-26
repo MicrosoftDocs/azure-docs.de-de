@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916132"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834390"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Verwenden von adaptiven Anwendungssteuerungen zum Verringern der Angriffsfläche Ihres Computers
 
@@ -44,7 +44,7 @@ Durch die Definition von Listen mit bekannten sicheren Anwendungen und das Gener
 - Verhindern bestimmter Software, die von Ihrer Organisation gesperrt wurde
 - Erhöhen der Überwachung von Apps, die auf sensible Daten zugreifen
 
-
+Derzeit sind keine Erzwingungsoptionen verfügbar. Adaptive Anwendungssteuerungen sollen Sicherheitswarnungen ausgeben, wenn eine andere als die von Ihnen als sicher definierte Anwendung ausgeführt wird.
 
 ## <a name="availability"></a>Verfügbarkeit
 
@@ -235,7 +235,12 @@ Einige der Funktionen, die über die REST-API verfügbar sind:
    > Entfernen Sie die folgenden Eigenschaften, bevor Sie den JSON-Code in der Put-Anforderung verwenden: recommendationStatus, configurationStatus, issues, location und sourceSystem.
 
 
+## <a name="faq---adaptive-application-controls"></a>Häufig gestellte Fragen zu adaptiven Anwendungssteuerungen
 
+### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Gibt es Optionen zur Erzwingung der Anwendungssteuerung?
+Derzeit sind keine Erzwingungsoptionen verfügbar. Adaptive Anwendungssteuerungen sollen **Sicherheitswarnungen** ausgeben, wenn eine andere als die von Ihnen als sicher definierte Anwendung ausgeführt wird. Sie bieten eine Reihe von Vorteilen ([Was sind die Vorteile adaptiver Anwendungssteuerungen?](#what-are-the-benefits-of-adaptive-application-controls)) und sind, wie auf dieser Seite gezeigt, überaus anpassbar.
+
+ 
 
 ## <a name="next-steps"></a>Nächste Schritte
 In diesem Dokument haben Sie erfahren, wie Sie mithilfe der adaptiven Anwendungssteuerung in Azure Security Center Zulassungslisten von Anwendungen definieren, die auf Azure- und Nicht-Azure-Computern ausgeführt werden. Weitere Informationen zu einigen anderen Cloudworkload-Schutzfeatures in Security Center finden Sie unter:

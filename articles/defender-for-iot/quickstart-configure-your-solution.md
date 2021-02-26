@@ -1,24 +1,24 @@
 ---
-title: 'Schnellstart: Konfigurieren Ihrer Lösung'
+title: Hinzufügen von Azure-Ressourcen zu Ihrer IoT-Lösung
 description: In dieser Schnellstartanleitung erfahren Sie, wie Sie Ihre End-to-End-IoT-Lösung mit Azure Defender für IoT konfigurieren.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: Shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 01/25/2021
+ms.author: shhazam
+ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092085"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809021"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Schnellstart: Konfigurieren Ihrer Lösung mit Azure Defender für IoT
 
@@ -40,12 +40,15 @@ Nachdem Sie alle Ressourcenbeziehungen definiert haben, werden von Defender für
 
 ## <a name="add-azure-resources-to-your-iot-solution"></a>Hinzufügen von Azure-Ressourcen zu Ihrer IoT-Lösung
 
-Gehen Sie wie folgt vor, um Ihrer IoT-Lösung neue Ressourcen hinzuzufügen:
+So fügen Sie Ihrer IoT-Lösung eine neue Ressource hinzu:
 
 1. Öffnen Sie im Azure-Portal Ihre Instanz von **IoT Hub**.
+
 1. Wählen Sie unter **Sicherheit** die Option **Übersicht**, anschließend **Einstellungen** und dann **Überwachte Ressourcen** aus.
+
 1. Wählen Sie **Bearbeiten** und dann die überwachten Ressourcen aus, die zu ihrer IoT-Lösung gehören.
-1. Klicken Sie auf **Hinzufügen**.
+
+1. Wählen Sie **Hinzufügen**.
 
 Glückwunsch! Sie haben Ihrer IoT-Lösung eine neue Ressourcengruppe hinzugefügt.
 

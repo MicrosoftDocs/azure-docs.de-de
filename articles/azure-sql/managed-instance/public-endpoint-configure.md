@@ -9,13 +9,13 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788280"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981441"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurieren eines öffentlichen Endpunkts in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Zulassen von Datenverkehr auf dem öffentlichen Endpunkt in der Netzwerksicherheitsgruppe
 
-1. Wenn die Konfigurationsseite der verwalteten Instanz noch geöffnet ist, navigieren Sie zur Registerkarte **Übersicht** . Andernfalls wechseln Sie zurück zu Ihrer **Verwaltete SQL-Instanz** -Ressource. Wählen Sie den Link **Virtuelles Netzwerk/Subnetz** aus, sodass Sie zu der Konfigurationsseite „Virtuelles Netzwerk“ gelangen.
+1. Wenn die Konfigurationsseite der verwalteten Instanz noch geöffnet ist, navigieren Sie zur Registerkarte **Übersicht**. Andernfalls wechseln Sie zurück zu Ihrer **Verwaltete SQL-Instanz**-Ressource. Wählen Sie den Link **Virtuelles Netzwerk/Subnetz** aus, sodass Sie zu der Konfigurationsseite „Virtuelles Netzwerk“ gelangen.
 
     ![Screenshot: Konfigurationsseite für virtuelles Netzwerk zum Suchen des Werts des virtuellen Netzwerks bzw. Subnetzes](./media/public-endpoint-configure/mi-overview.png)
 
@@ -92,7 +92,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Wechseln Sie zurück zur Ressourcengruppe, die Ihre verwaltete Instanz enthält. Daraufhin sollte der oben notierte Name der **Netzwerksicherheitsgruppe** angezeigt werden. Wählen Sie den Namen aus, um die Konfigurationsseite der Netzwerksicherheitsgruppe zu öffnen.
 
-1. Wählen Sie die Registerkarte **Eingangssicherheitsregeln** zum **Hinzufügen** einer Regel mit den folgenden Einstellungen aus, die höhere Priorität aufweist als die Regel **deny_all_inbound** : </br> </br>
+1. Wählen Sie die Registerkarte **Eingangssicherheitsregeln** zum **Hinzufügen** einer Regel mit den folgenden Einstellungen aus, die höhere Priorität aufweist als die Regel **deny_all_inbound**: </br> </br>
 
     |Einstellung  |Vorgeschlagener Wert  |BESCHREIBUNG  |
     |---------|---------|---------|
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Abrufen der Verbindungszeichenfolge des öffentlichen Endpunkts der verwalteten Instanz
 
 1. Navigieren Sie zur Konfigurationsseite der verwalteten Instanz, die für den öffentlichen Endpunkt aktiviert wurde. Wählen Sie die Registerkarte **Verbindungszeichenfolgen** im Konfigurationsabschnitt **Einstellungen** aus.
-1. Beachten Sie, dass der Hostname des öffentlichen Endpunkts das Format <mi_name>. **public** .<dns_zone>.database.windows.net hat und der Port 3342 für die Verbindung verwendet wird.
+1. Beachten Sie, dass der Hostname des öffentlichen Endpunkts das Format <mi_name>.**public**.<dns_zone>.database.windows.net hat und der Port 3342 für die Verbindung verwendet wird. Hier ist ein Beispiel für einen Serverwert der Verbindungszeichenfolge, der den Port des öffentlichen Endpunkts angibt, der in SQL Server Management Studio- oder Azure Data Studio-Verbindungen verwendet werden kann: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![Screenshot: Verbindungszeichenfolgen für die öffentlichen und privaten Endpunkte](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

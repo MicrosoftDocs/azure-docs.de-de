@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Grundlegendes zu Preisen
       items:
+        - name: Übersicht über reservierte Kapazität für Datenflüsse
+          href: data-flow-reserved-capacity-overview.md
+        - name: Grundlegendes zu Reservierungsgebühren für Datenflüsse
+          href: data-flow-understand-reservation-charges.md
         - name: Planen und Verwalten von Kosten
           href: plan-manage-costs.md
         - name: Preisbeispiele

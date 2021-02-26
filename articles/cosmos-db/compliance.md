@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 512accd274da35c1f747f2ef185f0b3eefa4756d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce68b9e42ca1e34c8ea493b67e123a86139134bf
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636791"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555588"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Compliance in Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB ist in allen Azure-Regionen verfügbar. Microsoft stellt für Ku
 
 * **Azure China 21Vianet** wird über eine exklusive Partnerschaft zwischen Microsoft und 21Vianet angeboten, einem der größten Internetanbieter Chinas.
 
-* Für **Azure Deutschland** werden Dienste basierend auf einem Datentreuhänder-Modell bereitgestellt. Hiermit wird sichergestellt, dass Kundendaten in Deutschland und unter der Kontrolle von T-Systems International GmbH, einem Subunternehmen von Deutsche Telekom, verbleiben. Dieses Unternehmen fungiert als Datentreuhänder in Deutschland.
+* **Azure Deutschland** stellt Dienste basierend auf einem Datentreuhänder-Modell bereit. Damit wird sichergestellt, dass Kundendaten in Deutschland und unter der Kontrolle von T-Systems International GmbH, einem Subunternehmen von Deutsche Telekom, verbleiben. Dieses Unternehmen fungiert als Datentreuhänder in Deutschland.
 
 * **Azure Government** ist in vier Regionen der USA für US-Regierungsbehörden und ihre Partner verfügbar. 
 
@@ -33,37 +33,7 @@ Um Kunden bei der Erfüllung ihrer eigenen Konformitätsverpflichtungen in regul
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB-Zertifizierungen  
 
-Für Azure Cosmos DB wird die Zertifizierungsabdeckung ständig erweitert. Derzeit verfügt Azure Cosmos DB über Zertifikate für die folgenden Bereiche:
-
-| **Globale Relevanz** | **US Government** | **Branchenspezifisch** | **Regions- oder landesspezifisch** |
-| --- | --- | --- | --- |
-| CSA STAR-Zertifizierung | DoD SRG Level 2 | HIPAA BAA | Australia IRAP |
-| CSA STAR-Nachweis | FedRAMP Moderate | HITRUST | Germany C5|
-| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI-DSS | Singapore MTCS Level 3 |
-| ISO 22301:2012 | | | Spain ENS High|
-| ISO 27001:2013| | | |
-| ISO 27017:2015 | | | |
-| ISO 27018:2014 | | | |
-| ISO 9001:2015 | | | |
-| ISO 27701:2019| | | |
-| SOC 1, 2, 3 | | | |
-
-Weitere Informationen zu diesen Complianceangeboten und ihren Vorteilen finden Sie unter den [Microsoft Azure-Complianceangeboten](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Anhang A und B.
-
-In der folgenden Tabelle sind die Zertifizierungsbereiche aufgeführt, die von Azure Cosmos DB für Azure Government unterstützt werden:
-
-| **Globale Relevanz** | **US Government** | **Branchenspezifisch** | 
-| --- | --- | --- |
-| CSA STAR-Zertifizierung | CJIS| HIPAA BAA | 
-| CSA STAR-Nachweis| DoD SRG Level 2| HITRUST  | 
-| ISO 20000-1:2011 | DoD SRG Level 4 | PCI-DSS | 
-| ISO 9001:2012 | DoD SRG Level 5 | | 
-| ISO 27001:2013 | FedRAMP High | |
-| ISO 9001:2015 | IRS 1075|  |
-| ISO 27017:2014 | NIST CSF | |
-| ISO 27018:2015 | NIST SP 800-171 | |
-| SOC 1, 2, 3 | | |
-
+Informationen zu den aktuellen Compliancezertifizierungen für Azure Cosmos DB finden Sie unter den [Microsoft Azure-Complianceangeboten](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Anhang A und B.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

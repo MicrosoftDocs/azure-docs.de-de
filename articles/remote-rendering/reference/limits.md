@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427427"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530245"
 ---
 # <a name="limitations"></a>Einschränkungen
 
@@ -19,8 +19,8 @@ Eine Reihe von Features besitzen Einschränkungen hinsichtlich Größe, Anzahl o
 ## <a name="azure-frontend"></a>Azure-Front-End
 
 Für die Front-End-API (C++ und C#) gelten die folgenden Einschränkungen:
-* Gesamtzahl der [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend)-Instanzen pro Prozess: 16.
-* Gesamtzahl der [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession)-Instanzen pro [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
+* Gesamte [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient)-Instanzen pro Prozess: 16.
+* Gesamte [RenderingSession](/dotnet/api/microsoft.azure.remoterendering.renderingsession)-Instanzen pro [RemoteRenderingClient](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient): 16.
 
 ## <a name="objects"></a>erzwingen
 
@@ -36,7 +36,7 @@ Für die Front-End-API (C++ und C#) gelten die folgenden Einschränkungen:
 
 ### <a name="overall-number-of-polygons"></a>Gesamtanzahl von Polygonen
 
-Die zulässige Anzahl von Polygonen für alle geladenen Modelle ist von der Größe der VM abhängig, die an die [Sitzungsverwaltungs-REST-API](../how-tos/session-rest-api.md#create-a-session) übergeben wurde:
+Die zulässige Anzahl von Polygonen für alle geladenen Modelle ist von der Größe der VM abhängig, die an die [Sitzungsverwaltungs-REST-API](../how-tos/session-rest-api.md) übergeben wurde:
 
 | Servergröße | Maximale Anzahl von Polygonen |
 |:--------|:------------------|

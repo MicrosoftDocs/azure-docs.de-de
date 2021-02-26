@@ -3,7 +3,7 @@ title: 'PowerShell-Beispiel: Auflisten von zusätzlichen Informationen zu Anwend
 description: Hier finden Sie ein PowerShell-Beispiel, mit dem alle Azure Active Directory-Anwendungsproxyanwendungen (Azure AD) zusammen mit der Anwendungs-ID (AppId), dem Namen (DisplayName), der externen URL (ExternalUrl), der internen URL (InternalUrl) und dem Authentifizierungstyp (ExternalAuthenticationType) aufgelistet werden.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,16 +11,18 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 330bd9b78c2f550ab40f1f4f3679b6c9788ddb64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859368"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258692"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Abrufen aller Anwendungsproxy-Apps und Auflisten zusätzlicher Informationen
 
-Dieses PowerShell-Beispielskript listet Informationen zu allen Azure Active Directory-Anwendungsproxyanwendungen (Azure AD) einschließlich der Anwendungs-ID (AppId), des Namens (DisplayName), der externen URL (ExternalUrl), der internen URL (InternalUrl) und des Authentifizierungstyps (ExternalAuthenticationType) auf.
+Dieses PowerShell-Beispielskript listet Informationen zu allen Azure Active Directory-Anwendungsproxyanwendungen (Azure AD) auf, z. B. Anwendungs-ID (AppId), Name (DisplayName), externe URL (ExternalUrl), interne URL (InternalUrl), Authentifizierungstyp (ExternalAuthenticationType), SSO-Modus und weitere Einstellungen.
+
+Wenn Sie den Wert der Variablen „$ssoMode“ ändern, ist eine gefilterte Ausgabe für den SSO-Modus möglich. Weitere Details sind im Skript dokumentiert.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +30,7 @@ Dieses PowerShell-Beispielskript listet Informationen zu allen Azure Active Dire
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Für dieses Beispiel ist das [Azure AD PowerShell V2-Modul für Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) oder das [Azure AD PowerShell V2-Modul in der Vorschauversion für Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview) erforderlich.
+Für dieses Beispiel ist das [Azure AD PowerShell V2-Modul für Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) erforderlich.
 
 ## <a name="sample-script"></a>Beispielskript
 

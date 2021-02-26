@@ -3,12 +3,12 @@ title: 'Tutorial: Verwenden von Azure Event Grid zum Automatisieren der Größen
 description: 'Tutorial: Azure Event Grid kann bei Blob-Uploads in Azure Storage ausgelöst werden. Sie können diese Funktion verwenden, um in Azure Storage hochgeladene Bilddateien an andere Dienste (z. B. Azure Functions) für die Größenänderung und andere Optimierungen zu senden.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326557"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550512"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatisieren der Größenänderung von hochgeladenen Bildern mit Event Grid
 
@@ -43,7 +43,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 Sie müssen das vorherige Blob Storage-Tutorial abgeschlossen haben: [Hochladen von Bilddaten in die Cloud mit Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Sie benötigen ein [Azure-Abonnement](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Dieses Tutorial funktioniert nicht mit dem **kostenlosen** Abonnement. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,13 +263,13 @@ Ein Ereignisabonnement gibt an, welche vom Anbieter generierten Ereignisse an ei
 
 1.  Wählen Sie **Integration auswählen** aus, wählen Sie dann den **Event Grid-Trigger** aus, und wählen Sie **Event Grid-Abonnement erstellen** aus.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Auswählen der Miniaturansichtsfunktion im Portal" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navigieren zu „Event Grid-Abonnement hinzufügen“ im Azure-Portal" :::
 
 1. Verwenden Sie die in der Tabelle angegebenen Einstellungen für das Ereignisabonnement.
     
     ![Erstellen eines Ereignisabonnements aus der Funktion im Azure-Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Einstellung      | Vorgeschlagener Wert  | Beschreibung                                        |
+    | Einstellung      | Vorgeschlagener Wert  | BESCHREIBUNG                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Name** | imageresizersub | Der Name, der Ihr neues Ereignisabonnement angibt. |
     | **Thementyp** | Speicherkonten | Wählen Sie den Speicherkonto-Ereignisanbieter aus. |
@@ -283,7 +283,7 @@ Ein Ereignisabonnement gibt an, welche vom Anbieter generierten Ereignisse an ei
 
 1. Wechseln Sie zur Registerkarte **Filter**, und führen Sie die folgenden Aktionen durch:
     1. Wählen Sie die Option **Betrefffilter aktivieren** aus.
-    1. Geben Sie für **Betreff beginnt mit** den folgenden Wert ein: **/blobServices/default/containers/images/blobs/** .
+    1. Geben Sie für **Betreff beginnt mit** den folgenden Wert ein: **/blobServices/default/containers/images/** .
 
         ![Festlegen eines Filters für das Ereignisabonnement](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763454"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944959"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Bereitstellen von VMs auf einem Azure Stack Edge Pro-GPU-Gerät über das Azure-Portal
 
@@ -22,6 +22,9 @@ Sie können virtuelle Computer (Virtual Machines, VMs) auf einem Azure Stack Edg
 
 Dieser Artikel bezieht sich auf Geräte vom Typ „Azure Stack Edge Pro-GPU“, „Azure Stack Edge Pro R“ und „Azure Stack Edge Mini R“. 
 
+> [!IMPORTANT] 
+> Es wird empfohlen, für Benutzer, die auf Ihrem Gerät bereitgestellte VMs über die Cloud verwalten, die mehrstufige Authentifizierung zu aktivieren.
+        
 ## <a name="vm-deployment-workflow"></a>VM-Bereitstellungsworkflow
 
 Die allgemeine Zusammenfassung des Bereitstellungsworkflows lautet wie folgt:
@@ -54,7 +57,7 @@ Bevor Sie mit dem Erstellen und Verwalten von VMs auf Ihrem Gerät über das Azu
         > [!IMPORTANT] 
         > Sie können nur einen Port für Compute konfigurieren.
 
-    1. Aktivieren Sie Compute für die Netzwerkschnittstelle. Azure Stack Edge Pro erstellt und verwaltet einen virtuellen Switch, der dieser Netzwerkschnittstelle entspricht.
+    1. Aktivieren Sie Compute auf der Netzwerkschnittstelle. Azure Stack Edge Pro erstellt und verwaltet einen virtuellen Switch, der dieser Netzwerkschnittstelle entspricht.
 
 1. Sie haben Zugriff auf eine Windows- oder Linux-VHD, die Sie verwenden, um das VM-Image für den virtuellen Computer zu erstellen, den Sie erstellen möchten.
 

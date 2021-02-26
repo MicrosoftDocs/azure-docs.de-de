@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897509"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092516"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Ermitteln virtueller Hyper-V-Computer mit der Serverbewertung
 
@@ -87,7 +87,7 @@ Sie können Hyper-V-Hosts manuell oder mithilfe eines Skripts vorbereiten. Die V
 Überprüfen der PowerShell-Version | Es wird überprüft, ob das Skript unter einer unterstützten PowerShell-Version ausgeführt wird. | Überprüfen Sie, ob Sie PowerShell, Version 4.0 oder höher, auf dem Hyper-V-Host ausführen.
 Erstellen eines Kontos | Es wird überprüft, ob Sie über die richtigen Berechtigungen für den Hyper-V-Host verfügen.<br/><br/> Ermöglicht das Erstellen eines lokalen Benutzerkontos mit den richtigen Berechtigungen. | Option 1: Bereiten Sie ein Konto mit Administratorzugriff auf den Hyper-V-Hostcomputer vor.<br/><br/> Option 2: Bereiten Sie ein lokales Administratorkonto oder ein Domänenadministratorkonto vor, und fügen Sie das Konto den folgenden Gruppen hinzu: „Remoteverwaltungsbenutzer“, „Hyper-V-Administratoren“ und „Systemmonitorbenutzer“.
 Aktivieren von PowerShell-Remoting | Aktivieren Sie auf dem Host PowerShell-Remoting, sodass die Azure Migrate-Appliance über eine WinRM-Verbindung darauf PowerShell-Befehle ausführen kann. | Zum Einrichten auf jedem Host öffnen Sie eine PowerShell-Konsole als Administrator und führen den folgenden Befehl aus: ``` powershell Enable-PSRemoting -force ```
-Einrichten von Hyper-V-Integrationsdiensten | Es überprüft, ob die Hyper-V-Integrationsdienste auf allen vom Host verwalteten virtuellen Computern aktiviert sind. | [Aktivieren Sie die Hyper-V Integrationsdienste](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) (Hyper-V Integration Services) auf den einzelnen virtuellen Computern.<br/><br/> Wenn Sie Windows Server 2003 ausführen, [folgen Sie diesen Anleitungen](prepare-windows-server-2003-migration.md).
+Einrichten von Hyper-V-Integrationsdiensten | Es überprüft, ob die Hyper-V-Integrationsdienste auf allen vom Host verwalteten virtuellen Computern aktiviert sind. | [Aktivieren Sie die Hyper-V Integrationsdienste](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) (Hyper-V Integration Services) auf den einzelnen virtuellen Computern.<br/><br/> Wenn Sie Windows Server 2003 ausführen, [folgen Sie diesen Anleitungen](prepare-windows-server-2003-migration.md).
 Delegieren von Anmeldeinformationen, wenn sich VM-Datenträger auf SMB-Remotefreigaben befinden | Delegiert Anmeldeinformationen. | Führen Sie diesen Befehl aus, um CredSSP das Delegieren von Anmeldeinformationen auf Hosts zu ermöglichen, auf denen virtuelle Hyper-V-Computer mit Datenträgern auf SMB-Freigaben ausgeführt werden: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> Sie können diesen Befehl remote auf allen Hyper-V-Hosts ausführen.<br/><br/> Wenn Sie in einem Cluster neue Hostknoten hinzufügen, werden diese automatisch zur Ermittlung hinzugefügt, aber Sie müssen CredSSP manuell aktivieren.<br/><br/> Beim Einrichten der Appliance schließen Sie die Einrichtung von CredSSP durch [die Aktivierung für die Appliance](#delegate-credentials-for-smb-vhds) ab. 
 
 ### <a name="run-the-script"></a>Ausführen des Skripts

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 059d5545c71bef3465dc634f8fdad2396a6d9a7e
-  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+  ms.openlocfilehash: a2329333268ca6aec0a33794a342f63aa2bda53f
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98681571"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100379538"
 highlightedContent:
   items:
   - title: Was ist Cognitive Services?
@@ -61,9 +61,6 @@ conceptualContent:
     - url: ./form-recognizer/index.yml
       itemType: overview
       text: Formularerkennung
-    - url: ./ink-recognizer/index.yml
-      itemType: overview
-      text: Freihanderkennung (wird eingestellt)
     - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Video Indexer
@@ -136,7 +133,7 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: Verwenden von Docker Compose zum Bereitstellen mehrerer Container
-    - url: ./containers/container-faq.md
+    - url: ./containers/container-faq.yml
       itemType: reference
       text: 'Cognitive Services-Container: Häufig gestellte Fragen'
   - title: Cognitive Services für Big Data

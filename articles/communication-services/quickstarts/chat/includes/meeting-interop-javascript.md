@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578014"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932300"
 ---
 ## <a name="join-the-meeting-chat"></a>Beitreten zum Besprechungschat 
 
@@ -21,7 +21,7 @@ Sobald die Teams-Interoperabilität aktiviert ist, kann ein Communication Servic
 Instanziieren Sie zunächst einen `ChatThreadClient` für den Besprechungschatthread. Analysieren Sie den Besprechungslink, oder verwenden Sie die Graph-APIs mit der Besprechungs-ID, um die Thread-ID abzurufen. 
 
 - Ein Teams-Besprechungslink sieht wie folgt aus: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. In der Thread-ID befindet sich `meeting_chat_thread_id` in diesem Link. 
-- Wenn Sie über die Besprechungs-ID verfügen, können Sie die [Graph-API](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) verwenden, um die Thread-ID abzurufen. Die [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C)-Antwort enthält ein `chatInfo`-Objekt, das die `threadID` enthält. 
+- Wenn Sie über die Besprechungs-ID verfügen, können Sie die [Graph-API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) verwenden, um die Thread-ID abzurufen. Die [GET API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta)-Antwort enthält ein `chatInfo`-Objekt, das die `threadID` enthält. 
 
 Sobald Sie über die Thread-ID des Chats verfügen, können Sie den Chatthreadclient mithilfe der JavaScript-Chatclientbibliothek abrufen: 
 
@@ -44,4 +44,3 @@ Weitere Informationen zu Nachrichtentypen finden Sie [hier](../../../concepts/ch
 
 **Hinweis**: Derzeit wird nur das Senden und Empfangen von Nachrichten für Interoperabilitätsszenarien mit Teams unterstützt. Andere Features wie das Eingeben von Indikatoren oder das Hinzufügen oder Entfernen anderer Benutzer aus der Teams-Besprechung durch Communication Services-Benutzer werden noch nicht unterstützt.  
 
- 

@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8c26afc9cf9630f6d26ddc76759393a6ea1a8696
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990272"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832843"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Verwenden von Gerätegruppen zum Analysieren von Gerätetelemetriedaten
 
@@ -82,6 +82,10 @@ So analysieren Sie die Telemetriedaten für eine Gerätegruppe:
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot: Durchschnittswerte für alle Contoso-Geräte":::
 
     Sie können die Ansicht anpassen, den angezeigten Zeitraum ändern und die Daten exportieren.
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

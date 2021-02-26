@@ -3,17 +3,16 @@ title: Fenstertransformation im Zuordnungsdatenfluss
 description: 'Azure Data Factory Mapping Data Flow: Fenstertransformation'
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/16/2020
-ms.openlocfilehash: 8f0d10b6ed69cd31249447b59114c590bdbeb078
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 56024fd0aac2f9fbefb7fe919eef2481550e573f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367825"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Fenstertransformation im Zuordnungsdatenfluss
 

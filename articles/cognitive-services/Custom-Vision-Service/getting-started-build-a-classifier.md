@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bilderkennung, bilderkennungs-app, custom vision
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131694"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221243"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Schnellstart: Erstellen einer Klassifizierung mit der Custom Vision-Website
 
@@ -71,7 +71,7 @@ Navigieren Sie im Webbrowser zur [Custom Vision-Webseite](https://customvision.a
 
 In diesem Abschnitt laden Sie Bilder hoch und kennzeichnen diese manuell, um die Klassifizierung zu trainieren. 
 
-1. Klicken Sie zum Hinzufügen von Bildern auf die Schaltfläche __Bilder hinzufügen__, und wählen Sie dann __Lokale Dateien durchsuchen__ aus. Wählen Sie __Öffnen__ aus, um zur Kategorisierung zu gelangen. Ihre Tag-Auswahl wird auf die gesamte Gruppe von Bildern angewendet, die Sie zum Hochladen ausgewählt. Daher ist es einfacher, Bilder entsprechend den gewünschten Tags in separaten Gruppen hochzuladen. Sie können die Kategorie für einzelne Bilder auch nach dem Hochladen ändern.
+1. Wählen Sie zum Hinzufügen von Bildern __Bilder hinzufügen__ und anschließend __Lokale Dateien durchsuchen__ aus. Wählen Sie __Öffnen__ aus, um zur Kategorisierung zu gelangen. Ihre Tag-Auswahl wird auf die gesamte Gruppe von Bildern angewendet, die Sie zum Hochladen ausgewählt haben. Daher ist es einfacher, Bilder entsprechend den angewendeten Tags in separaten Gruppen hochzuladen. Die Tags für einzelne Bilder können auch nach dem Hochladen geändert werden.
 
     ![Das Steuerelement zum Hinzufügen von Bildern wird oben links und als Schaltfläche unten in der Mitte angezeigt.](./media/getting-started-build-a-classifier/add-images01.png)
 

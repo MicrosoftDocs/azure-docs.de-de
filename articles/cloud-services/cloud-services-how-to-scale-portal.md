@@ -1,6 +1,6 @@
 ---
 title: Automatisches Skalieren von Cloud Services (klassisch) im Portal | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Portal Regeln für die automatische Skalierung für eine Clouddienst-Webrolle oder -Workerrolle in Azure konfigurieren.
+description: Hier erfahren Sie, wie Sie über das Portal Regeln der Autoskalierung für Clouddienstrollen (klassisch) in Azure konfigurieren.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743354"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980829"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Konfigurieren der automatischen Skalierung für Cloud Services (klassisch) im Portal
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743354"
 Bedingungen können für eine Clouddienst-Workerrolle festgelegt werden, die ein Ab-/Aufskalieren auslösen. Die Bedingungen für die Rolle können auf der CPU, dem Datenträger oder der Netzwerklast der Rolle basieren. Sie können auch eine Bedingung basierend auf einer Nachrichtenwarteschlange oder der Metrik einer anderen mit Ihrem Abonnement verknüpften Azure-Ressource festlegen.
 
 > [!NOTE]
-> Dieser Artikel konzentriert sich auf Clouddienst-Webrollen und -Workerrollen. Wenn Sie einen virtuellen Computer (klassisch) direkt erstellen, wird er in einem Clouddienst gehostet. Sie können einen standardmäßigen virtuellen Computer skalieren, indem Sie ihn einer [Verfügbarkeitsgruppe](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) zuordnen und manuell aktivieren oder deaktivieren.
+> Dieser Artikel konzentriert sich auf Clouddienste (klassisch). Wenn Sie einen virtuellen Computer (klassisch) direkt erstellen, wird er in einem Clouddienst gehostet. Sie können einen standardmäßigen virtuellen Computer skalieren, indem Sie ihn einer [Verfügbarkeitsgruppe](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) zuordnen und manuell aktivieren oder deaktivieren.
 
 ## <a name="considerations"></a>Überlegungen
 Folgendes ist allerdings zu beachten, bevor die Skalierung einer Anwendung konfiguriert wird:

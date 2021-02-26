@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598874"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952673"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Einrichten der Registrierung und Anmeldung mit einem Facebook-Konto mithilfe von Azure Active Directory B2C
 
@@ -84,6 +84,21 @@ Wenn Sie die Anmeldung für Benutzer mit einem Facebook-Konto in Azure Active Di
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="create-a-policy-key"></a>Erstellen eines Richtlinienschlüssels
+
+Sie müssen das zuvor notierte App-Geheimnis in Ihrem Azure AD B2C-Mandanten speichern.
+
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
+2. Stellen Sie sicher, dass Sie das Verzeichnis verwenden, das Ihren Azure AD B2C-Mandanten enthält. Wählen Sie im oberen Menü den Filter **Verzeichnis und Abonnement** aus, und wählen Sie dann das Verzeichnis aus, das Ihren Mandanten enthält.
+3. Wählen Sie links oben im Azure-Portal die Option **Alle Dienste** aus, suchen Sie nach **Azure AD B2C**, und wählen Sie dann diese Option aus.
+4. Wählen Sie auf der Seite „Übersicht“ die Option **Framework für die Identitätsfunktion** aus.
+5. Klicken Sie erst auf **Richtlinienschlüssel** und anschließend auf **Hinzufügen**.
+6. Klicken Sie unter **Optionen** auf `Manual`.
+7. Geben Sie einen **Namen** für den Richtlinienschlüssel ein. Beispiel: `FacebookSecret`. Dem Namen Ihres Schlüssels wird automatisch das Präfix `B2C_1A_` hinzugefügt.
+8. Geben Sie im Feld **Geheimnis** das zuvor notierte App-Geheimnis ein.
+9. Wählen Sie für **Schlüsselverwendung** die Option `Signature` aus.
+10. Klicken Sie auf **Erstellen**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurieren eines Facebook-Kontos als Identitätsanbieter
 

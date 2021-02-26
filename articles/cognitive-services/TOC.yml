@@ -42,6 +42,8 @@
       href: authentication.md
     - name: Sicherheitsbaseline
       href: security-baseline.md
+    - name: Sicherheitskontrollen von Azure Policy
+      href: ./security-controls-policy.md
 - name: Containerunterstützung
   items:
     - name: Containerunterstützung
@@ -49,7 +51,7 @@
     - name: Containerimagetags und Versionshinweise
       href: ./containers/container-image-tags.md
     - name: 'Container: Häufig gestellte Fragen'
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: Containeranleitungen
       items:
         - name: Wiederverwendung von Containern

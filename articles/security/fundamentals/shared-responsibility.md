@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518146"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548948"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Gemeinsame Verantwortung in der Cloud
 
@@ -50,4 +50,4 @@ Das folgende Diagramm zeigt einen herkömmlichen Ansatz, bei dem viele Sicherhei
 Beim cloudbasierten Ansatz sind Sie außerdem in der Lage, cloudbasierte Sicherheitsfunktionen für eine höhere Effektivität zu nutzen und Cloud Intelligence zur Verbesserung der Bedrohungserkennung und von Reaktionszeiten. Durch die Übertragung von Aufgaben an den Cloudanbieter profitieren Organisationen von einer höheren Sicherheit und können Sicherheitsressourcen und entsprechende Finanzmittel für andere geschäftliche Prioritäten nutzen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Weitere Informationen zur Aufteilung der Zuständigkeit zwischen Ihnen und Microsoft in einer SaaS-, PaaS- und IaaS-Bereitstellung finden Sie unter [Gemeinsame Verantwortung für das Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Weitere Informationen zur Aufteilung der Zuständigkeit zwischen Ihnen und Microsoft in einer SaaS-, PaaS- und IaaS-Bereitstellung finden Sie unter [Gemeinsame Verantwortung für das Cloud Computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760400"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388990"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Übersicht über RabbitMQ-Trigger für Azure Functions
 
@@ -27,7 +27,7 @@ Informationen zu Setup- und Konfigurationsdetails finden Sie in der [Übersicht]
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Das folgende Beispiel zeigt eine [C#-Funktion](functions-dotnet-class-library.md), die die RabbitMQ-Nachricht als [RabbitMQ-Ereignis](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) liest und protokolliert:
+Das folgende Beispiel zeigt eine [C#-Funktion](functions-dotnet-class-library.md), die die RabbitMQ-Nachricht als [RabbitMQ-Ereignis](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html) liest und protokolliert:
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -229,7 +229,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Der Standardnachrichtentyp ist [RabbitMQ-Ereignis](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html). Die Eigenschaft `Body` des RabbitMQ-Ereignisses kann als die nachstehend aufgeführten Typen gelesen werden:
+Der Standardnachrichtentyp ist [RabbitMQ-Ereignis](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html). Die Eigenschaft `Body` des RabbitMQ-Ereignisses kann als die nachstehend aufgeführten Typen gelesen werden:
 
 * `An object serializable as JSON`: Die Nachricht wird als gültige JSON-Zeichenfolge übermittelt.
 * `string`
@@ -238,7 +238,7 @@ Der Standardnachrichtentyp ist [RabbitMQ-Ereignis](https://www.rabbitmq.com/rele
 
 # <a name="c-script"></a>[C#-Skript](#tab/csharp-script)
 
-Der Standardnachrichtentyp ist [RabbitMQ-Ereignis](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html). Die Eigenschaft `Body` des RabbitMQ-Ereignisses kann als die nachstehend aufgeführten Typen gelesen werden:
+Der Standardnachrichtentyp ist [RabbitMQ-Ereignis](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html). Die Eigenschaft `Body` des RabbitMQ-Ereignisses kann als die nachstehend aufgeführten Typen gelesen werden:
 
 * `An object serializable as JSON`: Die Nachricht wird als gültige JSON-Zeichenfolge übermittelt.
 * `string`

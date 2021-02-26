@@ -3,12 +3,12 @@ title: Informationen zu Repositorys und Images
 description: Einführung in die grundlegenden Konzepte von Azure-Containerregistrierungen, Repositorys und Containerimages.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335893"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008518"
 ---
 # <a name="about-registries-repositories-and-images"></a>Informationen zu Registrierungen, Repositorys und Images
 
@@ -16,7 +16,7 @@ Dieser Artikel stellt die grundlegenden Konzepte von Containerregistern, Reposit
 
 ## <a name="registry"></a>Registrierung
 
-Eine Container- *Registrierung* ist ein Dienst, der Containerimages verteilt und speichert. Docker Hub ist eine öffentliche Containerregistrierung, die die Open-Source-Community unterstützt und als allgemeiner Katalog von Images dient. Azure Container Registry bietet Benutzern die direkte Steuerung ihrer Images mit integrierter Authentifizierung, [Georeplikation](container-registry-geo-replication.md), die die globale Verteilung und Zuverlässigkeit netzwerknaher Bereitstellungen unterstützt, [Konfiguration von virtuellen Netzwerken und Firewalls](container-registry-vnet.md), [Tagsperren](container-registry-image-lock.md) und vielen anderen erweiterten Funktionen. 
+Eine Container-*Registrierung* ist ein Dienst, der Containerimages verteilt und speichert. Docker Hub ist eine öffentliche Containerregistrierung, die die Open-Source-Community unterstützt und als allgemeiner Katalog von Images dient. Azure Container Registry bietet Benutzern die direkte Steuerung ihrer Images mit integrierter Authentifizierung, [Georeplikation](container-registry-geo-replication.md), die die globale Verteilung und Zuverlässigkeit netzwerknaher Bereitstellungen unterstützt, [Konfiguration von virtuellen Netzwerken und Firewalls](container-registry-vnet.md), [Tagsperren](container-registry-image-lock.md) und vielen anderen erweiterten Funktionen. 
 
 Zusätzlich zu den Docker-Containerimages unterstützt Azure Container Registry verwandte [Inhaltsartefakte](container-registry-image-formats.md) einschließlich Open Container Initiative-Imageformaten (OCI).
 
@@ -26,9 +26,9 @@ Die Adresse eines Elements in einer Azure-Containerregistrierung enthält die fo
 
 `[loginUrl]/[repository:][tag]`
 
-* **loginUrl** : Der vollqualifizierte Name des Registrierungshosts. Der Registrierungshost in einer Azure-Containerregistrierung hat das Format *meineregistrierung*.azurecr.io (nur Kleinbuchstaben). Sie müssen die loginUrl angeben, wenn Sie Docker oder andere Clienttools verwenden, um Artefakte in eine Azure-Containerregistrierung zu pullen oder pushen. 
-* **Repository** : Name einer logischen Gruppierung mit mindestens einem verknüpften Image oder Artefakt, z. B. die Images für eine Anwendung oder ein Basisbetriebssystem. Kann einen *Namespacepfad* enthalten. 
-* **Tag** : Bezeichner für eine bestimmte Version eines in einem Repository gespeicherten Images oder Artefakts.
+* **loginUrl**: Der vollqualifizierte Name des Registrierungshosts. Der Registrierungshost in einer Azure-Containerregistrierung hat das Format *meineregistrierung*.azurecr.io (nur Kleinbuchstaben). Sie müssen die loginUrl angeben, wenn Sie Docker oder andere Clienttools verwenden, um Artefakte in eine Azure-Containerregistrierung zu pullen oder pushen. 
+* **Repository**: Name einer logischen Gruppierung mit mindestens einem verknüpften Image oder Artefakt, z. B. die Images für eine Anwendung oder ein Basisbetriebssystem. Kann einen *Namespacepfad* enthalten. 
+* **Tag**: Bezeichner für eine bestimmte Version eines in einem Repository gespeicherten Images oder Artefakts.
 
 Beispielsweise kann der vollständige Name eines Images in einer Azure-Containerregistrierung so aussehen:
 
@@ -45,7 +45,7 @@ Ein *Repository* ist eine Sammlung von Containerimages oder anderen Artefakten m
 - *acr-helloworld:v1*
 - *acr-helloworld:v2*
 
-Repository-Namen können auch [Namespaces](container-registry-best-practices.md#repository-namespaces) enthalten. Mit Namespaces können Sie verwandte Repositorys und den Artefaktbesitz in Ihrer Organisation identifizieren, indem Sie durch Schrägstriche getrennte Namen verwenden. Allerdings verwaltet die Registrierung alle Repositorys unabhängig voneinander und nicht als Hierarchie. Zum Beispiel:
+Repository-Namen können auch [Namespaces](container-registry-best-practices.md#repository-namespaces) enthalten. Mit Namespaces können Sie verwandte Repositorys und den Artefaktbesitz in Ihrer Organisation identifizieren, indem Sie durch Schrägstriche getrennte Namen verwenden. Allerdings verwaltet die Registrierung alle Repositorys unabhängig voneinander und nicht als Hierarchie. Beispiel:
 
 - *marketing/campaign10-18/web:v2*
 - *marketing/campaign10-18/api:v3*
@@ -73,7 +73,7 @@ Informationen zu Benennungsregeln für Tags finden Sie in der [Docker-Dokumentat
 
 ### <a name="layer"></a>Ebene
 
-Containerimages bestehen aus einer oder mehreren *Ebenen* , die jeweils einer Zeile in der Dockerfile-Datei entsprechen, die das Image definiert. Images in einer Registrierung teilen allgemeine Ebenen, die die Speichereffizienz verbessern. Z.B. können mehrere Bilder in verschiedenen Repositorys dieselbe Alpine Linux-Basisebene teilen, aber nur eine Kopie dieser Ebene wird in der Registrierung gespeichert.
+Containerimages bestehen aus einer oder mehreren *Ebenen*, die jeweils einer Zeile in der Dockerfile-Datei entsprechen, die das Image definiert. Images in einer Registrierung teilen allgemeine Ebenen, die die Speichereffizienz verbessern. Z.B. können mehrere Bilder in verschiedenen Repositorys dieselbe Alpine Linux-Basisebene teilen, aber nur eine Kopie dieser Ebene wird in der Registrierung gespeichert.
 
 Die Ebenenfreigabe optimiert außerdem die Ebenenverteilung auf Knoten mit mehreren Images, die gemeinsame Ebenen verwenden. Wenn ein Image auf einem Knoten beispielsweise die Alpine Linux-Ebene als Basis enthält, wird beim nachfolgenden Pull-Vorgang eines anderen Images, das auf dieselbe Ebene des Knotens verweist, die Ebene nicht auf den Knoten übertragen. Stattdessen verweist es auf die Ebene, die bereits auf dem Knoten vorhanden ist.
 
@@ -81,7 +81,30 @@ Um sichere Isolation und Schutz vor potenzieller Ebenenmanipulation zu ermöglic
 
 ### <a name="manifest"></a>Manifest
 
-Jedes Containerimage oder Artefakt, das per Push an eine Containerregistrierung übertragen wird, ist einem *Manifest* zugeordnet. Das Manifest wird von der Registrierung generiert, wenn das Image per Push übertragen wird. Es identifiziert das Image und gibt die Ebenen an. Sie können die Manifeste für ein Repository mit dem Azure CLI-Befehl [az acr repository show-manifests][az-acr-repository-show-manifests] auflisten:
+Jedes Containerimage oder Artefakt, das per Push an eine Containerregistrierung übertragen wird, ist einem *Manifest* zugeordnet. Das Manifest wird von der Registrierung generiert, wenn das Image per Push übertragen wird. Es identifiziert das Image und gibt die Ebenen an. 
+
+Ein einfaches Manifest für ein Linux-`hello-world`-Image sieht in etwa wie folgt aus:
+
+  ```json
+  {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 1510,
+        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+      },
+    "layers": [
+        {
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 977,
+          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+        }
+      ]
+  }
+  ```
+
+Sie können die Manifeste für ein Repository mit dem Azure CLI-Befehl [az acr repository show-manifests][az-acr-repository-show-manifests] auflisten:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459629"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526821"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL-Datenbank Hyperscale – Häufig gestellte Fragen (FAQs)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ Die Datenbankgröße nimmt automatisch zu, je mehr Daten Sie einfügen bzw. erfa
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Was ist die kleinste Datenbankgröße, die Hyperscale unterstützt oder mit der sie beginnt?
 
-40 GB. Eine Hyperscale-Datenbank wird mit einer Startgröße von 10 GB erstellt. Anschließend wird sie alle 10 Minuten um 10 GB vergrößert, bis eine Größe von 40 GB erreicht ist. Jeder dieser Blöcke von 10 GB wird auf einem anderen Seitenserver zugeordnet, um mehr IOPS und höhere E/A-Parallelität zu bieten. Aufgrund dieser Optimierung wird die Datenbank automatisch auf mindestens 40 GB vergrößert, auch wenn Sie eine anfängliche Datenbankgröße auswählen, die kleiner als 40 GB ist.
+40 GB. Eine Hyperscale-Datenbank wird mit einer Startgröße von 10 GB erstellt. Anschließend wird sie alle 10 Minuten um 10 GB vergrößert, bis eine Größe von 40 GB erreicht ist. Jeder dieser Blöcke von 10 GB wird auf einem anderen Seitenserver zugeordnet, um mehr IOPS und höhere E/A-Parallelität zu bieten. Aufgrund dieser Optimierung wird die Datenbank automatisch auf mindestens 40 GB vergrößert, auch wenn Sie eine anfängliche Datenbankgröße auswählen, die kleiner als 40 GB ist.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>In welchen Schritten wird die Datenbankgröße erhöht?
 
@@ -233,7 +233,7 @@ Hyperscale kann 100 MB/Sek. neuer/geänderter Daten verarbeiten, aber die Zeit f
 
 Sie können festlegen, dass eine Clientanwendung Daten aus Azure Storage lesen und Daten in eine Hyperscale-Datenbank laden soll (genauso, wie dies bei jeder anderen Datenbank in Azure SQL-Datenbank möglich ist). PolyBase wird in Azure SQL-Datenbank derzeit nicht unterstützt. Als Alternative zum schnellen Laden können Sie entweder [Azure Data Factory](../../data-factory/index.yml) oder einen Spark-Auftrag in [Azure Databricks](/azure/azure-databricks/) mit dem [Spark-Connector für SQL](spark-connector.md) verwenden. Der Spark-Connector für SQL unterstützt Importe mit BULK INSERT.
 
-Es ist auch möglich, Daten aus einem Azure-Blobspeicher mithilfe von BULK INSERT oder OPENROWSET zu lesen: [Beispiele für den Massenzugriff auf Daten in Azure Blob Storage.](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
+Es ist auch möglich, Daten aus einem Azure-Blobspeicher mithilfe von BULK INSERT oder OPENROWSET zu lesen: [Beispiele für den Massenzugriff auf Daten in Azure Blob Storage.](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
 
 Einfache Wiederherstellungen oder Massenprotokollierungsmodelle werden in Hyperscale nicht unterstützt. Ein vollständiges Wiederherstellungsmodell ist erforderlich, um Hochverfügbarkeit und Zeitpunktwiederherstellung bereitzustellen. Allerdings bietet die Hyperscale-Protokollarchitektur im Vergleich zu anderen Dienstebenen für Azure SQL-Datenbank eine bessere Datenerfassungsrate.
 

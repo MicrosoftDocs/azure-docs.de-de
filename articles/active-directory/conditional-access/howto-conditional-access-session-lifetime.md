@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837463"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491939"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurieren der Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff
 
@@ -88,7 +88,7 @@ Durch die Azure AD-Standardeinstellung für die Persistenz von Browsersitzungen 
 Der bedingte Zugriff ist eine Azure AD Premium-Funktion und erfordert eine Premium-Lizenz. Weitere Informationen zum bedingten Zugriff finden Sie unter [Was ist bedingter Zugriff in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Wenn Sie die derzeit in der Public Preview verfügbare Funktion für die [konfigurierbare Tokengültigkeitsdauer](../develop/active-directory-configurable-token-lifetimes.md) verwenden, sollten Sie beachten, dass die Erstellung von zwei verschiedenen Richtlinien für dieselbe Benutzer- oder App-Kombination nicht unterstützt wird: eine mit dieser Funktion und eine andere mit der konfigurierbaren Tokengültigkeitsdauer. Microsoft beabsichtigt, die Funktion für die konfigurierbare Tokengültigkeitsdauer bei den Lebensdauern von Aktualisierungs- und Sitzungstoken am 30. Januar 2021 außer Betrieb zu nehmen und durch die Funktion für die Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff zu ersetzen.  
+> Wenn Sie die derzeit in der Public Preview verfügbare Funktion für die [konfigurierbare Tokengültigkeitsdauer](../develop/active-directory-configurable-token-lifetimes.md) verwenden, sollten Sie beachten, dass die Erstellung von zwei verschiedenen Richtlinien für dieselbe Benutzer- oder App-Kombination nicht unterstützt wird: eine mit dieser Funktion und eine andere mit der konfigurierbaren Tokengültigkeitsdauer. Microsoft hat die Funktion für die konfigurierbare Tokengültigkeitsdauer bei den Lebensdauern von Aktualisierungs- und Sitzungstoken am 30. Januar 2021 außer Betrieb genommen und durch die Funktion für die Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff ersetzt.  
 >
 > Stellen Sie vor dem Aktivieren der Anmeldehäufigkeit sicher, dass andere Einstellungen für die erneute Authentifizierung in Ihrem Mandanten deaktiviert sind. Wenn „MFA auf vertrauenswürdigen Geräten speichern“ aktiviert ist, deaktivieren Sie diese Option vor dem Verwenden der Anmeldehäufigkeit, da die Verwendung dieser beiden Einstellungen dazu führen kann, dass Benutzer unerwartet aufgefordert werden. Weitere Informationen zu Eingabeaufforderungen für die erneute Authentifizierung und zur Sitzungslebensdauer finden Sie im Artikel [Optimieren von Aufforderungen für die erneute Authentifizierung und Grundlegendes zur Sitzungslebensdauer für Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

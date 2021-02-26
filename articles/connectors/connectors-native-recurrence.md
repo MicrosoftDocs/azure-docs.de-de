@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 9565ad1efc5ae3dc03b94c78ce8ce52e8dd48c65
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019192"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382292"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Erstellen, Planen und Ausführen von wiederkehrenden Aufgaben und Workflows mit dem Serientrigger in Azure Logic Apps
 
@@ -59,12 +59,12 @@ Die Unterschiede zwischen diesem Trigger und dem Trigger „Gleitendes Fenster�
    ||||||
 
    > [!IMPORTANT]
-   > Wenn Wiederholungen keine erweiterten Zeitplanungsoptionen angeben, basieren zukünftige Wiederholungen auf der letzten Laufzeit.
-   > Die Startzeiten für diese Wiederholungen können sich aufgrund von Faktoren wie Wartezeiten während Speicheraufrufen verschieben. Um sicherzustellen, dass Ihre Logik-App keine Wiederholung verpasst, insbesondere wenn die Häufigkeit im Bereich von Tagen oder länger liegt, verwenden Sie eine dieser Optionen:
+   > Wenn eine Serie kein bestimmtes [Startdatum und keine Startuhrzeit](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) angibt, wird die erste Wiederholung trotz der Serieneinrichtung Ihres Triggers sofort ausgeführt, wenn Sie die Logik-App speichern oder bereitstellen. Um dieses Verhalten zu vermeiden, geben Sie ein Startdatum und eine Startuhrzeit für die Ausführung der ersten Wiederholung an.
+   >
+   > Wenn eine Serie keine anderen erweiterten Zeitplanungsoptionen angibt wie spezifische Zeiten zum Ausführen zukünftiger Wiederholungen, basieren diese Wiederholungen auf der letzten Ausführungszeit. Hieraus ergibt sich, dass die Startzeiten für diese Wiederholungen sich aufgrund von Faktoren wie Wartezeiten während Speicheraufrufen verschieben können. 
+   > Um sicherzustellen, dass Ihre Logik-App keine Wiederholung verpasst, insbesondere wenn die Häufigkeit im Bereich von Tagen oder länger liegt, probieren Sie diese Optionen aus:
    > 
-   > * Geben Sie eine Startzeit für die Wiederholung an.
-   > 
-   > * Geben Sie die Stunden und Minuten an, zu denen die Wiederholung ausgeführt werden soll, indem Sie die Eigenschaften namens **Zu diesen Stunden** und **Zu diesen Minuten** verwenden.
+   > * Geben Sie ein Startdatum und eine Uhrzeit für die Wiederholung an, und geben Sie die spezifischen Zeiten an, zu denen nachfolgende Wiederholungen ausgeführt werden sollen, indem Sie dazu die Eigenschaften namens **Zu diesen Stunden** und **Zu diesen Minuten**, die nur für die Häufigkeiten **Tag** und **Woche** verfügbar sind.
    > 
    > * Verwenden Sie den Trigger [Gleitendes Fenster](../connectors/connectors-native-sliding-window.md) anstelle des Triggers „Wiederholung“.
 

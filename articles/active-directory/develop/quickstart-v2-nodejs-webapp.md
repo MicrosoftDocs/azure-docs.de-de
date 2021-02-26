@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f7f14b91dc69eeba4ac06f6608f6151634dc38d3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178278"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103497"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Schnellstart: Hinzufügen der Anmeldung mit OpenID Connect zu einer Node.js-Web-App
 
@@ -30,22 +30,22 @@ In dieser Schnellstartanleitung laden Sie ein Codebeispiel herunter und führen 
 
 ## <a name="register-your-application"></a>Anwendung registrieren
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie unter **Verwalten** Folgendes aus: **App-Registrierungen** > **Neue Registrierung**.
 1. Geben Sie unter **Name** einen Namen für Ihre Anwendung ein (beispielsweise `MyWebApp`). Benutzern Ihrer App wird wahrscheinlich dieser Namen angezeigt. Sie können ihn später ändern.
 1. Wählen Sie im Abschnitt **Unterstützte Kontotypen** die Option **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten (z. B. Skype, Xbox, Outlook.com)** aus.
 
-    Sind mehrere Umleitungs-URIs vorhanden, müssen diese nach erfolgreicher Erstellung der App auf der Registerkarte **Authentifizierung** hinzugefügt werden.
+    Falls mehrere Umleitungs-URIs vorhanden sind, können Sie diese nach der erfolgreichen Erstellung der App dann später auf der Registerkarte **Authentifizierung** hinzufügen.
 
 1. Wählen Sie **Registrieren** aus, um die App zu erstellen.
 1. Suchen Sie auf der Seite **Übersicht** der App den Wert **Anwendungsclient-ID**, und notieren Sie ihn zur späteren Verwendung. Dieser Wert wird später in diesem Projekt benötigt, um die Anwendung zu konfigurieren.
 1. Wählen Sie unter **Verwalten** die Option **Authentifizierung** aus.
 1. Wählen Sie **Plattform hinzufügen** > **Web** aus. 
 1. Geben Sie im Abschnitt **Umleitungs-URIs** den URI `http://localhost:3000/auth/openid/return` ein.
-1. Geben Sie die **Abmelde-URL** `https://localhost:3000` ein.
-1. Aktivieren Sie im Abschnitt „Implizite Gewährung“ die Option **ID-Token**, da in diesem Beispiel der [Flow für implizite Genehmigungen](./v2-oauth2-implicit-grant-flow.md) aktiviert werden muss, um den Benutzer anzumelden.
+1. Geben Sie `https://localhost:3000` als **URL für Front-Channel-Abmeldung** an.
+1. Wählen Sie im Abschnitt **Implizite Genehmigung und Hybridflows** die Option **ID-Token** aus, da in diesem Beispiel der [Flow für implizite Genehmigungen](./v2-oauth2-implicit-grant-flow.md) aktiviert werden muss, um den Benutzer anzumelden.
 1. Wählen Sie **Konfigurieren** aus.
 1. Wählen Sie unter **Verwalten** Folgendes aus: **Zertifikate und Geheimnisse** > **Neuer geheimer Clientschlüssel**.
 1. Geben Sie eine Schlüsselbeschreibung ein (beispielsweise „app secret“).

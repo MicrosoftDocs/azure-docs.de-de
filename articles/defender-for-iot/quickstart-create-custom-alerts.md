@@ -1,5 +1,5 @@
 ---
-title: 'Schnellstart: Erstellen benutzerdefinierter Benachrichtigungen'
+title: Erstellen benutzerdefinierter Benachrichtigungen
 description: Machen Sie sich mit benutzerdefinierten Gerätebenachrichtigungen für den Azure Defender für IoT-Sicherheitsdienst vertraut, und erfahren Sie, wie Sie diese Benachrichtigungen erstellen und zuweisen.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945081"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809042"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Schnellstart: Erstellen benutzerdefinierter Benachrichtigungen
+# <a name="create-custom-alerts"></a>Erstellen benutzerdefinierter Benachrichtigungen
 
 Mithilfe benutzerdefinierter Sicherheitsgruppen und Benachrichtigungen können Sie End-to-End-Sicherheitsinformationen und kategorische Geräteinformationen optimal nutzen, um die Sicherheit Ihrer gesamten IoT-Lösung zu verbessern.
 
@@ -65,13 +65,19 @@ Verwenden Sie Sicherheitsgruppen, um Ihre Geräte in logischen Kategorien zu gru
 
 ## <a name="customize-an-alert"></a>Anpassen einer Benachrichtigung
 
-1. Öffnen Sie Ihren IoT Hub, und wählen Sie im Menü **Sicherheit** die Option **Einstellungen** aus. 
-1. Klicken Sie auf **Benutzerdefinierte Benachrichtigungen**.
+1. Öffnen Sie Ihren IoT Hub, und wählen Sie im Menü **Sicherheit** die Option **Einstellungen** aus.
+
+1. Wählen Sie **Benutzerdefinierte Benachrichtigungen** aus.
+
 1. Wählen Sie eine Sicherheitsgruppe aus, auf die Sie die Anpassung anwenden möchten.
-1. Klicken Sie auf **Add a custom alert** (Benutzerdefinierte Benachrichtigung hinzufügen).
+
+1. Wählen Sie **Add a custom alert** (Benutzerdefinierte Benachrichtigung hinzufügen) aus.
+
 1. Wählen Sie in der Dropdownliste eine benutzerdefinierte Benachrichtigung aus.
-1. Bearbeiten Sie die erforderlichen Eigenschaften, und klicken Sie anschließend auf **OK**.
-1. Klicken Sie auf **SPEICHERN**. Wenn Sie die neue Benachrichtigung nicht speichern, wird sie beim nächsten Schließen von IoT Hub gelöscht.
+
+1. Bearbeiten Sie die erforderlichen Eigenschaften, und wählen Sie anschließend **OK** aus.
+
+1. Wählen Sie unbedingt **SPEICHERN** aus. Wenn Sie die neue Benachrichtigung nicht speichern, wird sie beim nächsten Schließen von IoT Hub gelöscht.
 
 ## <a name="alerts-available-for-customization"></a>Anpassbare Benachrichtigungen
 

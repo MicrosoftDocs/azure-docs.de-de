@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222869"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493718"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Ausführen eines Upgrades für öffentliche IP-Adressen
 
-Öffentliche IP-Adressen in Azure werden mit einer SKU erstellt („Basic“ oder „Standard“), die Aspekte ihrer Funktionalität bestimmt (einschließlich der Zuordnungsmethode, der Verwendung in Verfügbarkeitszonen und der Ressourcen, denen sie zugeordnet werden können). 
+Öffentliche IP-Adressen in Azure werden mit einer SKU erstellt („Basic“ oder „Standard“), die Aspekte ihrer Funktionalität bestimmt (einschließlich der Zuordnungsmethode, der Unterstützung von Funktionen und der Ressourcen, denen sie zugeordnet werden können). 
 
 Folgende Szenarien werden in diesem Artikel behandelt:
-* Upgraden einer öffentlichen IP-Adresse mit Basic-SKU auf eine öffentliche IP-Adresse mit Standard-SKU (über das Portal, PowerShell oder die Befehlszeilenschnittstelle)
+* Upgraden einer öffentlichen IP-Adresse mit Basic-SKU auf eine öffentliche IP-Adresse mit Standard-SKU (über PowerShell oder die Befehlszeilenschnittstelle)
 * Migrieren eines klassischen reservierten IP in Azure zu einer öffentlichen IP-Adresse in Azure Resource Manager mit Basic-SKU
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Upgraden einer öffentlichen IP-Adresse von der Basic-SKU auf die Standard-SKU

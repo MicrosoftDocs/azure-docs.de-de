@@ -1,22 +1,18 @@
 ---
 title: Kopieren von Daten aus einer SAP-Tabelle
 description: Erfahren Sie, wie Daten aus einer SAP-Tabelle mithilfe einer Kopieraktivität in einer Azure Data Factory-Pipeline in unterstützte Senkendatenspeicher kopiert werden.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: e4f756631b51ce9c5fba32939d1c6651e7b328d0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280423"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378518"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopieren von Daten aus einer SAP-Tabelle mithilfe von Azure Data Factory
 
@@ -102,7 +98,7 @@ Folgende Eigenschaften werden für den mit SAP BW Open Hub verknüpften Dienst u
 | `sncQop` | Die anzuwendende Ebene von „Quality of Protection für SNC“.<br/>Gilt, wenn `sncMode` „on“ ist. <br/>Zulässige Werte sind `1` (Authentifizierung), `2` (Integrität), `3` (Datenschutz), `8` (Standard), `9` (Maximum). | Nein |
 | `connectVia` | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden soll. Eine selbstgehostete Integration Runtime ist erforderlich, wie weiter oben unter [Voraussetzungen](#prerequisites) erwähnt wurde. |Ja |
 
-**Beispiel 1: Herstellen einer Verbindung mit einem SAP-Anwendungsserver**
+### <a name="example-1-connect-to-an-sap-application-server"></a>Beispiel 1: Herstellen einer Verbindung mit einem SAP-Anwendungsserver
 
 ```json
 {
@@ -294,6 +290,60 @@ In `rfcTableOptions` können Sie die folgenden allgemeinen SAP-Abfrageoperatoren
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>Verknüpfen von SAP-Tabellen
+
+Der SAP-Tabellenconnector unterstützt derzeit nur eine einzige Tabelle mit dem Standardfunktionsmodul. Um die verknüpften Daten mehrerer Tabellen zu erhalten, können Sie die [customRfcReadTableFunctionModule](#copy-activity-properties)-Eigenschaft im SAP-Tabellenconnector in den folgenden Schritten verwenden:
+
+- [Schreiben Sie ein benutzerdefiniertes Funktionsmodul](#create-custom-function-module), das eine Abfrage in Form von Optionen übernehmen und Ihre eigene Logik zum Abrufen der Daten anwenden kann.
+- Geben Sie für „Benutzerdefiniertes Funktionsmodul“ den Namen Ihres benutzerdefinierten Funktionsmoduls ein.
+- Legen Sie als „RFC-Tabellenoptionen“ die join-Anweisung für die Tabellen fest, die als Optionen an das Funktionsmodul übergeben werden soll, z. B. „`<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0“.
+
+Unten ist ein Beispiel aufgeführt:
+
+![SAP-Tabellenverknüpfung](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>Sie können die verknüpften Daten auch in der Sicht aggregieren. Dies wird vom SAP-Tabellenconnector unterstützt.
+>Außerdem können Sie versuchen, die verknüpfte Tabellen zu extrahieren, um sie in Azure zu integrieren (z. B. in Azure Storage, Azure SQL-Datenbank). Anschließend können Sie mit einem Datenfluss die weitere Verarbeitung mit Joins oder Filtern durchführen.
+
+## <a name="create-custom-function-module"></a>Erstellen des benutzerdefinierten Funktionsmoduls
+
+Für SAP-Tabellen wird derzeit die [customRfcReadTableFunctionModule](#copy-activity-properties)-Eigenschaft in der Kopierquelle unterstützt. Mit dieser können Sie Ihre eigene Logik nutzen und Daten verarbeiten.
+
+Im Folgenden finden Sie einen kurzen Leitfaden mit den Anforderungen für die ersten Schritte mit dem benutzerdefinierten Funktionsmodul:
+
+- Definition:
+
+    ![Definition](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Exportieren Sie die Daten in eine der folgenden Tabellen:
+
+    ![Exporttabelle 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Exporttabelle 2](./media/connector-sap-table/export-table-2.png)
+ 
+Im Folgenden finden Sie Abbildungen der Funktionsweise des SAP-Tabellenconnectors mit dem benutzerdefinierten Funktionsmodul:
+
+1. Stellen Sie über SAP NCO eine Verbindung mit dem SAP-Server her.
+
+1. Rufen Sie das benutzerdefinierte Funktionsmodul mit den wie folgt festgelegten Parametern auf:
+
+    - QUERY_TABLE: der im ADF-Dataset für die SAP-Tabelle festgelegte Tabellenname 
+    - Trennzeichen: das in ADF für die SAP-Tabellenquelle festgelegte Trennzeichen 
+    - ROWCOUNT/Option/Felder: die in der ADF-Tabellenquelle festgelegten Werte für „RowCount“, die Option „Aggregiert“ und die Felder
+
+1. Rufen Sie das Ergebnis ab, und analysieren Sie die Daten auf folgende Weise:
+
+    1. Analysieren Sie den Wert in der Tabelle „Fields“ (Felder), um die Schemas abzurufen.
+
+        ![Analysieren von Werten in Feldern](./media/connector-sap-table/parse-values.png)
+
+    1. Rufen Sie die Werte der Ausgabetabelle ab, um festzustellen, welche Tabelle diese Werte enthält.
+
+        ![Abrufen von Werten aus der Ausgabetabelle](./media/connector-sap-table/get-values.png)
+
+    1. Rufen Sie die Werte aus „OUT_TABLE“ ab, analysieren Sie die Daten, und schreiben Sie sie dann in die Senke.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Datentypzuordnungen für eine SAP-Tabelle
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d83bc653ae8c3ff5a9553de568bc6f2355f18760
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746712"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104619"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Häufig gestellte Fragen zu Azure API for FHIR
 
@@ -115,6 +115,9 @@ Weitere Details finden Sie in diesem [Communitybeitrag](https://chat.fhir.org/#n
 ### <a name="how-does-export-work"></a>Wie funktioniert „$export“?
 
 „$export“ ist Teil der FHIR-Spezifikation: https://hl7.org/fhir/uv/bulkdata/export/index.html. Wenn der FHIR-Dienst mit einer verwalteten Identität und einem Speicherkonto konfiguriert ist und die verwaltete Identität Zugriff auf dieses Speicherkonto hat, können Sie einfach „$export“ über die FHIR-API aufrufen. Daraufhin werden alle FHIR-Ressourcen in das Speicherkonto exportiert. Weitere Informationen finden Sie im [Artikel zu „$export“](./export-data.md).
+
+### <a name="is-de-identified-export-available-at-patient-and-group-level-as-well"></a>Ist der anonymisierte Export auch auf Patienten- und Gruppenebene verfügbar?
+Der anonymisierte Export wird derzeit nur bei einem vollständigen Systemexport (/$export) und nicht für den Patientenexport (/Patient/$export) unterstützt. Wir arbeiten daran, diesen Export auch auf Patientenebene verfügbar zu machen.
 
 ## <a name="using-azure-api-for-fhir"></a>Verwenden von Azure API for FHIR
 

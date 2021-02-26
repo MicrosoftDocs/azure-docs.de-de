@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af48e1f415e0ca0b1027d277f70c3f0f1a11e687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76273870"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526764"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Einführung in das StorSimple Virtual Array
 
@@ -37,7 +37,7 @@ In der folgenden Tabelle sind die wichtigen Features von StorSimple Virtual Arra
 | Installationsanforderungen |Verwendung der Virtualisierungsinfrastruktur (Hyper-V oder VMware) |
 | Verfügbarkeit |Einzelner Knoten |
 | Gesamtkapazität (einschließlich Cloud) |Bis zu 64 TB nutzbare Kapazität pro virtuellem Array |
-| Lokale Kapazität |390 GB bis 6,4 TB nutzbare Kapazität pro virtuellem Array (Bereitstellung von Datenträger-Speicherplatz im Bereich 500 GB bis 8 TB erforderlich) |
+| Lokale Kapazität |390 GB bis 6,4 TB nutzbare Kapazität pro virtuellem Array (Bereitstellung von Speicherplatz auf dem Datenträger im Bereich 500 GB bis 8 TB erforderlich) |
 | Systemeigene Protokolle |iSCSI oder SMB |
 | Recovery Time Objective (RTO) |iSCSI: weniger als 2 Minuten, unabhängig von der Größe |
 | Recovery Point Objective (RPO) |Tägliche Sicherungen und bedarfsgesteuerte Sicherungen |
@@ -62,8 +62,10 @@ In der folgenden Tabelle sind einige wichtige Vorteile der StorSimple Virtual Ar
 | Transparente Integration |Das virtuelle Array unterstützt das iSCSI- oder SMB-Protokoll. Die Datenverschiebung zwischen der lokalen und der Cloudebene erfolgt nahtlos und transparent für den Benutzer. |
 | Reduzierte Speicherkosten |Mit StorSimple stellen Sie ausreichend lokalen Speicher bereit, um die aktuellen Anforderungen für sehr häufig verwendete heiße Daten zu erfüllen. Wenn die Speicheranforderungen steigen, ordnet StorSimple kalte Daten im kostengünstigen Cloudspeicher an. Die Daten werden vor dem Senden an die Cloud dedupliziert und komprimiert, um die Speicheranforderungen und -kosten noch weiter zu reduzieren. |
 | Vereinfachte Speicherverwaltung |StorSimple ermöglicht die zentrale Verwaltung mehrerer Geräte in der Cloud über den StorSimple-Geräte-Manager. |
-| Verbesserte Notfallwiederherstellung und Vorschrifteneinhaltung |StorSimple ermöglicht eine schnellere Notfallwiederherstellung, indem Metadaten sofort und Daten nach Bedarf wiederhergestellt werden. Dies bedeutet, dass normale Vorgänge mit minimaler Unterbrechung fortgesetzt werden können. |
-| Datenmobilität |Auf die in der Cloud auf verschiedenen Ebenen angeordneten Daten kann über andere Standorte zu Wiederherstellungs- und Migrationszwecken zugegriffen werden. Beachten Sie, dass Sie Daten nur auf dem ursprünglichen virtuellen Array wiederherstellen können. Sie verwenden aber Features für die Notfallwiederherstellung, um das gesamte virtuelle Array auf einem anderen virtuellen Array wiederherzustellen. |
+| Verbesserte Notfallwiederherstellung und Vorschrifteneinhaltung |StorSimple ermöglicht eine schnellere Notfallwiederherstellung, indem Metadaten sofort und Daten nach Bedarf wiederhergestellt werden. Normale Vorgänge können mit minimaler Unterbrechung fortgesetzt werden. |
+| Datenmobilität |Auf die in der Cloud auf verschiedenen Ebenen angeordneten Daten kann über andere Standorte zu Wiederherstellungs- und Migrationszwecken zugegriffen werden. Sie können Daten nur auf dem ursprünglichen virtuellen Array wiederherstellen. Sie verwenden aber Features für die Notfallwiederherstellung, um das gesamte virtuelle Array auf einem anderen virtuellen Array wiederherzustellen. |
+
+
 
 ## <a name="storsimple-workload-summary"></a>StorSimple-Workload – Übersicht
 
@@ -78,7 +80,7 @@ Das StorSimple Virtual Array eignet sich am besten für selten genutzte Daten. Z
 
 ![Cloudarchivierung](./media/storsimple-ova-overview/cloud-archiving.png)
 
-Wenn mehrere Benutzer gleichzeitig auf das virtuelle Array zugreifen, teilen sich alle die gleiche Verbindung mit Azure. Dies wirkt sich negativ auf die Leistung aus. Es gibt keine garantierte Leistung pro Benutzer, und das Gerät verarbeitet die einzelne Anforderungen in der Reihenfolge, in der sie eingehen.
+Wenn mehrere Benutzer gleichzeitig auf das virtuelle Array zugreifen, teilen sich alle die gleiche Verbindung mit Azure. Dies wirkt sich negativ auf die Leistung aus. Es gibt keine garantierte Leistung pro Benutzer, und das Gerät verarbeitet einzelne Anforderungen in der Reihenfolge, in der sie eingehen.
 
 Das StorSimple Virtual Array eignet sich nicht für Workloads, die Hochverfügbarkeit erfordern. Das virtuelle Array ist ein Gerät mit einem einzelnen Knoten, bei dem es zu Ausfällen kommt, wenn Softwareupdates installiert werden. Administratoren sollten pro Jahr drei bis vier Wartungsfenster mit jeweils 30 Minuten einplanen.
 
@@ -91,7 +93,7 @@ Das StorSimple Virtual Array eignet sich besonders gut für die folgenden Workfl
 * [Schutz von Daten und Notfallwiederherstellung](#data-protection-and-disaster-recovery)
 
 ### <a name="cloud-based-storage-management"></a>Cloudbasierte Speicherverwaltung
-Sie können den im Azure-Portal ausgeführten StorSimple-Geräte-Manager-Dienst verwenden, um Daten zu verwalten, die auf mehreren Geräten und an mehreren Standorten gespeichert sind. Dies ist besonders bei Szenarien mit weit auseinanderliegenden Zweigstellen hilfreich. Beachten Sie, dass Sie separate Instanzen des StorSimple-Geräte-Manager-Diensts erstellen müssen, um virtuelle Arrays und physische StorSimple-Geräte zu verwalten. Beachten Sie außerdem, dass das virtuelle Array jetzt das neue Azure-Portal anstelle des klassischen Azure-Portals verwendet.
+Sie können den im Azure-Portal ausgeführten StorSimple-Geräte-Manager-Dienst verwenden, um Daten zu verwalten, die auf mehreren Geräten und an mehreren Standorten gespeichert sind. Das ist besonders bei Szenarien mit weit auseinanderliegenden Zweigstellen hilfreich. Sie müssen separate Instanzen des StorSimple-Geräte-Manager-Diensts erstellen, um virtuelle Arrays und physische StorSimple-Geräte zu verwalten. Das virtuelle Array verwendet jetzt das neue Azure-Portal anstelle des klassischen Azure-Portals.<!--Is the "now" element still in date? Could it go at this point? Just checking.-->
 
 ![Cloudbasierte Speicherverwaltung](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
@@ -113,11 +115,11 @@ Das virtuelle Array umfasst die folgenden Komponenten:
 * [StorSimple-Geräte-Manager-Dienst:](#storsimple-device-manager-service) Eine Erweiterung des Azure-Portals, mit der Sie StorSimple-Geräte über eine zentrale Webschnittstelle verwalten können, auf die über verschiedene geografische Standorte zugegriffen werden kann. Sie können den StorSimple-Geräte-Manager-Dienst verwenden, um Dienste zu erstellen und zu verwalten, Geräte und Warnungen anzuzeigen und zu verwalten und Volumes, Freigaben und vorhandene Momentaufnahmen zu verwalten.
 * [Lokale Webbenutzeroberfläche:](#local-web-user-interface) Eine webbasierte Benutzeroberfläche zum Konfigurieren des Geräts. So kann die Verbindung mit dem lokalen Netzwerk hergestellt und das Gerät anschließend beim StorSimple-Geräte-Manager-Dienst registriert werden. 
 * [Befehlszeilenschnittstelle:](#command-line-interface) Eine Windows PowerShell-Schnittstelle, die Sie zum Starten einer Supportsitzung für das virtuelle Array verwenden können.
-  In den folgenden Abschnitten wird jede dieser Komponenten ausführlicher beschrieben. Es wird zudem erläutert, wie die Lösung Daten anordnet, Speicher zuweist sowie die Speicherverwaltung und den Schutz von Daten vereinfacht.
+  In den folgenden Abschnitten werden die einzelnen Komponenten ausführlicher beschrieben. Es wird zudem erläutert, wie die Lösung Daten anordnet, Speicher zuweist sowie die Speicherverwaltung und den Schutz von Daten vereinfacht.
 
 ### <a name="virtual-array"></a>Virtuelles Array
 
-Das virtuelle Array ist eine Speicherlösung mit einem Knoten, die Folgendes ermöglicht: primäre Speicherung, Verwaltung der Kommunikation mit dem Cloudspeicher und Gewährleistung der Sicherheit und Vertraulichkeit aller Daten, die auf dem Gerät gespeichert sind.
+Das virtuelle Array ist eine Speicherlösung mit einem einzelnen Knoten, die Folgendes ermöglicht: primäre Speicherung, Verwaltung der Kommunikation mit dem Cloudspeicher und Gewährleistung der Sicherheit und Vertraulichkeit aller auf dem Gerät gespeicherter Daten.
 
 Das virtuelle Array ist als Modell verfügbar, das heruntergeladen werden kann. Das virtuelle Array hat eine maximale Kapazität von 6,4 TB auf dem Gerät (mit einer zugrunde liegenden Speicheranforderung von 8 TB) und – einschließlich des Cloudspeichers – von 64 TB.
 
@@ -134,7 +136,7 @@ Das virtuelle Array bietet die folgenden Features:
 
 ### <a name="storsimple-device-manager-service"></a>StorSimple-Geräte-Manager-Dienst
 
-Microsoft Azure StorSimple stellt eine webbasierte Benutzeroberfläche (den StorSimple-Geräte-Manager-Dienst) zur Verfügung, die die zentrale Verwaltung des StorSimple-Speichers ermöglicht. Mithilfe des StorSimple-Geräte-Manager-Diensts können Sie die folgenden Aufgaben ausführen:
+Microsoft Azure StorSimple stellt eine webbasierte Benutzeroberfläche (den StorSimple-Geräte-Manager-Dienst) zur Verfügung, die eine zentrale Verwaltung des StorSimple-Speichers ermöglicht. Mithilfe des StorSimple-Geräte-Manager-Diensts können Sie die folgenden Aufgaben ausführen:
 
 * Verwalten von mehreren StorSimple Virtual Arrays über einen zentralen Dienst
 * Konfigurieren und Verwalten von Sicherheitseinstellungen für StorSimple Virtual Array. (Die Verschlüsselung in der Cloud richtet sich nach den Microsoft Azure-APIs.)
@@ -156,11 +158,11 @@ Informationen zur Verwendung der webbasierten Benutzeroberfläche finden Sie unt
 
 ### <a name="command-line-interface"></a>Befehlszeilenschnittstelle
 
-Mit der integrierten Windows PowerShell-Schnittstelle können Sie eine Supportsitzung mit dem Microsoft Support initiieren, um Hilfe bei der Problembehandlung und beim Lösen von Problemen zu erhalten, die auf dem virtuellen Array auftreten können.
+Mit der integrierten Windows PowerShell-Schnittstelle können Sie eine Supportsitzung mit dem Microsoft-Support initiieren, um Hilfe bei der Problembehandlung und beim Lösen von Problemen zu erhalten, die auf dem virtuellen Array auftreten können.
 
 ## <a name="storage-management-technologies"></a>Speicherverwaltungstechnologien
 
-Zusätzlich zum virtuellen Array und anderen Komponenten nutzt die StorSimple-Lösung die folgende Softwaretechnologie, um den schnellen Zugriff auf wichtige Daten zu ermöglichen, den Speicherverbrauch zu verringern und auf dem virtuellen Array gespeicherte Daten zu schützen:
+Zusätzlich zum virtuellen Array und anderen Komponenten nutzt die StorSimple-Lösung die folgende Softwaretechnologie, um den schnellen Zugriff auf wichtige Daten zu ermöglichen, den Speicherverbrauch zu verringern und Daten zu schützen, die auf dem virtuellen Array gespeichert sind:
 
 * [Automatische Speicherstaffelung](#automatic-storage-tiering) 
 * [Lokale Freigaben und Volumes](#locally-pinned-shares-and-volumes)
@@ -170,7 +172,7 @@ Zusätzlich zum virtuellen Array und anderen Komponenten nutzt die StorSimple-L�
 ### <a name="automatic-storage-tiering"></a>Automatische Speicherstaffelung
 Für das virtuelle Array wird ein neuer Staffelungsmechanismus zum Verwalten gespeicherter Daten im virtuellen Array und in der Cloud verwendet. Es gibt nur zwei Ebenen: das lokale virtuelle Array und den Azure-Cloudspeicher. Das StorSimple Virtual Array ordnet die Daten basierend auf einer Heat Map automatisch auf den Ebenen an. Mit der Heat Map werden die aktuelle Nutzung, das Alter und die Beziehungen mit anderen Daten nachverfolgt. Daten, die am aktivsten („hot“) sind, werden lokal gespeichert, während weniger aktive und inaktive Daten automatisch in die Cloud migriert werden. (Alle Sicherungen werden in der Cloud gespeichert.) StorSimple passt Daten- und Speicherzuordnungen an und ordnet diese neu, wenn sich die Verwendungsmuster ändern. Im Lauf der Zeit können einige Informationen z. B. weniger aktiv werden. Wenn der Aktivitätsgrad immer mehr absinkt, werden sie in die Cloud verlagert. Wenn diese Daten dann wieder aktiv werden, werden sie im Speicherarray angeordnet.
 
-Für Daten einer bestimmten mehrstufigen Freigabe oder eines bestimmten mehrstufigen Volumes wird auf lokaler Ebene jeweils eigener Speicherplatz garantiert (etwa 10 Prozent des insgesamt bereitgestellten Speicherplatzes einer Freigabe bzw. eines Volumes). Hierdurch wird zwar der verfügbare Speicher auf dem virtuellen Array für die Freigabe oder das Volume reduziert, aber es wird auch sichergestellt, dass die Staffelung für eine Freigabe oder ein Volume nicht durch die Staffelungsanforderungen anderer Freigaben oder Volumes beeinträchtigt wird. Daher kann es nicht passieren, dass eine Workload mit hoher Auslastung auf einer Freigabe oder einem Volume alle anderen Workloads in die Cloud verdrängt.
+Für Daten einer bestimmten mehrstufigen Freigabe oder eines bestimmten mehrstufigen Volumes wird auf lokaler Ebene jeweils eigener Speicherplatz garantiert (etwa 10 Prozent des insgesamt bereitgestellten Speicherplatzes einer Freigabe bzw. eines Volumes). Hierdurch wird zwar der verfügbare Speicher auf dem virtuellen Array für die Freigabe oder das Volume reduziert, aber es wird auch sichergestellt, dass die Staffelung für eine Freigabe oder ein Volume nicht durch die Staffelungsanforderungen anderer Freigaben oder Volumes beeinträchtigt wird. Daher kann es nicht passieren, dass eine Workload mit hoher Auslastung auf einer Freigabe oder einem Volume alle anderen Workloads in die Cloud verdrängt.
 
 Bei für iSCSI erstellten mehrstufigen Volumes ist die lokale Reservierung unabhängig von der Größe des Volumes auf 200 GB begrenzt.
 
@@ -178,6 +180,9 @@ Bei für iSCSI erstellten mehrstufigen Volumes ist die lokale Reservierung unabh
 
 > [!NOTE]
 > Sie können für ein Volume angeben, dass es nur lokal vorhanden sein soll. In diesem Fall verbleiben die Daten im virtuellen Array und werden nicht in die Cloud ausgelagert. Weitere Informationen finden Sie unter [Lokale Freigaben und Volumes](#locally-pinned-shares-and-volumes).
+
+> [!IMPORTANT]
+> Konvertieren Sie bei Verwendung von StorSimple keine Blobs in eine Archivierung, selbst wenn Ihr Gerät eingestellt wird. Um Daten von dem Gerät abzurufen, müssen Sie die Blobs aus der Archivierung als Typ „heiß“ oder „kalt“ aktivieren, was zu erheblichen Kosten führt.
 
 
 ### <a name="locally-pinned-shares-and-volumes"></a>Lokale Freigaben und Volumes
@@ -198,6 +203,7 @@ StorSimple arbeitet mit Deduplizierung und Datenkomprimierung, um die Speicheran
 > [!NOTE]
 > Im virtuellen Array gespeicherte Daten werden nicht dedupliziert oder komprimiert. Die Deduplizierung und Komprimierung wird jeweils direkt vor dem Senden der Daten in die Cloud durchgeführt.
 
+
 ### <a name="scheduled-and-on-demand-backups"></a>Geplante und bedarfsgesteuerte Sicherungen
 
 Mit StorSimple-Features zum Schutz der Daten können Sie bedarfsgesteuerte Sicherungen erstellen. Außerdem wird mit einem standardmäßigen Sicherungszeitplan dafür gesorgt, dass die Daten täglich gesichert werden. Sicherungen werden in Form von inkrementellen Momentaufnahmen erstellt, die in der Cloud gespeichert werden. Momentaufnahmen, bei denen nur die Änderungen seit der letzten Sicherung aufgezeichnet werden, können schnell erstellt und wiederhergestellt werden. Diese Momentaufnahmen können bei Wiederherstellungen im Notfall extrem wichtig sein, da sie sekundäre Speichersysteme (z. B. Backup auf Bandlaufwerken) ersetzen und es Ihnen ermöglichen, Daten bei Bedarf in Ihrem Rechenzentrum oder an anderen Standorten wiederherzustellen.
@@ -206,7 +212,7 @@ Mit StorSimple-Features zum Schutz der Daten können Sie bedarfsgesteuerte Siche
 
 Der StorSimple-Geräte-Manager für virtuelle Serien sammelt in zwei wichtigen Instanzen personenbezogene Daten:
  - Benutzereinstellungen für Warnungen, in denen die E-Mail-Adressen von Benutzern konfiguriert werden. Diese Informationen können vom Administrator gelöscht werden. 
- - Benutzer, die auf die Daten auf den Freigaben zugreifen können. Eine Liste mit Benutzern, die auf die Freigabedaten zugreifen können, kann exportiert werden. Die Liste wird zusammen mit den Freigaben gelöscht.
+ - Benutzer, die auf die Daten auf den Freigaben zugreifen können. Eine Liste mit Benutzern, die auf die Freigabedaten zugreifen können, kann exportiert werden. Die Liste wird zusammen mit der Freigabe gelöscht.
 
 Weitere Informationen finden Sie im [Trust Center in der Microsoft-Datenschutzrichtlinie](https://www.microsoft.com/trustcenter).
 

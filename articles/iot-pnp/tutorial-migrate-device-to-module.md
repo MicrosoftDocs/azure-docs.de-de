@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500270"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831202"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Verbinden eines IoT Plug & Play-Moduls (C#)
 
@@ -20,7 +20,12 @@ In diesem Tutorial wird veranschaulicht, wie Sie eine Verbindung für ein generi
 
 Bei einem Gerät handelt es sich um ein IoT Plug & Play-Gerät, wenn es bei der Verbindungsherstellung mit einem IoT-Hub seine Modell-ID veröffentlicht und die Eigenschaften und Methoden implementiert, die im DTDL-Modell (Digital Twins Definition Language) beschrieben sind. Die Identifizierung erfolgt hierbei über die Modell-ID. Weitere Informationen dazu, wie Geräte die DTDL und eine Modell-ID nutzen, finden Sie im [Entwicklerhandbuch für IoT Plug & Play](./concepts-developer-guide-device.md). Für Module werden Modell-IDs und DTDL-Modelle auf die gleiche Weise verwendet.
 
-In diesem Tutorial wird veranschaulicht, wie Sie das C#-Gerätebeispiel mit einem Thermostat in ein generisches Modul konvertieren, um die Implementierung eines IoT Plug & Play-Moduls zu demonstrieren.
+In diesem Tutorial wird Folgendes gezeigt, um die Implementierung eines IoT Plug & Play-Moduls zu veranschaulichen:
+
+> [!div class="checklist"]
+> * Hinzufügen eines Geräts mit einem Modul zu Ihrem IoT-Hub
+> * Konvertieren des C#-Gerätebeispiels mit einem Thermostat in ein generisches Modul
+> * Interagieren mit dem Modul über das Dienst-SDK
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -232,6 +237,10 @@ Sie können den Azure IoT-Explorer verwenden, um Folgendes anzuzeigen:
 * Telemetriedaten vom IT Edge-Gerät.
 * Eigenschaftsaktualisierungen von IoT Edge-Modulzwillingen, die IoT Plug & Play-Benachrichtigungen auslösen.
 * Das IoT Edge-Modul reagiert auf Ihre IoT Plug & Play-Befehle.
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

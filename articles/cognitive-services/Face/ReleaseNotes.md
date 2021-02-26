@@ -10,19 +10,31 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a409d66065a7ccd2b34365bd565202f207ac0e8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560745"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258081"
 ---
 # <a name="whats-new-in-face-service"></a>Neuerungen im Dienst „Gesichtserkennung“
 
 Der Azure-Dienst „Gesichtserkennung“ wird fortlaufend aktualisiert. In diesem Artikel finden Sie aktuelle Informationen zu Featureverbesserungen, Fixes und Dokumentationsaktualisierungen.
 
+## <a name="january-2021"></a>Januar 2021
+* Verringern der Wartezeit bei Verwendung der Gesichtserkennungs-API: Das Team für den Dienst „Gesichtserkennung“ hat einen neuen Artikel veröffentlicht, in dem potenzielle Ursachen für die Wartezeit beim Verwenden des Diensts sowie mögliche Strategien zur Risikominderung erläutert werden. Weitere Informationen finden Sie unter [Vorgehensweise: Verringern der Wartezeit bei Verwendung des Diensts „Gesichtserkennung“](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+
+## <a name="december-2020"></a>Dezember 2020
+* Kundenkonfiguration für den Gesichtserkennungs-ID-Speicher: Während der Dienst „Gesichtserkennung“ keine Kundenbilder speichert, werden die extrahierten Features für die Gesichtserkennung auf dem Server gespeichert. Die Gesichtserkennungs-ID ist ein Bezeichner des Features für die Gesichtserkennung und wird in [Face – Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face – Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) und [Face – Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) verwendet. Die gespeicherten Features für die Gesichtserkennung laufen ab und werden 24 Stunden nach dem ursprünglichen Erkennungsaufruf gelöscht. Kunden können jetzt festlegen, wie lange diese Gesichtserkennungs-IDs zwischengespeichert werden. Der Höchstwert beträgt immer noch bis zu 24 Stunden, aber es kann nun ein Mindestwert von 60 Sekunden festgelegt werden. Die neuen Zeitbereiche für zwischengespeicherte Gesichtserkennungs-IDs sind alle Werte zwischen 60 Sekunden und 24 Stunden. Weitere Informationen finden Sie in der API-Referenz [Face – Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Gesichtserkennung – Detect) (*faceIdTimeToLive*-Parameter).
+
 ## <a name="november-2020"></a>November 2020
-* Eine Beispielregistrierungsanwendung für die Gesichtserkennung wurde veröffentlicht, um Best Practices für das Erreichen einer informierten Einwilligung und das Erstellen von hochpräzisen Gesichtserkennungssystemen über Registrierungen mit hoher Qualität zu veranschaulichen. Das Open-Source-Beispiel finden Sie im Leitfaden [Erstellen einer Registrierungs-App für Android mit React](build-enrollment-app.md) und auf [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample). Entwickler können es bereitstellen oder anpassen.  
+* Eine Beispielregistrierungs-App für die Gesichtserkennung wurde veröffentlicht, um bewährte Methoden für das Erreichen einer aussagekräftigen Einwilligung und das Erstellen von hochpräzisen Gesichtserkennungssystemen über Registrierungen mit hoher Qualität zu veranschaulichen. Das Open-Source-Beispiel finden Sie im Leitfaden [Erstellen einer Registrierungs-App für Android mit React](build-enrollment-app.md) und auf [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample). Entwickler können es bereitstellen oder anpassen. 
+
+## <a name="august-2020"></a>August 2020
+* Vom Kunden verwaltete Verschlüsselung ruhender Daten: Der Dienst „Gesichtserkennung“ verschlüsselt Ihre Daten beim Speichern in der Cloud automatisch. Durch die Verschlüsselung des Diensts „Gesichtserkennung“ werden Ihre Daten ausreichend geschützt, um den Sicherheits- und Complianceanforderungen Ihrer Organisation gerecht zu werden. Standardmäßig verwendet Ihr Abonnement von Microsoft verwaltete Verschlüsselungsschlüssel. Es gibt auch eine neue Option namens „CMK“ (kundenseitig verwaltete Schlüssel) zum Verwalten Ihres Abonnements mit Ihren eigenen Schlüsseln. Weitere Informationen finden Sie unter [Verschlüsselung für ruhende Daten des Gesichtserkennungsdiensts](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+
+## <a name="april-2020"></a>April 2020
+* Neues Erkennungsmodell für Gesichtserkennungs-API: Das neue Modell „recognition 03“ ist das genaueste derzeit verfügbare Modell. Wenn Sie Neukunde sind, empfehlen wir die Verwendung dieses Modells. „recognition 03“ bietet eine höhere Genauigkeit sowohl bei Ähnlichkeitsvergleichen als auch bei Vergleichen zur Personenzuordnung. Weitere Informationen finden Sie unter [Angeben eines Gesichtserkennungsmodells](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
 
 ## <a name="june-2019"></a>Juni 2019
 

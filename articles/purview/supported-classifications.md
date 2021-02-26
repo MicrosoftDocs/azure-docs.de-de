@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550455"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988319"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Unterstützte Klassifizierungen in Azure Purview
 
 In diesem Artikel sind die Systemklassifizierungen aufgelistet, die in Azure Purview (Vorschauversion) unterstützt werden und definiert sind.
+
+
+- **Schwellenwert für Datenunterschiede** (Distinct match threshold): Die Gesamtanzahl der unterschiedlichen Datenwerte, die in einer Spalte gefunden werden müssen, bevor der Scanner das Datenmuster für die Spalte ausführt. Unsere Systemklassifizierungsregeln erfordern, dass in jeder Spalte mindestens 8 unterschiedliche Werte vorhanden sein müssen, um sie einer Klassifizierung zu unterziehen. Das System benötigt diesen Wert, um sicherzustellen, dass die Spalte genügend Daten enthält, damit der Scanner sie genau klassifizieren kann. Beispielsweise wird eine Spalte, die mehrere Zeilen enthält, die alle den Wert 1 enthalten, nicht klassifiziert. Spalten, in denen eine Zeile einen Wert enthält und die restlichen Zeilen NULL-Werte enthalten, werden ebenfalls nicht klassifiziert. Wenn Sie mehrere Muster angeben, gilt dieser Wert für jedes dieser Muster.
+
+- **Schwellenwert für Mindestübereinstimmung** (Minimum match threshold): Der Mindestprozentsatz für die Datenwertübereinstimmungen in einer Spalte, die vom Scanner gefunden werden müssen, damit die Klassifizierung angewendet wird. Der Systemklassifizierungswert ist auf 60 % festgelegt.
+
 
 ## <a name="defined-system-classifications"></a>Definierte Systemklassifizierungen
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Australische Krankenversicherungsnummer
+## <a name="australian-medicare-number"></a>Australische Medicare-Nummer
 
 ### <a name="format"></a>Format
 
@@ -291,7 +297,7 @@ Zehn bis elf Ziffern:
 
 ### <a name="keywords"></a>Keywords
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details

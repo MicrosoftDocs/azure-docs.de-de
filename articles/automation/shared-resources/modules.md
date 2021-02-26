@@ -3,14 +3,14 @@ title: Verwalten von Modulen in Azure Automation
 description: In diesem Artikel erfahren Sie, wie Sie PowerShell-Module verwenden, um Cmdlets in Runbooks und DSC-Ressourcen in DSC-Konfigurationen zu aktivieren.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458148"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548769"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Verwalten von Modulen in Azure Automation
 
@@ -25,14 +25,26 @@ Azure Automation nutzt eine Reihe von PowerShell-Modulen, um Cmdlets in Runbooks
 
 Beim Erstellen eines Automation-Kontos importiert Azure Automation standardmäßig einige Module. Weitere Informationen finden Sie unter [Standardmodule](#default-modules).
 
+## <a name="sandboxes"></a>Sandboxes
+
 Wenn Automation Runbook- und DSC-Kompilierungsaufträge ausführt, werden die Module in Sandboxes geladen, in denen die Runbooks ausgeführt und die DSC-Konfigurationen kompiliert werden können. DSC-Ressourcen in Modulen werden ebenfalls automatisch auf dem DSC-Pullserver platziert. Computer können die Ressourcen beim Anwenden von DSC-Konfigurationen per Pull abrufen.
 
 >[!NOTE]
 >Importieren Sie nur Module, die Ihre Runbooks und DSC-Konfigurationen wirklich benötigen. Es wird nicht empfohlen, das Az-Stammmodul zu importieren. Es enthält viele andere Module, die Sie möglicherweise nicht benötigen, die aber zu Leistungsproblemen führen können. Importieren Sie stattdessen einzelne Module, z. B. Az.Compute.
 
+Eine Cloudsandbox unterstützt maximal 48 Systemaufrufe und schränkt alle anderen Aufrufe aus Sicherheitsgründen ein. Andere Funktionen, etwa die Verwaltung von Anmeldeinformationen und einige Netzwerkfunktionen, werden in einer Cloudsandbox nicht unterstützt.
+
+Aufgrund der Anzahl der enthaltenen Module und Cmdlets ist es schwierig, vorab zu wissen, welche der Cmdlets nicht unterstützte Aufrufe durchführen. Im Allgemeinen treten Probleme bei Cmdlets auf, für die erhöhte Zugriffsrechte erforderlich sind oder die Anmeldeinformationen als Parameter erfordern, oder bei Cmdlets für Netzwerkfunktionen. Cmdlets, die umfassende Netzwerkvorgänge ausführen, werden in der Sandbox nicht unterstützt. Dies schließt auch [Connect-AipService](/powershell/module/aipservice/connect-aipservice) aus dem PowerShell-Modul AIPService und [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) aus dem Modul DNSClient ein.
+
+Dabei handelt es sich um bekannte Einschränkungen bei einer Sandbox. Zur Umgehung dieses Problems wird empfohlen, einen [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) bereitzustellen oder [Azure Functions](../../azure-functions/functions-overview.md) zu verwenden.
+
 ## <a name="default-modules"></a>Standardmodule
 
-In der folgenden Tabelle sind Module aufgeführt, die Azure Automation standardmäßig importiert, wenn Sie Ihr Automation-Konto erstellen. Automation kann neuere Versionen dieser Module importieren. Sie können jedoch die ursprüngliche Version nicht aus Ihrem Automation-Konto entfernen, selbst wenn Sie eine neuere Version löschen. Beachten Sie, dass diese Standardmodule mehrere AzureRM-Module enthalten. 
+In der folgenden Tabelle sind Module aufgeführt, die Azure Automation standardmäßig importiert, wenn Sie Ihr Automation-Konto erstellen. Automation kann neuere Versionen dieser Module importieren. Sie können jedoch die ursprüngliche Version nicht aus Ihrem Automation-Konto entfernen, selbst wenn Sie eine neuere Version löschen. Beachten Sie, dass diese Standardmodule mehrere AzureRM-Module enthalten.
+
+Die Standardmodule werden auch als globale Module bezeichnet. Im Azure-Portal ist die Eigenschaft **Globales Modul** **true**, wenn Sie ein Modul anzeigen, das beim Erstellen des Kontos importiert wurde.
+
+![Screenshot der Eigenschaft „Globales Modul“ im Azure-Portal.](../media/modules/automation-global-modules.png)
 
 Automation importiert das Az-Stammmodul nicht automatisch in neue oder vorhandene Automation-Konten. Weitere Informationen zum Arbeiten mit diesen Modulen finden Sie unter [Migrieren zu Az-Modulen](#migrate-to-az-modules).
 
@@ -151,7 +163,7 @@ Nachdem Sie die Az-Module in das Automation-Konto importiert haben, können Sie 
 
 ## <a name="author-modules"></a>Erstellen von Modulen
 
-Es wird empfohlen, dass Sie die Empfehlungen in diesem Abschnitt befolgen, wenn Sie ein benutzerdefiniertes PowerShell-Modul zur Verwendung in Azure Automation erstellen. Sie müssen zumindest eine PSD1-, PSM1- oder PowerShell-Modul- **DLL** -Datei mit dem gleichen Namen wie der Modulordner erstellen, um Ihr Modul für den Importvorgang vorzubereiten. Anschließend packen Sie den Modulordner, damit Azure Automation ihn als einzelne Datei importieren kann. Das **ZIP** -Paket sollte den gleichen Namen wie der enthaltene Modulordner aufweisen.
+Es wird empfohlen, dass Sie die Empfehlungen in diesem Abschnitt befolgen, wenn Sie ein benutzerdefiniertes PowerShell-Modul zur Verwendung in Azure Automation erstellen. Sie müssen zumindest eine PSD1-, PSM1- oder PowerShell-Modul-**DLL**-Datei mit dem gleichen Namen wie der Modulordner erstellen, um Ihr Modul für den Importvorgang vorzubereiten. Anschließend packen Sie den Modulordner, damit Azure Automation ihn als einzelne Datei importieren kann. Das **ZIP**-Paket sollte den gleichen Namen wie der enthaltene Modulordner aufweisen.
 
 Weitere Informationen zum Erstellen eines PowerShell-Moduls finden Sie unter [Schreiben eines PowerShell-Skriptmoduls](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
@@ -167,9 +179,9 @@ TestModule
    2.0.0
 ```
 
-Kopieren Sie in jedem der Versionsordner Ihre PowerShell-PSM1-, PSD1- oder PowerShell-Modul- **DLL** -Dateien, aus denen ein Modul besteht, in den jeweiligen Versionsordner. Packen Sie den Modulordner (als ZIP), damit Azure Automation ihn als einzelne ZIP-Datei importieren kann. Automation zeigt zwar nur die höchste Version des importierten Moduls an, doch wenn Modulpaket parallele Versionen des Moduls enthält, sind diese für die Verwendung in Ihren Runbooks oder DSC-Konfigurationen verfügbar.  
+Kopieren Sie in jedem der Versionsordner Ihre PowerShell-PSM1-, PSD1- oder PowerShell-Modul-**DLL**-Dateien, aus denen ein Modul besteht, in den jeweiligen Versionsordner. Packen Sie den Modulordner (als ZIP), damit Azure Automation ihn als einzelne ZIP-Datei importieren kann. Automation zeigt zwar nur die höchste Version des importierten Moduls an, doch wenn Modulpaket parallele Versionen des Moduls enthält, sind diese für die Verwendung in Ihren Runbooks oder DSC-Konfigurationen verfügbar.  
 
-Automation unterstützt Module, die parallele Versionen innerhalb desselben Pakets enthalten, es unterstützt aber nicht die Verwendung mehrerer Versionen eines Moduls über Modulpaketimporte hinweg. Angenommen, Sie importieren beispielsweise **Modul A** , das die Versionen 1 und 2 enthält, in Ihr Automation-Konto. Später aktualisieren Sie das **Modul A** , um die Versionen 3 und 4 aufzunehmen. Wenn Sie es nun in Ihr Automation-Konto importieren, können nur die Versionen 3 und 4 in allen Runbooks oder DSC-Konfigurationen verwendet werden. Wenn alle Versionen (1, 2, 3 und 4) verfügbar sein müssen, sollte die ZIP-Datei, die Sie importieren, die Versionen 1, 2, 3 und 4 enthalten.
+Automation unterstützt Module, die parallele Versionen innerhalb desselben Pakets enthalten, es unterstützt aber nicht die Verwendung mehrerer Versionen eines Moduls über Modulpaketimporte hinweg. Angenommen, Sie importieren beispielsweise **Modul A**, das die Versionen 1 und 2 enthält, in Ihr Automation-Konto. Später aktualisieren Sie das **Modul A**, um die Versionen 3 und 4 aufzunehmen. Wenn Sie es nun in Ihr Automation-Konto importieren, können nur die Versionen 3 und 4 in allen Runbooks oder DSC-Konfigurationen verwendet werden. Wenn alle Versionen (1, 2, 3 und 4) verfügbar sein müssen, sollte die ZIP-Datei, die Sie importieren, die Versionen 1, 2, 3 und 4 enthalten.
 
 Wenn Sie unterschiedliche Versionen desselben Moduls zwischen Runbooks verwenden möchten, sollten Sie immer die Version deklarieren, die Sie in Ihrem Runbook verwenden möchten, indem Sie das Cmdlet `Import-Module` verwenden und den Parameter `-RequiredVersion <version>` einschließen. Selbst wenn es sich bei der zu verwendenden Version um die neueste Version handelt. Dies liegt daran, dass Runbookaufträge in derselben Sandbox ausgeführt werden können. Wenn die Sandbox bereits explizit ein Modul mit einer bestimmten Versionsnummer geladen hat, weil ein vorheriger Auftrag in dieser Sandbox dies angewiesen hatte, laden zukünftige Aufträge in dieser Sandbox nicht automatisch die neueste Version dieses Moduls. Dies liegt daran, dass eine Version davon bereits in die Sandbox geladen wurde.
 
@@ -318,7 +330,7 @@ So importieren Sie Module im Azure-Portal:
 1. Navigieren Sie zu Ihrem Automation-Konto.
 2. Wählen Sie unter **Freigegebene Ressourcen** die Option **Module** aus.
 3. Wählen Sie **Modul hinzufügen** aus.
-4. Wählen Sie die **ZIP** -Datei aus, die Ihr Modul enthält.
+4. Wählen Sie die **ZIP**-Datei aus, die Ihr Modul enthält.
 5. Wählen Sie **OK** aus, um den Importvorgang zu starten.
 
 ### <a name="import-modules-by-using-powershell"></a>Importieren von Modulen mithilfe von PowerShell

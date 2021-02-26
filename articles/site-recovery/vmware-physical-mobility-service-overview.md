@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8c90427e2dd4ecf23cb803c4f75dbee34c38f992
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547655"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898578"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informationen zum Mobilitätsdienst auf virtuellen VMware-Computern und physischen Servern
 
@@ -27,7 +27,7 @@ Wenn Sie die Notfallwiederherstellung für VMware-VMs und physische Server mithi
 
 ## <a name="antivirus-on-replicated-machines"></a>Virenschutz auf replizierten Computern
 
-Wenn auf Computern, die Sie replizieren möchten, eine Virenschutzsoftware ausgeführt wird, schließen Sie den Installationsordner des Mobilitätsdiensts ( _C:\ProgramData\ASR\agent_ ) von Virenschutzvorgängen aus. Dadurch wird sichergestellt, dass die Replikation wie erwartet funktioniert.
+Wenn auf Computern, die Sie replizieren möchten, eine Virenschutzsoftware ausgeführt wird, schließen Sie den Installationsordner des Mobilitätsdiensts (_C:\ProgramData\ASR\agent_) von Virenschutzvorgängen aus. Dadurch wird sichergestellt, dass die Replikation wie erwartet funktioniert.
 
 ## <a name="push-installation"></a>Pushinstallation
 
@@ -83,7 +83,7 @@ Während einer Pushinstallation des Mobilitätsdiensts werden die folgenden Schr
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Optionsseite für die Installation des Mobilitätsdiensts":::
 
-1. Überwachen Sie die Installation im **Installationsfortschritt**. Klicken Sie nach Abschluss der Installation auf **Mit der Konfiguration fortfahren** , um den Dienst beim Konfigurationsserver zu registrieren.
+1. Überwachen Sie die Installation im **Installationsfortschritt**. Klicken Sie nach Abschluss der Installation auf **Mit der Konfiguration fortfahren**, um den Dienst beim Konfigurationsserver zu registrieren.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Screenshot: Fortschritt der Installation und aktive Schaltfläche „Mit der Konfiguration fortfahren“ nach Abschluss der Installation":::
 
@@ -91,7 +91,7 @@ Während einer Pushinstallation des Mobilitätsdiensts werden die folgenden Schr
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Seite für die Registrierung des Mobilitätsdiensts":::
 
-1. Klicken Sie auf **Registrieren** , um die Registrierung abzuschließen.
+1. Klicken Sie auf **Registrieren**, um die Registrierung abzuschließen.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Letzte Seite die Registrierung des Mobilitätsdiensts":::
 
@@ -104,7 +104,7 @@ Während einer Pushinstallation des Mobilitätsdiensts werden die folgenden Schr
 
 ### <a name="windows-machine"></a>Windows-Computer
 
-- Führen Sie an einer Eingabeaufforderung die folgenden Befehle aus, um das Installationsprogramm in einen lokalen Ordner (z. B. _C:\Temp_ ) auf dem Server zu kopieren, den Sie schützen möchten. Ersetzen Sie den Dateinamen des Installationsprogramms durch den tatsächlichen Dateinamen.
+- Führen Sie an einer Eingabeaufforderung die folgenden Befehle aus, um das Installationsprogramm in einen lokalen Ordner (z. B. _C:\Temp_) auf dem Server zu kopieren, den Sie schützen möchten. Ersetzen Sie den Dateinamen des Installationsprogramms durch den tatsächlichen Dateinamen.
 
   ```cmd
   cd C:\Temp
@@ -148,7 +148,7 @@ Agent-Konfigurationsprotokolle | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConf
 
 ### <a name="linux-machine"></a>Linux-Computer
 
-1. Kopieren Sie aus einer Terminalsitzung das Installationsprogramm in einen lokalen Ordner (z. B. _/tmp_ ) auf dem Server, den Sie schützen möchten. Ersetzen Sie den Namen des Installationsprogramms durch den tatsächlichen Dateinamen Ihrer Linux-Distribution, und führen Sie dann die Befehle aus.
+1. Kopieren Sie aus einer Terminalsitzung das Installationsprogramm in einen lokalen Ordner (z. B. _/tmp_) auf dem Server, den Sie schützen möchten. Ersetzen Sie den Namen des Installationsprogramms durch den tatsächlichen Dateinamen Ihrer Linux-Distribution, und führen Sie dann die Befehle aus.
 
    ```shell
    cd /tmp ;
@@ -228,7 +228,7 @@ Installerdatei | Betriebssystem (nur 64-Bit)
 Als **erforderliche Komponente zum Aktualisieren oder Schützen von SUSE Linux Enterprise Server 11 SP3-Computern** ab Version 9.36:
 
 1. Stellen Sie sicher, dass der aktuelle Mobility Agent-Installer aus dem Microsoft Download Center heruntergeladen und auf dem Konfigurationsserver und allen Prozessservern für horizontales Hochskalieren im Pushinstallerrepository abgelegt wurde.
-2. [Laden Sie das aktuelle Agent-Installationsprogramm für SUSE Linux Enterprise Server 11 SP3 herunter.](site-recovery-whats-new.md) Die aktuelle Version des Mobilitäts-Agents ist [9.37](https://support.microsoft.com/help/4582666/).
+2. [Laden](site-recovery-whats-new.md) Sie das aktuelle Agent-Installationsprogramm für SUSE Linux Enterprise Server 11 SP3 herunter.
 3. Navigieren Sie zum Konfigurationsserver, und kopieren Sie das Agent-Installationsprogramm für SUSE Linux Enterprise Server 11 SP3 an den Pfad „INSTALL_DIR\home\svsystems\pushinstallsvc\repository“.
 1. Starten Sie nach dem Kopieren des aktuellen Installationsprogramms den Dienst „InMage PushInstall“ neu. 
 1. Navigieren Sie nun zu zugeordneten Prozessservern für die horizontale Skalierung, und wiederholen Sie die Schritte 3 und 4.
@@ -240,7 +240,7 @@ Als **erforderliche Komponente zum Aktualisieren oder Schützen von SUSE Linux E
 **Voraussetzung für das Aktualisieren oder Schützen von Computern unter RHEL 5** ab Version 9.36:
 
 1. Stellen Sie sicher, dass der aktuelle Mobility Agent-Installer aus dem Microsoft Download Center heruntergeladen und auf dem Konfigurationsserver und allen Prozessservern für horizontales Hochskalieren im Pushinstallerrepository abgelegt wurde.
-2. [Laden Sie das aktuelle Agent-Installationsprogramm für RHEL 5 oder CentOS 5 herunter.](site-recovery-whats-new.md) Die aktuelle Version des Mobilitäts-Agents ist [9.37](https://support.microsoft.com/help/4582666/).
+2. [Laden](site-recovery-whats-new.md) Sie das aktuelle Agent-Installationsprogramm für RHEL 5 oder CentOS 5 herunter. 
 3. Navigieren Sie zum Konfigurationsserver, und kopieren Sie das Agent-Installationsprogramm für RHEL 5 oder CentOS 5 an den Pfad „INSTALL_DIR\home\svsystems\pushinstallsvc\repository“.
 1. Starten Sie nach dem Kopieren des aktuellen Installationsprogramms den Dienst „InMage PushInstall“ neu. 
 1. Navigieren Sie nun zu zugeordneten Prozessservern für die horizontale Skalierung, und wiederholen Sie die Schritte 3 und 4.
@@ -252,7 +252,7 @@ Als **erforderliche Komponente zum Aktualisieren oder Schützen von SUSE Linux E
 **Voraussetzung für das Aktualisieren oder Schützen von Computern unter Debian 7** ab Version 9.36:
 
 1. Stellen Sie sicher, dass der aktuelle Mobility Agent-Installer aus dem Microsoft Download Center heruntergeladen und auf dem Konfigurationsserver und allen Prozessservern für horizontales Hochskalieren im Pushinstallerrepository abgelegt wurde.
-2. [Laden Sie das aktuelle Agent-Installationsprogramm für Debian 7 herunter.](site-recovery-whats-new.md) Die aktuelle Version des Mobilitäts-Agents ist [9.37](https://support.microsoft.com/help/4582666/).
+2. [Laden](site-recovery-whats-new.md) Sie das aktuelle Agent-Installationsprogramm für Debian 7 herunter.
 3. Navigieren Sie zum Konfigurationsserver, und kopieren Sie das Agent-Installationsprogramm für Debian 7 an den Pfad „INSTALL_DIR\home\svsystems\pushinstallsvc\repository“.
 1. Starten Sie nach dem Kopieren des aktuellen Installationsprogramms den Dienst „InMage PushInstall“ neu. 
 1. Navigieren Sie nun zu zugeordneten Prozessservern für die horizontale Skalierung, und wiederholen Sie die Schritte 3 und 4.

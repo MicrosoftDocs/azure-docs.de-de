@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
-ms.openlocfilehash: 5bc76d2526c5585071a240af36b8a31e3de5708f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 002ae9f99865114dd8bf52b53efc9303a0706a82
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024927"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491823"
 ---
 # <a name="azure-api-management-terminology"></a>Azure API Management-Terminologie
 
@@ -24,8 +24,8 @@ Dieser Artikel enthält Definitionen für Begriffe, die für API Management (API
 
 ## <a name="term-definitions"></a>Begriffsdefinitionen
 
-* **Back-End-API** – ein HTTP-Dienst, der Ihre API und deren Vorgänge implementiert 
-* **Front-End-API**/**APIM-API** – eine APIM-API hostet keine APIs, sondern erstellt Facades für Ihre APIs, um die Facade gemäß Ihren Anforderungen anzupassen, ohne die Back-End-API ändern zu müssen. Weitere Informationen finden Sie unter [Importieren und Veröffentlichen einer API](import-and-publish.md).
+* **Back-End-API** – ein HTTP-Dienst, der Ihre API und deren Vorgänge implementiert Weitere Informationen finden Sie unter [Back-Ends](backends.md).
+* **Front-End-API**/**APIM-API**: Eine APIM-API hostet keine APIs, sondern erstellt Fassaden für Ihre APIs. Sie können die Fassade gemäß Ihren Anforderungen anpassen, ohne die Back-End-API ändern zu müssen. Weitere Informationen finden Sie unter [Importieren und Veröffentlichen einer API](import-and-publish.md).
 * **APIM-Produkt** – Produkte enthalten eine oder mehrere APIs sowie ein Nutzungskontingent und Nutzungsbedingungen. Sie können eine Reihe von APIs einfügen und sie Entwicklern über das Entwicklerportal zur Verfügung stellen. Weitere Informationen finden Sie unter [Erstellen und Bearbeiten von Produkten](api-management-howto-add-products.md).
 * **APIM-API-Vorgang** – jede APIM-API stellt Entwicklern einen Satz von Vorgängen zur Verfügung. Jede APIM-API enthält einen Verweis auf den Back-End-Dienst, der die API implementiert, und die Vorgänge der API sind den Operationen des Back-End-Diensts zugeordnet. Weitere Informationen finden Sie unter [Simulieren von API-Antworten](mock-api-responses.md).
 * **Version** – manchmal möchten Sie neue oder andere API-Features für einige Benutzer veröffentlichen, während andere weiterhin die API verwenden möchten, die derzeit für sie geeignet ist. Weitere Informationen finden Sie unter [Veröffentlichen mehrerer Versionen Ihrer API](api-management-get-started-publish-versions.md).

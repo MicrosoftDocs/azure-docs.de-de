@@ -1,5 +1,5 @@
 ---
-title: Verwenden der CLI zum Erstellen von Filtern mit Azure Media Services | Microsoft-Dokumentation
+title: Verwenden der CLI zum Erstellen von Filtern mit Azure Media Services
 description: In diesem Artikel wird gezeigt, wie Sie mithilfe der CLI Filter in Azure Media Services v3 erstellen.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f86b3fbebfaa2eb6fc35d5373eab2bb296ff5043
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740613"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897576"
 ---
 # <a name="creating-filters-with-cli"></a>Erstellen von Filtern mit der CLI
 

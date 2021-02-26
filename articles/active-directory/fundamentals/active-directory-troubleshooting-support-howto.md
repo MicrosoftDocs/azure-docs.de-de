@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322533"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257405"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Anfordern von Unterstützung und Öffnen eines Supporttickets für Azure Active Directory
 Microsoft bietet für Azure Active Directory (Azure AD) weltweiten, vertriebsvorbereitenden, Abrechnungs- und Abonnementsupport. Für gebührenpflichtige und Testabonnements von Microsoft Azure steht Support online und telefonisch zur Verfügung. Abrechnungssupport ist online und telefonisch in weiteren Sprachen verfügbar. 
@@ -41,8 +41,8 @@ Wenn Sie mithilfe dieser Selbsthilferessourcen keine Antworten finden, können S
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>So öffnen Sie ein Supportticket für Azure AD im Azure-Portal
 
 > [!NOTE]
-> Verwenden Sie bei Abrechnungs- oder Abonnementproblemen das [Microsoft 365 Admin Center](https://admin.microsoft.com).
-> 
+> * Verwenden Sie bei Abrechnungs- oder Abonnementproblemen das [Microsoft 365 Admin Center](https://admin.microsoft.com).  
+> * Wenn Sie Azure AD B2C verwenden, erstellen Sie ein Supportticket, indem Sie zunächst zu einem Azure AD-Mandanten wechseln, dem ein Azure-Abonnement zugeordnet ist. Dies ist normalerweise Ihr Mitarbeitermandant oder der Standardmandant, der bei der Registrierung für ein Azure-Abonnement erstellt wurde. Weitere Informationen finden Sie unter [Beziehung zwischen einem Azure-Abonnement und Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und öffnen Sie **Azure Active Directory**.
    
@@ -74,7 +74,7 @@ Wenn Sie mithilfe dieser Selbsthilferessourcen keine Antworten finden, können S
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>So öffnen Sie ein Supportticket für Azure AD im Microsoft 365 Admin Center
 
 > [!NOTE]
-> Support für Azure AD im [Microsoft 365 Admin Center](https://admin.microsoft.com) wird nur für Administratoren angeboten. 
+> Support für Azure AD im [Microsoft 365 Admin Center](https://admin.microsoft.com) wird nur für Administratoren angeboten.
 
 1. Melden Sie sich beim [Microsoft 365 Admin Center](https://admin.microsoft.com) mit einem Konto mit einer EMS-Lizenz (Enterprise Mobility + Security) an.
 

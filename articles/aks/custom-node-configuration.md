@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735263"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559445"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Anpassen der Knotenkonfiguration für AKS-Knotenpools (Azure Kubernetes Service) (Vorschau)
 
@@ -166,7 +166,7 @@ Erstellen Sie eine Datei `linuxosconfig.json` mit folgendem Inhalt:
 }
 ```
 
-Erstellen Sie einen neuen Cluster, indem Sie die kubelet- und Betriebssystemkonfigurationen mithilfe der im vorherigen Schritt erstellten JSON-Dateien angeben. 
+Erstellen Sie einen neuen Cluster, indem Sie die Konfigurationen für kubelet und Betriebssystem mithilfe der im vorherigen Schritt erstellten JSON-Dateien angeben. 
 
 > [!NOTE]
 > Wenn Sie einen Cluster erstellen, können Sie die kubelet-Konfiguration, die Betriebssystemkonfiguration oder beides angeben. Wenn Sie beim Erstellen eines Clusters eine Konfiguration angeben, wird diese Konfiguration nur für die Knoten im anfänglichen Knotenpool angewendet. Alle Einstellungen, die nicht in der JSON-Datei konfiguriert sind, behalten den Standardwert bei.

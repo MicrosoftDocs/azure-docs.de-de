@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c9d79ef4fd73adbe3ba376f1723693ea8e85197
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7ee22121fd023f3942eed64bd605bf87b961d893
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736506"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429830"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Tableau Server
 
@@ -40,7 +40,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 
 * Tableau Server unterstützt **SP-initiiertes** einmaliges Anmelden.
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Hinzufügen von Tableau Server aus dem Katalog
+## <a name="add-tableau-server-from-the-gallery"></a>Hinzufügen von Tableau Server aus dem Katalog
 
 Zum Konfigurieren der Integration von Tableau Server in Azure AD müssen Sie Tableau Server aus dem Katalog der Liste der verwalteten SaaS-Apps hinzufügen.
 
@@ -83,7 +83,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     c. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > Die vorangehenden Werte sind keine echten Werte. Aktualisieren Sie die Werte mit der aktuellen URL und dem Bezeichner von der Seite „Tableau Server Configuration“ (Tableau Server-Konfiguration) (wird später im Tutorial erläutert).
+    > Die vorangehenden Werte sind keine echten Werte. Aktualisieren Sie die Werte mit der tatsächlichen Anmelde-URL, dem Bezeichner und der Antwort-URL von der Seite „Tableau Server Configuration“ (Tableau Server-Konfiguration). Darauf wird später im Tutorial eingegangen.
 
 1. Navigieren Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** zu **Verbundmetadaten-XML**, und wählen Sie **Herunterladen** aus, um das Zertifikat herunterzuladen und auf Ihrem Computer zu speichern.
 
@@ -123,11 +123,11 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 2. Wählen Sie auf der Registerkarte **CONFIGURATION (KONFIGURATION)** **User Identity & Access (Benutzeridentität und Zugriff)** aus, und wählen Sie dann die Registerkarte **Authentication Method (Authentifizierungsmethode)** aus.
 
-    ![Screenshot, auf dem unter „User Identity & Access“ (Benutzeridentität und Zugriff) die Option „Authentication“ (Authentifizierung) ausgewählt ist](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Screenshot, auf dem unter „User Identity & Access“ (Benutzeridentität und Zugriff) die Option „Authentication“ (Authentifizierung) ausgewählt ist](./media/tableauserver-tutorial/auth.png)
 
 3. Führen Sie auf der Seite **CONFIGURATION (KONFIGURATION)** die folgenden Schritte aus:
 
-    ![Screenshot der Seite „Configuration“ (Konfiguration), auf der Sie die beschriebenen Werte eingeben können.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Screenshot der Seite „Configuration“ (Konfiguration), auf der Sie die beschriebenen Werte eingeben können.](./media/tableauserver-tutorial/config.png)
 
     a. Wählen Sie als **Authentication Method (Authentifizierungsmethode)** die Option „SAML“ aus.
 
@@ -137,13 +137,13 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     d. „SAML entity ID“: Die Entitäts-ID zur eindeutigen Identifizierung Ihrer Tableau Server-Installation durch den IdP. Sie können in dieses Feld erneut Ihre Tableau Server-URL eingeben, es muss jedoch nicht die Tableau Server-URL verwendet werden. Kopieren Sie den Wert im Feld **SAML entity ID** (SAML-Entitäts-ID), und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Bezeichner** ein.
 
-    e. Klicken Sie auf **Download XML Metadata File (XML-Metadatendatei herunterladen)** , und öffnen Sie die Datei im Text-Editor. Suchen Sie nach „Assertion Consumer Service URL“ mit HTTP Post und Index 0, und kopieren Sie die URL. Fügen Sie sie im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Reply URL** ein.
+    e. Klicken Sie auf **Download XML Metadata File (XML-Metadatendatei herunterladen)** , und öffnen Sie die Datei im Text-Editor. Suchen Sie nach „Assertion Consumer Service URL“ mit HTTP Post und Index 0, und kopieren Sie die URL. Fügen Sie sie im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** ins Textfeld **Antwort-URL** ein.
 
     f. Suchen Sie nach der Datei mit Ihren Verbundmetadaten, die Sie aus dem Azure-Portal heruntergeladen haben, und laden Sie sie in die **SAML Idp metadata file** hoch.
 
     g. Geben Sie die Namen für die Attribute ein, die der IdP verwendet, um Benutzernamen, Anzeigenamen und E-Mail-Adressen aufzunehmen.
 
-    h. Klicken Sie unten auf der Seite auf **Speichern**.
+    h. Klicken Sie auf **Speichern**.
 
     > [!NOTE]
     > Der Kunde muss eine PEM-codierte x.509-Zertifikatdatei mit der Erweiterung CRT und eine Private RSA- oder DSA-Schlüsseldatei mit der Erweiterung KEY als Zertifikatschlüsseldatei hochladen. Weitere Informationen zur Zertifikatdatei und zur Zertifikatschlüsseldatei finden Sie in [diesem](https://help.tableau.com/current/server/en-us/saml_requ.htm) Dokument. Wenn Sie Hilfe bei der Konfiguration von SAML für Tableau Server benötigen, finden Sie weitere Informationen im Artikel [Konfigurieren von serverweitem SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
@@ -165,9 +165,8 @@ In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmel
 
 * Rufen Sie direkt die Tableau Server-Anmelde-URL auf, und initiieren Sie den Anmeldeflow.
 
-* Sie können „Meine Apps“ von Microsoft verwenden. Wenn Sie in „Meine Apps“ auf die Kachel „Tableau Server“ klicken, werden Sie zur Anmelde-URL von Tableau Server weitergeleitet. Weitere Informationen zu „Meine Apps“ finden Sie in [dieser Einführung](../user-help/my-apps-portal-end-user-access.md).
-
+* Sie können „Meine Apps“ von Microsoft verwenden. Wenn Sie in „Meine Apps“ auf die Kachel „Tableau Server“ klicken, werden Sie zur Anmelde-URL von Tableau Server weitergeleitet. Weitere Informationen zu „Meine Apps“ finden Sie in [dieser Einführung](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nach dem Konfigurieren von Tableau Server können Sie Sitzungssteuerungen erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützen. Sitzungssteuerungen basieren auf bedingtem Zugriff. [Hier](/cloud-app-security/proxy-deployment-aad) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.
+Nach dem Konfigurieren von Tableau Server können Sie die Sitzungssteuerung erzwingen, die in Echtzeit vor der Exfiltration und Infiltration vertraulicher Unternehmensdaten schützt. Die Sitzungssteuerung basiert auf bedingtem Zugriff. [Hier](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app) erfahren Sie, wie Sie die Sitzungssteuerung mit Microsoft Cloud App Security erzwingen.

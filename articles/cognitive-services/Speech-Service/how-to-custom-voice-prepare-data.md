@@ -10,18 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 28cc0e27e5ac97ca52f5e94a556795b1404f6961
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 1cd90bc1906140e6e559c1557234458035e54042
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663195"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524701"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Vorbereiten von Daten zum Erstellen einer benutzerdefinierten Stimme
 
 Wenn Sie bereit sind, eine benutzerdefinierte Stimme für die Sprachsynthese zu erstellen, besteht der erste Schritt darin, Audioaufnahmen und zugehörige Skripts für das Training des Stimmmodells zusammenzustellen. Der Speech-Dienst erstellt anhand dieser Daten eine einzigartige Stimme, die der Stimme in den Aufnahmen entspricht. Nachdem Sie die Stimme trainiert haben, können Sie mit dem Synthetisieren von Sprache in Ihren Anwendungen beginnen.
 
-Zu Beginn sind für einen Proof of Concept nur wenige Daten erforderlich. Je mehr Daten Sie bereitstellen, desto natürlicher klingt Ihre benutzerdefinierte Stimme jedoch. Bevor Sie Ihr eigenes Stimmmodell für die Sprachsynthese trainieren können, benötigen Sie Audioaufnahmen und die zugehörigen Texttranskriptionen. Auf dieser Seite werden die Datentypen, ihre Verwendung und ihre Verwaltung beschrieben.
+Bevor Sie Ihr eigenes Stimmmodell für die Sprachsynthese trainieren können, benötigen Sie Audioaufnahmen und die zugehörigen Texttranskriptionen. Auf dieser Seite werden die Datentypen, ihre Verwendung und ihre Verwaltung beschrieben.
+
+> [!NOTE]
+> Wenn Sie eine neuronale Stimme trainieren möchten, müssen Sie ein Sprecherprofil mit der Audiozustimmungsdatei des Sprechers angeben, in der dieser bestätigt, die Sprachdaten zum Trainieren eines benutzerdefinierten Sprachmodells zu verwenden. Stellen Sie beim Vorbereiten des Aufzeichnungsskripts sicher, dass Sie den folgenden Satz einschließen. 
+
+> „Ich [Vor- und Nachname nennen] akzeptiere, dass die Aufzeichnungen meiner Stimme von [Name des Unternehmens nennen] verwendet werden, um eine synthetische Version meiner Stimme zu erstellen und diese zu verwenden.“
+Dieser Satz wird verwendet, um zu überprüfen, ob die Trainingsdaten von derselben Person gesprochen werden, die die Zustimmung erteilt. Weitere Informationen zur [Überprüfung des Sprechers](https://aka.ms/CNV-data-privacy)
+
+> Die benutzerdefinierte neuronale Stimme ist mit eingeschränktem Zugriff verfügbar. Stellen Sie sicher, dass Sie die [Anforderungen für verantwortungsvolle KI](https://aka.ms/gating-overview) kennen und [geben Sie hier die Zugriffsdaten ein](https://aka.ms/customneural). 
 
 ## <a name="data-types"></a>Datentypen
 
@@ -31,11 +39,11 @@ Es kann vorkommen, dass Sie noch kein passendes Dataset haben und das Training f
 
 In der folgenden Tabelle sind die Datentypen und ihre Verwendung zum Erstellen eines benutzerdefinierten Stimmmodells für die Sprachsynthese aufgeführt.
 
-| Datentyp | BESCHREIBUNG | Verwendung | Zusätzlicher Dienst erforderlich | Menge zum Trainieren eines Modells | Gebietsschema(s) |
-| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Einzelne Äußerungen und entsprechendes Transkript** | Eine Sammlung (.zip) von Audiodateien (.wav) als einzelne Äußerungen. Jede Audiodatei sollte maximal 15 Sekunden lang sein und über ein zugehöriges formatiertes Transkript (.txt) verfügen. | Professionelle Aufnahmen mit entsprechenden Transkripten | Bereit zum Training. | Keine zwingende Anforderung für „en-US“ und „zh-CN“. Mehr als 2.000 unterschiedliche Äußerungen für andere Gebietsschemas. | [Alle Custom Voice-Gebietsschemas](language-support.md#customization) |
-| **Lange Audiodatei und Transkript (Betaversion)** | Eine Sammlung (.zip) von langen, nicht segmentierten Audiodateien (länger als 20 Sekunden) mit einem zugehörigen Transkript (.txt), das alle gesprochenen Wörter enthält. | Sie haben Audiodateien und entsprechende Transkripte, die aber nicht in Äußerungen segmentiert sind. | Segmentierung (mithilfe der Batch-Transkription).<br>Transformation des Audioformats (sofern erforderlich). | Keine zwingende Anforderung  | [Alle Custom Voice-Gebietsschemas](language-support.md#customization) |
-| **Nur Audio (Betaversion)** | Eine Sammlung (.zip) von Audiodateien ohne Transkript. | Sie haben nur Audiodateien ohne Transkripte. | Segmentierung und Transkriptgenerierung (mithilfe der Batch-Transkription).<br>Transformation des Audioformats (sofern erforderlich).| Keine zwingende Anforderung | [Alle Custom Voice-Gebietsschemas](language-support.md#customization) |
+| Datentyp | BESCHREIBUNG | Verwendung | Zusätzliche Verarbeitung erforderlich | 
+| --------- | ----------- | ----------- | --------------------------- |
+| **Einzelne Äußerungen und entsprechendes Transkript** | Eine Sammlung (.zip) von Audiodateien (.wav) als einzelne Äußerungen. Jede Audiodatei sollte maximal 15 Sekunden lang sein und über ein zugehöriges formatiertes Transkript (.txt) verfügen. | Professionelle Aufnahmen mit entsprechenden Transkripten | Bereit zum Training. |
+| **Lange Audiodatei und Transkript (Betaversion)** | Eine Sammlung (.zip) von langen, nicht segmentierten Audiodateien (länger als 20 Sekunden) mit einem zugehörigen Transkript (.txt), das alle gesprochenen Wörter enthält. | Sie haben Audiodateien und entsprechende Transkripte, die aber nicht in Äußerungen segmentiert sind. | Segmentierung (mithilfe der Batch-Transkription).<br>Transformation des Audioformats (sofern erforderlich). | 
+| **Nur Audio (Betaversion)** | Eine Sammlung (.zip) von Audiodateien ohne Transkript. | Sie haben nur Audiodateien ohne Transkripte. | Segmentierung und Transkriptgenerierung (mithilfe der Batch-Transkription).<br>Transformation des Audioformats (sofern erforderlich).| 
 
 Dateien sollten nach Typ in einem Dataset gruppiert und als ZIP-Datei hochgeladen werden. Jedes Dataset darf nur einen einzelnen Datentyp enthalten.
 
@@ -46,7 +54,7 @@ Dateien sollten nach Typ in einem Dataset gruppiert und als ZIP-Datei hochgelade
 
 Zum Vorbereiten der Aufnahmen von einzelnen Äußerungen und des zugehörigen Transkripts stehen zwei Methoden zur Auswahl. Entweder erstellen Sie zunächst das Skript, das dann von einem Sprecher eingesprochen wird, oder Sie nutzen eine öffentlich verfügbare Audiodatei und transkribieren diese in Text. Wenn Sie sich für Letzteres entscheiden, müssen Füllwörter wie „ähm“ sowie gestotterte, undeutlich gesprochene und falsch ausgesprochene Wörter entfernt werden.
 
-Die Erstellung eines guten Voicefonts setzt voraus, dass die Aufnahmen in einem ruhigen Raum mit einem qualitativ hochwertigen Mikrofon erstellt werden. Eine gleichmäßige Lautstärke, Geschwindigkeit und Tonhöhe sowie eine ausdrucksstarke Prosodie sind entscheidend.
+Die Erstellung eines guten Stimmmodells setzt voraus, dass die Aufnahmen in einem ruhigen Raum mit einem qualitativ hochwertigen Mikrofon erstellt werden. Eine gleichmäßige Lautstärke, Geschwindigkeit und Tonhöhe sowie eine ausdrucksstarke Prosodie sind entscheidend.
 
 > [!TIP]
 > Wenn Sie eine Stimme für eine Produktionsumgebung erstellen möchten, werden ein professioneller Sprecher und ein professionelles Tonstudio empfohlen. Weitere Informationen finden Sie unter [Aufzeichnen von Sprachbeispielen für eine benutzerdefinierte Stimme](record-custom-voice-samples.md).
@@ -89,9 +97,6 @@ Das folgende Beispiel zeigt, wie die Transkripte nach Äußerungen unterteilt in
 0000000003[tab] It was Janet Maslin.
 ```
 Entscheidend ist, dass die Transkripte zu 100 % mit den zugehörigen Audioaufnahmen übereinstimmen. Fehler in den Transkripten führen während des Trainings zu Qualitätsverlusten.
-
-> [!TIP]
-> Beim Erstellen von Sprachsynthesestimmen für eine Produktionsumgebung sollten Sie bei der Auswahl der Äußerungen (oder beim Schreiben der Skripts) sowohl auf eine ausreichende Anzahl phonetischer Eigenschaften als auch auf die phonetische Effizienz achten. Erzielen Sie nicht die gewünschten Ergebnisse? [Wenden Sie sich an das Custom Voice-Team](mailto:speechsupport@microsoft.com), um mehr über die Beratung durch uns zu erfahren.
 
 ## <a name="long-audio--transcript-beta"></a>Lange Audiodatei und Transkript (Betaversion)
 

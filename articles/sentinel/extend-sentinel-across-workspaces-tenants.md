@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757118"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006682"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Erweitern von Azure Sentinel auf Arbeitsbereiche und Mandanten
 
@@ -98,7 +98,7 @@ Anschließend können Sie eine Abfrage über beide Arbeitsbereiche schreiben, in
 <!-- Bookmark added for backward compatibility with old heading -->
 Arbeitsbereiche übergreifende Abfragen können jetzt in geplante Analyseregeln einbezogen werden, unterliegen aber den folgenden Beschränkungen:
 
-- Es können bis zu 15 Arbeitsbereiche in einer einzelnen Abfrage enthalten sein.
+- Es können bis zu 20 Arbeitsbereiche in einer einzelnen Abfrage enthalten sein.
 - Azure Sentinel muss in jedem Arbeitsbereich bereitgestellt sein, auf den in der Abfrage verwiesen wird.
 
 > [!NOTE] 
@@ -127,7 +127,7 @@ Mithilfe der arbeitsbereichsübergreifenden Hunting-Funktionen können Ihre Bedr
 
 Um mehrere Azure Sentinel-Arbeitsbereiche zu konfigurieren und zu verwalten, müssen Sie die Verwendung der Azure Sentinel Management-API automatisieren. Weitere Informationen zur automatisierten Bereitstellung von Azure Sentinel-Ressourcen, einschließlich Warnungsregeln, Hunting-Abfragen, Arbeitsmappen und Playbooks, finden Sie unter [Erweitern von Azure Sentinel: APIs, Integration und Verwaltungsautomatisierung](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-Weitere Informationen finden Sie zudem unter [Bereitstellen und Verwalten von Azure Sentinel als Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) und [Kombinieren von Azure Lighthouse mit DevOps-Funktionen für Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966). Mithilfe einer konsolidierten, von der Community unterstützten Methode können Sie Azure Sentinel als Code verwalten und Ressourcen über ein privates GitHub-Repository bereitstellen und konfigurieren. 
+Weitere Informationen finden Sie zudem unter [Bereitstellen und Verwalten von Azure Sentinel als Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) und [Kombinieren von Azure Lighthouse mit DevOps-Funktionen für Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966). Mithilfe einer konsolidierten, von der Community unterstützten Methode können Sie Azure Sentinel als Code verwalten und Ressourcen über ein privates GitHub-Repository bereitstellen und konfigurieren. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Mandantenübergreifende Verwaltung von Arbeitsbereichen mithilfe von Azure Lighthouse
 

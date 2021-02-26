@@ -14,21 +14,21 @@ ms.workload: infrastructure
 ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ec3500c124d3e4f8cb1b46445c28c6a64c93526
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d941bd9735149d08bfbd63ec97337dd7a3bac43b
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195448"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226657"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Was ist SAP HANA in Azure (große Instanzen)?
 
-SAP HANA in Azure (große Instanzen) ist eine einzigartige Lösung in Azure. Neben VMs zum Bereitstellen und Ausführen von SAP HANA bietet Azure Ihnen die Möglichkeit, SAP HANA auf Ihnen zugeordneten Bare-Metal-Servern auszuführen und bereitzustellen. Grundlage der Lösung „SAP HANA in Azure (große Instanzen)“ ist dedizierte, d. h. ausschließlich Ihnen zugewiesene Bare-Metal-Host- bzw. -Serverhardware. Die Serverhardware ist in größere Stempel eingebettet, die Infrastruktur für Compute/Server, Netzwerke und Speicher enthalten. Als Kombination ist die Lösung für HANA Tailored Data Center Integration (TDI) zertifiziert. Für SAP HANA in Azure (große Instanzen) sind verschiedene Server-SKUs oder -größen verfügbar. Einheiten können 36 Intel CPU-Kerne und 768 GB Arbeitsspeicher aufweisen. Bis zu 480 Intel CPU-Kerne und 24 TB Arbeitsspeicher sind für Einheiten möglich.
+SAP HANA in Azure (große Instanzen) ist eine einzigartige Lösung in Azure. Neben VMs zum Bereitstellen und Ausführen von SAP HANA bietet Azure Ihnen die Möglichkeit, SAP HANA auf Ihnen zugeordneten Bare-Metal-Servern auszuführen und bereitzustellen. Grundlage der Lösung „SAP HANA in Azure (große Instanzen)“ ist dedizierte, d. h. ausschließlich Ihnen zugewiesene Bare-Metal-Host- bzw. -Serverhardware. Die Serverhardware ist in größere Stempel eingebettet, die Infrastruktur für Compute/Server, Netzwerke und Speicher enthalten. Für SAP HANA in Azure (große Instanzen) sind verschiedene Server-SKUs oder -größen verfügbar. Einheiten können 36 Intel CPU-Kerne und 768 GB Arbeitsspeicher aufweisen. Bis zu 480 Intel CPU-Kerne und 24 TB Arbeitsspeicher sind für Einheiten möglich.
 
 Die Kundenisolation innerhalb des Infrastrukturumfelds wird in Mandanten wie folgt durchgeführt:
 
 - **Netzwerk**: Isolation von Kunden innerhalb des Infrastrukturstapels durch virtuelle Netzwerke pro dem Kunden zugewiesenem Mandanten. Ein Mandant wird einem einzelnen Kunden zugewiesen. Ein Kunde kann mehrere Mandanten haben. Die Netzwerkisolation von Mandanten verhindert die Netzwerkkommunikation zwischen Mandanten auf der Ebene des Infrastrukturumfelds. Dies ist auch dann der Fall, wenn die Mandanten zum selben Kunden gehören.
-- **Speicherkomponenten:** Isolation durch Speicher-VMs, denen Speichervolumes zugewiesen sind. Speichervolumen können nur einem virtuellen Speichercomputer zugewiesen werden. Ein virtueller Speichercomputer wird nur einem einzigen Mandanten im SAP HANA-TDI-zertifizierten Infrastrukturstapel zugewiesen. Folglich kann nur in einem bestimmten verknüpften Mandanten auf Speichervolumes zugegriffen werden, die einer Speicher-VM zugewiesen sind. Sie sind zwischen den verschiedenen bereitgestellten Mandanten nicht sichtbar.
+- **Speicherkomponenten:** Isolation durch Speicher-VMs, denen Speichervolumes zugewiesen sind. Speichervolumen können nur einem virtuellen Speichercomputer zugewiesen werden. Ein virtueller Speichercomputer wird nur einem einzelnen Mandanten im Infrastrukturstapel zugewiesen. Folglich kann nur in einem bestimmten verknüpften Mandanten auf Speichervolumes zugegriffen werden, die einer Speicher-VM zugewiesen sind. Sie sind zwischen den verschiedenen bereitgestellten Mandanten nicht sichtbar.
 - **Server oder Host:** Eine Server- oder Hosteinheit wird nicht zwischen Kunden oder Mandanten freigegeben. Ein Server oder Host, der einem Kunden bereitgestellt wird, ist eine unteilbare Bare-Metal-Computeeinheit, die einem einzigen Mandanten zugewiesen wird. Es wird *keine* Hard- oder Softpartitionierung verwendet, die dazu führen könnte, dass Sie einen Host oder Server für einen anderen Kunden freigeben. Speichervolumen, die dem virtuellen Speichercomputer des spezifischen Kunden zugewiesen sind, werden in einen derartigen Server eingebunden. Einem Mandant kann eine oder mehrere Servereinheiten verschiedener SKUs exklusiv zugewiesen werden.
 - In einem Infrastrukturumfeld von SAP HANA in Azure (große Instanzen) werden viele verschiedene Mandanten anhand der Mandantenkonzepte auf Netzwerk-, Speicher- und Computeebene bereitgestellt und voneinander isoliert. 
 

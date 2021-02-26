@@ -4,17 +4,17 @@ description: Hier erfahren Sie, wie Sie in IoT Central unter Verwendung der ent
 author: avneet723
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 23e1880a3abac6ebda71eaa36276d2bf5815048e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347471"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833778"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Micro-Fulfillment-Center-Architektur
 

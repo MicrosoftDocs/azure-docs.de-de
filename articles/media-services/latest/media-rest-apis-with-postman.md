@@ -1,5 +1,5 @@
 ---
-title: Konfigurieren von Postman für Azure Media Services v3 REST-API-Aufrufe
+title: Konfigurieren von Postman für die Azure Media Services v3-REST-API
 description: In diesem Artikel wird veranschaulicht, wie Sie Postman so konfigurieren, dass das Tool für den Aufruf von Azure Media Services-REST-APIs verwendet werden kann.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a521ddeee6d93ce809e5e6e85eefa1f01a3f12
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297704"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953970"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Konfigurieren von Postman für Media Services v3 REST-API-Aufrufe
 

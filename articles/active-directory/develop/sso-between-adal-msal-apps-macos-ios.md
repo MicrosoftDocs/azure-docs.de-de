@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 396e9cfeace8791a59dec4a9c9c7203212f57304
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756207"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584246"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Vorgehensweise: SSO zwischen ADAL- und MSAL-Apps auf macOS und iOS
 
@@ -34,7 +34,7 @@ Dieser Abschnitt zeigt die SSO-Unterschiede zwischen MSAL und ADAL 2.7.x
 
 ### <a name="cache-format"></a>Cacheformat
 
-ADAL 2.7.x kann das MSAL-Cacheformat lesen. Für App-übergreifendes SSO mit der Version ADAL 2.7.x müssen Sie nichts Weiteres tun. Sie müssen sich jedoch der Unterschiede bei den Kontobezeichnern bewusst sein, die diese beiden Bibliotheken unterstützen.
+ADAL 2.7.x kann das MSAL-Cacheformat lesen. Für App-übergreifendes SSO mit der Version ADAL 2.7.x müssen Sie nichts Weiteres tun. Machen Sie sich jedoch der Unterschiede bei den Kontobezeichnern bewusst, die diese beiden Bibliotheken unterstützen.
 
 ### <a name="account-identifier-differences"></a>Unterschiede bei Kontobezeichnern
 

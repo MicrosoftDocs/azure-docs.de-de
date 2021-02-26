@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735157"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493904"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Meraki Dashboard
 
@@ -103,7 +103,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
     ![Bearbeiten des SAML-Signaturzertifikats](common/edit-certificate.png)
 
-1. Kopieren Sie im Abschnitt **SAML-Signaturzertifikat** unter **Fingerabdruck** den Fingerabdruckwert, und speichern Sie ihn auf Ihrem Computer.
+1. Kopieren Sie im Abschnitt **SAML-Signaturzertifikat** unter **Fingerabdruck** den Fingerabdruckwert, und speichern Sie ihn auf Ihrem Computer. Dieser Wert muss in einen Wert mit Doppelpunkten konvertiert werden, damit er vom Meraki-Dashboard interpretiert werden kann. Wenn der Fingerabdruck von Azure beispielsweise `C2569F50A4AAEDBB8E` lautet, muss er in `C2:56:9F:50:A4:AA:ED:BB:8E` geändert werden, damit er später auf dem Meraki-Dashboard verwendet werden kann.
 
     ![Kopieren des Fingerabdruckwerts](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
     ![Meraki Dashboard: Add a SAML IdP (SAML-IdP hinzufügen)](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Fügen Sie in das Textfeld **X.590 cert SHA1 fingerprint** (SHA1-Fingerabdruck des X.590-Zertifikats) den Wert für **Fingerabdruck** aus dem Azure-Portal ein. Klicken Sie anschließend auf **Speichern**. Nach dem Speichern wird die Consumer-URL angezeigt. Kopieren Sie den Wert der Consumer-URL, und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Textfeld **Antwort-URL** ein.
+1. Fügen Sie den konvertierten Wert für **Fingerabdruck**, den Sie aus dem Azure-Portal kopiert und gemäß Schritt 9 des vorherigen Abschnitts in das angegebene Format konvertiert haben, in das Textfeld **X.590 cert SHA1 fingerprint** (SHA1-Fingerabdruck des X.590-Zertifikats) ein. Klicken Sie anschließend auf **Speichern**. Nach dem Speichern wird die Consumer-URL angezeigt. Kopieren Sie den Wert der Consumer-URL, und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Textfeld **Antwort-URL** ein.
 
     ![Meraki Dashboard-Konfiguration](./media/meraki-dashboard-tutorial/configure-4.png)
 

@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119457"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955648"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Live Video Analytics-Upgrade auf IoT Edge von 1.0 auf 2.0
 
@@ -37,7 +37,7 @@ Suchen Sie in Ihrer Bereitstellungsvorlage unter dem Knoten `modules` nach ihrer
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-Wenn Sie den Namen der Live Video Analytics-Instanz auf dem IoT Edge-Modul nicht geändert haben, suchen Sie unter dem Modulknoten nach `lvaEdge`.
+> Wenn Sie den Namen der Live Video Analytics-Instanz auf dem IoT Edge-Modul nicht geändert haben, suchen Sie unter dem Modulknoten nach `lvaEdge`.
 
 ### <a name="topology-file-changes"></a>Änderungen der Topologiedatei
 Stellen Sie in den Topologiedateien sicher, dass **`apiVersion`** auf 2.0 festgelegt ist.
@@ -58,9 +58,9 @@ Stellen Sie in den Topologiedateien sicher, dass **`apiVersion`** auf 2.0 festge
 >**`outputSelectors`** ist eine optionale Eigenschaft. Wenn sie nicht verwendet wird, gibt MediaGraph die Audiodaten (sofern aktiviert) und die Videodaten von der RTSP-Kamera downstream weiter. 
 
 * Beachten Sie in den Prozessoren `MediaGraphHttpExtension` und `MediaGraphGrpcExtension` die folgenden Änderungen:  
-    * **Image-Eigenschaften**
-        * `MediaGraphImageFormatEncoded` wird nicht mehr unterstützt. 
-        * Verwenden Sie stattdessen **`MediaGraphImageFormatBmp`** oder **`MediaGraphImageFormatJpeg`** oder **`MediaGraphImageFormatPng`** . Beispiel:
+    #### <a name="image-properties"></a>Image-Eigenschaften
+    * `MediaGraphImageFormatEncoded` wird nicht mehr unterstützt. 
+      * Verwenden Sie stattdessen **`MediaGraphImageFormatBmp`** oder **`MediaGraphImageFormatJpeg`** oder **`MediaGraphImageFormatPng`** . Beispiel:
         ```
         "image": {
                 "scale": 
@@ -94,14 +94,14 @@ Stellen Sie in den Topologiedateien sicher, dass **`apiVersion`** auf 2.0 festge
         >[!NOTE]
         > Folgende pixelFormat-Werte sind möglich: `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`.  
 
-    * **extensionConfiguration für den gRPC-Erweiterungsprozessor**  
-        * In einem `MediaGraphGrpcExtension`-Prozessor ist eine neue Eigenschaft namens **`extensionConfiguration`** verfügbar, eine optionale Zeichenfolge, die als Teil des gRPC-Vertrags verwendet werden kann. Dieses Feld kann verwendet werden, um beliebige Daten an den Rückschlussserver weiterzugeben, und Sie können definieren, wie der Rückschlussserver diese Daten verwendet.  
-        Ein Anwendungsfall dieser Eigenschaft liegt vor, wenn Sie mehrere KI-Modelle in einen einzelnen Rückschlussserver gepackt haben. Mit dieser Eigenschaft müssen Sie nicht für jedes KI-Modell einen Knoten verfügbar machen. Stattdessen können Sie als Erweiterungsanbieter für eine Diagramminstanz definieren, wie die verschiedenen KI-Modelle mithilfe der **`extensionConfiguration`** -Eigenschaft ausgewählt werden, und während der Ausführung gibt LVA diese Zeichenfolge an den Rückschlussserver weiter, der mit ihr das gewünschte KI-Modell aufrufen kann.  
+    #### <a name="extensionconfiguration-for-grpc-extension-processor"></a>extensionConfiguration für den gRPC-Erweiterungsprozessor  
+    * In einem `MediaGraphGrpcExtension`-Prozessor ist eine neue Eigenschaft namens **`extensionConfiguration`** verfügbar, eine optionale Zeichenfolge, die als Teil des gRPC-Vertrags verwendet werden kann. Dieses Feld kann verwendet werden, um beliebige Daten an den Rückschlussserver weiterzugeben, und Sie können definieren, wie der Rückschlussserver diese Daten verwendet.  
+    Ein Anwendungsfall dieser Eigenschaft liegt vor, wenn Sie mehrere KI-Modelle in einen einzelnen Rückschlussserver gepackt haben. Mit dieser Eigenschaft müssen Sie nicht für jedes KI-Modell einen Knoten verfügbar machen. Stattdessen können Sie als Erweiterungsanbieter für eine Diagramminstanz definieren, wie die verschiedenen KI-Modelle mithilfe der **`extensionConfiguration`** -Eigenschaft ausgewählt werden, und während der Ausführung gibt LVA diese Zeichenfolge an den Rückschlussserver weiter, der mit ihr das gewünschte KI-Modell aufrufen kann.  
 
-    * **KI-Komposition**
-        * Live Video Analytics 2.0 unterstützt jetzt die Verwendung mehrerer MediaGraph-Erweiterungsprozessoren innerhalb einer Topologie. Sie können die Medienframes von der RTSP-Kamera sequenziell, parallel oder in einer Kombination aus beidem an verschiedene KI-Modelle weitergeben. Hier sehen Sie eine Beispieltopologie mit zwei sequenziell verwendeten KI-Modellen.
+    #### <a name="ai-composition"></a>KI-Komposition
+    * Live Video Analytics 2.0 unterstützt jetzt die Verwendung mehrerer MediaGraph-Erweiterungsprozessoren innerhalb einer Topologie. Sie können die Medienframes von der RTSP-Kamera sequenziell, parallel oder in einer Kombination aus beidem an verschiedene KI-Modelle weitergeben. Hier sehen Sie eine Beispieltopologie mit zwei sequenziell verwendeten KI-Modellen.
 
-
+### <a name="disk-space-management-with-sink-nodes"></a>Speicherplatzverwaltung mit Senkeknoten
 * In Ihrem **Dateisenke**-Knoten können Sie jetzt angeben, wieviel Speicherplatz auf dem Datenträger die Live Video Analytics-Instanz auf dem IoT Edge-Modul zum Speichern der verarbeiteten Bilder verwenden kann. Fügen Sie zu diesem Zweck dem Dateisenke-Knoten das Feld **`maximumSizeMiB`** hinzu. Ein Beispiel für einen Dateisenke-Knoten sieht wie folgt aus:
     ```
     "sinks": [
@@ -154,6 +154,7 @@ Stellen Sie in den Topologiedateien sicher, dass **`apiVersion`** auf 2.0 festge
     >[!NOTE]
     >  Der **Dateisenke**-Pfad ist in den Basisverzeichnispfad und das Dateinamenmuster aufgeteilt, während der **Medienobjektsenke**-Pfad den Basisverzeichnispfad enthält.  
 
+### <a name="frame-rate-management"></a>Bildfrequenzverwaltung
 * **`MediaGraphFrameRateFilterProcessor`** ist in **Live Video Analytics 2.0 auf dem IoT Edge-Modul** veraltet.
     * Um Stichproben der eingehenden Videodaten zur Verarbeitung zu entnehmen, fügen Sie die **`samplingOptions`** -Eigenschaft den MediaGraph-Erweiterungsprozessoren (`MediaGraphHttpExtension` oder `MediaGraphGrpcExtension`) hinzu.  
      ```
@@ -169,7 +170,7 @@ Mit diesem Release kann Telegraf zum Senden von Metriken an Azure Monitor verwen
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomie von Ereignissen":::
 
-Sie können ein Telegraf-Image mit einer benutzerdefinierten Konfiguration problemlos mithilfe von Docker entwickeln. Weitere Informationen hierzu finden Sie auf der Seite [Überwachung und Protokollierung](monitoring-logging.md#azure-monitor-collection-via-telegraf).
+Sie können ein Telegraf-Image mit einer benutzerdefinierten Konfiguration problemlos mithilfe von Docker entwickeln. Weitere Informationen finden Sie auf der Seite [Überwachung und Protokollierung](monitoring-logging.md#azure-monitor-collection-via-telegraf).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

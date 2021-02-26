@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906309"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807291"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Automatisches Erstellen von Incidents aus Microsoft-Sicherheitswarnungen
 
-Mit Azure Sentinel in Zusammenhang stehende Warnungen, die in Microsoft-Sicherheitslösungen ausgelöst werden, wie Microsoft Cloud App Security und Microsoft Defender for Identity (vormals Azure ATP), erstellen nicht automatisch Incidents in Azure Sentinel. Bei der Verbindung einer Microsoft-Lösung mit Azure Sentinel werden alle in diesem Dienst generierten Warnungen standardmäßig als Rohdaten in Azure Sentinel in der Tabelle mit den Sicherheitswarnungen in Ihrem Azure Sentinel-Arbeitsbereich gespeichert. Sie können diese Daten dann wie alle anderen Rohdaten verwenden, die Sie mit Sentinel verbinden.
+Mit Azure Sentinel in Zusammenhang stehende Warnungen, die in Microsoft-Sicherheitslösungen ausgelöst werden, wie Microsoft Cloud App Security und Microsoft Defender for Identity (vormals Azure ATP), erstellen nicht automatisch Incidents in Azure Sentinel. Bei der Verbindung einer Microsoft-Lösung mit Azure Sentinel werden alle in diesem Dienst generierten Warnungen standardmäßig als Rohdaten in Azure Sentinel in der Tabelle mit den Sicherheitswarnungen in Ihrem Azure Sentinel-Arbeitsbereich gespeichert. Sie können diese Daten dann wie alle anderen Rohdaten verwenden, die Sie mit Azure Sentinel verbinden.
 
 Sie können Azure Sentinel ganz einfach so konfigurieren, dass Incidents immer automatisch erstellt werden, wenn eine Warnung in einer verbundenen Microsoft-Sicherheitslösung ausgelöst wird. Befolgen Sie hierzu die Anweisungen in diesem Artikel.
 

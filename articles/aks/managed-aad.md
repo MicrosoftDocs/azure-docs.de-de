@@ -3,14 +3,14 @@ title: Verwenden von Azure AD in Azure Kubernetes Service
 description: Erfahren Sie, wie Sie Azure AD in Azure Kubernetes Service (AKS) verwenden.
 services: container-service
 ms.topic: article
-ms.date: 08/26/2020
-ms.author: thomasge
-ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 02/1/2021
+ms.author: miwithro
+ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684184"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549998"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Von AKS verwaltete Azure Active Directory-Integration
 
@@ -46,7 +46,6 @@ kubelogin --version
 ```
 
 Verwenden Sie für andere Betriebssysteme [diese Anweisungen](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -188,6 +187,50 @@ Wenn Sie auf den Cluster zugreifen möchten, befolgen Sie die [hier][access-clus
 
 Es gibt einige nicht interaktive Szenarien, z. B. Continuous Integration-Pipelines, die für Kubectl derzeit nicht verfügbar sind. Sie können [`kubelogin`](https://github.com/Azure/kubelogin) verwenden, um über eine nicht interaktive Dienstprinzipalanmeldung auf den Cluster zuzugreifen.
 
+## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Verwenden von bedingtem Zugriff mit Azure AD und AKS
+
+Wenn Sie Azure AD in Ihren AKS-Cluster integrieren, können Sie den Zugriff darauf auch mithilfe von [bedingtem Zugriff][aad-conditional-access] steuern.
+
+> [!NOTE]
+> Bedingter Azure AD-Zugriff ist eine Azure AD Premium-Funktion.
+
+Wenn Sie eine Beispielrichtlinie für bedingten Zugriff zur Verwendung mit AKS erstellen möchten, führen Sie die folgenden Schritte aus:
+
+1. Suchen Sie oben im Azure-Portal nach dem Dienst Azure Active Directory, und wählen Sie ihn aus.
+1. Wählen Sie auf der linken Seite im Menü für Azure Active Directory *Unternehmensanwendungen* aus.
+1. Wählen Sie auf der linken Seite im Menü für Unternehmensanwendungen *Bedingter Zugriff* aus.
+1. Wählen Sie auf der linken Seite im Menü für „Bedingter Zugriff“ *Richtlinien* und dann *Neue Richtlinie* aus.
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Hinzufügen einer Richtlinie für bedingten Zugriff":::
+1. Geben Sie einen Namen für die Richtlinie ein (z. B. *AKS-Richtlinie*).
+1. Wählen Sie *Benutzer und Gruppen* und dann unter *Einschließen* die Option *Benutzer und Gruppen* aus. Wählen Sie die Benutzer und Gruppen aus, auf die Sie die Richtlinie anwenden möchten. Wählen Sie für dieses Beispiel dieselbe Azure AD Gruppe aus, die Administratorzugriff auf Ihren Cluster hat.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Auswählen von Benutzern oder Gruppen zum Anwenden der Richtlinie für bedingten Zugriff":::
+1. Wählen Sie *Cloud-Apps oder -Aktionen* und dann unter *Einschließen* die Option *Apps auswählen* aus. Suchen Sie nach *Azure Kubernetes Service*, und wählen Sie *Azure Kubernetes Service AAD Server* aus.
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Auswählen von Azure Kubernetes Service AD Server zum Anwenden der Richtlinie für bedingten Zugriff":::
+1. Klicken Sie unter *Zugriffssteuerungen* auf *Gewähren*. Wählen Sie *Zugriff gewähren* und dann *Markieren des Geräts als kompatibel erforderlich* aus.
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Auswählen, dass nur kompatible Geräte für die Richtlinie für bedingten Zugriff zugelassen werden":::
+1. Wählen Sie unter *Richtlinie aktivieren* die Option *Ein* und dann *Erstellen* aus.
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Aktivieren der Richtlinie für bedingten Zugriff":::
+
+Rufen Sie die Benutzeranmeldeinformationen für den Zugriff auf den Cluster ab, beispielsweise:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Befolgen Sie die Anweisungen zum Anmelden.
+
+Verwenden Sie den Befehl `kubectl get nodes` zum Anzeigen von Knoten im Cluster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Befolgen Sie die Anweisungen zum erneuten Anmelden. Beachten Sie die angezeigte Fehlermeldung. Sie werden darin informiert, dass Sie erfolgreich angemeldet sind, Ihr Administrator aber verlangt, dass das Gerät Zugriff anfordert, damit es für den Zugriff auf die Ressource von Ihrem Azure AD verwaltet werden kann.
+
+Navigieren Sie im Azure-Portal zu Azure Active Directory, wählen Sie *Unternehmensanwendungen* und dann unter *Aktivität* die Option *Anmeldedaten* aus. Beachten Sie oben den Eintrag. Für *Status* wird der Wert *Fehler* und für *Bedingter Zugriff* der Wert *Erfolg* angezeigt. Wählen Sie den Eintrag und dann in *Details* die Option *Bedingter Zugriff* aus. Wie Sie sehen können, ist Ihre Richtlinie für bedingten Zugriff aufgeführt.
+
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Anmeldeeintrag „Fehler“ aufgrund der Richtlinie für bedingten Zugriff":::
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Informieren Sie sich über die [Verwendung der Azure RBAC-Integration für die Kubernetes-Autorisierung][azure-rbac-integration].
@@ -202,6 +245,7 @@ Es gibt einige nicht interaktive Szenarien, z. B. Continuous Integration-Pipeli
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

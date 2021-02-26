@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046042"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430627"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Erstellen und Bereitstellen eines IoT Edge-Geräts mit einem TPM unter Linux
 
@@ -49,11 +49,11 @@ Mit einem virtuellen Switch können Sie Ihren virtuellen Computer mit einem phys
 
 1. Öffnen Sie Hyper-V-Manager auf Ihrem Windows-Computer.
 
-2. Klicken Sie im Menü **Aktionen** auf **Manager für virtuelle Switches** .
+2. Klicken Sie im Menü **Aktionen** auf **Manager für virtuelle Switches**.
 
-3. Wählen Sie einen **externen** virtuellen Switch, und klicken Sie anschließend auf **Virtuellen Switch erstellen** .
+3. Wählen Sie einen **externen** virtuellen Switch, und klicken Sie anschließend auf **Virtuellen Switch erstellen**.
 
-4. Geben Sie Ihrem neuen virtuellen Switch einen Namen, z.B. **EdgeSwitch** . Stellen Sie sicher, dass der Verbindungstyp auf **Externes Netzwerk** , festgelegt ist, und klicken Sie anschließend auf **OK** .
+4. Geben Sie Ihrem neuen virtuellen Switch einen Namen, z.B. **EdgeSwitch**. Stellen Sie sicher, dass der Verbindungstyp auf **Externes Netzwerk**, festgelegt ist, und klicken Sie anschließend auf **OK**.
 
 5. Ein Popup warnt Sie, dass die Netzwerkkonnektivität möglicherweise unterbrochen wird. Wählen Sie **Yes** (Ja), um fortzufahren.
 
@@ -63,15 +63,15 @@ Wenn beim Erstellen des neuen Switches Fehler angezeigt werden, stellen Sie sich
 
 1. Laden Sie eine für Ihren virtuellen Computer zu verwendende Festplatten-Imagedatei herunter, und speichern Sie sie lokal. Beispiel: [Ubuntu-Server 18.04](http://releases.ubuntu.com/18.04/). Informationen zu unterstützten Betriebssystemen für IoT Edge-Geräte finden Sie unter [Von Azure IoT Edge unterstützte Systeme](support.md).
 
-2. Navigieren Sie im Hyper-V-Manager im Menü **Aktionen** zu **Aktion** > **Neu** > **Virtueller Computer** .
+2. Navigieren Sie im Hyper-V-Manager im Menü **Aktionen** zu **Aktion** > **Neu** > **Virtueller Computer**.
 
 3. Geben Sie im **Assistenten für neue virtuelle Computer** die folgenden speziellen Konfigurationen ein:
 
-   1. **Generation angeben** : Wählen Sie **Generation 2** aus. Für virtuelle Computer der zweiten Generation ist die geschachtelte Virtualisierung aktiviert, die zum Ausführen von IoT Edge auf einem virtuellen Computer erforderlich ist.
-   2. **Konfigurieren der Netzwerkeinstellungen** : Legen Sie den Wert der **Verbindung** auf den virtuellen Switch fest, den Sie im vorherigen Abschnitt erstellt haben.
-   3. **Installationsoptionen** : Wählen Sie **Betriebssystem von einer startbaren Imagedatei installieren** aus, und navigieren Sie zu der Datenträger-Imagedatei, die Sie lokal gespeichert haben.
+   1. **Generation angeben**: Wählen Sie **Generation 2** aus. Für virtuelle Computer der zweiten Generation ist die geschachtelte Virtualisierung aktiviert, die zum Ausführen von IoT Edge auf einem virtuellen Computer erforderlich ist.
+   2. **Konfigurieren der Netzwerkeinstellungen**: Legen Sie den Wert der **Verbindung** auf den virtuellen Switch fest, den Sie im vorherigen Abschnitt erstellt haben.
+   3. **Installationsoptionen**: Wählen Sie **Betriebssystem von einer startbaren Imagedatei installieren** aus, und navigieren Sie zu der Datenträger-Imagedatei, die Sie lokal gespeichert haben.
 
-4. Wählen Sie im Assistenten die Option **Fertig stellen** , um den virtuellen Computer zu erstellen.
+4. Wählen Sie im Assistenten die Option **Fertig stellen**, um den virtuellen Computer zu erstellen.
 
 Die Erstellung der neuen VM kann einige Minuten dauern.
 
@@ -81,13 +81,13 @@ Die Erstellung der neuen VM kann einige Minuten dauern.
 
 1. Klicken Sie im Hyper-V-Manager mit der rechten Maustaste auf den virtuellen Computer, und wählen Sie **Einstellungen** aus.
 
-2. Navigieren zu **Sicherheit** .
+2. Navigieren zu **Sicherheit**.
 
-3. Deaktivieren Sie **Sicheren Start aktivieren** .
+3. Deaktivieren Sie **Sicheren Start aktivieren**.
 
-4. Aktivieren Sie **Trusted Platform Module aktivieren** .
+4. Aktivieren Sie **Trusted Platform Module aktivieren**.
 
-5. Klicken Sie auf **OK** .  
+5. Klicken Sie auf **OK**.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Starten des virtuellen Computers und Erfassen von TPM-Daten
 
@@ -132,7 +132,7 @@ Sollten Sie anstelle eines virtuellen Computers ein physisches IoT Edge-Gerät 
    sudo ./tpm_device_provision
    ```
 
-1. Kopieren Sie die Werte für **Registrierungs-ID** und **Endorsement Key** . Sie können diese Werte verwenden, um eine individuelle Registrierung für Ihr Gerät im DPS zu erstellen.
+1. Kopieren Sie die Werte für **Registrierungs-ID** und **Endorsement Key**. Sie können diese Werte verwenden, um eine individuelle Registrierung für Ihr Gerät im DPS zu erstellen.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Einrichten des IoT Hub Device Provisioning Service
 
@@ -144,18 +144,18 @@ Nachdem Sie den Device Provisioning-Dienst ausgeführt haben, kopieren Sie den W
 
 Rufen Sie die Bereitstellungsinformationen von Ihrem virtuellen Computer ab, und verwenden Sie diese, um eine individuelle Registrierung im Device Provisioning-Dienst zu erstellen.
 
-Wenn Sie eine Registrierung im DPS erstellen, haben Sie die Möglichkeit zum Angeben von **Anfänglicher Status von Gerätezwilling** . Im Gerätezwilling können Sie Tags zum Gruppieren von Geräten nach jeder beliebigen Metrik, z.B. Region, Umgebung, Speicherort oder Geräte, festlegen, die Sie in Ihrer Projektmappe benötigen. Diese Tags werden zum Erstellen von [automatischen Bereitstellungen](how-to-deploy-at-scale.md) verwendet.
+Wenn Sie eine Registrierung im DPS erstellen, haben Sie die Möglichkeit zum Angeben von **Anfänglicher Status von Gerätezwilling**. Im Gerätezwilling können Sie Tags zum Gruppieren von Geräten nach jeder beliebigen Metrik, z.B. Region, Umgebung, Speicherort oder Geräte, festlegen, die Sie in Ihrer Projektmappe benötigen. Diese Tags werden zum Erstellen von [automatischen Bereitstellungen](how-to-deploy-at-scale.md) verwendet.
 
 > [!TIP]
 > Über die Azure-Befehlszeilenschnittstelle können Sie eine [Registrierung](/cli/azure/ext/azure-iot/iot/dps/enrollment) erstellen und mithilfe des Flags **edge-enabled** angeben, dass es sich bei einem Gerät um ein IoT Edge-Gerät handelt.
 
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer Instanz des IoT Hub Device Provisioning Service.
 
-2. Klicken Sie in **Einstellungen** auf **Registrierungen verwalten** .
+2. Klicken Sie in **Einstellungen** auf **Registrierungen verwalten**.
 
-3. Klicken Sie auf **Individuelle Registrierung hinzufügen** , und führen Sie dann die folgenden Schritte aus, um die Registrierung zu konfigurieren:  
+3. Klicken Sie auf **Individuelle Registrierung hinzufügen**, und führen Sie dann die folgenden Schritte aus, um die Registrierung zu konfigurieren:  
 
-   1. Klicken Sie unter **Mechanismus** auf die Option **TPM** .
+   1. Klicken Sie unter **Mechanismus** auf die Option **TPM**.
 
    2. Geben Sie den **Endorsement Key** und die **Registrierungs-ID** an, den bzw. die Sie von Ihrem virtuellen Computer kopiert haben.
 
@@ -164,7 +164,7 @@ Wenn Sie eine Registrierung im DPS erstellen, haben Sie die Möglichkeit zum Ang
 
    3. Stellen Sie nach Wunsch eine ID für Ihr Gerät bereit. Wenn Sie keine Geräte-ID angeben, wird die Registrierungs-ID verwendet.
 
-   4. Wählen Sie **True** , um anzugeben, dass dieser virtuelle Computer ein IoT Edge-Gerät ist.
+   4. Wählen Sie **True**, um anzugeben, dass dieser virtuelle Computer ein IoT Edge-Gerät ist.
 
    5. Wählen Sie die verknüpfte IoT Hub-Instanz aus, mit der Sie Ihr Gerät verbinden möchten, oder wählen Sie **Link to new IoT Hub** (Mit neuer IoT Hub-Instanz verknüpfen) aus. Sie können mehrere Hubs auswählen. Das Gerät wird dann je nach gewählter Zuweisungsrichtlinie einem dieser Hubs zugewiesen.
 
@@ -184,7 +184,7 @@ Führen Sie die Schritte unter [Installieren der Azure IoT Edge-Runtime](how-to-
 
 Sobald die Runtime auf Ihrem Gerät installiert wurde, konfigurieren Sie es mit den Informationen, die es zum Herstellen einer Verbindung zwischen Device Provisioning Service und IoT Hub verwendet.
 
-1. Ermitteln Sie Ihren DPS- **ID-Bereich** und die **Registrierungs-ID** des Geräts, die in den vorhergehenden Abschnitten erfasst wurden.
+1. Ermitteln Sie Ihren DPS-**ID-Bereich** und die **Registrierungs-ID** des Geräts, die in den vorhergehenden Abschnitten erfasst wurden.
 
 1. Öffnen Sie die Konfigurationsdatei auf dem IoT Edge-Gerät.
 
@@ -205,7 +205,11 @@ Sobald die Runtime auf Ihrem Gerät installiert wurde, konfigurieren Sie es mit 
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Verwenden Sie optional die Zeilen `always_reprovision_on_startup` oder `dynamic_reprovisioning`, um das Verhalten bei der erneuten Bereitstellung Ihres Geräts zu konfigurieren. Wenn für ein Gerät die erneute Bereitstellung beim Start festgelegt wurde, wird es immer zuerst versuchen, mit DPS bereitzustellen, und – falls das fehlschlägt – auf die Bereitstellungssicherung zurückgreifen. Wurde für ein Gerät festgelegt, dass es sich selbst dynamisch erneut bereitstellt, wird IoT Edge neu gestartet und erneut bereitgestellt, wenn ein erneutes Bereitstellungsereignis erkannt wird. Weitere Informationen finden Sie unter [IoT Hub Device-Konzepte für die erneute Bereitstellung](../iot-dps/concepts-device-reprovision.md).
 
 1. Aktualisieren Sie die Werte `scope_id` und `registration_id` mit Ihren DPS- und Geräteinformationen.
 

@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131461"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593394"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Verwalten von Kosten mit Azure-Budgets
 
 Kostenkontrolle ist eine wichtige Komponente zur Maximierung des Nutzens Ihrer Investition in der Cloud. Es gibt mehrere Szenarien, in denen Kostensichtbarkeit, Berichterstellung und kostenbasierte Orchestrierung für fortgesetzte Geschäftsvorgänge entscheidend sind. Zur Unterstützung dieser einzelnen Szenarien stehen die [Azure Cost Management-APIs](/rest/api/consumption/) zur Verfügung. Die-APIs bieten Nutzungsdetails, mit deren Hilfe Sie die Kosten präzise auf Instanzebene anzeigen können.
 
-Budgets werden häufig als Teil der Kostenkontrolle verwendet. Budgets können in Azure festgelegt werden. Beispielsweise können Sie Ihre Budgetansicht auf Grundlage von Abonnement, Ressourcengruppen oder einer Sammlung von Ressourcen konzentrieren. Sie können jedoch nicht nur die Budget-API verwenden, um sich per E-Mail benachrichtigen zu lassen, wenn ein Budgetschwellenwert erreicht wird, sondern auch die [Azure Monitor-Aktionsgruppen](../../azure-monitor/platform/action-groups.md) nutzen, um einen orchestrierten Satz von Aktionen auszulösen, der aus einem Budgetereignis resultiert.
+Budgets werden häufig als Teil der Kostenkontrolle verwendet. Budgets können in Azure festgelegt werden. Beispielsweise können Sie Ihre Budgetansicht auf Grundlage von Abonnement, Ressourcengruppen oder einer Sammlung von Ressourcen konzentrieren. Sie können jedoch nicht nur die Budget-API verwenden, um sich per E-Mail benachrichtigen zu lassen, wenn ein Budgetschwellenwert erreicht wird, sondern auch die [Azure Monitor-Aktionsgruppen](../../azure-monitor/alerts/action-groups.md) nutzen, um einen orchestrierten Satz von Aktionen auszulösen, der aus einem Budgetereignis resultiert.
 
 In einem häufigen Budgetszenario eines Kunden, der eine nicht kritische Workload ausführt, möchte der Kunde die Verwaltung an einem Budget orientieren und auch die Kosten der monatlichen Rechnung prognostizieren. Dieses Szenario erfordert eine kostenbasierte Orchestrierung von Ressourcen, die Teil der Azure-Umgebung sind. In diesem Szenario wird ein Monatsbudget von 1.000 USD für das Abonnement festgelegt. Außerdem werden Benachrichtigungsschwellenwerte festgelegt, um einige Orchestrierungen auszulösen. Dieses Szenario beginnt mit einem Kostenschwellenwert von 80%, bei dem alle virtuellen Computer in der Ressourcengruppe beendet werden **Optional**. Dann werden bei einem Kostenschwellenwert von 100% alle VM-Instanzen beendet.
 
@@ -134,7 +134,7 @@ Jede Logik-App muss mit einem Trigger beginnen, der ausgelöst wird, wenn ein be
 1. Fügen Sie die folgende JSON-Beispielnutzlast in das Textfeld ein: `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
    Das Textfeld wird wie folgt angezeigt:  
     ![Azure – Logik-App – Beispiel-JSON-Nutzlast](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
-1. Wählen Sie **Fertig**aus.
+1. Wählen Sie **Fertig** aus.
 
 ### <a name="add-the-first-conditional-action"></a>Hinzufügen der ersten bedingten Aktion
 

@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren von lokalen Metriken und Protokollen für selbstgehostete Gateways für Azure API Management | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie lokale Metriken und Protokollen für selbstgehostete Gateways für Azure API Management konfigurieren.
+description: Erfahren Sie, wie Sie lokale Metriken und Protokolle für selbstgehostete Gateways von Azure API Management in einem Kubernetes-Cluster konfigurieren.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254502"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526669"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurieren von lokalen Metriken und Protokollen für selbstgehostete Gateways für Azure API Management
 
-Dieser Artikel enthält Details zum Konfigurieren lokaler Metriken und Protokolle für das [selbstgehostete Gateway](./self-hosted-gateway-overview.md). Informationen zum Konfigurieren von Cloudmetriken und -protokollen finden Sie in [diesem Artikel](how-to-configure-cloud-metrics-logs.md). 
+Dieser Artikel enthält Details zum Konfigurieren lokaler Metriken und Protokolle für das [selbstgehostete Gateway](./self-hosted-gateway-overview.md), das in einem Kubernetes-Cluster bereitgestellt ist. Informationen zum Konfigurieren von Cloudmetriken und -protokollen finden Sie in [diesem Artikel](how-to-configure-cloud-metrics-logs.md). 
 
 ## <a name="metrics"></a>Metriken
 Das selbstgehostete Gateway unterstützt [StatsD](https://github.com/statsd/statsd), das zu einem Standardprotokoll für die Erfassung und Aggregation von Metriken geworden ist. In diesem Abschnitt werden die Schritte für die Bereitstellung von StatsD in Kubernetes, die Konfiguration des Gateways zur Ausgabe von Metriken über StatsD und die Verwendung von [Prometheus](https://prometheus.io/) zum Überwachen der Metriken erläutert. 
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: prom/statsd-exporter
+        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +80,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: prom/prometheus
+        image: mcr.microsoft.com/oss/prometheus/prometheus
         ports:
         - name: tcp
           containerPort: 9090

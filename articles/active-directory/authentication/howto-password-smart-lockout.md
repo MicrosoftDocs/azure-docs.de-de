@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741727"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255372"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Schützen von Benutzerkonten vor Angriffen mithilfe von Smart Lockout von Azure Active Directory
 
@@ -89,6 +89,8 @@ Gehen Sie wie folgt vor, um die Smart Lockout-Werte zu überprüfen und ggf. f�
 Wenn der Schwellenwert von Smart Lockout ausgelöst wird, wird das Konto gesperrt und die folgende Meldung angezeigt:
 
 *Ihr Konto wurde vorübergehend gesperrt, um eine unbefugte Nutzung zu verhindern. Versuchen Sie es später noch mal. Wenden Sie sich an Ihren Administrator, wenn das Problem weiterhin besteht.*
+
+Wenn Sie Smart Lockout testen, werden Ihre Anmeldeanforderungen möglicherweise von unterschiedlichen Rechenzentren verarbeitet, da der Azure AD-Authentifizierungsdienst geografisch verteilt ist und über einen Lastenausgleich verfügt. Da in diesem Szenario jedes Azure AD-Rechenzentrum die Sperre unabhängig nachverfolgt, kann es mehr Versuche erfordern, als durch den Sperrschwellenwert festgelegt sind, bis eine Sperre ausgelöst wird. Ein Benutzer hat (*Schwellenwert × Rechenzentrumsanzahl*) fehlerhafte Versuche, wenn der Benutzer auf die einzelnen Rechenzentren trifft, bevor eine Sperrung erfolgt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

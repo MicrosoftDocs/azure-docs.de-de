@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027376"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500063"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Erstellen von unterstützenden Azure-Ressourcen für Ihre Funktion
 
 Zum Bereitstellen Ihres Funktionscodes in Azure müssen Sie drei Ressourcen erstellen:
 
-- Eine Ressourcengruppe als logischen Container für verwandte Ressourcen.
-- Ein Storage-Konto, unter dem Status- und andere Informationen zu Ihren Projekten verwaltet werden.
+- Eine [Ressourcengruppe](../articles/azure-resource-manager/management/overview.md), bei der es sich um einen logischen Container für verwandte Ressourcen handelt.
+- Ein [Speicherkonto](../articles/storage/common/storage-account-create.md), das verwendet wird, um den Status und andere Informationen zu Ihren Funktionen zu verwalten.
 - Eine Funktions-App, die als Umgebung zum Ausführen Ihres Funktionscodes dient. Eine Funktions-App ist Ihrem lokalen Funktionsprojekt zugeordnet und ermöglicht Ihnen das Gruppieren von Funktionen als logische Einheit, um die Verwaltung, Bereitstellung und Freigabe von Ressourcen zu vereinfachen.
 
 Verwenden Sie die folgenden Befehle, um diese Elemente zu erstellen. Sowohl die Azure CLI als auch PowerShell werden unterstützt.

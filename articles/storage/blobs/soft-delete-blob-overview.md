@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127480"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979289"
 ---
 # <a name="soft-delete-for-blobs"></a>Vorläufiges Löschen für Blobs
 
@@ -27,6 +27,10 @@ Wenn die Möglichkeit besteht, dass Ihre Daten von einer Anwendung oder einem an
 ## <a name="about-soft-delete-for-blobs"></a>Informationen zum vorläufigen Löschen für Blobs
 
 Wenn vorläufiges Löschen für Blobs für ein Speicherkonto aktiviert ist, können Sie Objekte nach dem Löschen innerhalb des angegebenen Datenaufbewahrungszeitraums wiederherstellen. Dieser Schutz erstreckt sich auf alle Blobs (Blockblobs, Anfügeblobs oder Seitenblobs), die infolge einer Überschreibung gelöscht werden.
+
+Das folgende Diagramm zeigt, wie ein gelöschtes Blob wiederhergestellt werden kann, wenn das vorläufige Löschen von Blobs aktiviert ist:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagramm der Wiederherstellung eines vorläufig gelöschten Blobs":::
 
 Wenn Daten in einem vorhandenen Blob oder einer vorhandenen Momentaufnahme gelöscht werden, während vorläufiges Löschen für Blobs aktiviert ist, Blobversionsverwaltung hingegen nicht, wird eine vorläufig gelöschte Momentaufnahme generiert, um den Status der überschriebenen Daten zu speichern. Nachdem die angegebene Beibehaltungsdauer abgelaufen ist, wird das Objekt dauerhaft gelöscht.
 

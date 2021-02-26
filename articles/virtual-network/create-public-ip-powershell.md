@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 5b79a777ba8f7e615e4637f94311cba39e8a7f6c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ff768bceaba57c119aa88d5d4d99b11608917695
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223702"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492024"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Schnellstart: Erstellen einer öffentlichen IP-Adresse mit Azure PowerShell
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**Standard-SKU: Verwenden von Zonen**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->Der folgende Befehl funktioniert für die API-Version 2020-08-01 oder höher.  Weitere Informationen zur derzeit verwendeten API-Version finden Sie unter [Ressourcenanbieter und -typen](../azure-resource-manager/management/resource-providers-and-types.md).
+>Der folgende Befehl funktioniert für die Az.Network-Modulversion 4.5.0 oder höher.  Weitere Informationen zu den derzeit verwendeten PowerShell-Modulen finden Sie in der [PowerShellGet-Dokumentation](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Verwenden Sie [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress), um eine zonenredundante öffentliche IP-Standardadresse namens **myStandardZRPublicIP** in **myResourceGroup** zu erstellen.
 
@@ -67,7 +67,7 @@ $zone = 1,2,3
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 > [!IMPORTANT]
-> Führen Sie für Versionen der API, die älter als 2020-08-01 ist, den oben genannten Befehl aus, ohne einen Zonenparameter anzugeben, um eine zonenredundante IP-Adresse zu erstellen. 
+> Führen Sie für Az.Network-Module, die älter als 4.5.0 sind, den oben genannten Befehl aus, ohne einen Zonenparameter anzugeben, um eine zonenredundante IP-Adresse zu erstellen. 
 >
 
 Verwenden Sie den folgenden Befehl, um eine standardmäßige zonale öffentliche IP-Adresse in Zone 2 namens **myStandardZonalPublicIP** in **myResourceGroup** zu erstellen:
@@ -89,7 +89,7 @@ Beachten Sie, dass die oben genannten Optionen für Zonen nur eine gültige Ausw
 # <a name="standard-sku---no-zones"></a>[**Standard-SKU: Keine Zonen**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->Der folgende Befehl funktioniert für die API-Version 2020-08-01 oder höher.  Weitere Informationen zur derzeit verwendeten API-Version finden Sie unter [Ressourcenanbieter und -typen](../azure-resource-manager/management/resource-providers-and-types.md).
+>Der folgende Befehl funktioniert für die Az.Network-Modulversion 4.5.0 oder höher.  Weitere Informationen zu den derzeit verwendeten PowerShell-Modulen finden Sie in der [PowerShellGet-Dokumentation](https://docs.microsoft.com/powershell/module/powershellget/?view=powershell-7.1).
 
 Verwenden Sie [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress), um eine öffentliche IP-Standardadresse als nicht zonale Ressource namens **myStandardPublicIP** in **myResourceGroup** zu erstellen.
 

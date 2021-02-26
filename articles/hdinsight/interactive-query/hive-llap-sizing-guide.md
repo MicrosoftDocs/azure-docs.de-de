@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680541"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931109"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Leitfaden zur Größenanpassung des Azure HDInsight Interactive Query-Clusters (Hive LLAP)
 
@@ -216,7 +216,7 @@ Beispiel: Cluster-Gesamtkapazität = 100 GB Arbeitsspeicher, wie folgt aufgetei
  - Kapazität der Warteschlange der Workloadverwaltung = 20 GB
  - Kapazität der Standardwarteschlange = 10 GB
 
-Bei einer Kapazität der Warteschlange der Workloadverwaltung von 20 GB kann ein Ressourcenplan den Wert für `QUERY_PARALLELISM` mit fünf angeben, was bedeutet, dass die Workloadverwaltung fünf Tez AMs mit einer Containergröße von jeweils 4 GB starten kann. Wenn `QUERY_PARALLELISM` höher als die Kapazität ist, kann es vorkommen, dass einige Tez AMs im Status `ACCEPTED` festhängen. Der Hiveserver2 Interactive kann keine Abfragefragmente an die Tez AMs senden, die sich nicht im Status `RUNNING` befinden.
+Bei einer Kapazität der Warteschlange der Workloadverwaltung von 20 GB kann ein Ressourcenplan den Wert für `QUERY_PARALLELISM` mit fünf angeben, was bedeutet, dass die Workloadverwaltung fünf Tez AMs mit einer Containergröße von jeweils 4 GB starten kann. Wenn `QUERY_PARALLELISM` höher als die Kapazität ist, kann es vorkommen, dass einige Tez AMs im Status `ACCEPTED` nicht mehr reagieren. Der Hiveserver2 Interactive kann keine Abfragefragmente an die Tez AMs senden, die sich nicht im Status `RUNNING` befinden.
 
 
 #### <a name="next-steps"></a>**Next Steps**

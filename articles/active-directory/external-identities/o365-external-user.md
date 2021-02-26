@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515505"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008127"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Externe Microsoft 365-Freigaben und Azure Active Directory B2B-Zusammenarbeit
 
@@ -32,8 +32,7 @@ OneDrive/SharePoint Online hat einen separaten Einladung-Manager. Unterstützung
 
 - In Azure AD B2B-Zusammenarbeit eingeladene Benutzer können in Freigabedialogfeldern von OneDrive/SharePoint Online ausgewählt werden. Benutzer, die über OneDrive/SharePoint Online eingeladen wurden, werden nach dem Einlösen der Einladung auch in Azure AD angezeigt.
 
-- Die Lizenzbedingungen unterscheiden sich. Weitere Informationen zur Lizenzierung finden Sie unter [Azure AD B2B-Lizenzierung](./external-identities-pricing.md) und [„Was ist ein externer Benutzer?“ in der Übersicht über die externe SharePoint Online-Freigabe](/sharepoint/external-sharing-overview#what-happens-when-users-share).
-
+- Die Lizenzbedingungen unterscheiden sich. Weitere Informationen zur Lizenzierung finden Sie unter [Azure Active Directory External Identities-Lizenzierung](./external-identities-pricing.md) und in der [Übersicht über die externe SharePoint Online-Freigabe](/sharepoint/external-sharing-overview).
 Um externe Freigaben in OneDrive/SharePoint Online mit der Azure AD B2B-Kollaboration zu verwalten, legen Sie die Einstellung für externe OneDrive-/SharePoint Online-Freigaben auf **Freigabe nur für externe Benutzer zulassen, die bereits im Verzeichnis Ihrer Organisation vorhanden sind** fest. Benutzer können zu extern freigegebenen Websites wechseln und aus externen Projektmitarbeitern auswählen, die der Administrator hinzugefügt hat. Ein Administrator kann die externen Projektmitarbeiter über die Einladungs-APIs der B2B-Zusammenarbeit hinzufügen.
 
 

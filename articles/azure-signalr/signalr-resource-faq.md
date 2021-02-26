@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579304"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -54,7 +54,7 @@ Sie können clientseitige Transporte konfigurieren, wie in [ASP.NET Core SignalR
 
 Ausführliche Informationen zur Berechnung dieser Metriken finden Sie unter [Nachrichten und Verbindungen in Azure SignalR Service](signalr-concept-messages-and-connections.md).
 
-Im Bereich „Übersicht“ von Azure SignalR Service-Ressourcen ist bereits der entsprechende Aggregationstyp für Sie ausgewählt. Wenn Sie in den Bereich „Metriken“ wechseln, können Sie den Aggregationstyp [Nachrichten und Verbindungen in Azure SignalR Service](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) als Referenz verwenden.
+Im Bereich „Übersicht“ von Azure SignalR Service-Ressourcen ist bereits der entsprechende Aggregationstyp für Sie ausgewählt. Wenn Sie in den Bereich „Metriken“ wechseln, können Sie den Aggregationstyp [Nachrichten und Verbindungen in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) als Referenz verwenden.
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Welche Bedeutung haben die Dienstmodi `Default`, `Serverless` und `Classic`? Wie kann ich eine Auswahl treffen?
 

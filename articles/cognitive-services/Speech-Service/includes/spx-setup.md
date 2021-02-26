@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540478"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580386"
 ---
 ## <a name="download-and-install"></a>Herunterladen und Installieren
 
@@ -19,18 +19,16 @@ ms.locfileid: "98540478"
 Führen Sie diese Schritte aus, um die Speech-Befehlszeilenschnittstelle unter Windows zu installieren:
 
 1. Unter Windows benötigen Sie [Microsoft Visual C++ Redistributable für Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) für Ihre Plattform. Bei der Erstinstallation ist möglicherweise ein Neustart erforderlich.
-2. Laden Sie das [Zip-Archiv](https://aka.ms/speech/spx-zips.zip) der Speech-Befehlszeilenschnittstelle herunter, und extrahieren Sie es.
-3. Wechseln Sie zum Verzeichnis, in das Sie `spx-zips` extrahiert haben. Dieser Ordner enthält Programmdateien für die Speech-CLI auf einer Vielzahl von Plattformen. 
-4. Extrahieren Sie die Dateien für Ihre Plattform (`spx-net471` für .NET Framework 4.7 oder `spx-netcore-win-x64` für .NET Core 3.0 auf einer x64-CPU). Beachten Sie, dass Sie `spx` in diesem Verzeichnis ausführen.
+1. Installieren Sie [.NET Core 3.1](/dotnet/core/install/linux).
+2. Installieren Sie die Speech-Befehlszeilenschnittstelle mithilfe von NuGet durch Eingabe des folgenden Befehls:
 
-### <a name="run-the-speech-cli"></a>Ausführen der Speech-Befehlszeilenschnittstelle
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
-1. Öffnen Sie die Eingabeaufforderung oder PowerShell, und navigieren Sie zum Verzeichnis, in das Sie die Speech-CLI extrahiert haben.  
-2. Geben Sie `spx` ein, um Hilfebefehle für die Speech-CLI anzuzeigen.
+Geben Sie `spx` ein, um die Hilfe für die Speech-Befehlszeilenschnittstelle anzuzeigen.
 
 > [!NOTE]
-> PowerShell prüft bei der Suche nach einem Befehl nicht das lokale Verzeichnis. Ändern Sie in Powershell das Verzeichnis zum Speicherort von `spx`, und rufen Sie das Tool auf, indem Sie `.\spx` eingeben.
-> Wenn Sie dieses Verzeichnis Ihrem Pfad hinzufügen, finden Powershell und die Windows-Eingabeaufforderung `spx` von jedem Verzeichnis aus auch ohne enthaltenes Präfix `.\`.
+> Sie können auch das [ZIP-Archiv](https://aka.ms/speech/spx-zips.zip) der Speech-Befehlszeilenschnittstelle herunterladen und extrahieren, Ihre Plattform im Verzeichnis `spx-zips` suchen und extrahieren und den Pfad `spx` zu Ihrer Systemvariablen **PATH** hinzufügen, anstatt NuGet zu verwenden.
+
 
 ### <a name="font-limitations"></a>Schriftarteinschränkungen
 
@@ -43,15 +41,16 @@ Bei der Ausgabe einer Datei können in einem Text-Editor wie Notepad oder einem 
 
 Führen Sie diese Schritte aus, um die Speech-Befehlszeilenschnittstelle unter Linux auf einer x64-CPU zu installieren:
 
-1. Installieren Sie [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Laden Sie das [Zip-Archiv](https://aka.ms/speech/spx-zips.zip) der Speech-Befehlszeilenschnittstelle herunter, und extrahieren Sie es.
-3. Wechseln Sie zum Stammverzeichnis `spx-zips`, das Sie aus dem Download extrahiert haben, und extrahieren Sie `spx-netcore-30-linux-x64` in ein neues Verzeichnis `~/spx`.
-4. Geben Sie an einem Terminal die folgenden Befehle ein:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Installieren Sie [.NET Core 3.1](/dotnet/core/install/linux).
+2. Installieren Sie die Speech-Befehlszeilenschnittstelle mithilfe von NuGet durch Eingabe des folgenden Befehls:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Geben Sie `spx` ein, um die Hilfe für die Speech-Befehlszeilenschnittstelle anzuzeigen.
+
+> [!NOTE]
+> Sie können auch die Binärdateien aus dem [ZIP-Archiv](https://aka.ms/speech/spx-zips.zip) herunterladen, `spx-netcore-30-linux-x64` in ein neues Verzeichnis (`~/spx`) extrahieren, `sudo chmod +r+x spx` für die Binärdatei eingeben und den Pfad `~/spx` Ihrer PATH-Systemvariablen hinzufügen, anstatt NuGet zu verwenden.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker-Installation (Windows, Linux, macOS)](#tab/dockerinstall)
 

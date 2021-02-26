@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Lösungen für Behörden mit Azure IoT Central
+title: Welche Azure IoT Central-Lösungen für Behörden gibt es?
 description: Hier erfahren Sie, wie Sie mithilfe von Azure IoT Central-Anwendungsvorlagen Smart-City-Lösungen erstellen.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590816"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834339"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Erstellen von Lösungen für Behörden mit Azure IoT Central
+# <a name="what-are-the-iot-central-government-solutions"></a>Welche IoT Central-Lösungen für Behörden gibt es?
 
 Nutzen Sie Azure IoT Central-Anwendungsvorlagen zur Erstellung von Smart-City-Lösungen. Starten Sie mit **water quality monitoring** (Überwachung der Wasserqualität), **water consumption monitoring** (Überwachung des Wasserverbrauchs) und **connected waste management** (Vernetzte Abfallwirtschaft).
 
@@ -71,8 +71,6 @@ Das Tutorial für die Anwendung für eine vernetzte Abfallwirtschaft finden Sie 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Probieren Sie [hier](https://apps.azureiotcentral.com/build/government) kostenlos die Anwendungsvorlagen für Behörden in IoT Central aus.
 * Machen Sie sich mit [Konzepten im Zusammenhang mit der Überwachung der Wasserqualität](./concepts-waterqualitymonitoring-architecture.md) vertraut.
 * Machen Sie sich mit [Konzepten im Zusammenhang mit der Überwachung des Wasserverbrauchs](./concepts-waterconsumptionmonitoring-architecture.md) vertraut.
 * Machen Sie sich mit [Konzepten im Zusammenhang mit der vernetzten Abfallwirtschaft](./concepts-connectedwastemanagement-architecture.md) vertraut.  
-* Sehen Sie sich die [Übersicht über IoT Central](../core/overview-iot-central.md) an.

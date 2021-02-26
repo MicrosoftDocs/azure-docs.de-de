@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 5b34c559c8320961a2e96a663d88001400c572d3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 355caeb54f09797ae719f21401ceebb7d53d745a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397517"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592719"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Erstellen von benutzerdefinierten Application Gateway-Fehlerseiten
 
@@ -49,7 +49,7 @@ Nachdem Sie eine Fehlerseite angeben, lädt Application Gateway sie vom Speicher
 1. Navigieren Sie im Portal zu Application Gateway, und wählen Sie eine Application Gateway-Instanz aus.
 
     ![Screenshot, der die Seite „Übersicht“ für ein Anwendungsgateway zeigt.](media/custom-error/ag-overview.png)
-2. Klicken Sie auf **Listener** , und navigieren Sie zu einem Listener, für den Sie eine Fehlerseite anzeigen möchten.
+2. Klicken Sie auf **Listener**, und navigieren Sie zu einem Listener, für den Sie eine Fehlerseite anzeigen möchten.
 
     ![Application Gateway-Listener](media/custom-error/ag-listener.png)
 3. Konfigurieren Sie eine benutzerdefinierte Fehlerseite für einen 403-WAF-Fehler oder eine Seite „502 Wartung“ auf Listenerebene.
@@ -81,7 +81,7 @@ $listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -Applic
 $updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
 ```
 
-Weitere Informationen finden Sie unter [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) und [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+Weitere Informationen finden Sie unter [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror) und [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

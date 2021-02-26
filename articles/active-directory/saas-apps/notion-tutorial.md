@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 512436c9d72e0318ec14bf7551a2fde76c6ef3d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 520eb25bcb138c96b24166816d3374255fb7c3b2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735909"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-notion"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit Notion
 
@@ -40,7 +40,7 @@ In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure
 * Notion unterstützt **SP- und IDP-initiiertes** einmaliges Anmelden.
 * Notion unterstützt die **Just-In-Time**-Benutzerbereitstellung.
 > [!NOTE]
-> Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten nur eine Instanz konfiguriert werden.
+> Der Bezeichner dieser Anwendung ist ein fester Zeichenfolgenwert, daher kann in einem Mandanten ein Notion-Arbeitsbereich konfiguriert werden.
 
 
 ## <a name="adding-notion-from-the-gallery"></a>Hinzufügen von Notion aus dem Katalog
@@ -80,14 +80,14 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
 
 1. Geben Sie im Abschnitt **Grundlegende SAML-Konfiguration** die Werte in die folgenden Felder ein, wenn Sie die Anwendung im **IDP**-initiierten Modus konfigurieren möchten:
 
-    Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://www.notion.so/sso/saml/<CUSTOM_ID>`.
+    Geben Sie im Textfeld **Antwort-URL** die URL im folgenden Format an. Die URL können Sie im Notion-Arbeitsbereich unter **Settings & Members** > **Security & identity** > **Single sign-on URL** (Einstellungen und Mitglieder > Sicherheit und Identität > URL für einmaliges Anmelden) abrufen: `https://www.notion.so/sso/saml/<CUSTOM_ID>`.
 
 1. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
 
-    Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    Geben Sie im Textfeld **Anmelde-URL** die folgende URL ein: `https://www.notion.so/login`.
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Die Werte müssen durch die tatsächliche Antwort-URL und die tatsächliche Anmelde-URL ersetzt werden. Diese Werte erhalten Sie vom [Supportteam für den Notion-Client](mailto:team@makenotion.com). Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Hierbei handelt es sich um Beispielwerte. Die Werte müssen durch die tatsächliche Antwort-URL und die tatsächliche Anmelde-URL ersetzt werden. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
 1. Die Notion-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute.
 
@@ -102,7 +102,7 @@ Gehen Sie wie folgt vor, um das einmalige Anmelden von Azure AD im Azure-Portal 
     | lastName | user.surname |
 
 
-1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf die Schaltfläche „Kopieren“, um die **App-Verbundmetadaten-URL** zu kopieren, und speichern Sie sie auf Ihrem Computer.
+1. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf die Schaltfläche „Kopieren“, um die **App-Verbundmetadaten-URL** zu kopieren. Navigieren Sie im **Notion**-Arbeitsbereich zu **Settings & Members** > **Security & identity** (Einstellungen und Mitglieder > Sicherheit und Identität), und fügen Sie den kopierten Wert in das Feld **IDP metadata URL** (IDP-Metadaten-URL) ein.
 
     ![Downloadlink für das Zertifikat](common/copy-metadataurl.png)
 
@@ -132,7 +132,13 @@ In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anm
 
 ## <a name="configure-notion-sso"></a>Konfigurieren des einmaligen Anmeldens für Notion
 
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **Notion** müssen Sie die **App-Verbundmetadaten-URL** an das [Supportteam von Notion](mailto:team@makenotion.com) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Navigieren Sie im **Notion**-Arbeitsbereich zu **Settings & Members** > **Security & identity** (Einstellungen und Mitglieder > Sicherheit und Identität), und fügen Sie den kopierten Wert für die **App-Verbundmetadaten-URL** in das Feld **IDP metadata URL** (IDP-Metadaten-URL) ein.
+
+Klicken Sie auf der gleichen Einstellungsseite unter **Email domains** (E-Mail-Domänen) auf **Support kontaktieren**, um die E-Mail-Domänen Ihrer Organisation hinzuzufügen.
+
+Nachdem Ihre E-Mail-Domänen genehmigt und hinzugefügt wurden, aktivieren Sie SAML-SSO mithilfe der Umschaltfläche **SAML aktivieren**.
+
+Nach dem erfolgreichen Testen können Sie SAML-SSO mithilfe der Umschaltfläche **SAML erzwingen** erzwingen. Beachten Sie, dass sich die Administratoren des Notion-Arbeitsbereichs weiterhin per E-Mail anmelden können, alle anderen Mitglieder müssen für die Anmeldung bei Notion jedoch SAML-SSO verwenden.
 
 ### <a name="create-notion-test-user"></a>Erstellen eines Notion-Testbenutzers
 

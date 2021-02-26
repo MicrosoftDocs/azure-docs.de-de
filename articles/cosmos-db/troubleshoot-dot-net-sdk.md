@@ -3,18 +3,18 @@ title: Diagnostizieren und Behandeln von Problemen bei Verwendung des .NET SDK f
 description: Verwenden Sie Features wie clientseitige Protokollierung und andere Tools von Drittanbietern, um bei Verwenden des .NET SDK Probleme im Zusammenhang mit Azure Cosmos DB zu erkennen, zu diagnostizieren und zu beheben.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683098"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831245"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostizieren und Behandeln von Problemen bei Verwendung des .NET SDK für Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,6 +67,7 @@ Das Cosmos DB SDK versucht bei jedem E/A-Fehler, den fehlgeschlagenen Vorgang z
 |----------|-------------|
 | 400 | Ungültige Anforderung (abhängig von der Fehlermeldung)| 
 | 401 | [Nicht autorisiert](troubleshoot-unauthorized.md) | 
+| 403 | [Verboten](troubleshoot-forbidden.md) |
 | 404 | [Ressource nicht gefunden](troubleshoot-not-found.md) |
 | 408 | [Timeout bei der Anforderung](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Konflikt: Die ID, die bei einem Schreibvorgang für eine Ressource angegeben wurde, wird bereits von einer vorhandenen Ressource verwendet. Verwenden Sie eine andere ID für die Ressource, um dieses Problem zu beheben. Die ID muss in allen Dokumenten mit demselben Partitionsschlüsselwert eindeutig sein. |

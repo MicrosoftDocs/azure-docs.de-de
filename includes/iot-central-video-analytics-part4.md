@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: d9c2aea284a2ab84b5d45fe35a35785adfc88123
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763457"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832067"
 ---
 ### <a name="publish-the-device-template"></a>Veröffentlichen der Gerätevorlage
 
@@ -61,16 +61,3 @@ Sie benötigen die Anmeldeinformationen, mit denen das Gerät eine Verbindung mi
 
 1. Klicken Sie auf **Schließen**.
 
-## <a name="next-steps"></a>Nächste Schritte
-
-Sie haben jetzt mit der Anwendungsvorlage **Videoanalyse: Objekt- und Bewegungserkennung** eine IoT Central-Anwendung und dann eine Gerätevorlage für das Gatewaygerät erstellt und der Anwendung anschließend ein Gatewaygerät hinzugefügt.
-
-Gehen Sie wie folgt vor, falls Sie die Anwendung vom Typ „Videoanalyse: Objekt- und Bewegungserkennung“ mit IoT Edge-Modulen ausprobieren möchten, für die eine Cloud-VM mit simulierten Videodatenströmen ausgeführt wird:
-
-> [!div class="nextstepaction"]
-> [Erstellen einer IoT Edge-Instanz für die Videoanalyse (Linux-VM)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-Gehen Sie wie folgt vor, falls Sie die Anwendung vom Typ „Videoanalyse: Objekt- und Bewegungserkennung“ mit IoT Edge-Modulen ausprobieren möchten, für die ein echtes Gerät mit einer echten **ONVIF**-Kamera ausgeführt wird:
-
-> [!div class="nextstepaction"]
-> [Erstellen einer IoT Edge-Instanz für die Videoanalyse (Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)

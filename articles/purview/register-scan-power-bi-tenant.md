@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874905"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807545"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrieren und Überprüfen eines Power BI-Mandanten (Vorschau)
 
@@ -84,7 +84,7 @@ Fügen Sie zunächst ein spezielles Featureflag zu Ihrer Purview-URL hinzu.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Bild, das die Liste der verfügbaren Datenquellen anzeigt":::
 
-1. Geben Sie Ihrer Power BI-Instanz einen Anzeigenamen.
+3. Geben Sie Ihrer Power BI-Instanz einen Anzeigenamen.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Bild, das den Anzeigenamen der Power BI-Datenquelle anzeigt":::
 
@@ -94,17 +94,21 @@ Fügen Sie zunächst ein spezielles Featureflag zu Ihrer Purview-URL hinzu.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Registrierte Power BI-Datenquelle":::
 
-1. Geben Sie Ihrer Überprüfung einen Namen. Beachten Sie, dass die einzige unterstützte Authentifizierungsmethode **Verwaltete Identität** ist.
+    > [!Note]
+    > Für Power BI ist die Registrierung und Überprüfung von Datenquellen nur für eine Instanz zulässig.
+
+
+4. Geben Sie Ihrer Überprüfung einen Namen. Beachten Sie, dass die einzige unterstützte Authentifizierungsmethode **Verwaltete Identität** ist.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Bild, das die Einrichtung der Power BI-Überprüfung zeigt":::
 
     Der Überprüfungsname muss zwischen 3 und 63 Zeichen lang sein und darf nur Buchstaben, Ziffern, Unterstriche und Bindestriche enthalten.  Leerzeichen sind nicht zulässig.
 
-1. Richten Sie einen Auslöser für die Überprüfung ein. Ihre Optionen sind **Einmal**, **Alle 7 Tage** und **Alle 30 Tage**.
+5. Richten Sie einen Auslöser für die Überprüfung ein. Ihre Optionen sind **Einmal**, **Alle 7 Tage** und **Alle 30 Tage**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Bild, das den Auslöser der Überprüfung zeigt":::
 
-1. Wählen Sie für **Neue Überprüfung überprüfen** die Option **Speichern und ausführen** aus, um Ihre Überprüfung zu starten.
+6. Wählen Sie für **Neue Überprüfung überprüfen** die Option **Speichern und ausführen** aus, um Ihre Überprüfung zu starten.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Bild des Power BI-Bildschirms zu „Speichern und ausführen“":::
 

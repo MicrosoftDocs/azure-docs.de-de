@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: d5d2f83ddb4f37e1379bb7d60a76ddc70d61f99a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785836"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588561"
 ---
 # <a name="what-is-azure-load-balancer"></a>Was versteht man unter Azure Load Balancer?
 
@@ -44,7 +44,7 @@ Mit Load Balancer Standard können Sie Ihre Anwendungen skalieren und hochverfü
 
 Im Anschluss finden Sie einige Schlüsselszenarien für Load Balancer Standard:
 
-- Vornehmen eines Lastausgleichs für **[internen](./quickstart-load-balancer-standard-internal-portal.md)** und **[externen](./tutorial-load-balancer-standard-manage-portal.md)** Datenverkehr auf virtuellen Azure-Computern
+- Vornehmen eines Lastausgleichs für **[internen](./quickstart-load-balancer-standard-internal-portal.md)** und **[externen](./quickstart-load-balancer-standard-public-portal.md)** Datenverkehr auf virtuellen Azure-Computern
 
 - Erhöhen der Verfügbarkeit durch Verteilung von Ressourcen **[innerhalb](./tutorial-load-balancer-standard-public-zonal-portal.md)** von und **[zwischen](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** Zonen
 
@@ -56,7 +56,7 @@ Im Anschluss finden Sie einige Schlüsselszenarien für Load Balancer Standard:
 
 - Aktivieren der Unterstützung für den **[Lastenausgleich](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** für **[IPv6](../virtual-network/ipv6-overview.md)**
 
-- Load Balancer Standard stellt mehrdimensionale Metriken über [Azure Monitor](../azure-monitor/overview.md) bereit.  Diese Metriken können für eine bestimmte Dimension gefiltert, gruppiert und unterteilt werden.  Sie liefern aktuelle und vergangenheitsbezogene Einblicke in die Leistung und Integrität Ihres Diensts. Die [Erkenntnisse für Azure Load Balancer] (https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) bieten ein vorkonfiguriertes Dashboard mit nützlichen Visualisierungen für diese Metriken.  Resource Health (Ressourcenintegrität) wird ebenfalls unterstützt. Ausführlichere Informationen finden Sie unter **[Load Balancer Standard-Diagnose mit Metriken, Warnungen und Ressourcenintegrität](load-balancer-standard-diagnostics.md)** .
+- Load Balancer Standard stellt mehrdimensionale Metriken über [Azure Monitor](../azure-monitor/overview.md) bereit.  Diese Metriken können für eine bestimmte Dimension gefiltert, gruppiert und unterteilt werden.  Sie liefern aktuelle und vergangenheitsbezogene Einblicke in die Leistung und Integrität Ihres Diensts. [Erkenntnisse für Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) bieten ein vorkonfiguriertes Dashboard mit praktischen Visualisierungen für diese Metriken.  Resource Health (Ressourcenintegrität) wird ebenfalls unterstützt. Ausführlichere Informationen finden Sie unter **[Load Balancer Standard-Diagnose mit Metriken, Warnungen und Ressourcenintegrität](load-balancer-standard-diagnostics.md)** .
 
 - Vornehmen eines Lastausgleichs für Dienste an **[mehreren Ports, mehreren IP-Adressen oder beidem](./load-balancer-multivip-overview.md)**
 

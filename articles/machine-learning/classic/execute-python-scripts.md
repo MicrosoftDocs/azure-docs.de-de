@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Ausführen von Python-Skripts – Azure'
 description: Erfahren Sie, wie Sie das Modul „Execute Python Script“ nutzen können, um Python-Code in Ihren (klassischen) Azure Machine Learning Studio-Experimenten und -Webdiensten zu verwenden.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310204"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519982"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Ausführen von Python-Machine Learning-Skripts in Azure Machine Learning Studio (klassisch)
 
@@ -81,7 +81,7 @@ Als Nächstes erstellen wir die Datei „Hello.zip“, die „Hello.py“ enthä
 
 ![ZIP-Datei mit benutzerdefiniertem Python-Code](./media/execute-python-scripts/figure5.png)
 
-Laden Sie ZIP-Datei als Dataset in Studio (klassisch) hoch. Erstellen und führen Sie anschließend ein Experiment aus, das den Python-Code in der Datei „Hello.zip“ verwendet, indem Sie ihn mit dem dritten Eingabeport des **Execute Python Script** -Moduls verbinden, wie in der folgenden Abbildung dargestellt.
+Laden Sie ZIP-Datei als Dataset in Studio (klassisch) hoch. Erstellen und führen Sie anschließend ein Experiment aus, das den Python-Code in der Datei „Hello.zip“ verwendet, indem Sie ihn mit dem dritten Eingabeport des **Execute Python Script**-Moduls verbinden, wie in der folgenden Abbildung dargestellt.
 
 ![Beispielexperiment mit „Hello.zip“ als Eingabe eines Execute Python Script-Moduls](./media/execute-python-scripts/figure6a.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Energielösungen mit IoT Central | Microsoft-Dokumentation
+title: Informationen zu den Azure IoT Central-Lösungen für die Energiebranche | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mithilfe von Azure IoT Central-Anwendungsvorlagen Energielösungen erstellen.
 author: op-ravi
 ms.author: omravi
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9adf9822bb63be6372de140c775370010614b6e4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516651"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832469"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Erstellen von Lösungen für die Energiebranche mit IoT Central 
+# <a name="what-are-the-iot-central-energy-solutions"></a>Welche IoT Central-Lösungen für die Energiebranche gibt es?
 
 Intelligente Messgeräte und Solarpanels spielen in der Transformation der Energiebranche eine wichtige Rolle. Intelligente Messgeräte sorgen für mehr Kontrolle und Echtzeiterkenntnisse in Bezug auf den Energieverbrauch, und das Wachstum von Solarpanels sorgt für Durchbrüche bei der Erzeugung erneuerbarer Energien. Die Apps für die Überwachung von intelligenten Messgeräten und Solarpanels sind Beispielvorlagen, die die verschiedenen Funktionen demonstrieren sollen. Partner können mithilfe dieser Vorlagen Energielösungen mit IoT Central für ihre speziellen Anforderungen erstellen. Zum Bereitstellen und Verwenden dieser Anwendungen ist kein neuer Code erforderlich, und es fallen keine zusätzlichen Kosten an. Erfahren Sie mehr über Energieanwendungsvorlagen und ihre Funktionen.
 
@@ -61,8 +61,9 @@ Nachdem Sie die App bereitgestellt haben, werden die simulierten Solarpaneldaten
 > ![Dashboard der Solarpanel-App](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 So beginnen Sie mit dem Erstellen einer Energielösung
+
 * Erstellen Sie Anwendungsvorlagen kostenlos: [App für intelligente Messgeräte](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [Solarpanel-App](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring).
 * Informationen zu [Konzepten der Überwachungs-App für intelligente Messgeräte](./concept-iot-central-smart-meter-app.md)
 * Informationen zu [Konzepten der Überwachungs-App für Solarpanels](./concept-iot-central-solar-panel-app.md)
-* Informationen zur [IoT Central-Plattform](../index.yml)

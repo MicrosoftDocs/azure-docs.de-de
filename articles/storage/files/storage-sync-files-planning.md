@@ -4,16 +4,16 @@ description: Hier finden Sie Informationen zum Planen der Bereitstellung der Azu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880574"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219475"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planung für die Bereitstellung einer Azure-Dateisynchronisierung
 
@@ -186,7 +186,7 @@ Windows Server-Failoverclustering wird von der Azure-Dateisynchronisierung für 
 
 ### <a name="data-deduplication"></a>Datendeduplizierung
 **Windows Server 2016 und Windows Server 2019**   
-Die Datendeduplizierung wird auf Volumes mit aktiviertem Cloudtiering unter Windows Server 2016 und Windows Server 2019 unterstützt. Durch das Aktivieren der Datendeduplizierung auf einem Volume mit aktiviertem Cloudtiering können Sie weitere Dateien lokal zwischenspeichern, ohne mehr Speicher bereitstellen zu müssen. 
+Die Datendeduplizierung wird unter Windows Server 2016 und Windows Server 2019 unterstützt, unabhängig davon, ob das Cloudtiering auf einem oder mehreren Serverendpunkten auf dem Volume aktiviert oder deaktiviert ist. Durch das Aktivieren der Datendeduplizierung auf einem Volume mit aktiviertem Cloudtiering können Sie weitere Dateien lokal zwischenspeichern, ohne mehr Speicher bereitstellen zu müssen. 
 
 Wenn die Datendeduplizierung für ein Volume mit aktiviertem Cloudtiering aktiviert ist, wird das Tiering von für die Deduplizierung optimierten Dateien innerhalb des Serverendpunkt-Speicherorts ähnlich wie bei einer normalen Datei basierend auf den Richtlinieneinstellungen für Cloudtiering ausgeführt. Nachdem das Tiering der für die Deduplizierung optimierten Dateien ausgeführt wurde, wird der Garbage Collection-Auftrag „Datendeduplizierung“ automatisch ausgeführt, um Speicherplatz freizugeben, indem unnötige Blöcke entfernt werden, die nicht mehr von anderen Dateien auf dem Volume referenziert werden.
 
@@ -302,48 +302,16 @@ Weitere Informationen zur Verschlüsselung während der Übertragung finden Sie 
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Regionale Verfügbarkeit der Azure-Dateisynchronisierung
-Azure-Dateisynchronisierung ist in den folgenden Regionen verfügbar:
 
-| Azure Cloud | Geografische Region | Azure-Region | Regionscode |
-|-------------|-------------------|--------------|-------------|
-| Öffentlich | Asia | Asien, Osten | `eastasia` |
-| Öffentlich | Asia | Asien, Südosten | `southeastasia` |
-| Öffentlich | Australien | Australien (Osten) | `australiaeast` |
-| Öffentlich | Australien | Australien, Südosten | `australiasoutheast` |
-| Öffentlich | Brasilien | Brasilien Süd | `brazilsouth` |
-| Öffentlich | Canada | Kanada, Mitte | `canadacentral` |
-| Öffentlich | Canada | Kanada, Osten | `canadaeast` |
-| Öffentlich | Europa | Nordeuropa | `northeurope` |
-| Öffentlich | Europa | Europa, Westen | `westeurope` |
-| Öffentlich | Frankreich | Frankreich, Mitte | `francecentral` |
-| Öffentlich | Frankreich | Frankreich, Süden* | `francesouth` |
-| Öffentlich | Indien | Indien, Mitte | `centralindia` |
-| Öffentlich | Indien | Indien (Süden) | `southindia` |
-| Öffentlich | Japan | Japan, Osten | `japaneast` |
-| Öffentlich | Japan | Japan, Westen | `japanwest` |
-| Öffentlich | Korea | Korea, Mitte | `koreacentral` |
-| Öffentlich | Korea | Korea, Süden | `koreasouth` |
-| Öffentlich | Südafrika | Südafrika, Norden | `southafricanorth` |
-| Öffentlich | Südafrika | Südafrika, Westen* | `southafricawest` |
-| Öffentlich | Vereinigte Arabische Emirate | VAE, Mitte* | `uaecentral` |
-| Öffentlich | Vereinigte Arabische Emirate | Vereinigte Arabische Emirate, Norden | `uaenorth` |
-| Öffentlich | UK | UK, Süden | `uksouth` |
-| Öffentlich | UK | UK, Westen | `ukwest` |
-| Öffentlich | US | USA (Mitte) | `centralus` |
-| Öffentlich | US | East US | `eastus` |
-| Öffentlich | US | USA (Ost) 2 | `eastus2` |
-| Öffentlich | US | USA Nord Mitte | `northcentralus` |
-| Öffentlich | US | USA Süd Mitte | `southcentralus` |
-| Öffentlich | US | USA, Westen-Mitte | `westcentralus` |
-| Öffentlich | US | USA (Westen) | `westus` |
-| Öffentlich | US | USA, Westen 2 | `westus2` |
-| US Gov | US | US Gov Arizona | `usgovarizona` |
-| US Gov | US | US Gov Texas | `usgovtexas` |
-| US Gov | US | US Government, Virginia | `usgovvirginia` |
+Informationen zur regionalen Verfügbarkeit finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Die Azure-Dateisynchronisierung unterstützt nur die Synchronisierung mit einer Azure-Dateifreigabe in der gleichen Region wie der Speichersynchronisierungsdienst.
+In den folgenden Regionen müssen Sie für die Azure-Dateisynchronisierung den Zugriff auf Azure Storage anfordern:
 
-Für die mit Sternchen gekennzeichneten Regionen müssen Sie sich an den Azure-Support wenden, um Zugriff auf Azure Storage in diesen Regionen anzufordern. Der Prozess ist in [diesem Dokument](https://azure.microsoft.com/global-infrastructure/geographies/) beschrieben.
+- Frankreich, Süden
+- Südafrika, Westen
+- VAE, Mitte
+
+Führen Sie die Anweisungen in [diesem Dokument](https://azure.microsoft.com/global-infrastructure/geographies/) aus, um den Zugriff für diese Regionen anzufordern.
 
 ## <a name="redundancy"></a>Redundanz
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

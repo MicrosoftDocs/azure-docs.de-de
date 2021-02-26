@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836274"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509068"
 ---
 # <a name="view-alerts"></a>Anzeigen von Warnungen
 
@@ -84,7 +84,7 @@ Wenn Sie keine der Optionen auswählen, werden alle Warnungen angezeigt.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Bildschirm „Warnungen“ mit ausgewählter Option „Sicherheit“":::
 
-## <a name="alert-window-options"></a>Optionen des Fensters „Warnungen“
+## <a name="alert-page-options"></a>Optionen auf der Seite „Warnung“
 
 Für Warnmeldungen sind die folgenden Aktionen verfügbar:
 
@@ -101,6 +101,8 @@ Für Warnmeldungen sind die folgenden Aktionen verfügbar:
 - Wählen Sie :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: aus, um alle Warnungen zu erlernen und zu bestätigen.
 
 - Wählen Sie :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: aus, um die Warnungsliste in eine CSV-Datei zu exportieren, und wählen Sie die entsprechende Exportoption aus. Wählen Sie **Warnungsexport** für die Standardoption zum Exportieren in das CSV-Format aus. Oder wählen Sie **Erweiterter Warnungsexport** aus, um separate Zeilen für zusätzliche Informationen zu einer Warnung in der CSV-Datei hinzufügen zu können.
+
+## <a name="alert-pop-up-window-options"></a>Optionen im Popupfenster „Warnung“
 
 - Wählen Sie das Symbol :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: aus, um einen Warnungsbericht als PDF-Datei herunterzuladen.
 

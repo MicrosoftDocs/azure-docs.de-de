@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589983"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257945"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Übersicht über die Azure Key Vault-Funktion für vorläufiges Löschen
 
@@ -99,5 +99,6 @@ Im Allgemeinen gilt: Wenn sich ein Objekt (ein Schlüsseltresor oder ein Schlüs
 
 Die folgenden zwei Handbücher stellen die primären Verwendungsszenarien für vorläufiges Löschen vor.
 
+- [Verwenden des vorläufigen Löschens in Key Vault mit dem Portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [Verwenden des vorläufigen Löschens in Key Vault mit PowerShell](./key-vault-recovery.md) 
 - [Verwenden des vorläufigen Löschens in Key Vault mit CLI](./key-vault-recovery.md)

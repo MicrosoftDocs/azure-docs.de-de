@@ -3,19 +3,18 @@ title: Azure Defender für Storage – Vorteile und Features
 description: Hier erfahren Sie mehr über die Vorteile und Features von Azure Defender für Storage.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916420"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558593"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Einführung in Azure Defender für Storage
-
 
 Bei **Azure Defender für Storage** handelt es sich um eine native intelligente Azure-Sicherheitsebene, die ungewöhnliche und potenziell schädliche Versuche erkennt, auf Ihre Speicherkonten zuzugreifen oder diese unbefugt zu nutzen. Das Tool verwendet die erweiterten Funktionen von künstlicher Sicherheitsintelligenz und [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684), um kontextbezogene Sicherheitswarnungen und entsprechende Empfehlungen bereitzustellen.
 
@@ -68,7 +67,40 @@ Wenn der Verdacht besteht, dass eine Datei Schadsoftware enthält, zeigt Securit
 >
 > Sie können **Azure Defender für Storage** entweder auf Abonnement- oder auf Ressourcenebene aktivieren.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Auslösen einer Testwarnung für Azure Defender für Storage
 
+Generieren Sie zum Testen der Sicherheitswarnungen von Azure Defender für Storage in Ihrer Umgebung mit den folgenden Schritten die Warnung „Zugriff von einem Tor-Beendigungsknoten auf ein Speicherkonto“:
+
+1. Öffnen Sie ein Speicherkonto, für das Azure Defender für Storage aktiviert ist.
+1. Wählen Sie auf der Seitenleiste die Option „Container“ aus, und öffnen Sie einen vorhandenen Container, oder erstellen Sie einen neuen Container.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Öffnen eines Blobcontainers über ein Azure Storage-Konto" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Laden Sie eine Datei in diesen Container hoch.
+
+    > [!CAUTION]
+    > Laden Sie keine Datei mit vertraulichen Daten hoch.
+
+1. Verwenden Sie das Kontextmenü der hochgeladenen Datei, um „SAS generieren“ auszuwählen.
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Option „SAS generieren“ für eine Datei in einem Blobcontainer":::
+
+1. Übernehmen Sie die Standardoptionen, und wählen Sie **SAS-Token und -URL generieren** aus.
+
+1. Kopieren Sie die generierte SAS-URL.
+
+1. Öffnen Sie auf dem lokalen Computer den Tor-Browser.
+
+    > [!TIP]
+    > Sie können Tor von der Tor Project-Website [https://www.torproject.org/download/](https://www.torproject.org/download/) herunterladen.
+
+1. Navigieren Sie im Tor-Browser zur SAS-URL.
+
+1. Laden Sie die in Schritt 3 hochgeladene Datei herunter.
+
+    Innerhalb von zwei Stunden erhalten Sie die folgende Sicherheitswarnung von Security Center:
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Sicherheitswarnung bezüglich des Zugriffs von einem Tor-Exitknoten":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: b32f9dd10d9bd03a7e446616d9941e7bd1a9c3ed
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bc3b041e44fad66a4edc6ff34c0e534dc423de86
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724907"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226589"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Erhöhen der Resilienz bei Authentifizierung und Autorisierung in von Ihnen entwickelten Clientanwendungen
 
@@ -97,7 +97,7 @@ Im Allgemeinen ruft eine Anwendung, welche die moderne Authentifizierung verwend
 
 ### <a name="cache-tokens"></a>Zwischenspeichern von Token
 
-Apps müssen von Microsoft Identity empfangene Token ordnungsgemäß zwischenspeichern. Wenn Ihre App Token empfängt, enthält die HTTP-Antwort mit den Token auch die Eigenschaft „expires_in“, mit der die Anwendung informiert wird, wie lange das Token zwischengespeichert (und wiederverwendet) werden soll. Es ist wichtig, dass Anwendungen die Eigenschaft „expires_in“ verwenden, um die Gültigkeitsdauer des Tokens zu bestimmen. Die Anwendung darf niemals versuchen, ein API-Zugriffstoken zu decodieren.
+Apps müssen von Microsoft Identity empfangene Token ordnungsgemäß zwischenspeichern. Wenn Ihre App Token empfängt, enthält die HTTP-Antwort mit den Token auch die Eigenschaft „expires_in“, mit der die Anwendung informiert wird, wie lange das Token zwischengespeichert (und wiederverwendet) werden soll. Es ist wichtig, dass Anwendungen die expires_in-Eigenschaft verwenden, um die Gültigkeitsdauer des Tokens zu bestimmen. Die Anwendung darf niemals versuchen, ein API-Zugriffstoken zu decodieren.
 
 ![Eine Anwendung ruft Microsoft Identity auf, der Aufruf durchläuft jedoch einen Tokencache auf dem Gerät, auf dem die Anwendung ausgeführt wird.](media/resilience-client-app/token-cache.png)
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784794"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807562"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Erkennen komplexerer Bedrohungen mit User and Entity Behavior Analytics (UEBA) in Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Die Features UEBA und Entitätsseiten sind nun in **_allen_* _ Azure Sentinel-Geografien **allgemein verfügbar**.
+> - Die Features „UEBA“ und „Entitätsseiten“ sind nun in **_allen_** Azure Sentinel-Geografien **allgemein verfügbar**.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Was ist User and Entity Behavior Analytics (UEBA)?
 
@@ -35,7 +35,7 @@ Das Erkennen von Bedrohungen in einer Organisation und deren potenziellen Auswir
 
 Dank der UEBA-Funktion in Azure Sentinel gehört die Sisyphusarbeit und der ungewisse Ausgang der Bemühungen für Ihre Analysten der Vergangenheit an. Diese Funktion liefert zuverlässige, handlungsrelevante Informationen, sodass sich Ihre Analysten auf die Untersuchung und Problembehandlung konzentrieren können.
 
-Azure Sentinel sammelt peergruppenübergreifend und über einen bestimmten Zeitraum hinweg Protokolle und Warnungen von allen verbundenen Datenquellen, analysiert sie und erstellt Baselineprofile für das Verhalten von Entitäten (Benutzer, Hosts, IP-Adressen, Anwendungen usw.) einer Organisation. Mit verschiedenen Techniken und Machine Learning-Funktionen kann Sentinel anomale Aktivitäten erkennen und Sie dabei unterstützen, festzustellen, ob eine Ressource kompromittiert wurde. Darüber hinaus können Sie mit dieser Funktion auch die relative Vertraulichkeitsstufe bestimmter Ressource ermitteln, Ressourcenpeergruppen erkennen und die potenzielle Auswirkung einer bestimmten kompromittierten Ressource (deren „Auswirkungsgrad“) bewerten. Mit diesen Informationen können Sie Ihre Untersuchungen und die Behandlung von Vorfällen effektiv priorisieren. 
+Azure Sentinel sammelt zeit- und peergruppenübergreifend Protokolle und Warnungen von allen verbundenen Datenquellen, analysiert sie und erstellt Baselineprofile für das Verhalten von Entitäten (Benutzer, Hosts, IP-Adressen und Anwendungen) einer Organisation. Mit verschiedenen Techniken und Machine Learning-Funktionen kann Azure Sentinel anomale Aktivitäten erkennen und Sie dabei unterstützen, festzustellen, ob eine Ressource kompromittiert wurde. Darüber hinaus können Sie mit dieser Funktion auch die relative Vertraulichkeitsstufe bestimmter Ressource ermitteln, Ressourcenpeergruppen erkennen und die potenzielle Auswirkung einer bestimmten kompromittierten Ressource (deren „Auswirkungsgrad“) bewerten. Mit diesen Informationen können Sie Ihre Untersuchungen und die Behandlung von Vorfällen effektiv priorisieren. 
 
 ### <a name="architecture-overview"></a>Übersicht über die Architektur
 
@@ -45,7 +45,7 @@ Azure Sentinel sammelt peergruppenübergreifend und über einen bestimmten Zeitr
 
 Angeregt durch das Paradigma von Gartner für UEBA-Lösungen wird bei Azure Sentinel auf ein „Von außen nach innen“-Konzept gesetzt, das auf den folgenden drei Bezugsrahmen basiert:
 
-- _ *Anwendungsfälle:* * Azure Sentinel priorisiert relevante Angriffsvektoren und Szenarios, die auf Sicherheitsuntersuchungen basieren, die sich am MITRE ATT&CK-Framework für Taktiken, Techniken und Subtechniken orientieren, bei denen verschiedene Entitäten als Opfer, Täter oder Zentren in einer Kill Chain gelten. Somit konzentriert sich Azure Sentinel speziell auf die wertvollsten Protokolle, die eine Datenquelle liefern kann.
+- **Anwendungsfälle:** Azure Sentinel priorisiert relevante Angriffsvektoren und Szenarios, die auf Sicherheitsuntersuchungen basieren, die sich am MITRE ATT&CK-Framework für Taktiken, Techniken und Subtechniken orientieren, bei denen verschiedene Entitäten als Opfer, Täter oder Zentren in einer Kill Chain gelten. Somit konzentriert sich Azure Sentinel speziell auf die wertvollsten Protokolle, die eine Datenquelle liefern kann.
 
 - **Datenquellen:** Azure Sentinel unterstützt in erster Linie Azure-Datenquellen. Datenquellen von Drittanbietern, die unseren Bedrohungsszenarios entsprechen, werden sehr sorgfältig ausgewählt.
 

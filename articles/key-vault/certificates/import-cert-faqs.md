@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289515"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254358"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importieren von Azure Key Vault-Zertifikaten: Häufig gestellte Fragen
 
@@ -62,6 +62,10 @@ Weitere Informationen finden Sie unter [Vorgang „GetDeletedCertificate“](/re
 Dieser Fehler kann aus zwei Gründen auftreten:    
 * Der Name des Zertifikatantragstellers ist auf eine Länge von 200 Zeichen beschränkt.
 * Das Zertifikatkennwort ist auf eine Länge von 200 Zeichen beschränkt.
+
+
+### <a name="error-the-specified-pem-x509-certificate-content-is-in-an-unexpected-format-please-check-if-certificate-is-in-valid-pem-format"></a>Fehler: „Der Inhalt des angegebenen PEM-X.509-Zertifikats weist ein unerwartetes Format auf. Überprüfen Sie das Zertifikat auf Gültigkeit des PEM-Formats.“
+Vergewissern Sie sich, dass der Inhalt der PEM-Datei Zeilentrennzeichen im UNIX-Stil (`(\n)`) verwendet.
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Kann ich ein abgelaufenes Zertifikat in Azure Key Vault importieren?
     

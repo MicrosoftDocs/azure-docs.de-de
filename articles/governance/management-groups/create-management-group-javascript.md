@@ -1,15 +1,15 @@
 ---
 title: 'Schnellstart: Erstellen einer Verwaltungsgruppe mit JavaScript'
 description: In dieser Schnellstartanleitung erstellen Sie mithilfe von JavaScript eine Verwaltungsgruppe, um Ihre Ressourcen in einer Ressourcenhierarchie zu organisieren.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886599"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099148"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Schnellstart: Erstellen einer Verwaltungsgruppe mit JavaScript
 
@@ -29,7 +29,7 @@ Es kann bis zu 15 Minuten dauern, bis die Erstellung der ersten Verwaltungsgrupp
 
 ## <a name="application-setup"></a>Anwendungseinrichtung
 
-Um JavaScript zum Abfragen von Azure Resource Graph zu aktivieren, muss die Umgebung eingerichtet werden. Dieses Setup funktioniert überall dort, wo JavaScript verwendet werden kann, einschließlich [Bash unter Windows 10](/windows/wsl/install-win10).
+Um JavaScript zum Verwalten von Verwaltungsgruppen zu aktivieren, muss die Umgebung eingerichtet werden. Dieses Setup funktioniert überall dort, wo JavaScript verwendet werden kann, einschließlich [Bash unter Windows 10](/windows/wsl/install-win10).
 
 1. Richten Sie ein Node.js-Projekt ein, indem Sie den folgenden Befehl ausführen.
 
@@ -115,4 +115,4 @@ In dieser Schnellstartanleitung haben Sie eine Verwaltungsgruppe zum Organisiere
 Weitere Informationen zu Verwaltungsgruppen und zur Verwaltung Ihrer Ressourcenhierarchie finden Sie im folgenden Artikel:
 
 > [!div class="nextstepaction"]
-> [Verwalten von Ressourcen mit Verwaltungsgruppen](./manage.md)
+> Verwalten von Ressourcen mit Verwaltungsgruppen

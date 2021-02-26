@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887100"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576530"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Zugreifen auf eine Anwendung im privaten Netzwerk
 
 In diesem Dokument wird erläutert, wie Sie in einem privaten Netzwerk auf einen Endpunkt für Ihre Anwendung zugreifen.  Um Zugriff zu erhalten, müssen Sie eine **private Azure DNS-Zone** in Ihrem Abonnement erstellen, um den privaten vollständig qualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) in seine IP-Adresse zu übersetzen bzw. aufzulösen.
 
-Wenn **Endpunkt zuweisen** für Anwendungen in einer Azure Spring Cloud-Dienstinstanz in Ihrem virtuellen Netzwerk bereitgestellt wird, ist der Endpunkt ein privater FQDN. Die Domäne ist nur im privaten Netzwerk zugänglich. Apps und Dienste verwenden den Anwendungsendpunkt. Sie enthalten den **Testendpunkt**, der unter [Überprüfen der Stagingbereitstellung](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment) beschrieben wird. **Protokollstreaming**, das unter [Streamen von Azure Spring Cloud-App-Protokollen in Echtzeit](spring-cloud-howto-log-streaming.md) beschrieben wird, funktioniert auch nur innerhalb des privaten Netzwerks.
+Wenn **Endpunkt zuweisen** für Anwendungen in einer Azure Spring Cloud-Dienstinstanz in Ihrem virtuellen Netzwerk bereitgestellt wird, ist der Endpunkt ein privater FQDN. Die Domäne ist nur im privaten Netzwerk zugänglich. Apps und Dienste verwenden den Anwendungsendpunkt. Sie beinhalten den unter [Anzeigen von Apps und Bereitstellungen](spring-cloud-howto-staging-environment.md#view-apps-and-deployments) erläuterten **Testendpunkt**. **Protokollstreaming**, das unter [Streamen von Azure Spring Cloud-App-Protokollen in Echtzeit](spring-cloud-howto-log-streaming.md) beschrieben wird, funktioniert auch nur innerhalb des privaten Netzwerks.
 
 ## <a name="create-a-private-dns-zone"></a>Erstellen einer privaten DNS-Zone
 

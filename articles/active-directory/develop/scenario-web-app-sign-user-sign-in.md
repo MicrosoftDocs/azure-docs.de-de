@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753000"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937849"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Web-App für Benutzeranmeldungen: An- und Abmeldung
 
@@ -222,19 +222,19 @@ Weitere Informationen finden Sie im Abschnitt [Senden einer Abmeldeanforderung](
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Bei der Anwendungsregistrierung registrieren Sie einen URI nach der Abmeldung. In diesem Tutorial haben Sie die URL `https://localhost:44321/signout-oidc` auf der Seite **Authentifizierung** im Abschnitt **Erweiterte Einstellungen** im Feld **Abmelde-URL** registriert. Weitere Informationen finden Sie unter [Registrieren der webApp-App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Bei der Anwendungsregistrierung registrieren Sie eine Front-Channel-Abmelde-URL. In unserem Tutorial haben Sie `https://localhost:44321/signout-oidc` im Feld **Front-Channel-Abmelde-URL** auf der Seite **Authentifizierung** registriert. Weitere Informationen finden Sie unter [Registrieren der webApp-App](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Bei der Anwendungsregistrierung registrieren Sie einen URI nach der Abmeldung. In diesem Tutorial haben Sie die URL `https://localhost:44308/Account/EndSession` auf der Seite **Authentifizierung** im Abschnitt **Erweiterte Einstellungen** im Feld **Abmelde-URL** registriert. Weitere Informationen finden Sie unter [Registrieren der webApp-App](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Bei der Anwendungsregistrierung müssen Sie keine zusätzliche Front-Channel-Abmelde-URL registrieren. Die App wird über die Haupt-URL zurückgerufen. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Bei der Anwendungsregistrierung registrieren Sie einen URI nach der Abmeldung. In diesem Tutorial haben Sie die URL `http://localhost:8080/msal4jsample/sign_out` auf der Seite **Authentifizierung** im Abschnitt **Erweiterte Einstellungen** im Feld **Abmelde-URL** registriert.
+Bei der Anwendungsregistrierung ist keine Front-Channel-Abmelde-URL erforderlich.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Bei der Anwendungsregistrierung müssen Sie keine zusätzliche Abmelde-URL registrieren. Die App wird über die Haupt-URL zurückgerufen.
+Bei der Anwendungsregistrierung müssen Sie keine zusätzliche Front-Channel-Abmelde-URL registrieren. Die App wird über die Haupt-URL zurückgerufen.
 
 ---
 
@@ -336,7 +336,7 @@ In früheren Versionen der ASP.NET Core-Vorlagen war der `Account`-Controller in
 - Sie ruft `Signout()` auf, damit die OpenID Connect-Middleware den `logout`-Endpunkt der Microsoft Identity Platform kontaktieren kann. Der Endpunkt führt dann folgende Aktionen aus:
 
   - Er löscht den Sitzungscookie im Browser.
-  - Er ruft die Abmelde-URL zurück. Standardmäßig zeigt die Abmelde-URL die Abmeldeseite [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs) an. Diese Seite wird auch als Teil von Microsoft.Identity.Web bereitgestellt.
+  - Er ruft den Umleitungs-URI nach der Abmeldung zurück. Standardmäßig zeigt der Umleitungs-URI nach der Abmeldung [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs) an. Diese Seite wird auch als Teil von Microsoft.Identity.Web bereitgestellt.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

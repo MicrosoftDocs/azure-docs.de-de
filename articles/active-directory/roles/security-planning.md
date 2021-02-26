@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740804"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090789"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Schützen des privilegierten Zugriffs für hybride und Cloudbereitstellungen in Azure AD
 
@@ -40,7 +40,7 @@ Das Sichern des privilegierten Zugriffs erfordert Änderungen an folgenden Eleme
 Sichern Sie Ihren privilegierten Zugriff auf eine Art und Weise, die in den von Ihnen bevorzugten Microsoft-Diensten verwaltet und gemeldet wird. Wenn Sie über lokale Administratorkonten verfügen, beachten Sie unter [Schützen des privilegierten Zugriffs](/windows-server/identity/securing-privileged-access/securing-privileged-access) den Leitfaden für den lokalen und hybriden privilegierten Zugriff in Active Directory.
 
 > [!NOTE]
-> Der Leitfaden in diesem Artikel bezieht sich in erster Linie auf Features von Azure Active Directory, die in den Azure Active Directory Premium-Plänen P1 und P2 enthalten sind. Azure Active Directory Premium P2 ist in der EMS E5-Suite und Microsoft 365 E5-Suite enthalten. In diesem Leitfaden wird davon ausgegangen, dass Ihre Organisation bereits Azure AD Premium P2-Lizenzen für Ihre Benutzer erworben hat. Wenn Sie nicht über diese Lizenzen verfügen, gilt möglicherweise ein Teil dieses Leitfadens nicht für Ihre Organisation. In diesem Artikel bedeutet der Begriff „Globaler Administrator“ (oder „Globaler Admin“) das Gleiche wie „Unternehmensadministrator“ oder „Mandantenadministrator“.
+> Der Leitfaden in diesem Artikel bezieht sich in erster Linie auf Features von Azure Active Directory, die in den Azure Active Directory Premium-Plänen P1 und P2 enthalten sind. Azure Active Directory Premium P2 ist in der EMS E5-Suite und Microsoft 365 E5-Suite enthalten. In diesem Leitfaden wird davon ausgegangen, dass Ihre Organisation bereits Azure AD Premium P2-Lizenzen für Ihre Benutzer erworben hat. Wenn Sie nicht über diese Lizenzen verfügen, gilt möglicherweise ein Teil dieses Leitfadens nicht für Ihre Organisation. Darüber hinaus bedeutet in diesem Artikel der Begriff „Globaler Administrator“ das Gleiche wie „Unternehmensadministrator“ oder „Mandantenadministrator“.
 
 ## <a name="develop-a-roadmap"></a>Entwickeln einer Roadmap
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management ist in Azure AD Premium P2 oder EMS E5 e
 
 Gehen Sie nach dem Aktivieren von Azure AD Privileged Identity Management wie folgt vor:
 
-1. Melden Sie sich im [Azure-Portal](https://portal.azure.com/) über ein Konto an, das als globaler Administrator Ihrer Azure AD-Produktionsorganisation konfiguriert ist.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) mit einem Konto an, das als globaler Administrator Ihrer Azure AD-Produktionsorganisation konfiguriert ist.
 
 2. Um die Azure AD-Organisation auszuwählen, in der Sie Privileged Identity Management verwenden möchten, wählen Sie im Azure-Portal in der oberen rechten Ecke Ihren Benutzernamen aus.
 
@@ -93,7 +93,7 @@ Nachdem Sie Azure AD Privileged Identity Management aktiviert haben, können Sie
 * Exchange-Administrator
 * SharePoint-Administrator
 
-Wenn in Ihrer Organisation Azure AD Privileged Identity Management nicht verwendet wird, können Sie die [PowerShell-API](/powershell/module/azuread/get-azureaddirectoryrolemember) nutzen. Beginnen Sie mit der Rolle „Globaler Administrator“, da ein globaler Administrator bei allen Clouddiensten, die Ihre Organisation abonniert hat, über gleiche Berechtigungen verfügt. Diese Berechtigungen werden unabhängig vom Ort der Zuweisung (Microsoft 365 Admin Center, Azure-Portal oder Azure AD-Modul für Microsoft PowerShell) erteilt.
+Wenn in Ihrer Organisation Azure AD Privileged Identity Management nicht verwendet wird, können Sie die [PowerShell-API](/powershell/module/azuread/get-azureaddirectoryrolemember) nutzen. Beginnen Sie mit der Rolle „Globaler Administrator“, weil ein globaler Administrator für alle Clouddienste, die Ihre Organisation abonniert hat, über die gleichen Berechtigungen verfügt. Diese Berechtigungen werden unabhängig vom Ort der Zuweisung (Microsoft 365 Admin Center, Azure-Portal oder Azure AD-Modul für Microsoft PowerShell) erteilt.
 
 Entfernen Sie alle Konten, die in diesen Rollen nicht mehr benötigt werden. Kategorisieren Sie anschließend die restlichen Konten, die Administratorrollen zugewiesen sind:
 
@@ -110,7 +110,7 @@ Es kann sein, dass ein Benutzer versehentlich aus seiner Rolle ausgesperrt wird.
 
 Notfallzugriffskonten helfen Ihnen, den privilegierten Zugriff innerhalb einer Azure AD-Organisation einzuschränken. Diese Konten verfügen über hohe Zugriffsrechte und sind keinen bestimmten Einzelpersonen zugewiesen. Notfallzugriffskonten sind auf Notfallsituationen oder Szenarien beschränkt, in denen normale Administratorkonten nicht verwendet werden können. Stellen Sie sicher, dass Sie die Nutzung des Notfallkontos kontrollieren und auf die unbedingt erforderliche Zeit beschränken.
 
-Bewerten Sie die Konten, die zugewiesen werden oder für die Rolle „globaler Administrator“ berechtigt sind. Wenn Ihnen über die Domäne „\*.onmicrosoft.com“ (für den Notfallzugriff) keine reinen Cloudkonten angezeigt werden, erstellen Sie diese. Weitere Informationen finden Sie unter [Verwalten von Administratorkonten für den Notfallzugriff in Azure AD](security-emergency-access.md).
+Bewerten Sie die Konten, denen die Rolle „Globaler Administrator“ zugewiesen ist oder die dafür berechtigt sind. Wenn Ihnen über die Domäne „\*.onmicrosoft.com“ (für den Notfallzugriff) keine reinen Cloudkonten angezeigt werden, erstellen Sie diese. Weitere Informationen finden Sie unter [Verwalten von Administratorkonten für den Notfallzugriff in Azure AD](security-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivieren Sie die mehrstufige Authentifizierung (MFA), und registrieren Sie alle anderen nicht verbundenen Einzelbenutzer-Administratorkonten mit hohen Privilegien.
 
@@ -141,15 +141,16 @@ Mit der Zunahme von BYOD- (Bring Your Own Device) und Homeoffice-Richtlinien sow
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identifizieren von Microsoft-Konten in Administratorrollen, die auf Arbeits- oder Schulkonten umgestellt werden müssen
 
-Wenn Ihre anfänglichen globalen Administratoren die vorhandenen Anmeldeinformationen für ihr Microsoft-Konto, die sie bei der ersten Verwendung von Azure AD benutzt haben, wiederverwenden, ersetzen Sie die Microsoft-Konten durch einzelne cloudbasierte oder synchronisierte Konten.
+Wenn Ihre ursprünglichen globalen Administratoren die vorhandenen Anmeldeinformationen für ihr Microsoft-Konto wiederverwenden, die sie bei der ersten Verwendung von Azure AD benutzt haben, ersetzen Sie die Microsoft-Konten durch einzelne cloudbasierte oder synchronisierte Konten.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Sicherstellen von separaten Benutzerkonten und E-Mail-Weiterleitung für globale Administratorkonten
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Sicherstellen der Verwendung von separaten Benutzerkonten und E-Mail-Weiterleitung für globale Administratorkonten
 
 Persönliche E-Mail-Konten werden regelmäßig von Cyberkriminellen ausgespäht und stellen ein Risiko dar. Daher sind persönliche E-Mail-Adressen für globale Administratorkonten nicht akzeptabel. Um Internetrisiken von Administratorrechten zu separieren, erstellen Sie dedizierte Konten für jeden Benutzer mit Administratorrechten.
 
-* Stellen Sie sicher, dass Sie separate Konten für Benutzer erstellen, die globale Verwaltungsaufgaben ausführen sollen
-* Stellen Sie sicher, dass Ihre globalen Administratoren nicht versehentlich mit ihren Administratorkonten E-Mails öffnen oder Programme ausführen
-* Achten Sie darauf, dass die E-Mail-Nachrichten für diese Konten an ein Arbeitspostfach weitergeleitet werden
+* Stellen Sie sicher, dass Sie separate Konten für Benutzer erstellen, die Aufgaben eines globalen Administrators ausführen.
+* Stellen Sie sicher, dass Ihre globalen Administratoren nicht versehentlich mit ihren Administratorkonten E-Mails öffnen oder Programme ausführen.
+* Achten Sie darauf, dass die E-Mail dieser Konten an ein Arbeitspostfach weitergeleitet wird.
+* Bei Konten von globalen Administratoren (und anderen privilegierten Gruppen) sollte es sich um reine Cloudkonten ohne Verbindungen mit der lokalen Active Directory-Instanz handeln.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Sicherstellen, dass die Kennwörter von Administratorkonten kürzlich geändert wurden
 

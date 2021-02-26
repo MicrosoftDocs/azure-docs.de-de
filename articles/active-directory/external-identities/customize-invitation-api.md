@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442047"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548660"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-Zusammenarbeit: API und Anpassung
 
@@ -67,6 +66,16 @@ Die API bietet die folgenden Funktionen:
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Ermitteln von bereits in Ihr Verzeichnis eingeladenen Benutzern
+
+Mit der Einladungs-API können Sie ermitteln, ob ein Benutzer bereits in Ihrem Ressourcenmandanten vorhanden ist. Dies kann hilfreich sein, wenn Sie eine App entwickeln, die zum Einladen eines Benutzers die Einladungs-API verwendet. Wenn der Benutzer bereits in Ihrem Ressourcenverzeichnis vorhanden ist, erhält er keine Einladung. Sie können also zuerst eine Abfrage ausführen, um zu ermitteln, ob die E-Mail-Adresse bereits als Benutzerprinzipalname (UPN) oder andere Anmeldeeigenschaft vorhanden ist.
+
+1. Stellen Sie sicher, dass die E-Mail-Domäne des Benutzers nicht zur überprüften Domäne Ihres Ressourcenmandanten gehört.
+2. Verwenden Sie zum Abfragen des Benutzers im Ressourcenmandanten die folgende Abfrage, wobei {0} der E-Mail-Adresse des einzuladenden Benutzers entspricht:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Autorisierungsmodell
 
@@ -105,7 +114,7 @@ Nachdem Sie einem externen Benutzer eine Einladung gesendet haben, können Sie m
 * **UserState** zeigt an, ob der Status der Einladung **PendingAcceptance** (Annahme ausstehend) oder **Accpeted** (Angenommen) ist.
 * **UserStateChangedOn** zeigt den Zeitstempel der neuesten Änderungen der Eigenschaft **UserState** an.
 
-Sie können dann mithilfe der Option **Filter** die Ergebnisse nach **UserState** filtern. Das folgende Beispiel zeigt, wie Sie Ergebnisse so filtern, dass nur Benutzer mit einer ausstehenden Einladung angezeigt werden. Das Beispiel zeigt außerdem die Option **Format-List** , mit der Sie die anzuzeigenden Eigenschaften angeben können. 
+Sie können dann mithilfe der Option **Filter** die Ergebnisse nach **UserState** filtern. Das folgende Beispiel zeigt, wie Sie Ergebnisse so filtern, dass nur Benutzer mit einer ausstehenden Einladung angezeigt werden. Das Beispiel zeigt außerdem die Option **Format-List**, mit der Sie die anzuzeigenden Eigenschaften angeben können. 
  
 
 ```powershell
@@ -122,6 +131,6 @@ Sehen Sie sich die Einladungs-API-Referenz in [https://developer.microsoft.com/g
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Was ist die Azure AD B2B-Zusammenarbeit?](what-is-b2b.md)
-- [Die Elemente der Einladungs-E-Mail für die B2B-Zusammenarbeit](invitation-email-elements.md)
+- [Die Elemente der Einladungs-E-Mail von B2B-Zusammenarbeit](invitation-email-elements.md)
 - [B2B-Zusammenarbeit: Einlösen von Einladungen](redemption-experience.md)
 - [Hinzufügen von Benutzern der B2B-Zusammenarbeit ohne Einladung](add-user-without-invite.md)

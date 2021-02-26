@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930415"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806934"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Azure Sentinel: Schemareferenz zur Datennormalisierung
 
 ## <a name="terminology"></a>Begriff
 
-In den Sentinel-Schemas wird die folgende Terminologie verwendet:
+In den Azure Sentinel-Schemas wird folgende Terminologie verwendet:
 
 | Begriff | Definition |
 | ---- | ---------- |
@@ -82,7 +82,7 @@ Unten finden Sie das Schema der Netzwerksitzungstabelle in Version 1.0.0
 | EventStartTime | Date/Time | Lesen Sie dazu „Datentypen“. | Der Zeitpunkt, zu dem das Ereignis begonnen hat | event |
 | TimeGenerated | Date/Time | Lesen Sie dazu „Datentypen“. | Der Zeitpunkt, zu dem das Ereignis eingetreten ist, wie von der Meldequelle gemeldet. | Benutzerdefiniertes Feld |
 | EventTimeIngested | Date/Time | Lesen Sie dazu „Datentypen“. | Der Zeitpunkt, zu dem das Ereignis in Azure Sentinel erfasst wurde. Wird von Azure Sentinel hinzugefügt. | event |
-| EventUid | GUID (Zeichenfolge) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Eindeutiger Bezeichner, der von Sentinel zum Markieren einer Zeile verwendet wird. | event |
+| EventUid | GUID (Zeichenfolge) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Eindeutiger Bezeichner, mit dem Azure Sentinel eine Zeile markiert. | event |
 | NetworkApplicationProtocol | String | HTTPS | Das Protokoll der Anwendungsschicht, das von der Verbindung oder der Sitzung verwendet wird. | Netzwerk |
 | DstBytes | INT | 32455 | Die Anzahl Bytes, die für die Verbindung oder Sitzung vom Ziel an die Quelle gesendet werden. | Destination |
 | SrcBytes | INT | 46536 | Die Anzahl Bytes, die für die Verbindung oder Sitzung von der Quelle an das Ziel gesendet werden. | `Source` |

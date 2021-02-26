@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900772"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652331"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Veröffentlichen einer Hugo-Website in Azure Static Web Apps (Vorschauversion)
 
@@ -88,7 +88,7 @@ Sie benötigen ein Repository auf GitHub, um eine Verbindung mit Azure Static We
 1. Übertragen Sie Ihr lokales Repository auf GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Bereitstellen Ihrer Web-App
@@ -123,7 +123,7 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue statische Website-App
 
 1. Wählen unter _Repository_ die Option **hugo-static-app** aus.
 
-1. Wählen Sie unter _Branch_ die Option **Master** aus.
+1. Wählen Sie unter _Branch_ die Option **main** aus.
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Eingegebene GitHub-Informationen":::
 

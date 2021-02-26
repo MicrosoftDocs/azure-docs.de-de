@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 4d735c623a6dffe24108d06d00caa7fba987c7df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a35a7e5e5c7eccf006f18badad88656e8bc73453
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465447"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367689"
 ---
 # <a name="configure-business-continuity-and-disaster-recovery-for-azure-stack-edge-vpn"></a>Konfigurieren von Business Continuity & Disaster Recovery für Azure Stack Edge-VPNs
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 In diesem Artikel wird beschrieben, wie Sie Business Continuity & Disaster Recovery (BCDR) für ein VPN (virtuelles privates Netzwerk) auf einem Azure Stack Edge-Gerät konfigurieren.
 

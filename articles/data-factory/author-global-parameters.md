@@ -1,19 +1,17 @@
 ---
 title: Globale Parameter
 description: Festlegen von globalen Parametern für jede Azure Data Factory-Umgebung
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 ms.date: 08/31/2020
-ms.openlocfilehash: 676b954854fd0c2b0c4b12c654972e2e80cae781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fb9439bc37fcecf1cb5299a09916ebe21c5bc1cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500171"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393818"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Globale Parameter in Azure Data Factory
 

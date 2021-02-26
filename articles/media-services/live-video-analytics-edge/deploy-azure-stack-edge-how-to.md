@@ -3,12 +3,12 @@ title: Bereitstellen von Live Video Analytics in Azure Stack Edge
 description: In diesem Artikel werden die Schritte aufgelistet, die Sie bei der Bereitstellung von Live Video Analytics in Azure Stack Edge unterstützen.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: cc3dcfaa96034e807d3d82e75eedc0f6a82eff08
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019595"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551007"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Bereitstellen von Live Video Analytics in Azure Stack Edge
 
@@ -42,38 +42,7 @@ Azure Stack Edge ist eine Hardware-as-a-Service-Lösung und ein KI-fähiges Edge
 * [Erstellung von Azure Stack Edge-/Data Box Gateway-Ressourcen](../../databox-online/azure-stack-edge-deploy-prep.md)
 * [Installation und Einrichtung](../../databox-online/azure-stack-edge-deploy-install.md)
 * [Verbindung und Aktivierung](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
-
-### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Anfügen von IoT Hub an Azure Stack Edge
-
-1. Wechseln Sie im [Azure-Portal](https://ms.portal.azure.com) zu Ihrer Azure Stack Edge-Ressource, und klicken Sie auf „Übersicht“. Wählen Sie im Bereich auf der rechten Seite auf der Kachel Compute die Option Erste Schritte.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge.png" alt-text="Azure Stack Edge":::
-1. Wählen Sie auf der Kachel Edgecomputing konfigurieren die Option Compute konfigurieren.
-1. Geben Sie auf dem Blatt Edgecomputing konfigurieren Folgendes ein:
-    
-    | Feld|Wert|
-    |---|---|
-    |IoT Hub|Wählen Sie zwischen Neu und Vorhanden.<br/>Standardmäßig wird ein Standard-Tarif (S1) verwendet, um eine IoT-Ressource zu erstellen. Wenn Sie eine IoT-Ressource im Free-Tarif verwenden möchten, können Sie diese erstellen und dann als vorhandene Ressource auswählen.<br/>Die IoT Hub-Ressource nutzt jeweils das gleiche Abonnement und die gleiche Ressourcengruppe wie die Azure Stack Edge-Ressource.|
-    |Name|Geben Sie einen Namen für Ihre IoT Hub-Ressource ein.|
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
-1. Klicken Sie auf **Erstellen**. Die Erstellung der IoT Hub-Ressource dauert einige Minuten. Nachdem die IoT Hub-Ressource erstellt wurde, wird die Kachel **Compute konfigurieren** aktualisiert, um die Computekonfiguration anzuzeigen. Wählen Sie auf der Kachel **Compute konfigurieren** die Option **View Compute** (Compute anzeigen), um sich zu vergewissern, dass die Edgecomputing-Rolle konfiguriert wurde.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
-
-    > [!NOTE]
-    > Wird das Dialogfeld „Compute konfigurieren“ geschlossen, bevor die IoT Hub-Instanz mit der Azure Stack Edge-Ressource verknüpft wird, wird die IoT Hub-Instanz erstellt, aber nicht in der Computekonfiguration angezeigt. Laden Sie die Seite nach einigen Minuten erneut, um sie anzuzeigen.
-    
-    Wenn die Edge-Computerolle auf dem Edge-Gerät eingerichtet ist, werden zwei Geräte erstellt: ein IoT-Gerät und ein IoT Edge-Gerät. Beide Geräte können in der IoT Hub-Ressource angezeigt werden. Auf dem IoT Edge-Gerät wird auch eine IoT Edge-Runtime ausgeführt. Derzeit ist für Ihr IoT Edge-Gerät nur die Linux-Plattform verfügbar.
-    
-    Nachdem alle Informationen angegeben wurden, wird die Karte „Edgecomputing konfigurieren“ etwa wie folgt angezeigt:
-    
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
- 
+* [Anfügen von IoT Hub an Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-configure-compute#configure-compute)
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Aktivieren von Computevoraussetzungen auf der lokalen Benutzeroberfläche von Azure Stack Edge
 
 Stellen Sie Folgendes sicher, bevor Sie fortfahren:
@@ -89,7 +58,7 @@ Stellen Sie Folgendes sicher, bevor Sie fortfahren:
         * Wählen Sie „Anwenden“ aus – dieser Vorgang dauert ca. 2 Minuten.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Computevoraussetzungen auf der lokalen Benutzeroberfläche von Azure Stack Edge":::
 
         * Wenn für die Kubernetes-API und Azure Stack Edge-Ressource kein DNS konfiguriert ist, können Sie die Windows-Hostdatei aktualisieren.
         
@@ -146,7 +115,8 @@ Hierfür werden nur bestimmte Schritte aus dem Artikel zum [Bereitstellen von Li
       ```
 
       > [!NOTE]
-      > Der Abschnitt „Binds“ im JSON-Code enthält zwei Einträge. Sie können die Edgegerätebindungen aktualisieren, stellen Sie jedoch sicher, dass diese Verzeichnisse vorhanden sind.
+      > Der Abschnitt „Binds“ im JSON-Code enthält zwei Einträge. Die im obigen Abschnitt „Binds“ erwähnten Verzeichnisse werden automatisch von LVA erstellt.  
+        Sie können die Edgegerätebindungen aktualisieren, müssen dabei jedoch sicherstellen, dass diese Verzeichnisse auf dem Gerät vorhanden sind.
     
     * "/var/lib/azuremediaservices:/var/lib/azuremediaservices": Hiermit werden die persistenten Anwendungskonfigurationsdaten aus dem Container gebunden und auf dem Edge-Gerät gespeichert.
     * "/var/media:/var/media": Dadurch werden die Medienordner zwischen dem Edge-Gerät und dem Container gebunden. Dies wird zum Speichern der Videoaufzeichnungen verwendet, wenn Sie eine Mediengraphtopologie ausführen, die das Speichern von Videoclips auf dem Edge-Gerät unterstützt.
@@ -169,13 +139,14 @@ Diese Schritte umfassen das Erstellen eines Gatewaybenutzers und das Einrichten 
 1. Öffnen Sie das Azure-Portal, und navigieren Sie zu Ihrer Azure Stack Edge-Ressource.
 1. Erstellen Sie einen **Gateway-Benutzer**, der auf Freigaben zugreifen kann.
     
-    1. Klicken Sie im linken Navigationsbereich auf **Gateway > Benutzer**.
-    1. Klicken Sie auf **+ Benutzer hinzufügen**, um den Benutzernamen und das Kennwort festzulegen. (Empfohlen: `lvauser`).
+    1. Klicken Sie im linken Navigationsbereich auf **Cloudspeichergateway**.
+    1. Klicken Sie im linken Navigationsbereich auf **Benutzer**.
+    1. Klicken Sie auf **+ Benutzer hinzufügen**, um den Benutzernamen und das Kennwort festzulegen. (Empfohlen: `lvauser`).
     1. Klicken Sie auf **Hinzufügen**.
     
 1. Erstellen Sie eine **lokale Freigabe** für die Persistenz von Live Video Analytics.
 
-    1. Klicken Sie auf **Gateway > Freigaben**.
+    1. Klicken Sie auf **Cloudspeichergateway > Freigaben**.
     1. Klicken Sie auf **+ Add Shares**  (+ Freigaben hinzufügen).
     1. Legen Sie einen Freigabenamen fest. (Empfohlen: `lva`).
     1. Behalten Sie den Freigabetyp SMB bei.
@@ -185,12 +156,15 @@ Diese Schritte umfassen das Erstellen eines Gatewaybenutzers und das Einrichten 
     1. Klicken Sie auf **Erstellen**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
-    
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Lokale Freigabe":::  
+
+    > [!TIP]
+    > Stellen Sie mithilfe des mit Azure Stack Edge verbundenen Windows-Clients eine Verbindung mit den SMB-Freigaben her, indem Sie [die in diesem Dokument beschriebenen Schritte](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) ausführen.    
+
 1. Erstellen Sie eine Remotefreigabe für den Dateisynchronisierungsspeicher.
 
-    1. Erstellen Sie zunächst ein Blobspeicherkonto in derselben Region.
-    1. Klicken Sie auf **Gateway > Freigaben**.
+    1. Erstellen Sie zunächst ein Blob Storage-Konto in derselben Region, indem Sie auf **Cloudspeichergateway > Speicherkonten** klicken.
+    1. Klicken Sie auf **Cloudspeichergateway > Freigaben**.
     1. Klicken Sie auf **+ Add Shares**  (+ Freigaben hinzufügen).
     1. Legen Sie einen Freigabenamen fest. (Empfohlen: „media“).
     1. Behalten Sie den Freigabetyp SMB bei.
@@ -203,10 +177,30 @@ Diese Schritte umfassen das Erstellen eines Gatewaybenutzers und das Einrichten 
     1. Klicken Sie auf **Erstellen**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
-            }]
-        }
-    }
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Remotefreigabe":::
+    
+    
+1. Aktualisieren Sie die „Optionen für die Containererstellung“ des Live Video Analytics Edge-Moduls (siehe Punkt 4 in [Hinzufügen von Modulen](deploy-iot-edge-device.md#add-modules)), um Volumebereitstellungen zu verwenden.
+
+   ```json
+      "createOptions": 
+         {
+             "HostConfig": 
+             {
+                 "Binds": 
+                 [
+                     "/var/lib/azuremediaservices:/var/lib/azuremediaservices"
+                 ],
+                 "Mounts": 
+                 [
+                     {
+                         "Target": "/var/media",
+                         "Source": "media",
+                         "Type": "volume"
+                     }
+                 ]
+             }
+         }
     ```
 
 ### <a name="verify-that-the-module-is-running"></a>Überprüfen, ob das Modul ausgeführt wird
@@ -219,7 +213,7 @@ Führen Sie die folgenden Schritte aus, um zu überprüfen, ob das Modul ausgef�
 1. Wählen Sie die Kachel „Module“ aus. Das Blatt Module wird geöffnet. Identifizieren Sie in der Liste mit den Modulen das von Ihnen bereitgestellte Modul. Der Laufzeitstatus des hinzugefügten Moduls sollte Wird ausgeführt lauten.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Benutzerdefiniertes Modul":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Konfigurieren der Azure IoT Tools-Erweiterung
 

@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 57d3607b2076b7a5990361278c8c1372fff1b711
-  ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+  ms.openlocfilehash: 58b5b8917aeeefb918914a598655da962019de34
+  ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 02/01/2021
-  ms.locfileid: "99225585"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100102970"
 highlightedContent:
   items:
   - title: Anleitung mit den ersten Schritten für Azure-Entwickler
@@ -71,6 +71,12 @@ productDirectory:
     - ai-machine-learning
     - analytics
     url: /azure/databricks/
+  - title: Health Bot
+    summary: Ein verwalteter Dienst, der speziell für die Entwicklung von virtuellen Assistenten im Gesundheitswesen konzipiert ist
+    imageSrc: media/index/health-bot-logo.svg
+    azureCategories:
+    - ai-machine-learning
+    url: /azure/health-bot/
   - title: Azure Machine Learning
     summary: Künstliche Intelligenz für jedermann – mit einer umfassenden, skalierbaren und vertrauenswürdigen Plattform mit Experiment- und Modellverwaltung
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -787,7 +793,7 @@ productDirectory:
     azureCategories:
     - hybrid
     url: /azure-stack/
-  - title: Azure Stack HCI (Vorschau)
+  - title: Azure Stack HCI
     summary: Integrieren hyperkonvergenter Infrastrukturen mit Azure und Hybriddiensten für die lokale Ausführung von virtuellen Workloads
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
     azureCategories:
@@ -1129,13 +1135,13 @@ productDirectory:
     azureCategories:
     - security
     url: security-center/azure-defender.md
-  - title: Azure Defender für IoT (Vorschauversion)
+  - title: Azure Defender für IoT
     summary: Kontinuierliche Ressourcenverwaltung und Bedrohungserkennung für nicht verwaltete und verwaltete IoT-/OT-Geräte
     imageSrc: ./media/index/defender-iot.svg
     azureCategories:
     - security
     - iot
-    url: ./security-center/azure-defender.md
+    url: ./defender-for-iot/index.yml
   - title: Azure DDoS Protection
     summary: Schützen Ihrer Anwendungen vor  verteilten Denial-of-Service-Angriffen (Distributed Denial of Service, DDoS)
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg

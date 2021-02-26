@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426707"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979826"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrieren in eine Kubernetes-Bereitstellung mit Helm
 
@@ -33,7 +33,7 @@ In diesem Tutorial werden Grundkenntnisse im Zusammenhang mit der Verwaltung von
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli?view=azure-cli-latest) (Version 2.4.0 oder höher).
+- Installieren Sie die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli) (Version 2.4.0 oder höher).
 - Installieren Sie [Helm](https://helm.sh/docs/intro/install/) (Version 2.14.0 oder höher).
 - Ein Kubernetes-Cluster.
 
@@ -57,10 +57,10 @@ In diesem Tutorial werden Grundkenntnisse im Zusammenhang mit der Verwaltung von
 3. Wählen Sie **Konfigurations-Explorer** aus.
 
 4. Wählen Sie **+ Erstellen** > **Schlüsseltresorverweis** aus, und geben Sie dann die folgenden Werte an:
-    - **Schlüssel** : Wählen Sie **secrets.password** aus.
+    - **Schlüssel**: Wählen Sie **secrets.password** aus.
     - **Bezeichnung:** Lassen Sie diesen Wert leer.
-    - **Abonnement** , **Ressourcengruppe** und **Schlüsseltresor** : Geben Sie die Werte ein, die den Werten des im vorherigen Schritt erstellten Schlüsseltresors entsprechen.
-    - **Geheimnis** : Wählen Sie das Geheimnis mit dem Namen **Password** aus, das Sie im vorherigen Abschnitt erstellt haben.
+    - **Abonnement**, **Ressourcengruppe** und **Schlüsseltresor**: Geben Sie die Werte ein, die den Werten des im vorherigen Schritt erstellten Schlüsseltresors entsprechen.
+    - **Geheimnis**: Wählen Sie das Geheimnis mit dem Namen **Password** aus, das Sie im vorherigen Abschnitt erstellt haben.
 
 ## <a name="create-helm-chart"></a>Erstellen des Helm-Charts ##
 Erstellen Sie zunächst mithilfe des folgenden Befehls ein exemplarisches Helm-Chart:
@@ -185,7 +185,7 @@ settings:
 Laden Sie zunächst die Konfiguration aus App Configuration in eine Datei namens *myConfig.yaml* herunter. Verwenden Sie einen Schlüsselfilter, um nur die Schlüssel herunterzuladen, die mit **settings.** beginnen. Sollte der Schlüsselfilter in Ihrem Fall nicht ausreichen, um Schlüssel von Key Vault-Verweisen auszuschließen, können Sie das Argument **--skip-keyvault** verwenden, um sie auszuschließen. 
 
 > [!TIP]
-> Weitere Informationen zum Exportbefehl finden Sie [hier](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Weitere Informationen zum Exportbefehl finden Sie [hier](/cli/azure/appconfig/kv#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -229,7 +229,7 @@ Vergewissern Sie sich, dass die Konfigurationen und Geheimnisse erfolgreich fest
 
 ![Schnellstartanleitung: Lokales Starten der App](./media/kubernetes-dashboard-env-variables.png)
 
-Ein als Key Vault-Verweis in App Configuration gespeichertes Geheimnis ( **password** ) wurde auch zu Kubernetes-Geheimnissen hinzugefügt. 
+Ein als Key Vault-Verweis in App Configuration gespeichertes Geheimnis (**password**) wurde auch zu Kubernetes-Geheimnissen hinzugefügt. 
 
 ![Screenshot, auf dem das Kennwort im Abschnitt „Daten“ hervorgehoben ist](./media/kubernetes-dashboard-secrets.png)
 
@@ -242,4 +242,4 @@ Ein als Key Vault-Verweis in App Configuration gespeichertes Geheimnis ( **pass
 In diesem Tutorial haben Sie Azure App Configuration-Daten für die Verwendung in einer Kubernetes-Bereitstellung mit Helm exportiert. Fahren Sie mit den Azure CLI-Beispielen fort, um mehr über die Verwendung von App Configuration zu erfahren.
 
 > [!div class="nextstepaction"]
-> [Azure-Befehlszeilenschnittstelle](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure-Befehlszeilenschnittstelle](/cli/azure/appconfig)

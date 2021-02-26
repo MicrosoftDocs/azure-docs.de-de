@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222864"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987991"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planen Ihrer QnA Maker-App
 
@@ -124,17 +124,17 @@ Sie sollten beim Entwurf Ihres Konversationsflusses an eine Schleife denken, dam
 
 Projektmitarbeiter sind möglicherweise andere Entwickler, für die der vollständige Entwicklungsstapel der Wissensdatenbankanwendung freigeben ist, oder die nur auf die Erstellung der Wissensdatenbank beschränkt sind.
 
-Die Erstellung der Wissensdatenbank unterstützt mehrere [rollenbasierte Zugriffsberechtigungen](../reference-role-based-access-control.md), die Sie im Azure-Portal anwenden, um den Handlungsspielraum eines Projektmitarbeiters einzuschränken.
+Die Erstellung der Wissensdatenbank unterstützt mehrere rollenbasierte Zugriffsberechtigungen, die Sie im Azure-Portal anwenden, um den Handlungsspielraum eines Projektmitarbeiters einzuschränken.
 
 ## <a name="integration-with-client-applications"></a>Integration in Clientanwendungen
 
-Integration in [Clientanwendungen](../index.yml) wird durch Senden einer Abfrage an den Vorhersage-Runtimeendpunkt erreicht. Eine Abfrage wird mit einem SDK oder einer REST-basierten Anforderung an den Web-App-Endpunkt Ihres QnA Maker an Ihre bestimmte Wissensdatenbank gesendet.
+Integration in Clientanwendungen wird durch Senden einer Abfrage an den Vorhersage-Runtimeendpunkt erreicht. Eine Abfrage wird mit einem SDK oder einer REST-basierten Anforderung an den Web-App-Endpunkt Ihres QnA Maker an Ihre bestimmte Wissensdatenbank gesendet.
 
 Damit eine Clientanforderung ordnungsgemäß authentifiziert werden kann, muss die Clientanwendung die richtigen Anmeldeinformationen und die ID der Wissensdatenbank senden. Wenn Sie einen Azure Bot Service verwenden, konfigurieren Sie diese Einstellungen als Teil der Botkonfiguration im Azure-Portal.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Konversationsfluss in einer Clientanwendung
 
-Der Konversationsfluss in einer [Clientanwendungs](../index.yml) wie einem Azure-Bot erfordert möglicherweise vor und nach der Interaktion mit der Wissensdatenbank Funktionalität.
+Der Konversationsfluss in einer Clientanwendungs wie einem Azure-Bot erfordert möglicherweise vor und nach der Interaktion mit der Wissensdatenbank Funktionalität.
 
 Unterstützt Ihre Clientanwendung den Konversationsfluss, entweder durch die Bereitstellung alternativer Mittel zur Bearbeitung von Folgeaufforderungen oder durch Smalltalk? Sofern dies der Fall ist, entwerfen Sie diese frühzeitig und stellen Sie sicher, dass die Abfrage der Clientanwendung von einem anderen Dienst oder bei der Übermittlung an Ihre Wissensdatenbank ordnungsgemäß bearbeitet wird.
 
@@ -148,7 +148,7 @@ In einem solchen Szenario mit [gemeinsam genutzter Architektur](../choose-natura
 
 ### <a name="active-learning-from-a-client-application"></a>Aktives Lernen über eine Clientanwendung
 
-QnA Maker nutzt _aktives Lernen_, um Ihre Wissensdatenbank durch Vorschlagen alternativer Fragen zu einer Antwort zu verbessern. Die Clientanwendung ist für einen Teil dieses [aktiven Lernens](active-learning-suggestions.md) verantwortlich. Die Clientanwendung kann anhand von Konversationseingabeaufforderungen feststellen, dass die Wissensdatenbank eine Antwort zurückgegeben hat, die für den Benutzer nicht hilfreich ist, und sie kann eine bessere Antwort ermitteln. Die Clientanwendung muss [diese Informationen an die Wissensdatenbank zurücksenden](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api), um die Vorhersagequalität zu verbessern.
+QnA Maker nutzt _aktives Lernen_, um Ihre Wissensdatenbank durch Vorschlagen alternativer Fragen zu einer Antwort zu verbessern. Die Clientanwendung ist für einen Teil dieses [aktiven Lernens](../How-To/use-active-learning.md) verantwortlich. Die Clientanwendung kann anhand von Konversationseingabeaufforderungen feststellen, dass die Wissensdatenbank eine Antwort zurückgegeben hat, die für den Benutzer nicht hilfreich ist, und sie kann eine bessere Antwort ermitteln. Die Clientanwendung muss diese Informationen an die Wissensdatenbank zurücksenden, um die Vorhersagequalität zu verbessern.
 
 ### <a name="providing-a-default-answer"></a>Bereitstellen einer Standardantwort
 
@@ -208,16 +208,16 @@ Der [Entwicklungslebenszyklus](development-lifecycle-knowledge-base.md) einer Wi
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Entwicklung von QnA Maker-Paaren in der Wissensdatenbank
 
-Ihre [QnA-Paare](question-answer-set.md) sollten auf Basis der Nutzung Ihrer Clientanwendung entworfen und entwickelt werden.
+Ihre QnA-Paare sollten auf Basis der Nutzung Ihrer Clientanwendung entworfen und entwickelt werden.
 
 Jedes Paar kann Folgendes enthalten:
 * Metadaten – Bei der Abfrage filterbar, damit Sie Ihre QnA-Paare mit zusätzlichen Informationen über Quelle, Inhalt, Format und Zweck Ihrer Daten versehen können.
 * Folgeaufforderungen – Helfen beim Bahnen eines Pfads durch Ihre Wissensdatenbank, damit der Benutzer die richtige Antwort findet.
-* Alternative Fragen – Wichtig, damit die Suche mit Ihrer Antwort aus verschiedenen Formen der Frage übereinstimmen kann. [Vorschläge für aktives Lernen](active-learning-suggestions.md) werden in alternative Fragen umgewandelt.
+* Alternative Fragen – Wichtig, damit die Suche mit Ihrer Antwort aus verschiedenen Formen der Frage übereinstimmen kann. [Vorschläge für aktives Lernen](../How-To/use-active-learning.md) werden in alternative Fragen umgewandelt.
 
 ### <a name="devops-development"></a>DevOps-Entwicklung
 
-Zum Entwickeln einer Wissensdatenbank, die in eine DevOps-Pipeline eingefügt werden soll, muss die Wissensdatenbank in [Batchtests](../index.yml) isoliert sein.
+Zum Entwickeln einer Wissensdatenbank, die in eine DevOps-Pipeline eingefügt werden soll, muss die Wissensdatenbank in Batchtests isoliert sein.
 
 Eine Wissensdatenbank teilt den Cognitive Search-Index mit allen anderen Wissensdatenbanken der QnA Maker-Ressource. Obwohl die Wissensdatenbank durch Partition isoliert ist, kann die Freigabe des Indexes im Vergleich zur veröffentlichten Wissensdatenbank einen Unterschied im Ergebnis verursachen.
 

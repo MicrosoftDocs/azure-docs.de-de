@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017558"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525770"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnose und Troubleshooting für die Ausnahme „Nicht gefunden“ in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ Warten Sie, bis die Indizierung auf den aktuellen Stand gebracht wurde, oder än
 Die Datenbank oder der Container, in der bzw. dem sich das Element befindet, wurde gelöscht.
 
 #### <a name="solution"></a>Lösung:
-1. [Stellen Sie die übergeordnete Ressource wieder her](./online-backup-and-restore.md#request-data-restore-from-a-backup), oder erstellen Sie die Ressourcen neu.
+1. [Stellen Sie die übergeordnete Ressource wieder her](./configure-periodic-backup-restore.md#request-restore), oder erstellen Sie die Ressourcen neu.
 1. Erstellen Sie eine neue Ressource, um die gelöschte Ressource zu ersetzen.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Bei Container-/Sammlungsnamen wird zwischen Groß- und Kleinschreibung unterschieden

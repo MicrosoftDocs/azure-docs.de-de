@@ -5,40 +5,35 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2020
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 802307a21873d15242c2e387ec0defe35f50bb20
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015758"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576429"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Einladen von internen Benutzern zur B2B-Zusammenarbeit
 
-> [!NOTE]
-> Die Einladung interner Benutzer zur Verwendung der B2B-Zusammenarbeit ist ein Feature von Azure Active Directory, das sich derzeit in der öffentlichen Vorschauphase befindet. Weitere Informationen zu Vorschauversionen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Bevor die Azure AD B2B-Zusammenarbeit verfügbar war, konnten Organisationen mit Distributoren, Lieferanten, Anbietern und anderen Gästen zusammenarbeiten, indem sie interne Anmeldeinformationen für sie eingerichtet haben. Wenn Sie solche internen Gastbenutzer haben, können Sie sie zur Verwendung von B2B Collaboration einladen. Diese B2B-Gastbenutzer können ihre eigenen Identitäten und Anmeldeinformationen nutzen, um sich anzumelden, und Sie müssen keine Kennwörter oder Kontolebenszyklen verwalten.
 
-Bevor die Azure AD B2B-Zusammenarbeit verfügbar war, konnten Organisationen mit Distributoren, Lieferanten, Anbietern und anderen Gästen zusammenarbeiten, indem sie interne Anmeldeinformationen für sie eingerichtet haben. Falls Sie über interne Gastbenutzer dieser Art verfügen, können Sie diese zur B2B-Zusammenarbeit einladen, damit Sie in den Genuss der Vorteile von Azure AD B2B kommen. Ihre B2B-Gastbenutzer können ihre eigenen Identitäten und Anmeldeinformationen nutzen, um sich anzumelden, und Sie müssen keine Kennwörter verwalten oder Lebenszyklen von Konten pflegen.
+Das Senden einer Einladung an ein vorhandenes internes Konto ermöglicht es Ihnen, die Objekt-ID, den UPN, Gruppenmitgliedschaften und App-Zuweisungen für den Benutzer beizubehalten. Sie müssen den Benutzer nicht manuell löschen und erneut einladen und auch die Ressourcen nicht neu zuweisen. Verwenden Sie zum Einladen des Benutzers die Einladungs-API, um zusammen mit der Einladung sowohl das interne Benutzerobjekt als auch die E-Mail-Adresse des Gastbenutzers zu übergeben. Wenn der Benutzer die Einladung annimmt, stellt der B2B-Dienst das vorhandene interne Benutzerobjekt auf einen B2B-Benutzer um. Danach muss sich der Benutzer bei Cloudressourcendiensten mit seinen B2B-Anmeldeinformationen anmelden.
 
-Das Senden einer Einladung an ein vorhandenes internes Konto ermöglicht es Ihnen, die Objekt-ID, den UPN, Gruppenmitgliedschaften und App-Zuweisungen für den Benutzer beizubehalten. Sie müssen den Benutzer nicht manuell löschen und erneut einladen und auch die Ressourcen nicht neu zuweisen. Zum Einladen des Benutzers verwenden Sie die Einladungs-API, um zusammen mit der Einladung sowohl das interne Benutzerobjekt als auch die E-Mail-Adresse des Gastbenutzers zu übergeben. Wenn der Benutzer die Einladung annimmt, stellt der B2B-Dienst das vorhandene interne Benutzerobjekt auf einen B2B-Benutzer um. Danach muss sich der Benutzer bei Cloudressourcendiensten mit seinen B2B-Anmeldeinformationen anmelden. Er kann seine internen Anmeldeinformationen weiterhin verwenden, um auf lokale Ressourcen zuzugreifen. Sie können dies aber verhindern, indem Sie das Kennwort für das interne Konto zurücksetzen oder ändern.
+## <a name="things-to-consider"></a>Zu beachtende Aspekte
 
-> [!NOTE]
-> Die Einladung ist unidirektional. Sie können interne Benutzer zur Verwendung der B2B-Zusammenarbeit einladen, aber Sie können die B2B-Anmeldeinformationen nach dem Hinzufügen nicht mehr entfernen. Um für den Benutzer wieder die Umstellung auf einen rein internen Benutzer durchzuführen, müssen Sie das Benutzerobjekt löschen und ein neues erstellen.
+- **Zugriff auf lokale Ressourcen:** Nachdem der Benutzer zu B2B Collaboration eingeladen wurde, kann er weiterhin seine internen Anmeldeinformationen für den Zugriff auf lokale Ressourcen verwenden. Dies können Sie verhindern, indem Sie das Kennwort für das interne Konto zurücksetzen oder ändern. Eine Ausnahme ist die [Authentifizierung mit Einmalkennung per E-Mail](one-time-passcode.md): Wenn die Authentifizierungsmethode des Benutzers in die Einmalkennung geändert wird, kann er seine internen Anmeldeinformationen nicht mehr verwenden.
 
-Während der öffentlichen Vorschauphase kann das Verfahren, das in diesem Artikel zum Einladen von internen Benutzern zur B2B-Zusammenarbeit beschrieben ist, in den folgenden Fällen nicht genutzt werden:
+- **Abrechnung**: Dieses Feature ändert nicht den Benutzertyp für den Benutzer, sodass das Abrechnungsmodell des Benutzers nicht automatisch auf das Abrechnungsmodell [External Identities monthly active user (MAU)](external-identities-pricing.md) (Monatlich aktive Benutzer für externe Identitäten (MAU)) umgestellt wird. Ändern Sie den Benutzertyp für den Benutzer in `guest`, um das MAU-Abrechnungsmodell zu aktivieren. Beachten Sie außerdem, dass der Azure AD-Mandant mit [einem Azure-Abonnement](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) verknüpft sein muss, um das MAU-Abrechnungsmodell zu aktivieren.
 
-- Dem internen Benutzer ist eine Exchange-Lizenz zugewiesen.
-- Der Benutzer stammt aus einer Domäne, für die der direkte Verbund in Ihrem Verzeichnis eingerichtet ist.
-- Der interne Benutzer verfügt über ein reines Cloudkonto, und sein Hauptkonto befindet sich nicht in Azure AD.
+- **Die Einladung ist unidirektional:** Sie können interne Benutzer zur Verwendung der B2B-Zusammenarbeit einladen, aber Sie können die B2B-Anmeldeinformationen nach dem Hinzufügen nicht mehr entfernen. Um für den Benutzer wieder die Umstellung auf einen rein internen Benutzer durchzuführen, müssen Sie das Benutzerobjekt löschen und ein neues erstellen.
 
-Falls der interne Benutzer auf einen B2B-Benutzer umgestellt werden muss, sollten Sie in diesen Fällen das interne Konto löschen und eine Einladung zur B2B-Zusammenarbeit an den Benutzer senden.
+- **Teams:** Wenn der Benutzer mit seinen externen Anmeldeinformationen auf Teams zugreift, ist sein Mandant anfangs nicht in der Teams-Mandantenauswahl verfügbar. Der Benutzer kann mithilfe einer URL auf Teams zugreifen, die den Mandantenkontext enthält (z. B. `https://team.microsoft.com/?tenantId=<TenantId>`). Danach wird der Mandant in der Teams-Mandantenauswahl verfügbar.
 
-**Lokal synchronisierte Benutzer**: Für Benutzerkonten, die zwischen dem lokalen Standort und der Cloud synchronisiert werden, bleibt das lokale Verzeichnis die Autoritätsquelle, nachdem die Einladung zur B2B-Zusammenarbeit erfolgt ist. Alle Änderungen, die Sie am lokalen Konto vornehmen, werden mit dem Cloudkonto synchronisiert, z. B. das Deaktivieren oder Löschen des Kontos. Aus diesem Grund können Sie durch das einfache Löschen des lokalen Kontos nicht verhindern, dass sich der Benutzer bei seinem lokalen Konto anmeldet, während das Cloudkonto beibehalten wird. Sie können aber das Kennwort für das lokale Konto auf eine zufällige GUID oder einen anderen unbekannten Wert festlegen.
+- **Lokal synchronisierte Benutzer**: Für Benutzerkonten, die zwischen dem lokalen Standort und der Cloud synchronisiert werden, bleibt das lokale Verzeichnis die Autoritätsquelle, nachdem die Einladung zur B2B-Zusammenarbeit erfolgt ist. Alle Änderungen, die Sie am lokalen Konto vornehmen, werden mit dem Cloudkonto synchronisiert, z. B. das Deaktivieren oder Löschen des Kontos. Aus diesem Grund können Sie durch das einfache Löschen des lokalen Kontos nicht verhindern, dass sich der Benutzer bei seinem lokalen Konto anmeldet, während das Cloudkonto beibehalten wird. Sie können aber das Kennwort für das lokale Konto auf eine zufällige GUID oder einen anderen unbekannten Wert festlegen.
 
 ## <a name="how-to-invite-internal-users-to-b2b-collaboration"></a>Gewusst wie: Einladen von internen Benutzern zur B2B-Zusammenarbeit
 
@@ -50,15 +45,15 @@ Sie können PowerShell oder die Einladungs-API nutzen, um eine B2B-Einladung an 
 Standardmäßig wird dem Benutzer beim Einladevorgang eine E-Mail mit einem Hinweis zur Einladung gesendet, aber Sie können diese E-Mail auch unterdrücken und eine eigene Nachricht senden.
 
 > [!NOTE]
-> Zum Senden einer eigenen E-Mail oder anderen Nachricht können Sie „New-AzureADMSInvitation“ mit „-SendInvitationMessage:$false“ verwenden, um Benutzer im Hintergrund einzuladen. Anschließend können Sie dann Ihre eigene E-Mail an den Benutzer senden, für den die Umstellung durchgeführt wurde. Weitere Informationen finden Sie unter [Azure AD B2B-Zusammenarbeit: API und Anpassung](customize-invitation-api.md).
+> Sie können zum Senden einer eigenen E-Mail oder einer anderen Nachricht `New-AzureADMSInvitation` mit `-SendInvitationMessage:$false` verwenden, um Benutzer im Hintergrund einzuladen. Anschließend senden Sie Ihre E-Mail an den Benutzer, für den eine Umstellung durchgeführt wurde. Weitere Informationen finden Sie unter [Azure AD B2B-Zusammenarbeit: API und Anpassung](customize-invitation-api.md).
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>Verwenden von PowerShell zum Senden einer B2B-Einladung
 
-Verwenden Sie den folgenden Befehl, um den Benutzer zur B2B-Zusammenarbeit einzuladen:
+Sie benötigen die Azure AD PowerShell-Modulversion 2.0.2.130 oder höher. Verwenden Sie den folgenden Befehl, um ein Update auf das neueste Azure AD PowerShell-Modul durchzuführen und den internen Benutzer zu B2B Collaboration einzuladen:
 
 ```powershell
-Uninstall-Module AzureADPreview
-Install-Module AzureADPreview
+Uninstall-Module AzureAD
+Install-Module AzureAD
 $ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
@@ -95,7 +90,6 @@ ContentType: application/json
 ```
 
 Die Antwort auf die API entspricht der Antwort, die Sie erhalten, wenn Sie einen neuen Gastbenutzer für das Verzeichnis einladen.
-
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [B2B-Zusammenarbeit: Einlösen von Einladungen](redemption-experience.md)

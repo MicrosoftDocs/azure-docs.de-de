@@ -3,7 +3,7 @@ title: Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO) von 
 description: Enthält eine Beschreibung der Funktionsweise des einmaligen Anmeldens (Single Sign-On, SSO) mit Azure Active Directory. Nutzen Sie SSO, damit sich die Benutzer nicht für jede Anwendung ein eigenes Kennwort merken müssen. Verwenden Sie SSO auch, um die Verwaltung Ihrer Konten zu vereinfachen.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4e27266688e39eadc8ae1f3d9afd84c42e1b524e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 36025a5a68e4c3d0de1d6b11a13df656c72745d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031656"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260196"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?
 

@@ -3,20 +3,20 @@ title: Überwachen und Betreiben von Sicherungen mit Backup Center
 description: In diesem Artikel wird erläutert, wie Sie mit Backup Center Sicherungen im gewünschten Umfang überwachen und betreiben.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992899"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893777"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Überwachen und Betreiben von Sicherungen mit Backup Center
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Überwachen und Betreiben von Sicherungen mit Backup Center (Vorschau)
 
 Als Sicherungsadministrator können Sie Backup Center als zentrale Benutzeroberfläche zum Überwachen Ihrer Aufträge und täglichen Sichern des Bestands verwenden. Mit Backup Center können Sie auch reguläre Vorgänge ausführen, z. B. auf Anforderungen der bedarfsgesteuerten Sicherung reagieren, Sicherungen wiederherstellen, Sicherungsrichtlinien erstellen usw.
 
 ## <a name="supported-scenarios"></a>Unterstützte Szenarien
 
-* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern und Azure Database for PostgreSQL-Servern unterstützt.
+* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern, für SQL in Azure-VM-Sicherungen, für SAP HANA in Azure-VM-Sicherungen, für Azure Files-Sicherungen und für Azure Database for PostgreSQL-Serversicherungen unterstützt.
 * Eine ausführliche Liste der unterstützten und nicht unterstützten Szenarien finden Sie in der [Supportmatrix](backup-center-support-matrix.md).
 
 ## <a name="backup-instances"></a>Sicherungsinstanzen

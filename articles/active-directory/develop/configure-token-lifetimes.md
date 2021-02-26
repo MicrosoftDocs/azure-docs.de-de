@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 3ec94543a53e3e5b7709801de8f4cf1dde3fc3d9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805219"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428114"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Konfigurieren von Richtlinien zur Tokenlebensdauer (Vorschau)
 Sie können die Gültigkeitsdauer eines Zugriffs-, SAML- oder ID-Tokens angeben, das von Microsoft Identity Platform ausgestellt wird. Die Tokengültigkeitsdauer können Sie für alle Apps Ihrer Organisation, für eine mehrinstanzenfähige Anwendung (Multiorganisationsanwendung) oder für einen bestimmten Dienstprinzipal in Ihrer Organisation festlegen. Weitere Informationen hierzu finden Sie unter [Konfigurierbare Tokengültigkeitsdauer in Microsoft Identity Platform (Vorschau)](active-directory-configurable-token-lifetimes.md).
@@ -38,7 +38,7 @@ Führen Sie die folgenden Schritte aus, um zu beginnen:
 1. Führen Sie das Cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) aus, um alle Richtlinien anzuzeigen, die in Ihrer Organisation erstellt wurden.  Alle Ergebnisse mit definierten Eigenschaftswerten, die sich von den oben aufgeführten Standardwerten unterscheiden, sind von der Einstellung betroffen.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Führen Sie das im Anschluss angegebene Cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) aus, und ersetzen Sie dabei **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** durch eine Ihrer Richtlinien-IDs, um zu sehen, welche Apps und Dienstprinzipale mit einer bestimmten Richtlinie verknüpft sind, die Sie identifiziert haben. Anschließend können Sie entscheiden, ob Sie die Anmeldehäufigkeit des bedingten Zugriffs konfigurieren oder die Azure AD-Standardwerte verwenden möchten.
@@ -85,11 +85,11 @@ In diesem Beispiel erstellen Sie eine Richtlinie, bei der es erforderlich ist, d
 
 ## <a name="create-token-lifetime-policies-for-refresh-and-session-tokens"></a>Erstellen von Richtlinien für die Tokengültigkeitsdauer für Aktualisierungs- und Sitzungstoken
 > [!IMPORTANT]
-> Seit Mai 2020 können neue Mandanten die Gültigkeitsdauer von Aktualisierungen und Sitzungstoken nicht mehr konfigurieren.  Mandanten mit vorhandenen Konfigurationen können die Richtlinien für Aktualisierungs- und Sitzungstoken bis zum 30. Januar 2021 ändern.  Nach dem 30. Januar 2021 berücksichtigt Azure Active Directory vorhandene Konfigurationen von Aktualisierungs- und Sitzungstoken in Richtlinien nicht mehr. Die Gültigkeitsdauer von Zugriffs-, SAML- und ID-Token kann jedoch auch nach der Einstellung weiterhin konfiguriert werden.
+> Ab dem 30. Januar 2021 können Sie die Gültigkeitsdauer von Aktualisierungs- und Sitzungstoken nicht mehr konfigurieren. Azure Active Directory berücksichtigt die Konfigurationen von Aktualisierungs- und Sitzungstoken in vorhandenen Richtlinien nicht mehr.  Für neue Token, die nach dem Ablauf vorhandener Token ausgegeben werden, wird jetzt die [Standardkonfiguration](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) festgelegt. Die Gültigkeitsdauer von Zugriffs-, SAML- und ID-Token kann jedoch auch noch nach der Einstellung der Konfiguration von Aktualisierungs- und Sitzungstoken konfiguriert werden.
+>
+> Die Gültigkeitsdauer des vorhandenen Tokens wird nicht geändert. Nach dem Ablauf des Tokens wird auf Basis des Standardwerts ein neues Token ausgegeben.
 >
 > Wenn Sie weiterhin definieren möchten, nach welcher Zeit ein Benutzer zur erneuten Anmeldung aufgefordert werden soll, können Sie die Anmeldehäufigkeit im bedingten Zugriff konfigurieren. Weitere Informationen zum bedingten Zugriff finden Sie unter [Konfigurieren der Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Wenn Sie den bedingten Zugriff nach dem Einstellungsdatum nicht verwenden möchten, werden die Aktualisierungs- und Sitzungstoken an diesem Datum auf die [Standardkonfiguration](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) festgelegt, und Sie können ihre Gültigkeitsdauer nicht mehr ändern.
 
 ### <a name="manage-an-organizations-default-policy"></a>Verwalten der Standardrichtlinie einer Organisation
 Anhand dieses Beispiels können Sie eine Richtlinie erstellen, die es den Benutzern ermöglicht, sich in Ihrer gesamten Organisation weniger häufig anmelden zu müssen. Erstellen Sie hierzu eine Richtlinie für die Lebensdauer von Single-Factor-Aktualisierungstoken, die auf Ihre gesamte Organisation angewandt wird. Die Richtlinie wird auf jede Anwendung in Ihrer Organisation und jeden Dienstprinzipal angewendet, für die bzw. den noch keine Richtlinie festgelegt wurde.

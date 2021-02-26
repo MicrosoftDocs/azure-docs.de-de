@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f8d366554634444db16eb3292f100540f3808e8a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 488de7114d80e6a88cc619ba3b42f867c985ea11
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992867"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833914"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Schnellstart: Hinzufügen eines simulierten Geräts zu Ihrer IoT Central-Anwendung
 
@@ -165,6 +165,10 @@ Nach der Erstellung eines neuen simulierten Geräts kann der Ersteller dieses Ge
 1. Wählen Sie in der Liste Ihr simuliertes Gerät aus. Wählen Sie anschließend **Anwenden** aus. Nun sehen Sie das gleiche simulierte Gerät auf der Erstellungsoberfläche für Gerätevorlagenansichten. Diese Ansicht ist nützlich für Diagramme und andere Visualisierungen.
 
     :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot: Konfiguriertes Vorschaugerät":::
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

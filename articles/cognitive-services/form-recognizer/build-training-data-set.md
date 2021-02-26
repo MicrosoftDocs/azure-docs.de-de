@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845598"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585108"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Erstellen eines Trainingsdatasets für ein benutzerdefiniertes Modell
 
 Wenn Sie das benutzerdefinierte Modell zur Formularerkennung verwenden, stellen Sie dem Vorgang [Trainieren eines benutzerdefinierten Modells](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) Ihre eigenen Trainingsdaten bereit, sodass das Modell mit Ihren branchenspezifischen Formularen trainiert werden kann. Folgen Sie diesem Leitfaden, um zu erfahren, wie Daten für ein effektives Training des Modells gesammelt und vorbereitet werden können.
 
-Wenn Sie das Modell ohne manuelle Bezeichnungen trainieren, können Sie fünf ausgefüllte Formulare oder ein leeres Formular (der Dateiname muss das Wort „empty“ enthalten) und zwei ausgefüllte Formulare verwenden. Selbst wenn Sie über genügend ausgefüllte Formulare verfügen, kann das Hinzufügen eines leeren Formulars zu Ihrem Trainingsdataset die Genauigkeit des Modells verbessern.
+Sie benötigen mindestens fünf ausgefüllte Formulare desselben Typs.
 
-Wenn Sie manuell bezeichnete Trainingsdaten verwenden möchten, müssen Sie mit mindestens fünf ausgefüllten Formularen desselben Typs beginnen. Sie können trotzdem nicht bezeichnete Formulare und ein leeres Formular zusätzlich zum erforderlichen Dataset verwenden.
+Wenn Sie manuell bezeichnete Trainingsdaten verwenden möchten, müssen Sie mit mindestens fünf ausgefüllten Formularen desselben Typs beginnen. Sie können trotzdem nicht bezeichnete Formulare zusätzlich zum erforderlichen Dataset verwenden.
 
 ## <a name="custom-model-input-requirements"></a>Eingabeanforderungen für benutzerdefinierte Modelle
 

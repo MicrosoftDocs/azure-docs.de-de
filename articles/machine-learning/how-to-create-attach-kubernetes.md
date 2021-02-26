@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831923"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560472"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Erstellen und Anfügen eines Azure Kubernetes Service-Clusters
 
@@ -69,6 +69,8 @@ Mit Azure Machine Learning kann ein trainiertes Machine Learning-Modell im Azure
 
     - [Skalieren der Anzahl der Knoten in einem Azure Kubernetes Service-Cluster (AKS)](../aks/scale-cluster.md)
     - [Automatisches Skalieren eines Clusters zur Erfüllung von Anwendungsanforderungen in Azure Kubernetes Service (AKS)](../aks/cluster-autoscaler.md)
+
+- __Aktualisieren Sie den Cluster nicht direkt mithilfe einer YAML-Konfiguration__. Während Azure Kubernetes Services Updates über die YAML-Konfiguration unterstützt, überschreiben Azure Machine Learning-Bereitstellungen Ihre Änderungen. Die einzigen beiden YAML-Felder, die nicht überschrieben werden, sind __Anforderungslimits__ und __CPU und Arbeitsspeicher__.
 
 ## <a name="azure-kubernetes-service-version"></a>Version von Azure Kubernetes Service
 
@@ -208,7 +210,7 @@ Weitere Informationen zum Erstellen eines AKS-Clusters im Portal finden Sie unte
 
 **Geschätzter Zeitaufwand:** Ca. fünf Minuten.
 
-Wenn Sie in Ihrem Azure-Abonnement bereits über einen AKS-Cluster verfügen und dieser maximal die Version 1.17.hat, können Sie ihn für die Bereitstellung Ihres Image verwenden.
+Wenn Sie in Ihrem Azure-Abonnement bereits über einen AKS-Cluster verfügen, können Sie diesen für Ihren Arbeitsbereich verwenden.
 
 > [!TIP]
 > Der vorhandene AKS-Cluster kann sich in einer anderen Azure-Region befinden als Ihr Azure Machine Learning-Arbeitsbereich.
@@ -381,7 +383,6 @@ Wählen Sie im Azure Machine Learning Studio __Compute__, __Rückschlusscluster_
 ---
 
 ## <a name="troubleshooting"></a>Problembehandlung
-
 ### <a name="update-the-cluster"></a>Aktualisieren des Clusters
 
 Updates für Azure Machine Learning-Komponenten, die in einem Azure Kubernetes Service-Cluster installiert sind, müssen manuell angewendet werden. 

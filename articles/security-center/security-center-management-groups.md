@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757638"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556426"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organisieren von Verwaltungsgruppen, Abonnements und mandantenweiter Sichtbarkeit
 
@@ -81,12 +81,14 @@ Sie können Abonnements der von Ihnen erstellten Verwaltungsgruppe hinzufügen.
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Erteilen von mandantenweiten Berechtigungen an sich selbst
 
-Ein Benutzer mit der Azure Active Directory-Rolle **Globaler Administrator** hat möglicherweise mandantenweite Aufgaben, aber keine Azure-Berechtigungen zum Anzeigen der organisationsweiten Informationen in Azure Security Center. 
+Ein Benutzer mit der Azure Active Directory-Rolle **Globaler Administrator** hat möglicherweise mandantenweite Aufgaben, aber keine Azure-Berechtigungen zum Anzeigen der organisationsweiten Informationen in Azure Security Center. Eine Berechtigungserhöhung ist erforderlich, da Azure AD-Rollenzuweisungen keinen Zugriff auf Azure-Ressourcen gewähren. 
 
 > [!TIP]
-> Wenn Ihre Organisation den Ressourcenzugriff über [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) oder ein anderes PIM-Tool verwaltet, muss die Rolle als globaler Administrator für den Benutzer aktiv sein, der die Änderungen vornimmt.
+> Weitere Informationen zur Berechtigungserhöhung für die Rolle „Globaler Administrator“ finden Sie unter [Erhöhen des Zugriffs zur Verwaltung aller Azure-Abonnements und Verwaltungsgruppen](../role-based-access-control/elevate-access-global-admin.md).
 
 So weisen Sie sich selbst Berechtigungen auf Mandantenebene zu:
+
+1. Wenn Ihre Organisation den Ressourcenzugriff über [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) oder ein anderes PIM-Tool verwaltet, muss die Rolle des globalen Administrators für den Benutzer, der nachfolgende Prozedur ausführt, aktiv sein.
 
 1. Öffnen Sie als globaler Administrator ohne Zuweisung in der Stammverwaltungsgruppe des Mandanten die Security Center-Seite **Übersicht**, und klicken Sie im Banner auf den Link **Mandantenweite Sichtbarkeit**. 
 

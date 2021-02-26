@@ -2,14 +2,14 @@
 title: Azure Service Bus – End-to-End-Ablaufverfolgung und Diagnose | Microsoft Docs
 description: Übersicht über Service Bus-Clientdiagnose und End-to-End-Ablaufverfolgung (Client durch alle Dienste, die an der Verarbeitung beteiligt sind).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601263"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539212"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Verteilte Ablaufverfolgung und Korrelation über Service Bus-Messaging
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 In diesem Beispiel werden die Dauer, das Ergebnis, der eindeutige Bezeichner und die Startzeit der einzelnen Service Bus-Vorgänge vom Listener protokolliert.
 
 ### <a name="events"></a>Events
-Für jeden Vorgang werden zwei Ereignisse gesendet: „Start“ und „Stop“. In den meisten Fällen kommt es nur auf die Stop-Ereignisse an. Diese enthalten neben dem Ergebnis des Vorgangs die Startzeit und die Dauer in Form von Activity-Eigenschaften.
-
-Die Ereignisnutzlast stellt einen Listener mit dem Vorgangskontext bereit, repliziert eingehende API-Parameter und gibt einen Wert zurück. Die Stop-Ereignisnutzlast verfügt über alle Eigenschaften der Start-Ereignisnutzlast, sodass Sie das Start-Ereignis vollständig außer Acht lassen können.
-
-Jedes Stop-Ereignis verfügt über die `Status`-Eigenschaft, mit der der asynchrone `TaskStatus`-Vorgang abgeschlossen wurde. Aus Gründen der Übersichtlichkeit wird die Eigenschaft in der folgenden Tabelle nicht berücksichtigt.
-
 Alle Ereignisse verfügen über die folgenden Eigenschaften, die der Spezifikation für offene Telemetrie entsprechen: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md.
 
 - `message_bus.destination`: Pfad zu Warteschlange/Thema/Abonnement.

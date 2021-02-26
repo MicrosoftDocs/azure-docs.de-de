@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723879"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807647"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Verbinden von Azure Data Factory und Azure Purview
 
@@ -69,12 +69,22 @@ Führen Sie die folgenden Schritte aus, um vorhandene Data Factory-Konten mit Ih
 >[!Note]
 >Zurzeit wird das gleichzeitige Hinzufügen von nicht mehr als 10 Data Factorys unterstützt. Wenn Sie mehr als 10 Data Factorys gleichzeitig hinzufügen möchten, erstellen Sie ein Supportticket.
 
+### <a name="how-does-the-authentication-work"></a>Wie funktioniert die Authentifizierung?
+
+Wenn ein Purview-Benutzer eine Data Factory registriert, auf die er Zugriff hat, erfolgt im Back-End Folgendes:
+
+1. Die **Data Factory-MSI** wird zur RBAC-Rolle für Purview hinzugefügt: **Datenkurator für Purview**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot, der die Azure Data Factory-MSI zeigt." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. Die Data Factory-Pipeline muss erneut ausgeführt werden, sodass die Herkunftsmetadaten per Push zurück an Purview übertragen werden können.
+3. Nach der Ausführung werden die Data Factory-Metadaten per Push an Purview übertragen.
 
 ### <a name="remove-data-factory-connections"></a>Entfernen von Data Factory-Verbindungen
 Um eine Data Factory-Verbindung zu entfernen, gehen Sie folgendermaßen vor:
 
 1. Klicken Sie auf der Seite **Data Factory-Verbindung** auf die Schaltfläche **Entfernen** neben mindestens einer Data Factory-Verbindung.
-1. Klicken Sie in der angezeigten Popupmeldung auf **Bestätigen**, um die ausgewählten Data Factory-Verbindungen zu löschen.
+2. Klicken Sie in der angezeigten Popupmeldung auf **Bestätigen**, um die ausgewählten Data Factory-Verbindungen zu löschen.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot: Auswählen der Data Factorys, deren Verbindung entfernt werden soll" lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
@@ -97,29 +107,29 @@ Die Integration zwischen Data Factory und Purview unterstützt nur eine Teilmeng
 
 ### <a name="data-factory-copy-data-support"></a>Data Factory – Unterstützung für das Kopieren von Daten
 
-| Datenspeichersystem | Als Quelle unterstützt | Als Senke unterstützt |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Ja | Ja (nur nicht-binäre Kopien) |
-| ADLS Gen2 | Ja | Ja |
-| Azure Blob | Ja | Ja |
-| Azure Cosmos DB (SQL-API) | Ja | Ja |
-| Azure Cosmos DB (Mongo-API) | Ja | Ja |
-| Azure Cognitive Search | Ja | Ja |
-| Azure-Daten-Explorer | Ja | Ja |
-| Azure Database for MariaDB \* | Ja | Ja |
-| Azure Database for MYSQL \* | Ja | Ja |
-| Azure Database for PostgreSQL \* | Ja | Ja |
-| Azure File Storage | Ja | Ja |
-| Azure Table Storage | Ja | Ja |
-| Azure SQL-Datenbank \* | Ja | Ja |
-| Azure SQL MI \* | Ja | Ja |
-| Azure Synapse Analytics (ehemals SQL DW) \* | Ja | Ja |
-| SQL Server lokal (SHIR erforderlich) \* | Ja | Ja |
-| Amazon S3 | Ja | Ja |
-| Teradata | Ja | Ja |
-| SAP S4 HANA | Ja | Ja |
-| SAP ECC | Ja | Ja |
-| Hive | Ja | Ja |
+| Datenspeichersystem | Als Quelle unterstützt | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Ja | 
+| ADLS Gen2 | Ja | 
+| Azure Blob | Ja |
+| Azure Cosmos DB (SQL-API) | Ja | 
+| Azure Cosmos DB (Mongo-API) | Ja |
+| Azure Cognitive Search | Ja | 
+| Azure-Daten-Explorer | Ja | 
+| Azure Database for MariaDB \* | Ja | 
+| Azure Database for MYSQL \* | Ja | 
+| Azure Database for PostgreSQL \* | Ja |
+| Azure File Storage | Ja | 
+| Azure Table Storage | Ja |
+| Azure SQL-Datenbank \* | Ja | 
+| Azure SQL MI \* | Ja | 
+| Azure Synapse Analytics (ehemals SQL DW) \* | Ja | 
+| SQL Server lokal \* | Ja | 
+| Amazon S3 | Ja | 
+| Teradata | Ja | 
+| Connector für SAP-Tabellen | Ja |
+| SAP ECC | Ja | 
+| Hive | Ja | 
 
 > [!Note]
 > Das Herkunftsfeature verursacht einen gewissen Leistungsoverhead in der Data Factory-Kopieraktivität. Wenn Sie Data Factory-Verbindungen in Purview einrichten, werden Sie möglicherweise feststellen, dass bestimmte Kopieraufträge länger dauern. Die Auswirkungen sind in den meisten Fällen zu vernachlässigen. Wenn Ihre Kopieraufträge deutlich länger dauern als üblich, wenden Sie sich mit einem Zeitvergleich an den Support.
@@ -127,7 +137,7 @@ Die Integration zwischen Data Factory und Purview unterstützt nur eine Teilmeng
 ### <a name="data-factory-data-flow-support"></a>Data Factory – Unterstützung für Datenflüsse
 
 | Datenspeichersystem | Unterstützt |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Ja |
 | ADLS Gen2 | Ja |
 | Azure Blob | Ja |
@@ -137,7 +147,7 @@ Die Integration zwischen Data Factory und Purview unterstützt nur eine Teilmeng
 ### <a name="data-factory-execute-ssis-package-support"></a>Unterstützung für Data Factory-Aktivität zum Ausführen eines SSIS-Pakets
 
 | Datenspeichersystem | Unterstützt |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Azure Blob | Ja |
 | ADLS Gen1 | Ja |
 | ADLS Gen2 | Ja |

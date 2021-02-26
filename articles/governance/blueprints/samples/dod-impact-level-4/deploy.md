@@ -3,12 +3,12 @@ title: Blaupausenbeispiel „DoD-Auswirkungsstufe 4“
 description: Bereitstellungsschritte für das Blaupausenbeispiel „DoD-Auswirkungsstufe 4“, einschließlich Details zum Blaupausenartefaktparameter
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033760"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594809"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Bereitstellen des Blaupausenbeispiels „DoD-Auswirkungsstufe 4“
 
@@ -109,7 +109,7 @@ Die folgende Tabelle enthält eine Aufstellung der Parameter des Blaupausenartef
 |Bereitstellen des Log Analytics-Agents für Windows-VMs|Richtlinienzuweisung|Optional: Liste der VM-Images mit unterstütztem Windows-Betriebssystem zum Hinzufügen zum Bereich|Mit einem leeren Array wird angegeben, dass keine optionalen Parameter verwendet werden: \[\]|
 |\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Mitglieder, die in die lokale Administratorengruppe einbezogen werden sollen|Eine durch Semikolon getrennte Liste von Mitgliedern, die aus der Gruppe der lokalen Administratoren ausgeschlossen werden sollen. Beispiel: Administrator; myUser1; myUser2|
 |\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Mitglieder, die aus der Gruppe der lokalen Administratoren ausgeschlossen werden sollen|Eine durch Semikolon getrennte Liste von Mitgliedern, die in der Gruppe der lokalen Administratoren enthalten sein sollen. Beispiel: Administrator; myUser1; myUser2|
-|\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen|Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen|Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|ID des Log Analytics-Arbeitsbereichs, für den die VMs konfiguriert werden sollen|Dies ist die ID (GUID) des Log Analytics-Arbeitsbereichs, für den die virtuellen Computer konfiguriert werden sollen.|
 |\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Langfristige georedundante Sicherung muss für Azure SQL-Datenbank aktiviert sein|Informationen zu Richtlinienauswirkungen finden Sie unter [Grundlegendes zu Azure Policy-Auswirkungen](../../../policy/concepts/effects.md).|
 |\[Vorschau\]: DoD-Auswirkungsstufe 4|Richtlinienzuweisung|Bewertung von Sicherheitsrisiken für verwaltete SQL-Instanzen aktivieren|Informationen zu Richtlinienauswirkungen finden Sie unter [Grundlegendes zu Azure Policy-Auswirkungen](../../../policy/concepts/effects.md).|

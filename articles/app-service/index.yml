@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 8ace1c6bb530fcc93d06f48bcef0d1ccfdf82306
-  ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+  ms.openlocfilehash: 2344c7a1507feb6ca3938fe0c53cf618b015f0f4
+  ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/22/2020
-  ms.locfileid: "97724424"
+  ms.lasthandoff: 02/06/2021
+  ms.locfileid: "99627316"
 landingContent:
 - title: Informationen zu App Service
   linkLists:
@@ -60,46 +60,10 @@ landingContent:
       url: scenario-secure-app-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Aktivieren von Diagnoseprotokollen
-      url: troubleshoot-diagnostic-logs.md
     - text: Herstellen einer Verbindung mit einem Linux-Container über SSH
       url: configure-linux-open-ssh-session.md
     - text: Migrieren einer aktiven Domain zu App Service
       url: manage-custom-dns-migrate-domain.md
-- title: CRUD-App mit Datenbank
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: ASP.NET-App mit SQL-Datenbank
-      url: app-service-web-tutorial-dotnet-sqldatabase.md
-    - text: ASP.NET Core-App mit SQL-Datenbank
-      url: tutorial-dotnetcore-sqldb-app.md
-    - text: PHP-App (Laravel) mit Azure MySQL
-      url: tutorial-php-mysql-app.md
-    - text: Node.js-App (MEAN.js) mit MongoDB
-      url: tutorial-nodejs-mongodb-app.md
-    - text: Java-App (Spring Boot) mit Cosmos DB
-      url: tutorial-java-spring-cosmosdb.md
-    - text: Python-App (Django) mit PostgreSQL
-      url: tutorial-python-postgresql-app.md
-    - text: Ruby-App (Rails) mit PostgreSQL
-      url: tutorial-ruby-postgres-app.md
-- title: Hochladen von Code oder Inhalt
-  linkLists:
-  - linkListType: deploy
-    links:
-    - text: Hochladen von Inhalt mit FTP
-      url: deploy-ftp.md
-    - text: Hochladen von Inhalt als ZIP-Pakete
-      url: deploy-zip.md
-    - text: Git-Push von lokalem Computer
-      url: deploy-local-git.md
-    - text: Synchronisieren von Inhalt mit OneDrive oder Dropbox
-      url: deploy-content-sync.md
-    - text: CI/CD mit GitHub, BitBucket usw.
-      url: deploy-continuous-deployment.md
-    - text: Ausführen über ein Paket
-      url: deploy-run-package.md
 - title: Ausführen von benutzerdefinierten Containern
   linkLists:
   - linkListType: quickstart
@@ -120,6 +84,24 @@ landingContent:
       url: configure-connect-to-azure-storage.md
     - text: Bereitstellen mit GitHub-Aktionen
       url: deploy-container-github-action.md
+- title: CRUD-App mit Datenbank
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET-App mit SQL-Datenbank
+      url: app-service-web-tutorial-dotnet-sqldatabase.md
+    - text: ASP.NET Core-App mit SQL-Datenbank
+      url: tutorial-dotnetcore-sqldb-app.md
+    - text: PHP-App (Laravel) mit Azure MySQL
+      url: tutorial-php-mysql-app.md
+    - text: Node.js-App (MEAN.js) mit MongoDB
+      url: tutorial-nodejs-mongodb-app.md
+    - text: Java-App (Spring Boot) mit Cosmos DB
+      url: tutorial-java-spring-cosmosdb.md
+    - text: Python-App (Django) mit PostgreSQL
+      url: tutorial-python-postgresql-app.md
+    - text: Ruby-App (Rails) mit PostgreSQL
+      url: tutorial-ruby-postgres-app.md
 - title: Verwalten und Integrieren
   linkLists:
   - linkListType: concept
@@ -146,6 +128,46 @@ landingContent:
       url: configure-domain-traffic-manager.md
     - text: Sichern Ihrer App in Storage-Blobs
       url: manage-backup.md
+- title: Hochladen von Code oder Inhalt
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Hochladen von Inhalt mit FTP
+      url: deploy-ftp.md
+    - text: Hochladen von Inhalt als ZIP-Pakete
+      url: deploy-zip.md
+    - text: Git-Push von lokalem Computer
+      url: deploy-local-git.md
+    - text: Synchronisieren von Inhalt mit OneDrive oder Dropbox
+      url: deploy-content-sync.md
+    - text: CI/CD mit GitHub, BitBucket usw.
+      url: deploy-continuous-deployment.md
+    - text: Ausführen über ein Paket
+      url: deploy-run-package.md
+- title: Überwachen Ihrer App
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: App Service-Integration in Azure Monitor (Vorschau)
+      url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
+    - text: Protokolltypen für die Azure Monitor-Integration (Vorschau)
+      url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
+  - linkListType: tutorial
+    links:
+    - text: Behandeln von Fehlern bei Azure Monitor (Vorschau)
+      url: tutorial-troubleshoot-monitor.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktivieren von Diagnoseprotokollen
+      url: troubleshoot-diagnostic-logs.md
+    - text: Abrufen von Ressourcenereignissen
+      url: get-resource-events.md
+    - text: Integritätsprüfung
+      url: monitor-instances-health-check.md
+  - linkListType: reference
+    links:
+    - text: Kontingente und Warnungen
+      url: web-sites-monitor.md
 - title: Weitere Ressourcen
   linkLists:
   - linkListType: video

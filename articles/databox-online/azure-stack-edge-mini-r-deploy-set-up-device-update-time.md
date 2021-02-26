@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: ee3805d128a7b6d122f93e692291db1a387cfcf5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9f4d4f4ad27081bb105cdb1698438837fc2fe02
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464179"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546668"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-mini-r"></a>Tutorial: Konfigurieren der Geräteeinstellungen für Azure Stack Edge Mini R
 
@@ -85,7 +85,7 @@ Führen Sie zum Konfigurieren von Geräteeinstellungen die folgenden Schritte au
         ![Seite „Updateserver“ auf der lokalen Webbenutzeroberfläche 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 
         > [!NOTE] 
-        > Wenn ein separater Windows Update-Server konfiguriert ist und Sie eine Verbindung über *https* (statt *http*) wählen, werden für die Verbindung mit dem Updateserver Signaturkettenzertifikate benötigt. Informationen zum Erstellen und Hochladen von Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md). Wenn Sie in einem getrennten Modus arbeiten, aktivieren Sie die WSUS-Option. Ein Beispiel hierfür wäre etwa das Tiering Ihres Azure Stack Edge-Geräts mit Modular Data Center. Da das Gerät während der Aktivierung nach Updates sucht, ist die Aktivierung ohne eingerichteten Server nicht erfolgreich. 
+        > Wenn ein separater Windows Update-Server konfiguriert ist und Sie eine Verbindung über *https* (statt *http*) wählen, werden für die Verbindung mit dem Updateserver Signaturkettenzertifikate benötigt. Informationen zum Erstellen und Hochladen von Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md). Wenn Sie in einem getrennten Modus arbeiten, aktivieren Sie die WSUS-Option. Ein Beispiel hierfür wäre etwa das Tiering Ihres Azure Stack Edge-Geräts mit Modular Data Center. Da das Gerät während der Aktivierung nach Updates sucht, ist die Aktivierung ohne eingerichteten Server nicht erfolgreich. 
 
 2. Wählen Sie **Übernehmen**.
 3. Wählen Sie nach der Konfiguration des Updateservers **Weiter: Zeit** aus.

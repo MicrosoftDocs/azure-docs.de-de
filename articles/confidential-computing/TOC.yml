@@ -38,7 +38,7 @@
     - name: Containercompute
       expanded: true
       items:
-        - name: "Vertrauliche Container (Lift\_& Shift)"
+        - name: Vertrauliche Container
           items:
             - name: Erste Schritte
               href: confidential-containers.md
@@ -52,6 +52,8 @@
       href: application-development.md
 - name: Vorgehensweise
   items:
+    - name: Fortanix Confidential Computing Manager
+      href: how-to-fortanix-confidential-computing-manager.md
     - name: Fortanix Enclave Manager
       href: how-to-fortanix-enclave-manager.md
 - name: References

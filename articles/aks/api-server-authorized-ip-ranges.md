@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie Ihre Cluster durch Verwendung von IP-Adressbe
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682501"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890634"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sicherer Zugriff auf den API-Server mit autorisierten IP-Adressbereichen in Azure Kubernetes Service (AKS)
 
@@ -130,11 +130,28 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>Ermitteln vorhandener autorisierter IP-Adressbereiche
+
+Zum Ermitteln autorisierter IP-Adressbereiche verwenden Sie [az aks show][az-aks-show] und geben den Clusternamen und die Ressourcengruppe an. Beispiel:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Aktualisieren, Deaktivieren und Ermitteln von autorisierten IP-Adressbereichen über das Azure-Portal
+
+Die obigen Vorgänge zum Hinzufügen, Aktualisieren, Ermitteln und Deaktivieren von autorisierten IP-Adressbereichen können auch über das Azure-Portal ausgeführt werden. Für den Zugriff wechseln Sie auf dem Blatt der Clusterressource unter **Einstellungen** zu **Netzwerk**.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="Die Azure-Portalseite mit den Netzwerkeinstellungen der Clusterressource in einem Browser. Die Option zum Festlegen eines IP-Adressbereichs sowie die festgelegten IP-Adressbereiche sind hervorgehoben.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Wie finde ich meine in `--api-server-authorized-ip-ranges` aufzunehmende IP-Adresse?
 
 Sie müssen Ihre Entwicklungscomputer, Tool- oder Automatisierungs-IP-Adressen der AKS-Clusterliste der genehmigten IP-Adressbereiche hinzufügen, um von dort aus auf den API-Server zugreifen zu können. 
 
-Eine andere Möglichkeit besteht darin, in einem separaten Subnetz innerhalb des virtuellen Netzwerks von Azure Firewall eine Jumpbox mit den erforderlichen Tools zu konfigurieren. Dies setzt voraus, dass Ihre Umgebung über eine Firewall mit dem jeweiligen Netzwerk verfügt, und dass Sie die Firewall-IPs zu autorisierten Bereichen hinzugefügt haben. Ebenso ist es auch in Ordnung, dass Sie, wenn Sie erzwungenes Tunneln aus dem AKS-Subnetz in das Firewallsubnetz haben, dann die Jumpbox ebenfalls im Clustersubnetz haben.
+Eine andere Möglichkeit besteht darin, in einem separaten Subnetz innerhalb des virtuellen Netzwerks von Azure Firewall eine Jumpbox mit den erforderlichen Tools zu konfigurieren. Dies setzt voraus, dass Ihre Umgebung über eine Firewall mit dem jeweiligen Netzwerk verfügt, und dass Sie die Firewall-IPs zu autorisierten Bereichen hinzugefügt haben. Wenn Tunneln aus dem AKS-Subnetz in das Firewallsubnetz erzwungen wurde, kann sich die Jumpbox ebenfalls im Clustersubnetz befinden.
 
 Fügen Sie mit dem folgenden Befehl dem Bereich der genehmigten IP-Adressen eine weitere Adresse hinzu.
 
@@ -170,6 +187,7 @@ Weitere Informationen finden Sie unter [Sicherheitskonzepte für Anwendungen und
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

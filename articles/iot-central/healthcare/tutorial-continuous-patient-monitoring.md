@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531269"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832503"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Bereitstellen einer App für die ständige Überwachung von Patienten und exemplarische Vorgehensweise für die zugehörige Vorlage
 
@@ -24,6 +24,10 @@ In diesem Tutorial lernen Sie Folgendes:
 > [!div class="checklist"]
 > * Erstellen einer Anwendungsvorlage
 > * Exemplarische Vorgehensweise für die Anwendungsvorlage
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Es wird ein Azure-Abonnement empfohlen. Alternativ können Sie eine kostenlose 7-Tage-Testversion verwenden. Wenn Sie kein Azure-Abonnement besitzen, können Sie auf der Seite [Azure-Anmeldeseite](https://aka.ms/createazuresubscription) eines erstellen.
 
 ## <a name="create-an-application-template"></a>Erstellen einer Anwendungsvorlage
 
@@ -61,11 +65,11 @@ Nach der Bereitstellung der App-Vorlage gelangen Sie zunächst zum **Lamna-Dashb
 
 * Ändern Sie den **Patientenstatus** Ihres Geräts, um anzugeben, ob das Gerät für einen internen oder externen Patienten verwendet wird.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Status stationärer Patienten":::
 
 Sie können auch **Go to remote patient dashboard** (Zu Dashboard für externe Patienten wechseln) auswählen, um das zweite Operatordashboard für Burkville Hospital anzuzeigen. Dieses Dashboard enthält ähnliche Aktionen, Telemetriedaten und Informationen. Darüber hinaus werden mehrere verwendete Geräte angezeigt, für die Sie jeweils die **Firmware aktualisieren** können.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Remote-Operatordashboard":::
 
 ### <a name="device-templates"></a>Gerätevorlagen
 
@@ -75,7 +79,7 @@ Wenn Sie **Gerätevorlagen** auswählen, werden die beiden Gerätetypen in der V
 
 * **Smart Knee Brace**: Bei diesem Gerät handelt es sich um eine Stützmanschette für das Knie, die von Patienten mit einem neuen Kniegelenk verwendet wird. Wenn Sie auf diese Vorlage klicken, werden Funktionen wie Gerätedaten, Bewegungsumfang und Beschleunigung angezeigt.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Smart Patch-Vorlage":::
 
 ### <a name="device-groups"></a>Gerätegruppen
 
@@ -93,7 +97,7 @@ Wenn Sie **Regeln** auswählen, werden die drei Regeln in der Vorlage angezeigt:
 
 * **Patch battery low** (Niedriger Akkustand des Patchgeräts): Diese Regel wird ausgelöst, wenn der Akkustand des Geräts unter zehn Prozent sinkt. Verwenden Sie diese Regel, um für den Patienten eine Benachrichtigung mit dem Hinweis auszulösen, dass er sein Gerät aufladen sollte.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Regeln":::
 
 ### <a name="jobs"></a>Aufträge
 
@@ -113,7 +117,7 @@ Auf der Registerkarte **Eigenschaften** können Sie Cloudeigenschaften bearbeite
 
 Auf der Registerkarte **Befehle** können Sie Befehle auf dem Gerät ausführen.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Dashboard Kniemanschette":::
 
 ### <a name="data-export"></a>Datenexport
 
@@ -123,7 +127,7 @@ Mit dem Datenexport können Sie Ihre Gerätedaten fortlaufend in andere Azure-Di
 
 Wenn Sie diese Anwendung nicht mehr verwenden möchten, sollten Sie sie löschen, indem Sie unter **Verwaltung > Anwendungseinstellungen** auf **Löschen** klicken.
 
-:::image type="content" source="media/admin-delete.png" alt-text="App-Vorlage für das Gesundheitswesen":::
+:::image type="content" source="media/admin-delete.png" alt-text="Bereinigen der Ressourcen":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

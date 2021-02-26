@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Data Science für Einsteiger – Azure'
 description: Data Science für Anfänger erläutert die grundlegenden Konzepte in fünf kurzen Videos, beginnend mit den fünf Fragen, die Data Science beantwortet. Aus Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520390"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data Science für Einsteiger – Video 1: Die 5 Fragen, die Data Science beantwortet
 
@@ -45,7 +45,7 @@ In diesem ersten Video befassen wir uns mit den „5 Fragen, die Data Science be
 
 Data Science verwendet Zahlen und Namen (auch „Kategorien“ oder „Bezeichnungen“ genannt), um Antworten auf Fragen vorherzusagen.
 
-Es mag Sie vielleicht überraschen, doch *es gibt nur fünf Fragen, die Data Science beantwortet* :
+Es mag Sie vielleicht überraschen, doch *es gibt nur fünf Fragen, die Data Science beantwortet*:
 
 * Ist dies A oder B?
 * Ist dies merkwürdig?

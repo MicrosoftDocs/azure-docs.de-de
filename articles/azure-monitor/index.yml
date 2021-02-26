@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 3fe4dd31fa6132401b09ac80d0c2cbf62b8b83e1
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: 788515589c4e250d6837a189d3cfcfac9e55d2ec
+  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905620"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100577541"
 landingContent:
 - title: Informationen zu Azure Monitor
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Übersicht über Datenquellen
-      url: platform/data-sources.md
+      url: agents/data-sources.md
     - text: Übersicht über die Datenplattform
       url: platform/data-platform.md
 - title: Zehnminütige Schnellstartanleitungen
@@ -40,7 +40,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Überwachen und Senden von Warnungen zu Metriken
-      url: platform/alerts-metric.md
+      url: alerts/alerts-metric.md
     - text: Analysieren von Protokollen
       url: ./log-query/log-analytics-tutorial.md
     - text: Azure-VMs in Log Analytics

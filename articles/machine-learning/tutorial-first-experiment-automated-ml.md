@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879780"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549185"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Erstellen eines Klassifizierungsmodells mit automatisiertem maschinellem Lernen in Azure Machine Learning
 
@@ -102,8 +102,8 @@ Laden Sie vor dem Konfigurieren Ihres Experiments Ihre Datendatei in Form eines 
         Spaltenüberschriften| Gibt an, wie die Header des Datasets, sofern vorhanden, behandelt werden.| Alle Dateien weisen dieselben Header auf.
         Zeilen überspringen | Gibt an, wie viele Zeilen im Dataset übersprungen werden.| Keine
 
-    1. Das Formular **Schema** ermöglicht eine weitere Konfiguration der Daten für dieses Experiment. Für dieses Beispiel treffen wir keine Auswahlen. Wählen Sie **Weiter** aus.
-
+    1. Das Formular **Schema** ermöglicht eine weitere Konfiguration der Daten für dieses Experiment. Wählen Sie für dieses Beispiel den Umschalter für das Feature **day_of_week** aus, um es nicht einzuschließen. Wählen Sie **Weiter** aus.
+         ![Schemaformular](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. Überprüfen Sie im Formular **Details bestätigen** die zuvor in die Formulare **Grundlegende Infos, Datenspeicher- und Dateiauswahl** und **Einstellungen und Vorschau** eingetragenen Informationen.
     
     1. Wählen Sie **Erstellen** aus, um die Erstellung Ihres Datasets abzuschließen.
@@ -170,12 +170,6 @@ Nach dem Laden und Konfigurieren Ihrer Daten können Sie Ihr Experiment einricht
         
         Wählen Sie **Speichern** aus.
     
-    1. Wählen Sie **Featurisierungseinstellungen anzeigen** aus. Wählen Sie für dieses Beispiel den Umschalter für das Feature **day_of_week** aus, um es für die Featurisierung in diesem Experiment nicht einzuschließen.
-
-        ![Auswahl der Featurisierung](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Wählen Sie **Speichern** aus.
-
 1. Wählen Sie **Fertig stellen** aus, um das Experiment auszuführen. Wenn die Vorbereitung des Experiments beginnt, wird der Bildschirm **Ausführungsdetails** geöffnet, auf dem am oberen Rand der **Ausführungsstatus** angezeigt wird. Dieser Status wird während des Experimentausführung entsprechend aktualisiert. Außerdem werden in der rechten oberen Ecke des Studios Benachrichtigungen angezeigt, die Sie über den Status Ihres Experiments informieren.
 
 >[!IMPORTANT]

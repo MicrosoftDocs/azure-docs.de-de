@@ -1,18 +1,15 @@
 ---
 title: Authentifizierungsprobleme in Azure HDInsight
 description: Authentifizierungsprobleme in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 9f10597023314aed8640ee5a7499a77f952c3694
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284415"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095123"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Authentifizierungsprobleme in Azure HDInsight
 
@@ -38,7 +35,7 @@ Azure AD-Fehlercode 50126 bedeutet, dass die `AllowCloudPasswordValidation`-Rich
 
 ### <a name="resolution"></a>Lösung
 
-Der Unternehmensadministrator des Azure AD-Mandanten sollte Azure AD für die Verwendung von Kennworthashes für durch ADFS unterstützte Benutzer aktivieren.  Wenden Sie die `AllowCloudPasswordValidationPolicy` wie im Artikel [Verwenden des Enterprise-Sicherheitspakets in HDInsight](../domain-joined/apache-domain-joined-architecture.md) gezeigt an.
+Der globale Administrator des Azure AD-Mandanten muss Azure AD für die Verwendung von Kennworthashes für durch ADFS unterstützte Benutzer aktivieren.  Wenden Sie die `AllowCloudPasswordValidationPolicy` wie im Artikel [Verwenden des Enterprise-Sicherheitspakets in HDInsight](../domain-joined/apache-domain-joined-architecture.md) gezeigt an.
 
 ---
 

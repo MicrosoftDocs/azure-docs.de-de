@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805795"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546804"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Herstellen einer Verbindung mit Azure Resource Manager auf Ihrem Azure Stack Edge Pro-Gerät
 
@@ -93,9 +93,9 @@ Zum Herstellen der Verbindung mit Azure Resource Manager müssen Sie die Signatu
 
 Nur für Test- und Entwicklungszwecke können Sie Windows PowerShell verwenden, um Zertifikate auf dem lokalen System zu erstellen. Beachten Sie beim Erstellen der Zertifikate für den Client die folgenden Vorgaben:
 
-1. Zunächst müssen Sie ein Stammzertifikat für die Signaturkette erstellen. Weitere Informationen finden Sie unter [Erstellen von Signaturkettenzertifikaten](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate).
+1. Zunächst müssen Sie ein Stammzertifikat für die Signaturkette erstellen. Weitere Informationen finden Sie unter [Erstellen von Signaturkettenzertifikaten](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
 
-2. Dann können Sie die Endpunktzertifikate für das Blob und für Azure Resource Manager erstellen. Diese Endpunkte finden Sie auf der Seite **Gerät** in der lokalen Webbenutzeroberfläche. Weitere Informationen finden Sie in den Schritten zum [Erstellen von Endpunktzertifikaten](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates).
+2. Dann können Sie die Endpunktzertifikate für das Blob und für Azure Resource Manager erstellen. Diese Endpunkte finden Sie auf der Seite **Gerät** in der lokalen Webbenutzeroberfläche. Weitere Informationen finden Sie in den Schritten zum [Erstellen von Endpunktzertifikaten](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. Achten Sie bei allen diesen Zertifikaten darauf, dass der Antragstellername und der alternative Antragstellername den folgenden Vorgaben entsprechen:
 
@@ -105,26 +105,26 @@ Nur für Test- und Entwicklungszwecke können Sie Windows PowerShell verwenden, 
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Einzelnes Zertifikat für mehrere alternative Antragstellernamen für beide Endpunkte|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-Weitere Informationen zu Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md).
+Weitere Informationen zu Zertifikaten finden Sie unter [Verwalten von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md).
 
 ### <a name="upload-certificates-on-the-device"></a>Hochladen von Zertifikaten auf das Gerät
 
 Die im vorherigen Schritt erstellten Zertifikate befinden sich im persönlichen Speicher auf dem Client. Diese Zertifikate müssen auf dem Client in entsprechende Formatdateien exportiert werden, die dann auf das Gerät hochgeladen werden können.
 
-1. Das Stammzertifikat muss als Datei im DER-Format mit der Dateierweiterung *.cer* exportiert werden. Ausführliche Schritte finden Sie unter [Exportieren von Zertifikaten als Datei im CER-Format](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. Das Stammzertifikat muss als Datei im DER-Format mit der Dateierweiterung *.cer* exportiert werden. Ausführliche Schritte finden Sie unter [Exportieren von Zertifikaten als Datei im CER-Format](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format).
 
-2. Die Endpunktzertifikate müssen als *PFX*-Dateien mit privaten Schlüsseln exportiert werden. Ausführliche Schritte finden Sie unter [Exportieren von Zertifikaten als PFX-Datei mit privaten Schlüsseln](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+2. Die Endpunktzertifikate müssen als *PFX*-Dateien mit privaten Schlüsseln exportiert werden. Ausführliche Schritte finden Sie unter [Exportieren von Zertifikaten als PFX-Datei mit privaten Schlüsseln](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. Das Stamm- und die Endpunktzertifikate werden dann über die Option **+ Zertifikat hinzufügen** auf der Seite **Zertifikate** der lokalen Webbenutzeroberfläche auf das Gerät hochgeladen. Führen Sie zum Hochladen der Zertifikate die Schritte unter [Hochladen von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md#upload-certificates) aus.
+3. Das Stamm- und die Endpunktzertifikate werden dann über die Option **+ Zertifikat hinzufügen** auf der Seite **Zertifikate** der lokalen Webbenutzeroberfläche auf das Gerät hochgeladen. Führen Sie zum Hochladen der Zertifikate die Schritte unter [Hochladen von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md#upload-certificates) aus.
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Importieren von Zertifikaten auf dem Client, auf dem Azure PowerShell ausgeführt wird
 
 Für den Windows-Client, auf dem die Azure Resource Manager-APIs aufgerufen werden, muss eine Vertrauensstellung mit dem Gerät eingerichtet werden. Dazu müssen die im vorherigen Schritt erstellten Zertifikate auf dem Windows-Client in den entsprechenden Zertifikatspeicher importiert werden.
 
-1. Das Stammzertifikat, das Sie im DER-Format mit der Erweiterung *.cer* exportiert haben, sollte nun in die vertrauenswürdigen Stammzertifizierungsstellen auf dem Clientsystem importiert werden. Ausführliche Schritte finden Sie unter [Importieren von Zertifikaten in den Speicher „Vertrauenswürdige Stammzertifizierungsstellen“](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format).
+1. Das Stammzertifikat, das Sie im DER-Format mit der Erweiterung *.cer* exportiert haben, sollte nun in die vertrauenswürdigen Stammzertifizierungsstellen auf dem Clientsystem importiert werden. Ausführliche Schritte finden Sie unter [Importieren von Zertifikaten in den Speicher „Vertrauenswürdige Stammzertifizierungsstellen“](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
-2. Die Endpunktzertifikate, die Sie mit der Erweiterung *.pfx* exportiert haben, müssen als *CER*-Dateien exportiert werden. Diese *CER*-Datei wird dann in den Zertifikatspeicher **Persönlich** des Systems importiert. Ausführliche Schritte finden Sie unter [Importieren von Zertifikaten in den persönlichen Speicher](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format).
+2. Die Endpunktzertifikate, die Sie mit der Erweiterung *.pfx* exportiert haben, müssen als *CER*-Dateien exportiert werden. Diese *CER*-Datei wird dann in den Zertifikatspeicher **Persönlich** des Systems importiert. Ausführliche Schritte finden Sie unter [Importieren von Zertifikaten in den persönlichen Speicher](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Schritt 3: Installieren von PowerShell auf dem Client 
 

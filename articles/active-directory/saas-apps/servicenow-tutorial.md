@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353606"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092600"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integration des einmaligen Anmeldens (Single Sign-On, SSO) von Azure Active Directory mit ServiceNow
 
@@ -36,7 +36,7 @@ Für die ersten Schritte benötigen Sie Folgendes:
 * Ein SSO-fähiges ServiceNow-Abonnement
 * Für ServiceNow unterstützt eine Instanz oder ein Mandant von ServiceNow die Versionen Calgary, Kingston, London, Madrid, New York, Orlando und Paris oder höher.
 * Für ServiceNow Express: Eine Instanz von ServiceNow Express (Helsinki-Version oder höher)
-* Für den ServiceNow-Mandanten muss das [SSO-Plug-In für mehrere Anbieter](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) aktiviert sein.
+* Für den ServiceNow-Mandanten muss das [SSO-Plug-In für mehrere Anbieter](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0) aktiviert sein.
 * Aktivieren Sie für die automatische Konfiguration das Multi-Provider-Plug-In für ServiceNow.
 * Navigieren Sie zum Installieren der (mobilen) ServiceNow Classic-Anwendung zum entsprechenden Store, und suchen Sie nach der Anwendung „ServiceNow Classic“. Laden Sie sie herunter.
 

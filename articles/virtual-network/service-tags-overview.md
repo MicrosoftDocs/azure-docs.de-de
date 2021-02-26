@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221951"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475183"
 ---
 # <a name="virtual-network-service-tags"></a>Diensttags in virtuellen Netzwerken
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Standardmäßig spiegeln Diensttags die Bereiche für die gesamte Cloud wider. E
 | **AzureBotService** | Azure Bot Service | Ausgehend | Nein | Nein |
 | **AzureCloud** | Alle [öffentlichen IP-Adressen im Rechenzentrum](https://www.microsoft.com/download/details.aspx?id=56519). | Ausgehend | Ja | Ja |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Dieses Tag oder die von diesem Tag abgedeckten IP-Adressen können verwendet werden, um Indexern einen sicheren Zugriff auf Datenquellen zu gewähren. Weitere Informationen finden Sie in der [Dokumentation zur Indexerverbindung](../search/search-indexer-troubleshooting.md#connection-errors). <br/><br/> *Hinweis*: Die IP-Adresse des Suchdiensts ist nicht in der Liste der IP-Adressbereiche für dieses Diensttag enthalten, und **es muss außerdem der IP-Firewall der Datenquellen hinzugefügt werden**. | Eingehend | Nein | Nein |
-| **AzureConnectors** | Azure Logic Apps-Connectors für Test- oder Back-End-Verbindungen. | Eingehend | Ja | Ja |
+| **AzureConnectors** | Dieses Tag stellt die IP-Adresspräfixe für verwaltete Connectors dar, die eingehende Webhook-Rückrufe an den Azure Logic Apps-Dienst und ausgehende Aufrufe an die entsprechenden Dienste wie Azure Storage oder Azure Event Hubs senden. | Eingehend/Ausgehend | Ja | Ja |
 | **AzureContainerRegistry** | Azure Container Registry. | Ausgehend | Ja | Ja |
 | **AzureCosmosDB** | Azure Cosmos DB. | Ausgehend | Ja | Ja |
 | **AzureDatabricks** | Azure Databricks | Beide | Nein | Nein |
@@ -97,6 +97,7 @@ Standardmäßig spiegeln Diensttags die Bereiche für die gesamte Cloud wider. E
 | **LogicAppsManagement** | Verwaltungsdatenverkehr für Logik-Apps. | Eingehend | Nein | Nein |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security | Ausgehend | Nein | Nein |
 | **MicrosoftContainerRegistry** | Containerregistrierung für Microsoft-Containerimages. <br/><br/>*Hinweis:* Dieses Tag weist eine Abhängigkeit vom Tag **AzureFrontDoor.FirstParty** auf. | Ausgehend | Ja | Ja |
+| **PowerBI** | Power BI. *Hinweis: Dieses Tag ist derzeit nicht über das Azure-Portal konfigurierbar.* | Beide | Nein | Nein|
 | **PowerQueryOnline** | Power Query Online | Beide | Nein | Nein |
 | **ServiceBus** | Azure Service Bus-Datenverkehr, der die Dienstebene „Premium“ verwendet. | Ausgehend | Ja | Ja |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Hinweis:* Dieses Tag stellt den Service Fabric-Dienstendpunkt für die Steuerungsebene pro Region dar. Dadurch können Kunden Verwaltungsvorgänge für ihre Service Fabric-Cluster aus ihrem VNET vornehmen (Beispiel für Endpunkt https:// westus.servicefabric.azure.com) | Beide | Nein | Nein |
@@ -129,8 +130,8 @@ Sie können die aktuellen Informationen zu Diensttag und Bereich abrufen und in 
 Sie können die aktuelle Liste der Diensttags zusammen mit Details zum IP-Adressbereich programmgesteuert abrufen:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure-Befehlszeilenschnittstelle](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure-Befehlszeilenschnittstelle](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > Obwohl sie sich in der öffentlichen Vorschauphase befindet, gibt die Ermittlungs-API u. U. weniger aktuelle Informationen zurück als die Informationen, die von den JSON-Downloads zurückgegeben werden. (Siehe nächster Abschnitt.)

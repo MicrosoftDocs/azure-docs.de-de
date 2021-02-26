@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: sqldbrb=2 
-ms.openlocfilehash: e8b9f12c57b2e4bf943e5fc9a9ebc2bbadef9ee9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: sqldbrb=2
+ms.openlocfilehash: e0ad8e9e71a0ee2c23412d535fe79955edb39ba8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86504971"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576649"
 ---
 # <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Schnellstart: Abfragen einer Datenbank in Azure SQL-Datenbank mithilfe von PHP
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Für die Durchführung dieses Schnellstarts benötigen Sie Folgendes:
 
   - **Linux**: Installieren Sie PHP, den ODBC-Treiber und dann den PHP-Treiber für SQL Server. Siehe [Schritt 1, 2 und 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-  - **Windows:** Installieren Sie PHP für IIS Express und Chocolatey und anschließend den ODBC-Treiber und SQLCMD. Weitere Informationen finden Sie unter [Schritt 1.2 und 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**: Installieren Sie PHP, PHP-Treiber und anschließend den ODBC-Treiber und SQLCMD. Weitere Informationen finden Sie unter [Schritt 1.2 und 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
 ## <a name="get-server-connection-information"></a>Ermitteln von Serververbindungsinformationen
 

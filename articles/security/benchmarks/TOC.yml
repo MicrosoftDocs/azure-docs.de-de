@@ -231,3 +231,7 @@
       href: ../../vpn-gateway/security-baseline.md
     - name: Windows Virtual Desktop-Sicherheitsbaseline
       href: ../../virtual-desktop/security-baseline.md
+- name: Ressourcen
+  items:
+    - name: Zuordnung zwischen ASB- und CIS-Benchmark
+      href: v2-cis-benchmark.md

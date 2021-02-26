@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246467"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576057"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Bereitstellen eines Machine Learning-Modells mit dem Designer
 
 
-Sie können das im [ersten Teil des Tutorials](tutorial-designer-automobile-price-train-score.md) entwickelte Vorhersagemodell bereitstellen, damit es auch von anderen verwendet werden kann. Im ersten Teil haben Sie Ihr Modell trainiert. Jetzt ist es an der Zeit, neue Vorhersagen basierend auf Benutzereingaben zu generieren. In diesem Teil des Tutorials führen Sie die folgenden Schritte aus:
+Sie können das im [ersten Teil des Tutorials](tutorial-designer-automobile-price-train-score.md) entwickelte Vorhersagemodell bereitstellen, damit es auch von anderen verwendet werden kann. Im ersten Teil haben Sie Ihr Modell trainiert. Jetzt ist es an der Zeit, Vorhersagen basierend auf Benutzereingaben zu generieren. In diesem Teil des Tutorials führen Sie die folgenden Schritte aus:
 
 > [!div class="checklist"]
 > * Erstellen einer Echtzeit-Rückschlusspipeline
@@ -122,17 +122,19 @@ Kehren Sie nach Abschluss der Bereitstellung des AKS-Diensts zur Echtzeit-Rücks
 > Sie können auch eine Bereitstellung in **Azure Container Instances** (ACI) ausführen, wenn Sie im Feld mit den Einstellungen für den Echtzeitendpunkt unter **Computetyp** die Option **Azure Container Instances** auswählen.
 > Azure Container Instances wird für Tests oder für die Entwicklung verwendet. Verwenden Sie ACI für CPU-basierte Workloads im kleinen Maßstab, die weniger als 48 GB Arbeitsspeicher erfordern.
 
-## <a name="view-the-real-time-endpoint"></a>Anzeigen des Echtzeitendpunkts
+## <a name="test-the-real-time-endpoint"></a>Testen des Echtzeitendpunkts
 
 Nach Abschluss der Bereitstellung können Sie Ihren Echtzeitendpunkt anzeigen, indem Sie zur Seite **Endpunkte** navigieren.
 
 1. Wählen Sie auf der Seite **Endpunkte** den bereitgestellten Endpunkt aus.
 
-1. Auf der Registerkarte **Details** werden weitere Informationen angezeigt, z. B. REST-URI, Status und Tags.
+    Auf der Registerkarte **Details** werden weitere Informationen angezeigt, z. B. REST-URI, Swagger-Definition, Status und Tags.
 
-1. Auf der Registerkarte **Consume** (Nutzen) finden Sie Sicherheitsschlüssel und Optionen zum Festlegen der Authentifizierungsmethoden.
+    Auf der Registerkarte **Consume** (Nutzen) finden Sie Beispielnutzungscode, Sicherheitsschlüssel und Optionen zum Festlegen der Authentifizierungsmethoden.
 
-1. Auf der Registerkarte **Bereitstellungsprotokolle** finden Sie ausführliche Bereitstellungsprotokolle für den Echtzeitendpunkt. 
+    Auf der Registerkarte **Bereitstellungsprotokolle** finden Sie ausführliche Bereitstellungsprotokolle für den Echtzeitendpunkt.
+
+1. Navigieren Sie zum Testen des Endpunkts zur Registerkarte **Test**. Hier können Sie Testdaten eingeben und **Testen** auswählen, um die Ausgabe des Endpunkts zu überprüfen.
 
 Weitere Informationen zur Nutzung Ihres Webdiensts finden Sie unter [Nutzen eines als Webdienst bereitgestellten Modells](how-to-consume-web-service.md).
 

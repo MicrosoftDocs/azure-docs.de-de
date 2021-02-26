@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972646"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569519"
 ---
 ### <a name="standard-and-neural-voices"></a>Standard- und neuronale Stimmen
 
@@ -67,3 +67,14 @@ Wenn Sie einen benutzerdefinierten Voicefont erstellt haben, verwenden Sie den v
 | Europa, Westen | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA (Westen) | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA, Westen 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Benutzerdefinierte neuronale Stimme
+
+In der folgenden Tabelle wird die regionale Unterstützung für die Features der benutzerdefinierten neuronalen Stimme erläutert.
+
+| Funktion | Unterstützte Regionen |
+|---|---|
+| Hosting des Stimmmodells | „USA, Osten“, „USA, Westen 2“, „USA, Süden-Mitte“, „Asien, Südosten“, „Vereinigtes Königreich, Süden“, „Europa, Westen“, „Australien, Osten“ |
+| Echtzeitzeichen | „USA, Osten“, „USA, Westen 2“, „USA, Süden-Mitte“, „Asien, Südosten“, „Vereinigtes Königreich, Süden“, „Europa, Westen“, „Australien, Osten“ |
+| Zeichenanzahl für langes Audio | „USA, Osten“, „Europa, Westen“, „Vereinigtes Königreich, Süden“, „Asien, Südosten“, „Indien, Mitte“ |
+| Benutzerdefiniertes neuronales Training | „USA, Osten“, „Vereinigtes Königreich, Süden“ |

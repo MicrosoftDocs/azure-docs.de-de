@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888639"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572037"
 ---
 # <a name="region-availability-and-data-residency"></a>Regionale Verfügbarkeit und Datenresidenz
 
@@ -73,7 +73,7 @@ Audio- und Videokommunikation wird flüchtig durch den Dienst verarbeitet, und m
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor und Log Analytics
 
-Azure Communication Services wird zum besseren Verständnis der Betriebsintegrität und Nutzung des Diensts in Azure Monitor-Protokollierungsdaten eingebunden. Einige dieser Protokolle enthalten Communication Services-Identitäten und -Telefonnummern als Felddaten. Verwenden Sie zum Löschen potenziell personenbezogener Daten [diese Verfahren für Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). Unter Umständen empfiehlt es sich auch, die [Standardaufbewahrungsdauer für Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md) zu konfigurieren.
+Azure Communication Services wird zum besseren Verständnis der Betriebsintegrität und Nutzung des Diensts in Azure Monitor-Protokollierungsdaten eingebunden. Einige dieser Protokolle enthalten Communication Services-Identitäten und -Telefonnummern als Felddaten. Verwenden Sie zum Löschen potenziell personenbezogener Daten [diese Verfahren für Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). Unter Umständen empfiehlt es sich auch, die [Standardaufbewahrungsdauer für Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md) zu konfigurieren.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

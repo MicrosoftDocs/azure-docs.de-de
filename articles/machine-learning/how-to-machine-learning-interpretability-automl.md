@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 19cebefd64f5b6dce9c265a591c8d5072fcd83db
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 709c85bed4a028c6c168c79cd9fffd6b7b40cb68
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222733"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008042"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretierbarkeit: Modellerklärungen beim automatisierten maschinellen Lernen (Vorschau)
 
@@ -40,7 +40,7 @@ In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 Rufen Sie die Erklärung aus `best_run` ab, darin sind Erklärungen für unbearbeitete und entwickelte Features enthalten.
 
-> [!Warning]
+> [!NOTE]
 > Interpretierbarkeit, die Erklärung des besten Modells, ist nicht für Vorhersageexperimente mit automatisiertem maschinellem Lernen verfügbar, die die folgenden Algorithmen als bestes Modell empfehlen: 
 > * TCNForecaster
 > * AutoArima
@@ -51,7 +51,7 @@ Rufen Sie die Erklärung aus `best_run` ab, darin sind Erklärungen für unbearb
 > * Saisonaler Durchschnitt 
 > * Saisonal naiv
 
-### <a name="download-engineered-feature-importance-from-artifact-store"></a>Herunterladen der Relevanz entwickelter Features aus dem Artefaktspeicher
+### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Herunterladen der Relevanzen der entwickelten Features aus dem besten Lauf
 
 Sie können mithilfe von `ExplanationClient` Erklärungen zu entwickelten Features aus dem Artefaktspeicher von `best_run` herunterladen. 
 
@@ -61,6 +61,18 @@ from azureml.interpret import ExplanationClient
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="download-the-raw-feature-importances-from-the-best-run"></a>Herunterladen der Relevanzen der Rohfeatures aus dem besten Lauf
+
+Sie können mithilfe von `ExplanationClient` Erklärungen zu den Rohfeatures aus dem Artefaktspeicher von `best_run` herunterladen.
+
+```python
+from azureml.interpret import ExplanationClient
+
+client = ExplanationClient.from_run(best_run)
+raw_explanations = client.download_model_explanation(raw=True)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interpretierbarkeit während des Trainings nach einem beliebigen Modell 
@@ -75,7 +87,7 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Einrichten der Modellerklärungen
 
-Verwenden Sie `automl_setup_model_explanations`, um die entwickelten Erklärungen zu erhalten. `fitted_model` kann die folgenden Elemente generieren:
+Verwenden Sie `automl_setup_model_explanations`, um Erläuterungen zu den entwickelten und Rohfeatures abzurufen. `fitted_model` kann die folgenden Elemente generieren:
 
 - Empfohlene Daten aus trainierten oder Testbeispielen
 - Listen der entwickelten Featurenamen
@@ -114,13 +126,25 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
                          explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
-### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Verwenden von MimicExplainer zum Berechnen und Visualisieren der Relevanz von entwickelten Features
+### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Verwenden von MimicExplainer zum Berechnen und Visualisieren der Relevanz entwickelter Features
 
-Sie können die `explain()`-Methode in MimicWrapper mit den transformierten Testbeispielen aufrufen, um die Featurerelevanz für die generierten entwickelten Features abzurufen. Sie können außerdem `ExplanationDashboard` verwenden, um eine Dashboardvisualisierung der Featurerelevanzwerte der Featurizer für automatisiertes maschinelles Lernen generierten entwickelten Features anzuzeigen.
+Sie können die `explain()`-Methode in MimicWrapper mit den transformierten Testbeispielen aufrufen, um die Featurerelevanz für die generierten entwickelten Features abzurufen. Sie können sich auch bei [Azure Machine Learning](https://ml.azure.com/) anmelden, um eine Dashboardvisualisierung der Featurerelevanzwerte der Featurizer für automatisiertes maschinelles Lernen generierten entwickelten Features anzuzeigen.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Verwenden von MimicExplainer zum Berechnen und Visualisieren der Relevanz von Rohfeatures
+
+Sie können die `explain()`-Methode in MimicWrapper mit den transformierten Testbeispielen aufrufen, um die Featurerelevanz für die Rohfeatures abzurufen. Darüber hinaus können Sie in [Machine Learning Studio](https://ml.azure.com/) eine Dashboardvisualisierung der Relevanzwerte der Rohfeatures anzeigen.
+
+```python
+raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
+                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform,
+                                     raw_eval_dataset=automl_explainer_setup_obj.X_test_raw)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-inference"></a>Interpretierbarkeit beim Ziehen von Rückschlüssen
@@ -174,6 +198,48 @@ with open("myenv.yml","r") as f:
 
 ```
 
+### <a name="create-the-scoring-script"></a>Erstellen des Bewertungsskripts
+
+Schreiben Sie ein Skript, das Ihr Modell lädt und Vorhersagen und Erklärungen auf Basis eines neuen Datenbatches erstellt.
+
+```python
+%%writefile score.py
+import joblib
+import pandas as pd
+from azureml.core.model import Model
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
+
+
+def init():
+    global automl_model
+    global scoring_explainer
+
+    # Retrieve the path to the model file using the model name
+    # Assume original model is named automl_model
+    automl_model_path = Model.get_model_path('automl_model')
+    scoring_explainer_path = Model.get_model_path('scoring_explainer')
+
+    automl_model = joblib.load(automl_model_path)
+    scoring_explainer = joblib.load(scoring_explainer_path)
+
+
+def run(raw_data):
+    data = pd.read_json(raw_data, orient='records')
+    # Make prediction
+    predictions = automl_model.predict(data)
+    # Setup for inferencing explanations
+    automl_explainer_setup_obj = automl_setup_model_explanations(automl_model,
+                                                                 X_test=data, task='classification')
+    # Retrieve model explanations for engineered explanations
+    engineered_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform)
+    # Retrieve model explanations for raw explanations
+    raw_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform, get_raw=True)
+    # You can return any data type as long as it is JSON-serializable
+    return {'predictions': predictions.tolist(),
+            'engineered_local_importance_values': engineered_local_importance_values,
+            'raw_local_importance_values': raw_local_importance_values}
+```
+
 ### <a name="deploy-the-service"></a>Bereitstellen des Diensts
 
 Stellen Sie den Dienst unter Verwendung der conda-Datei und der Bewertungsdatei aus den vorherigen Schritten bereit.
@@ -216,11 +282,13 @@ if service.state == 'Healthy':
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
+    # Print the raw feature importances for the predicted value
+    print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualisieren, um Muster in Daten und Erläuterungen zur Trainingszeit zu ermitteln
 
-Sie können das Diagramm zur Featurerelevanz in Ihrem Arbeitsbereich in [Azure Machine Learning Studio](https://ml.azure.com) anzeigen. Wählen Sie nach Abschluss der Ausführung des automatisierten maschinellen Lernens **Modelldetails anzeigen** aus, um eine bestimmte Ausführung anzuzeigen. Klicken Sie auf die Registerkarte **Erklärungen**, um das Dashboard zur Erklärungsvisualisierung anzuzeigen.
+Sie können das Diagramm zur Featurerelevanz in Ihrem Arbeitsbereich in [Machine Learning Studio](https://ml.azure.com) anzeigen. Wählen Sie nach Abschluss der Ausführung des automatisierten maschinellen Lernens **Modelldetails anzeigen** aus, um eine bestimmte Ausführung anzuzeigen. Klicken Sie auf die Registerkarte **Erklärungen**, um das Dashboard zur Erklärungsvisualisierung anzuzeigen.
 
 [![Architektur von Machine Learning Interpretability](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

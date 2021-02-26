@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344146"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547161"
 ---
 # <a name="secure-azure-digital-twins"></a>Schützen von Azure Digital Twins
 
@@ -54,11 +54,6 @@ Azure bietet **zwei integrierte Azure-Rollen** für die Autorisierung des Zugrif
 | Azure Digital Twins Data Owner (Azure Digital Twins-Datenbesitzer) | Bietet Vollzugriff auf Azure Digital Twins-Ressourcen | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Azure Digital Twins Data Reader (Azure Digital Twins-Datenleser) | Bietet schreibgeschützten Zugriff auf Azure Digital Twins-Ressourcen | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
->[!NOTE]
-> Diese Rollen wurden kürzlich in der Vorschau umbenannt:
-> * *Azure Digital Twins Data Owner* (Azure Digital Twins-Datenbesitzer) war zuvor *Azure Digital Twins-Besitzer (Vorschau)* .
-> * *Azure Digital Twins Data Reader* (Azure Digital Twins-Datenleser) war zuvor *Azure Digital Twins-Leser (Vorschau)* .
-
 Rollen können auf zwei Arten zugewiesen werden:
 * Über den Bereich „Zugriffssteuerung (IAM)“ für Azure Digital Twins im Azure-Portal (weitere Informationen finden Sie unter [*Hinzufügen oder Entfernen von Azure-Rollenzuweisungen über das Azure-Portal*](../role-based-access-control/role-assignments-portal.md))
 * Mithilfe von CLI-Befehlen zum Hinzufügen oder Entfernen einer Rolle
@@ -88,6 +83,39 @@ In der folgenden Liste werden die Ebenen beschrieben, auf denen Sie den Zugriff 
 ### <a name="troubleshooting-permissions"></a>Problembehandlung bei Berechtigungen
 
 Wenn ein Benutzer versucht, eine Aktion auszuführen, die für seine Rolle nicht zulässig ist, wird möglicherweise der folgende Fehler von der Dienstanforderung zurückgegeben: `403 (Forbidden)`. Weitere Informationen und Hilfe bei der Problembehandlung finden Sie unter [*Problembehandlung: Fehler bei Azure Digital Twins-Anforderung mit dem Status ''403 (Forbidden)'' (403 (Unzulässig))*](troubleshoot-error-403.md).
+
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Verwaltete Identität für den Zugriff auf andere Ressourcen (Vorschau)
+
+Mithilfe einer eingerichteten **verwalteten Identität** von [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) für eine Azure Digital Twins-Instanz kann die Instanz einfach auf andere von Azure AD geschützte Ressourcen zugreifen, z. B. auf [Azure Key Vault](../key-vault/general/overview.md). Die Identität wird von der Azure-Plattform verwaltet. Sie müssen keine Geheimnisse bereitstellen oder rotieren. Weitere Informationen zu verwalteten Identitäten in Azure AD finden Sie unter  [*Was sind verwaltete Identitäten für Azure-Ressourcen?*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Azure unterstützt zwei Arten von verwalteten Identitäten: systemseitig zugewiesene und benutzerseitig zugewiesene. Aktuell unterstützt Azure Digital Twins nur **systemseitig zugewiesene Identitäten**. 
+
+Sie können eine systemseitig zugewiesene verwaltete Identität für Ihre Azure Digital Twins-Instanz für die Authentifizierung bei einem [benutzerdefinierten Endpunkt](concepts-route-events.md#create-an-endpoint) verwenden. Azure Digital Twins unterstützt die systemseitig zugewiesene identitätsbasierte Authentifizierung für Endpunkte für [Event Hub](../event-hubs/event-hubs-about.md)- und  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)-Ziele sowie für einen Endpunkt für [Azure Storage-Container](../storage/blobs/storage-blobs-introduction.md) für [Ereignisse unzustellbarer Nachrichten](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md)-Endpunkte werden für verwaltete Identitäten aktuell nicht unterstützt.
+
+Eine Anleitung zum Aktivieren einer vom System verwalteten Identität für Azure Digital Twins und ihrer Verwendung zum Weiterleiten von Ereignissen finden Sie unter [*Aktivieren einer verwalteten Identität für die Weiterleitung von Azure Digital Twins-Ereignissen (Vorschau)*](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Zugriff auf private Netzwerke mit Azure Private Link (Vorschau)
+
+[Azure Private Link](../private-link/private-link-overview.md) ist ein Dienst, der es Ihnen ermöglicht, auf Azure-Ressourcen wie [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md) und [Azure Cosmos DB](../cosmos-db/introduction.md) sowie von Azure gehostete Kunden- und Partnerdienste über einen privaten Endpunkt in Ihrer [Azure Virtual Network-Instanz](../virtual-network/virtual-networks-overview.md) zuzugreifen. 
+
+Auf ähnliche Weise können Sie private Endpunkte für Ihre Azure Digital Twins-Instanz verwenden, um es Clients, die sich in Ihrem virtuellen Netzwerk befinden, zu ermöglichen, sicher über Private Link auf die Instanz zuzugreifen. 
+
+Der private Endpunkt verwendet eine IP-Adresse aus dem Adressraum Ihrer Azure Virtual Network-Instanz. Der Netzwerkdatenverkehr zwischen einem Client in Ihrem privaten Netzwerk und der Azure Digital Twins-Instanz wird über das virtuelle Netzwerk und Private Link im Microsoft-Backbonenetzwerk geleitet, sodass keine Offenlegung im öffentlichen Internet erfolgt. Dies ist eine visuelle Darstellung dieses Systems:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Eine Abbildung eines Netzwerks für PowerGrid Company: Hierbei handelt es sich um ein geschütztes virtuelles Netzwerk ohne Zugriff auf das Internet oder die öffentliche Cloud. Die Verbindung wird über Private Link zu einer Azure Digital Twins-Instanz namens CityOfTwins hergestellt.":::
+
+Das Konfigurieren eines privaten Endpunkts für Ihre Azure Digital Twins-Instanz ermöglicht es Ihnen, Ihre Azure Digital Twins-Instanz zu schützen und eine öffentliche Offenlegung zu vermeiden. Außerdem ist die Datenexfiltration aus Ihrem virtuellen Netzwerk so auch nicht möglich.
+
+Eine Anleitung zum Einrichten von Private Link für Azure Digital Twins finden Sie unter [*Aktivieren des privaten Zugriffs mit Private Link (Vorschau)*](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Überlegungen zum Entwurf 
+
+Hier finden Sie einige Faktoren, die Sie berücksichtigen sollten, wenn Sie Private Link mit Azure Digital Twins verwenden:
+* **Preise:** Ausführliche Preisinformationen finden Sie unter  [Azure Private Link – Preise](https://azure.microsoft.com/pricing/details/private-link). 
+* **Regionale Verfügbarkeit:** Für Azure Digital Twins steht dieses Feature in allen Azure-Regionen zur Verfügung, in denen auch Azure Digital Twins verfügbar ist. 
+* **Maximale Anzahl privater Endpunkte pro Azure Digital Twins-Instanz:** 10
+
+Informationen zu den Limits für Private Link finden Sie unter  [„Einschränkungen“ im Artikel „Was ist der Azure Private Link-Dienst?“](../private-link/private-link-service-overview.md#limitations).
 
 ## <a name="service-tags"></a>Diensttags
 
@@ -123,7 +151,7 @@ Azure Digital Twins bietet Verschlüsselung von ruhenden Daten und bei der Über
 
 **CORS (Cross-Origin Resource Sharing)** wird in Azure Digital Twins derzeit nicht unterstützt. Wenn Sie eine REST-API über eine Browser-App, eine [API Management (APIM)](../api-management/api-management-key-concepts.md)-Schnittstelle oder einen [Power Apps](/powerapps/powerapps-overview)-Connector aufrufen, wird daher möglicherweise ein Richtlinienfehler angezeigt.
 
-Zum Beheben dieses Fehlers können Sie eine der folgenden Maßnahmen ergreifen:
+Zum Beheben dieses Fehlers können Sie eine der folgenden Aktionen durchführen:
 * Entfernen Sie den CORS-Header `Access-Control-Allow-Origin` aus der Nachricht. Dieser Header gibt an, ob die Antwort freigegeben werden kann. 
 * Alternativ können Sie einen CORS-Proxy erstellen und über diesen die REST-API-Anforderung von Azure Digital Twins stellen. 
 

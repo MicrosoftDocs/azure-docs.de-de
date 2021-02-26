@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030092"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943680"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise-Übertragungen
 
@@ -55,7 +55,7 @@ Eine Registrierungsübertragung wird in folgenden Fällen in Betracht gezogen:
 - Eine Registrierung befindet sich im Status abgelaufen/verlängert und eine neue Vereinbarung wird ausgehandelt.
 - Sie verfügen über mehrere Registrierungen und möchten alle Konten und Abrechnungen in einer einzigen Registrierung kombinieren.
 
-Dieser Abschnitt dient nur zu Informationszwecken, da die Aktion von einem Unternehmensadministrator nicht durchgeführt werden kann. Es ist eine Supportanfrage erforderlich, um eine Unternehmensregistrierung in eine neue Registrierung zu übertragen.
+Dieser Abschnitt dient nur zu Informationszwecken, da die Aktion von einem Unternehmensadministrator nicht durchgeführt werden kann. Es ist eine Supportanfrage erforderlich, um eine Unternehmensregistrierung in eine neue Registrierung zu übertragen. Dies gilt nur dann nicht, wenn für die Registrierung eine [Übertragung mit automatischer Registrierung](#auto-enrollment-transfer) möglich ist.
 
 Wenn Sie die Übertragung einer gesamten Unternehmensregistrierung in eine Registrierung anfordern, werden die folgenden Aktionen ausgeführt:
 
@@ -70,7 +70,7 @@ Wenn Sie die Übertragung einer gesamten Unternehmensregistrierung in eine Regis
 
 Das effektive Datum der Übertragung kann ein Datum ab dem Startdatum der Zielregistrierung sein.
 
-Die Nutzung der Quellregistrierung wird gegen eine Azure-Vorauszahlung oder als Überschreitung abgerechnet. Die Nutzung, die nach dem effektiven Übertragungsdatum erfolgt, wird in die neue Registrierung übertragen und entsprechend abgerechnet.
+Die Nutzung der Quellregistrierung wird gegen eine Azure-Vorauszahlung oder als Überschreitung abgerechnet. Die Nutzung, die nach dem geltenden Übertragungsdatum erfolgt, wird in die neue Registrierung übertragen und dort abgerechnet.
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
@@ -85,6 +85,17 @@ Andere Punkte, die vor einer Registrierungsübertragung zu beachten sind:
 - Sowohl die Genehmigung des EA-Administrators der Ziel- als auch des EA-Administrators der Quellregistrierung ist erforderlich.
 - Wenn eine Registrierungsübertragung Ihre Anforderungen nicht erfüllt, ziehen Sie eine Kontoübertragung in Betracht.
 - Der Quellregistrierungsstatus wird auf „übertragen“ aktualisiert und steht nur für die Nutzungsberichterstellung zur Verfügung.
+
+### <a name="auto-enrollment-transfer"></a>Übertragung mit automatischer Registrierung
+
+Es kann sein, dass für eine Registrierung der Status **Übertragen** angezeigt wird, obwohl Sie noch kein Supportticket für die Anforderung einer Registrierungsübertragung erstellt haben. Der Status **Übertragen** ergibt sich aus dem Prozess für die Übertragung mit automatischer Registrierung. Damit der Prozess für die Übertragung mit automatischer Registrierung während der Verlängerungsphase durchgeführt wird, müssen für die neue Vereinbarung einige Voraussetzungen erfüllt sein:
+
+- Vorherige Registrierungsnummer (muss im EA Portal vorhanden sein)
+- Das Ablaufdatum der vorherigen Registrierungsnummer ist der letzte Tag vor dem geltenden Startdatum der neuen Vereinbarung.
+- Die neue Vereinbarung verfügt über eine in Rechnung gestellte Azure-Vorauszahlungsbestellung, die ein aktuelles Datum aufweist oder rückdatiert wurde.
+- Die neue Registrierung wird im EA Portal erstellt.
+
+Wenn im EA Portal zwischen der vorherigen und der neuen Registrierung keine Nutzungsdaten fehlen, müssen Sie kein Supportticket für die Übertragung erstellen.
 
 ### <a name="azure-prepayment"></a>Azure-Vorauszahlung
 

@@ -1,24 +1,10 @@
 ---
-title: Streamingendpunkte (Ursprung)
-titleSuffix: Azure Media Services
-description: Erfahren Sie mehr über Streamingendpunkte (Ursprung), einen dynamischen Paket- und Streamingdienst, der Inhalte direkt an eine Clientplayer-App oder ein Content Delivery Network (CDN) übermittelt.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882873"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pflichtfelder. Weitere Informationen finden Sie unter aka.ms/skyeye/meta.
+Titel: Streamingendpunkte (Ursprung): Azure Media Services description: Erfahren Sie mehr über Streamingendpunkte (Ursprung), einen dynamischen Paket- und Streamingdienst, der Inhalte direkt an eine Clientplayer-App oder ein Content Delivery Network (CDN) übermittelt. services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 02/13/2020 ms.author: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streamingendpunkte (Ursprung) in Azure Media Services
 
 In Microsoft Azure Media Services stellt ein [Streamingendpunkt](/rest/api/media/streamingendpoints) einen dynamischen (Just-In-Time-)Paketerstellungs- und Ursprungsdienst dar, der Ihre Live- und On-Demand-Inhalte direkt in einer Clientplayer-App bereitstellen kann und dabei eines der allgemeinen Streamingmedienprotokolle (HLS oder DASH) verwendet. Zudem sorgt der **Streamingendpunkt** für eine dynamische (Just-In-Time-)Verschlüsselung zu branchenführenden DRMs. 

@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545719"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833166"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Erstellen eines Monitors in Verbindungsmonitor mit dem Azure-Portal
+
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 ist es nicht mehr möglich, neue Tests in einem vorhandenen Arbeitsbereich hinzufügen oder einen neuen Arbeitsbereich im Netzwerkleistungsmonitor zu aktivieren. Sie können auch keine neuen Verbindungsmonitore mehr in Verbindungsmonitor (klassisch) hinzufügen. Sie können weiterhin die Tests und Verbindungsmonitore verwenden, die vor dem 1. Juli 2021 erstellt wurden. Führen Sie vor dem 29. Februar 2024 eine Migration [Ihrer Tests aus dem Netzwerkleistungsmonitor](migrate-to-connection-monitor-from-network-performance-monitor.md) oder [vom Verbindungsmonitor (klassisch)](migrate-to-connection-monitor-from-connection-monitor-classic.md) zum neuen Verbindungsmonitor in Azure Network Watcher durch, um Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
 
 In diesem Artikel erfahren Sie, wie Sie Verbindungsmonitor verwenden, um die Kommunikation zwischen Ihren Ressourcen zu überwachen. In diesem Artikel wird das Erstellen eines Monitors über das Azure-Portal beschrieben. Verbindungsmonitor unterstützt Hybrid- und Azure-Cloudbereitstellungen.
 

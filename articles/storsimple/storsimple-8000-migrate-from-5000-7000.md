@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398185"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428165"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrieren von Daten von einem Gerät der Serie StorSimple 5000 - 7000 zu einem Gerät der Serie 8000
 
@@ -150,4 +150,4 @@ Führen Sie die folgenden Schritte aus, um das StorSimple-Migrationstool auf Ihr
   
 
 ## <a name="next-steps"></a>Nächste Schritte
-Laden Sie die Schritt-für-Schritt-Anleitung unter [Microsoft Azure StorSimple 5000/7000 Series to 8000 Series Migration Guide](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) (Microsoft Azure StorSimple – Anleitung zur Migration von der Serie 5000/7000 zur Serie 8000) herunter.
+Laden Sie die Schritt-für-Schritt-Anleitung unter [Microsoft Azure StorSimple 5000/7000 Series to 8000 Series Migration Guide](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf) (Microsoft Azure StorSimple – Anleitung zur Migration von der Serie 5000/7000 zur Serie 8000) herunter.

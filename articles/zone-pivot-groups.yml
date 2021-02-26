@@ -832,6 +832,22 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-js-csharp-java-python-swift-android
+  title: Programmiersprachen
+  prompt: Auswählen einer Programmiersprache
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
 - id: acs-web-ios-android
   title: Plattform
   prompt: Auswählen einer Plattform
@@ -912,6 +928,8 @@ groups:
   pivots:
   - id: platform-azp
     title: Azure-Portal
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -1007,9 +1025,9 @@ groups:
   - id: rest
     title: REST
 metadata:
-  ms.openlocfilehash: a31f479718235799cc735e9aa44fbecc728a62ba
-  ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+  ms.openlocfilehash: ef70d77eb7d22542d2e03131beb99980ee07b78b
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 02/02/2021
-  ms.locfileid: "99475285"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100651917"

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359730"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954003"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Konfigurieren des Rückschreibens von Attributen aus Azure AD für Workday
 In diesem Tutorial werden die Schritte beschrieben, die Sie ausführen müssen, um Attribute aus Azure AD für Workday zurückzuschreiben. Die Bereitstellungs-App für das Workday-Rückschreiben unterstützt das Zuweisen von Werten zu den folgenden Workday-Attributen:
@@ -54,13 +54,13 @@ Befolgen Sie diese Anweisungen, um die Zurückschreibung der E-Mail-Adressen und
 
 1. Gehe zu <https://portal.azure.com>.
 
-2. Suchen Sie im Azure-Portal nach **Azure Active Directory** , und wählen Sie es aus.
+2. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
 
 3. Klicken Sie auf **Unternehmensanwendungen** und dann auf **Alle Anwendungen**.
 
-4. Klicken Sie auf **Anwendung hinzufügen** , und wählen Sie dann die Kategorie **Alle** aus.
+4. Klicken Sie auf **Anwendung hinzufügen**, und wählen Sie dann die Kategorie **Alle** aus.
 
-5. Suchen Sie nach **Workday Writeback** , und fügen Sie die App aus dem Katalog hinzu.
+5. Suchen Sie nach **Workday Writeback**, und fügen Sie die App aus dem Katalog hinzu.
 
 6. Sobald die App hinzugefügt wurde und der Bildschirm mit den App-Details angezeigt wird, wählen Sie **Bereitstellung** aus.
 
@@ -68,13 +68,13 @@ Befolgen Sie diese Anweisungen, um die Zurückschreibung der E-Mail-Adressen und
 
 8. Vervollständigen Sie den Abschnitt **Administratoranmeldeinformationen** wie folgt:
 
-   * **Administratorbenutzername** : Geben Sie den Benutzernamen des Workday-Systemintegrationskontos mit angefügtem Mandantendomänennamen ein. Sollte etwa so aussehen: *benutzername\@contoso4*
+   * **Administratorbenutzername**: Geben Sie den Benutzernamen des Workday-Systemintegrationskontos mit angefügtem Mandantendomänennamen ein. Sollte etwa so aussehen: *benutzername\@contoso4*
 
-   * **Administratorkennwort** : Geben Sie das Kennwort des Workday-Systemintegrationskontos ein.
+   * **Administratorkennwort**: Geben Sie das Kennwort des Workday-Systemintegrationskontos ein.
 
-   * **Mandanten-URL** : Geben Sie die URL des Workday-Webdienstendpunkts für Ihren Mandanten ein. Dieser Wert sollte wie folgt lauten: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`. Dabei wird *contoso4* durch den Namen Ihres Mandanten und *wd3-impl* (bei Bedarf) durch die ordnungsgemäße Umgebungszeichenfolge ersetzt.
+   * **Mandanten-URL**: Geben Sie die URL des Workday-Webdienstendpunkts für Ihren Mandanten ein. Dieser Wert sollte wie folgt lauten: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`. Dabei wird *contoso4* durch den Namen Ihres Mandanten und *wd3-impl* (bei Bedarf) durch die ordnungsgemäße Umgebungszeichenfolge ersetzt.
 
-   * **Benachrichtigungs-E-Mail** : Geben Sie Ihre E-Mail-Adresse ein, und aktivieren Sie das Kontrollkästchen „E-Mail senden, wenn Fehler auftritt“.
+   * **Benachrichtigungs-E-Mail**: Geben Sie Ihre E-Mail-Adresse ein, und aktivieren Sie das Kontrollkästchen „E-Mail senden, wenn Fehler auftritt“.
 
    * Klicken Sie auf die Schaltfläche **Verbindung testen**. Wenn der Verbindungstest erfolgreich ist, klicken Sie oben auf die Schaltfläche **Speichern**. Falls nicht, überprüfen Sie, ob die Workday-URL und -Anmeldeinformationen in Workday gültig sind.
 
@@ -133,7 +133,7 @@ In diesem Abschnitt werden Sie konfigurieren, wie die Writebackattribute von Azu
      Replace([mobile], , "[()\\s-]+", , "", , )
      ```
 
-6. Klicken Sie oben im Abschnitt „Attributzuordnung“ auf **Speichern** , um Ihre Zuordnungen zu speichern.
+6. Klicken Sie oben im Abschnitt „Attributzuordnung“ auf **Speichern**, um Ihre Zuordnungen zu speichern.
 
 ## <a name="enable-and-launch-user-provisioning"></a>Aktivieren und Starten der Benutzerbereitstellung
 
@@ -172,6 +172,7 @@ Nachdem die Konfiguration der Workday-Bereitstellungs-App abgeschlossen ist, kö
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+* [Erfahren Sie mehr zu Integrationsszenarien und Webdienstaufrufen für Azure AD und Workday.](../app-provisioning/workday-integration-reference.md)
 * [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lesen Sie, wie Sie das einmalige Anmelden zwischen Workday und Azure Active Directory konfigurieren.](workday-tutorial.md)
 * [Erfahren Sie, wie Sie andere SaaS-Anwendungen in Azure Active Directory integrieren.](tutorial-list.md)

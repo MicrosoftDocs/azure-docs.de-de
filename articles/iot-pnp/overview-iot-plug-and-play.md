@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486295"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594568"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Was ist IoT Plug & Play?
 
@@ -45,9 +45,11 @@ IoT Plug & Play ist für zwei Arten von Entwicklern nützlich:
 
 ## <a name="use-iot-plug-and-play-devices"></a>Verwenden von IoT Plug & Play-Geräten
 
-Als Lösungsentwickler können Sie eine in der Cloud gehostete IoT-Lösung entwickeln, die IoT Plug & Play-Geräte verwendet. Verwenden Sie [IoT Hub](../iot-hub/about-iot-hub.md), einen verwalteten Clouddienst, der als Nachrichtenhub für die sichere, bidirektionale Kommunikation zwischen Ihrer IoT-Anwendung und Ihren Geräten fungiert.
+Als Lösungsentwickler können Sie mithilfe von [IoT Central](../iot-central/core/overview-iot-central.md) oder [IoT Hub](../iot-hub/about-iot-hub.md) eine in der Cloud gehostete IoT-Lösung entwickeln, die IoT Plug & Play-Geräte verwendet.
 
-Wenn Sie ein IoT Plug & Play-Gerät mit einem IoT-Hub verbinden, können Sie mithilfe des Tools [Azure IoT-Explorer](./howto-use-iot-explorer.md) die Telemetrie, Eigenschaften und Befehle anzeigen, die in den Schnittstellen definiert sind, aus denen das Modell besteht.
+Mit der Webbenutzeroberfläche in IoT Central können Sie Gerätezustände überwachen, Regeln erstellen und Millionen von Geräten und zugehöriger Daten über ihren gesamten Lebenszyklus hinweg verwalten. IoT Plug & Play-Geräte stellen direkt eine Verbindung mit einer IoT Central-Anwendung her, in der Sie mithilfe von anpassbaren Dashboards Ihre Geräte überwachen und steuern können. Sie können auch Gerätevorlagen auf der IoT Central-Webbenutzeroberfläche verwenden, um DTDL-Modelle zu erstellen und zu bearbeiten.
+
+IoT Hub ist ein verwalteter Clouddienst, der als Nachrichtenhub für die sichere, bidirektionale Kommunikation zwischen Ihrer IoT-Anwendung und Ihren Geräten fungiert. Wenn Sie ein IoT Plug & Play-Gerät mit einem IoT-Hub verbinden, können Sie mithilfe des Tools [Azure IoT-Explorer](./howto-use-iot-explorer.md) die Telemetrie, Eigenschaften und Befehle anzeigen, die im DTDL-Modell definiert sind.
 
 Wenn Sie vorhandene Sensoren an ein Windows- oder Linux-Gateway angeschlossen haben, können Sie diese Sensoren mithilfe der [IoT Plug & Play-Brücke](./concepts-iot-pnp-bridge.md) verbinden und IoT Plug & Play-Geräte erstellen, ohne Gerätesoftware/-firmware (für [unterstützte Protokolle](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)) schreiben zu müssen.
 

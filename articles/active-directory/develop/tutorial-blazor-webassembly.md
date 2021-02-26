@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680264"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979877"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Anmelden von Benutzern und Aufrufen einer geschützten API über eine Blazor WebAssembly-App
 
@@ -42,7 +42,7 @@ Alle Apps, die Azure Active Directory (Azure AD) für die Authentifizierung ver
 - Wählen Sie für **Unterstützte Kontotypen** die Option **Nur Konten in diesem Organisationsverzeichnis** aus.
 - Übernehmen Sie in der Dropdownliste **Umleitungs-URI** den Eintrag **Web**, und geben Sie `https://localhost:5001/authentication/login-callback` ein. Der Standardport für eine App, die auf Kestrel ausgeführt wird, ist 5001. Wenn die App an einem anderen Port verfügbar ist, geben Sie anstelle von `5001` die entsprechende Portnummer an.
 
-Aktivieren Sie nach der Registrierung unter **Authentifizierung** > **Implizite Genehmigung** die Kontrollkästchen **Zugriffstoken** und **ID-Token**, und wählen Sie dann die Schaltfläche **Speichern** aus.
+Wählen Sie nach der Registrierung unter **Verwalten** die Optionen **Authentifizierung** > **Implizite Genehmigung und Hybridflows** aus. Wählen Sie **Zugriffstoken** und **ID-Token** und dann **Speichern** aus.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Erstellen der App mithilfe der .NET Core-CLI
 
@@ -80,7 +80,7 @@ Die Komponenten dieser Vorlage, die Anmeldungen mit Azure AD mithilfe der Micro
 
 [Microsoft Graph](/graph/overview) enthält APIs, die Ihren Benutzern den Zugriff auf Microsoft 365-Daten ermöglichen, und unterstützt die von Microsoft Identity Platform ausgestellten Token. Daher eignet sich dieser geschützte API-Satz gut als Beispiel. In diesem Abschnitt fügen Sie Code hinzu, um Microsoft Graph aufzurufen und die E-Mails des Benutzers auf der Seite „Daten abrufen“ der Anwendung anzuzeigen.
 
-Dieser Abschnitt wird unter Verwendung eines allgemeinen Ansatzes zum Aufrufen einer geschützten API mithilfe eines benannten Clients verfasst. Dieselbe Methode kann auch für andere geschützte APIs verwendet werden, die Sie aufrufen möchten. Wenn Sie Microsoft Graph jedoch über Ihre Anwendung aufrufen möchten, können Sie das Graph SDK verwenden, um die Anzahl von Codebausteinen zu verringern. Die .NET-Dokumentation enthält Anweisungen zur [Verwendung des Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Dieser Abschnitt wird unter Verwendung eines allgemeinen Ansatzes zum Aufrufen einer geschützten API mithilfe eines benannten Clients verfasst. Dieselbe Methode kann auch für andere geschützte APIs verwendet werden, die Sie aufrufen möchten. Wenn Sie Microsoft Graph jedoch über Ihre Anwendung aufrufen möchten, können Sie das Graph SDK verwenden, um die Anzahl von Codebausteinen zu verringern. Die .NET-Dokumentation enthält Anweisungen zur [Verwendung des Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Bevor Sie beginnen, müssen Sie sich bei Ihrer App abmelden, weil Sie Änderungen an den erforderlichen Berechtigungen vornehmen und Ihr aktuelles Token nicht funktioniert. Wenn Sie dies noch nicht getan haben, führen Sie Ihre App erneut aus, und wählen Sie **Abmelden** aus, bevor Sie den folgenden Code aktualisieren.
 
@@ -102,7 +102,7 @@ Fügen Sie als Nächstes der *CSPROJ*-Projektdatei im netstandard2.1-Element **I
 
 Ändern Sie dann den Code, wie in den nächsten Schritten angegeben. Durch diese Änderungen werden den an die Microsoft Graph-API gesendeten ausgehenden Anforderungen [Zugriffstoken](access-tokens.md) hinzugefügt. Dieses Muster wird unter [Zusätzliche Sicherheitsszenarien für ASP.NET Core Blazor WebAssembly](/aspnet/core/blazor/security/webassembly/additional-scenarios) ausführlicher erläutert.
 
-Erstellen Sie als Erstes mit dem folgenden Code eine neue Datei mit dem Namen *GraphAuthorizationMessageHandler.cs*. Dieser Handler wird verwendet, um ein Zugriffstoken für die Bereiche `User.Read` und `Mail.Read` zu ausgehenden Anforderungen an die Microsoft Graph-API hinzuzufügen.
+Erstellen Sie zunächst mithilfe des folgenden Codes eine neue Datei namens *GraphAPIAuthorizationMessageHandler.cs*. Dieser Handler wird verwendet, um ein Zugriffstoken für die Bereiche `User.Read` und `Mail.Read` zu ausgehenden Anforderungen an die Microsoft Graph-API hinzuzufügen.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

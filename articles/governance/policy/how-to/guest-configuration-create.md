@@ -3,12 +3,12 @@ title: Erstellen von Richtlinien für Gastkonfigurationen für Windows
 description: Erfahren Sie, wie Sie eine Azure Policy-Richtlinie für Gastkonfigurationen für Windows erstellen.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881785"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070643"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Erstellen von Richtlinien für Gastkonfigurationen für Windows
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 Im nächsten Schritt wird die Datei in Azure Blob Storage veröffentlicht. Für den Befehl `Publish-GuestConfigurationPackage` ist das `Az.Storage`-Modul erforderlich.
+
+Parameter des Cmdlets `Publish-GuestConfigurationPackage`:
+
+- **Pfad**: Speicherort des Pakets, das veröffentlicht werden soll
+- **ResourceGroupName**: Name der Ressourcengruppe, in der sich das Speicherkonto befindet
+- **StorageAccountName**: Der Name des Speicherkontos, in dem das Paket veröffentlicht werden soll
+- **StorageContainerName**: (Standard: *guestconfiguration*) Name des Speichercontainers im Speicherkonto
+- **Force**: Vorhandenes Paket im Speicherkonto mit demselben Namen überschreiben
+
+Im nachfolgenden Beispiel wird das Paket im Speichercontainer „guestconfiguration“ veröffentlicht.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

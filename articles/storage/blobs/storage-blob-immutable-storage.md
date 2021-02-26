@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010060"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979135"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Speichern unternehmenskritischer Blobdaten mit unveränderlichem Speicher
 
@@ -53,6 +53,10 @@ Unveränderlicher Speicher unterstützt folgende Features:
 Unveränderlicher Speicher für Azure-Blobspeicher unterstützt zwei Arten von WORM-Richtlinien bzw. Richtlinien für die unveränderliche Speicherung: zeitbasierte Aufbewahrung und gesetzliche Aufbewahrungspflicht. Wenn eine zeitbasierte Aufbewahrungsrichtlinie oder ein Zeitraum für die gesetzliche Aufbewahrungspflicht auf einen Container angewendet wird, werden alle vorhandenen Blobs innerhalb von weniger als 30 Sekunden in einen unveränderlichen WORM-Zustand versetzt. Alle neuen Blobs, die in den durch die Richtlinie geschützten Container hochgeladen werden, werden ebenfalls in einen unveränderlichen Zustand versetzt. Wenn sich alle Blobs in einem unveränderlichen Zustand befinden, wird die Unveränderlichkeitsrichtlinie bestätigt, und alle Überschreibungs- oder Löschvorgänge im unveränderlichen Container sind unzulässig.
 
 Container und Speicherkonten können außerdem nicht gelöscht werden, wenn der Container Blobs enthält, die durch eine Richtlinie für die Aufbewahrung für juristische Zwecke oder eine gesperrte zeitbasierte Richtlinie geschützt sind. Eine Richtlinie für die Aufbewahrung für juristische Zwecke schützt vor der Löschung von Blobs, Containern und Speicherkonten. Entsperrte sowie gesperrte zeitbasierte Richtlinien schützen vor der Löschung von Blobs im angegebenen Zeitraum. Entsperrte und gesperrte zeitbasierte Richtlinien schützen nur vor der Löschung von Containern, wenn im entsprechenden Container mindestens ein Blob vorhanden ist. Nur bei einem Container mit einer *gesperrten* zeitbasierten Richtlinie sind Speicherkonten vor der Löschung geschützt. Container mit entsperrten zeitbasierten Richtlinien bieten weder Schutz vor der Löschung von Speicherkonten noch Compliance.
+
+Das folgende Diagramm zeigt, wie zeitbasierte Aufbewahrungsrichtlinien und gesetzliche Aufbewahrungspflichten Schreib-und Löschvorgänge verhindern, solange sie in Kraft sind.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagramm, das zeigt, wie zeitbasierte Aufbewahrungsrichtlinien und gesetzliche Aufbewahrungspflichten Schreib-und Löschvorgänge verhindern":::
 
 Weitere Informationen zum Festlegen und Sperren zeitbasierter Aufbewahrungsrichtlinien finden Sie unter [Festlegen und Verwalten von Unveränderlichkeitsrichtlinien für Blobspeicher](storage-blob-immutability-policies-manage.md).
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433018"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807223"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Sicherheitswarnungen in Azure Security Center
 
@@ -91,7 +91,7 @@ Sie haben mehrere Optionen zum Anzeigen der Warnungen außerhalb von Security Ce
 
 - Der **Download des CSV-Berichts** auf dem Dashboard „Warnungen“ bietet einen einmaligen Export in CSV.
 - Mit dem **fortlaufenden Export** von der Seite „Preise und Einstellungen“ können Sie Streams von Sicherheitswarnungen und -empfehlungen im Log Analytics-Arbeitsbereich und in Event Hubs konfigurieren. [Weitere Informationen zum fortlaufenden Export](continuous-export.md)
-- Der **Azure Sentinel-Connector** streamt Sicherheitswarnungen von Azure Security Center in Azure Sentinel. [Weitere Informationen zum Verbinden von Azure Security Center mit Sentinel](../sentinel/connect-azure-security-center.md)
+- Der **Azure Sentinel-Connector** streamt Sicherheitswarnungen von Azure Security Center in Azure Sentinel. [Weitere Informationen zum Verbinden von Azure Security Center mit Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -1,14 +1,14 @@
 ---
 title: 'Schnellstart: Erstellen einer Verwaltungsgruppe mit der REST-API'
 description: In dieser Schnellstartanleitung erstellen Sie mithilfe der REST-API eine Verwaltungsgruppe, um Ihre Ressourcen in einer Ressourcenhierarchie zu organisieren.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236999"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592499"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Schnellstart: Erstellen einer Verwaltungsgruppe mit der REST-API
 
@@ -20,7 +20,7 @@ Es kann bis zu 15 Minuten dauern, bis die Erstellung der ersten Verwaltungsgrupp
 
 - Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-- Installieren Sie [ARMClient](https://github.com/projectkudu/ARMClient), falls Sie dies noch nicht getan haben. Mit diesem Tool werden HTTP-Anforderungen an Azure Resource Manager-basierte REST-APIs gesendet. Alternativ können Sie die Funktion „Jetzt ausprobieren“ in der REST-Dokumentation oder Tools wie [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) von PowerShell oder [Postman](https://www.postman.com) verwenden.
+- Installieren Sie [ARMClient](https://github.com/projectkudu/ARMClient), falls Sie dies noch nicht getan haben. Mit diesem Tool werden HTTP-Anforderungen an Azure Resource Manager-basierte REST-APIs gesendet. Stattdessen können Sie das Feature „Jetzt ausprobieren“ in der REST-Dokumentation oder Tools wie [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) von PowerShell oder [Postman](https://www.postman.com) verwenden.
 
 - Alle Azure AD-Benutzer im Mandanten können eine Verwaltungsgruppe erstellen, ohne dafür die Schreibberechtigung für die Verwaltungsgruppe zu benötigen, wenn der [Hierarchieschutz](./how-to/protect-resource-hierarchy.md#setting---require-authorization) nicht aktiviert ist. Diese neue Verwaltungsgruppe ist dann der Stammverwaltungsgruppe oder der [Standardverwaltungsgruppe](./how-to/protect-resource-hierarchy.md#setting---default-management-group) untergeordnet, und dem Ersteller wird die Rolle „Besitzer“ zugewiesen. Der Verwaltungsgruppendienst ermöglicht dies, damit Rollen nicht auf Stammebene zugewiesen werden müssen. Bei der Erstellung der Stammverwaltungsgruppe hat kein Benutzer auf sie Zugriff. Der Sinn dahinter, dass Verwaltungsgruppen zu Beginn auf Stammebene erstellt werden können, ist die Vermeidung der Hürde, erst nach den globalen Administratoren für Azure AD suchen zu müssen, bevor Verwaltungsgruppen verwendet werden können.
 

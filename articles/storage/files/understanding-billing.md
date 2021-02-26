@@ -4,20 +4,42 @@ description: Erfahren Sie, wie Sie die Abrechnungsmodelle „Bereitgestellt“ u
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632477"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226640"
 ---
-# <a name="understanding-azure-files-billing"></a>Grundlegendes zur Abrechnung für Azure Files
+# <a name="understand-azure-files-billing"></a>Grundlegendes zur Abrechnung für Azure Files
 Für Azure Files gibt es zwei Abrechnungsmodelle: „Bereitgestellt“ und „Nutzungsbasierte Zahlung“. Das Modell „Bereitgestellt“ ist nur für Premium-Dateifreigaben verfügbar, d. h. für Dateifreigaben, die in einem Speicherkonto des Typs **FileStorage** bereitgestellt werden. Das Modell „Nutzungsbasierte Zahlung“ ist nur für Standarddateifreigaben verfügbar, d. h. für Dateifreigaben, die in einem Speicherkonto des Typs **Universell, Version 2** bereitgestellt werden. In diesem Artikel wird die Funktionsweise beider Modelle erklärt, um Ihnen zu helfen, Ihre monatliche Azure Files-Rechnung zu verstehen.
 
-Die aktuellen Preise für Azure Files finden Sie auf der [Seite mit den Preisen für Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+Preisinformationen zu Azure Files finden Sie auf der [Seite „Azure Files – Preise“](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Speichereinheiten    
+In Azure Files werden Basis 2-Maßeinheiten zur Darstellung der Speicherkapazität verwendet: KiB, MiB, GiB und TiB. Bei Ihrem Betriebssystem wird möglicherweise dieselbe Maßeinheit oder dasselbe Zählsystem verwendet.
+
+### <a name="windows"></a>Windows
+
+Sowohl im Windows-Betriebssystem als auch in Azure Files wird die Speicherkapazität mithilfe des Basis 2-Zählsystems gemessen, doch es gibt einen Unterschied bei der Bezeichnung von Einheiten. In Azure Files wird die Speicherkapazität mit Basis 2-Maßeinheiten bezeichnet, während sie in Windows mit Basis 10-Maßeinheiten bezeichnet wird. Beim Melden der Speicherkapazität gibt es in Windows keine Umwandlung von „Basis 2“ in „Basis 10“.
+
+|Akronym  |Definition  |Einheit  |Windows wird angezeigt als  |
+|---------|---------|---------|---------|
+|KiB     |1\.024 Bytes         |Kibibyte         |KB (Kilobyte)         |
+|MiB     |1\.024 KiB (1.048.576 Bytes)         |Mebibyte         |MB (Megabyte)         |
+|GiB     |1\.024 MiB (1.073.741.824 Bytes)         |Gibibyte         |GB (Gigabyte)         |
+|TiB     |1\.024 GiB (1.099.511.627.776 Bytes)         |Tebibyte         |TB (Terabyte)         |
+
+### <a name="macos"></a>macOS
+
+Wenn Sie ermitteln möchten, welches Zählsystem verwendet wird, lesen Sie auf der Website von Apple [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) (Wie iOS und MacOS die Speicherkapazität melden).
+
+### <a name="linux"></a>Linux
+
+Ein anderes Zählsystem könnte von jedem Betriebssystem oder jeder individuellen Software verwendet werden. Wenn Sie erfahren möchten, wie die Speicherkapazität jeweils gemeldet wird, lesen Sie die zugehörige Dokumentation.
 
 ## <a name="provisioned-model"></a>Bereitgestelltes Modell
 Azure Files verwendet für Premium-Dateifreigaben das Modell „Bereitgestellt“. Beim diesem Geschäftsmodell geben Sie dem Azure Files-Dienst aktiv an, wie hoch Ihr Speicherbedarf ist, anstatt nach Inanspruchnahme abgerechnet zu werden. Dies ist vergleichbar mit dem Kauf lokaler Hardware. Wenn Sie eine Azure-Dateifreigabe mit einer bestimmten Menge Speicherplatz bereitstellen, zahlen Sie für diesen Speicher unabhängig davon, ob Sie ihn nutzen oder nicht, genauso wie Sie nicht anfangen, Kosten für lokale physische Medien zu zahlen, wenn Sie beginnen, Speicherplatz zu belegen. Im Gegensatz zum Kauf lokaler physischer Medien können bereitgestellte Dateifreigaben je nach Speicher- und E/A-Leistungsmerkmalen dynamisch hoch- oder herunterskaliert werden.
@@ -77,7 +99,7 @@ Wenn Sie für eine Workload, auf die nur selten zugegriffen wird, die Speichereb
 
 Ähnlich verhält es sich, wenn Sie eine Workload mit häufigem Zugriff auf die kalte Speicherebene verlagern. Dann zahlen Sie viel mehr für Transaktionen, aber weniger für Datenspeicherung. Dies kann dazu führen, dass die gestiegenen Kosten für Transaktionen die Einsparungen aufgrund niedrigerer Kosten für Datenspeicherung überwiegen. Dies kann bewirken, dass Sie für die kalte Speicherebene mehr zahlen als bei Wahl von „transaktionsoptimiert“. Es ist möglich, dass bei bestimmten Nutzungsgraden die heiße Speicherebene am wirtschaftlichsten ist, während die kalte Speicherebene teurer als „transaktionsoptimiert“ ist.
 
-Welche Ebene für Ihre Standarddateifreigabe am kostengünstigsten ist, hängt von Ihrer Workload und von der Aktivitätsebene ab. In der Praxis lässt sich die wirtschaftlichste Speicherebene am besten ermitteln, indem der tatsächliche Inanspruchnahmen von Ressourcen der Freigabe (gespeicherte Daten, Schreibtransaktionen usw.) untersucht wird.
+Welche Ebene für Ihre Standarddateifreigabe am kostengünstigsten ist, hängt von Ihrer Workload und von der Aktivitätsebene ab. In der Praxis lässt sich die wirtschaftlichste Speicherebene am besten ermitteln, indem der tatsächliche Ressourcenverbrauch der Freigabe (gespeicherte Daten, Schreibtransaktionen usw.) untersucht wird.
 
 ### <a name="what-are-transactions"></a>Was sind Transaktionen?
 Transaktionen sind Vorgänge oder Anforderungen an Azure Files, den Inhalt der Dateifreigabe hoch- oder herunterzuladen oder anderweitig zu ändern. Jede Aktion in einer Dateifreigabe führt zu einer oder mehreren Transaktionen. Bei Standardfreigaben mit dem Abrechnungsmodell „Nutzungsbasierte Zahlung“ führt dies zu Transaktionskosten.

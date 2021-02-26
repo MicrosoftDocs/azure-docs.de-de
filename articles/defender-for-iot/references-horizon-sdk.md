@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746018"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523361"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Proprietäre Horizon-Protokollzergliederung
 
@@ -1640,6 +1640,6 @@ Zum Überwachen:
 
 Wählen Sie in der Übersicht die Schaltfläche „Überwachen“ für Ihr Plug-In aus.
 
-Nächste Schritte
+## <a name="next-steps"></a>Nächste Schritte
 
 Einrichten der [Horizon-API](references-horizon-api.md)

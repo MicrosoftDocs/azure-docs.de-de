@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778494"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577776"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Was ist die Azure Active Directory-Überwachung?
 
@@ -79,7 +79,7 @@ Wenn Sie Protokolle an einen Azure Event Hub weiterleiten, können Sie sie in SI
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Senden von Protokollen an Azure Monitor-Protokolle
 
-[Azure Monitor-Protokolle](../../azure-monitor/log-query/log-query-overview.md) konsolidieren Überwachungsdaten aus unterschiedlichen Quellen und bieten eine Abfragesprache sowie eine Analyseengine, die Ihnen Einblick in den Betrieb Ihrer Anwendungen und Ressourcen gibt. Indem Sie Ihre Azure AD-Aktivitätsprotokolle an Azure Monitor-Protokolle senden, können Sie schnell gesammelte Daten abrufen, überwachen und für Warnungen heranziehen. Lesen Sie, wie Sie [Daten an Azure Monitor-Protokolle senden](howto-integrate-activity-logs-with-log-analytics.md).
+[Azure Monitor-Protokolle](../../azure-monitor/logs/log-query-overview.md) konsolidieren Überwachungsdaten aus unterschiedlichen Quellen und bieten eine Abfragesprache sowie eine Analyseengine, die Ihnen Einblick in den Betrieb Ihrer Anwendungen und Ressourcen gibt. Indem Sie Ihre Azure AD-Aktivitätsprotokolle an Azure Monitor-Protokolle senden, können Sie schnell gesammelte Daten abrufen, überwachen und für Warnungen heranziehen. Lesen Sie, wie Sie [Daten an Azure Monitor-Protokolle senden](howto-integrate-activity-logs-with-log-analytics.md).
 
 Sie können auch die vorgefertigten Ansichten für Azure AD-Aktivitätsprotokolle installieren, um allgemeine Szenarien mit Anmeldungen und Überprüfungsereignissen überwachen. Informationen zum Installieren und Verwenden von Log Analytics-Ansichten für Azure AD-Aktivitätsprotokolle finden Sie [hier](howto-install-use-log-analytics-views.md).
 

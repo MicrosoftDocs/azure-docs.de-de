@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7550d0f997182b3938285f1d0a360a31bf05177
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a399565d62b20f62b72257bcb9f3beb2c910ac98
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207460"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594060"
 ---
 # <a name="z-fighting-mitigation"></a>Z-Fighting-Minimierung
 
@@ -28,9 +28,9 @@ Wenn zwei Oberflächen überlappen, ist unklar, welche über der anderen gerende
 Mit dem folgenden Code wird die Z-Fighting-Minderung aktiviert:
 
 ```cs
-void EnableZFightingMitigation(AzureSession session, bool highlight)
+void EnableZFightingMitigation(RenderingSession session, bool highlight)
 {
-    ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
+    ZFightingMitigationSettings settings = session.Connection.ZFightingMitigationSettings;
 
     // enabling z-fighting mitigation
     settings.Enabled = true;
@@ -41,9 +41,9 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```
 
 ```cpp
-void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
+void EnableZFightingMitigation(ApiHandle<RenderingSession> session, bool highlight)
 {
-    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
+    ApiHandle<ZFightingMitigationSettings> settings = session->Connection()->GetZFightingMitigationSettings();
 
     // enabling z-fighting mitigation
     settings->SetEnabled(true);
@@ -78,8 +78,8 @@ Die bereitgestellte Z-Fighting-Minderung stellt die bestmögliche Maßnahme dar.
 
 ## <a name="api-documentation"></a>API-Dokumentation
 
-* [C# RemoteManager.ZFightingMitigationSettings-Eigenschaft](/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
-* [C++ RemoteManager::ZFightingMitigationSettings()](/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+* [C# RenderingConnection.ZFightingMitigationSettings (Eigenschaft)](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
+* [C++ RenderingConnection::ZFightingMitigationSettings()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 02611bdf9689d2f62f661f558fd547ea46bd4d36
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744023"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576007"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Versionsanmerkungen zu Update 1.3 für StorSimple Virtual Array
 
@@ -28,15 +28,15 @@ Update 1.3 entspricht der Softwareversion 10.0.10319.0.
 
 ## <a name="whats-new-in-update-13"></a>Neuerungen in Update 1.3
 
-Dieses Update enthält die folgenden Verbesserungen:
+Dieses Update enthält die folgenden Verbesserungen: KB4540725
 
 - Transport Layer Security (TLS) 1.2 ist ein obligatorisches Update und muss installiert werden. Ab dieser Version wird TLS 1.2 das Standardprotokoll für die gesamte Kommunikation im Azure-Portal.
 - Garbage Collection-Fehlerbehebungen, die die Leistung des Garbage Collection-Zyklus verbessern, wenn sich das Geräte- und das Speicherkonto in zwei entfernten Regionen befinden.
 - Fix für Sicherungsfehler aufgrund von Blobtimeouts.
 - Aktualisierte OS/. NET Framework-Sicherheitspatches:
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): SSU (Wartungsstapelaktualisierung) vom März 2020
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): Rollup vom Juli 2020
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): .NET Framework-Update Juli 2020
+  - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): SSU (Wartungsstapelaktualisierung) vom März 2020
+  - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): Rollup vom Juli 2020
+  - [KB4565622](https://support.microsoft.com/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00): .NET Framework-Update Juli 2020
 
 ## <a name="download-update-13"></a>Update 1.3 herunterladen
 

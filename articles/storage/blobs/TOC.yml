@@ -113,7 +113,7 @@
           href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: storage-samples-blobs-powershell.md
-        - name: Azure-Befehlszeilenschnittstelle
+        - name: Azure CLI
           href: storage-samples-blobs-cli.md
     - name: Konzepte
       items:
@@ -147,14 +147,10 @@
                   href: encryption-customer-provided-keys.md
                 - name: Verschlüsselungsbereiche
                   href: encryption-scope-overview.md
-            - name: Unveränderliche Blobs
-              href: storage-blob-immutable-storage.md
             - name: Verwenden von privaten Azure-Endpunkten
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurieren der Netzwerkroutingpräferenz
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Datenredundanz
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Schutz von Daten
           items:
             - name: Versionsverwaltung
@@ -169,6 +165,14 @@
               href: storage-blob-change-feed.md
             - name: Wiederherstellung bis zu einem bestimmten Zeitpunkt
               href: point-in-time-restore-overview.md
+            - name: Unveränderliche Blobs
+              href: storage-blob-immutable-storage.md
+        - name: Redundanz und Notfallwiederherstellung
+          items:
+            - name: Datenredundanz
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Kundenseitig verwaltetes Failover für die Notfallwiederherstellung
+              href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Objektreplikation
           href: object-replication-overview.md
         - name: Zugriffsebenen und Leistungsstufen
@@ -181,8 +185,6 @@
               href: storage-blob-performance-tiers.md
             - name: Automatisieren des Lebenszyklus von Zugriffsebenen
               href: storage-lifecycle-management-concepts.md
-        - name: Notfallwiederherstellung und Failover
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Leistungs-, Skalierungs- und Kostenoptimierung'
           items:
             - name: Checkliste zu Leistung und Skalierbarkeit
@@ -305,7 +307,7 @@
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Azure-Befehlszeilenschnittstelle
+                - name: Azure CLI
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Authentifizieren und Autorisieren mit Azure AD
               items:
@@ -329,7 +331,7 @@
                   items:
                     - name: PowerShell
                       href: storage-blob-user-delegation-sas-create-powershell.md
-                    - name: Azure-Befehlszeilenschnittstelle
+                    - name: Azure CLI
                       href: storage-blob-user-delegation-sas-create-cli.md
                     - name: .NET
                       href: storage-blob-user-delegation-sas-create-dotnet.md
@@ -391,15 +393,7 @@
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurieren von Azure Defender für Bedrohungsschutz
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Festlegen und Verwalten von Unveränderlichkeitsrichtlinien
-              href: storage-blob-immutability-policies-manage.md
-        - name: Verwalten der Datenredundanz
-          items:
-            - name: Ändern der Redundanzkonfiguration
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Entwerfen hochverfügbarer Anwendungen
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Schützen Ihrer Daten
+        - name: Schützen von Blobdaten
           items:
             - name: Aktivieren der Blobversionsverwaltung
               href: versioning-enable.md
@@ -413,14 +407,20 @@
               href: storage-blob-change-feed-how-to.md
             - name: Aktivieren der Point-in-Time-Wiederherstellung
               href: point-in-time-restore-manage.md
-        - name: Konfigurieren der Objektreplikation
-          href: object-replication-configure.md
-        - name: Verwalten der Notfallwiederherstellung
+            - name: Festlegen und Verwalten von Unveränderlichkeitsrichtlinien
+              href: storage-blob-immutability-policies-manage.md
+        - name: Verwalten von Redundanz und Failover
           items:
+            - name: Ändern der Redundanzkonfiguration
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Entwerfen hochverfügbarer Anwendungen
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Überprüfen der Eigenschaft für die letzte Synchronisierung
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Initiieren eines Kontofailovers
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Konfigurieren der Objektreplikation
+          href: object-replication-configure.md
         - name: Verwalten der Parallelität
           href: concurrency-manage.md
         - name: Verwenden eines Speicheremulators
@@ -635,20 +635,16 @@
       items:
         - name: Einführung in Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Schnellstarts
-      items:
-        - name: Analysieren von Daten mit Databricks
-          href: data-lake-storage-quickstart-create-databricks-account.md
     - name: Tutorials
       items:
-        - name: 'Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks'
-          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Zugreifen auf Data Lake Storage-Daten mit Databricks unter Verwendung von Spark
+        - name: Verwenden mit Databricks und Spark
           href: data-lake-storage-use-databricks-spark.md
-        - name: 'Extrahieren, Transformieren und Laden von Daten mit Apache Hive in Azure HDInsight'
+        - name: Verwenden mit Apache Hive und HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: "Einfügen von Daten in Databricks\_Delta-Tabellen mithilfe von Event Grid"
+        - name: Verwenden mit Databricks Delta und Event Grid
           href: data-lake-storage-events.md
+        - name: Verwenden mit anderen Azure-Diensten
+          href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Konzepte
       items:
         - name: Verarbeitung großer Datenmengen
@@ -705,7 +701,7 @@
       items:
         - name: Speicherkonto erstellen
           href: create-data-lake-storage-account.md
-        - name: Migrieren
+        - name: Migrieren von Konten und Datenspeichern
           items:
             - name: Migrieren aus Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
@@ -713,31 +709,7 @@
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
             - name: Onlinemigration eines HDFS-Speichers
               href: migrate-gen2-wandisco-live-data-platform.md
-        - name: Verwalten
-          items:
-            - name: .NET
-              href: data-lake-storage-directory-file-acl-dotnet.md
-            - name: Java
-              href: data-lake-storage-directory-file-acl-java.md
-            - name: Python
-              href: data-lake-storage-directory-file-acl-python.md
-            - name: JavaScript
-              href: data-lake-storage-directory-file-acl-javascript.md
-            - name: PowerShell
-              href: data-lake-storage-directory-file-acl-powershell.md
-            - name: Befehlszeilenschnittstelle (CLI)
-              href: data-lake-storage-directory-file-acl-cli.md
-            - name: Storage-Explorer
-              href: data-lake-storage-explorer.md
-            - name: Befehlszeilenschnittstelle des Hadoop-Dateisystemclients
-              href: data-lake-storage-use-hdfs-data-lake-storage.md
-            - name: Rekursives Festlegen von ACLs
-              href: recursive-access-control-lists.md
-        - name: Abfrage
-          items:
-            - name: Filtern von Daten mit Abfragebeschleunigung
-              href: data-lake-storage-query-acceleration-how-to.md
-        - name: Übertragen
+        - name: Übertragen von Daten
           items:
             - name: AzCopy
               items:
@@ -761,9 +733,47 @@
               href: data-lake-storage-use-distcp.md
             - name: Übertragen von Daten mit der Datenverschiebungsbibliothek
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimieren
+        - name: Verwalten der Zugriffssteuerung
           items:
-            - name: Optimieren der Leistung
+            - name: Storage-Explorer
+              href: data-lake-storage-explorer-acl.md
+            - name: PowerShell
+              href: data-lake-storage-acl-powershell.md
+            - name: Befehlszeilenschnittstelle (CLI)
+              href: data-lake-storage-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-acl-java.md
+            - name: Python
+              href: data-lake-storage-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-acl-javascript.md
+        - name: Arbeiten mit Daten
+          items:
+            - name: Storage-Explorer
+              href: data-lake-storage-explorer.md
+            - name: PowerShell
+              href: data-lake-storage-directory-file-acl-powershell.md
+            - name: Befehlszeilenschnittstelle (CLI)
+              href: data-lake-storage-directory-file-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-directory-file-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-directory-file-acl-java.md
+            - name: Python
+              href: data-lake-storage-directory-file-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-directory-file-acl-javascript.md
+            - name: Abfragebeschleunigung
+              href: data-lake-storage-query-acceleration-how-to.md
+            - name: Befehlszeilenschnittstelle des Hadoop-Dateisystemclients
+              href: data-lake-storage-use-hdfs-data-lake-storage.md
+        - name: Verwenden mit Azure-Diensten
+          href: data-lake-storage-integrate-with-services-tutorials.md
+        - name: Optimieren der Leistung
+          items:
+            - name: Übersicht über Leistungsoptimierungen
               href: data-lake-storage-performance-tuning-guidance.md
             - name: Optimieren von Spark in HDInsight
               href: data-lake-storage-performance-tuning-spark.md

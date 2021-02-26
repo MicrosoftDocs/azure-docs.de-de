@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976502"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492245"
 ---
 # <a name="page-layout-versions"></a>Seitenlayoutversionen
 
 Seitenlayoutpakete werden regelmäßig aktualisiert, um Korrekturen und Verbesserungen in ihre Seitenelemente aufzunehmen. Das folgende Änderungsprotokoll gibt die in den einzelnen Versionen eingeführten Änderungen an.
 
 ## <a name="self-asserted-page-selfasserted"></a>Selbstbestätigte Seite (selbstbestätigt)
+
+**2.1.2**
+- Das Problem mit der Codierung bei der Lokalisierung in Sprachen wie Spanisch und Französisch wurde behoben.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ Seitenlayoutpakete werden regelmäßig aktualisiert, um Korrekturen und Verbesse
 - Erste Veröffentlichung
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Vereinheitlichte Anmeldungs- und Registrierungsseite mit Link zur Kennwortzurücksetzung (unifiedssp)
+
+**2.1.2**
+- Das Problem mit der Codierung bei der Lokalisierung in Sprachen wie Spanisch und Französisch wurde behoben.
+- Der Link „Kennwort vergessen“ kann als Anspruchsaustausch verwendet werden, z. B. bei sozialen Netzwerken als Identitätsanbieter.
 
 **2.1.1**
 - Zusätzlich zu `intro` wurde das UXString-Element `heading` zur Anzeige als Titel auf der Seite hinzugefügt. Dies ist standardmäßig ausgeblendet.

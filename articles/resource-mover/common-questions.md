@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600652"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007055"
 ---
 # <a name="common-questions"></a>Häufig gestellte Fragen
 
 In diesem Artikel werden häufig gestellte Fragen zu [Azure Resource Mover](overview.md) beantwortet.
-
-## <a name="general"></a>Allgemein
-
-### <a name="is-resource-mover-generally-available"></a>Ist Resource Mover allgemein verfügbar?
-
-Azure Resource Mover befindet sich derzeit in der öffentlichen Vorschau. Produktionsworkloads werden unterstützt.
-
 
 
 ## <a name="moving-across-regions"></a>Regionsübergreifendes Verschieben
@@ -45,10 +38,21 @@ Mit Resource Mover können Sie derzeit die folgenden Ressourcen regionsübergrei
 - Interne und öffentliche Load Balancer 
 - Azure SQL-Datenbanken und Pools für elastische Datenbanken
 
+### <a name="can-i-move-disks-across-regions"></a>Kann ich Datenträger regionsübergreifend verschieben?
+
+Sie können Datenträger nicht als Ressourcen auswählen und in andere Regionen verschieben. Datenträger werden jedoch zusammen mit der zugehörigen VM verschoben.
+
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>Was bedeutet das Verschieben einer Ressourcengruppe?
+
+Wenn Sie eine Ressource zum Verschieben auswählen, wird die zugehörige Ressourcengruppe automatisch dem Verschiebevorgang hinzugefügt. Dies ist erforderlich, da die Zielressource am Ziel in einer identischen Ressourcengruppe platziert werden muss. Sie können eine vorhandene Ressourcengruppe anpassen und bereitstellen, nachdem sie dem Verschiebevorgang hinzugefügt wurde. Beachten Sie, dass das Verschieben einer Ressourcengruppe **nicht** bedeutet, dass alle Ressourcen in der Quellressourcengruppe verschoben werden.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Kann ich Ressourcen abonnementübergreifend verschieben, wenn ich sie regionsübergreifend verschiebe?
 
 Sie können das Abonnement nach dem Verschieben von Ressourcen in die Zielregion ändern. [Erfahren Sie mehr](../azure-resource-manager/management/move-resource-group-and-subscription.md) über das Verschieben von Ressourcen in ein anderes Abonnement. 
+
+### <a name="does-azure-resource-move-service-store-customer-data"></a>Speichert der Azure Resource Mover-Dienst Kundendaten? 
+Nein. Der Resource Mover-Dienst speichert keine Kundendaten, sondern nur Metadateninformationen für die Nachverfolgung und den Fortschritt der vom Kunden für das Verschieben ausgewählten Ressourcen.
+
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Wo werden die Metadaten für regionsübergreifendes Verschieben gespeichert?
 
@@ -69,7 +73,7 @@ Eine [verwaltete Identität](../active-directory/managed-identities-azure-resour
 - Wenn Sie Ressourcen regionsübergreifend im Portal verschieben, erfolgt dieser Vorgang automatisch.
 - Wenn Sie Ressourcen mithilfe von PowerShell verschieben, führen Sie Cmdlets aus, um der Sammlung eine vom System zugewiesene Identität zuzuweisen. Anschließend weisen Sie dem Identitätsprinzipal eine Rolle mit den richtigen Abonnementberechtigungen zu. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Welche Berechtigungen für verwaltete Identitäten benötigt Resource Mover?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Welche Berechtigungen für verwaltete Identitäten benötigt Resource Mover? 
 
 Für eine verwaltete Identität von Azure Resource Mover werden mindestens die folgenden Berechtigungen benötigt: 
 
@@ -93,6 +97,12 @@ Das Abonnement wurde in einen anderen Mandanten verschoben. | Deaktivieren und a
 ### <a name="how-can-i-do-multiple-moves-together"></a>Wie kann ich mehrere Verschiebungen gleichzeitig ausführen?
 
 Ändern Sie die Quell-/Zielkombinationen nach Bedarf mithilfe der Änderungsoption im Portal.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>Was geschieht, wenn ich eine Ressource aus einer Liste von Ressourcen für das Verschieben entferne?
+
+Sie können Ressourcen entfernen, die Sie der Liste für das Verschieben hinzugefügt haben. Das Verhalten beim Entfernen einer Ressource aus der Liste hängt vom Ressourcenstatus ab. [Weitere Informationen](remove-move-resources.md#vm-resource-state-after-removing)
+
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937834"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103021"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Erstellen eines mehrinstanzenfähigen Daemons, der Microsoft Identity Platform verwendet
 
@@ -45,7 +45,7 @@ Die App wird als ASP.NET-MVC-Anwendung erstellt. Sie verwendet die OWIN OpenID�
 
 Bei der Daemon-Komponente in diesem Beispiel handelt es sich um einen API-Controller (`SyncController.cs`). Wenn der Controller aufgerufen wird, pullt er von Microsoft Graph eine Liste mit Benutzern im Azure AD-Mandanten (Azure Active Directory) des Kunden. `SyncController.cs` wird durch einen AJAX-Aufruf in der Webanwendung ausgelöst. Er verwendet die [Microsoft-Authentifizierungsbibliothek (MSAL) für .NET](msal-overview.md), um ein Zugriffstoken für Microsoft Graph abzurufen.
 
-Da es sich bei der App um eine mehrinstanzenfähige App für Microsoft-Geschäftskunden handelt, müssen Kunden die Möglichkeit haben, sich zu registrieren oder die Anwendung mit ihren Unternehmensdaten zu verknüpfen. Im Zuge der Verknüpfung weist ein Unternehmensadministrator der App zunächst direkt *Anwendungsberechtigungen* zu, damit sie auf nicht interaktive Weise (ohne Beteiligung eines angemeldeten Benutzers) auf Unternehmensdaten zugreifen kann. Der Großteil der Logik in diesem Beispiel zeigt, wie diese Verknüpfung mithilfe des Identity Platform-Endpunkts [Administratoreinwilligung](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) implementiert wird.
+Da es sich bei der App um eine mehrinstanzenfähige App für Microsoft-Geschäftskunden handelt, müssen Kunden die Möglichkeit haben, sich zu registrieren oder die Anwendung mit ihren Unternehmensdaten zu verknüpfen. Im Zuge der Verknüpfung weist ein globaler Administrator der App zunächst direkt *Anwendungsberechtigungen* zu, damit sie auf nicht interaktive Weise (ohne Beteiligung eines angemeldeten Benutzers) auf Unternehmensdaten zugreifen kann. Der Großteil der Logik in diesem Beispiel zeigt, wie diese Verknüpfung mithilfe des Identity Platform-Endpunkts [Administratoreinwilligung](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) implementiert wird.
 
 ![Diagramm: UserSync-App mit drei lokalen Elementen, die eine Verbindung mit Azure herstellen. Dabei erwirbt Start.Auth interaktiv ein Token für die Verbindungsherstellung mit Azure AD, AccountController holt die Administratoreinwilligung für die Verbindungsherstellung mit Azure AD ein, und SyncController liest die Benutzer für die Verbindungsherstellung mit Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
@@ -93,7 +93,7 @@ Falls Sie die Automatisierung nicht verwenden möchten, führen Sie die Schritte
 
 ### <a name="choose-the-azure-ad-tenant"></a>Erstellen des Azure AD-Mandanten
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
 
 
@@ -110,7 +110,7 @@ Falls Sie die Automatisierung nicht verwenden möchten, führen Sie die Schritte
 1. Suchen Sie auf der Seite **Übersicht** der App den Wert **Anwendungs-ID (Client)** , und notieren Sie ihn zur späteren Verwendung. Sie benötigen diesen Wert, um die Visual Studio-Konfigurationsdatei für dieses Projekt zu konfigurieren.
 1. Wählen Sie unter **Verwalten** die Option **Authentifizierung** aus.
 1. Legen Sie **URL für Front-Channel-Abmeldung** auf `https://localhost:44316/Account/EndSession` fest.
-1. Wählen Sie im Abschnitt **Implizite Gewährung** die Optionen **Zugriffstoken** und **ID-Token** aus. Für dieses Beispiel muss der [Flow zur impliziten Gewährung](v2-oauth2-implicit-grant-flow.md) aktiviert werden, um den Benutzer anzumelden und eine API aufzurufen.
+1. Wählen Sie im Abschnitt **Implizite Gewährung und Hybridflows** die Optionen **Zugriffstoken** und **ID-Token** aus. Für dieses Beispiel muss der [Flow zur impliziten Gewährung](v2-oauth2-implicit-grant-flow.md) aktiviert werden, um den Benutzer anzumelden und eine API aufzurufen.
 1. Wählen Sie **Speichern** aus.
 1. Wählen Sie unter **Verwalten** die Option **Zertifikate und Geheimnisse** aus.
 1. Wählen Sie im Abschnitt **Geheime Clientschlüssel** die Option **Neuer geheimer Clientschlüssel** aus. 
@@ -203,7 +203,7 @@ Dieses Projekt enthält Web-App- und Web-API-Projekte. Führen Sie jeweils die f
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Erstellen und Veröffentlichen von „dotnet-web-daemon-v2“ für eine Azure-Website
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wählen Sie links oben **Ressource erstellen** aus.
 1. Wählen Sie **Web** > **Web-App** aus, und benennen Sie Ihre Website. Nennen Sie sie beispielsweise **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Wählen Sie die Informationen für **Abonnement** und **Ressourcengruppe** sowie für **App Service-Plan und Standort** aus. Legen Sie **Betriebssystem** auf **Windows** und **Veröffentlichen** auf **Code** fest.
@@ -224,7 +224,7 @@ Visual Studio veröffentlicht das Projekt und öffnet die Projekt-URL automatisc
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Aktualisieren der Azure AD-Mandantenanwendungsregistrierung für „dotnet-web-daemon-v2“
 
-1. Wechseln Sie zurück zum <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Wechseln Sie zurück zum <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a>.
 1. Wählen Sie im linken Bereich den Dienst **Azure Active Directory** und anschließend **App-Registrierungen** aus.
 1. Wählen Sie die Anwendung **dotnet-web-daemon-v2** aus.
 1. Aktualisieren Sie auf der Seite **Authentifizierung** für Ihre Anwendung die Felder vom Typ **URL für Front-Channel-Abmeldung** mit der Adresse Ihres Diensts. Verwenden Sie z. B. `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
@@ -237,9 +237,9 @@ Löschen Sie das im Schritt [Registrieren Ihrer Anwendung](#register-your-applic
 
 ## <a name="get-help"></a>Hier erhalten Sie Hilfe
 
-Verwenden Sie [Stack Overflow](http://stackoverflow.com/questions/tagged/msal), um Unterstützung von der Community zu erhalten.
-Stellen Sie Ihre Fragen zuerst auf Stack Overflow, und durchsuchen Sie die vorhandenen Probleme, um zu prüfen, ob vielleicht schon jemand anders die gleiche Frage hatte.
-Markieren Sie Ihre Fragen und Kommentare mit „adal“, „msal“ und „dotnet“.
+Verwenden Sie [Microsoft Q&A](https://docs.microsoft.com/answers/products/), um Unterstützung von der Community zu erhalten.
+Stellen Sie Ihre Fragen zuerst auf [Microsoft Q&A](https://docs.microsoft.com/answers/products/), und durchsuchen Sie die vorhandenen Probleme, um zu prüfen, ob vielleicht schon jemand anders die gleiche Frage hatte.
+Markieren Sie Ihre Fragen und Kommentare mit „azure-ad-adal-deprecation“, „azure-ad-msal“ und „dotnet-standard“.
 
 Sollten Sie einen Fehler im Beispiel finden, erstellen Sie ein Problem unter [GitHub-Probleme](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 

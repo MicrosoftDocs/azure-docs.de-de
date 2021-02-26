@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778715"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594602"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Konfigurieren des Netzwerks für Azure Stack Edge Pro mit GPU
 
@@ -56,8 +56,6 @@ Führen Sie diese Schritte aus, um das Netzwerk für Ihr Gerät zu konfigurieren
     
     ![Seite „Netzwerkeinstellungen“ der lokalen Webbenutzeroberfläche](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. Um die Netzwerkeinstellungen zu ändern, wählen Sie einen Port aus. Ändern Sie im eingeblendeten rechten Bereich die IP-Adresse, das Subnetz, das Gateway, das primäre DNS und das sekundäre DNS. 
 
     - Wenn Sie Port 1 auswählen, sehen Sie, dass er als statisch vorkonfiguriert ist. 
@@ -73,7 +71,8 @@ Führen Sie diese Schritte aus, um das Netzwerk für Ihr Gerät zu konfigurieren
    * Falls DHCP in Ihrer Umgebung aktiviert ist, werden Netzwerkschnittstellen automatisch konfiguriert. IP-Adresse, Subnetz, Gateway und DNS werden automatisch zugewiesen.
    * Wenn DHCP nicht aktiviert ist, können Sie bei Bedarf statische IP-Adressen zuweisen.
    * Sie können die Netzwerkschnittstelle als IPv4 konfigurieren.
-   * Für die 25-Gbit/s-Schnittstellen können Sie den RDMA-Modus (Remote Direct Access Memory) auf iWarp oder RoCE (RDMA over Converged Ethernet) festlegen. Wenn niedrige Latenz die Hauptanforderung ist und Skalierbarkeit keine Rolle spielt, wählen Sie RoCE. Wenn Latenz eine Hauptanforderung ist, aber auch Benutzerfreundlichkeit und Skalierbarkeit hohe Priorität haben, ist iWARP die beste Wahl.
+   * Für die 25-GBit/s-Schnittstellen können Sie den RDMA-Modus (Remote Direct Access Memory) auf iWarp oder RoCE (RDMA over Converged Ethernet) festlegen. Wenn niedrige Latenz die Hauptanforderung ist und Skalierbarkeit keine Rolle spielt, wählen Sie RoCE. Wenn Latenz eine Hauptanforderung ist, aber auch Benutzerfreundlichkeit und Skalierbarkeit hohe Priorität haben, ist iWARP die beste Wahl.
+   * Der NIC-Teamvorgang (Network Interface Card, Netzwerkadapter) oder Linkaggregation wird bei Azure Stack Edge nicht unterstützt. 
    * Die Seriennummer eines beliebigen Ports entspricht der Seriennummer des Knotens.
 
     Sobald das Gerätenetz konfiguriert ist, wird die Seite wie unten dargestellt aktualisiert.
@@ -81,12 +80,11 @@ Führen Sie diese Schritte aus, um das Netzwerk für Ihr Gerät zu konfigurieren
     ![Seite „Netzwerkeinstellungen“ der lokalen Webbenutzeroberfläche 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * Wir empfehlen, die lokale IP-Adresse der Netzwerkschnittstelle nicht von statisch auf DHCP umzustellen, es sei denn, Sie haben eine andere IP-Adresse für die Verbindung zum Gerät. Wenn Sie eine Netzwerkschnittstelle verwenden und zu DHCP wechseln, gibt es keine Möglichkeit, die DHCP-Adresse zu bestimmen. Wenn Sie zu einer DHCP-Adresse wechseln möchten, warten Sie, bis sich das Gerät im Dienst aktiviert hat, und nehmen Sie dann die Änderung vor. Sie können dann die IPs aller Adapter im Azure-Portal in den **Geräteeigenschaften** für Ihren Dienst anzeigen.
+     > [!NOTE]
+     > Wir empfehlen, die lokale IP-Adresse der Netzwerkschnittstelle nicht von statisch auf DHCP umzustellen, es sei denn, Sie haben eine andere IP-Adresse für die Verbindung zum Gerät. Wenn Sie eine Netzwerkschnittstelle verwenden und zu DHCP wechseln, gibt es keine Möglichkeit, die DHCP-Adresse zu bestimmen. Wenn Sie zu einer DHCP-Adresse wechseln möchten, warten Sie, bis sich das Gerät im Dienst aktiviert hat, und nehmen Sie dann die Änderung vor. Sie können dann die IPs aller Adapter im Azure-Portal in den **Geräteeigenschaften** für Ihren Dienst anzeigen.
 
 
-    Nachdem Sie die Netzwerkeinstellungen konfiguriert und angewendet haben, wählen Sie „Weiter: Compute“ aus, um das Computenetzwerk zu konfigurieren.
+    Nachdem Sie die Netzwerkeinstellungen konfiguriert und angewendet haben, können Sie **Weiter: Compute** auswählen, um das Computenetzwerk zu konfigurieren.
 
 ## <a name="enable-compute-network"></a>Computenetzwerk aktivieren
 
@@ -132,7 +130,8 @@ Dies ist eine optionale Konfiguration.
 
 > [!IMPORTANT]
 > * Wenn Sie Compute aktivieren und ein IoT Edge-Modul auf Ihrem Azure Stack Edge Pro-Gerät verwenden, sollten Sie für „Webproxyauthentifizierung“ die Option **Keine** festlegen. NTLM wird nicht unterstützt.
->* Dateien für die automatische Proxykonfiguration (Proxy Auto Config, PAC) werden nicht unterstützt. Eine PAC-Datei definiert, wie Webbrowser und andere Benutzer-Agents automatisch den entsprechenden Proxyserver (Zugriffsmethode) zum Abrufen einer bestimmten URL auswählen können. Proxys, die versuchen, den gesamten Datenverkehr abzufangen und zu lesen (und anschließend alles mit eigener Zertifizierung neu zu signieren), sind nicht kompatibel, da das Zertifikat des Proxys nicht vertrauenswürdig ist. In der Regel funktionieren transparente Proxys gut mit Azure Stack Edge Pro. Nicht transparente Webproxys werden nicht unterstützt.
+> * Dateien für die automatische Proxykonfiguration (Proxy Auto Config, PAC) werden nicht unterstützt. Eine PAC-Datei definiert, wie Webbrowser und andere Benutzer-Agents automatisch den entsprechenden Proxyserver (Zugriffsmethode) zum Abrufen einer bestimmten URL auswählen können. 
+> * Transparente Proxys funktionieren gut mit Azure Stack Edge Pro. Für nicht transparente Proxys, die den gesamten Datenverkehr (über ihre eigenen auf dem Proxyserver installierten Zertifikate) abfangen und lesen, laden Sie den öffentlichen Schlüssel des Proxyzertifikats als Signaturkette auf Ihrem Azure Stack Edge Pro-Gerät hoch. Anschließend können Sie die Proxyservereinstellungen auf Ihrem Azure Stack Edge-Gerät konfigurieren. Weitere Informationen finden Sie unter [Bereitstellen eigener Zertifikate](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
 <!--1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.

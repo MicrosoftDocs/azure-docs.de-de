@@ -1,25 +1,21 @@
 ---
 title: Kopieren von Daten aus SAP Business Warehouse mithilfe von Open Hub
 description: Erfahren Sie, wie Daten aus SAP Business Warehouse (BW) über Open Hub mithilfe einer Kopieraktivität in eine Azure Data Factory-Pipeline in unterstützte Senkendatenspeicher kopiert werden.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533409"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386678"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopieren von Daten aus SAP Business Warehouse über Open Hub mithilfe von Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In diesem Artikel wird beschrieben, wie Sie die Kopieraktivität in Azure Data Factory verwenden, um Daten aus SAP Business Warehouse (BW) über Open Hub zu kopieren. Er baut auf dem Artikel zur [Übersicht über die Kopieraktivität](copy-activity-overview.md) auf, der eine allgemeine Übersicht über die Kopieraktivität enthält.
@@ -38,8 +34,8 @@ Sie können Daten aus SAP Business Warehouse über Open Hub in jeden unterstütz
 
 Dieser SAP Business Warehouse Open Hub-Connector unterstützt insbesondere Folgendes:
 
-- SAP Business Warehouse **Version 7.01 oder höher (in einem aktuellen, nach 2015 veröffentlichten SAP-Supportpaket)** . SAP BW4/HANA wird von diesem Connector nicht unterstützt.
-- Kopieren von Daten über lokale Open Hub Destination-Tabelle, wie z.B. DSO, InfoCube, MultiProvider, DataSource usw.
+- SAP Business Warehouse **Version 7.01 oder höher (in einem aktuellen, nach 2015 veröffentlichten SAP-Supportpaket)** . SAP BW/4HANA wird von diesem Connector nicht unterstützt.
+- Kopieren von Daten über lokale Open Hub Destination-Tabelle, wie z. B. DSO, InfoCube, MultiProvider, DataSource usw.
 - Kopieren von Daten mithilfe der Standardauthentifizierung
 - Herstellen einer Verbindung mit einem SAP-Anwendungsserver oder einem SAP-Nachrichtenserver.
 - Abrufen von Daten über RFC.
@@ -90,7 +86,7 @@ Zur Verwendung dieses SAP Business Warehouse Open Hub-Connectors müssen Sie fol
     - Autorisierung für RFC und SAP BW. 
     - Berechtigungen für die Aktivität „Execute“ des Autorisierungsobjekts „S_SDSAUTH“.
 
-- Erstellen Sie den SAP Open Hub Destination-Typ **Datenbanktabelle**, wobei die Option „Technischer Schlüssel“ ausgewählt ist.  Es wird auch empfohlen, die Option „Daten aus der Tabelle löschen“ nicht zu aktivieren, obwohl sie nicht erforderlich ist. Nutzen Sie den DTP (direkt ausführen oder in bestehende Prozessketten integrieren), um Daten aus dem Quellobjekt (z.B. Cube), das Sie ausgewählt haben, in die Open Hub-Zieltabelle zu übernehmen.
+- Erstellen Sie den SAP Open Hub Destination-Typ **Datenbanktabelle**, wobei die Option „Technischer Schlüssel“ ausgewählt ist.  Es wird auch empfohlen, die Option „Daten aus der Tabelle löschen“ nicht zu aktivieren, obwohl sie nicht erforderlich ist. Nutzen Sie den DTP (direkt ausführen oder in bestehende Prozessketten integrieren), um Daten aus dem Quellobjekt (z. B. Cube), das Sie ausgewählt haben, in die Open Hub-Zieltabelle zu übernehmen.
 
 ## <a name="getting-started"></a>Erste Schritte
 

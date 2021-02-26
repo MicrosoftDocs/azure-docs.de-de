@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359080"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537406"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurieren einer SQL Server Always On-Verfügbarkeitsgruppe in verschiedenen Azure-Regionen
 
@@ -86,6 +86,7 @@ Gehen Sie wie folgt vor, um ein Replikat in einem Remoterechenzentrum zu erstell
    - Er muss einen spezifischen TCP-Porttest für die IP-Adresse verwenden.
    - Er muss über eine spezifische Lastenausgleichsregel für die SQL Server-Instanz in der gleichen Region verfügen.  
    - Es muss sich um einen Load Balancer Standard handeln, wenn die virtuellen Computer im Back-End-Pool nicht entweder Teil einer einzelnen Verfügbarkeitsgruppe oder einer VM-Skalierungsgruppe sind. Weitere Informationen finden Sie unter [Übersicht über Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
+   - Es muss sich um einen Load Balancer Standard handeln, wenn die beiden virtuellen Netzwerke in zwei verschiedenen Regionen mittels Peering über das globale VNET-Peering verbunden sind. Weitere Informationen finden Sie unter [Azure Virtual Network – häufig gestellte Fragen](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 1. [Fügen Sie der neuen SQL Server-Instanz das Failoverclustering-Feature hinzu.](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms)
 

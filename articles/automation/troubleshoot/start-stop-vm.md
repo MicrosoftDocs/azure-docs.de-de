@@ -2,19 +2,15 @@
 title: Behandeln von Problemen beim Azure Automation-Feature „VMs außerhalb der Geschäftszeiten starten/beenden“
 description: In diesem Artikel erfahren Sie, wie Sie Probleme behandeln, die bei der Verwendung des Features „VMs außerhalb der Geschäftszeiten starten/beenden“ auftreten.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187148"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053583"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Troubleshooting für „VMs außerhalb der Geschäftszeiten starten/beenden“
 
@@ -113,7 +109,7 @@ Sehen Sie sich die folgende Liste mit möglichen Lösungen an:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Überprüfen Sie, ob Ihr [ausführendes Konto](../manage-runas-account.md) über die erforderlichen Berechtigungen für die VMs verfügt, die Sie starten oder beenden möchten. Wie Sie die Berechtigungen auf einer Ressource überprüfen, erfahren Sie unter [Schnellstart: Anzeigen der zugewiesenen Rollen von Benutzern mit dem Azure-Portal](../../role-based-access-control/check-access.md). Sie müssen die Anwendungs-ID für den Dienstprinzipal angeben, der vom ausführenden Konto verwendet wird. Sie können diesen Wert abrufen, indem Sie Ihr Automation-Konto im Azure-Portal aufrufen. Klicken Sie dann unter **Kontoeinstellungen** auf **Ausführende Konten**, und wählen Sie dann das entsprechende ausführende Konto aus.
+* Überprüfen Sie, ob Ihr [ausführendes Konto](../automation-security-overview.md#run-as-accounts) über die erforderlichen Berechtigungen für die VMs verfügt, die Sie starten oder beenden möchten. Wie Sie die Berechtigungen auf einer Ressource überprüfen, erfahren Sie unter [Schnellstart: Anzeigen der zugewiesenen Rollen von Benutzern mit dem Azure-Portal](../../role-based-access-control/check-access.md). Sie müssen die Anwendungs-ID für den Dienstprinzipal angeben, der vom ausführenden Konto verwendet wird. Sie können diesen Wert abrufen, indem Sie Ihr Automation-Konto im Azure-Portal aufrufen. Klicken Sie dann unter **Kontoeinstellungen** auf **Ausführende Konten**, und wählen Sie dann das entsprechende ausführende Konto aus.
 
 * VMs können nicht gestartet oder beendet werden, wenn sie explizit ausgeschlossen wurden. Ausgeschlossene VMs sind in dem Automation-Konto, in dem das Feature bereitgestellt wird, in der Variable `External_ExcludeVMNames` festgelegt. Das folgende Beispiel zeigt, wie Sie diesen Wert mit PowerShell abfragen können.
 
@@ -205,7 +201,7 @@ Dieses Problem kann durch ein nicht ordnungsgemäß konfiguriertes oder abgelauf
 
 Um zu überprüfen, ob Ihr ausführendes Konto ordnungsgemäß konfiguriert ist, wechseln Sie im Azure-Portal zu Ihrem Automation-Konto, und wählen Sie unter **Kontoeinstellungen** die Option **Ausführende Konten** aus. Wenn ein ausführendes Konto abgelaufen oder nicht ordnungsgemäß konfiguriert ist, wird diese Bedingung im Status angezeigt.
 
-Wenn Ihr ausführendes Konto falsch konfiguriert ist, löschen Sie es, und erstellen Sie es neu. Weitere Informationen finden Sie unter [Verwalten von ausführenden Azure Automation-Konten](../manage-runas-account.md).
+Wenn Ihr ausführendes Konto falsch konfiguriert ist, löschen Sie es, und erstellen Sie es neu. Weitere Informationen finden Sie unter [Ausführende Azure Automation-Konten](../automation-security-overview.md#run-as-accounts).
 
 Wenn das Zertifikat für Ihr ausführendes Konto abgelaufen ist, befolgen Sie die Schritte unter [Erneuerung eines selbstsignierten Zertifikat](../manage-runas-account.md#cert-renewal) zur Erneuerung des Zertifikats.
 

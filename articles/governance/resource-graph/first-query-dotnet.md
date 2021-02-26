@@ -1,15 +1,15 @@
 ---
 title: 'Schnellstart: Ihre erste .NET Core-Abfrage'
 description: In dieser Schnellstartanleitung führen Sie die Schritte zum Aktivieren des Resource Graph-NuGet-Pakets für .NET Core und zum Ausführen Ihrer ersten Abfrage aus.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f825b22712956c0b94531ddb163301167f30f00
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0135dfd499af48b3c60314679f4c9b635a5ce15a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057466"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917570"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Schnellstart: Ausführen Ihrer ersten Resource Graph-Abfrage mit .NET Core
 

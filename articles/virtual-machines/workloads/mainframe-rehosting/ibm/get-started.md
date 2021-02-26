@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: efc4f6293623278314df3ac55b2fecae2e28f7d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968348"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219993"
 ---
 # <a name="ibm-workloads-on-azure"></a>IBM-Workloads in Azure
 
 Viele auf z/OS basierende IBM-Mainframeworkloads können in Azure ohne Verlust an Funktionalität repliziert werden – so gut, dass die Benutzer die Änderungen am zugrundeliegenden System gar nicht bemerken werden. Das Neuhosten von Anwendungen in Azure gibt Ihnen die benötigten mainframeartigen Funktionen und zusätzlich die Elastizität, Verfügbarkeit und die potentiellen Kosteneinsparungen der Cloud.
 
-Azure unterstützt die Integration mit vorhandenen IBM Mainframe-Umgebungen und erlaubt es Ihnen so, die sinnvollen Anwendungen zu migrieren, bei Bedarf Hybridlösungen zu betreiben und Ihre Migration im Lauf der Zeit durchzuführen. Zwar können Sie vorhandene mainframebasierte Programme vollständig für Azure umschreiben, es ist aber üblicher, sie neu zu hosten. Durch Umschreiben werden Kosten, Komplexität und Zeitaufwand von Migrationsprojekten deutlich gesteigert. Rehosting bietet Ihnen folgende Möglichkeiten:
+Azure unterstützt die Integration in vorhandene IBM Mainframe-Umgebungen und ermöglicht Ihnen so, die sinnvollen Anwendungen zu migrieren, bei Bedarf Hybridlösungen zu betreiben und die Migration im Lauf der Zeit durchzuführen. Zwar können Sie vorhandene mainframebasierte Programme vollständig für Azure umschreiben, es ist aber üblicher, sie neu zu hosten. Durch Umschreiben werden Kosten, Komplexität und Zeitaufwand von Migrationsprojekten deutlich gesteigert. Rehosting bietet Ihnen folgende Möglichkeiten:
 
 - Verschieben von Anwendungen auf einen cloudbasierten Emulator.
 
@@ -41,4 +41,4 @@ Ein umfangreiches Partnerökosystem steht zur Verfügung und unterstützt Sie be
 - [Mainframemigration: Mythen und Fakten](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Installieren der IBM ZD&T-Entwicklungs-/Testumgebung in Azure](./install-ibm-z-environment.md)
 - [Einrichten einer Application Developers Controlled Distribution (ADCD) in IBM ZD&T v1](./demo.md)
-- [IBM DB2 pureScale in Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale in Azure](ibm-db2-purescale-azure.md)

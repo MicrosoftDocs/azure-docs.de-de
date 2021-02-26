@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Bereitstellen der Azure-Dateisynchronisierung
           href: storage-sync-files-deployment-guide.md
-        - name: Erstellen einer Premium-Dateifreigabe
-          href: storage-how-to-create-premium-fileshare.md
         - name: Erstellen einer NFS-Freigabe
           href: storage-files-how-to-create-nfs-shares.md
         - name: SQL Server-Failoverclusterinstanz mit Premium-Dateifreigaben

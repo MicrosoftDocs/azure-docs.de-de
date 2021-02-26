@@ -4,14 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: ff1041c941a994784c68d779bd96dec9070ce89a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 6d507d31680b25932980bdede2c1252348d84803
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511327"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834168"
 ---
 In diesem Tutorial erfahren Sie, wie Sie eine IoT Plug & Play-Beispielgeräteanwendung mit Komponenten erstellen, mit Ihrem IoT-Hub verbinden und die an den Hub gesendeten Informationen mithilfe des Azure IoT-Explorer-Tools anzeigen. Die Beispielanwendung wurde in C# geschrieben und ist im Azure IoT-Geräte-SDK für C# enthalten. Ein Lösungsentwickler kann mithilfe von Azure IoT-Explorer mehr über die Funktionen eines IoT Plug & Play-Geräts erfahren, ohne Gerätecode anzeigen zu müssen.
+
+In diesem Tutorial führen Sie Folgendes durch:
+
+> [!div class="checklist"]
+> * Laden Sie den Beispielcode herunter.
+> * Erstellen Sie den Beispielcode.
+> * Führen Sie die Beispielgeräteanwendung aus, und überprüfen Sie, ob sie eine Verbindung mit Ihrem IoT-Hub herstellt.
+> * Überprüfen Sie den Quellcode.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

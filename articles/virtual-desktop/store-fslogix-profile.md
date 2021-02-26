@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 189ff3bbfdb3b8533defcedb77e15fef433598b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023087"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526601"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Speicheroptionen für FSLogix-Profilcontainer in Windows Virtual Desktop
 
@@ -28,11 +28,11 @@ In den folgenden Tabellen werden die Speicherlösungen verglichen, die in Azure 
 |Anwendungsfall|Allgemeiner Zweck|Ultra-Leistung oder Migration aus einer lokalen NetApp-Umgebung|Plattformübergreifend|
 |Plattformdienst|Ja, native Azure-Lösung|Ja, native Azure-Lösung|Nein, selbst verwaltet|
 |Regionale Verfügbarkeit|Alle Regionen|[Bestimmte Regionen](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Alle Regionen|
-|Redundanz|Lokal redundant/zonenredundant/georedundant|Lokal redundant|Lokal redundant/zonenredundant/georedundant|
-|Tarife und Leistung|Standard<br>Premium<br>Bis zu 100.000 IOPS pro Freigabe mit 5 GBit/s pro Freigabe bei einer ungefähren Wartezeit von 3 ms|Standard<br>Premium<br>Ultra<br>Bis zu 320.000 IOPS (16K) mit 4,5 GBit/s pro Volume bei einer ungefähren Wartezeit von 1 ms|HDD Standard: bis zu 500 IOPS pro Datenträger<br>SSD Standard: bis zu 4.000 IOPS pro Datenträger<br>SSD Premium: bis zu 20.000 IOPS pro Datenträger<br>Für direkte Speicherplätze werden Premium-Datenträger empfohlen.|
-|Capacity|100 TiB pro Freigabe|100 TiB pro Volume, bis zu 12,5 PiB pro Abonnement|Maximal 32 TiB pro Datenträger|
+|Redundanz|Lokal redundant/zonenredundant/georedundant/geozonenredundant|Lokal redundant|Lokal redundant/zonenredundant/georedundant|
+|Tarife und Leistung| Standard (Transaktionsoptimiert)<br>Premium<br>Bis zu 100.000 IOPS pro Freigabe mit 10 GBit/s pro Freigabe bei einer ungefähren Wartezeit von 3 ms|Standard<br>Premium<br>Ultra<br>Bis zu 320.000 IOPS (16K) mit 4,5 GBit/s pro Volume bei einer ungefähren Wartezeit von 1 ms|HDD Standard: bis zu 500 IOPS pro Datenträger<br>SSD Standard: bis zu 4.000 IOPS pro Datenträger<br>SSD Premium: bis zu 20.000 IOPS pro Datenträger<br>Für direkte Speicherplätze werden Premium-Datenträger empfohlen.|
+|Capacity|100 TiB pro Freigabe, bis zu 5 PiB pro universellem Konto |100 TiB pro Volume, bis zu 12,5 PiB pro Abonnement|Maximal 32 TiB pro Datenträger|
 |Erforderliche Infrastruktur|Mindestgröße für Freigaben: 1 GiB|Mindestgröße für Kapazitätspools: 4 TiB. Mindestgröße für Volumes: 100 GiB|Zwei virtuelle Computer in Azure IaaS (+ Cloudzeuge) oder mindestens drei virtuelle Computer ohne und Kosten für Datenträger|
-|Protokolle|SMB 2.1/3 und REST|NFSv3, NFSv4.1 (Vorschauversion), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
+|Protokolle|SMB 3.0/2.1, NFSv4.1 (Vorschau), REST|NFSv3, NFSv4.1 (Vorschauversion), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Details zur Azure-Verwaltung
 

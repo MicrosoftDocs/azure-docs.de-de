@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078832"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053906"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ausführen von Runbooks in Azure Automation
 
@@ -108,11 +108,11 @@ Die für den Log Analytics-Agent und das Konto **nxautomation** verfügbaren Pro
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log: Protokoll des Automation-Workers
 
 >[!NOTE]
->Der Benutzer **nxautomation** , der im Rahmen der Updateverwaltung aktiviert wurde, führt nur signierte Runbooks aus.
+>Der Benutzer **nxautomation**, der im Rahmen der Updateverwaltung aktiviert wurde, führt nur signierte Runbooks aus.
 
 ## <a name="runbook-permissions"></a>Runbookberechtigungen
 
-Für ein Runbook werden Berechtigungen in Form von Anmeldeinformationen für die Azure-Authentifizierung benötigt. Weitere Informationen finden Sie unter [Verwalten von ausführenden Azure Automation-Konten](manage-runas-account.md).
+Für ein Runbook werden Berechtigungen in Form von Anmeldeinformationen für die Azure-Authentifizierung benötigt. Siehe [Übersicht über die Azure Automation-Kontoauthentifizierung](automation-security-overview.md).
 
 ## <a name="modules"></a>Module
 
@@ -139,6 +139,7 @@ Die folgende Tabelle beschreibt die für einen Auftrag möglichen Status. Im Azu
 
 | Status | BESCHREIBUNG |
 |:--- |:--- |
+| Wird aktiviert |Der Auftrag wird aktiviert. |
 | Abgeschlossen |Der Auftrag wurde erfolgreich abgeschlossen. |
 | Fehler |Bei einem grafischen oder PowerShell-Workflow-Runbook ist die Kompilierung fehlgeschlagen. Ein PowerShell-Runbook konnte nicht gestartet werden, oder für den Auftrag ist eine Ausnahme aufgetreten. Weitere Informationen finden Sie unter [Azure Automation-Runbooktypen](automation-runbook-types.md).|
 | Fehler, auf Ressourcen wird gewartet |Beim Auftrag ist ein Fehler aufgetreten, da der Auftrag dreimal den Grenzwert für die [gleichmäßige Verteilung](#fair-share) erreicht hat und jedes Mal vom gleichen Prüfpunkt oder vom Anfang des Runbooks gestartet wurde. |
@@ -214,7 +215,7 @@ Fehler ohne Abbruch ermöglichen einem Skript, auch nach ihrem Auftreten fortzuf
 
 ## <a name="calling-processes"></a>Aufrufen von Prozessen
 
-In Azure-Sandboxes ausgeführte Runbooks unterstützen keine aufrufenden Prozesse, wie z. B. ausführbare Dateien ( **EXE** -Dateien) oder Unterprozesse. Der Grund dafür ist, dass es sich bei einer Azure-Sandbox um einen gemeinsam genutzten Prozess handelt, der in einem Container ausgeführt wird und möglicherweise nicht auf alle zugrunde liegenden APIs Zugriff hat. Für Szenarien, die Software von Drittanbietern oder Aufrufe von Unterprozessen erfordern, sollten Sie das Runbook in einem [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) ausführen.
+In Azure-Sandboxes ausgeführte Runbooks unterstützen keine aufrufenden Prozesse, wie z. B. ausführbare Dateien (**EXE**-Dateien) oder Unterprozesse. Der Grund dafür ist, dass es sich bei einer Azure-Sandbox um einen gemeinsam genutzten Prozess handelt, der in einem Container ausgeführt wird und möglicherweise nicht auf alle zugrunde liegenden APIs Zugriff hat. Für Szenarien, die Software von Drittanbietern oder Aufrufe von Unterprozessen erfordern, sollten Sie das Runbook in einem [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) ausführen.
 
 ## <a name="device-and-application-characteristics"></a>Geräte- und Anwendungsmerkmale
 

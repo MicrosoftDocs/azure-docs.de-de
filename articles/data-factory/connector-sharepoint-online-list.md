@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83871919"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474946"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopieren von Daten aus einer SharePoint Online-Liste mit Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -182,6 +182,9 @@ Für das Kopieren von Daten aus SharePoint Online-Listen werden folgende Eigensc
     }
 ]
 ```
+
+> [!NOTE]
+> Sie können in Azure Data Factory nicht mehrere *choice*-Datentypen für eine SharePoint Online-Listenquelle auswählen.
 
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>Datentypzuordnung für SharePoint Online-Listen
 

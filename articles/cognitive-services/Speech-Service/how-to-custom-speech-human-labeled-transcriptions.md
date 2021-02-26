@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704430"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560284"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Erstellen von menschenmarkierten Transkriptionen
 
@@ -166,6 +166,10 @@ Es folgen einige Beispiele für die Normalisierung, die automatisch für die Tra
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
+
+### <a name="text-normalization-for-japanese"></a>Textnormalisierung für Japanisch
+
+In „Japanisch“ (ja-JP) gibt es für jeden Satz eine maximale Länge von 90 Zeichen. Zeilen mit längeren Sätzen werden verworfen. Fügen Sie einen Punkt dazwischen ein, um einen längeren Text hinzuzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

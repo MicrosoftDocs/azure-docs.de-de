@@ -3,15 +3,15 @@ title: Zugriff auf lokale Datenquellen
 description: Herstellen einer Verbindung mit lokalen Datenquellen in Azure Logic Apps durch Erstellen einer Datengatewayressource in Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009251"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218993"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Herstellen einer Verbindung mit lokalen Datenquellen in Azure Logic Apps
 
@@ -57,8 +57,11 @@ Sie können auch [benutzerdefinierte Connectors](../logic-apps/custom-connector-
 * Sie verfügen über [dasselbe Azure-Konto und Abonnement](../logic-apps/logic-apps-gateway-install.md#requirements), das Sie für Ihre Gatewayinstallation verwendet haben. Dieses Azure-Konto muss zu einem einzigen [Azure Active Directory-Mandanten oder -Verzeichnis (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) gehören. Dasselbe Azure-Konto und Abonnement muss zum Erstellen Ihrer Gatewayressource in Azure verwendet werden. Der Grund dafür ist, dass nur der Gatewayadministrator die Gatewayressource in Azure erstellen kann. Dienstprinzipale werden aktuell nicht unterstützt.
 
   * Wenn Sie in Azure eine Gatewayressource erstellen, wählen Sie eine Gatewayinstallation aus, die ausschließlich mit Ihrer Gatewayressource verknüpft wird. Eine Gatewayressource kann nur mit einer einzigen Gatewayinstallation verknüpft sein. Gatewayinstallationen, die bereits anderen Gatewayressourcen zugeordnet sind, können nicht ausgewählt werden.
-  
-  * Ihre Logik-App und Gatewayressource müssen nicht zum selben Azure-Abonnement gehören. Sofern Sie über Abonnementzugriff verfügen, können Sie in Triggern und Aktionen, die auf lokale Datenquellen zugreifen können, andere Azure-Abonnements mit Gatewayressourcen auswählen.
+
+  * Ihre Logik-App und Gatewayressource müssen nicht zum selben Azure-Abonnement gehören. In Triggern und Aktionen, bei denen Sie die Gatewayressource verwenden können, können Sie ein anderes Azure-Abonnement auswählen, das über eine Gatewayressource verfügt, aber nur, wenn sich dieses Abonnement im selben Azure AD-Mandanten oder Verzeichnis wie Ihre Logik-App befindet. Sie müssen außerdem über Administratorberechtigungen für das Gateway verfügen, das ein anderer Administrator für Sie einrichten kann. Weitere Informationen finden Sie unter [Datengateway: Automatisierung mithilfe von PowerShell – Teil 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) und [PowerShell: Datengateway – Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Derzeit ist es nicht möglich, eine Gatewayressource oder -installation über mehrere Abonnements hinweg zu teilen. Informationen zum Übermitteln von Produktfeedback finden Sie im [Microsoft Azure-Feedbackforum](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Nachdem Sie die Gatewayressource erstellt und Ihr Azure-Abonnement mit dieser Re
 
 1. Wählen Sie **Verbinden über lokales Datengateway**.
 
-1. Wählen Sie unter **Gateways** in der Liste **Abonnements** Ihr Azure-Abonnement aus, das über die gewünschte Gatewayressource verfügt.
+1. Wählen Sie unter **Gateway** in der Liste **Abonnement** Ihr Azure-Abonnement aus, das über die gewünschte Gatewayressource verfügt.
 
-   Sofern Sie über Abonnementzugriff verfügen, können Sie aus unterschiedlichen Azure-Abonnements auswählen, die jeweils einer anderen Gatewayressource zugeordnet sind. Ihre Logik-App und Gatewayressource müssen nicht zum selben Azure-Abonnement gehören.
-
+   Ihre Logik-App und Gatewayressource müssen nicht zum selben Azure-Abonnement gehören. Sie können unter anderen Azure-Abonnements auswählen, die jeweils über eine Gatewayressource verfügen, aber nur, wenn sich diese Abonnements im selben Azure AD-Mandanten oder Verzeichnis wie Ihre Logik-App befinden und Sie über Administratorberechtigungen für das Gateway verfügen, das ein anderer Administrator für Sie einrichten kann. Weitere Informationen finden Sie unter [Datengateway: Automatisierung mithilfe von PowerShell – Teil 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) und [PowerShell: Datengateway – Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. Wählen Sie in der Liste **Verbindungsgateway**, in der die verfügbaren Gatewayressourcen in Ihrem ausgewählten Abonnement angezeigt werden, die gewünschte Gatewayressource aus. Jede Gatewayressource ist mit einer einzelnen Gatewayinstallation verknüpft.
 
    > [!NOTE]

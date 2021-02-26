@@ -3,12 +3,12 @@ title: 'Überwachung und Protokollierung: Azure'
 description: Dieser Artikel bietet eine Übersicht der Überwachung und Protokollierung in Live Video Analytics in IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878103"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507816"
 ---
 # <a name="monitoring-and-logging"></a>Überwachung und Protokollierung
 
@@ -254,14 +254,14 @@ Führen Sie die folgenden Schritte aus, um die Erfassung von Metriken aus dem Mo
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Ersetzen Sie unbedingt die Variablen in der TOML-Datei. Die Variablen werden mit geschweiften Klammern (`{}`) gekennzeichnet.
 
-1. Erstellen Sie in demselben Ordner eine `.dockerfile`-Datei, die folgende Befehle enthält:
+1. Erstellen Sie in demselben Ordner eine Dockerfile, die folgende Befehle enthält:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Führen Sie die folgenden Schritte aus, um die Erfassung von Metriken aus dem Mo
      `AZURE_CLIENT_SECRET`: Gibt das zu verwendende App-Geheimnis an.  
      
      >[!TIP]
-     > Sie können dem Dienstprinzipal die Rolle **Herausgeber von Überwachungsmetriken** zuweisen.
+     > Sie können dem Dienstprinzipal die Rolle **Herausgeber von Überwachungsmetriken** zuweisen. Führen Sie die Schritte in **[Erstellen eines Dienstprinzipals](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** aus, um den Dienstprinzipal zu erstellen und die Rolle zuzuweisen.
 
 1. Sobald die Module bereitgestellt sind, werden die Metriken in Azure Monitor unter einem einzigen Namespace angezeigt. Metriknamen entsprechen den von Prometheus ausgegebenen. 
 
    Wechseln Sie in diesem Fall im Azure-Portal zum IoT-Hub, und wählen Sie im linken Bereich **Metriken** aus. Die Metriken sollten dort angezeigt werden.
 
+Wenn Sie Prometheus zusammen mit [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial) verwenden, können Sie Metriken generieren und [überwachen](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), z. B. das verwendete CPUPercent, MemoryUsedPercent usw. Mithilfe der Kusto-Abfragesprache können Sie Abfragen wie die folgenden schreiben und den von den IoT Edge-Modulen verwendeten CPU-Prozentwert ermitteln.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[ ![Diagramm, das die Metriken mithilfe der Kusto-Abfrage anzeigt.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Protokollierung
 
 Wie bei anderen IoT Edge-Modulen, können Sie außerdem [die Containerprotokolle auf dem Edge-Gerät untersuchen](../../iot-edge/troubleshoot.md#check-container-logs-for-issues). Sie können die in den Protokollen erfassten Informationen durch die [folgenden Modulzwillingseigenschaften](module-twin-configuration-schema.md) konfigurieren:

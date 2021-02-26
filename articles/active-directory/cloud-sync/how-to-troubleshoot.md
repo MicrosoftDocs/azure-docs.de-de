@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612537"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805528"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Problembehandlung bei der Cloudsynchronisierung
 
@@ -164,7 +164,7 @@ Die Cloudsynchronisierung überwacht die Integrität Ihrer Konfiguration und ver
 
 Durch Klicken auf den Status können Sie zusätzliche Informationen zur Quarantäne anzeigen. Sie können auch den Fehlercode und die Fehlermeldung abrufen.
 
-![Informationen zum Quarantänestatus](media/how-to-troubleshoot/quarantine-2.png)
+![Screenshot mit zusätzlichen Informationen zur Quarantäne](media/how-to-troubleshoot/quarantine-2.png)
 
 Wenn Sie mit der rechten Maustaste auf den Status klicken, werden zusätzliche Optionen angezeigt:
     
@@ -172,7 +172,7 @@ Wenn Sie mit der rechten Maustaste auf den Status klicken, werden zusätzliche O
    - Agent anzeigen
    - Quarantäne löschen
 
-![Informationen zum Quarantänestatus](media/how-to-troubleshoot/quarantine-4.png)
+![Screenshot der Optionen im Kontextmenü](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Aufheben einer Quarantäne
@@ -186,7 +186,7 @@ Wenn Sie das Wasserzeichen löschen und eine Deltasynchronisierung für den Bere
 
 Es sollte ein Hinweis angezeigt werden, dass die Quarantäne aufgehoben wird.
 
-![Informationen zum Quarantänestatus](media/how-to-troubleshoot/quarantine-5.png)
+![Screenshot des Hinweises, dass die Quarantäne aufgehoben wird](media/how-to-troubleshoot/quarantine-5.png)
 
 Daraufhin sollte der Status des Agents als fehlerfrei angezeigt werden.
 

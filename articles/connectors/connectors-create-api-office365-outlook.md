@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682994"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055075"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Verwalten von E-Mails, Kontakten und Kalendern in Office 365 Outlook mithilfe von Azure Logic Apps
 
@@ -92,17 +92,19 @@ Eine [Aktion](../logic-apps/logic-apps-overview.md#logic-app-concepts) ist ein V
 
 ## <a name="connect-using-other-accounts"></a>Herstellen einer Verbindung mit anderen Konten
 
-Wenn Sie versuchen, eine Verbindung mit Outlook herzustellen, indem Sie ein anderes Konto als das derzeit bei Azure angemeldete verwenden, erhalten Sie möglicherweise Fehlermeldungen bezüglich des [einmaligen Anmeldens](../active-directory/manage-apps/what-is-single-sign-on.md). Dieses Problem tritt auf, wenn Sie sich beim Azure-Portal mit einem Konto anmelden, aber ein anderes Konto verwenden, um die Verbindung herzustellen. Der Logik-App-Designer erwartet, dass Sie das bei Azure angemeldete Konto verwenden. Sie haben folgende Möglichkeiten, um dieses Problem zu beheben:
+Wenn Sie versuchen, eine Verbindung mit Outlook herzustellen, indem Sie ein anderes Konto als das derzeit bei Azure angemeldete verwenden, erhalten Sie möglicherweise Fehlermeldungen bezüglich des [einmaligen Anmeldens](../active-directory/manage-apps/what-is-single-sign-on.md). Dieses Problem tritt auf, wenn Sie sich beim Azure-Portal mit einem Konto anmelden, aber ein anderes Konto verwenden, um die Verbindung herzustellen. Der Designer erwartet, dass Sie das beim Azure-Portal angemeldete Konto verwenden. Sie haben folgende Möglichkeiten, um dieses Problem zu beheben:
 
-* Richten Sie das andere Konto als **Mitwirkender** der Ressourcengruppe Ihrer Logik-App ein.
+* Richten Sie das andere Konto mit der Rolle **Mitwirkender** in der Ressourcengruppe Ihrer Logik-App ein.
 
-  1. Wählen Sie im Ressourcengruppenmenü Ihrer Logik-App **Zugriffssteuerung (IAM)** aus. Richten Sie das andere Konto mit der Rolle **Mitwirkender** ein. Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../role-based-access-control/role-assignments-portal.md).
+  1. Wählen Sie im Ressourcengruppenmenü Ihrer Logik-App **Zugriffssteuerung (IAM)** aus. Richten Sie das andere Konto mit der Rolle **Mitwirkender** ein. 
+  
+     Weitere Informationen finden Sie unter [Hinzufügen oder Entfernen von Rollenzuweisungen mithilfe des Azure-Portals](../role-based-access-control/role-assignments-portal.md).
 
-  1. Wenn Sie mit Ihrem Geschäfts-, Schul- oder Unikonto beim Azure-Portal angemeldet sind, melden Sie sich ab, und melden Sie sich mit Ihrem anderen Konto wieder an. Sie können jetzt mit dem anderen Konto eine Verbindung mit Outlook herstellen.
+  1. Nachdem Sie diese Rolle eingerichtet haben, melden Sie sich beim Azure-Portal mit dem Konto an, das nun über Berechtigungen für Mitwirkende verfügt. Sie können jetzt mit diesem Konto die Verbindung mit Outlook herstellen.
 
 * Richten Sie das andere Konto so ein, dass Ihr Geschäfts-, Schul- oder Unikonto über „Senden als“-Berechtigungen verfügt.
 
-   Wenn Sie über Administratorberechtigungen verfügen, richten Sie im Postfach des Dienstkontos Ihr Geschäfts-, Schul- oder Unikonto entweder mit **Senden als**- oder **Senden im Auftrag von**-Berechtigungen ein. Weitere Informationen finden Sie unter [Erteilen von Postfachberechtigungen für einen anderen Benutzer – Administratorhilfe](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Anschließend können Sie die Verbindung mit Ihrem Geschäfts-, Schul- oder Unikonto herstellen. In Triggern oder Aktionen, bei denen Sie den Absender angeben können, können Sie jetzt die E-Mail-Adresse des Dienstkontos verwenden.
+   Wenn Sie über Administratorberechtigungen verfügen, richten Sie im Postfach des Dienstkontos Ihr Geschäfts-, Schul- oder Unikonto entweder mit **Senden als**- oder mit **Senden im Auftrag von**-Berechtigungen ein. Weitere Informationen finden Sie unter [Erteilen von Postfachberechtigungen für einen anderen Benutzer – Administratorhilfe](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Anschließend können Sie die Verbindung mit Ihrem Geschäfts-, Schul- oder Unikonto herstellen. In Triggern oder Aktionen, bei denen Sie den Absender angeben können, können Sie jetzt die E-Mail-Adresse des Dienstkontos verwenden.
 
    Beispielsweise verfügt die Aktion **E-Mail senden** über einen optionalen Parameter **Von (Senden als)** , den Sie der Aktion hinzufügen und die E-Mail-Adresse Ihres Dienstkontos als Absender verwenden können. Um diesen Parameter hinzuzufügen, führen Sie die folgenden Schritte aus:
 

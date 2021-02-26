@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Optimieren von Algorithmen (Azure)'
 description: Hier erfahren Sie, wie Sie die optimalen Parameter für einen Algorithmus in Azure Machine Learning Studio (klassisch) auswählen.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307866"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519302"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Auswählen von Parametern zur Optimierung von Algorithmen in Azure Machine Learning Studio (Classic)
 
@@ -28,10 +28,10 @@ Es gibt verschiedene Möglichkeiten zur Modellauswahl. Beim maschinellen Lernen 
 
 Das Ermitteln des besten Parametersatzes umfasst vier Schritte:
 
-1. **Definieren des Parameterraums** : Für den Algorithmus legen Sie zunächst die genauen Parameterwerte fest, die berücksichtigt werden sollen.
-2. **Definieren der Einstellungen für die Kreuzvalidierung** : Für das Dataset müssen Sie entscheiden, wie Teilmengen für die Kreuzvalidierung ausgewählt werden.
-3. **Definieren der Metrik** : Anschließend entscheiden Sie, welche Metrik zum Ermitteln des besten Parametersatzes verwendet werden soll, z.B. Richtigkeit, mittlere quadratische Abweichung, Genauigkeit, Sensitivität oder F-Maß.
-4. **Trainieren, Evaluieren und Vergleichen** : Für jede eindeutige Kombination der Parameterwerte wird eine Kreuzvalidierung anhand der von Ihnen definierten Fehlermetrik durchgeführt. Nach Auswertung und Vergleich können Sie das leistungsfähigste Modell auswählen.
+1. **Definieren des Parameterraums**: Für den Algorithmus legen Sie zunächst die genauen Parameterwerte fest, die berücksichtigt werden sollen.
+2. **Definieren der Einstellungen für die Kreuzvalidierung**: Für das Dataset müssen Sie entscheiden, wie Teilmengen für die Kreuzvalidierung ausgewählt werden.
+3. **Definieren der Metrik**: Anschließend entscheiden Sie, welche Metrik zum Ermitteln des besten Parametersatzes verwendet werden soll, z.B. Richtigkeit, mittlere quadratische Abweichung, Genauigkeit, Sensitivität oder F-Maß.
+4. **Trainieren, Evaluieren und Vergleichen**: Für jede eindeutige Kombination der Parameterwerte wird eine Kreuzvalidierung anhand der von Ihnen definierten Fehlermetrik durchgeführt. Nach Auswertung und Vergleich können Sie das leistungsfähigste Modell auswählen.
 
 Die folgende Abbildung veranschaulicht, wie dies in Azure Machine Learning Studio (klassisch) erreicht werden kann.
 
@@ -66,7 +66,7 @@ Das Modul hat auch eine optionale Dataseteingabe. Verbinden Sie das Dataset mit 
 
 ![Boosted Decision Tree, Klassifizierer](./media/algorithm-parameters-optimize/fig6a.png)
 
-Anschließend wird das Modell für das Validierungsdataset ausgewertet. Der linke Ausgabeport des Moduls weist verschiedene Metriken als Funktionen von Parameterwerten auf. Der rechte Ausgabeport stellt das trainierte Modell anhand des Modells mit der besten Leistung gemäß der ausgewählten Metrik (in diesem Fall **Accuracy** ) bereit.  
+Anschließend wird das Modell für das Validierungsdataset ausgewertet. Der linke Ausgabeport des Moduls weist verschiedene Metriken als Funktionen von Parameterwerten auf. Der rechte Ausgabeport stellt das trainierte Modell anhand des Modells mit der besten Leistung gemäß der ausgewählten Metrik (in diesem Fall **Accuracy**) bereit.  
 
 ![Validierungsdataset](./media/algorithm-parameters-optimize/fig6b.png)
 

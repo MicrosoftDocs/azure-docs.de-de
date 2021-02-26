@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content Moderator, Inhaltsmoderation
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905212"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221175"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Schnellstart: Testen von Content Moderator im Web
 
@@ -88,6 +88,6 @@ Sie können auch mit den nächsten Schritten fortfahren, um sich über die Verwe
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie, wie Sie die Moderations-APIs selbst in Ihrer App verwenden.
-- Implementieren Sie die Bildmoderation. Verwenden Sie die [API-Konsole](try-image-api.md) oder eine [Schnellstartanleitung für eine Clientbibliothek oder REST-API](client-libraries.md), um Bilder zu überprüfen und anzügliche sowie nur für Erwachsene geeignete Inhalte mithilfe von Tags, Zuverlässigkeitsbewertungen und anderen extrahierten Informationen zu erkennen.
-- Implementieren Sie die Textmoderation. Verwenden Sie die [API-Konsole](try-text-api.md) oder eine [Schnellstartanleitung für eine Clientbibliothek oder REST-API](client-libraries.md), um Textinhalte auf anstößige Ausdrücke, computergestützte Klassifizierung von unerwünschtem Text (Vorschau) und personenbezogene Daten zu überprüfen.
+- Implementieren Sie die Bildmoderation. Verwenden Sie die [API-Konsole](try-image-api.md) oder eine [Schnellstartanleitung](client-libraries.md), um Bilder zu überprüfen und anzügliche sowie nur für Erwachsene geeignete Inhalte mithilfe von Tags, Zuverlässigkeitsbewertungen und anderen extrahierten Informationen zu erkennen.
+- Implementieren Sie die Textmoderation. Verwenden Sie die [API-Konsole](try-text-api.md) oder eine [Schnellstartanleitung](client-libraries.md), um Textinhalte auf potenziell anstößige Ausdrücke, persönliche Daten und anderen unerwünschten Text zu überprüfen.
 - Implementieren Sie die Videomoderation. Befolgen Sie die [Anleitung zur Videomoderation für C#](video-moderation-api.md), um Videos zu scannen und potenziell jugendgefährdende und freizügige Inhalte zu erkennen. 

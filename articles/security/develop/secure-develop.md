@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511279"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576615"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Entwickeln sicherer Anwendungen in Azure
 In diesem Artikel werden Sicherheitsaktivitäten und -kontrollen vorgestellt, die Sie berücksichtigen sollten, wenn Sie Anwendungen für die Cloud entwickeln. Es werden Sicherheitsfragen und -konzepten behandelt, die Sie während der Implementierungs- und Überprüfungsphase von Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) berücksichtigen müssen. Das Ziel ist, Ihnen das Festlegen von Aktivitäten und Azure-Diensten zu ermöglichen, mit denen Sie eine sicherere Anwendung entwickeln können.
@@ -140,7 +140,7 @@ Beim [Fuzzing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-
 
 Das Überprüfen der Angriffsfläche nach Fertigstellung des Codes stellt sicher, dass alle Entwurfs- oder Implementierungsänderungen an einer Anwendung oder einem System berücksichtigt wurden. Es wird dadurch sichergestellt, dass alle neuen Angriffsvektoren, die als Ergebnis der Änderungen erzeugt wurden, einschließlich Bedrohungsmodellen, überprüft und korrigiert wurden.
 
-Sie können sich ein Bild von der Angriffsfläche machen, indem Sie die Anwendung überprüfen. Microsoft bietet ein Tool zur Analyse der Angriffsfläche namens [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487) an. Sie können unter zahlreichen kommerziellen Tools oder Diensten für dynamische Tests und die Überprüfung auf Sicherheitsrisiken auswählen, einschließlich [OWASP ZED Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) und [w3af](http://w3af.sourceforge.net/). Diese Überprüfungstools durchforsten Ihre App und kartieren die Teile der Anwendung, auf die aus dem Internet zugegriffen werden kann. Sie können auch den Azure Marketplace nach ähnlichen [Entwicklertools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) durchsuchen.
+Sie können sich ein Bild von der Angriffsfläche machen, indem Sie die Anwendung überprüfen. Microsoft bietet ein Tool zur Analyse der Angriffsfläche namens [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105) an. Sie können unter zahlreichen kommerziellen Tools oder Diensten für dynamische Tests und die Überprüfung auf Sicherheitsrisiken auswählen, einschließlich [OWASP ZED Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) und [w3af](http://w3af.sourceforge.net/). Diese Überprüfungstools durchforsten Ihre App und kartieren die Teile der Anwendung, auf die aus dem Internet zugegriffen werden kann. Sie können auch den Azure Marketplace nach ähnlichen [Entwicklertools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) durchsuchen.
 
 ### <a name="perform-security-penetration-testing"></a>Ausführen von Penetrationstests
 

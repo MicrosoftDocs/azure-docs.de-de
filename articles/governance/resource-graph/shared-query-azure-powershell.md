@@ -4,12 +4,12 @@ description: In dieser Schnellstartanleitung führen Sie die Schritte zum Erstel
 ms.date: 01/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d7efc02cad3aaa67c639a319f1a7bb455d6e04b0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98128077"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981543"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Schnellstart: Erstellen einer freigegebenen Resource Graph-Abfrage mithilfe von Azure PowerShell
 
@@ -36,7 +36,7 @@ In diesem Artikel wird beschrieben, wie Sie mithilfe des PowerShell-Moduls [Az.R
 
 ## <a name="create-a-resource-graph-shared-query"></a>Erstellen einer freigegebenen Resource Graph-Abfrage
 
-Nachdem das PowerShell-Modul `Az.ResourceGraph` der gewünschten Umgebung hinzugefügt wurde, können Sie eine freigegebene Resource Graph-Abfrage erstellen. Bei der freigegebenen Abfrage handelt es sich um ein Azure Resource Manager Objekt, dem Sie Berechtigung für den Azure Resource Graph-Explorer erteilen oder das Sie im Azure Resource Graph-Explorer ausführen können. Die Abfrage fasst die Anzahl aller Ressourcen zusammen, gruppiert nach _Standort_.
+Nachdem das PowerShell-Modul **Az.ResourceGraph** der gewünschten Umgebung hinzugefügt wurde, können Sie eine freigegebene Resource Graph-Abfrage erstellen. Bei der freigegebenen Abfrage handelt es sich um ein Azure Resource Manager Objekt, dem Sie Berechtigung für den Azure Resource Graph-Explorer erteilen oder das Sie im Azure Resource Graph-Explorer ausführen können. Die Abfrage fasst die Anzahl aller Ressourcen zusammen, gruppiert nach _Standort_.
 
 1. Erstellen Sie eine Ressourcengruppe mit [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), um die freigegebene Azure Resource Graph-Abfrage zu speichern. Diese Ressourcengruppe hat den Namen `resource-graph-queries`, und der Standort ist `westus2`.
 
@@ -47,7 +47,7 @@ Nachdem das PowerShell-Modul `Az.ResourceGraph` der gewünschten Umgebung hinzug
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Erstellen Sie die freigegebene Azure Resource Graph-Abfrage mithilfe des PowerShell-Moduls `Az.ResourceGraph` und des Cmdlets [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery):
+1. Erstellen Sie die freigegebene Azure Resource Graph-Abfrage mithilfe des PowerShell-Moduls **Az.ResourceGraph** und des Cmdlets [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery):
 
    ```azurepowershell-interactive
    # Create the Azure Resource Graph shared query
@@ -80,7 +80,7 @@ Nachdem das PowerShell-Modul `Az.ResourceGraph` der gewünschten Umgebung hinzug
 Wenn Sie die freigegebene Resource Graph-Abfrage und die Resource Graph-Ressourcengruppe aus der Azure-Umgebung entfernen möchten, verwenden Sie hierfür folgende Befehle:
 
 - [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query

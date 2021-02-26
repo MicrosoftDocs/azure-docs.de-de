@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756280"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103191"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Web-App für Benutzeranmeldungen: App-Registrierung
 
-In diesem Artikel werden die Besonderheiten der App-Registrierung für eine Web-App erläutert, mit der Benutzer angemeldet werden.
+In diesem Artikel werden die Schritte zur App-Registrierung für eine Web-App erläutert, mit der Benutzer angemeldet werden.
 
 Für das Registrieren Ihrer Anwendung können Sie Folgendes verwenden:
 
-- [Web-App-Schnellstarts](#register-an-app-by-using-the-quickstarts). Schnellstarts im Azure-Portal vermitteln nicht nur erste Erfahrungen beim Erstellen einer Anwendung, sondern umfassen auch die Schaltfläche **Diese Änderung für mich vornehmen**. Sie können diese Schaltfläche verwenden, um die benötigten Eigenschaften festzulegen. Dies gilt auch für eine bereits vorhandene App. Sie müssen die Werte dieser Eigenschaften an Ihren konkreten Fall anpassen. Insbesondere unterscheidet sich die Web-API-URL für Ihre App wahrscheinlich vom vorgeschlagenen Standardwert, was sich auch auf den Abmelde-URI auswirkt.
+- [Web-App-Schnellstarts](#register-an-app-by-using-the-quickstarts). Schnellstarts im Azure-Portal vermitteln nicht nur erste Erfahrungen beim Erstellen einer Anwendung, sondern umfassen auch die Schaltfläche **Diese Änderung für mich vornehmen**. Sie können diese Schaltfläche verwenden, um die benötigten Eigenschaften festzulegen. Dies gilt auch für eine bereits vorhandene App. Passen Sie die Werte dieser Eigenschaften an Ihren konkreten Fall an. Insbesondere unterscheidet sich die Web-API-URL für Ihre App wahrscheinlich vom vorgeschlagenen Standardwert, was sich auch auf den Abmelde-URI auswirkt.
 - Das Azure-Portal für die [manuelle Registrierung Ihrer Anwendung](#register-an-app-by-using-the-azure-portal)
 - PowerShell und Befehlszeilentools
 
@@ -42,7 +42,7 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
 > Welches Portal Sie verwenden müssen, hängt davon ab, ob Ihre Anwendung in der öffentlichen Cloud von Microsoft Azure oder in einer nationalen oder Sovereign Cloud ausgeführt wird. Weitere Informationen finden Sie unter [Nationale Clouds](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an. 
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an. 
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie unter **Verwalten** Folgendes aus: **App-Registrierungen** > **Neue Registrierung**.
@@ -56,8 +56,8 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
    1. Wählen Sie **Registrieren**.
 1. Wählen Sie unter **Verwalten** die Option **Authentifizierung** aus, und geben Sie dann die folgenden Informationen an:
    1. Fügen Sie im Abschnitt **Web** als **Umleitungs-URI** den Wert `https://localhost:44321/signin-oidc` hinzu.
-   1. Fügen Sie `https://localhost:44321/signout-oidc` als **Abmelde-URL** hinzu.
-   1. Wählen Sie unter **Implizite Genehmigung** die Option **ID-Token** aus.
+   1. Geben Sie in **URL für Front-Channel-Abmeldung** die URL `https://localhost:44321/signout-oidc` ein.
+   1. Wählen Sie für **Implizite Genehmigung und Hybridflows** die Option **ID-Token** aus.
    1. Wählen Sie **Speichern** aus.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
 1. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** die Registrierungsinformationen Ihrer Anwendung ein:
    1. Geben Sie unter **Name** einen Namen für Ihre Anwendung ein (beispielsweise `MailApp-openidconnect-v2`). Benutzern Ihrer App wird wahrscheinlich dieser Namen angezeigt. Sie können ihn später ändern.
    1. Wählen Sie die unterstützten Kontotypen für Ihre Anwendung aus. (Weitere Informationen finden Sie unter [Unterstützte Kontotypen](./v2-supported-account-types.md).)
-   1. Wählen Sie im Abschnitt **Umleitungs-URI (optional)** im Kombinationsfeld die Option **Web** aus, und geben Sie den folgenden Umleitungs-URI ein: **https://localhost:44326/** .
+   1. Wählen Sie im Abschnitt **Umleitungs-URI (optional)** im Kombinationsfeld die Option **Web** aus, und geben Sie `https://localhost:44326/` als **Umleitungs-URI** ein.
    1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen.
 1. Wählen Sie unter **Verwalten** die Option **Authentifizierung** aus.
-1. Wählen Sie im Abschnitt **Implizite Genehmigung** die Option **ID-Token** aus. Für dieses Beispiel muss der [Flow zur impliziten Gewährung](v2-oauth2-implicit-grant-flow.md) aktiviert werden, damit Benutzer angemeldet werden.
+1. Wählen Sie im Abschnitt **Implizite Genehmigung und Hybridflows** die Option **ID-Token** aus. Für dieses Beispiel muss der [Flow zur impliziten Gewährung](v2-oauth2-implicit-grant-flow.md) aktiviert werden, damit Benutzer angemeldet werden.
 1. Wählen Sie **Speichern** aus.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ Sie können diese Links für den Einstieg in die Erstellung Ihrer Webanwendung v
 1. Wählen Sie **Web** aus.
 1. Geben Sie als **Umleitungs-URI** denselben Host und dieselbe Portnummer gefolgt von `/msal4jsample/secure/aad` als Anmeldeseite ein. 
 1. Wählen Sie **Konfigurieren** aus.
-1. Verwenden Sie im Abschnitt **Web** den Host und die Portnummer gefolgt von **/msal4jsample/graph/me** als **Umleitungs-URI** für die Seite „Benutzerinformationen“.
+1. Verwenden Sie im Abschnitt **Web** den Host und die Portnummer gefolgt von `/msal4jsample/graph/me` als **Umleitungs-URI** für die Seite „Benutzerinformationen“.
 Im Beispiel wird standardmäßig Folgendes verwendet:
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. Wählen Sie **Speichern** aus.
 1. Wählen Sie unter **Verwalten** die Option **Zertifikate und Geheimnisse** aus.
@@ -100,7 +100,7 @@ Im Beispiel wird standardmäßig Folgendes verwendet:
 1. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** die Registrierungsinformationen Ihrer Anwendung ein:
    1. Geben Sie unter **Name** einen Namen für Ihre Anwendung ein (beispielsweise `python-webapp`). Benutzern Ihrer App wird wahrscheinlich dieser Namen angezeigt. Sie können ihn später ändern.
    1. Ändern Sie **Unterstützte Kontotypen** in **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten (z. B. Skype, Xbox, Outlook.com)** .
-   1. Wählen Sie im Abschnitt **Umleitungs-URI (optional)** im Kombinationsfeld die Option **Web** aus, und geben Sie den folgenden Umleitungs-URI ein: **http://localhost:5000/getAToken** .
+   1. Wählen Sie im Abschnitt **Umleitungs-URI (optional)** im Kombinationsfeld die Option **Web** aus, und geben Sie den folgenden Umleitungs-URI ein: `http://localhost:5000/getAToken` .
    1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen.
 1. Suchen Sie auf der Seite **Übersicht** der App den Wert **Anwendungsclient-ID**, und notieren Sie ihn zur späteren Verwendung. Sie benötigen diesen Wert, um die Visual Studio-Konfigurationsdatei für dieses Projekt zu konfigurieren.
 1. Wählen Sie unter **Verwalten** die Option **Zertifikate und Geheimnisse** aus.

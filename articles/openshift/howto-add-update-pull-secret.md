@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: Pullgeheimnis, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294746"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071085"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Hinzufügen oder Aktualisieren Ihres Red Hat-Pullgeheimnisses für einen Azure Red Hat OpenShift 4-Cluster
 
@@ -231,6 +231,6 @@ Wenn die zertifizierten Operatoren und Red Hat-Operatoren nicht angezeigt werden
 Um sicherzustellen, dass Ihr Pullgeheimnis aktualisiert wurde und korrekt funktioniert, öffnen Sie OperatorHub, und überprüfen Sie, ob von Red Hat verifizierte Operatoren angezeigt werden. Überprüfen Sie beispielsweise, ob der Operator „OpenShift Container Storage“ verfügbar ist und Sie berechtigt sind, ihn zu installieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Weitere Informationen zu Red Hat-Pullgeheimnissen finden Sie unter [Verwenden von Imagepullgeheimnissen](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html).
+Weitere Informationen zu Red Hat-Pullgeheimnissen finden Sie unter [Verwenden von Imagepullgeheimnissen](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html).
 
-Weitere Informationen zu Red Hat OpenShift 4 finden Sie unter [Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
+Weitere Informationen zu Red Hat OpenShift 4 finden Sie in der [Dokumentation zu Red Hat OpenShift Container Platform](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754497"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557224"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Einrichten der telefonischen Registrierung und Anmeldung für Benutzerflows (Vorschau)
 
@@ -89,7 +89,7 @@ Das folgende Beispiel zeigt, wie Sie die telefonische Registrierung zu einem neu
 9. Wählen Sie unter **Soziales Netzwerk als Identitätsanbieter** alle anderen Identitätsanbieter aus, die in diesem Benutzerflow zulässig sein sollen.
 
    > [!NOTE]
-   > Die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) ist standardmäßig deaktiviert. Sie können MFA für Benutzerflows mit telefonischer Registrierung zwar aktivieren. Als zweiter Authentifizierungsfaktor steht jedoch nur die Einmalkennung per E-Mail zur Verfügung, da die Telefonnummer als primärer Bezeichner verwendet wird.
+   > Die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) ist bei Benutzerflows für die Registrierung standardmäßig deaktiviert. Sie können MFA für Benutzerflows mit telefonischer Registrierung zwar aktivieren. Als zweiter Authentifizierungsfaktor steht jedoch nur die Einmalkennung per E-Mail zur Verfügung, da die Telefonnummer als primärer Bezeichner verwendet wird.
 
 1. Wählen Sie im Abschnitt **Benutzerattribute und Tokenansprüche** die Ansprüche und Attribute aus, die Sie bei der Benutzerregistrierung sammeln und senden möchten. Wählen Sie z.B. **Mehr anzeigen** und dann Attribute und Ansprüche für **Land/Region**, **Anzeigename** und **Postleitzahl** aus. Klicken Sie auf **OK**.
 
@@ -142,5 +142,5 @@ Nachdem Sie die telefonische Registrierung und Anmeldung sowie die Aufforderung 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Hinzufügen externer Identitätsanbieter](tutorial-add-identity-providers.md)
+- [Hinzufügen externer Identitätsanbieter](add-identity-provider.md)
 - [Erstellen eines Benutzerflows](tutorial-create-user-flows.md)

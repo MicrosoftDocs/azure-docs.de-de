@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Erstellen und Bereitstellen benutzerdefinierter R-M
 description: In diesem Artikel erfahren Sie, wie Sie ein benutzerdefiniertes R-Modul in ML Studio (Classic) erstellen und bereitstellen.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322790"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520475"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definieren von benutzerdefinierten R-Modulen für Machine Learning Studio (Classic)
 
@@ -38,7 +38,7 @@ Weitere Zusatzdateien können auch in die ZIP-Datei eingeschlossen werden, die F
 In diesem Beispiel wird veranschaulicht, wie die erforderlichen Dateien für ein benutzerdefiniertes R-Modul erstellt und in einer ZIP-Datei komprimiert werden und dann das Modul im Machine Learning-Arbeitsbereich registriert wird. Das Beispiel-ZIP-Paket und die Beispiel-Dateien können [hier](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)heruntergeladen werden.
 
 ## <a name="the-source-file"></a>Die Quelldatei
-Stellen Sie sich z.B. ein Modul mit dem Namen **Custom Add Rows** vor, das die Standardimplementierung des Moduls **Add Rows** ändert, das zum Verketten von Zeilen (Vorkommen) aus zwei Datasets (Datenrahmen) verwendet wird. Das Standardmodul **Add Rows** hängt die Zeilen des zweiten Eingabedatasets mithilfe des `rbind`-Algorithmus an das erste Eingabedataset an. Die benutzerdefinierte `CustomAddRows` -Funktion akzeptiert ebenfalls zwei Datasets, aber auch einen booleschen Swap-Parameter als zusätzliche Eingabe. Wenn der Swap-Parameter **FALSE** ist, wird das gleiche Dataset zurückgegeben wie bei der Standard-Implementierung. Ist der Swap-Parameter hingegen **TRUE** , werden stattdessen Zeilen des ersten Eingabedatasets an das zweite Dataset angehängt. Die Datei „CustomAddRows.R“, welche die Implementierung der `CustomAddRows` -R-Funktion enthält, die vom Modul **Custom Add Rows** verfügbar gemacht wird, enthält den folgenden R-Code:
+Stellen Sie sich z.B. ein Modul mit dem Namen **Custom Add Rows** vor, das die Standardimplementierung des Moduls **Add Rows** ändert, das zum Verketten von Zeilen (Vorkommen) aus zwei Datasets (Datenrahmen) verwendet wird. Das Standardmodul **Add Rows** hängt die Zeilen des zweiten Eingabedatasets mithilfe des `rbind`-Algorithmus an das erste Eingabedataset an. Die benutzerdefinierte `CustomAddRows` -Funktion akzeptiert ebenfalls zwei Datasets, aber auch einen booleschen Swap-Parameter als zusätzliche Eingabe. Wenn der Swap-Parameter **FALSE** ist, wird das gleiche Dataset zurückgegeben wie bei der Standard-Implementierung. Ist der Swap-Parameter hingegen **TRUE**, werden stattdessen Zeilen des ersten Eingabedatasets an das zweite Dataset angehängt. Die Datei „CustomAddRows.R“, welche die Implementierung der `CustomAddRows` -R-Funktion enthält, die vom Modul **Custom Add Rows** verfügbar gemacht wird, enthält den folgenden R-Code:
 
 ```r
 CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
@@ -91,14 +91,14 @@ Um diese `CustomAddRows`-Funktion als Azure Machine Learning Studio-Modul (klass
 </Module>
 ```
 
-Wichtig: Der Wert der **id** -Attribute der **Input** - und **Arg** -Elemente in der XML-Datei muss EXAKT mit den Funktionsparameternamen des R-Codes in der Datei „CustomAddRows.R“ übereinstimmen (im Beispiel: *dataset1* , *dataset2* und *swap* ). Entsprechend muss der Wert des **entryPoint** -Attributs des **Language** -Elements EXAKT mit dem Namen der Funktion im R-Skript übereinstimmen (im Beispiel: *CustomAddRows* ). 
+Wichtig: Der Wert der **id**-Attribute der **Input**- und **Arg**-Elemente in der XML-Datei muss EXAKT mit den Funktionsparameternamen des R-Codes in der Datei „CustomAddRows.R“ übereinstimmen (im Beispiel: *dataset1*, *dataset2* und *swap*). Entsprechend muss der Wert des **entryPoint**-Attributs des **Language**-Elements EXAKT mit dem Namen der Funktion im R-Skript übereinstimmen (im Beispiel: *CustomAddRows*). 
 
-Das **id** -Attribut für das **Output** -Element muss hingegen keiner Variablen im R-Skript entsprechen. Sind mehrere Ausgaben erforderlich, geben Sie mithilfe der R-Funktion einfach eine Liste mit Ergebnissen zurück, und achten Sie darauf, dass die Ergebnisse *in der gleichen Reihenfolge* angegeben sind wie die in der XML-Datei deklarierten **Output** -Elemente.
+Das **id**-Attribut für das **Output**-Element muss hingegen keiner Variablen im R-Skript entsprechen. Sind mehrere Ausgaben erforderlich, geben Sie mithilfe der R-Funktion einfach eine Liste mit Ergebnissen zurück, und achten Sie darauf, dass die Ergebnisse *in der gleichen Reihenfolge* angegeben sind wie die in der XML-Datei deklarierten **Output** -Elemente.
 
 ### <a name="package-and-register-the-module"></a>Packen und Registrieren des Moduls
-Speichern Sie diese beiden Dateien als *CustomAddRows.R* und *CustomAddRows.xml* , und fassen Sie die beiden Dateien in einer ZIP-Datei namens *CustomAddRows.zip* zusammen.
+Speichern Sie diese beiden Dateien als *CustomAddRows.R* und *CustomAddRows.xml*, und fassen Sie die beiden Dateien in einer ZIP-Datei namens *CustomAddRows.zip* zusammen.
 
-Navigieren Sie in Azure Machine Learning Studio (klassisch) zum Machine Learning-Arbeitsbereich, klicken Sie im unteren Bereich auf die Schaltfläche **+NEU** , und wählen Sie **MODUL > FROM ZIP PACKAGE** (AUS ZIP-PAKET) aus, um das neue Modul **Custom Add Rows** hochzuladen. Dadurch werden die Dateien in Ihrem Arbeitsbereich registriert.
+Navigieren Sie in Azure Machine Learning Studio (klassisch) zum Machine Learning-Arbeitsbereich, klicken Sie im unteren Bereich auf die Schaltfläche **+NEU**, und wählen Sie **MODUL > FROM ZIP PACKAGE** (AUS ZIP-PAKET) aus, um das neue Modul **Custom Add Rows** hochzuladen. Dadurch werden die Dateien in Ihrem Arbeitsbereich registriert.
 
 ![ZIP-Datei hochladen](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -121,13 +121,13 @@ Innerhalb des **Module** -Elements können optional zwei zusätzliche Elemente a
 
 Regeln für Zeichenbeschränkungen in den Module-Elementen:
 
-* Der Wert des **Namen** -Attributs im **Modul** -Element darf maximal 64 Zeichen lang sein. 
+* Der Wert des **Namen**-Attributs im **Modul**-Element darf maximal 64 Zeichen lang sein. 
 * Der Inhalt des **Beschreibungs** -Elements darf 128 Zeichen nicht überschreiten.
 * Der Inhalt des **Besitzer** -Elements darf 32 Zeichen nicht überschreiten.
 
 Die Ergebnisse eines Moduls können deterministisch oder nicht deterministisch sein.** Standardmäßig werden alle Module als deterministisch betrachtet. Das bedeutet: Bei einer unveränderten Gruppe von Eingabeparametern und Daten sollte das Modul bei jeder Ausführung die gleichen Ergebnisse zurückgeben. Aufgrund dieses Verhaltens führt Azure Machine Learning Studio (klassisch) als deterministisch gekennzeichnete Module nur dann erneut aus, wenn sich ein Parameter oder die Eingabedaten geändert haben. Die Rückgabe der zwischengespeicherten Ergebnisse ermöglicht zudem eine schnellere Ausführung von Experimenten.
 
-Manche Funktionen sind nicht deterministisch. Hierzu zählen etwa „RAND“ oder eine Funktion, die das aktuelle Datum oder die aktuelle Uhrzeit zurückgibt. Wenn Ihr Modul eine nicht deterministische Funktion verwendet, können Sie das optionale **isDeterministic** -Attribut auf **FALSE** festlegen, um das Modul als nicht deterministisch zu kennzeichnen. Dadurch wird das Modul bei jeder Ausführung des Experiments erneut ausgeführt, auch wenn sich die Moduleingabe und die Parameter nicht geändert haben. 
+Manche Funktionen sind nicht deterministisch. Hierzu zählen etwa „RAND“ oder eine Funktion, die das aktuelle Datum oder die aktuelle Uhrzeit zurückgibt. Wenn Ihr Modul eine nicht deterministische Funktion verwendet, können Sie das optionale **isDeterministic**-Attribut auf **FALSE** festlegen, um das Modul als nicht deterministisch zu kennzeichnen. Dadurch wird das Modul bei jeder Ausführung des Experiments erneut ausgeführt, auch wenn sich die Moduleingabe und die Parameter nicht geändert haben. 
 
 ### <a name="language-definition"></a>Definition des "Language"-Elements
 Das **Sprachen** -Element in Ihrer XML-Definitionsdatei wird verwendet, um die Sprache des benutzerdefinierten Moduls anzugeben. R ist derzeit die einzige unterstützte Sprache. Der Wert des **SourceFile** -Attributs muss der Name der R-Datei sein, die die aufzurufende Funktion enthält, wenn das Modul ausgeführt wird. Diese Datei muss im Zip-Paket sein. Der Wert des **EntryPoint** -Attributs ist der Name der aufgerufenen Funktion und muss mit einer in der Quelldatei definierten gültigen Funktion übereinstimmen.
@@ -137,10 +137,10 @@ Das **Sprachen** -Element in Ihrer XML-Definitionsdatei wird verwendet, um die S
 ```
 
 ### <a name="ports"></a>Ports
-Die Eingabe- und Ausgabeports für ein benutzerdefiniertes Modul sind in den untergeordneten Elementen des Abschnitts **Ports** der XML-Definitionsdatei angegeben. Die Reihenfolge dieser Elemente bestimmt das Layout (UX) für die Benutzer. Das erste untergeordnete **Input** - oder **Output** -Element, das im **Ports** -Element der XML-Datei aufgelistet wird, wird zum äußerst linken Eingabeport der Machine Learning UX.
+Die Eingabe- und Ausgabeports für ein benutzerdefiniertes Modul sind in den untergeordneten Elementen des Abschnitts **Ports** der XML-Definitionsdatei angegeben. Die Reihenfolge dieser Elemente bestimmt das Layout (UX) für die Benutzer. Das erste untergeordnete **Input**- oder **Output**-Element, das im **Ports**-Element der XML-Datei aufgelistet wird, wird zum äußerst linken Eingabeport der Machine Learning UX.
 Jeder Eingabe- und Ausgabeport kann optional über ein untergeordnetes **Description** -Element mit Text verfügen, der angezeigt wird, wenn Sie auf der Machine Learning-Benutzeroberfläche den Mauszeiger auf den Port bewegen.
 
-**Port-Regeln** :
+**Port-Regeln**:
 
 * Maximale Anzahl von **Eingabe- und Ausgabe-Ports** beträgt jeweils 8.
 
@@ -155,8 +155,8 @@ Jeder Eingabe- und Ausgabeport kann optional über ein untergeordnetes **Descrip
 </Input>
 ```
 
-Das **ID** -Attribut, das jedem **DataTable** Eingangsport zugeordnet ist, muss einen eindeutigen Wert haben, der mit seinem entsprechenden benannten Parameter in der R-Funktion übereinstimmen muss.
-Für optionale **DataTable** -Ports, die nicht als Eingabe in einem Experiment übergeben werden, wird der Wert **NULL** an die R-Funktion übergeben, und optionale ZIP-Ports werden ignoriert, wenn die Eingabe nicht verbunden ist. Das **isOptional** -Attribut ist für die Typen **DataTable** und **Zip** optional und standardmäßig *false*.
+Das **ID**-Attribut, das jedem **DataTable** Eingangsport zugeordnet ist, muss einen eindeutigen Wert haben, der mit seinem entsprechenden benannten Parameter in der R-Funktion übereinstimmen muss.
+Für optionale **DataTable**-Ports, die nicht als Eingabe in einem Experiment übergeben werden, wird der Wert **NULL** an die R-Funktion übergeben, und optionale ZIP-Ports werden ignoriert, wenn die Eingabe nicht verbunden ist. Das **isOptional**-Attribut ist für die Typen **DataTable** und **Zip** optional und standardmäßig *false*.
 
 **Zip:** Benutzerdefinierte Module können ZIP-Dateien als Eingabe akzeptieren. Diese Eingabe wird im R-Arbeitsverzeichnis Ihrer Funktion entpackt.
 
@@ -170,15 +170,15 @@ Bei benutzerdefinierten R-Modulen muss die ID eines ZIP-Ports keinen Parametern 
 
 **Eingabe-Regeln:**
 
-* Der Wert des **ID** -Attributs des **Eingabe** -Elements muss ein gültiger R-Variablenname sein.
-* Der Wert des **ID** -Attributs des **Eingabe** -Elements darf 64 Zeichen nicht überschreiten.
-* Der Wert des **Namen** -Attributs des **Eingabe** -Elements darf nicht länger als 64 Zeichen sein.
+* Der Wert des **ID**-Attributs des **Eingabe**-Elements muss ein gültiger R-Variablenname sein.
+* Der Wert des **ID**-Attributs des **Eingabe**-Elements darf 64 Zeichen nicht überschreiten.
+* Der Wert des **Namen**-Attributs des **Eingabe**-Elements darf nicht länger als 64 Zeichen sein.
 * Der Inhalt des **Beschreibungs** -Elements darf 128 Zeichen nicht überschreiten.
-* Der Wert des **Typen** -Attributs des **Eingabe** -Elements muss *Zip* oder *DataTable* sein.
-* Der Wert des **isOptional** -Attributs des **Eingabe** -Elements ist nicht erforderlich (und standardmäßig *false* , wenn nicht angegeben); aber wenn er angegeben wird, muss er *true* oder *false* sein.
+* Der Wert des **Typen**-Attributs des **Eingabe**-Elements muss *Zip* oder *DataTable* sein.
+* Der Wert des **isOptional**-Attributs des **Eingabe**-Elements ist nicht erforderlich (und standardmäßig *false*, wenn nicht angegeben); aber wenn er angegeben wird, muss er *true* oder *false* sein.
 
 ### <a name="output-elements"></a>Ausgabe-Elemente
-**Standardausgabeports:** Ausgabeports sind den Rückgabewerten Ihrer R-Funktion zugeordnet, die anschließend von nachfolgenden Modulen verwendet werden können. *DataTable* ist zurzeit der einzige unterstützte Standardtyp für Ausgabeports. (Unterstützung für *Learners* und *Transforms* ist in Kürze zu erwarten.) Eine *DataTable* -Ausgabe wird wie folgt definiert:
+**Standardausgabeports:** Ausgabeports sind den Rückgabewerten Ihrer R-Funktion zugeordnet, die anschließend von nachfolgenden Modulen verwendet werden können. *DataTable* ist zurzeit der einzige unterstützte Standardtyp für Ausgabeports. (Unterstützung für *Learners* und *Transforms* ist in Kürze zu erwarten.) Eine *DataTable*-Ausgabe wird wie folgt definiert:
 
 ```xml
 <Output id="dataset" name="Dataset" type="DataTable">
@@ -188,7 +188,7 @@ Bei benutzerdefinierten R-Modulen muss die ID eines ZIP-Ports keinen Parametern 
 
 Für Ausgaben in benutzerdefinierten R-Modulen muss der Wert des **ID** -Attributs mit nichts im R-Skript übereinstimmen, jedoch eindeutig sein. Für ein einzelne Modulausgabe muss der Rückgabewert der R-Funktion ein *data.frame* sein. Um mehr als ein Objekt eines unterstützten Datentyps auszugeben, müssen die entsprechende Ausgangs-Ports in der XML-Definitionsdatei angegeben und die Objekte als Liste zurückgegeben werden. Die Ausgangsobjekte werden den Ausgangsports von links nach rechts zugewiesen und entsprechen der Reihenfolge, in der die Objekte in der zurückgegebenen Liste angegeben sind.
 
-Wenn Sie also beispielsweise das Modul **Custom Add Rows** ändern möchten, um die beiden ursprünglichen Datasets *dataset1* und *dataset2* zusammen mit dem neu verknüpften Dataset namens *dataset* auszugeben (von links nach rechts als *dataset* , *dataset1* , *dataset2* ), definieren Sie die Ausgabeports in der Datei „CustomAddRows.xml“ wie folgt:
+Wenn Sie also beispielsweise das Modul **Custom Add Rows** ändern möchten, um die beiden ursprünglichen Datasets *dataset1* und *dataset2* zusammen mit dem neu verknüpften Dataset namens *dataset* auszugeben (von links nach rechts als *dataset*, *dataset1*, *dataset2*), definieren Sie die Ausgabeports in der Datei „CustomAddRows.xml“ wie folgt:
 
 ```xml
 <Ports> 
@@ -221,7 +221,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 } 
 ```
 
-**Visualisierungsausgabe:** Sie können auch einen Ausgabeport vom Typ *Visualization* angeben, der die Ausgabe des R-Grafikgeräts und die Konsolenausgabe anzeigt. Dieser Port ist nicht Teil der R-Funktionsausgabe und hat keinerlei Auswirkungen auf die Reihenfolge der anderen Ausgabeporttypen. Um den benutzerdefinierten Modulen einen Visualisierungsport hinzuzufügen, fügen Sie ein **Ausgabe** -Element mit einem *Visualisierungswert* für sein **Typen** -Attribut hinzu:
+**Visualisierungsausgabe:** Sie können auch einen Ausgabeport vom Typ *Visualization* angeben, der die Ausgabe des R-Grafikgeräts und die Konsolenausgabe anzeigt. Dieser Port ist nicht Teil der R-Funktionsausgabe und hat keinerlei Auswirkungen auf die Reihenfolge der anderen Ausgabeporttypen. Um den benutzerdefinierten Modulen einen Visualisierungsport hinzuzufügen, fügen Sie ein **Ausgabe**-Element mit einem *Visualisierungswert* für sein **Typen**-Attribut hinzu:
 
 ```xml
 <Output id="deviceOutput" name="View Port" type="Visualization">
@@ -231,18 +231,18 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 
 **Ausgabe-Regeln:**
 
-* Der Wert des **ID** -Attributs des **Ausgabe** -Elements muss ein gültiger R-Variablenname sein.
-* Der Wert des **ID** -Attributs des **Ausgabe** -Elements darf 32 Zeichen nicht überschreiten.
-* Der Wert des **Namen** -Attributs des **Ausgabe** -Elements darf nicht länger als 64 Zeichen sein.
-* Der Wert des **Typen** -Attributs des **Ausgabe** -Elements muss *Visualisierung* sein.
+* Der Wert des **ID**-Attributs des **Ausgabe**-Elements muss ein gültiger R-Variablenname sein.
+* Der Wert des **ID**-Attributs des **Ausgabe**-Elements darf 32 Zeichen nicht überschreiten.
+* Der Wert des **Namen**-Attributs des **Ausgabe**-Elements darf nicht länger als 64 Zeichen sein.
+* Der Wert des **Typen**-Attributs des **Ausgabe**-Elements muss *Visualisierung* sein.
 
 ### <a name="arguments"></a>Argumente
-Zusätzliche Daten können an die R-Funktion über die Modulparameter übergeben werden, die im **Argumente** -Element definiert sind. Diese Parameter werden im äußerst rechten Eigenschaftenbereich der Machine Learning-Benutzeroberfläche angezeigt, wenn das Modul ausgewählt ist. Argumente können jeder der unterstützten Typen sein oder Sie können bei Bedarf eine benutzerdefinierte Enumeration erstellen. Ähnlich wie die **Ports** -Elemente können **Argumente** -Elemente ein optionales **Beschreibung** -Element besitzen, das den Text angibt, der angezeigt wird, wenn Sie mit der Maus auf den Namen des Parameters zeigen.
-Optionale Eigenschaften für ein Modul (beispielsweise „defaultValue“, „minValue“ und „maxValue“) können jedem Argument als Attribute eines **Properties** -Elements hinzugefügt werden. Welche Eigenschaften für die **Properties** -Elemente gültig sind, hängt vom jeweiligen Argumenttyp ab und wird mit den unterstützten Argumenttypen im nächsten Abschnitt beschrieben. Für Argumente, deren **isOptional** -Eigenschaft auf **„true“** festgelegt ist, muss der Benutzer keinen Wert eingeben. Wenn für das Argument kein Wert angegeben ist, wird das Argument nicht an die Einstiegspunktfunktion übergeben. Optionale Argumente der Einstiegspunktfunktion müssen explizit von der Funktion behandelt werden. Beispielsweise muss einem optionalen Argument in der Definition der Einstiegspunktfunktion der Standardwert NULL zugewiesen werden. Ein optionales Argument erzwingt nur dann die anderen Argumenteinschränkungen, d. h. Minimal- oder Maximalwerte, wenn ein Wert vom Benutzer bereitgestellt wird.
+Zusätzliche Daten können an die R-Funktion über die Modulparameter übergeben werden, die im **Argumente** -Element definiert sind. Diese Parameter werden im äußerst rechten Eigenschaftenbereich der Machine Learning-Benutzeroberfläche angezeigt, wenn das Modul ausgewählt ist. Argumente können jeder der unterstützten Typen sein oder Sie können bei Bedarf eine benutzerdefinierte Enumeration erstellen. Ähnlich wie die **Ports**-Elemente können **Argumente**-Elemente ein optionales **Beschreibung**-Element besitzen, das den Text angibt, der angezeigt wird, wenn Sie mit der Maus auf den Namen des Parameters zeigen.
+Optionale Eigenschaften für ein Modul (beispielsweise „defaultValue“, „minValue“ und „maxValue“) können jedem Argument als Attribute eines **Properties** -Elements hinzugefügt werden. Welche Eigenschaften für die **Properties** -Elemente gültig sind, hängt vom jeweiligen Argumenttyp ab und wird mit den unterstützten Argumenttypen im nächsten Abschnitt beschrieben. Für Argumente, deren **isOptional**-Eigenschaft auf **„true“** festgelegt ist, muss der Benutzer keinen Wert eingeben. Wenn für das Argument kein Wert angegeben ist, wird das Argument nicht an die Einstiegspunktfunktion übergeben. Optionale Argumente der Einstiegspunktfunktion müssen explizit von der Funktion behandelt werden. Beispielsweise muss einem optionalen Argument in der Definition der Einstiegspunktfunktion der Standardwert NULL zugewiesen werden. Ein optionales Argument erzwingt nur dann die anderen Argumenteinschränkungen, d. h. Minimal- oder Maximalwerte, wenn ein Wert vom Benutzer bereitgestellt wird.
 Wie bei Eingaben und Ausgaben ist es wichtig, dass jedem Parameter eindeutige ID-Werte zugeordnet sind. In unserem Schnellstartbeispiel war der zugeordnete ID-Parameter *swap*.
 
 ### <a name="arg-element"></a>Arg-Element
-Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Abschnitts **Argumente** der XML-Definitionsdatei definiert. Wie bei den untergeordneten Elementen im Abschnitt **Ports** definiert die Reihenfolge der Parameter im Abschnitt **Argumente** das Layout in der UX. Die Parameter werden von oben nach unten in der Benutzeroberfläche in der gleichen Reihenfolge, in der sie in der XML-Datei definiert sind, angezeigt. Im Anschluss werden die Typen aufgeführt, die von Machine Learning für Parameter unterstützt werden. 
+Ein Modul-Parameter wird mithilfe des untergeordneten **Arg**-Elements des Abschnitts **Argumente** der XML-Definitionsdatei definiert. Wie bei den untergeordneten Elementen im Abschnitt **Ports** definiert die Reihenfolge der Parameter im Abschnitt **Argumente** das Layout in der UX. Die Parameter werden von oben nach unten in der Benutzeroberfläche in der gleichen Reihenfolge, in der sie in der XML-Datei definiert sind, angezeigt. Im Anschluss werden die Typen aufgeführt, die von Machine Learning für Parameter unterstützt werden. 
 
 **int** – ein Parameter des Typs Ganzzahl (32 Bit).
 
@@ -253,7 +253,7 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>
 ```
 
-* *Optionale Eigenschaften* : **min** , **max** , **Standard** und **isOptional**
+* *Optionale Eigenschaften*: **min**, **max**, **Standard** und **isOptional**
 
 **double** – ein Parameter des Typs "double".
 
@@ -264,7 +264,7 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>
 ```
 
-* *Optionale Eigenschaften* : **min** , **max** , **Standard** und **isOptional**
+* *Optionale Eigenschaften*: **min**, **max**, **Standard** und **isOptional**
 
 **bool** – ein boolescher Parameter, der durch ein Kontrollkästchen in der UX dargestellt wird.
 
@@ -275,9 +275,9 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>
 ```
 
-* *Optionale Eigenschaften* : **Standard** -false, wenn nicht festgelegt
+* *Optionale Eigenschaften*: **Standard** -false, wenn nicht festgelegt
 
-**string** : eine Standardzeichenfolge.
+**string**: eine Standardzeichenfolge.
 
 ```xml
 <Arg id="stringValue1" name="My string Param" type="string">
@@ -286,9 +286,9 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>    
 ```
 
-* *Optionale Eigenschaften* : **Standard** und **isOptional**
+* *Optionale Eigenschaften*: **Standard** und **isOptional**
 
-**ColumnPicker** : ein Spaltenauswahl-Parameter. Dieser Typ wird in der UX als Spaltenauswahl gerendert. Mit dem Element **Property** wird hier die ID des Ports angegeben, bei dem Spalten ausgewählt werden, wobei der Zielporttyp *DataTable* lauten muss. Das Ergebnis der Spaltenauswahl wird als Zeichenfolgenliste mit den Namen der ausgewählten Spalten an die R-Funktion übergeben. 
+**ColumnPicker**: ein Spaltenauswahl-Parameter. Dieser Typ wird in der UX als Spaltenauswahl gerendert. Mit dem Element **Property** wird hier die ID des Ports angegeben, bei dem Spalten ausgewählt werden, wobei der Zielporttyp *DataTable* lauten muss. Das Ergebnis der Spaltenauswahl wird als Zeichenfolgenliste mit den Namen der ausgewählten Spalten an die R-Funktion übergeben. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,8 +297,8 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>
 ```
 
-* *Erforderliche Eigenschaften* : **portId** : entspricht der ID eines Eingabeelements des Typs *DataTable*.
-* *Optionale Eigenschaften* :
+* *Erforderliche Eigenschaften*: **portId**: entspricht der ID eines Eingabeelements des Typs *DataTable*.
+* *Optionale Eigenschaften*:
   
   * **allowedTypes** : Dient zum Filtern der zur Auswahl stehenden Spaltentypen. Gültige Werte: 
     
@@ -334,7 +334,7 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
     * AllScore
     * All
 
-**DropDown** : Eine vom Benutzer angegebene aufgezählte (Dropdown-)Liste. Die Dropdownelemente werden innerhalb des **Eigenschaften** -Elements mithilfe eines **Item** -Elements angegeben. Die **ID** für die einzelnen **Item** -Elemente muss eindeutig und eine gültige R-Variable sein. Der Wert von **name** eines **Item** -Elements fungiert sowohl als angezeigter Text als auch als Wert, der an die R-Funktion übergeben wird.
+**DropDown**: Eine vom Benutzer angegebene aufgezählte (Dropdown-)Liste. Die Dropdownelemente werden innerhalb des **Eigenschaften**-Elements mithilfe eines **Item**-Elements angegeben. Die **ID** für die einzelnen **Item**-Elemente muss eindeutig und eine gültige R-Variable sein. Der Wert von **name** eines **Item**-Elements fungiert sowohl als angezeigter Text als auch als Wert, der an die R-Funktion übergeben wird.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">
@@ -347,8 +347,8 @@ Ein Modul-Parameter wird mithilfe des untergeordneten **Arg** -Elements des Absc
 </Arg>    
 ```
 
-* *Optionale Eigenschaften* :
-  * **Standard** : Der Wert für die Standardeigenschaft muss mit dem ID-Wert eines der **Item** -Elemente übereinstimmen.
+* *Optionale Eigenschaften*:
+  * **Standard**: Der Wert für die Standardeigenschaft muss mit dem ID-Wert eines der **Item**-Elemente übereinstimmen.
 
 ### <a name="auxiliary-files"></a>Zusätzliche Dateien
 Jede Datei in der ZIP-Datei des benutzerdefinierten Moduls ist während der Ausführungszeit verfügbar. Gegebenenfalls vorhandene Verzeichnisstrukturen bleiben erhalten. Das bedeutet, dass die lokale Dateierfassung auf die gleiche Weise funktioniert wie bei der Ausführung von Azure Machine Learning Studio (klassisch). 

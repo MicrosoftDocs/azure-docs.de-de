@@ -3,12 +3,12 @@ title: Ausführen eines Upgrades der Version des Azure Service Fabric-Clusters
 description: Erfahren Sie mehr über Clusterversionen in Azure Service Fabric, einschließlich eines Links zu den neuesten Releases des Service Fabric-Teamblogs.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881549"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549067"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Ausführen eines Upgrades der Version des Azure Service Fabric-Clusters
 
@@ -40,7 +40,7 @@ Azure Service Fabric-Cluster, die unter Versionen zwischen 5.7 bis 6.3.63* ausge
 Führen Sie ein Upgrade auf eine unterstützte Service Fabric-Version aus, um Ausfallzeiten oder Funktionsverluste zu vermeiden, die durch diese Änderung auftreten. Stellen Sie sicher, dass auf Ihren Clustern mindestens die folgenden Versionen ausgeführt werden, um Probleme in Ihrer Umgebung zu vermeiden.
 
 > [!Note]
-> Alle veröffentlichten Versionen von 7.2 enthalten die erforderlichen Änderungen.
+> **Alle veröffentlichten Versionen von 7.2 enthalten die erforderlichen Änderungen**.
   
   | OS | Aktuelle Service Fabric-Runtime im Cluster | CU/Patchrelease |
   | --- | --- |--- |
@@ -75,9 +75,15 @@ Stellen Sie sicher, dass Ihre Cluster eine der folgenden Versionen ausführen, u
 Die Versionen von Service Fabric in der Tabelle enthalten die erforderlichen Änderungen, um Funktionsverluste zu verhindern. Stellen Sie sicher, dass Sie eine dieser Versionen verwenden.  
 
 > [!Note]
-> Alle Releaseversionen von 7.2 enthalten die erforderlichen Änderungen.
+> **Azure Service Fabric-Cluster, die mit Version 6.5 ausgeführt werden, müssen vor dem Infrastrukturwechsel mehrere Upgrades gleichzeitig durchführen, um Funktionsverluste des Clusters zu vermeiden**. 
+>   -   1. Upgrade auf 7.0.466. **Cluster, in denen das Windows-Betriebssystem mit aktiviertem Feature „Windows-Container“ ausgeführt wird, DÜRFEN diese Zwischenversion nicht verwenden. Sie müssen den unten aufgeführten nächsten Schritt (ii) ausführen (das Upgrade), um eine sicherere und kompatible Version zu verwenden, damit Dienstunterbrechungen vermieden werden.**
+>   -   2. Führen Sie ein Upgrade auf die neuesten Versionen im 7.0*-Release (7.0.478) oder auf eine der unten aufgeführten höheren Versionen durch.
 
-  | OS | Aktuelle Service Fabric-Runtime im Cluster | CU/Patchrelease |
+
+> [!Note]
+> **Alle Releaseversionen von 7.2 enthalten die erforderlichen Änderungen**.
+
+ | OS | Aktuelle Service Fabric-Runtime im Cluster | CU/Patchrelease |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
@@ -118,10 +124,12 @@ Die folgende Tabelle enthält die Versionen von Service Fabric und das jeweilige
 | 7.1.458.* | 7.0.466.* |Alle Versionen bis einschließlich Version 4.1 |31. März 2021 |
 | 7.1.459.* | 7.0.466.* |Alle Versionen bis einschließlich Version 4.1 |31. März 2021 |
 | 7.1.503.* | 7.0.466.* |Alle Versionen bis einschließlich Version 4.1 |31. März 2021 |
+| 7.1.510.* | 7.0.466.* |Alle Versionen bis einschließlich Version 4.1 |31. März 2021 |
 | 7.2.413.* | 7.0.470.* |Alle Versionen bis einschließlich Version 4.2 |Aktuelle Version, daher kein Enddatum |
 | 7.2.432.* | 7.0.470.* |Alle Versionen bis einschließlich Version 4.2 |Aktuelle Version, daher kein Enddatum |
 | 7.2.433.* | 7.0.470.* |Alle Versionen bis einschließlich Version 4.2 |Aktuelle Version, daher kein Enddatum |
 | 7.2.445.* | 7.0.470.* |Alle Versionen bis einschließlich Version 4.2 |Aktuelle Version, daher kein Enddatum |
+| 7.2.452.* | 7.0.470.* |Alle Versionen bis einschließlich Version 4.2 |Aktuelle Version, daher kein Enddatum |
 
 ## <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme
 
@@ -198,7 +206,9 @@ In der folgende Tabelle werden die Versionsnamen von Service Fabric und die zuge
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| 7.2 RTO | 7.2.413.9590 | Nicht verfügbar|
+| 7.1 CU10 | 7.1.510.9590 | Nicht verfügbar |
+| 7.2 RTO | 7.2.413.9590 | Nicht verfügbar |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7.2 CU3 | 7.2.433.9590 | Nicht verfügbar|
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
+| 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |

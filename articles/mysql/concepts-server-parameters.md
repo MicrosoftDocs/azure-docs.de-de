@@ -1,17 +1,17 @@
 ---
 title: Serverparameter – Azure Database for MySQL
 description: Dieses Thema bietet Richtlinien für die Konfiguration von Serverparametern in Azure Database for MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534907"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539483"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Serverparameter in Azure Database for MySQL
 
@@ -261,6 +261,18 @@ Weitere Informationen zu diesem Parameter finden Sie in der [MySQL-Dokumentation
 |Arbeitsspeicheroptimiert|8|16777216|1024|536870912|
 |Arbeitsspeicheroptimiert|16|16777216|1024|1073741824|
 |Arbeitsspeicheroptimiert|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>InnoDB Buffer Pool Warmup
+Nach dem Neustart des Azure Database for MySQL-Servers werden bei Abfragen der Tabellen die auf dem Datenträger befindlichen Datenseiten geladen. Dies führt zu erhöhten Wartezeiten und langsamerer Leistung bei der ersten Ausführung der Abfragen. Bei Workloads, für die die Latenz eine besondere Rolle spielt, ist dies möglicherweise nicht akzeptabel. Durch das „Aufwärmen“ des InnoDB-Pufferpools wird die Startzeit verkürzt, indem Datenträgerseiten, die sich bereits vor dem Neustart im Pufferpool befanden, erneut geladen werden, ohne darauf zu warten, dass DML- oder SELECT-Vorgänge auf die entsprechenden Zeilen zugreifen.
+
+Sie können die Aufwärmzeit nach dem Neustart des Azure Database for MySQL-Servers verkürzen und damit einen Leistungsvorteil erzielen, indem Sie [Serverparameter für den InnoDB-Pufferpool](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html) konfigurieren. InnoDB speichert einen Anteil der zuletzt verwendeten Seiten für jeden Pufferpool beim Herunterfahren des Servers und stellt diese Seiten beim Serverstart wieder her.
+
+Beachten Sie dabei allerdings, dass die verbesserte Leistung auch eine längere Startzeit für den Server zur Folge hat. Wenn dieser Parameter aktiviert ist, müssen Sie davon ausgehen, dass sich die Start- und Neustartzeiten des Servers abhängig von den auf dem Server bereitgestellten IOPS zunimmt. Es wird empfohlen, die Neustartzeit zu testen und zu überwachen, um sicherzustellen, dass die Leistung bei Starts bzw. Neustarts akzeptabel ist, da der Server während dieser Zeit nicht verfügbar ist. Es wird nicht empfohlen, diesen Parameter zu verwenden, wenn weniger als 1.000 IOPS bereitgestellt werden (oder anders ausgedrückt: wenn der bereitgestellte Speicher kleiner als 335 GB ist).
+
+Wenn Sie den Zustand des Pufferpools beim Herunterfahren des Servers speichern möchten, legen Sie Serverparameter `innodb_buffer_pool_dump_at_shutdown` auf `ON` fest. Legen Sie entsprechend den Serverparameter `innodb_buffer_pool_load_at_startup` auf `ON` fest, um den Pufferpoolzustand beim Serverstart wiederherzustellen. Sie können die Auswirkung auf Starts/Neustarts steuern, indem Sie den Wert des Serverparameters `innodb_buffer_pool_dump_pct` senken und optimieren. Standardmäßig ist dieser Parameter auf `25` festgelegt.
+
+> [!Note]
+> Die Aufwärmparameter des InnoDB-Pufferpools werden nur auf universellen Speicherservern mit maximal 16 TB Speicher unterstützt. Informieren Sie sich ausführlicher über [Speicheroptionen für Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 

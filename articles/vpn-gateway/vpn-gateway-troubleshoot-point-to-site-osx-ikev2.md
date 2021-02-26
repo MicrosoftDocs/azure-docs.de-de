@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 03/27/2018
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8657f8a40084a726280efe471c0791931294f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359323"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366635"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Problembehandlung bei Point-to-Site-VPN-Verbindungen von Mac OS X-VPN-Clients
 

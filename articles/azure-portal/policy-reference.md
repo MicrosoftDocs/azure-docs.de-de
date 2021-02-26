@@ -1,15 +1,15 @@
 ---
 title: Integrierte Richtliniendefinitionen für das Azure-Portal
 description: Hier finden Sie eine Liste der integrierten Azure Policy-Richtliniendefinitionen für das Azure-Portal. Diese integrierten Richtliniendefinitionen bieten allgemeine Ansätze für die Verwaltung von Azure-Ressourcen.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7b151b5b90589b100cae071d949e2f77aa36b1d7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 55e4bb1f0be28764017c34900dc867f0c6dede7a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218722"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095618"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Integrierte Azure Policy-Definitionen für das Azure-Portal
 

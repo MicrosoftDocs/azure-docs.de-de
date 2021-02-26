@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108669"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539432"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Speichern von Daten im Edgebereich mit Azure Blob Storage in IoT Edge
 
@@ -184,6 +184,7 @@ Die Dokumentation zu Azure Blob Storage enthält Schnellstart-Beispielcode in me
 Die folgenden Schnellstartbeispiele verwenden Sprachen, die auch von IoT Edge unterstützt werden, sodass Sie sie als IoT Edge-Module zusammen mit dem Blobspeichermodul bereitstellen können:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * Das Modul Azure Blob Storage in IoT Edge ist bis Version 1.4.0 mit dem SDK WindowsAzure.Storage 9.3.3 kompatibel. Außerdem unterstützt Version 1.4.1 auch das SDK Azure.Storage.Blobs 12.8.0.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * In Versionen vor V2.1 des Python SDKs tritt ein bekanntes Problem auf, bei dem das Modul keine Bloberstellungszeit zurückgibt. Aufgrund dieses Problems funktionieren einige Methoden wie das Auflisten von Blobs nicht. Als Problemumgehung legen Sie die API-Version auf dem Blobclient explizit auf „2017-04-17“ fest. Beispiel: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Beispiel für Anfügeblob](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -292,7 +293,7 @@ Dieses Azure Blob Storage in IoT Edge-Modul ermöglicht jetzt die Integration vo
 
 ## <a name="release-notes"></a>Versionsinformationen
 
-Dies sind die [Versionsinformationen im Docker-Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) für dieses Modul.
+Dies sind die [Versionshinweise im Docker-Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) für dieses Modul. Möglicherweise finden Sie in den Versionshinweisen zu einer bestimmten Version weitere Informationen zur Fehlerbehebungen und Wartung.
 
 ## <a name="suggestions"></a>Vorschläge
 

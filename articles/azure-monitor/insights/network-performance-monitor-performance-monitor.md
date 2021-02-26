@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326119"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832962"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Netzwerkleistungsmonitor-Lösung: Leistungsüberwachung
+
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 ist es nicht mehr möglich, neue Tests in einem vorhandenen Arbeitsbereich hinzufügen oder einen neuen Arbeitsbereich im Netzwerkleistungsmonitor zu aktivieren. Sie können weiterhin die Tests verwenden, die vor dem 1. Juli 2021 erstellt wurden. [Migrieren Sie Ihre Tests vor dem 29. Februar 2024 aus dem Netzwerkleistungsmonitor zum neuen Verbindungsmonitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher, um die Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
 
 Die Systemmonitorfunktion im [Netzwerkleistungsmonitor](network-performance-monitor.md) unterstützt Sie bei der Überwachung der Netzwerkkonnektivität an verschiedenen Punkten in Ihrem Netzwerk. Sie können Cloudbereitstellungen und lokale Standorte, mehrere Rechenzentren und Zweigstellen sowie unternehmenswichtige Microservices/Anwendungen mit mehreren Ebenen überwachen. Mithilfe des Systemmonitors können Sie Netzwerkprobleme erkennen, bevor sie Ihre Benutzer beinträchtigen. Wichtige Vorteile ergeben sich daraus, dass Sie die folgenden Aufgaben ausführen können: 
 
@@ -65,7 +68,7 @@ So erstellen Sie benutzerdefinierte Überwachungsregeln:
 6. Wählen Sie Überwachungsbedingungen aus. Geben Sie Schwellenwerte ein, um benutzerdefinierte Schwellenwerte für das Generieren von Integritätsereignissen festzulegen. Sobald der Wert einer Bedingung den für Sie festgelegten Schwellenwert für das ausgewählte Netzwerk- oder Subnetzwerkpaar überschreitet, wird ein Integritätsereignis generiert. 
 7. Wählen Sie zum Speichern der Konfiguration **Speichern** aus. 
 
-Nachdem Sie eine Überwachungsregel gespeichert haben, können Sie diese Regel in die Warnungsverwaltung integrieren, indem Sie **Warnung erstellen** auswählen. Eine Warnungsregel wird automatisch mit der Suchabfrage erstellt. Andere erforderlichen Parameter werden automatisch ergänzt. Mithilfe einer Warnungsregel können Sie neben den vorhandenen Warnungen im Netzwerkleistungsmonitor auch E-Mail-basierte Warnungen erhalten. Warnungen können auch Problembehandlungsaktionen mit Runbooks auslösen oder mithilfe von Webhooks in vorhandene Dienstverwaltungslösungen integriert werden. Zum Bearbeiten der Warnungseinstellungen wählen Sie **Warnung verwalten** aus. 
+Nachdem Sie eine Überwachungsregel gespeichert haben, können Sie diese Regel in die Warnungsverwaltung integrieren, indem Sie **Warnung erstellen** auswählen. Eine Warnungsregel wird automatisch mit der Suchabfrage erstellt. Andere erforderlichen Parameter werden automatisch ergänzt. Mithilfe einer Warnungsregel können Sie neben den vorhandenen Warnungen im Netzwerkleistungsmonitor auch E-Mail-basierte Warnungen erhalten. Warnungen können auch Problembehandlungsaktionen mit Runbooks auslösen oder mithilfe von Webhooks mit vorhandenen Dienstverwaltungslösungen integriert werden. Zum Bearbeiten der Warnungseinstellungen wählen Sie **Warnung verwalten** aus. 
 
 Nun können Sie weitere Systemmonitorregeln erstellen oder zum Dashboard der Lösung wechseln, um die Funktion zu verwenden.
 
@@ -129,4 +132,3 @@ In der folgenden Abbildung werden die Grundursachen für die Problembereiche des
 
 ## <a name="next-steps"></a>Nächste Schritte
 Mit [Protokollsuchen](../log-query/log-query-overview.md) können Sie Detaildatensätze mit Netzwerkleistungsdaten anzeigen.
-

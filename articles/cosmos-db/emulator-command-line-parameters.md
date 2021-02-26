@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2579326e92144149472874611b5307920a93c049
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e0c795484bf860402d05c1dc5779633962a44ec2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031401"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979503"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Befehlszeilen- und PowerShell-Referenz für den Azure Cosmos DB-Emulator
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -75,10 +75,10 @@ Der Emulator bietet ein PowerShell-Modul zum Starten, Beenden und Deinstallieren
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-oder platzieren Sie das `PSModules`-Verzeichnis auf Ihrem `PSModulesPath`, und importieren Sie es wie in folgendem Befehl gezeigt:
+oder platzieren Sie das `PSModules`-Verzeichnis auf Ihrem `PSModulePath`, und importieren Sie es wie in folgendem Befehl gezeigt:
 
 ```powershell
-$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+$env:PSModulePath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
 Import-Module Microsoft.Azure.CosmosDB.Emulator
 ```
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664043"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576547"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Grundlegendes zu digitalen Zwillingen und zum zugehörigen Zwillingsgraphen
 
-In einer Azure Digital Twins-Lösung werden die Entitäten in Ihrer Umgebung durch **digitale Azure-Zwillinge** dargestellt. Ein digitaler Zwilling ist eine Instanz eines Ihrer benutzerdefinierten [Modelle](concepts-models.md). Er kann mit anderen digitalen Zwillingen über **Beziehungen** verbunden werden, um einen **Zwillingsgraphen** zu erhalten. Dieser Zwillingsgraph ist die Darstellung Ihrer gesamten Umgebung.
+In einer Azure Digital Twins-Lösung werden die Entitäten in Ihrer Umgebung durch **digitale Zwillinge** dargestellt. Ein digitaler Zwilling ist eine Instanz eines Ihrer benutzerdefinierten [Modelle](concepts-models.md). Er kann mit anderen digitalen Zwillingen über **Beziehungen** verbunden werden, um einen **Zwillingsgraphen** zu erhalten. Dieser Zwillingsgraph ist die Darstellung Ihrer gesamten Umgebung.
 
 > [!TIP]
 > „Azure Digital Twins“ ist der Name dieses Azure-Diensts. „Digitale Zwillinge“ oder einfach „Zwillinge“ bezieht sich einzelne Zwillingsknoten auf Ihrer Instanz des Diensts.
@@ -58,9 +58,9 @@ Sie können auch eine Hilfsklasse namens `BasicDigitalTwin` verwenden, um Eigens
 
 ### <a name="create-relationships"></a>Erstellen von Beziehungen
 
-Hier ist ein Beispiel für Clientcode angegeben, in dem die [DigitalTwins-APIs](/rest/api/digital-twins/dataplane/twins) verwendet werden, um eine Beziehung zwischen einem digitalen Zwilling vom Typ *Floor* (Etage) mit dem Namen *GroundFloor* und einem digitalen Zwilling vom Typ *Room* (Zimmer) mit dem Namen *Cafe* zu erstellen.
+Im Folgenden finden Sie Beispielclientcode, der die [DigitalTwins-APIs](/rest/api/digital-twins/dataplane/twins) verwendet, um eine Beziehung von einem digitalen Zwilling (dem „Quellzwilling“) zu einem anderen digitalen Zwilling (dem „Zielzwilling“) herzustellen.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>JSON-Darstellungen von Graphelementen
 

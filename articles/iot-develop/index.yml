@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Dokumentation zur Entwicklung von IoT-Geräten und -Anwendungen
+summary: Erkunden Sie die Azure IoT-Dokumentation zum Entwickeln eingebetteter Geräte und zum Erstellen gerätefähiger Cloudanwendungen.
+metadata:
+  title: Entwicklung von IoT-Geräten und -Anwendungen
+  description: Hier erfahren Sie, wie Sie mit Azure IoT eingebettete Geräte entwickeln und gerätefähige Cloudanwendungen erstellen.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656272"
+landingContent:
+- title: Informationen zur Entwicklung von IoT-Geräten und -Anwendungen
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Worum handelt es sich bei der Entwicklung von Azure IoT-Geräten und -Anwendungen?
+      url: about-iot-develop.md
+    - text: Welches SDK sollte ich verwenden?
+      url: about-iot-sdks.md
+- title: Erste Schritte bei der Entwicklung von Geräteanwendungen
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Senden von Gerätetelemetrie an IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Senden von Gerätetelemetrie an IoT Hub
+      url: quickstart-send-telemetry-cli-python.md
+- title: Erste Schritte bei der Entwicklung eingebetteter Geräte
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Erste Schritte bei der Entwicklung eingebetteter Geräte
+      url: quickstart-device-development.md

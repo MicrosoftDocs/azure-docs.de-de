@@ -2,13 +2,13 @@
 title: Importieren von Containerimages
 description: Importieren von Containerimages in eine Azure-Containerregistrierung mithilfe von Azure-APIs, ohne dass Docker-Befehle ausgeführt werden müssen
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019972"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988235"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importieren von Containerimages in eine Containerregistrierung
 
@@ -35,6 +35,11 @@ Damit Sie Containerimages importieren können, muss für diesen Artikel die Azur
 > [!NOTE]
 > Azure Container Registry unterstützt darüber hinaus die [Georeplikation](container-registry-geo-replication.md), falls Sie identische Containerimages auf mehrere Azure-Regionen verteilen müssen. Durch die Georeplikation einer Registrierung (Premium-Dienstebene erforderlich) können Sie in mehreren Regionen identische Image- und Tagnamen aus einer einzelnen Registrierung bereitstellen.
 >
+
+> [!IMPORTANT]
+> Änderungen am Imageimport zwischen zwei Azure Container Registry-Instanzen zum Januar 2021:
+> * Für den Import in eine Azure Container Registry-Instanz mit Netzwerkeinschränkungen oder aus dieser muss die eingeschränkte Registrierung das Umgehen des Netzwerks für den [**Zugriff durch vertrauenswürdige Dienste erlauben**](allow-access-trusted-services.md). Standardmäßig ist die Einstellung aktiviert und ermöglicht den Import. Wenn die Einstellung in einer neu erstellten Registrierung mit einem privaten Endpunkt oder mit Firewallregeln für die Registrierung nicht aktiviert ist, tritt beim Import ein Fehler auf. 
+> * Bei einer vorhandenen Azure Container Registry-Instanz mit Netzwerkeinschränkungen, die als Importquelle oder -ziel verwendet wird, ist die Aktivierung dieser Netzwerksicherheitsfunktion optional, wird jedoch empfohlen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -63,13 +68,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-Das folgende Beispiel importiert ein öffentliches Images aus dem Repository `tensorflow` in Docker Hub:
+Wenn Sie ein [Docker Hub-Konto](https://www.docker.com/pricing) haben, sollten Sie beim Importieren eines Images aus Docker Hub diese Anmeldeinformationen verwenden. Übergeben Sie den Docker Hub-Benutzernamen mit dem zugehörigen Kennwort oder ein [persönliches Zugriffstoken](https://docs.docker.com/docker-hub/access-tokens/) als Parameter an `az acr import`. Im folgenden Beispiel wird ein öffentliches Image aus dem Repository `tensorflow` mithilfe von Docker Hub-Anmeldeinformationen in Docker Hub importiert:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Importieren aus der Microsoft-Containerregistrierung
@@ -92,6 +99,8 @@ Mithilfe von integrierten Azure Active Directory-Berechtigungen können Sie ein 
 * Die Registrierung kann sich in dem gleichen oder einem anderen Azure-Abonnement im gleichen Active Directory-Mandanten befinden.
 
 * Der [öffentliche Zugriff](container-registry-access-selected-networks.md#disable-public-network-access) auf die Quellregistrierung kann deaktiviert werden. Wenn der öffentliche Zugriff deaktiviert ist, geben Sie die Quellregistrierung nach Ressourcen-ID anstelle des Servernamens der Registrierungsanmeldung an.
+
+* Wenn die Quell- oder Zielregistrierung über einen privaten Endpunkt verfügt oder Registrierungsfirewallregeln angewandt werden, stellen Sie sicher, dass die eingeschränkte Registrierung den Zugriff auf das Netzwerk [für vertrauenswürdige Dienste zulässt](allow-access-trusted-services.md).
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importieren aus einer Registrierung im gleichen Abonnement
 

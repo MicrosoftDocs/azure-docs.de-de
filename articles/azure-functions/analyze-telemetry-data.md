@@ -4,12 +4,12 @@ description: Hier erfahren Sie, wie Sie Azure Functions-Telemetriedaten anzeigen
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937296"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549557"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analysieren von Azure Functions-Telemetriedaten in Application Insights 
 
@@ -77,18 +77,18 @@ Klicken Sie auf **Protokolle**, um protokollierte Ereignisse zu durchsuchen oder
 
 Diese Abfragebeispiel zeigt Verteilung von Anforderungen pro Worker in den letzten 30 Minuten.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 Die verfügbaren Tabellen werden links auf der Registerkarte **Schema** angezeigt. Daten, die durch Funktionsaufrufe generiert wurden, sind in den folgenden Tabellen enthalten:
 
 | Tabelle | BESCHREIBUNG |
 | ----- | ----------- |
-| **traces** | Von der Runtime erstellte Protokolle und Ablaufverfolgungen für Ihren Funktionscode |
+| **traces** | Von der Runtime und dem Skalierungscontroller erstellte Protokolle und Ablaufverfolgungen für Ihren Funktionscode |
 | **requests** | Jeweils eine Anforderung pro Funktionsaufruf. |
 | **exceptions** | Alle Ausnahmen, die von der Laufzeit ausgelöst werden. |
 | **customMetrics** | Die Anzahl von erfolgreichen und nicht erfolgreichen Aufrufen, Erfolgsrate und Dauer. |
@@ -99,12 +99,38 @@ Die anderen Tabellen sind für Verfügbarkeitstests und Client/Browser-Telemetri
 
 In jeder Tabelle befinden sich einige der Functions-spezifischen Daten im Feld `customDimensions`.  Mit der folgenden Abfrage werden beispielsweise alle Ablaufverfolgungen mit der Protokollebene `Error` abgerufen.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 Die Runtime stellt die Felder `customDimensions.LogLevel` und `customDimensions.Category` zur Verfügung. Sie können zusätzliche Felder in Protokollen angeben, die Sie in Ihren Funktionscode schreiben. Ein Beispiel in C# finden Sie unter [Strukturierte Protokollierung](functions-dotnet-class-library.md#structured-logging) im Entwicklerleitfaden für .NET-Klassenbibliotheken.
+
+## <a name="query-scale-controller-logs"></a>Abfragen von Skalierungscontrollerprotokollen
+
+_Dieses Feature befindet sich in der Vorschauphase._
+
+Nachdem Sie sowohl die [Protokollierung des Skalierungscontrollers](configure-monitoring.md#configure-scale-controller-logs) als auch die [Application Insights-Integration](configure-monitoring.md#enable-application-insights-integration) aktiviert haben, können Sie mithilfe der Protokollsuche von Application Insights die ausgegebenen Skalierungscontrollerprotokolle abfragen. Die Skalierungscontrollerprotokolle werden in der Sammlung `traces` unter der Kategorie **ScaleControllerLogs** gespeichert.
+
+Mit der folgenden Abfrage können Sie nach allen Skalierungscontrollerprotokollen für die aktuelle Funktions-App im angegebenen Zeitraum suchen:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+Die folgende Abfrage erweitert die vorherige Abfrage, um zu veranschaulichen, wie Sie nur Protokolle anzeigen, die auf eine Änderung der Skalierung hinweisen:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Verbrauchstarifspezifische Metriken
 
@@ -113,6 +139,18 @@ Beim Ausführen mit einem [Verbrauchstarif](consumption-plan.md) werden die *Aus
 Die folgenden Telemetrieabfragen sind spezifisch für Metriken, die sich im Verbrauchstarif auf die Kosten für das Ausführen von Funktionen auswirken.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
+
+## <a name="azure-monitor-metrics"></a>Azure Monitor-Metriken
+
+Zusätzlich zu den von Application Insights erfassten Telemetriedaten können Sie auch Daten über die Ausführung von Funktions-Apps von den [Azure Monitor-Metriken](../azure-monitor/platform/data-platform-metrics.md) erhalten. Neben den herkömmlichen [für App Service-Apps verfügbaren Metriken](../app-service/web-sites-monitor.md#understand-metrics) gibt es zwei spezifische Metriken für Azure Functions, die interessant sind:
+
+| Metrik | BESCHREIBUNG |
+| ---- | ---- |
+| **FunctionExecutionCount** | Die Anzahl der Funktionsausführungen gibt an, wie oft Ihre Funktions-App ausgeführt wurde. Dies korreliert mit der Anzahl der Ausführung einer Funktion in Ihrer App. Diese Metrik für derzeit nicht für die App Service-Tarife Premium und Dedicated unter Linux unterstützt. |
+| **FunctionExecutionUnits** | Die Funktionsausführungseinheiten sind eine Kombination aus Ausführungszeit und der Arbeitsspeicherauslastung.  Arbeitsspeicherdaten sind keine aktuell in Azure Monitor verfügbare Metrik. Wenn Sie jedoch die Speichernutzung Ihrer App optimieren möchten, können Sie die von Application Insights erfassten Daten der Leistungsindikatoren verwenden. Diese Metrik für derzeit nicht für die App Service-Tarife Premium und Dedicated unter Linux unterstützt.|
+
+Weitere Informationen zum Berechnen der Kosten eines Verbrauchstarifs mithilfe von Application Insights-Daten finden Sie unter [Schätzen der Kosten des Verbrauchstarifs](functions-consumption-costs.md). Weitere Informationen über die Verwendung des Metrik-Explorers finden Sie unter [Erste Schritte mit dem Metrik-Explorer von Azure](../azure-monitor/platform/metrics-getting-started.md).
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

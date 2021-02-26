@@ -4,15 +4,15 @@ description: Enthält eine Beschreibung der Konzepte einer Lösung zur Überwach
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 229074ad97e6d066a358da19bbbd43158fe1d6fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3dad4aea56586444bd54ac47c0462232913e173f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586719"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831602"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Überwachung der Wasserqualität: Referenzarchitektur 
 Die Lösung für die Überwachung der Wasserqualität kann mit der **Azure IoT Central-App-Vorlage** als Einstieg in IoT-Anwendungen erstellt werden. Dieser Artikel enthält einen Leitfaden mit einer allgemeinen Referenzarchitektur für die Entwicklung einer Komplettlösung. 

@@ -5,360 +5,106 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a65b2ca4ba9f1912adeaf60df123bcd3c8833bd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: fc04242e61c748d7ae52e61e40206ba338a1b6aa
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496901"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071132"
 ---
 # <a name="coarse-relocalization"></a>Ungefähre Standortbestimmung
 
-Die ungefähre Standortbestimmung ist ein Feature, das eine vorläufige Antwort auf folgende Frage liefert: *Wo befindet sich mein Gerät gerade/Welche Inhalte sollte ich beobachten?* Die Antwort ist nicht präzise und weist das folgende Format auf: *Sie befinden sich in der nähe dieser Ankerpunkte. Versuchen Sie, einen von ihnen zu finden.*
+Die ungefähre Standortbestimmung ist ein Feature für die umfangreiche Lokalisierung, das eine ungefähre, aber schnelle Antwort auf die folgende Frage gibt: *Wo befindet sich mein Gerät gerade/Welche Inhalte sollte ich beobachten?* Die Antwort ist nicht präzise und weist das folgende Format auf: *Sie befinden sich in der nähe dieser Ankerpunkte. Versuchen Sie, einen von ihnen zu finden.*
 
-Bei der ungefähren Standortbestimmung werden verschiedene Sensormesswerte des Geräts zum Erstellen und Abfragen der Ankerpunkte zugeordnet. Bei Szenarios im Freien handelt es sich bei den Sensordaten üblicherweise um die GPS-Position des Geräts. Wenn GPS nicht verfügbar oder unzuverlässig ist (beispielsweise in Gebäuden), bestehen die Sensordaten aus den WLAN-Zugangspunkten und Bluetooth-Beacons in Reichweite. Alle gesammelten Sensordaten tragen zur Beibehaltung eines räumlichen Index bei, der von Azure Spatial Anchors verwendet wird, um die Ankerpunkte schnell zu ermitteln, die sich in Reichweite von ungefähr 100 Metern zu Ihrem Gerät befinden.
+Bei der ungefähren Standortbestimmung werden Anker mit verschiedenen Messungen geräteinterner Sensoren getaggt, die später für schnelle Abfragen dienen. Bei Szenarios im Freien handelt es sich bei den Sensordaten üblicherweise um die GPS-Position des Geräts. Wenn GPS nicht verfügbar oder unzuverlässig ist (beispielsweise in Gebäuden), bestehen die Sensordaten aus den WLAN-Zugangspunkten und Bluetooth-Beacons in Reichweite. Alle gesammelten Sensordaten werden in einen räumlichen Index aufgenommen, mit dem Azure Spatial Anchors schnell ermitteln kann, welche Ankerpunkte sich in Reichweite Ihres Geräts befinden.
 
-Die schnelle Suche nach Ankern, die durch die ungefähre Standortbestimmung aktiviert wird, vereinfacht die Entwicklung von Anwendungen, die von weltweiten Sammlungen von Ankerpunkten (Millionen geografisch verteilter Ankerpunkte) unterstützt werden. Die Komplexität der Ankerverwaltung ist vollkommen verborgen, was Ihnen ermöglicht, sich voll und ganz auf Ihre Anwendungslogik zu konzentrieren. Azure Spatial Anchors kümmert sich im Hintergrund um die ganze Arbeit mit den Ankern.
+## <a name="when-to-use-coarse-relocalization"></a>Anwendungsfälle der ungefähren Standortbestimmung
 
-## <a name="collected-sensor-data"></a>Erfasste Sensordaten
+Wenn Sie mehr als 35 Raumanker in einem Raum größer als ein Tennisplatz planen, ist die räumliche Indexierung der ungefähren Standortbestimmung wahrscheinlich genau das Richtige für Sie.
 
-Folgende Sensordaten können an den Ankerdienst übermittelt werden:
+Die durch die ungefähre Standortbestimmung ermöglichte schnelle Suche nach Ankern ist so konzipiert, dass sie die Entwicklung von Anwendungen vereinfacht, die von weltweiten Sammlungen von (Millionen geografisch verteilten) Ankerpunkten unterstützt werden. Die Komplexität der räumlichen Indexierung ist vollkommen verborgen, damit Sie sich voll und ganz auf Ihre Anwendungslogik konzentrieren können. Azure Spatial Anchors kümmert sich im Hintergrund um die ganze Arbeit mit den Ankern.
+
+## <a name="using-coarse-relocalization"></a>Verwenden der ungefähren Standortbestimmung
+
+Der typische Workflow zum Erstellen und Abfragen von Azure Spatial Anchors mit der ungefähren Standortbestimmung lautet wie folgt:
+1.  Erstellen und Konfigurieren eines Sensorfingerabdruckanbieters, um die Sensordaten Ihrer Wahl zu erfassen
+2.  Starten einer Azure Spatial Anchors-Sitzung und Erstellen von Ankern. Da der Sensorfingerabdruck aktiviert ist, werden die Anker räumlich von der ungefähren Standortbestimmung indiziert.
+3.  Abfragen der umliegenden Anker mit der ungefähren Standortbestimmung mithilfe der dedizierten Suchkriterien in der Azure Spatial Anchors-Sitzung
+
+In den folgenden Tutorials finden Sie Informationen zur Einrichtung der ungefähren Standortbestimmung für Ihre Anwendung:
+* [Ungefähre Standortbestimmung in Unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Ungefähre Standortbestimmung in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+* [Ungefähre Standortbestimmung in Swift](../how-tos/set-up-coarse-reloc-swift.md)
+* [Ungefähre Standortbestimmung in Java](../how-tos/set-up-coarse-reloc-java.md)
+* [Ungefähre Standortbestimmung in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+* [Ungefähre Standortbestimmung in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
+
+## <a name="sensors-and-platforms"></a>Sensoren und Plattformen
+
+### <a name="platform-availability"></a>Plattformverfügbarkeit
+
+Die Typen von Sensordaten, die an den Ankerdienst gesendet werden können, lauten wie folgt:
 
 * GPS-Position: Breitengrad, Längengrad und Höhe.
 * Signalstärke von WLAN-Zugangspunkten in Reichweite.
 * Signalstärke von Bluetooth-Beacons in Reichweite.
 
-Im Allgemeinen benötigt Ihre Anwendung gerätespezifische Berechtigungen für den Zugriff auf GPS-, WLAN- oder BLE-Daten. Darüber hinaus sind einige Sensordaten auf einigen Plattformen entwurfsbedingt nicht verfügbar. Zur Berücksichtigung dieser Situationen ist die Erfassung von Sensordaten optional und standardmäßig deaktiviert.
+In der folgenden Tabelle sind die Verfügbarkeit der Sensordaten auf unterstützten Plattformen sowie alle plattformspezifischen Einschränkungen dargestellt:
 
-## <a name="set-up-the-sensor-data-collection"></a>Einrichten der Erfassung von Sensordaten
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | NEIN<sup>1</sup>  | JA<sup>2</sup> | JA<sup>3</sup> |
+| **WiFi**        | JA<sup>4</sup> | JA<sup>5</sup> | Nein  |
+| **BLE-Beacons** | JA<sup>6</sup> | JA<sup>6</sup> | JA<sup>6</sup>|
 
-Zunächst erstellen Sie einen Anbieter für Fingerabdrucksensoren und machen die Sitzung darauf aufmerksam:
 
-# <a name="c"></a>[C#](#tab/csharp)
+<sup>1</sup> Ein externes GPS-Gerät kann mit HoloLens verknüpft werden. Wenden Sie sich an [unseren Support](../spatial-anchor-support.md), wenn Sie HoloLens mit einem GPS-Tracker verwenden möchten.<br/>
+<sup>2</sup> Wird von [LocationManager][3]-APIs unterstützt (sowohl GPS als auch NETWORK)<br/>
+<sup>3</sup> Wird von [CLLocationManager][4]-APIs unterstützt<br/>
+<sup>4</sup> Wird mit einer Häufigkeit von etwa einer Überprüfung alle drei Sekunden unterstützt <br/>
+<sup>5</sup> Ab API-Ebene 28 werden WLAN-Überprüfungen auf vier Aufrufe alle zwei Minuten gedrosselt. Ab Android 10 kann die Drosselung über das Menü „Entwicklereinstellungen“ deaktiviert werden. Weitere Informationen finden Sie in der [Android-Dokumentation][5].<br/>
+<sup>6</sup> Beschränkt auf [Eddystone][1] und [iBeacon][2]
 
-```csharp
-// Create the sensor fingerprint provider
-sensorProvider = new PlatformLocationProvider();
+### <a name="which-sensor-to-enable"></a>Der zu aktivierende Sensor
 
-// Create and configure the session
-cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
+Die Auswahl des Sensors ist abhängig von der Anwendung, die Sie entwickeln, und der Plattform.
+Das folgende Diagramm bietet eine Orientierungshilfe zu der Kombination von Sensoren, die je nach Lokalisierungsszenario aktiviert werden können:
 
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.LocationProvider = sensorProvider;
-```
+![Diagramm der Auswahl der aktivierten Sensoren](media/coarse-relocalization-enabling-sensors.png)
 
-# <a name="objc"></a>[ObjC](#tab/objc)
+In den folgenden Abschnitten erhalten Sie weitere Einblicke in die Vorteile und Einschränkungen der einzelnen Sensortypen.
 
-```objc
-// Create the sensor fingerprint provider
-ASAPlatformLocationProvider *sensorProvider;
-sensorProvider = [[ASAPlatformLocationProvider alloc] init];
+### <a name="gps"></a>GPS
 
-// Create and configure the session
-cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.locationProvider = sensorProvider;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-// Create the sensor fingerprint provider
-var sensorProvider: ASAPlatformLocationProvider?
-sensorProvider = ASAPlatformLocationProvider()
-
-// Create and configure the session
-cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession!.locationProvider = sensorProvider
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-// Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider = new PlatformLocationProvider();
-
-// Create and configure the session
-cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-// Create the sensor fingerprint provider
-std::shared_ptr<PlatformLocationProvider> sensorProvider;
-sensorProvider = std::make_shared<PlatformLocationProvider>();
-
-// Create and configure the session
-cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession->LocationProvider(sensorProvider);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-```cpp
-// Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider = PlatformLocationProvider();
-
-// Create and configure the session
-cloudSpatialAnchorSession = CloudSpatialAnchorSession();
-
-// Inform the session it can access sensor data from your provider
-cloudSpatialAnchorSession.LocationProvider(sensorProvider);
-```
----
-
-Anschließend müssen Sie entscheiden, welche Sensoren Sie für die ungefähre Standortbestimmung verwenden möchten. Diese Entscheidung ist von der Anwendung abhängig, die Sie entwickeln. Die im Folgenden aufgeführten Empfehlungen sollten Ihnen jedoch einen guten Ausgangspunkt vermitteln:
-
-|                 | In Gebäuden | Im Freien |
-|-----------------|---------|----------|
-| **GPS**         | Aus | Andererseits |
-| **WiFi**        | Andererseits | Aktiviert (optional) |
-| **BLE-Beacons** | Aktiviert (optional, mit Einschränkungen, siehe unten) | Aus |
-
-### <a name="enabling-gps"></a>Aktivieren von GPS
-
-Sofern Ihre Anwendung bereits über Berechtigungen für den Zugriff auf die GPS-Position des Geräts verfügt, können Sie Azure Spatial Anchors zur Verwendung dieser konfigurieren:
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.GeoLocationEnabled = true;
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.geoLocationEnabled = true;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.geoLocationEnabled = true
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setGeoLocationEnabled(true);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->GeoLocationEnabled(true);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors()
-sensors.GeoLocationEnabled(true);
-```
-
----
-
+GPS ist die Standardoption für Outdoorszenarios.
 Wenn Sie GPS in Ihrer Anwendung verwenden, sollten Sie beachten, dass die von der Hardware bereitgestellten Messwerte üblicherweise:
 
 * asynchron sind und eine niedrige Frequenz aufweisen (weniger als 1 Hz).
 * unzuverlässig bzw. ungenau sind (durschnittliche Standardabweichung von 7 m).
 
-Sowohl das Betriebssystem des Geräts als auch Azure Spatial Anchors führen Filterung und Extrapolierung des unformatierten GPS-Signals durch, um diese Probleme zu umgehen. Diese zusätzliche Verarbeitung erfordert Auflösungszeit. Zum Erzielen der besten Ergebnisse sollten Sie Folgendes versuchen:
+Sowohl das Betriebssystem des Geräts als auch Azure Spatial Anchors führen Filterung und Extrapolierung des unformatierten GPS-Signals durch, um diese Probleme zu umgehen. Diese zusätzliche Verarbeitung erfordert Zeit für die Annäherung. Zum Erzielen der besten Ergebnisse sollten Sie Folgendes versuchen:
 
 * Erstellen Sie den Anbieter für den Fingerabdrucksensor in Ihrer Anwendung so früh wie möglich.
 * Sorgen Sie dafür, dass der Anbieter für den Fingerabdrucksensor zwischen mehreren Sitzungen beibehalten wird.
 * Verwenden Sie den Anbieter für den Fingerabdrucksensor über mehrere Sitzungen hinweg.
 
-Wenn Sie planen, den Anbieter für den Fingerabdrucksensor außerhalb einer Ankersitzung zu verwenden, sollten Sie sicherstellen, dass Sie ihn starten, bevor Sie Sensorschätzungen anfordern. Beispielsweise kümmert sich der folgende Code um Echtzeitupdates der Position Ihres Geräts auf der Karte:
+GPS-Geräte für Verbraucher sind in der Regel ungenau. In einer Studie von [Zandenbergen und Barbeau (2011)][6] wurde eine durchschnittliche Genauigkeit von etwa 7 Metern bei Mobiltelefonen mit GPS (A-GPS) berichtet. Dieser Wert ist zu groß, als dass man ihn ignorieren könnte. Zur Berücksichtigung dieser Messfehler behandelt der Dienst die Anker als Wahrscheinlichkeitsverteilungen im GPS-Bereich. Daher bezeichnet ein Anker den Bereich eines Standorts, der höchstwahrscheinlich die tatsächliche, unbekannte GPS-Position enthält (d. h. mit einer Konfidenz von mehr als 95 %).
 
-# <a name="c"></a>[C#](#tab/csharp)
+Dieselbe Argumentation wird beim Abfragen mit GPS verwendet. Das Gerät wird als weiterer räumlicher Konfidenzbereich um die tatsächliche, unbekannte GPS-Position dargestellt. Die Ermittlung von Ankerpunkten in der Nähe bedeutet also, dass Ankerpunkte mit Konfidenzbereichen gefunden werden, die sich wie in der folgenden Abbildung gezeigt *nahe genug* am Konfidenzbereich des Geräts befinden:
 
-```csharp
-// Game about to start, start tracking the sensors
-sensorProvider.Start();
+![Auswahl von Ankerkandidaten mit GPS](media/coarse-reloc-gps-separation-distance.png)
 
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
+### <a name="wifi"></a>WLAN
 
-    // Paint it on the map
-    drawCircle(
-        x: geoPose.Longitude,
-        y: geoPose.Latitude,
-        radius: geoPose.HorizontalError);
-}
+In Innenräumen kann das WLAN-Signal eine gute Option für die ungefähre Standortbestimmung von HoloLens- und Android-Geräten sein.
+Sein Vorteil ist die potenzielle sofortige Verfügbarkeit von WLAN-Zugriffspunkten (kommt z. B. häufig in Büroräumen oder Einkaufszentren vor), ohne dass ein zusätzliches Setup erforderlich ist.
 
-// Game ended, no need to track the sensors anymore
-sensorProvider.Stop();
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-// Game about to start, start tracking the sensors
-[sensorProvider start];
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    ASAGeoLocation *geoPose = [sensorProvider getLocationEstimate];
-
-    // Paint it on the map
-    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError);
-}
-
-// Game ended, no need to track the sensors anymore
-[sensorProvider stop];
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-// Game about to start, start tracking the sensors
-sensorProvider?.start()
-
-// Game loop
-while m_isRunning
-{
-    // Get the GPS estimate
-    var geoPose: ASAGeoLocation?
-    geoPose = sensorProvider?.getLocationEstimate()
-
-    // Paint it on the map
-    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError)
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider?.stop()
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-// Game about to start, start tracking the sensors
-sensorProvider.start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.getLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose.getLongitude(), geoPose.getLatitude(), geoPose.getHorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider.stop();
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-// Game about to start, start tracking the sensors
-sensorProvider->Start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    std::shared_ptr<GeoLocation> geoPose = sensorProvider->GetLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose->Longitude(), geoPose->Latitude(), geoPose->HorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider->Stop();
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-// Game about to start, start tracking the sensors
-sensorProvider.Start();
-
-// Game loop
-while (m_isRunning)
-{
-    // Get the GPS estimate
-    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
-
-    // Paint it on the map
-    drawCircle(geoPose.Longitude(), geoPose.Latitude(), geoPose.HorizontalError());
-}
-
-// Game ended, no need to track the sensors anymore
-sensorProvider.Stop();
-```
-
----
-
-### <a name="enabling-wifi"></a>Aktivieren von WLAN
-
-Sofern Ihre Anwendung bereits über Berechtigungen für den Zugriff auf den WLAN-Status des Geräts verfügt, können Sie Azure Spatial Anchors zur Verwendung dieser konfigurieren:
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.WifiEnabled = true;
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.wifiEnabled = true;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.wifiEnabled = true
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setWifiEnabled(true);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->WifiEnabled(true);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors()
-sensors.WifiEnabled(true);
-```
-
----
+> [!NOTE]
+> iOS bietet keine API zum Lesen der WLAN-Signalstärke. Die ungefähre Standortbestimmung per WLAN ist unter iOS daher nicht möglich.
 
 Wenn Sie WLAN in Ihrer Anwendung verwenden, sollten Sie beachten, dass die von der Hardware bereitgestellten Messwerte üblicherweise:
 
@@ -371,280 +117,29 @@ Azure Spatial Anchors versucht während einer Sitzung, eine gefilterte Karte der
 * Erstellen Sie die Sitzung, bevor Sie den ersten Anker platzieren.
 * Behalten Sie die Sitzung so lange wie möglich bei (d. h., erstellen Sie alle Anker und Abfragen innerhalb einer Sitzung).
 
-### <a name="enabling-bluetooth-beacons"></a>Aktivieren von Bluetooth-Beacons
+### <a name="bluetooth-beacons"></a>Bluetooth-Beacons
+<a name="beaconsDetails"></a>
 
-Sofern Ihre Anwendung bereits über Berechtigungen für den Zugriff auf den Bluetooth-Status des Geräts verfügt, können Sie Azure Spatial Anchors zur Verwendung dieser konfigurieren:
+Die umsichtige Bereitstellung von Bluetooth-Beacons ist eine gute Lösung für die ungefähre Standortbestimmung in groß angelegten Innenräumen, in denen kein GPS-Signal empfangen wird oder das Signal ungenau ist. Es ist zudem die einzige Methode für Innenbereiche, die unter allen drei Plattformen unterstützt wird.
 
-# <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-sensorProvider.Sensors.BluetoothEnabled = true;
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.bluetoothEnabled = true;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-let sensors = locationProvider?.sensors
-sensors.bluetoothEnabled = true
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setBluetoothEnabled(true);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->BluetoothEnabled(true);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-SensorCapabilities sensors = sensorProvider.Sensors();
-sensors.BluetoothEnabled(true);
-```
-
----
-
-Beacons sind meist verschiedene Geräte, bei denen alles, einschließlich UUIDs und MAC-Adressen, konfiguriert werden kann. Diese Flexibilität kann sich für Azure Spatial Anchors als problematisch erweisen, da Beacons anhand ihrer UUIDs eindeutig identifiziert werden sollen. Wenn diese Eindeutigkeit nicht sichergestellt wird, kommt es wahrscheinlich zu Funklöchern. Für optimale Ergebnisse sollten Sie:
+Beacons sind meist verschiedene Geräte, bei denen alles, einschließlich UUIDs und MAC-Adressen, konfiguriert werden kann. Azure Spatial Anchors erwartet, dass Beacons durch ihre UUIDs eindeutig identifizierbar sind. Ist diese Eindeutigkeit nicht gegeben, kommt es wahrscheinlich zu falschen Ergebnissen. Für optimale Ergebnisse sollten Sie:
 
 * Ihren Beacons eindeutige UUIDs zuweisen.
-* Ihre Beacons in einem gleichmäßigen Muster installieren, beispielsweise in einem Raste.
-* die Liste der eindeutigen Beacon-UUIDs an den Anbieter für den Fingerabdrucksensor übergeben.
+* die Beacons gleichmäßig im Raum verteilt bereitstellen, sodass von jedem Standpunkt aus mindestens drei Beacons erreichbar sind
+* die Liste der eindeutigen Beacon-UUIDs an den Anbieter des Sensorfingerabdrucks übergeben
 
-# <a name="c"></a>[C#](#tab/csharp)
+Funksignale wie Bluetooth werden von physischen Hindernissen unterbrochen und können andere Radiosignale stören. Aus diesen Gründen kann es schwierig sein einzuschätzen, ob Ihr Raum einheitlich abgedeckt ist. Für eine höhere Kundenfreundlichkeit wird empfohlen, die Abdeckung Ihrer Beacons selbst manuell zu testen. Zu diesem Zweck können Sie mit Kandidatengeräten und einer Anwendung, die die Bluetooth-Signale in Reichweite anzeigt, durch Ihren Raum wandern. Vergewissern Sie sich beim Testen der Signalabdeckung, dass Sie von jeder strategischen Position in Ihrem Raum aus mindestens drei Beacons erreichen können. Wenn Sie zu viele Beacons einrichten, können diese sich gegenseitig stören. Viele Beacons führen also nicht notwendigerweise zu einer höheren Genauigkeit der ungefähren Standortbestimmung.
 
-```csharp
-sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
-{
-    "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1",
-    "a63819b9-8b7b-436d-88ec-ea5d8db2acb0",
-    . . .
-};
-```
+Bluetooth-Beacons verfügen in der Regel über eine Abdeckung von 80 Metern, wenn der Raum keine Hindernisse enthält.
+Dies bedeutet, dass Beacons in einem Raum ohne große Hindernisse alle 40 Meter in einem Raster bereitgestellt werden können.
 
-# <a name="objc"></a>[ObjC](#tab/objc)
+Ein Beacon, der nur noch wenig Akku hat, wirkt sich negativ auf die Ergebnisse aus. Überwachen Sie die Bereitstellung daher in regelmäßigen Abständen auf niedrige Akkustände oder leere Batterien.
 
-```objc
-NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
+Azure Spatial Anchors verfolgt nur Bluetooth-Beacons, die in der Liste bekannter Beacon-UUIDs aufgeführt werden. Schädliche Beacons können jedoch so programmiert sein, dass sie ebenfalls zugelassene UUIDs aufweisen, und sich negativ auf die Dienstqualität auswirken. Aus diesem Grund erzielen Sie optimale Ergebnisse in kuratierten Räumen, in denen Sie die Bereitstellung von Beacons steuern können.
 
-ASASensorCapabilities *sensors = locationProvider.sensors;
-sensors.knownBeaconProximityUuids = uuids;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-let uuids = [String]()
-uuids.append("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1")
-uuids.append("a63819b9-8b7b-436d-88ec-ea5d8db2acb0")
-
-let sensors = locationProvider?.sensors
-sensors.knownBeaconProximityUuids = uuids
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-String uuids[] = new String[2];
-uuids[0] = "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1";
-uuids[1] = "a63819b9-8b7b-436d-88ec-ea5d8db2acb0";
-
-SensorCapabilities sensors = sensorProvider.getSensors();
-sensors.setKnownBeaconProximityUuids(uuids);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-std::vector<std::string> uuids;
-uuids.push_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
-uuids.push_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
-
-const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
-sensors->KnownBeaconProximityUuids(uuids);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-std::vector<winrt::hstring> uuids;
-uuids.emplace_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
-uuids.emplace_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
-
-SensorCapabilities sensors = sensorProvider.Sensors();
-sensors.KnownBeaconProximityUuids(uuids);
-```
-
----
-
-Azure Spatial Anchors verfolgt nur Bluetooth-Beacons, die in der Liste bekannter Beacon-UUIDs aufgeführt werden. Schädliche Beacons, die mit UUIDs in der Zulassungsliste programmiert wurden, können sich weiterhin negativ auf die Qualität des Diensts auswirken. Daher sollten Sie Beacons nur in sicheren Bereichen verwenden, bei denen Sie ihre Installation kontrollieren können.
-
-## <a name="querying-with-sensor-data"></a>Abfragen mit Sensordaten
-
-Sobald Sie Anker mit zugeordneten Sensordaten erstellt haben, können Sie sie anhand der Sensormessungen abrufen, die das Gerät meldet. Es ist nicht mehr erforderlich, dem Dienst eine Liste bekannter Anker bereitzustellen, die Sie erwarten. Stattdessen teilen Sie dem Dienst den Standort Ihres Geräts mit, der von den integrierten Sensoren gemeldet wird. Azure Spatial Anchors ermittelt dann die Anker in der Nähe Ihres Geräts und versucht, diese visuell abzugleichen.
-
-Erstellen Sie zunächst ein Kriterium für „nahe Geräte“, damit Abfragen die Sensordaten verwenden:
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.DistanceInMeters = 5;
-
-// Cap the number of anchors returned
-nearDeviceCriteria.MaxResultCount = 25;
-
-anchorLocateCriteria = new AnchorLocateCriteria();
-anchorLocateCriteria.NearDevice = nearDeviceCriteria;
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.distanceInMeters = 5.0f;
-
-// Cap the number of anchors returned
-nearDeviceCriteria.maxResultCount = 25;
-
-ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc] init];
-anchorLocateCriteria.nearDevice = nearDeviceCriteria;
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-let nearDeviceCriteria = ASANearDeviceCriteria()!
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.distanceInMeters = 5.0
-
-// Cap the number of anchors returned
-nearDeviceCriteria.maxResultCount = 25
-
-let anchorLocateCriteria = ASAAnchorLocateCriteria()!
-anchorLocateCriteria.nearDevice = nearDeviceCriteria
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.setDistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria.setMaxResultCount(25);
-
-AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
-anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria->DistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria->MaxResultCount(25);
-
-auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
-anchorLocateCriteria->NearDevice(nearDeviceCriteria);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
-
-// Choose a maximum exploration distance between your device and the returned anchors
-nearDeviceCriteria.DistanceInMeters(5.0f);
-
-// Cap the number of anchors returned
-nearDeviceCriteria.MaxResultCount(25);
-
-// Set the session's locate criteria
-anchorLocateCriteria = AnchorLocateCriteria();
-anchorLocateCriteria.NearDevice(nearDeviceCriteria);
-```
-
----
-
-Der `DistanceInMeters`-Parameter steuert, wie weit der Ankergraph zum Abrufen von Inhalten untersucht wird. Angenommen, Sie haben für Ihre Instanz einen Bereich mit Ankern mit einem regelmäßigen Abstand von 2 Metern ausgestattet. Außerdem befindet ein einzelner Anker im Sichtfeld der Kamera des Geräts, den das Gerät erfolgreich gefunden hat. Sie sind wahrscheinlich daran interessiert, anstelle des einzelnen Ankers, den Sie gerade beobachten, alle in der Nähe platzierten Anker abzurufen. Angenommen, die platzierten Anker sind in einem Graph verbunden, dann kann der Dienst alle Anker in der Nähe für Sie abrufen, indem er den Rändern des Graphs folgt. Die durchlaufene Graph-Strecke wird von `DistanceInMeters` vorgegeben. Es werden Ihnen alle Anker zurückgegeben, die mit dem gefundenen verbunden sind und sich näher als der Wert von `DistanceInMeters` befinden.
-
-Denken Sie daran, dass sich hohe Werte bei `MaxResultCount` negativ auf die Leistung auswirken können. Legen Sie einen sinnvollen Wert für Ihre Anwendung fest.
-
-Zuletzt müssen Sie die Sitzung anweisen, die sensorbasierte Suche zu verwenden:
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
-```
-
-# <a name="objc"></a>[ObjC](#tab/objc)
-
-```objc
-[cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```java
-cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
-```
-
-# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
-
-```cpp
-cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
-```
-
-# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
-
-```cpp
-cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
-```
-
----
-
-## <a name="expected-results"></a>Erwartete Ergebnisse
-
-GPS-Geräte für Verbraucher sind in der Regel recht ungenau. In einer Studie von [Zandenbergen und Barbeau (2011)][6] wurde eine durchschnittliche Genauigkeit von etwa 7 Metern bei Mobiltelefonen mit GPS (A-GPS) berichtet. Dieser Wert ist zu groß, als dass man ihn ignorieren könnte. Zur Berücksichtigung dieser Messfehler behandelt der Dienst die Anker als Wahrscheinlichkeitsverteilungen im GPS-Bereich. Daher bezeichnet ein Anker den Bereich eines Standorts, der höchstwahrscheinlich die tatsächliche, unbekannte GPS-Position enthält (d. h. mit einer Konfidenz von mehr als 95 %).
-
-Dieselbe Argumentation wird beim Abfragen mit GPS verwendet. Das Gerät wird als weiterer räumlicher Konfidenzbereich um die tatsächliche, unbekannte GPS-Position dargestellt. Die Ermittlung von Ankerpunkten in der Nähe bedeutet also, dass Ankerpunkte mit Konfidenzbereichen gefunden werden, die sich wie in der folgenden Abbildung gezeigt *nahe genug* am Konfidenzbereich des Geräts befinden:
-
-![Auswahl von Ankerkandidaten mit GPS](media/coarse-reloc-gps-separation-distance.png)
+### <a name="sensors-accuracy"></a>Sensorgenauigkeit
 
 Die Genauigkeit des GPS-Signals hat sowohl bei der Erstellung von Ankern als auch bei Abfragen eine große Auswirkung auf die zurückgegebenen Anker. Im Gegensatz dazu berücksichtigen Abfragen, die auf WLAN oder Beacons basieren, alle Anker mit mindestens einem Zugangspunkt oder Beacon, der mit der Abfrage übereinstimmt. In diesem Sinne wird das Ergebnis einer Abfrage, die auf WLAN oder Beacons basiert, größtenteils von der physischen Reichweite der Zugangspunkte oder Beacons und Hindernissen in der Umgebung beeinflusst.
-
 In der folgenden Tabelle wird der erwartete Suchbereich für jeden Sensortyp geschätzt:
 
 | Sensor      | Suchbereichsradios (ungefähr) | Details |
@@ -652,38 +147,6 @@ In der folgenden Tabelle wird der erwartete Suchbereich für jeden Sensortyp ges
 | GPS         | 20 bis 30 m | Wird unabhängig von anderen Faktoren durch GPS bestimmt. Die gemeldeten Werte werden für die durchschnittliche GPS-Genauigkeit von Mobiltelefonen mit A-GPS geschätzt (7 Meter). |
 | WLAN        | 50 bis 100 m | Wird von der Reichweite der WLAN-Zugangspunkte bestimmt. Wird von der Frequenz, Signalstärke, physischen Hindernissen, Interferenzen usw. beeinträchtigt. |
 | BLE-Beacons |  70 m | Wird von der Reichweite des Beacons bestimmt. Wird von der Frequenz, Signalstärke, physischen Hindernissen, Interferenzen usw. beeinträchtigt. |
-
-## <a name="per-platform-support"></a>Plattformspezifische Unterstützung
-
-In der folgenden Tabelle werden die Sensordaten, die von den einzelnen unterstützten Plattformen unterstützt werden, sowie alle plattformspezifischen Einschränkungen zusammengefasst:
-
-|                 | HoloLens | Android | iOS |
-|-----------------|----------|---------|-----|
-| **GPS**         | – | Wird von [LocationManager][3]-APIs unterstützt (sowohl GPS als auch NETWORK). | Wird von [CLLocationManager][4]-APIs unterstützt. |
-| **WiFi**        | Wird mit einer Rate von etwa einer Überprüfung alle drei Sekunden unterstützt. | Unterstützt. Ab API-Ebene 28, werden WLAN-Überprüfungen auf vier Aufrufe alle 2 Minuten gedrosselt. Ab Android 10 kann die Drosselung über das Menü „Entwicklereinstellungen“ deaktiviert werden. Weitere Informationen finden Sie in der [Android-Dokumentation][5]. | Nicht vorhanden – keine öffentliche API |
-| **BLE-Beacons** | Beschränkt auf [Eddystone][1] und [iBeacon][2] | Beschränkt auf [Eddystone][1] und [iBeacon][2] | Beschränkt auf [Eddystone][1] und [iBeacon][2] |
-
-## <a name="next-steps"></a>Nächste Schritte
-
-Verwenden Sie die ungefähre Standortbestimmung in einer App.
-
-> [!div class="nextstepaction"]
-> [Unity](../how-tos/set-up-coarse-reloc-unity.md)
-
-> [!div class="nextstepaction"]
-> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
-
-> [!div class="nextstepaction"]
-> [Swift](../how-tos/set-up-coarse-reloc-swift.md)
-
-> [!div class="nextstepaction"]
-> [Java](../how-tos/set-up-coarse-reloc-java.md)
-
-> [!div class="nextstepaction"]
-> [C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
-
-> [!div class="nextstepaction"]
-> [C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
 <!-- Reference links in article -->
 [1]: https://developers.google.com/beacons/eddystone

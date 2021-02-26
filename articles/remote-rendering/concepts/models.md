@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff69486ab24c999e40b0afc13c91d6f729c352a0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0d1e66d09db3e3934871ed15493feb685d1cbe6a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206559"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593873"
 ---
 # <a name="models"></a>Modelle
 
@@ -36,94 +36,105 @@ Nachdem ein Modell konvertiert wurde, kann es aus Azure-Blobspeicher in die Runt
 
 Es gibt zwei unterschiedliche Ladefunktionen, die sich danach unterscheiden, wie die Ressource im Blobspeicher hinterlegt ist:
 
-* Auf das Modell kann über den SAS-URI zugegriffen werden. Die relevante Ladefunktion ist `LoadModelFromSASAsync` mit dem Parameter `LoadModelFromSASParams`. Nutzen Sie diese Variante auch beim Laden von [integrierten Modellen](../samples/sample-model.md).
-* Auf das Modell kann direkt über Blobspeicherparameter zugegriffen werden (vorausgesetzt, der [Blobspeicher ist mit dem Konto verknüpft](../how-tos/create-an-account.md#link-storage-accounts)). In diesem Fall ist `LoadModelAsync` mit dem Parameter `LoadModelParams` die relevante Ladefunktion.
+* Auf das Modell kann direkt über Blobspeicherparameter zugegriffen werden (vorausgesetzt, der [Blobspeicher ist mit dem Konto verknüpft](../how-tos/create-an-account.md#link-storage-accounts)). In diesem Fall ist `LoadModelAsync` mit dem Parameter `LoadModelOptions` die relevante Ladefunktion.
+* Auf das Modell kann über den SAS-URI zugegriffen werden. Die relevante Ladefunktion ist `LoadModelFromSasAsync` mit dem Parameter `LoadModelFromSasOptions`. Nutzen Sie diese Variante auch beim Laden von [integrierten Modellen](../samples/sample-model.md).
 
-Die folgenden Codeausschnitte veranschaulichen das Laden von Modellen mit den Funktionen. Verwenden Sie beispielsweise folgenden Code, um ein Modell mit dem SAS-URI zu laden:
+Die folgenden Codeausschnitte veranschaulichen das Laden von Modellen mit den Funktionen. Um ein Modell mithilfe seiner Blobspeicherparameter zu laden, verwenden Sie einen Code wie den folgenden:
 
-```csharp
-async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
+
+```cs
+async void LoadModel(RenderingSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
 {
     // load a model that will be parented to modelParent
-    var modelParams = new LoadModelFromSASParams(modelUri, modelParent);
-
-    var loadOp = session.Actions.LoadModelFromSASAsync(modelParams);
-
-    loadOp.ProgressUpdated += (float progress) =>
-    {
-        Debug.Log($"Loading: {progress * 100.0f}%");
-    };
-
-    await loadOp.AsTask();
-}
-```
-
-```cpp
-ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
-{
-    LoadModelFromSASParams modelParams;
-    modelParams.ModelUrl = modelUri;
-    modelParams.Parent = modelParent;
-
-    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
-
-    loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
-    {
-        printf("Loading: finished.");
-    });
-    loadOp->ProgressUpdated([](float progress)
-    {
-        printf("Loading: %.1f%%", progress*100.f);
-    });
-
-    return loadOp;
-}
-```
-
-Verwenden Sie Code wie im folgenden Codeausschnitt, wenn Sie ein Modell laden möchten, indem Sie direkt die Blobspeicherparameter verwenden:
-
-```csharp
-async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
-{
-    // load a model that will be parented to modelParent
-    var modelParams = new LoadModelParams(
+    var modelOptions = new LoadModelOptions(
         storageAccount, // storage account name + '.blob.core.windows.net', e.g., 'mystorageaccount.blob.core.windows.net'
         containerName,  // name of the container in your storage account, e.g., 'mytestcontainer'
         assetFilePath,  // the file path to the asset within the container, e.g., 'path/to/file/myAsset.arrAsset'
         modelParent
     );
 
-    var loadOp = session.Actions.LoadModelAsync(modelParams);
+    var loadOp = session.Connection.LoadModelAsync(modelOptions, (float progress) =>
+    {
+        Debug.WriteLine($"Loading: {progress * 100.0f}%");
+    });
 
-    // ... (identical to the SAS URI snippet above)
+    await loadOp;
 }
 ```
 
 ```cpp
-ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
 {
-    LoadModelParams modelParams;
-    modelParams.Parent = modelParent;
-    modelParams.Blob.StorageAccountName = std::move(storageAccount);
-    modelParams.Blob.BlobContainerName = std::move(containerName);
-    modelParams.Blob.AssetPath = std::move(assetFilePath);
+    LoadModelOptions modelOptions;
+    modelOptions.Parent = modelParent;
+    modelOptions.Blob.StorageAccountName = std::move(storageAccount);
+    modelOptions.Blob.BlobContainerName = std::move(containerName);
+    modelOptions.Blob.AssetPath = std::move(assetFilePath);
 
-    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
-    // ... (identical to the SAS URI snippet above)
+    ApiHandle<LoadModelResult> result;
+    session->Connection()->LoadModelAsync(modelOptions,
+        // completion callback
+        [](Status status, ApiHandle<LoadModelResult> result)
+        {
+            printf("Loading: finished.");
+        },
+        // progress callback
+        [](float progress)
+        {
+            printf("Loading: %.1f%%", progress * 100.f);
+        }
+    );
+}
+```
+
+Wenn Sie ein Modell mithilfe eines SAS-Tokens laden möchten, verwenden Sie einen Code ähnlich dem folgenden Codeausschnitt:
+
+```cs
+async void LoadModel(RenderingSession session, Entity modelParent, string modelUri)
+{
+    // load a model that will be parented to modelParent
+    var modelOptions = new LoadModelFromSasOptions(modelUri, modelParent);
+
+    var loadOp = session.Connection.LoadModelFromSasAsync(modelOptions, (float progress) =>
+    {
+        Debug.WriteLine($"Loading: {progress * 100.0f}%");
+    });
+
+    await loadOp;
+}
+```
+
+```cpp
+void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+{
+    LoadModelFromSasOptions modelOptions;
+    modelOptions.ModelUri = modelUri;
+    modelOptions.Parent = modelParent;
+
+    ApiHandle<LoadModelResult> result;
+    session->Connection()->LoadModelFromSasAsync(modelOptions,
+        // completion callback
+        [](Status status, ApiHandle<LoadModelResult> result)
+        {
+            printf("Loading: finished.");
+        },
+        // progress callback
+        [](float progress)
+        {
+            printf("Loading: %.1f%%", progress * 100.f);
+        }
+    );
 }
 ```
 
 Anschließend können Sie die Entitätshierarchie durchlaufen und die Entitäten und Komponenten ändern. Beim mehrfachen Laden desselben Modells werden mehrere Instanzen erstellt, die jeweils über eine eigene Kopie der Struktur mit Entitäten bzw. Komponenten verfügen. Da es sich bei Gittermodellen, Materialien und Texturen um [gemeinsam verwendete Ressourcen](../concepts/lifetime.md) handelt, werden die entsprechenden Daten aber nicht noch einmal geladen. Aus diesem Grund fällt für das mehrmalige Instanziieren eines Modells relativ wenig Mehraufwand in Bezug auf den Arbeitsspeicher an.
 
-> [!CAUTION]
-> Von allen *Async*-Funktionen in ARR werden asynchrone Vorgangsobjekte zurückgegeben. Sie müssen einen Verweis auf diese Objekte speichern, bis der Vorgang abgeschlossen ist. Andernfalls wird der Vorgang vom C# Garbage Collector unter Umständen zu einem frühen Zeitpunkt gelöscht und kann nicht beendet werden. Im obigen Beispielcode wird mit *await* sichergestellt, dass die lokale Variable „loadOp“ einen Verweis enthält, bis das Laden von Modellen abgeschlossen ist. Falls Sie stattdessen das Element *Completed* verwenden, müssen Sie den asynchronen Vorgang aber in einer Membervariablen speichern.
-
 ## <a name="api-documentation"></a>API-Dokumentation
 
-* [C# RemoteManager.LoadModelAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
-* [C# RemoteManager.LoadModelFromSASAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
-* [C++ RemoteManager::LoadModelAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelasync)
-* [C++ RemoteManager::LoadModelFromSASAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+* [C# RenderingConnection.LoadModelAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelasync)
+* [C# RenderingConnection.LoadModelFromSasAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelfromsasasync)
+* [C++ RenderingConnection::LoadModelAsync()](/cpp/api/remote-rendering/renderingconnection#loadmodelasync)
+* [C++ RenderingConnection::LoadModelFromSasAsync()](/cpp/api/remote-rendering/renderingconnection#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,14 +1,14 @@
 ---
 title: 'Schnellstart: Erstellen einer Blaupause mit Azure CLI'
 description: In dieser Schnellstartanleitung verwenden Sie Azure Blueprint, um Artefakte mithilfe der Azure CLI zu erstellen, zu definieren und bereitzustellen.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875193"
+ms.locfileid: "98920239"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Schnellstart: Definieren und Zuweisen einer Azure-Blaupause mit der Azure CLI
 
@@ -167,6 +167,9 @@ Im ersten Schritt beim Definieren eines Standardmusters für die Konformität wi
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Ersetzen Sie bei Verwendung von `az blueprint` auf einem Macintosh für Parameterwerte, die eine Pfadangabe erhalten, `\` durch `/`. In unserem Fall wird der Wert für **parameters** zu `artifacts/policyTags.json`.
+
 1. Fügen Sie eine weitere Richtlinienzuweisung für das Storage-Tag (unter Wiederverwendung des Parameters _storageAccountType_) für das Abonnement hinzu. Dieses zusätzliche Artefakt der Richtlinienzuweisung veranschaulicht, dass ein für die Blaupause definierter Parameter von mehreren Artefakten verwendet werden kann. In dem Beispiel wird **storageAccountType** verwendet, um ein Tag für die Ressourcengruppe festzulegen. Dieser Wert stellt Informationen zum im nächsten Schritt erstellten Speicherkonto bereit. In diesem Beispiel wird die integrierte Richtlinie _Tag und dessen Standardwert auf Ressourcengruppen anwenden_ mit der `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` verwendet.
 
    - JSON-Datei: artifacts\policyStorageTags.json
@@ -193,6 +196,9 @@ Im ersten Schritt beim Definieren eines Standardmusters für die Konformität wi
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Ersetzen Sie bei Verwendung von `az blueprint` auf einem Macintosh für Parameterwerte, die eine Pfadangabe erhalten, `\` durch `/`. In unserem Fall wird der Wert für **parameters** zu `artifacts/policyStorageTags.json`.
 
 1. Fügen Sie eine Vorlage unter der Ressourcengruppe hinzu. Der Parameter **template** für eine ARM-Vorlage enthält die normale JSON-Komponente der Vorlage. Darüber hinaus verwendet die Vorlage auch die Vorlagenparameter **storageAccountType**, **tagName** und **tagValue** wieder, indem sie jeweils an die Vorlage übergeben werden. Die Blaupausenparameter werden für die Vorlage mithilfe des Parameters **parameters** bereitgestellt, und innerhalb des JSON-Codes der Vorlage wird der Wert mithilfe dieses Schlüssel-Wert-Paars eingefügt. Die Namen des Blaupausen- und des Vorlagenparameters können identisch sein.
 
@@ -276,6 +282,9 @@ Im ersten Schritt beim Definieren eines Standardmusters für die Konformität wi
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Ersetzen Sie bei Verwendung von `az blueprint` auf einem Macintosh für Parameterwerte, die eine Pfadangabe erhalten, `\` durch `/`. In unserem Fall wird der Wert für **template** zu `artifacts/templateStorage.json` und für **parameters** zu `artifacts/templateStorageParams.json`.
 
 1. Fügen Sie eine Rollenzuweisung unter der Ressourcengruppe hinzu. Ähnlich wie beim vorherigen Rollenzuweisungseintrag wird im folgenden Beispiel der Definitionsbezeichner für die Rolle **Besitzer** verwendet und dafür ein anderer Parameter aus der Blaupause angegeben. In diesem Beispiel wird die integrierte Rolle _Besitzer_ mit der GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` verwendet.
 

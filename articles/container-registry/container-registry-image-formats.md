@@ -3,12 +3,12 @@ title: Unterstützte Inhaltsformate
 description: Erfahren Sie mehr über die von Azure Container Registry unterstützten Inhaltsformate, einschließlich Docker-kompatibler Containerimages, Helm-Diagramme, OCI-Images und OCI-Artefakte.
 ms.topic: article
 ms.date: 08/30/2019
-ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84695265"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008331"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>In Azure Container Registry unterstützte Inhaltsformate
 
@@ -20,11 +20,11 @@ Die folgenden Formate für Docker-Containerimages werden unterstützt:
 
 * [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) – enthält Manifestlisten, die es Registrys ermöglichen, Images von mehreren Plattformen unter einem einzigen Verweis „image:tag“ zu speichern
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/): enthält Manifestlisten, die es Registrierungen ermöglichen, [Images mehrerer Architekturen](push-multi-architecture-images.md) unter einem einzigen `image:tag`-Verweis zu speichern
 
 ## <a name="oci-images"></a>OCI-Images
 
-Azure Container Registry unterstützt Images, die der [Spezifikation für das Imageformat der Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md) entsprechen. Zu Verpackungsformaten zählt das Format [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry unterstützt Images, die der [Spezifikation für das Imageformat der Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md) entsprechen, einschließlich der optionalen Spezifikation für [Indizes von Images](https://github.com/opencontainers/image-spec/blob/master/image-index.md). Zu Packformaten zählt das Format [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## <a name="oci-artifacts"></a>OCI-Artefakte
 
@@ -42,7 +42,7 @@ Azure Container Registry kann Repositorys für [Helm-Diagramme](https://helm.sh/
 
 * Verwenden Sie [ACR-Aufgaben](container-registry-tasks-overview.md), um Containerimages zu erstellen und zu testen. 
 
-* Verwenden Sie das [Moby BuildKit](https://github.com/moby/buildkit) zum Erstellen und Verpacken von Containern im OCI-Format.
+* Verwenden Sie das [Moby BuildKit](https://github.com/moby/buildkit) zum Erstellen und Packen von Containern im OCI-Format.
 
 * Richten Sie ein [Helm-Repository](container-registry-helm-repos.md) ein, dass in Azure Container Registry gehostet wird. 
 

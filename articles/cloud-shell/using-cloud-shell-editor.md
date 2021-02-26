@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60199209"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832334"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Verwenden des Azure Cloud Shell-Editors
 
@@ -52,5 +52,6 @@ Um die Befehlspalette zu starten, verwenden Sie die `F1`-Taste, wenn der Editor 
 Die Sprachhervorhebung im Cloud Shell-Editor wird über die Upstreamfunktionalität in der Nutzung der Monarch-Syntaxdefinitionen durch den [Monaco-Editor](https://github.com/Microsoft/monaco-editor) unterstützt. Wie Sie Ihren Beitrag leisten können, erfahren Sie im [Leitfaden für die Mitwirkung am Monaco-Editor](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Versuchen Sie den Schnellstart für Bash in Cloud Shell](quickstart.md)
-[Zeigen Sie die vollständige Liste der integrierten Tools von Cloud Shell an](features.md)
+
+- [Schnellstart für Bash in Azure Cloud Shell](quickstart.md)
+- [Features und Tools für Azure Cloud Shell](features.md)

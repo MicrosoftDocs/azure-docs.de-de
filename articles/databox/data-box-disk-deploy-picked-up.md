@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029888"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526295"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Stellen Sie zunächst sicher, dass Sie die Schritte unter [Tutorial: Kopieren von Daten auf die Azure Data Box Disk und Durchführen der Überprüfung](data-box-disk-deploy-copy-data.md).
+Stellen Sie zunächst sicher, dass Sie die Schritte unter [Tutorial: Kopieren von Daten auf die Azure Data Box Disk und Durchführen der Überprüfung](data-box-disk-deploy-copy-data.md) ausgeführt haben.
 
 ## <a name="ship-data-box-disk-back"></a>Zurücksenden des Data Box-Datenträgers
 
@@ -83,7 +83,7 @@ Wenn Sie das Gerät in Europa oder im Vereinigten Königreich zurückgeben möch
 
 Bei Azure-Datencentern in Australien ist aus Sicherheitsgründen eine zusätzliche Benachrichtigung erforderlich. Alle eingehenden Lieferungen müssen vorab angekündigt werden. Gehen Sie für eine Abholung in Australien wie folgt vor:
 
-1. Verwenden Sie das bereitgestellte Etikett für den Rückversand, und vergewissern Sie sich, dass darauf der TAU-Code (Referenznummer) vermerkt ist. Sollte das bereitgestellte Adressetikett fehlen oder ein anderes Problem auftreten, senden Sie eine E-Mail an [Data Box Asia Operations](mailto:adbo@microsoft.com). Geben Sie in der Betreffzeile den Auftragsnamen sowie Einzelheiten zum aufgetretenen Problem an.
+1. Verwenden Sie das bereitgestellte Etikett für den Rückversand, und vergewissern Sie sich, dass darauf der TAU-Code (Referenznummer) vermerkt ist. Sollte das bereitgestellte Adressetikett fehlen oder ein anderes Problem auftreten, senden Sie eine E-Mail an [Data Box Asia Operations](mailto:adbo@microsoft.com). Geben Sie in der Betreffzeile den Auftragsnamen sowie Einzelheiten zum Problem an.
 2. Bringen Sie das Etikett am Box-Gerät an.
 3. Reservieren Sie online unter https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference einen Abholtermin.
 
@@ -119,12 +119,12 @@ Den Support von Quantium Solution erreichen Sie bei Bedarf wie folgt (in japanis
 1. Legen Sie den Rücksendeschein bei.
 2. Gehen Sie zum Anfordern der Abholung wie folgt vor, wenn der Rücksendeschein vorliegt:
     1. Rufen Sie unter 070-8231-1418 die Hotline von *Quantium Solutions International* an (Geschäftszeiten: Montag bis Freitag, 10 bis 17 Uhr). Geben Sie *Microsoft Azure Pickup* (Microsoft Azure-Abholung) und die Service Request-Nummer an, um eine Abholung zu veranlassen.  
-    2. Ist die Hotline überlastet, senden Sie eine E-Mail`microsoft@rocketparcel.com` mit dem Betreff *Microsoft Azure Pickup* und der Service Request-Nummer an.
+    2. Ist die Hotline überlastet, senden Sie eine E-Mail mit dem Betreff *Microsoft Azure Pickup* und der Service Request-Nummer an [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com).
     3. Sollte der Kurier den Abholtermin nicht einhalten, rufen Sie die Hotline von *Quantium Solutions International* an, um eine alternative Lösung zu finden.
     4. Sie erhalten eine E-Mail-Bestätigung des Abholplans.
 3. Dieser Schritt ist nur erforderlich, wenn der Nachnahme-Rücksendeschein nicht vorliegt. Gehen Sie zum Anfordern der Abholung wie folgt vor:
-    1. Rufen Sie unter 070-8231-1418 die Hotline von *Quantium Solutions International* an (Geschäftszeiten: Montag bis Freitag, 10 bis 17 Uhr). Geben Sie *Microsoft Azure Pickup* (Microsoft Azure-Abholung) und die Service Request-Nummer an, um eine Abholung zu veranlassen. Geben Sie an, dass Sie einen Rückschein benötigen, um die Abholung zu veranlassen. Geben Sie Absender (Kunde), Empfänger-Informationen (Azure-Rechenzentrum) und die Referenznummer (Service Request-Nummer) an. 
-    2. Ist die Hotline überlastet, senden Sie eine E-Mail`microsoft@rocketparcel.com` mit dem Betreff *Microsoft Azure Pickup* und der Service Request-Nummer an.
+    1. Rufen Sie unter 070-8231-1418 die Hotline von *Quantium Solutions International* an (Geschäftszeiten: Montag bis Freitag, 10 bis 17 Uhr). Geben Sie *Microsoft Azure Pickup* (Microsoft Azure-Abholung) und die Service Request-Nummer an, um eine Abholung zu veranlassen. Geben Sie an, dass Sie einen Rückschein benötigen, um die Abholung zu veranlassen. Geben Sie Absender (Kunde), Empfänger-Informationen (Azure-Rechenzentrum) und die Referenznummer (Service Request-Nummer) an.
+    2. Ist die Hotline überlastet, senden Sie eine E-Mail mit dem Betreff *Microsoft Azure Pickup* und der Service Request-Nummer an [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com).
     3. Sollte der Kurier den Abholtermin nicht einhalten, rufen Sie die Hotline von *Quantium Solutions International* an, um eine alternative Lösung zu finden.
     4. Bei einer Anforderung per Telefon erhalten Sie eine mündliche Bestätigung.
 
@@ -152,7 +152,7 @@ Den Support von Quantium Solution erreichen Sie bei Bedarf wie folgt (in japanis
    > * Bei Anforderung vor 15 Uhr erfolgt die Abholung am nächsten Werktag zwischen 9 und 13 Uhr.
    > * Bei Anforderung nach 15 Uhr erfolgt die Abholung am nächsten Werktag zwischen 14 und 18 Uhr.
 
-   Falls Probleme auftreten, können Sie sich unter adbo@microsoft.com an Data Box Operations Asia wenden. Geben Sie in der Betreffzeile den Auftragsnamen und das aufgetretene Problem an.
+   Sollten Probleme auftreten, senden Sie eine E-Mail an Data Box Operations Asia ([adbo@microsoft.com](mailto:adbo@microsoft.com)). Geben Sie in der Betreffzeile den Auftragsnamen und das aufgetretene Problem an.
 
 3. Übergeben Sie die Box an den Kurier.
 
@@ -185,7 +185,7 @@ Wenn Sie das Gerät in Südafrika zurückgeben möchten, gehen Sie wie folgt vor
 
     * Alternativ können Sie das Paket auch in einem DHL-Paketshop in Ihrer Nähe abgeben.
 
-5. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu dem aufgetretenen Problem an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
+5. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu den Problemen an [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an. Sie können auch die Nummer +27(0)119213902 anrufen.
 
 ### <a name="china"></a>[China](#tab/in-china)
 
@@ -205,7 +205,7 @@ Wenn Sie das Gerät in China zurückgeben möchten, gehen Sie wie folgt vor:
 
 3. Erhalten Sie nach Abschluss der Reservierung der Abholung eine E-Mail-Bestätigung von FedEx.  
 
-4. Wenn Probleme auftreten, senden Sie eine E-Mail [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) mit Einzelheiten zu dem aufgetretenen Problem und dem Betreff unter Angabe des Auftragsnamens.
+4. Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu den Problemen an [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com). Geben Sie im Betreff den Auftragsnamen an.
 
 #### <a name="premier-customer-care-contact-information"></a>Kontaktinformationen für den Premier-Kundendienst
 
@@ -229,18 +229,18 @@ Wenn Sie das Gerät in China zurückgeben möchten, gehen Sie wie folgt vor:
 
 ### <a name="self-managed"></a>[Selbst verwalteter Versand](#tab/in-selfmanaged)
 
-Wenn Sie Data Box Disk in US-Regierungsbehörden, Japan, Singapur, Südkorea, Westeuropa, Südafrika oder Indien verwenden und bei der Auftragserstellung die Option für den selbst verwalteten Versand ausgewählt haben, gehen Sie wie folgt vor:
+Wenn Sie Data Box Disk in US-Regierungsbehörden, Japan, Singapur, Südkorea, im Vereinigten Königreich, in Westeuropa, Australien, Südafrika oder Indien verwenden und bei der Auftragserstellung die Option für den selbst verwalteten Versand ausgewählt haben, gehen Sie wie folgt vor:
 
 1. Navigieren Sie im Azure-Portal zum Blatt **Übersicht** für Ihre Bestellung. Durchlaufen Sie die Schritte, die angezeigt werden, wenn Sie **Abholung planen** auswählen. Es sollte ein Autorisierungscode angezeigt werden, der bei der Abgabe der Bestellung verwendet wird.
 
-2. Senden Sie eine E-Mail an das Azure Data Box Operations-Team, wenn Sie bereit sind, das Gerät zurückzusenden. Vorlage:
+2. Senden Sie eine E-Mail an das Azure Data Box Operations-Team, wenn Sie bereit sind, das Gerät zurückzusenden. Verwenden Sie dafür die Vorlage unten.
 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
 3. Das Azure Data Box Operations-Team organisiert in Abstimmung mit Ihnen die Lieferung an das Azure-Rechenzentrum.
 
@@ -256,7 +256,7 @@ In diesem Tutorial haben Sie Informationen zu Azure Data Box-Datenträgern erhal
 >
 > * Senden des Data Box-Datenträgers an Microsoft
 
-In der nächsten Anleitung erfahren Sie, wie Sie den Datenupload von Data Box Disk in das Azure Storage-Konto überprüfen.
+In der nächsten Anleitung erfahren Sie, wie Sie den Datenupload von Data Box Disk in das Azure-Speicherkonto überprüfen.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Zurücksenden von Azure Data Box Disk und Überprüfen des Datenuploads in Azure](./data-box-disk-deploy-upload-verify.md)

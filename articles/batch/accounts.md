@@ -2,13 +2,13 @@
 title: Batch-Konten und Azure Storage-Konten
 description: Hier erfahren Sie mehr über Azure Batch Konten und deren Verwendung in der Entwicklung.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83790907"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896747"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Batch-Konten und Azure Storage-Konten
 
@@ -20,9 +20,10 @@ Die gesamte Verarbeitung und alle Ressourcen sind einem Batch-Konto zugeordnet. 
 
 Sie können mehrere Batch-Workloads in einem einzelnen Batch-Konto ausführen. Sie können Ihre Workloads auch auf Batch-Konten verteilen, die sich in demselben Abonnement, aber verschiedenen Azure-Regionen befinden.
 
+Ein Azure Batch-Konto lässt sich über das [Azure-Portal](batch-account-create-portal.md) oder programmgesteuert (beispielsweise mit der [Batch Management .NET-Bibliothek ](batch-management-dotnet.md)) erstellen. Bei der Kontoerstellung können Sie ein Azure-Speicherkonto zur Speicherung auftragsbezogener Eingabe- und Ausgabedaten oder Anwendungen zuordnen.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-Ein Azure Batch-Konto lässt sich über das [Azure-Portal](batch-account-create-portal.md) oder programmgesteuert (beispielsweise mit der [Batch Management .NET-Bibliothek ](batch-management-dotnet.md)) erstellen. Bei der Kontoerstellung können Sie ein Azure-Speicherkonto zur Speicherung auftragsbezogener Eingabe- und Ausgabedaten oder Anwendungen zuordnen.
 
 ## <a name="azure-storage-accounts"></a>Azure Storage-Konten
 
@@ -41,4 +42,5 @@ Sie können ein Speicherkonto mit Ihrem Batch-Konto verknüpfen – entweder im 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen über [Knoten und Pools](nodes-and-pools.md)
-- Weitere Informationen über das Erstellen eines Stapelkontos mit dem [Azure-Portal](batch-account-create-portal.md)
+- Erfahren Sie, wie Sie Azure Batch-Konten über das [Azure-Portal](batch-account-create-portal.md) oder [Batch Management .NET](batch-management-dotnet.md) erstellen und verwalten können.
+- Erfahren Sie mehr zum Verwenden [privater Endpunkte](private-connectivity.md) mit Azure Batch-Konten.

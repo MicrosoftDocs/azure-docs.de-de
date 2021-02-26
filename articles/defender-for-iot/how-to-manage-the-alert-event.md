@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803515"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508742"
 ---
 # <a name="manage-alert-events"></a>Verwalten von Warnungsereignissen
 
@@ -45,7 +45,7 @@ In bestimmten Situationen möchten Sie möglicherweise nicht, dass ein Sensor ei
 
 Nachdem Sie die Entschärfung oder Untersuchung durchgeführt haben, können Sie den Sensor anweisen, die Warnung auszublenden, indem Sie **Acknowledge** (Bestätigen) auswählen. Wenn das Ereignis wieder erkannt wird, wird die Warnung wieder ausgelöst.
 
-So können Sie die Warnung ausblenden:
+So löschen Sie die Warnung
 
   - Wählen Sie **Acknowledge** (Bestätigen) aus.
 
@@ -70,9 +70,9 @@ In diesen Fällen ist das Erlernen nicht verfügbar. Wenn Erlernen nicht möglic
 
 ### <a name="what-traffic-is-muted"></a>Welcher Datenverkehr wird stummgeschaltet?
 
-Die Stummschaltung bezieht sich auf Netzwerkgeräte und Datenverkehr, die für ein Ereignis erkannt werden. Der Titel der Warnung beschreibt den Datenverkehr, der stummgeschaltet wird.
+Die Stummschaltung bezieht sich auf die Netzwerkgeräte und den Datenverkehr, der für ein Ereignis erkannt wird. Der Titel der Warnung beschreibt den Datenverkehr, der stummgeschaltet wird.
 
-Das Gerät oder die Geräte, die stummgeschaltet werden, werden als Bild in der Warnung angezeigt. Wenn zwei Geräte angezeigt werden, wird der Datenverkehr zwischen ihnen stummgeschaltet.
+Das Gerät oder die Geräte, die stummgeschaltet werden, werden als Bild in der Warnung angezeigt. Wenn zwei Geräte angezeigt werden, wird der Datenverkehr, für den spezifisch gewarnt wurde, zwischen ihnen stummgeschaltet.
 
 **Beispiel 1**
 

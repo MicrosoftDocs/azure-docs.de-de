@@ -3,14 +3,14 @@ title: 'Tutorial zu Kubernetes in Azure: Erstellen einer Containerregistrierung'
 description: In diesem Azure Kubernetes Service-Tutorial (AKS) erstellen Sie eine Azure Container Registry-Instanz und laden das Containerimage einer Beispielanwendung hoch.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250620"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430963"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Bereitstellen und Verwenden von Azure Container Registry
 
@@ -61,7 +61,7 @@ Nach Abschluss des Vorgangs wird eine *Erfolgsmeldung* zurückgegeben.
 Verwenden Sie den Befehl [docker images][docker-images], um eine Liste Ihrer aktuellen lokalen Images anzuzeigen:
 
 ```console
-$ docker images
+docker images
 ```
 Die Befehlsausgabe oben enthält eine Liste der aktuellen lokalen Images:
 
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Führen Sie [docker images][docker-images] erneut aus, um sich zu vergewissern, dass die Tags angewendet wurden.
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Ein Image ist mit der Adresse der ACR-Instanz und einer Versionsnummer markiert.

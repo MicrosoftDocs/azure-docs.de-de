@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: e4e9819820b9ebd711dc6789d43fd9bbd83d1b8a
-  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+  ms.openlocfilehash: d41addbcf1c7e5bf673ba0082e5eaa216b5f946d
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/30/2021
-  ms.locfileid: "99096676"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100652631"
 landingContent:
 - title: Informationen zu Azure Confidential Computing
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: AKS-Knoten (Azure Kubernetes Service) für Confidential Computing (Vorschauversion)
+    - text: Confidential Computing-Knoten in AKS (Azure Kubernetes Service)
       url: confidential-nodes-aks-overview.md
   - linkListType: concept
     links:
@@ -90,7 +90,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Häufig gestellte Fragen zu vertraulichen Knoten in AKS
-      url: confidential-nodes-aks-overview.md
+      url: confidential-nodes-aks-faq.md
     - text: Informationen zu Azure Kubernetes Service (AKS)
       url: ../aks/intro-kubernetes.md
 - title: Vertrauliche Clouddienste

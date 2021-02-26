@@ -3,12 +3,12 @@ title: Bereitstellen von Ressourcen in Ressourcengruppen
 description: In diesem Artikel wird beschrieben, wie Sie Ressourcen in einer Azure Resource Manager-Vorlage bereitstellen. Es wird gezeigt, wie Sie mehrere Ressourcengruppen als Ziel festlegen.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186225"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491553"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Bereitstellung von Ressourcengruppen mit ARM-Vorlagen
 
@@ -128,9 +128,9 @@ Eine Beispielvorlage finden Sie unter [Erstellen der Ressourcengruppe](#create-r
 
 ### <a name="scope-to-tenant"></a>Bereich: Mandant
 
-Sie können Ressourcen im Mandanten erstellen, indem Sie den `scope` auf `/` festlegen. Der Benutzer, der die Vorlage bereitstellt, muss über den [erforderlichen Zugriff zum Bereitstellen im Mandanten](deploy-to-tenant.md#required-access) verfügen.
+Zum Erstellen von Ressourcen auf dem Mandanten legen Sie `scope` auf `/` fest. Der Benutzer, der die Vorlage bereitstellt, muss über den [erforderlichen Zugriff zum Bereitstellen im Mandanten](deploy-to-tenant.md#required-access) verfügen.
 
-Sie können eine geschachtelte Bereitstellung mit festgelegtem `scope` und `location` verwenden.
+Legen Sie `scope` und `location` fest, um eine geschachtelte Bereitstellung zu verwenden.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Weitere Informationen finden Sie unter [Verwaltungsgruppe](deploy-to-management-
 
 ## <a name="deploy-to-target-resource-group"></a>Bereitstellen in der Zielressourcengruppe
 
-Zum Bereitstellen von Ressourcen in der Zielressourcengruppe definieren Sie die Ressourcen im Abschnitt **Ressourcen** der Vorlage. Mit der folgenden Vorlage wird ein Speicherkonto in der Ressourcengruppe erstellt, die im Bereitstellungsvorgang angegeben ist.
+Zum Bereitstellen von Ressourcen in der Zielressourcengruppe definieren Sie die Ressourcen im Abschnitt `resources` der Vorlage. Mit der folgenden Vorlage wird ein Speicherkonto in der Ressourcengruppe erstellt, die im Bereitstellungsvorgang angegeben ist.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

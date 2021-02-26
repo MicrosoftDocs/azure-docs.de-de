@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0868c99a29b8da4376b639a54988fc821433e26d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965118"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576975"
 ---
 # <a name="planning-and-operations-guide"></a>Leitfaden zu Planung und Betrieb
 Dieses Handbuch ist für IT-Experten, IT-Architekten, Informationssicherheitsanalysten und Cloudadministratoren konzipiert, die mit Azure Security Center arbeiten möchte.
@@ -135,7 +135,7 @@ Azure Security Center verwendet den Log Analytics-Agent, um sicherheitsrelevante
 
 ### <a name="agent"></a>Agent
 
-Wenn in der Sicherheitsrichtlinie die automatische Bereitstellung aktiviert ist, wird der Log Analytics-Agent (für [Windows](../azure-monitor/platform/agent-windows.md) oder [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) auf allen unterstützten Azure-VMs sowie auf allen neu erstellten VMs installiert. Wenn der Log Analytics-Agent bereits auf der VM oder dem Computer installiert wurde, nutzt Azure Security Center den installierten Agent. Der Prozess des Agents ist so konzipiert, dass er nicht invasiv ist und nur eine minimale Auswirkung auf die VM-Leistung hat.
+Wenn in der Sicherheitsrichtlinie die automatische Bereitstellung aktiviert ist, wird der Log Analytics-Agent (für [Windows](../azure-monitor/agents/agent-windows.md) oder [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) auf allen unterstützten Azure-VMs sowie auf allen neu erstellten VMs installiert. Wenn der Log Analytics-Agent bereits auf der VM oder dem Computer installiert wurde, nutzt Azure Security Center den installierten Agent. Der Prozess des Agents ist so konzipiert, dass er nicht invasiv ist und nur eine minimale Auswirkung auf die VM-Leistung hat.
 
 Der Log Analytics-Agent für Windows erfordert TCP-Port 443. Weitere Informationen finden Sie im Artikel zur [Problembehandlung](security-center-troubleshooting-guide.md).
 

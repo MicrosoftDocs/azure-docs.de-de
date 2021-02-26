@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732152"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550432"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren der automatischen Benutzerbereitstellung für Fortes Change Cloud
 
@@ -50,11 +50,11 @@ Das diesem Tutorial zu Grunde liegende Szenario setzt voraus, dass Sie bereits �
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>Schritt 2: Konfigurieren von Fortes Change Cloud für die Unterstützung der Bereitstellung mit Azure AD
 
-1. Melden Sie sich mit Ihrem Administratorkonto für Fortes Change Cloud an. Klicken Sie auf das Symbol für die **Einstellungen** und navigieren Sie dann zu den **SCIM-Einstellungen**.
+1. Melden Sie sich mit Ihrem Administratorkonto für Fortes Change Cloud an. Klicken Sie auf das Symbol für **Einstellungen**, und navigieren Sie dann zu **Benutzerbereitstellung (SCIM)** .
 
     [ ![SCIM-Einstellungen von Fortes Change Cloud](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. Kopieren und speichern Sie das im neuen Fenster angezeigte **primäre Token**. Dieser Wert wird auf der Registerkarte „Bereitstellung“ für Ihre Fortes Change Cloud-Anwendung im Azure-Portal in das Feld „Geheimes Token“ eingegeben.
+2. Kopieren und speichern Sie im neu angezeigten Fenster die Werte für **Mandanten-URL** und **Primäres Token**. Diese Werte werden im Azure-Portal auf der Registerkarte „Bereitstellung“ für Ihre Fortes Change Cloud-Anwendung eingegeben, und zwar die Mandanten-URL im Feld **Mandanten-URL** und das primäre Token im Feld **Geheimnis**.
      
       [ ![Primäres Token von Fortes Change Cloud](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 

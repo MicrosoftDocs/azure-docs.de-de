@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8c6764ad5b63aa2fde07326ab986404ea4312316
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862024"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585176"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Veröffentlichen einer Jekyll-Website in Azure Static Web Apps (Vorschauversion)
 
@@ -79,8 +79,11 @@ Azure Static Web Apps verwendet GitHub zum Veröffentlichen Ihrer Website. In de
 1. Übertragen Sie Ihr lokales Repository auf GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
+
+   > [!NOTE]
+   > Ihre Git-Verzweigung hat unter Umständen einen anderen Namen als `main`. Ersetzen Sie `main` in diesem Befehl durch den richtigen Wert.
 
 ## <a name="deploy-your-web-app"></a>Bereitstellen Ihrer Web-App
 
@@ -116,7 +119,7 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue statische Website-App
 
 1. Wählen Sie unter _Repository_ die Option **jekyll-static-app** aus.
 
-1. Wählen Sie unter _Branch_ die Option **Master** aus.
+1. Wählen Sie unter _Branch_ die Option **main** aus.
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Eingegebene GitHub-Informationen":::
 
@@ -146,7 +149,7 @@ Als Nächstes fügen Sie Konfigurationseinstellungen hinzu, die beim Buildprozes
 
 1. Öffnen Sie die Jekyll-App in einem Text-Editor, und öffnen Sie anschließend die Datei _.github/workflows/azure-pages-<WORKFLOWNAME>.yml_.
 
-1. Fügen Sie nach der Zeile `- uses: actions/checkout@v2` den folgenden Konfigurationsblock hinzu:
+1. Fügen Sie vor der Zeile `- name: Build And Deploy` den folgenden Konfigurationsblock hinzu:
 
     ```yml
     - name: Set up Ruby

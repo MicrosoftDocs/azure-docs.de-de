@@ -1,22 +1,18 @@
 ---
 title: Übersicht über Vorlagen
 description: Erfahren Sie, wie Sie mithilfe einer vordefinierten Vorlage schnell den Einstieg in Azure Data Factory finden.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 2725d498b6fded56ad28235b051b1e8f4fbadadb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8c0e4db2bc686fff2bd718f45c63a0fc26f6cd55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375390"
 ---
 # <a name="templates"></a>Vorlagen
 

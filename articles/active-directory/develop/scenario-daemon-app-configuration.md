@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756595"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582889"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-App, die Web-APIs aufruft – Codekonfiguration
 
@@ -111,7 +111,7 @@ Beim Erstellen eines vertraulichen Clients mit Zertifikaten sieht die Konfigurat
 
 ### <a name="instantiate-the-msal-application"></a>Instanziierung der MSAL-Anwendung
 
-Zum Instanziieren der MSAL-Anwendung müssen Sie das MSAL-Paket hinzufügen, referenzieren oder importieren (abhängig von der Sprache).
+Sie müssen zum Instanziieren der MSAL-Anwendung das MSAL-Paket hinzufügen, darauf verweisen oder es importieren (abhängig von der Sprache).
 
 Die Konstruktion unterscheidet sich je nach Verwendung von geheimen Clientschlüsseln oder Zertifikaten (oder als erweitertes Szenario mit signierten Assertionen).
 
@@ -289,7 +289,7 @@ MSAL.NET verfügt über zwei Methoden, um für die vertrauliche Client-App signi
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Wenn Sie `WithClientAssertion` verwenden, müssen Sie ein signiertes JSON Web Token (JWT) bereitstellen. Dieses erweiterte Szenario wird unter [Clientassertionen](msal-net-client-assertions.md) ausführlich erläutert.
+Stellen Sie ein JSON Web Token bereit, wenn Sie `WithClientAssertion` verwenden. Dieses erweiterte Szenario wird unter [Clientassertionen](msal-net-client-assertions.md) ausführlich erläutert.
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

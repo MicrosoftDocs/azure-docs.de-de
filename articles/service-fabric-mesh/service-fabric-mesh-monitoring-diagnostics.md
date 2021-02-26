@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682070"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626993"
 ---
 # <a name="monitoring-and-diagnostics"></a>Überwachung und Diagnose
+
+> [!IMPORTANT]
+> Die Vorschauversion von Azure Service Fabric Mesh wurde ausgemustert. Neue Bereitstellungen werden nicht mehr über die Service Fabric Mesh-API gestattet. Unterstützung für vorhandene Bereitstellungen wird bis zum 28. April 2021 fortgesetzt.
+> 
+> Einzelheiten finden Sie unter [Ausmusterung der Vorschauversion von Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric Mesh ist ein vollständig verwalteter Dienst, der es Entwicklern ermöglicht, Microservicesanwendungen zu implementieren, ohne virtuelle Computer, Speicher oder Netzwerke verwalten zu müssen. Die Überwachung und Diagnose für Service Fabric Mesh besteht aus drei Hauptkategorien von Diagnosedaten:
 
 - Anwendungsprotokolle: Diese sind definiert als die Protokolle aus Ihren Containeranwendungen, basierend darauf, wie Sie Ihre Anwendung instrumentiert haben (z. B. Docker-Protokolle).
@@ -58,7 +64,7 @@ Die Mesh-Umgebung stellt eine Reihe von Metriken bereit, die angeben, wie sich I
 | RestartCount | Die Anzahl der Containerneustarts. | – |
 
 > [!NOTE]
-> Die Werte für ServiceStatus und ServiceReplicaStatus sind identisch mit [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> Die Werte für ServiceStatus und ServiceReplicaStatus sind identisch mit [HealthState](/dotnet/api/system.fabric.health.healthstate) in Service Fabric.
 
 Jede Metrik ist für verschiedene Dimensionen verfügbar, sodass Sie Aggregate auf verschiedenen Ebenen anzeigen können. Dies ist die aktuelle Liste der Dimensionen:
 

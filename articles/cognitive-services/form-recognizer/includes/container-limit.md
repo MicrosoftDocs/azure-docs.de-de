@@ -3,15 +3,15 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
-ms.openlocfilehash: f8918766174d77ea2a9c50d9c97d9feae2d9f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f620789e4224f5c278187ea3359752a6f7705be
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512776"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580426"
 ---
-> [!IMPORTANT]
-> * Das Limit für Benutzer von Formularerkennungscontainern wurde erreicht. Wir akzeptieren derzeit keine neuen Anträge für den Formularerkennungscontainer. 
-> * Die Container der Formularerkennung verwenden derzeit Version 1.0 der Formularerkennungs-API. Sie können auf die neueste Version der API zugreifen, indem Sie stattdessen den verwalteten Dienst verwenden.
+> [!CAUTION]
+> * Der Formularerkennungscontainer v1.0 wird eingestellt. Dieser Artikel dient nur zu Informationszwecken. 
+> * Sie können über die REST-API und das SDK auf die neueste Version der API zugreifen.

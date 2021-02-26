@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bilderkennung, bilderkennungs-app, custom vision
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132578"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221294"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Schnellstart: Erstellen einer Objekterkennung mit der Custom Vision-Website
 
@@ -68,9 +68,9 @@ Navigieren Sie im Webbrowser zur [Custom Vision-Webseite](https://customvision.a
 
 ## <a name="upload-and-tag-images"></a>Hochladen und Kennzeichnen von Bildern
 
-In diesem Abschnitt laden Sie Bilder hoch und kennzeichnen diese manuell, um das Erkennungsmodul zu trainieren. 
+In diesem Abschnitt werden Bilder hochgeladen und manuell gekennzeichnet, um das Erkennungsmodul zu trainieren. 
 
-1. Klicken Sie zum Hinzufügen von Bildern auf die Schaltfläche __Bilder hinzufügen__, und wählen Sie dann __Lokale Dateien durchsuchen__ aus. Wählen Sie __Öffnen__ aus, um die Bilder hochzuladen.
+1. Wählen Sie zum Hinzufügen von Bildern __Bilder hinzufügen__ und anschließend __Lokale Dateien durchsuchen__ aus. Wählen Sie __Öffnen__ aus, um die Bilder hochzuladen.
 
     ![Das Steuerelement zum Hinzufügen von Bildern wird oben links und als Schaltfläche unten in der Mitte angezeigt.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ In diesem Abschnitt laden Sie Bilder hoch und kennzeichnen diese manuell, um das
 
     ![Im Abschnitt „Ohne Markierung“ hochgeladene Bilder](./media/get-started-build-detector/images-untagged.png)
 
-1. Klicken Sie und ziehen Sie ein Rechteck um das Objekt in Ihrem Bild. Geben Sie dann mit der Schaltfläche **+** einen neuen Tagnamen ein, oder wählen Sie ein vorhandenes Tag aus der Dropdownliste aus. Es ist sehr wichtig, jede Instanz der Objekte, die Sie erkennen möchten, zu kennzeichnen, da das Erkennungsmodul den nicht gekennzeichneten Hintergrundbereich als negatives Beispiel im Training verwendet. Wenn Sie mit dem Tagging fertig sind, klicken Sie auf den Pfeil rechts, um Ihre Tags zu speichern und zum nächsten Bild zu gelangen.
+1. Klicken Sie und ziehen Sie ein Rechteck um das Objekt in Ihrem Bild. Geben Sie dann mit der Schaltfläche **+** einen neuen Tagnamen ein, oder wählen Sie ein vorhandenes Tag aus der Dropdownliste aus. Es ist wichtig, jede Instanz der Objekte, die Sie erkennen möchten, zu kennzeichnen, da das Erkennungsmodul den nicht gekennzeichneten Hintergrundbereich beim Trainieren als negatives Beispiel verwendet. Wenn Sie mit dem Tagging fertig sind, klicken Sie auf den Pfeil rechts, um Ihre Tags zu speichern und zum nächsten Bild zu gelangen.
 
     ![Tagging von Objekten mit rechteckiger Auswahl](./media/get-started-build-detector/image-tagging.png)
 

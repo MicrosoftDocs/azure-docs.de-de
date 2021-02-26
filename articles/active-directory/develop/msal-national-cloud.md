@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178618"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102494"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Verwenden der MSAL in einer nationalen Cloudumgebung
 
@@ -40,7 +40,7 @@ Stellen Sie zu Beginn sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
 ### <a name="choose-the-appropriate-identities"></a>Auswählen der geeigneten Identitäten
 
-[Azure Government](../../azure-government/index.yml)-Anwendungen können zur Authentifizierung von Benutzern sowohl Azure AD Government-Identitäten als auch öffentliche Azure AD-Identitäten verwenden. Da Sie eine beliebige dieser Identitäten verwenden können, müssen Sie sich für einen Autoritätsendpunkt für Ihr Szenario entscheiden:
+[Azure Government](../../azure-government/index.yml)-Anwendungen können zur Authentifizierung von Benutzern sowohl Azure AD Government-Identitäten als auch öffentliche Azure AD-Identitäten verwenden. Da Sie eine beliebige dieser Identitäten verwenden können, wählen Sie einen Autoritätsendpunkt für Ihr Szenario aus:
 
 - Öffentliche Azure AD-Identität: Wird häufig verwendet, wenn Ihre Organisation bereits über einen öffentlichen Azure AD-Mandanten verfügt, um Microsoft 365 (öffentlich oder GCC) oder eine andere Anwendung zu unterstützen.
 - Azure AD Government-Identität: Wird häufig verwendet, wenn Ihre Organisation bereits über einen Azure AD Government-Mandanten verfügt, um Office 365 (GCC High oder DoD) zu unterstützen, oder wenn ein neuer Mandant in Azure AD Government erstellt werden soll.
@@ -70,7 +70,7 @@ So aktivieren Sie Ihre MSAL.js-Anwendung für Sovereign Clouds
 
 ### <a name="step-1-register-your-application"></a>Schritt 1: Anwendung registrieren
 
-1. Melden Sie sich beim <a href="https://portal.azure.us/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.us/" target="_blank">Azure-Portal</a> an.
 
    Azure-Portalendpunkte für andere nationale Clouds finden Sie unter [App-Registrierungsendpunkte](authentication-national-cloud.md#app-registration-endpoints).
 
@@ -84,7 +84,7 @@ So aktivieren Sie Ihre MSAL.js-Anwendung für Sovereign Clouds
 1. Notieren Sie sich für die spätere Verwendung auf der Seite **Übersicht** den Wert von **Anwendungs-ID (Client)** .
     In diesem Tutorial muss der [Flow zur impliziten Genehmigung](v2-oauth2-implicit-grant-flow.md) aktiviert werden. 
 1. Wählen Sie unter **Verwalten** die Option **Authentifizierung** aus.
-1. Wählen Sie unter **Implizite Genehmigungen** die Optionen **ID-Token** und **Zugriffstoken** aus. ID-Token und Zugriffstoken sind erforderlich, da diese App Benutzer anmelden und eine API aufrufen muss.
+1. Wählen Sie unter **Implizite Gewährung und Hybridflows** die Optionen **ID-Token** und **Zugriffstoken** aus. ID-Token und Zugriffstoken sind erforderlich, da diese App Benutzer anmelden und eine API aufrufen muss.
 1. Wählen Sie **Speichern** aus.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Schritt 2:  Einrichten Ihres Webservers oder Projekts

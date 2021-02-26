@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015112"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104347"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gewusst wie: Konfigurieren von im SAML-Token ausgestellten Rollenansprüchen für Unternehmensanwendungen
 
@@ -30,11 +30,11 @@ Mit Azure Active Directory (Azure AD) können Sie den Anspruchstyp für den Roll
 
 ## <a name="when-to-use-this-feature"></a>Verwendung dieses Features
 
-Wenn die Anwendung erwartet, dass benutzerdefinierte Rollen in einer SAML-Antwort übergeben werden, müssen Sie dieses Feature verwenden. Sie können so viele Rollen erstellen, wie von Azure AD an Ihre Anwendung zurückgegeben werden müssen.
+Verwenden Sie dieses Feature, wenn die Anwendung erwartet, dass in der von Azure AD zurückgegebenen SAML-Antworten benutzerdefinierte Rollen übergeben werden. Sie können nach Bedarf beliebig viele Rollen hinzufügen.
 
 ## <a name="create-roles-for-an-application"></a>Erstellen von Rollen für eine Anwendung
 
-1. Klicken Sie im linken Bereich des <a href="https://portal.azure.com/" target="_blank">Azure-Portals <span class="docon docon-navigate-external x-hidden-focus"></span></a> auf das Symbol **Azure Active Directory**.
+1. Klicken Sie im linken Bereich des <a href="https://portal.azure.com/" target="_blank">Azure-Portals</a> auf das Symbol **Azure Active Directory**.
 
     ![Azure Active Directory-Symbol][1]
 
@@ -139,7 +139,7 @@ Wenn die Anwendung erwartet, dass benutzerdefinierte Rollen in einer SAML-Antwor
     ![Bereich „Zuweisung bearbeiten“ und Bereich „Rolle auswählen“](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    Sie müssen Ihre Sitzung im Azure-Portal aktualisieren, damit neue Rollen angezeigt werden.
+    Aktualisieren Sie Ihre Sitzung im Azure-Portal, um neue Rollen anzuzeigen.
 
 1. Aktualisieren Sie die Tabelle **Attribute**, um eine benutzerdefinierte Zuordnung des Rollenanspruchs zu definieren.
 

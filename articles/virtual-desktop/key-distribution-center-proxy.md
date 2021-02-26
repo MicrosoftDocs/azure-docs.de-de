@@ -3,19 +3,24 @@ title: 'Einrichten von Windows Virtual Desktop zur Verwendung eines Kerberos-Sch
 description: Es wird beschrieben, wie Sie einen Windows Virtual Desktop-Hostpool für die Verwendung eines Kerberos-Schlüsselverteilungscenter-Proxys einrichten.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798004"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219654"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Konfigurieren eines Kerberos-Schlüsselverteilungscenter-Proxys
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Konfigurieren eines Kerberos-Schlüsselverteilungscenter-Proxys (Vorschau)
 
-In diesem Artikel wird veranschaulicht, wie Sie einen Kerberos-Schlüsselverteilungscenter-Proxy (Key Distribution Center, KDC) für Ihren Hostpool konfigurieren. Mit diesem Proxy können Organisationen außerhalb ihrer Unternehmensgrenzen die Authentifizierung für Kerberos durchführen. Beispielsweise können Sie den KDC-Proxy nutzen, um die Smartcard-Authentifizierung für externe Clients zu aktivieren.
+> [!IMPORTANT]
+> Dieses Feature ist zurzeit als öffentliche Preview verfügbar.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
+> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In diesem Artikel wird veranschaulicht, wie Sie einen Kerberos-Schlüsselverteilungscenter-Proxy (Key Distribution Center, KDC) (Vorschau) für Ihren Hostpool konfigurieren. Mit diesem Proxy können Organisationen außerhalb ihrer Unternehmensgrenzen die Authentifizierung für Kerberos durchführen. Beispielsweise können Sie den KDC-Proxy nutzen, um die Smartcard-Authentifizierung für externe Clients zu aktivieren.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Konfigurieren des KDC-Proxys
 

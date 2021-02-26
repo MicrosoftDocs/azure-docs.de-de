@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 40b44fd277eac14a5bf2c15f58fccfd9d5b156c4
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5c43d61b1e7cd98674eab4c6d857cc1114a06013
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881484"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475319"
 ---
 # <a name="reset-an-azure-cloud-service-extended-support"></a>Zurücksetzen eines Azure-Clouddiensts (erweiterter Support) 
 In diesen Beispielen werden verschiedene Möglichkeiten zum Zurücksetzen einer vorhandenen Azure-Clouddienstbereitstellung mit erweitertem Support behandelt.
@@ -21,24 +21,47 @@ In diesen Beispielen werden verschiedene Möglichkeiten zum Zurücksetzen einer 
 ## <a name="reimage-role-instances-of-cloud-service"></a>Durchführen eines Reimagings für Rolleninstanzen des Clouddiensts
 ```powershell
 $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances -Reimage
+Invoke-AzCloudServiceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
-Mit diesem Befehl wird ein Reimaging für zwei Rolleninstanzen (**ContosoFrontEnd\_IN\_0** und **ContosoBackEnd\_IN\_1**) des Clouddiensts „ContosoCS“ durchgeführt, der zur Ressourcengruppe „ContosOrg“ gehört.
+Mit diesem Befehl wird ein Reimaging für zwei Rolleninstanzen (ContosoFrontEnd_IN_0 und ContosoBackEnd_IN_1) des Clouddiensts „ContosoCS“ durchgeführt, der zur Ressourcengruppe „ContosOrg“ gehört.
 
 ## <a name="reimage-all-roles-of-cloud-service"></a>Durchführen eines Reimagings für alle Rollen des Clouddiensts
 ```powershell
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Reimage
+Invoke-AzCloudServiceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
 ```
+Mit diesem Befehl wird ein Reimaging für alle Rolleninstanzen des Clouddiensts „ContosoCS“ durchgeführt, der zur Ressourcengruppe „ContosOrg“ gehört.
 
 ## <a name="reimage-a-single-role-instance-of-a-cloud-service"></a>Durchführen eines Reimagings für eine einzelne Rolleninstanz des Clouddiensts
 ```powershell
-Reset-AzCloudServiceRoleInstance -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0" -Reimage
+Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0"
 ```
+Mit diesem Befehl wird ein Reimaging für die Rolleninstanz „ContosoFrontEnd_IN_0“ des Clouddiensts „ContosoCS“ durchgeführt, der zur Ressourcengruppe „ContosOrg“ gehört.
 
-## <a name="restart-a-single-role-instance-of-a-cloud-service"></a>Neustarten einer einzelnen Rolleninstanz des Clouddiensts
+## <a name="rebuild-role-instances-of-cloud-service"></a>Neuerstellen von Rolleninstanzen des Clouddiensts
 ```powershell
-Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Restart
+$roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
+Invoke-AzCloudServiceRebuild -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
+Mit diesem Befehl werden zwei Rolleninstanzen (ContosoFrontEnd_IN_0 und ContosoBackEnd_IN_1) des Clouddiensts „ContosoCS“ neu erstellt, der zur Ressourcengruppe „ContosOrg“ gehört.
+
+## <a name="rebuild-all-roles-of-cloud-service"></a>Neuerstellen aller Rollen des Clouddiensts
+```powershell
+Invoke-AzCloudServiceRebuild -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
+```
+Mit diesem Befehl werden alle Rolleninstanzen des Clouddiensts „ContosoCS“ durchgeführt, der zur Ressourcengruppe „ContosOrg“ gehört.
+
+## <a name="restart-role-instances-of-cloud-service"></a>Neustarten von Rolleninstanzen des Clouddiensts
+```powershell
+$roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
+Restart-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
+```
+Mit diesem Befehl werden zwei Rolleninstanzen (ContosoFrontEnd_IN_0 und ContosoBackEnd_IN_1) des Clouddiensts „ContosoCS“ neu gestartet, der zur Ressourcengruppe „ContosOrg“ gehört.
+
+## <a name="restart-all-roles-of-cloud-service"></a>Neustarten aller Rollen des Clouddiensts
+```powershell
+Restart-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*"
+```
+Mit diesem Befehl werden alle Rolleninstanzen des Clouddiensts „ContosoCS“ neu gestartet, der zur Ressourcengruppe „ContosOrg“ gehört.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063551"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583941"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instanziieren einer vertraulichen Clientanwendung mit Konfigurationsoptionen unter Verwendung von MSAL.NET
 
@@ -28,7 +28,7 @@ Vor der Initialisierung einer Anwendung müssen Sie diese zunächst [registriere
 
 - Die Client-ID (eine Zeichenfolge, die eine GUID darstellt)
 - Die URL des Identitätsanbieters (Namensgeber der Instanz) und die Anmeldezielgruppe für Ihre Anwendung. Diese beiden Parameter werden zusammen als Autorität bezeichnet.
-- Die Mandanten-ID, wenn Sie eine Geschäftsanwendung ausschließlich für Ihre Organisation schreiben (auch als Einzelmandantenanwendung bezeichnet).
+- Die Mandanten-ID, wenn Sie eine Branchenanwendung ausschließlich für Ihre Organisation schreiben (auch Einzelmandantenanwendung genannt).
 - Den geheimen Anwendungsschlüssel (geheime Clientzeichenfolge) oder das Zertifikat (vom Typ „X509Certificate2“), wenn es sich um eine vertrauliche Client-App handelt.
 - Für Web-Apps und gelegentlich auch für öffentliche Clientanwendungen (insbesondere, wenn Ihre App einen Broker verwenden muss) müssen Sie auch den Umleitungs-URI festlegen, mit dem der Identitätsanbieter Ihrer Anwendung die Sicherheitstoken sendet.
 
@@ -60,7 +60,7 @@ Die Konfiguration einer ASP.NET Core-Anwendung wird in einer *appsettings.json*-
 
 Ab MSAL.NET v3.x können Sie Ihre vertrauliche Clientanwendung aus der Konfigurationsdatei konfigurieren.
 
-In der Klasse, in der Sie Ihre Anwendung konfigurieren und instanziieren möchten, müssen Sie ein `ConfidentialClientApplicationOptions`-Objekt deklarieren.  Binden Sie die aus der Quelle gelesene Konfiguration (einschließlich der appconfig.json-Datei) mit der Methode `IConfigurationRoot.Bind()` aus dem Nuget-Paket [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) an die Instanz der Anwendungsoptionen:
+Deklarieren Sie in der Klasse, in der Sie Ihre Anwendung konfigurieren und instanziieren möchten, ein `ConfidentialClientApplicationOptions`-Objekt.  Binden Sie die aus der Quelle gelesene Konfiguration (einschließlich der Datei „appconfig.json“) mit der Methode `IConfigurationRoot.Bind()` aus dem NuGet-Paket [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) an die Instanz der Anwendungsoptionen:
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -79,7 +79,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>Hinzufügen der Runtime-Konfiguration
-In einer vertraulichen Clientanwendung haben Sie in der Regel einen Cache pro Benutzer. Daher müssen Sie den Cache dem Benutzer zuordnen und den Anwendungsersteller darüber informieren, dass Sie diesen verwenden möchten. Auf die gleiche Weise verfügen Sie möglicherweise über einen dynamisch berechneten Umleitungs-URI. In diesem Fall lautet der Code wie folgt:
+In einer vertraulichen Clientanwendung haben Sie in der Regel einen Cache pro Benutzer. Daher müssen Sie den Cache dem Benutzer zuordnen und den Anwendungsersteller darüber informieren, dass Sie diesen verwenden möchten. Auf die gleiche Weise verfügen Sie möglicherweise über einen dynamisch berechneten Umleitungs-URI. In diesem Fall ist der Code wie folgt:
 
 ```csharp
 IConfidentialClientApplication app;

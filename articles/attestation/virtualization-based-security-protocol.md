@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610011"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507878"
 ---
 # <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Trusted Platform Module (TPM) und Nachweisprotokoll für die VBS-Enclave (virtualisierungsbasierte Sicherheit) 
 
@@ -55,7 +55,7 @@ Azure Attestation -> Client
 
 **challenge** (BASE64URL(OCTETS)): Hierbei handelt es sich um einen zufällig vom Dienst ausgegeben Wert.
 
-**service_context** (BASE64URL(OCTETS)): Opaker, verschlüsselter vom Dienst erstellter Kontext, der u. a. den Challenge-Wert sowie eine Ablaufzeit für diesen Wert umfasst. 
+**service_context** (BASE64URL(OCTETS)): Nicht transparenter, vom Dienst erstellter Kontext
 
 
 ### <a name="request-message"></a>Request-Nachricht
@@ -236,7 +236,7 @@ Beispiel mit TPM und VBS-Enclave:
 
 - **value_type (Zeichenfolge):** Hierbei handelt es sich um den Datentyp des Werts des Anspruchs.
 
-**service_context** (BASE64URL(OCTETS)): Opaker, nicht verschlüsselter vom Dienst erstellter Kontext, der u. a. den challenge-Wert sowie eine Ablaufzeit für diesen Wert umfasst.
+**service_context** (BASE64URL(OCTETS)): Nicht transparenter, vom Dienst erstellter Kontext
 
 ### <a name="report-message"></a>Report-Nachricht
 

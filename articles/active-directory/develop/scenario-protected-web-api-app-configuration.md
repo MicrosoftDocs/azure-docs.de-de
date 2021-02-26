@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753575"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582484"
 ---
 # <a name="protected-web-api-code-configuration"></a>Geschützte Web-API: Codekonfiguration
 
-Um den Code für Ihre geschützte Web-API konfigurieren zu können, müssen Sie mit Folgendem vertraut sein:
+Beim Konfigurieren Ihrer geschützten Web-API müssen Sie Folgendes wissen:
 
 - Wodurch werden APIs als geschützt definiert?
 - Wie wird ein Bearertoken konfiguriert?

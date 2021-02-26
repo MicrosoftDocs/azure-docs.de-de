@@ -11,14 +11,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 02/01/2021
 ms.author: amverma
-ms.openlocfilehash: c0ec18ae4a7d6020299660adbeba6f993cd4eeca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 767d6da7701261836b367ccad121bf3569b43b72
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966019"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260162"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>InfiniBand-Treibererweiterung für Windows
 
@@ -30,15 +30,15 @@ Außerdem ist eine Erweiterung zur Installation der InfiniBand-Treiber für [Lin
 
 ### <a name="operating-system"></a>Betriebssystem
 
-Diese Erweiterung unterstützt die folgenden Betriebssystem-Distributionen, abhängig von der Treiberunterstützung für bestimmte BS-Versionen.
+Diese Erweiterung unterstützt die folgenden Betriebssystem-Distributionen, abhängig von der Treiberunterstützung für bestimmte BS-Versionen. Notieren Sie sich die jeweilige InfiniBand-NIC für die relevanten VM-Größen der H- und N-Serie.
 
-| Distribution | Version |
+| Distribution | InfiniBand-NIC-Treiber |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
-| Windows Server 2012 | Core |
+| Windows 10 | CX5, CX6 |
+| Windows Server 2019 | CX5, CX6 |
+| Windows Server 2016 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 | CX3-Pro, CX5, CX6 |
 
 ### <a name="internet-connectivity"></a>Internetkonnektivität
 

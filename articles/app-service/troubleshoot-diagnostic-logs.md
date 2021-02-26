@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825376"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980608"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service
 ## <a name="overview"></a>Übersicht
@@ -171,7 +171,7 @@ Für Windows-Apps enthält die ZIP-Datei den Inhalt des Verzeichnisses *D:\Home\
 | **Anwendungsprotokolle** |*/LogFiles/Application/* | Enthält mindestens eine Textdatei. Das Format der Protokollmeldungen hängt vom verwendeten Protokollierungsanbieter ab. |
 | **Ablaufverfolgung für Anforderungsfehler** | */LogFiles/W3SVC#########/* | Enthält XML-Dateien und eine XSL-Datei. Sie können die formatierten XML-Dateien im Browser anzeigen. |
 | **Detaillierte Fehlerprotokolle** | */LogFiles/DetailedErrors/* | Enthält HTM-Fehlerdateien. Sie können die HTM-Dateien im Browser anzeigen.<br/>Eine andere Möglichkeit zum Anzeigen der Ablaufverfolgungen für Anforderungsfehler besteht darin, im Portal zur Seite Ihrer App zu navigieren. Wählen Sie im linken Menü **Diagnose und Problembehandlung** aus, und suchen Sie nach **Ablaufverfolgungsprotokolle für Anforderungsfehler**. Klicken Sie dann auf das Symbol, um die gewünschte Ablaufverfolgung zu durchsuchen und anzuzeigen. |
-| **Webserverprotokolle** | */LogFiles/http/RawLogs/* | Enthält Textdateien im [erweiterten W3C-Protokolldateiformat](/windows/desktop/Http/w3c-logging). Diese Informationen können in einem Text-Editor oder mit einem Hilfsprogramm wie [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619) gelesen werden.<br/>App Service unterstützt die Felder `s-computername`, `s-ip` oder `cs-version` nicht. |
+| **Webserverprotokolle** | */LogFiles/http/RawLogs/* | Enthält Textdateien im [erweiterten W3C-Protokolldateiformat](/windows/desktop/Http/w3c-logging). Diese Informationen können in einem Text-Editor oder mit einem Hilfsprogramm wie [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22) gelesen werden.<br/>App Service unterstützt die Felder `s-computername`, `s-ip` oder `cs-version` nicht. |
 | **Bereitstellungsprotokolle** | */LogFiles/Git/* und */deployments/* | Enthält Protokolle, die von den internen Bereitstellungsprozessen generiert werden, sowie Protokolle für Git-Bereitstellungen. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Senden von Protokollen an Azure Monitor (Vorschauversion)
@@ -191,10 +191,11 @@ In der folgenden Tabelle werden die unterstützten Protokolltypen und Beschreibu
 | AppServiceHTTPLogs | Ja | Ja | Ja | Ja | Webserverprotokolle |
 | AppServiceEnvironmentPlatformLogs | Ja | – | Ja | Ja | App Service-Umgebung: Skalierung, Konfigurationsänderungen und Statusprotokolle|
 | AppServiceAuditLogs | Ja | Ja | Ja | Ja | Anmeldeaktivität per FTP und Kudu |
-| AppServiceFileAuditLogs | Ja | Ja | Wird noch angekündigt | Wird noch angekündigt | Dateiänderungen am Websiteinhalt; nur für Premium-Tarif und höher verfügbar. |
+| AppServiceFileAuditLogs | Ja | Ja | Wird noch angekündigt | Wird noch angekündigt | Dateiänderungen am Websiteinhalt; **nur für Premium-Tarif und höher verfügbar** |
 | AppServiceAppLogs | ASP.NET | ASP.NET | Java SE und Tomcat Blessed Images <sup>1</sup> | Java SE und Tomcat Blessed Images <sup>1</sup> | Anwendungsprotokolle |
 | AppServiceIPSecAuditLogs  | Ja | Ja | Ja | Ja | Anforderungen von IP-Regeln |
 | AppServicePlatformLogs  | Wird noch angekündigt | Ja | Ja | Ja | Containervorgangsprotokolle |
+| AppServiceAntivirusScanAuditLogs | Ja | Ja | Ja | Ja | [Protokolle für Antivirenscans](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) mithilfe von Microsoft Defender; **nur verfügbar für Premium-Tarif** | 
 
 <sup>1</sup> Fügen Sie für Java SE-Apps den App-Einstellungen „$WEBSITE_AZMON_PREVIEW_ENABLED“ hinzu, und legen Sie sie auf „1“ oder „true“ fest.
 

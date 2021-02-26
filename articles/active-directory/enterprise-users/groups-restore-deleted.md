@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1eacba47e68310dd45976bcd9ddff052fa193436
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860727"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090136"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Wiederherstellen einer gelöschten Microsoft 365-Gruppe in Azure Active Directory
 
@@ -32,7 +32,7 @@ Die Berechtigungen, die zum Wiederherstellen einer Gruppe erforderlich sind, kö
 Role | Berechtigungen
 --------- | ---------
 Globaler Administrator, Gruppenadministrator, Partnersupport der Ebene 2 und Intune-Administrator | Können eine beliebige gelöschte Microsoft 365-Gruppe wiederherstellen
-Benutzeradministrator und Partnersupport der Ebene 1 | Können eine beliebige gelöschte Microsoft 365-Gruppe wiederherstellen (mit Ausnahme von Gruppen, die der Rolle „Unternehmensadministrator“ zugewiesen sind)
+Benutzeradministrator und Partnersupport der Ebene 1 | Können eine beliebige gelöschte Microsoft 365-Gruppe wiederherstellen (mit Ausnahme von Gruppen, die der Rolle „Globaler Administrator“ zugewiesen sind)
 Benutzer | Kann eine beliebige gelöschte Microsoft 365-Gruppe wiederherstellen, die sich in seinem Besitz befand
 
 ## <a name="view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore"></a>Anzeigen und Verwalten der wiederherstellbaren gelöschten Microsoft 365-Gruppen

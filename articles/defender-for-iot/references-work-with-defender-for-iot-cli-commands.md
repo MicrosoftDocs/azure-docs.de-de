@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845246"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523140"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Arbeiten mit den CLI-Befehlen von Defender für IoT
 
@@ -290,6 +290,6 @@ Bei Verwendung des Tools gilt Folgendes:
 
 - Vergewissern Sie sich bei der IT-Abteilung, dass die Appliance-Domäne (wie im Zertifikat angezeigt) mit Ihrem DNS-Server und der entsprechenden IP-Adresse angezeigt wird. 
     
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [API-Sensor und Verwaltungskonsolen-APIs für Defender für IOT](references-work-with-defender-for-iot-apis.md)

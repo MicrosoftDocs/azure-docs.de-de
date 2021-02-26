@@ -1,14 +1,14 @@
 ---
 title: Details zur Richtlinienzuweisungsstruktur
 description: Beschreibt die Definition der Richtlinienzuweisung, die von Azure Policy verwendet wird, um Richtliniendefinitionen und -parameter zur Bewertung mit Ressourcen in Beziehung zu setzen.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904073"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219565"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy-Zuweisungsstruktur
 
@@ -22,6 +22,7 @@ Eine Richtlinienzuweisung wird mithilfe von JSON erstellt. Die Richtlinienzuweis
 - Erzwingungsmodus
 - Ausgeschlossene Bereiche
 - Richtliniendefinition
+- Meldungen zu Complianceverstößen
 - parameters
 
 Der folgende JSON-Code zeigt z. B. eine Richtlinienzuweisung im _DoNotEnforce_-Modus mit dynamischen Parametern an:
@@ -37,6 +38,11 @@ Der folgende JSON-Code zeigt z. B. eine Richtlinienzuweisung im _DoNotEnforce_-M
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -64,7 +70,7 @@ Diese Eigenschaft weist die folgenden Werte auf:
 |Mode |JSON-Wert |type |Manuelle Behebung |Aktivitätsprotokolleintrag |BESCHREIBUNG |
 |-|-|-|-|-|-|
 |Aktiviert |Standard |Zeichenfolge |Ja |Ja |Die Richtlinienauswirkung wird während der Erstellung oder Aktualisierung von Ressourcen erzwungen. |
-|Disabled |DoNotEnforce |Zeichenfolge |Ja |Nein  | Die Richtlinienauswirkung wird nicht während der Erstellung oder Aktualisierung von Ressourcen erzwungen. |
+|Disabled |DoNotEnforce |Zeichenfolge |Ja |Nein | Die Richtlinienauswirkung wird nicht während der Erstellung oder Aktualisierung von Ressourcen erzwungen. |
 
 Wenn **enforcementMode** nicht in einer Richtlinie oder Initiativendefinition angegeben ist, wird der Wert _Default_ verwendet. [Aufgaben zur Bereinigung](../how-to/remediate-resources.md) können für [deployIfNotExists](./effects.md#deployifnotexists)-Richtlinien gestartet werden, auch wenn **enforcementMode** auf _DoNotEnforce_ festgelegt ist.
 
@@ -79,6 +85,32 @@ Der **scope** der Zuweisung umfasst alle untergeordneten Ressourcencontainer und
 
 Dieses Feld muss der vollständige Pfadname einer Richtlinien- oder einer Initiativendefinition sein.
 `policyDefinitionId` ist eine Zeichenfolge und kein Array. Es wird empfohlen, stattdessen eine [Initiative](./initiative-definition-structure.md) zu verwenden, wenn häufig mehrere Richtlinien gleichzeitig zugewiesen werden.
+
+## <a name="non-compliance-messages"></a>Meldungen zu Complianceverstößen
+
+Legen Sie `nonComplianceMessages` in der Zuweisungsdefinition fest, um eine benutzerdefinierte Meldung festzulegen, in der beschrieben wird, weshalb eine Ressource nicht der Richtlinien- oder Initiativendefinition entspricht. Dieser Knoten ist ein Array von `message`-Einträgen. Diese benutzerdefinierte Meldung wird zusätzlich zur Standardfehlermeldung für Nichtkonformität verwendet und ist optional.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Wenn die Zuweisung für eine Initiative erfolgt, können für jede Richtliniendefinition in der Initiative verschiedene Meldungen konfiguriert werden. Für die Meldungen wird der `policyDefinitionReferenceId`-Wert verwendet, der in der Initiativendefinition konfiguriert wurde. Einzelheiten finden Sie in den [Definitionseigenschaften](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parameter
 

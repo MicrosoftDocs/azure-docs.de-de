@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5244a8e572abb56c00d87d0bdd7e8d1291af9b9e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755385"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581906"
 ---
 # <a name="authentication-vs-authorization"></a>Authentifizierung im Vergleich zu Autorisierung
 
@@ -34,7 +34,7 @@ Die *Autorisierung* ist die Gewährung einer Handlungsberechtigung für eine aut
 
 ## <a name="authentication-and-authorization-using-the-microsoft-identity-platform"></a>Authentifizierung und Autorisierung mit Microsoft Identity Platform
 
-Die Erstellung von Apps, für die jeweils die eigenen Informationen zum Benutzernamen und Kennwort beibehalten werden, führt zu einem hohen Verwaltungsaufwand, wenn Benutzer App-übergreifend hinzugefügt oder entfernt werden sollen. Stattdessen kann diese Aufgabe von Ihren Apps an einen zentralen Identitätsanbieter delegiert werden.
+Die Erstellung von Apps, für die jeweils die eigenen Informationen zum Benutzernamen und Kennwort beibehalten werden, führt zu einem hohen Verwaltungsaufwand, wenn Benutzer App-übergreifend hinzugefügt oder entfernt werden. Stattdessen kann diese Aufgabe von Ihren Apps an einen zentralen Identitätsanbieter delegiert werden.
 
 Azure Active Directory (Azure AD) ist ein zentraler Identitätsanbieter in der Cloud. Indem die Authentifizierung und Autorisierung an diesen Anbieter delegiert wird, sind Szenarien der folgenden Art möglich:
 

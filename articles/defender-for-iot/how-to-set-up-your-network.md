@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621311"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526509"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender für IoT: Netzwerkeinrichtung
 
@@ -534,24 +534,23 @@ Gehen Sie diese Liste vor der Bereitstellung durch:
 
 | **#** | **Aufgabe oder Aktivität** | **Status** | **Kommentare** |
 |--|--|--|--|
-| 1 | Globale Bereitstellung. | ☐ |  |
-| 3 | Bestellung von Appliances. | ☐ |  |
-| 4 | Vorbereiten einer Liste der Subnetze im Netzwerk. | ☐ |  |
-| 5 | Bereitstellen einer VLAN-Liste der Produktionsnetzwerke. | ☐ |  |
-| 6 | Bereitstellen einer Liste der Switchmodelle im Netzwerk. | ☐ |  |
-| 7 | Bereitstellen einer Liste der Hersteller und Protokolle der Industrieanlagen. | ☐ |  |
-| 8 | Bereitstellen von Netzwerkdetails für Sensoren (IP-Adresse, Subnetz, D-GW, DNS). | ☐ |  |
-| 9 | Erstellen der erforderlichen Firewallregeln und der Zugriffsliste. | ☐ |  |
-| 10 | Erstellen von Wartungsports auf Switches für die Portüberwachung oder Konfigurieren von Netzwerk-TAPs nach Wunsch. | ☐ |  |
-| 11 | Vorbereiten von Regalplatz für Sensor-Appliances. | ☐ |  |
-| 12 | Vorbereiten einer Arbeitsstation für Mitarbeiter. | ☐ |  |
-| 13 | Bereitstellen von Tastatur, Monitor und Maus für die Defender für IoT-Rackgeräte. | ☐ |  |
-| 14 | Rackeinbau und Verkabelung der Appliances. | ☐ |  |
-| 15 | Zuweisen von Standortressourcen zum Unterstützen der Bereitstellung. | ☐ |  |
-| 16 | Erstellen von Active Directory-Gruppen oder lokalen Benutzern. | ☐ |  |
-| 17 | Einrichten von Aus- und Weiterbildung (Selbstlernmodus). | ☐ |  |
-| 18 | Genehmigung oder Ablehnung. | ☐ |  |
-| 19 | Planen des Bereitstellungsdatums. | ☐ |  |
+| 1 | Bestellung von Appliances. | ☐ |  |
+| 2 | Vorbereiten einer Liste der Subnetze im Netzwerk. | ☐ |  |
+| 3 | Bereitstellen einer VLAN-Liste der Produktionsnetzwerke. | ☐ |  |
+| 4 | Bereitstellen einer Liste der Switchmodelle im Netzwerk. | ☐ |  |
+| 5 | Bereitstellen einer Liste der Hersteller und Protokolle der Industrieanlagen. | ☐ |  |
+| 6 | Bereitstellen von Netzwerkdetails für Sensoren (IP-Adresse, Subnetz, D-GW, DNS). | ☐ |  |
+| 7 | Erstellen der erforderlichen Firewallregeln und der Zugriffsliste. | ☐ |  |
+| 8 | Erstellen von Wartungsports auf Switches für die Portüberwachung oder Konfigurieren von Netzwerk-TAPs nach Wunsch. | ☐ |  |
+| 9 | Vorbereiten von Regalplatz für Sensor-Appliances. | ☐ |  |
+| 10 | Vorbereiten einer Arbeitsstation für Mitarbeiter. | ☐ |  |
+| 11 | Bereitstellen von Tastatur, Monitor und Maus für die Defender für IoT-Rackgeräte. | ☐ |  |
+| 12 | Rackeinbau und Verkabelung der Appliances. | ☐ |  |
+| 13 | Zuweisen von Standortressourcen zum Unterstützen der Bereitstellung. | ☐ |  |
+| 14 | Erstellen von Active Directory-Gruppen oder lokalen Benutzern. | ☐ |  |
+| 15 | Einrichten von Aus- und Weiterbildung (Selbstlernmodus). | ☐ |  |
+| 16 | Genehmigung oder Ablehnung. | ☐ |  |
+| 17 | Planen des Bereitstellungsdatums. | ☐ |  |
 
 
 | **Datum** | **Hinweis** | **Bereitstellungsdatum** | **Hinweis** |

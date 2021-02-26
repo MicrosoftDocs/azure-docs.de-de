@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
+ms.author: mimart
+author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 84adb08231589ae636c6a6926a4019a8a070a62e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e0daa5b1c8d3fcc749f10e48e453ca8f92607643
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258862"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591700"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Externe Azure Active Directory-Identitäten: Neuerungen
 

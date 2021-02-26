@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672286"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581039"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Leitfaden für die Migration von ADAL zu MSAL für Android
 
@@ -71,7 +71,7 @@ Bei der App-Registrierung im Portal wird die Registerkarte **API-Berechtigungen*
 Mit ADAL und dem Azure AD v1-Endpunkt wurde die Benutzereinwilligung für eigene Ressourcen bei der erstmaligen Verwendung erteilt. Mit MSAL und Microsoft Identity Platform kann die Zustimmung inkrementell angefordert werden. Die inkrementelle Zustimmung ist hilfreich bei Berechtigungen, die der Benutzer eventuell als hohe Berechtigungen betrachtet. Andererseits kann der Benutzer auch nachfragen, wenn er keine eindeutige Erklärung erhält, warum die Berechtigung erforderlich ist. Bei ADAL haben diese Berechtigungen möglicherweise dazu geführt, dass die Benutzer auf die Anmeldung bei Ihrer App verzichtet haben.
 
 > [!TIP]
-> Wir empfehlen die Verwendung der inkrementellen Zustimmung bei Szenarien, in denen Sie Ihren Benutzern zusätzlichen Kontext bereitstellen müssen, warum Ihre App eine Berechtigung benötigt.
+> Verwenden Sie die inkrementelle Zustimmung, um Ihre Benutzer über zusätzlichen Kontext darüber zu informieren, warum Ihre App eine Berechtigung benötigt.
 
 ### <a name="admin-consent"></a>Administratorzustimmung
 

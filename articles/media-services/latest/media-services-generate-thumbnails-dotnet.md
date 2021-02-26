@@ -1,5 +1,5 @@
 ---
-title: Generieren von Vorschauminiaturen mithilfe des Media Encoder Standards in Microsoft Azure Media Services mit .NET
+title: Generieren von Miniaturansichten mithilfe von Media Encoder Standard mit .NET
 description: In diesem Artikel sehen Sie, wie Sie mithilfe von .NET ein Objekt codieren und gleichzeitig Vorschauminiaturen mithilfe des Media Encoder Standards generieren können.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 551574685ec9a2f9eb1ef569fbec7c9a104353ff
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512017"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955867"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Generieren von Vorschauminiaturen mithilfe des Media Encoder Standards mit .NET
 

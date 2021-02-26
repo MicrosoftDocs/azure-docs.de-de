@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836084"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523820"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Einrichten der SNMP-MIB-Überwachung
 
@@ -84,6 +84,6 @@ So definieren Sie die SNMP v3-Integritätsüberwachung
 
 5. Wählen Sie **Speichern** aus.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Exportieren von Problembehandlungsprotokollen](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

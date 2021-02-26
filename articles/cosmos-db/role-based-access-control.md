@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943756"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526940"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Rollenbasierte Azure-Zugriffssteuerung in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,8 @@ Die folgenden vordefinierten Rollen werden von Azure Cosmos DB unterstützt:
 |---------|---------|
 |[Mitwirkender von DocumentDB-Konto](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Kann Azure Cosmos DB-Konten verwalten.|
 |[Cosmos DB-Kontoleser](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kann Azure Cosmos DB-Kontodaten lesen.|
-|[Cosmos-Sicherungsoperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Kann eine Wiederherstellungsanforderung für eine Azure Cosmos-Datenbank oder einen Container übermitteln. Kann nicht auf Daten zugreifen oder Daten-Explorer verwenden.|
+|[Cosmos-Sicherungsoperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Kann eine Wiederherstellungsanforderung für Azure-Portal für eine periodisch aktivierte Sicherungsdatenbank oder einen Container übermitteln. Kann das Sicherungsintervall und die Datenaufbewahrung im Azure-Portal ändern. Kann nicht auf Daten zugreifen oder Daten-Explorer verwenden.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Kann eine Wiederherstellungsaktion für ein Azure Cosmos DB-Konto mit fortlaufendem Sicherungsmodus ausführen.|
 |[Cosmos DB-Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Kann Azure Cosmos-Konten, -Datenbanken und -Container bereitstellen. Kann nicht auf Daten zugreifen oder Daten-Explorer verwenden.|
 
 > [!IMPORTANT]
@@ -36,7 +37,7 @@ Die folgenden vordefinierten Rollen werden von Azure Cosmos DB unterstützt:
 
 Der Bereich **Zugriffssteuerung (IAM)**  im Azure-Portal dient zum Konfigurieren der rollenbasierten Azure-Zugriffssteuerung für Azure Cosmos-Ressourcen. Die Rollen werden Benutzern, Gruppen, Dienstprinzipalen und verwalteten Identitäten in Active Directory zugewiesen. Sie können für Einzelbenutzer und Gruppen integrierte oder benutzerdefinierte Rollen verwenden. Der folgende Screenshot zeigt die Active Directory-Integration (Azure RBAC) mithilfe der Zugriffssteuerung (IAM) im Azure-Portal:
 
-:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Zugriffssteuerung (IAM) im Azure-Portal: Veranschaulichung der Datenbanksicherheit":::
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Zugriffssteuerung (IAM) im Azure-Portal – Veranschaulichung der Datenbanksicherheit.":::
 
 ## <a name="custom-roles"></a>Benutzerdefinierte Rollen
 

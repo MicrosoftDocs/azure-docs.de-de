@@ -4,12 +4,12 @@ description: Enthält eine Zusammenfassung der Unterstützungseinstellungen und 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757473"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806103"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Supportmatrix für Azure Disk Backup (Vorschau)
 
@@ -22,7 +22,7 @@ Sie können [Azure Backup](./backup-overview.md) zum Schutz von Azure-Datenträg
 
 ## <a name="supported-regions"></a>Unterstützte Regionen
 
-Azure Disk Backup ist als Vorschau in den folgenden Regionen verfügbar: „USA, Westen-Mitte“, „USA, Osten 2“, „Südkorea, Mitte“, „Südkorea, Süden“, „Japan, Westen“ und „VAE, Norden“. 
+Azure Disk Backup ist als Vorschau in den folgenden Regionen verfügbar: „USA, Westen“, „USA, Westen-Mitte“, „USA, Osten 2“, „Kanada, Mitte“, „Vereinigtes Königreich, Westen“, „Schweiz, Norden“, „Schweiz, Westen“, „Australien, Mitte“, „Australien, Mitte 2“, „Südkorea, Mitte“, „Südkorea, Süden“, „Japan, Westen“, „Asien, Osten“, „VAE, Norden“, „Brasilien, Süden“, „Indien, Mitte“. 
 
 Weitere Regionen werden angekündigt, sobald sie verfügbar werden.
 
@@ -65,6 +65,8 @@ Weitere Regionen werden angekündigt, sobald sie verfügbar werden.
 - Bei verwalteten Datenträgern kann die Leistungsstufe bei der Bereitstellung oder danach geändert werden, ohne die Größe des Datenträgers anzupassen. Die Azure Disk Backup-Lösung unterstützt die Leistungsstufenänderungen auf dem zu sichernden Quelldatenträger. Während der Wiederherstellung ist die Leistungsstufe des wiederhergestellten Datenträgers mit der des Quelldatenträgers zum Zeitpunkt der Sicherung identisch. Befolgen Sie die [hier](../virtual-machines/disks-performance-tiers-portal.md) aufgeführte Dokumentation, um die Leistungsstufe Ihres Datenträgers nach dem Wiederherstellungsvorgang zu ändern.
 
 - Die Unterstützung für [private Verbindungen](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) für verwaltete Datenträger ermöglicht es Ihnen, den Export und Import von verwalteten Datenträgern einzuschränken, sodass diese Vorgänge nur in Ihrem virtuellen Azure-Netzwerk stattfinden. Azure Disk Backup unterstützt die Sicherung von Datenträgern, auf denen private Endpunkte aktiviert sind. Dies bedeutet nicht, dass die Sicherungsdaten oder Momentaufnahmen über den privaten Endpunkt zugänglich sind.
+
+- In der Vorschauphase können Sie die Sicherung nicht deaktivieren, sodass die Option zum **Anhalten der Sicherung und Beibehalten der Sicherungsdaten** nicht unterstützt wird. Sie können eine Sicherungsinstanz löschen. Dadurch wird nicht nur die Sicherung beendet, sondern es werden auch alle Sicherungsdaten gelöscht.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

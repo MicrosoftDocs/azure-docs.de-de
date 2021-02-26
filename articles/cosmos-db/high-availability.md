@@ -4,15 +4,15 @@ description: Dieser Artikel beschreibt, wie Azure Cosmos DB Hochverfügbarkeit b
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600551"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627364"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Wie bietet Azure Cosmos DB Hochverfügbarkeit?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Für die seltenen Fälle eines regionalen Ausfalls stellt Azure Cosmos DB siche
 
 * Bei einem Ausfall der Leseregion besteht für Azure Cosmos-Konten mit einer Konsistenzebene bzw. hoher Konsistenz mit drei oder mehr Leseregionen weiterhin Hochverfügbarkeit für Lese- und Schreibvorgänge.
 
-* Für Azure Cosmos-Konten mit hoher Konsistenz mit maximal zwei Leseregionen (einschließlich der Lese- und Schreibregion) geht die Schreibverfügbarkeit bei einem Ausfall der Leseregion verloren.
+* Für Azure Cosmos-Konten mit hoher Konsistenz und mit höchstens drei Regionen (eine Lese-, zwei Schreibregionen) geht die Schreibverfügbarkeit bei einem Ausfall der Leseregion verloren. Kunden mit insgesamt mindestens vier Regionen können sich jedoch für die Verwendung von dynamischen Lesequoren registrieren, indem sie ein Supportticket erstellen. Konten mit mindestens zwei Leseregionen in dieser Konfiguration behalten Schreibverfügbarkeit.
 
 * Die betreffende Region wird automatisch getrennt und als offline gekennzeichnet. Die [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) leiten Leseaufrufe an die nächste verfügbare Region in der Liste der bevorzugten Regionen weiter.
 
@@ -112,15 +112,15 @@ In der folgenden Tabelle ist die Hochverfügbarkeitsfunktion verschiedener Konto
 |Zonenfehler: Verfügbarkeit | Verlust der Verfügbarkeit | Kein Verlust der Verfügbarkeit | Kein Verlust der Verfügbarkeit | Kein Verlust der Verfügbarkeit |
 |Regionaler Ausfall: Datenverlust | Datenverlust |  Datenverlust | Abhängig von der Konsistenzebene. Weitere Informationen finden Sie unter [Konsistenzebenen in Azure Cosmos DB](consistency-levels-tradeoffs.md). | Abhängig von der Konsistenzebene. Weitere Informationen finden Sie unter [Konsistenzebenen in Azure Cosmos DB](consistency-levels-tradeoffs.md).
 |Regionaler Ausfall: Verfügbarkeit | Verlust der Verfügbarkeit | Verlust der Verfügbarkeit | Kein Verfügbarkeitsverlust bei einem Fehler in der Leseregion, temporär für Fehler in der Schreibregion | Kein Verlust der Verfügbarkeit |
-|Preis (**_1_* _) | Nicht zutreffend | Bereitgestellte RU/s x 1,25-Rate | Bereitgestellte RU/s x 1,25-Rate (_*_2_*_) | Schreibrate in mehreren Regionen |
+|Preis (***1** _) | Nicht zutreffend | Bereitgestellte RU/s x 1,25-Rate | Bereitgestellte RU/s × 1,25-Rate (_*_2_**) | Schreibrate in mehreren Regionen |
 
-_*_1_*_ Für serverlose Konten werden Anforderungseinheiten (Request Units, RU) mit dem Faktor 1,25 multipliziert.
+***1*** Für serverlose Konten werden Anforderungseinheiten (Request Units, RU) mit dem Faktor 1,25 multipliziert.
 
-_*_2_*_ 1,25-Rate gilt nur für die Regionen, in denen VZ aktiviert ist.
+***2*** 1,25-Rate gilt nur für die Regionen, in denen VZ aktiviert ist.
 
 Verfügbarkeitszonen können über Folgendes aktiviert werden:
 
-_ [Azure-Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

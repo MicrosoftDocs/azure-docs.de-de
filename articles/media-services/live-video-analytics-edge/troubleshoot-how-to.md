@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878289"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051294"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Troubleshooting Live Video Analytics in IoT Edge
 
@@ -97,6 +97,18 @@ Live Video Analytics wird als IoT Edge-Modul auf dem IoT Edge-Gerät bereitgeste
 
     > [!TIP]
     > Wenn in Ihrer Umgebung Probleme bei der Ausführung von Azure IoT Edge-Modulen auftreten, nutzen Sie **[Azure IoT Edge: Standarddiagnoseschritte](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** als Leitfaden zur Problembehandlung und Diagnose.
+
+Möglicherweise treten auch Probleme auf, wenn Sie das **[Skript zur Einrichtung von Live Video Analytics-Ressourcen](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)** ausführen. Einige häufige Probleme sind u. a.:
+
+* Verwenden eines Abonnements, für das Sie nicht über Besitzerberechtigungen verfügen. Dies führt dazu, dass das Skript mit dem Fehler **ForbiddenError** oder **AuthorizationFailed** fehlschlägt.
+    * Um dieses Problem zu umgehen, stellen Sie sicher, dass Sie die Berechtigung **Besitzer** für das Abonnement haben, das Sie verwenden möchten. Wenn Sie es nicht selbst tun können, bitten Sie den Administrator des Abonnements, Ihnen die entsprechenden Berechtigungen zu erteilen.
+* **Bei der Vorlagenbereitstellung ist aufgrund einer Richtlinienverletzung ein Fehler aufgetreten.**
+    * Um dieses Problem zu umgehen, arbeiten Sie mit Ihrem IT-Administrator zusammen, um sicherzustellen, dass die Aufrufe zum Erstellen des virtuellen Computers die Blockierung der Authentifizierung per SSH umgehen. Dies ist nicht erforderlich, da wir ein sicheres Bastion-Netzwerk verwenden, das einen Benutzernamen und ein Kennwort für die Kommunikation mit den Azure-Ressourcen verlangt. Diese Anmeldeinformationen werden in der Datei **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** in Cloud Shell gespeichert, sobald der virtuelle Computer erfolgreich erstellt, bereitgestellt und an IoT Hub angefügt wurde.
+* Das Skript zum Setup kann keine Dienstprinzipale und/oder Azure-Ressourcen erstellen.
+    * Um dieses Problem zu umgehen, vergewissern Sie sich, dass Ihr Abonnement und der Azure-Mandant nicht ihre maximalen Dienstgrenzwerte erreicht haben. Erfahren Sie mehr zu den [Dienstgrenzwerten und Einschränkungen von Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) und [Dienstgrenzwerten, Kontingenten und Einschränkungen von Azure-Abonnements](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+> [!TIP]
+> Wenn es weitere Probleme gibt, bei denen Sie Hilfe benötigen, **[erfassen Sie Protokolle, und übermitteln Sie ein Supportticket](#collect-logs-for-submitting-a-support-ticket)** . Sie können uns auch erreichen, indem Sie eine E-Mail an **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** senden.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Live Video Analytics bei der Arbeit mit externen Modulen
 
 Live Video Analytics kann den Mediengraph über die Mediengraph-Erweiterungsprozessoren erweitern, um mithilfe von REST Daten über HTTP an andere IoT Edge-Module zu senden und von diesen zu empfangen. Ein [spezifisches Beispiel](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension): Dieser Mediengraph kann Videoeinzelbilder als Bilder an ein externes Rückschlussmodul wie Yolo v3 senden und als Rückgabe JSON-basierte Analyseergebnisse erhalten. In einer solchen Topologie bildet in den meisten Fällen der IoT Hub das Ziel für die Ereignisse. In Situationen, in denen Sie keine Rückschlussereignisse auf dem Hub sehen können, prüfen Sie die folgenden Punkte:

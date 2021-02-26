@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860625"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257184"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkter Verbund mit AD FS und Drittanbietern für Gastbenutzer (Preview)
 
@@ -78,7 +78,8 @@ Ja. Wenn die Domäne nicht verifiziert wurde und der Mandant keine [Übernahme d
 Wenn direkter Verbund mit einer Partnerorganisation eingerichtet ist, hat dieser Vorrang vor der Authentifizierung per E-Mail-Einmalkennung für neue Gastbenutzer aus dieser Organisation. Wenn ein Gastbenutzer eine Einladung mit Authentifizierung mittels Einmalkennung eingelöst hat, bevor Sie den direkten Verbund einrichten, wird er die Authentifizierung mit Einmalkennung weiterhin verwenden. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Behandelt der direkte Verbund Anmeldeprobleme aufgrund eines teilweise synchronisierten Mandanten?
 Nein, in diesem Szenario sollte die Funktion [E-Mail-Einmalkennung](one-time-passcode.md) verwendet werden. Ein „teilweise synchronisierter Mandant“ bezieht sich auf einen Azure AD-Partnermandanten, bei dem lokale Benutzeridentitäten nicht vollständig mit der Cloud synchronisiert sind. Ein Gast, dessen Identität noch nicht in der Cloud vorhanden ist, der aber versucht, Ihre B2B-Einladung einzulösen, kann sich dann nicht anmelden. Die Einmalkennungsfunktion gestattet diesem Gast die Anmeldung. Die direkte Verbundfunktion behandelt Szenarien, in denen der Gast über ein eigenes vom Identitätsanbieter verwaltetes Organisationskonto verfügt, die Organisation aber über gar keine Azure AD-Präsenz verfügt.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Wenn der direkte Verbund mit einer Organisation konfiguriert ist, muss dann jedem Gast eine individuelle Einladung gesendet werden, die dieser einlösen muss?
+Durch das Einrichten des direkten Verbunds wird nicht die Authentifizierungsmethode für Gastbenutzer geändert, die bereits eine Einladung von Ihnen eingelöst haben. Sie können die Authentifizierungsmethode eines Gastbenutzers aktualisieren, indem Sie das Gastbenutzerkonto aus Ihrem Verzeichnis löschen und den Benutzer erneut einladen.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Schritt 1: Konfigurieren Sie den Identitätsanbieter der Partnerorganisation
 Zunächst muss Ihre Partnerorganisation ihren Identitätsanbieter mit den erforderlichen Ansprüchen und Vertrauenspersonen vertraut machen. 
 

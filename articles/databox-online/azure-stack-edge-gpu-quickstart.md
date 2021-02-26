@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 200e7f191cb19588fa79ba685c91a75dabd0156a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348207"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546787"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Schnellstart: Erste Schritte mit Azure Stack Edge Pro mit GPU 
 
@@ -64,7 +64,7 @@ Sorgen Sie vor der Bereitstellung dafür, dass die folgenden Voraussetzungen erf
 10. **Zertifikate konfigurieren**: Wenn Sie den Gerätenamen und/oder die DNS-Domäne geändert haben, müssen Sie zum Aktivieren des Geräts Zertifikate generieren oder Zertifikate hinzufügen. 
 
     - Zum Testen von nicht produktiven Workloads verwenden Sie die Option [Zertifikate generieren](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates). 
-    - Wenn Sie eigene Zertifikate einschließlich der Signaturkette(n) bereitstellen, [fügen Sie Zertifikate](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) im entsprechenden Format hinzu. Zuerst müssen Sie die Signaturkette hochladen. Weitere Informationen finden Sie unter [Erstellen von Zertifikaten](azure-stack-edge-j-series-create-certificates-tool.md) und [Hochladen von Zertifikaten über die lokale Benutzeroberfläche](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+    - Wenn Sie eigene Zertifikate einschließlich der Signaturkette(n) bereitstellen, [fügen Sie Zertifikate](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) im entsprechenden Format hinzu. Zuerst müssen Sie die Signaturkette hochladen. Weitere Informationen finden Sie unter [Erstellen von Zertifikaten](azure-stack-edge-gpu-create-certificates-tool.md) und [Hochladen von Zertifikaten über die lokale Benutzeroberfläche](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
 11. **Aktivieren**: So rufen Sie den Aktivierungsschlüssel ab: 
 
@@ -73,7 +73,7 @@ Sorgen Sie vor der Bereitstellung dafür, dass die folgenden Voraussetzungen erf
 
 12. **Compute konfigurieren**: Wechseln Sie im Azure-Portal zu **Übersicht > Geräte**. Überprüfen Sie, ob das Gerät **Online** ist. Wechseln Sie im linken Bereich zu **Edgecomputing > Erste Schritte > Edgecomputing konfigurieren > Compute**. Stellen Sie einen vorhandenen oder neuen IoT Hub-Dienst bereit, und warten Sie ca. 20 Minuten, bis der Computeserver konfiguriert ist. Weitere Informationen finden Sie im [Tutorial: Konfigurieren von Compute auf einem Azure Stack Edge Pro-Gerät mit GPU](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-Sie sind bereit, Computeworkloads auf Ihrem Gerät [über IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [über `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) oder [über Kubernetes mit Azure Arc-Aktivierung](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) bereitzustellen! Wenn während des Setups Probleme auftreten, wechseln Sie zu [Beheben von Geräteproblemen](), [Bestellprobleme](azure-stack-edge-gpu-troubleshoot.md), [Zertifikatprobleme](azure-stack-edge-j-series-certificate-troubleshooting.md) oder „Kubernetes-Probleme“. 
+Sie sind bereit, Computeworkloads auf Ihrem Gerät [über IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [über `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) oder [über Kubernetes mit Azure Arc-Aktivierung](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) bereitzustellen! Wenn während des Setups Probleme auftreten, wechseln Sie zu [Beheben von Geräteproblemen](), [Bestellprobleme](azure-stack-edge-gpu-troubleshoot.md), [Zertifikatprobleme](azure-stack-edge-gpu-certificate-troubleshooting.md) oder „Kubernetes-Probleme“. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

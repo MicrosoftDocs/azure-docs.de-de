@@ -7,23 +7,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750c24fd84629f709beb7a92e92fd1ecf581c09a
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584786"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>Installieren und Ausführen eines Containers für die Formularerkennung (Vorschau)
+# <a name="install-and-run-form-recognizer-containers-retiring"></a>Installieren und Ausführen eines Containers für die Formularerkennung (Außerbetriebnahme)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Die Azure-Formularerkennung wendet Technologien des maschinellen Lernens an, um Schlüssel-Wert-Paare und Tabellen in Formularen zu identifizieren und daraus zu extrahieren. Sie ordnet Werte und Tabelleneinträge den Schlüssel-Wert-Paaren zu und gibt dann strukturierte Daten aus, die die Beziehungen in der ursprünglichen Datei enthalten. 
 
-Um die Komplexität zu verringern und ein benutzerdefiniertes Formularerkennungsmodell auf einfache Weise in Ihren Prozess zur Workflowautomatisierung oder eine andere Anwendung zu integrieren, können Sie das Modell mithilfe einer einfachen REST-API aufrufen. Es werden nur fünf Formulardokumente (oder ein leeres Formular und zwei ausgefüllte Formulare) benötigt, damit Sie Ergebnisse schnell und präzise erhalten, die auf Ihren spezifischen Inhalt zugeschnitten sind. Es sind keine starken manuellen Eingriffe oder umfangreichen Kenntnisse im Bereich der Data Science erforderlich. Und es sind keine Datenbeschriftungen oder Datenanmerkungen erforderlich.
+Um die Komplexität zu verringern und ein benutzerdefiniertes Formularerkennungsmodell auf einfache Weise in Ihren Prozess zur Workflowautomatisierung oder eine andere Anwendung zu integrieren, können Sie das Modell mithilfe einer einfachen REST-API aufrufen. Es werden nur fünf Formulardokumente benötigt, damit Sie Ergebnisse schnell und präzise erhalten, die auf Ihren spezifischen Inhalt zugeschnitten sind. Es sind keine starken manuellen Eingriffe oder umfangreichen Kenntnisse im Bereich der Data Science erforderlich. Und es sind keine Datenbeschriftungen oder Datenanmerkungen erforderlich.
 
 | Funktion | Features |
 |----------|----------|
@@ -84,37 +84,9 @@ Die Mindestanforderungen und empfohlenen Werte für CPU-Kerne und Arbeitsspeiche
 > [!Note]
 > Die Mindestanforderungen und empfohlenen Werte basieren auf Docker-Grenzwerten und *nicht* auf den Ressourcen des Hostcomputers.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Abrufen der Containerimages mit dem Befehl „docker pull“
-
-Containerimages für die Angebote für **Formularerkennung** und **Texterkennung** sind in der folgenden Containerregistrierung verfügbar:
-
-| Container | Vollqualifizierter Imagename |
-|-----------|------------|
-| Formularerkennung | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Texterkennung | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-Sie benötigen beide Container. Ausführliche Informationen zum Container **Texterkennung** finden Sie [außerhalb dieses Artikels](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull).
+Sie benötigen sowohl den Container „Formularerkennung“ als auch den Container „Texterkennung“. Beachten Sie, dass der Container **Texterkennung** [außerhalb dieses Artikels beschrieben wird.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Docker-Pullvorgang für den Container für die Formularerkennung
-
-#### <a name="form-recognizer"></a>Formularerkennung
-
-Verwenden Sie den folgenden Befehl zum Abrufen des Containers für Formularerkennung:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-Pullvorgang für den Container für die Texterkennung
-
-#### <a name="recognize-text"></a>Texterkennung
-
-Verwenden Sie den folgenden Befehl zum Abrufen des Containers für Texterkennung:
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## <a name="how-to-use-the-container"></a>Verwenden des Containers
 

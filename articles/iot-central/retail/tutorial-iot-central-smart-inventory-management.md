@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463278"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832180"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Bereitstellen und Durchlaufen einer Anwendungsvorlage für intelligente Bestandsverwaltung
 
-
-
 Dieses Tutorial zeigt, wie Sie durch Bereitstellen einer IoT Central-Vorlage in die **intelligente Bestandsverwaltung** einsteigen. Sie erfahren, wie Sie die Vorlage bereitstellen, was im Lieferumfang enthalten ist und welche nächsten Schritte sinnvoll sind.
 
-In diesem Tutorial lernen Sie Folgendes: 
-* Erstellen einer Anwendung für intelligente Bestandsverwaltung 
-* Einführung in die Anwendung 
+In diesem Tutorial lernen Sie Folgendes:
+
+> [!div class="checklist"]
+> Erstellen einer Anwendung für intelligente Bestandsverwaltung und Durchlaufen der Anwendung 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -110,8 +109,8 @@ Wenn Sie diese Anwendung nicht mehr verwenden möchten, löschen Sie die Anwendu
 > ![Screenshot: Löschen der Anwendung, wenn Sie sie nicht mehr benötigen](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Informieren Sie sich ausführlicher über die intelligente Bestandsverwaltung: 
+
+Informieren Sie sich ausführlicher über die intelligente Bestandsverwaltung:
+
 > [!div class="nextstepaction"]
 > [Architektur der IoT Central-Anwendungsvorlage für intelligente Bestandsverwaltung](./architecture-smart-inventory-management.md)
-* Weitere Informationen zu anderen [IoT Central-Einzelhandelsvorlagen](./overview-iot-central-retail.md)
-* Lesen Sie die [Übersicht über IoT Central](../core/overview-iot-central.md).

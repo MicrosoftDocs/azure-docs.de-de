@@ -4,12 +4,12 @@ description: Erfahren Sie mehr über die Verschlüsselung ruhender Daten Ihrer A
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620439"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062727"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Verschlüsseln der Registrierung mithilfe eines kundenseitig verwalteten Schlüssels
 
@@ -566,21 +566,31 @@ Nachdem Sie die vorangehenden Schritte ausgeführt haben, rotieren Sie den Schl�
 
 ## <a name="troubleshoot"></a>Problembehandlung
 
-### <a name="removing-user-assigned-identity"></a>Entfernen der benutzerseitig zugewiesenen Identität
+### <a name="removing-managed-identity"></a>Entfernen einer verwalteten Identität
 
-Wenn Sie versuchen, eine benutzerseitig zugewiesene Identität aus einer Registrierung zu entfernen, die für die Verschlüsselung verwendet wird, wird möglicherweise eine Fehlermeldung ähnlich der folgenden angezeigt:
+
+Wenn Sie versuchen, eine benutzer- oder systemseitig zugewiesene verwaltete Identität aus einer Registrierung zu entfernen, die für die Verschlüsselung verwendet wird, wird möglicherweise eine Fehlermeldung ähnlich der folgenden angezeigt:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Darüber hinaus können Sie den Verschlüsselungsschlüssel nicht ändern (rotieren). Wenn dieses Problem auftritt, weisen Sie zunächst die Identität mit der in der Fehlermeldung angegebenen GUID neu zu. Beispiel:
+Darüber hinaus können Sie den Verschlüsselungsschlüssel nicht ändern (rotieren). Die Lösungsschritte hängen davon ab, welche Art von Identität für die Verschlüsselung verwendet wird.
+
+**Benutzerseitig zugewiesene Identität**
+
+Wenn dieses Problem bei einer benutzerseitig zugewiesenen Identität auftritt, weisen Sie zunächst die Identität mit der in der Fehlermeldung angegebenen GUID neu zu. Beispiel:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Nach dem Ändern des Schlüssels und dem Zuweisen einer anderen Identität können Sie dann die ursprüngliche benutzerseitig zugewiesene Identität entfernen.
+
+**Systemseitig zugewiesene Identität**
+
+Wenn dieses Problem mit einer systemseitig zugewiesenen Identität auftritt, [erstellen Sie ein Azure-Supportticket](https://azure.microsoft.com/support/create-ticket/), um Unterstützung beim Wiederherstellen der Identität zu erhalten.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

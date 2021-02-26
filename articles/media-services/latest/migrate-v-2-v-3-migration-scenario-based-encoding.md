@@ -1,5 +1,5 @@
 ---
-title: Szenariobasierter Migrationsleitfaden für die Codierung | Microsoft-Dokumentation
+title: Migrationsleitfaden für die Codierung
 description: In diesem Artikel finden Sie einen szenariobasierten Migrationsleitfaden für die Codierung, der Sie bei der Migration von Azure Media Services V2 zu V3 unterstützt.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d122bdeb98de624d9053852b9bee4595b0ef8c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689475"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940089"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Szenariobasierter Migrationsleitfaden für die Codierung
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936055"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492109"
 ---
 # <a name="calling-client-library-overview"></a>Übersicht über die Clientbibliothek für Telefonie
 
@@ -96,7 +96,7 @@ Die Clientbibliothek für Telefonie von Communication Services unterstützt die 
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Anzahl der ausgehenden Datenströme, die gleichzeitig gesendet werden können.** |1 Video- und 1 Bildschirmfreigabe | 1 Video- und 1 Bildschirmfreigabe|
+|**Anzahl der ausgehenden Datenströme, die gleichzeitig gesendet werden können.** |1 Video- und 1 Bildschirmfreigabe | 1 Video |
 |**Anzahl der eingehenden Datenströme, die gleichzeitig gerendert werden können.** |1 Video- und 1 Bildschirmfreigabe| 6 Video- und 1 Bildschirmfreigabe |
 
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131123"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585091"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Vordefiniertes Visitenkartenmodell der Formularerkennung 
 
@@ -35,7 +35,7 @@ Die vorgefertigte Visitenkarten-API extrahiert wichtige Felder von Visitenkarten
 |:-----|:----|:----|:----|
 | ContactNames | Array von Objekten | Aus der Visitenkarte extrahierter Name des Kontakts | [{ "FirstName": "John", "LastName": "Doe" }] |
 | FirstName | Zeichenfolge | Vorname des Kontakts | „John“ | 
-| LastName | Zeichenfolge | Nachname des Kontakts |   „Doe“ | 
+| LastName | Zeichenfolge | Nachname des Kontakts |     „Doe“ | 
 | CompanyNames | array of strings | Aus der Visitenkarte extrahierter Unternehmensname | ["Contoso"] | 
 | Departments | array of strings | Abteilung oder Organisation des Kontakts | ["R&D"] | 
 | JobTitles | array of strings | Aufgeführte Position des Kontakts | ["Software Engineer"] | 
@@ -45,7 +45,7 @@ Die vorgefertigte Visitenkarten-API extrahiert wichtige Felder von Visitenkarten
 | MobilePhones | Array aus Telefonnummern | Aus der Visitenkarte extrahierte Mobiltelefonnummer | ["+19876543210"] |
 | Faxnummern | Array aus Telefonnummern | Aus der Visitenkarte extrahierte Faxnummer | ["+19876543211"] |
 | WorkPhones | Array aus Telefonnummern | Aus der Visitenkarte extrahierte geschäftliche Telefonnummer | ["+19876543231"] |
-| OtherPhones    | Array aus Telefonnummern | Aus der Visitenkarte extrahierte weitere Telefonnummern | ["+19876543233"] |
+| OtherPhones     | Array aus Telefonnummern | Aus der Visitenkarte extrahierte weitere Telefonnummern | ["+19876543233"] |
 
 
 Darüber hinaus kann die Visitenkarten-API auch den gesamten erkannten Text auf der Visitenkarte zurückgeben. Diese OCR-Ausgabe ist in der JSON-Antwort enthalten.  

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0945b35f7aff8e93a1a3ba23b89db288db3d8efa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80679408"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593890"
 ---
 # <a name="object-and-resource-lifetime"></a>Objekt- und Ressourcenlebensdauer
 
@@ -32,7 +32,7 @@ Viele Ressourcen sind unveränderlich, z. B. [Gittermodelle](meshes.md) und [Te
 
 ### <a name="built-in-resources"></a>Integrierte Ressourcen
 
-Azure Remote Rendering enthält einige integrierte Ressourcen, die geladen werden können, indem `builtin://` dem entsprechenden Bezeichner während des Aufrufs von `AzureSession.Actions.LoadXYZAsync()` vorangestellt wird. Die verfügbaren integrierten Ressourcen werden in der Dokumentation zu den jeweiligen Features aufgeführt. Im Kapitel zum [Himmel](../overview/features/sky.md) werden z. B. die integrierten Himmelstexturen aufgeführt.
+Azure Remote Rendering enthält einige integrierte Ressourcen, die geladen werden können, indem `builtin://` dem entsprechenden Bezeichner während des Aufrufs von `RenderingSession.Connection.LoadXYZAsync()` vorangestellt wird. Die verfügbaren integrierten Ressourcen werden in der Dokumentation zu den jeweiligen Features aufgeführt. Im Kapitel zum [Himmel](../overview/features/sky.md) werden z. B. die integrierten Himmelstexturen aufgeführt.
 
 ## <a name="general-lifetime"></a>Allgemeine Lebensdauer
 

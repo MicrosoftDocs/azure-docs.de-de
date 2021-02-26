@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424751"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626659"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Szenario: Weiterleiten von Datenverkehr über ein virtuelles Netzwerkgerät
 
@@ -30,9 +30,9 @@ Wenn Sie mit Virtual WAN-Routing für virtuelle Hubs arbeiten, stehen Ihnen eine
 
 In diesem Szenario wird die folgende Benennungskonvention verwendet:
 
-* „NVA-VNETs“ für virtuelle Netzwerke, in denen Benutzer eine NVA bereitgestellt und andere virtuelle Netzwerke als Spokes verbunden haben (VNET 2 und VNET 4 unten in der **Konnektivitätsmatrix** ).
-* „NVA-Spokes“ für virtuelle Netzwerke, die mit einem NVA-VNET (VNET 5, VNET 6, VNET 7 und VNET 8 unten in der **Konnektivitätsmatrix** ) verbunden sind.
-* „Nicht-NVA-VNETs“ für mit Virtual WAN verbundene virtuelle Netzwerke, für die kein NVA vorhanden ist bzw. keine anderen VNETs per Peering verbunden sind (VNET 1 und VNET 3 unten in der **Konnektivitätsmatrix** ).
+* „NVA-VNETs“ für virtuelle Netzwerke, in denen Benutzer eine NVA bereitgestellt und andere virtuelle Netzwerke als Spokes verbunden haben (VNET 2 und VNET 4 unten in der **Konnektivitätsmatrix**).
+* „NVA-Spokes“ für virtuelle Netzwerke, die mit einem NVA-VNET (VNET 5, VNET 6, VNET 7 und VNET 8 unten in der **Konnektivitätsmatrix**) verbunden sind.
+* „Nicht-NVA-VNETs“ für mit Virtual WAN verbundene virtuelle Netzwerke, für die kein NVA vorhanden ist bzw. keine anderen VNETs per Peering verbunden sind (VNET 1 und VNET 3 unten in der **Konnektivitätsmatrix**).
 * „Hubs“ für von Microsoft verwaltete Virtual WAN-Hubs, mit denen NVA-VNETs verbunden sind. NVA-Spoke-VNETs müssen nicht mit Virtual WAN-Hubs verbunden sein, sondern nur mit NVA-VNETs.
 
 In der folgenden Konnektivitätsmatrix sind die für dieses Szenario unterstützten Datenflüsse zusammengefasst:
@@ -111,7 +111,7 @@ Zur Einrichtung des Routings über das virtuelle Netzwerkgerät sind die folgend
    * Von VNET 5 und VNET 6 zu VNET 2-NVA-IP-Adresse
    * Von VNET 7 und VNET 8 zu VNET 4-NVA-IP-Adresse 
    
-   Sie müssen die VNETs 5, 6, 7 und 8 nicht direkt mit den virtuellen Hubs verbinden. Stellen Sie sicher, dass die Netzwerksicherheitsgruppen in den VNETs 5, 6, 7 und 8 den Datenverkehr für den Branch (VPN/ER/P2S) oder für VNETs zulassen, die mit ihren Remote-VNETs verbunden sind. Beispielsweise muss für die VNETs 5 und 6 sichergestellt sein, dass die Netzwerksicherheitsgruppen den Datenverkehr für lokale Adresspräfixe und die VNETs 7 und 8 zulassen, die mit dem Remotehub 2 verbunden sind.
+   Sie müssen die VNETs 5, 6, 7 und 8 nicht direkt mit den virtuellen Hubs verbinden. Stellen Sie sicher, dass die Netzwerksicherheitsgruppen in den VNETs 5, 6, 7 und 8 den Datenverkehr für den Branch (VPN/ER/P2S) oder für VNETs zulassen, die mit ihren Remote-VNETs verbunden sind. Beispielsweise muss für die VNETs 5 und 6 sichergestellt sein, dass die Netzwerksicherheitsgruppen den Datenverkehr für lokale Adresspräfixe und die VNETs 7 und 8 zulassen, die mit dem Remotehub 2 verbunden sind.
 
 Virtual WAN unterstützt kein Szenario, in dem VNet 5 und VNet 6 eine Verbindung mit einem virtuellen Hub herstellen und über die NVA-IP-Adresse von VNet 2 kommunizieren. Daher ist es erforderlich, VNet 5 und VNet 6 mit VNet 2 bzw. VNet 7 und VNet 8 mit VNet 4 zu verbinden.
 

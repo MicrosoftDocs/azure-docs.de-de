@@ -4,15 +4,15 @@ description: Verwenden von Abhängigkeitsinjektionen für die Registrierung und 
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706931"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955087"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Verwenden der Abhängigkeitsinjektion in Azure Functions (.NET)
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 Weitere Informationen zum Arbeiten mit Optionen finden Sie unter [Optionsmuster in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
+
+## <a name="using-aspnet-core-user-secrets"></a>Verwenden von geheimen ASP.NET Core-Benutzerschlüsseln
+
+Für die lokale Entwicklung stellt ASP.NET Core das [Secret Manager-Tool](/aspnet/core/security/app-secrets#secret-manager) bereit, mit dem Sie Informationen zu Geheimnissen außerhalb des Stammverzeichnisses des Projekts speichern können. Dadurch sinkt die Wahrscheinlichkeit, dass geheime Schlüssel versehentlich an die Quellcodeverwaltung übertragen werden. Azure Functions Core Tools (Version 3.0.3233 oder höher) liest automatisch geheime Schlüssel, die vom ASP.NET Core Secret Manager erstellt wurden.
+
+Führen Sie den folgenden Befehl im Stammverzeichnis des .NET Azure Functions-Projekts aus, um es für die Verwendung von geheimen Benutzerschlüsseln zu konfigurieren.
+
+```bash
+dotnet user-secrets init
+```
+
+Verwenden Sie dann den Befehl `dotnet user-secrets set`, um geheime Schlüssel zu erstellen oder zu aktualisieren.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Verwenden Sie `IConfiguration` oder `IOptions`, um auf die Werte der geheimen Benutzerschlüssel in Ihrem Funktions-App-Code zuzugreifen.
 
 ## <a name="customizing-configuration-sources"></a>Anpassen von Konfigurationsquellen
 

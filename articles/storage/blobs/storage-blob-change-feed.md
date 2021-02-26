@@ -3,17 +3,17 @@ title: Änderungsfeed in Azure Blob Storage | Microsoft-Dokumentation
 description: Erfahren Sie mehr über Änderungsfeedprotokolle in Azure Blob Storage und deren Verwendung.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997102"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979220"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Änderungsfeed in Azure Blob Storage
 
@@ -21,9 +21,15 @@ Zweck des Änderungsfeeds ist es, Transaktionsprotokolle für alle Änderungen b
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>Funktionsweise des Änderungsfeeds
+
 Der Änderungsfeed wird in Form von [Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in einem speziellen Container Ihres Speicherkontos zu standardmäßigen [Blobpreisen](https://azure.microsoft.com/pricing/details/storage/blobs/) gespeichert. Sie können den Aufbewahrungszeitraum dieser Dateien Ihren Anforderungen entsprechend steuern (Informationen hierzu finden Sie in den [Bedingungen](#conditions) für das aktuelle Release). Änderungsereignisse werden in der [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html)-Formatspezifikation als Datensätze an den Änderungsfeed angehängt. Dies ist ein kompaktes, schnelles Binärformat, das umfangreiche Datenstrukturen mit Inlineschemas bereitstellt. Dieses Format wird häufig im Hadoop-Ökosystem, von Stream Analytics und von Azure Data Factory verwendet.
 
 Sie können diese Protokolle asynchron, inkrementell oder vollständig verarbeiten. Eine beliebige Anzahl von Clientanwendungen kann den Änderungsfeed unabhängig, gleichzeitig und in der jeweils eigenen Geschwindigkeit lesen. Analyseanwendungen wie [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) oder [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) können Protokolle direkt als Avro-Dateien nutzen, sodass sie kostengünstig, mit hoher Bandbreite und ohne benutzerdefinierte Anwendung verarbeitet werden können.
+
+Das folgende Diagramm zeigt, wie dem Änderungsfeed Datensätze hinzugefügt werden:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagramm, das die Funktionsweise des Änderungsfeeds zum Bereitstellen eines sortierten Protokolls der Änderungen an Blobs zeigt":::
 
 Die Unterstützung eines Änderungsfeeds eignet sich gut für Szenarien, in denen Daten basierend auf geänderten Objekten verarbeitet werden. Anwendungen können beispielsweise Folgendes ausführen:
 

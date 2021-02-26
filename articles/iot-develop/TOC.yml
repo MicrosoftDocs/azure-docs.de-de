@@ -1,0 +1,113 @@
+- name: Entwicklung von IoT-Geräten und -Anwendungen
+  href: index.yml
+- name: Übersicht
+  items:
+    - name: Worum handelt es sich bei der Entwicklung von IoT-Geräten und -Anwendungen?
+      href: about-iot-develop.md
+    - name: Welches SDK sollte ich verwenden?
+      href: about-iot-sdks.md
+- name: Schnellstarts
+  expanded: true
+  items:
+    - name: Erste Schritte bei der Entwicklung von Geräteanwendungen
+      items:
+        - name: Senden von Telemetriedaten an IoT Central (Python)
+          href: quickstart-send-telemetry-python.md
+        - name: Senden von Telemetriedaten an IoT Hub (Python)
+          href: quickstart-send-telemetry-cli-python.md
+        - name: Senden von Telemetriedaten an IoT Hub (Node)
+          href: quickstart-send-telemetry-cli-node.md
+    - name: Erste Schritte bei der eingebetteten Entwicklung
+      href: quickstart-device-development.md
+- name: Tutorials
+  items:
+    - name: Sicheres Verknüpfen von IoT-Geräten mit der Cloud
+      href: 'https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/'
+- name: Konzepte
+  items:
+    - name: Verbindungsoptionen für Geräteentwickler
+      href: concepts-overview-connection-options.md
+    - name: Übersicht über Gerätetypen
+      href: concepts-iot-device-types.md
+- name: Verweis
+  items:
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-IoT
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iothub
+    - name: C (Gerät)
+      href: /azure/iot-hub/iot-c-sdk-ref/
+    - name: Embedded C (Gerät)
+      href: 'https://azure.github.io/azure-sdk-for-c/'
+    - name: Azure RTOS-Middleware (Gerät)
+      href: /azure/rtos/threadx
+    - name: .NET (Gerät)
+      href: /dotnet/api/microsoft.azure.devices.client
+    - name: .NET (Dienst)
+      href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (Verwaltung)
+      href: /dotnet/api/overview/azure/iot/management
+    - name: Java (Gerät)
+      href: /java/api/com.microsoft.azure.sdk.iot.device
+    - name: Java (Dienst)
+      href: /java/api/com.microsoft.azure.sdk.iot.service
+    - name: Node.js (Gerät)
+      href: /javascript/api/azure-iot-device/
+    - name: Node.js (Dienst)
+      href: /javascript/api/azure-iothub/
+    - name: Node.js (Verwaltung)
+      href: /javascript/api/overview/azure/iothub/management
+    - name: Python (Gerät)
+      href: /python/api/azure-iot-device
+    - name: Python (Dienst)
+      href: /python/api/azure-iot-hub
+    - name: Python (Verwaltung)
+      href: /python/api/azure-mgmt-iothub
+    - name: REST (Gerät)
+      href: /rest/api/iothub/device
+    - name: REST (Dienst)
+      href: /rest/api/iothub/service/configuration
+    - name: REST (IoT Hub-Ressource)
+      href: /rest/api/iothub/iothubresource
+    - name: REST (Zertifikate)
+      href: /rest/api/iothub/certificates
+    - name: Resource Manager-Vorlage
+      href: /azure/templates/microsoft.devices/iothub-allversions
+- name: Ressourcen
+  items:
+    - name: Support- und Hilfeoptionen
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: "Azure\_IoT-Beispiele"
+      items:
+        - name: C# (.NET)
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+        - name: Node.js
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+        - name: Java
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+        - name: Python
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+        - name: iOS-Plattform
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Katalog mit Azure Certified for IoT-Geräten
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Azure IoT-Tools
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
+    - name: "Azure\_IoT-Explorer-Tool"
+      href: 'https://github.com/Azure/azure-iot-explorer'
+    - name: iothub-diagnostics (Tool)
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: Preise
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Preisrechner
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Dienstupdates
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Technische Fallstudien
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

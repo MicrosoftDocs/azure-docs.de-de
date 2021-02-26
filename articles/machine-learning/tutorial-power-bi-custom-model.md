@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 00d5fa43245fb25b8ee99a0523d680bef891b71e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108244"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387001"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Power BI-Integration: Erstellen des Vorhersagemodells mit einer Jupyter Notebook-Instanz (Teil 1 von 2)
 
@@ -118,7 +118,7 @@ Erstellen Sie eine neue *Codezelle* in Ihrem Notebook. Kopieren Sie anschließen
 import joblib
 from sklearn.linear_model import Ridge
 
-model = Ridge().fit(X,y)
+model = Ridge().fit(X_df,y_df)
 joblib.dump(model, 'sklearn_regression_model.pkl')
 ```
 
@@ -286,10 +286,8 @@ Wir empfehlen Ihnen, den Webdienst zu testen, um sicherzustellen, dass er wie er
 ```python
 import json
 
-
 input_payload = json.dumps({
-    'data': X_df[0:2].values.tolist(),
-    'method': 'predict'  # If you have a classification model, you can get probabilities by changing this to 'predict_proba'.
+    'data': X_df[0:2].values.tolist()
 })
 
 output = service.run(input_payload)

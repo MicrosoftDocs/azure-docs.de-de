@@ -3,12 +3,12 @@ title: Bereitstellen des FedRAMP Moderate-Blaupausenbeispiels
 description: Bereitstellungsschritte für das FedRAMP Moderate-Blaupausenbeispiel, einschließlich Details zum Blaupausenartefakt-Parameter.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a0e391b20ec662d2bb7bc5b22a7f33c056a9378e
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 9fa92bebf6ef5829796c45e0e83070a85395caf8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034831"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594684"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Bereitstellen des FedRAMP Moderate-Blaupausenbeispiels
 
@@ -94,7 +94,7 @@ Die folgende Tabelle enthält eine Aufstellung der Parameter des Blaupausenartef
 |Artefaktname|Artefakttyp|Parametername|BESCHREIBUNG|
 |-|-|-|-|
 |\[Vorschau\]: Überwachen von FedRAMP Moderate-Kontrollen und Bereitstellen spezifischer VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen|Richtlinienzuweisung|ID des Log Analytics-Arbeitsbereichs, für den die VMs konfiguriert werden sollen|Dies ist die ID (GUID) des Log Analytics-Arbeitsbereichs, für den die virtuellen Computer konfiguriert werden sollen.|
-|\[Vorschau\]: Überwachen von FedRAMP Moderate-Kontrollen und Bereitstellen spezifischer VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen|Richtlinienzuweisung|Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen|Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Vorschau\]: Überwachen von FedRAMP Moderate-Kontrollen und Bereitstellen spezifischer VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen|Richtlinienzuweisung|Liste von Ressourcentypen, für die Diagnoseprotokolle aktiviert werden sollen|Liste der Ressourcentypen, die überprüfen sollen, ob die Einstellung für das Diagnoseprotokoll nicht aktiviert ist. Die zulässigen Werte finden Sie unter [Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Vorschau\]: Überwachen von FedRAMP Moderate-Kontrollen und Bereitstellen spezifischer VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen|Richtlinienzuweisung|Liste der Benutzer, die aus der Windows-VM-Administratorengruppe ausgeschlossen werden sollen|Eine durch Semikolon getrennte Liste von Mitgliedern, die aus der Gruppe der lokalen Administratoren ausgeschlossen werden sollen. Beispiel: Administrator; myUser1; myUser2|
 |\[Vorschau\]: Überwachen von FedRAMP Moderate-Kontrollen und Bereitstellen spezifischer VM-Erweiterungen zur Unterstützung von Überwachungsanforderungen|Richtlinienzuweisung|Liste der Benutzer, die in der Gruppe der Windows-VM-Administratoren enthalten sein sollen|Eine durch Semikolon getrennte Liste von Mitgliedern, die in der Gruppe der lokalen Administratoren enthalten sein sollen. Beispiel: Administrator; myUser1; myUser2|
 |\[Vorschau\]: Log Analytics-Agent für Linux-VM-Skalierungsgruppen bereitstellen|Richtlinienzuweisung|Log Analytics-Arbeitsbereich für Linux-VM-Skalierungsgruppen (VMSS)|Wenn der Arbeitsbereich außerhalb des Bereichs der Zuweisung liegt, müssen Sie der Prinzipal-ID der Richtlinienzuweisung Berechtigungen vom Typ „Log Analytics-Mitwirkender“ (oder ähnliche Berechtigungen) erteilen.|

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: eafa2187308c0324b85596ce25e8310fd8506a97
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249601"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806222"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Überprüfen von Daten mit Azure Purview (Vorschau)
 
@@ -32,7 +32,7 @@ In Teil 1 dieser Tutorialreihe führen Sie die folgenden Aktionen aus:
 
 * Ein Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) erstellen, bevor Sie beginnen.
 * Ein [Azure Purview-Konto](create-catalog-portal.md)
-* Das [Starter Kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), mit dem Ihr Datenbestand bereitgestellt wird
+* Das [Starter Kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip), mit dem Ihr Datenbestand bereitgestellt wird
 
 > [!NOTE]
 > Das Starter Kit ist nur für Windows verfügbar.
@@ -91,7 +91,9 @@ Bevor Sie die PowerShell-Skripts für das Bootstrapping des Katalogs ausführen,
    1. Wählen Sie den Abschnitt **Übersicht** aus, und speichern Sie die GUID für die **Abonnement-ID**.
 
    > [!NOTE]
-   > Verwenden Sie unbedingt dasselbe Abonnement, unter dem Sie das Azure Purview-Konto erstellt haben. Dabei handelt es sich um dasselbe Abonnement, das in die Zulassungsliste aufgenommen wurde.
+   > - Verwenden Sie unbedingt dasselbe Abonnement, unter dem Sie das Azure Purview-Konto erstellt haben. Dabei handelt es sich um dasselbe Abonnement, das in die Zulassungsliste aufgenommen wurde.
+   > - In Azure Purview kann es vorkommen, dass nach dem Ausführen des Starter Kits die Herkunft fehlt. Das liegt daran, dass in Purview Berechtigungen für die durch das Starter Kit erstellte Data Factory fehlen. Wählen Sie [**diesen Dokumentlink**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections) aus, um sicherzustellen, dass die Data Factory korrekt konfiguriert und ihr die passende Rolle in Purview zugewiesen ist.
+
 
 * CatalogName: Der Name des Azure Purview-Kontos, das Sie unter [Erstellen eines Azure Purview-Kontos](create-catalog-portal.md) erstellt haben
 

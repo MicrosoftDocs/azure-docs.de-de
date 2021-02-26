@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726514"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805933"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Grenzwert- und Konfigurationsinformationen für Azure Logic Apps
 
@@ -380,27 +380,42 @@ Wenn Sie eine Logik-App deaktivieren, werden keine neuen Ausführungen instanzii
 Wenn Sie eine Logik-App löschen, werden keine neuen Ausführungen instanziiert. Alle in Bearbeitung befindlichen und ausstehenden Ausführungen werden abgebrochen. Bei Tausenden von Ausführungen kann der Abbruch möglicherweise erhebliche Zeit in Anspruch nehmen.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Firewallkonfiguration: IP-Adressen und Diensttags
 
-Die IP-Adressen, die Azure Logic Apps für ein- und ausgehende Aufrufe verwendet, hängen von der Region ab, in der sich Ihre Logik-App befindet. Für *alle* Logik-Apps in derselben Region werden dieselben IP-Adressbereiche verwendet. Einige [Power Automate](/power-automate/getting-started)-Aufrufe, z. B. **HTTP**- und **HTTP + OpenAPI**-Anforderungen, werden direkt über den Azure Logic Apps-Dienst geleitet und stammen von den hier aufgeführten IP-Adressen. Weitere Informationen zu von Power Automate verwendeten IP-Adressen finden Sie unter [Grenzwerte und Konfiguration in Microsoft Flow](/flow/limits-and-config#ip-address-configuration).
+Wenn Ihre Logik-App über eine Firewall kommunizieren muss, mit der der Datenverkehr auf bestimmte IP-Adressen beschränkt wird, muss Folgendes sichergestellt sein: In der Firewall muss der Zugriff für IP-Adressen, die vom Logic Apps-Dienst oder der Runtime in der Azure-Region Ihrer Logik-App genutzt werden, in [eingehender](#inbound) *und* [ausgehender](#outbound) Richtung zugelassen sein. Für *alle* Logik-Apps in derselben Region werden dieselben IP-Adressbereiche verwendet.
 
-> [!TIP]
-> Zur Reduzierung der Komplexität beim Erstellen von Sicherheitsregeln können Sie optional [Diensttags](../virtual-network/service-tags-overview.md) verwenden, anstatt die Logic Apps-IP-Adressen für jede Region anzugeben (weiter unten in diesem Abschnitt beschrieben).
-> Diese Tags funktionieren in den Regionen, in denen der Logic Apps-Dienst verfügbar ist:
->
-> * **LogicAppsManagement**: Steht für die IP-Adresspräfixe des Logic Apps-Diensts in eingehender Richtung.
-> * **LogicApps**: Steht für die IP-Adresspräfixe des Logic Apps-Diensts in ausgehender Richtung.
+Um z. B. Aufrufe zu unterstützen, die Logik-Apps in der Region „USA, Westen“ über integrierte Trigger und Aktionen wie [den HTTP-Trigger oder die HTTP-Aktion](../connectors/connectors-native-http.md) senden bzw. empfangen, muss Ihre Firewall den Zugriff für *alle* eingehenden IP-Adressen des Logic Apps-Diensts *und* alle ausgehenden IP-Adressen, die in der Region „USA, Westen“ vorhanden sind, zulassen.
 
-* Für [Azure China 21Vianet](/azure/china/) sind keine festen oder reservierten IP-Adressen für [benutzerdefinierte Connectors](../logic-apps/custom-connector-overview.md) und [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) (z. B. Azure Storage, SQL Server, Office 365 Outlook usw.) verfügbar.
+Wenn Ihre Logik-App außerdem [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) (etwa den Office 365 Outlook-Connector oder den SQL-Connector) oder [benutzerdefinierte Connectors](/connectors/custom-connectors/) verwendet, muss die Firewall außerdem den Zugriff für *alle* [ausgehenden IP-Adressen der verwalteten Connectors](#outbound) in der Azure-Region Ihrer Logik-App zulassen. Außerdem, wenn Sie benutzerdefinierte Connectors verwenden, die über die [lokale Datengatewayressource in Azure](logic-apps-gateway-connection.md) auf lokale Ressourcen zugreifen, müssen Sie die Gatewayinstallation so einrichten, dass der Zugriff auf die *[ausgehenden IP-Adressen](#outbound)* des entsprechenden verwalteten Connectors zugelassen wird.
 
-* Um die Aufrufe zu unterstützen, die Ihre Logik-Apps direkt mit [HTTP](../connectors/connectors-native-http.md)., [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)- und anderen HTTP-Anforderungen durchführen, richten Sie Ihre Firewalls mit allen [eingehenden](#inbound) *und* [ausgehenden](#outbound) IP-Adressen ein, die vom Logic Apps-Dienst verwendet werden. Führen Sie dies basierend auf den Regionen durch, in denen sich Ihre Logik-Apps befinden. Diese Adressen werden unter den Überschriften **Eingehend** und **Ausgehend** in diesem Abschnitt angezeigt, wobei sie nach Region sortiert sind.
+Weitere Informationen zum Einrichten von Kommunikationseinstellungen auf dem Gateway finden Sie in den folgenden Themen:
 
-* Um die Aufrufe zu unterstützen, die von [verwalteten Connectors](../connectors/apis-list.md#managed-api-connectors) ausgeführt werden, richten Sie Ihre Firewall mit *allen* [ausgehenden](#outbound) IP-Adressen ein, die von diesen Connectors verwendet werden, basierend auf den Regionen, in denen sich Ihre Logik-Apps befinden. Diese Adressen werden unter der Überschrift **Ausgehend** in diesem Abschnitt angezeigt, wobei sie nach Region sortiert sind.
+* [Anpassen von Kommunikationseinstellungen für das lokale Datengateway](/data-integration/gateway/service-gateway-communication)
+* [Konfigurieren von Proxyeinstellungen für das lokale Datengateway](/data-integration/gateway/service-gateway-proxy)
 
-* Zum Ermöglichen der Kommunikation für Logik-Apps, die in einer Integrationsdienstumgebung (ISE) ausgeführt werden, müssen Sie [diese Ports öffnen](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* Wenn Ihre Logik-Apps Probleme beim Zugriff auf Azure-Speicherkonten mit aktiven [Firewalls und Firewallregeln](../storage/common/storage-network-security.md) haben, stehen Ihnen [verschiedene Optionen zum Ermöglichen des Zugriffs](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls) zur Verfügung.
+### <a name="firewall-ip-configuration-considerations"></a>Überlegungen zur Firewall-IP-Konfiguration
+
+Bevor Sie Ihre Firewall mit IP-Adressen einrichten, überprüfen Sie die folgenden Aspekte:
+
+* Wenn Sie [Power Automate](/power-automate/getting-started) verwenden, werden einige Aktionen wie **HTTP** und **HTTP + OpenAPI** direkt über den Azure Logic Apps-Dienst geleitet und stammen von den hier aufgeführten IP-Adressen. Weitere Informationen zu den von Power Automate verwendeten IP-Adressen finden Sie unter [Grenzwerte und Konfiguration für Power Automate](/flow/limits-and-config#ip-address-configuration).
+
+* Für [Azure China 21Vianet](/azure/china/) sind keine festen oder reservierten IP-Adressen für [benutzerdefinierte Connectors](../logic-apps/custom-connector-overview.md) und [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) (z. B. Azure Storage, SQL Server, Office 365 Outlook usw.) verfügbar.
+
+* Wenn Ihre Logik-Apps in einer [Integrationsdienstumgebung (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) ausgeführt werden, stellen Sie sicher, dass Sie [diese Ports ebenfalls öffnen](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Um Sicherheitsregeln, die Sie erstellen möchten, zu vereinfachen, können Sie optional stattdessen [Diensttags](../virtual-network/service-tags-overview.md) verwenden, statt für jede Region IP-Adresspräfixe anzugeben. Diese Tags funktionieren in den Regionen, in denen der Logic Apps-Dienst verfügbar ist:
+
+  * **LogicAppsManagement**: Steht für die IP-Adresspräfixe des Logic Apps-Diensts in eingehender Richtung.
+
+  * **LogicApps**: Steht für die IP-Adresspräfixe des Logic Apps-Diensts in ausgehender Richtung.
+
+  * **AzureConnectors**: Stellt die IP-Adresspräfixe für verwaltete Connectors dar, die eingehende Webhook-Rückrufe an den Logic Apps-Dienst und ausgehende Aufrufe an die entsprechenden Dienste wie Azure Storage oder Azure Event Hubs senden.
+
+* Wenn Ihre Logik-Apps Probleme beim Zugriff auf Azure-Speicherkonten haben, die [Firewalls und Firewallregeln](../storage/common/storage-network-security.md) verwenden, stehen Ihnen [verschiedene weitere Optionen zum Ermöglichen des Zugriffs](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls) zur Verfügung.
 
   Beispielsweise können Logik-Apps nicht direkt auf Speicherkonten zugreifen, für die Firewallregeln gelten und die sich in derselben Region befinden. Wenn Sie jedoch die [ausgehenden IP-Adressen für verwaltete Connectors in Ihrer Region](../logic-apps/logic-apps-limits-and-config.md#outbound) zulassen, können Ihre Logik-Apps auf Speicherkonten in einer anderen Region zugreifen, außer wenn Sie den Azure Table Storage- oder Azure Queue Storage-Connector verwenden. Um auf Ihren Table Storage oder Queue Storage zuzugreifen, können Sie stattdessen HTTP-Trigger und -Aktionen verwenden. Weitere Optionen finden Sie unter [Zugreifen auf Speicherkonten hinter Firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -411,9 +426,13 @@ Die IP-Adressen, die Azure Logic Apps für ein- und ausgehende Aufrufe verwendet
 In diesem Abschnitt sind nur die IP-Adressen des Azure Logic Apps-Diensts für die eingehende Richtung aufgeführt. Informationen zur Vorgehensweise bei Verwendung von Azure Government finden Sie unter [Azure Government: IP-Adressen für die eingehende Richtung](#azure-government-inbound).
 
 > [!TIP]
-> Zur Reduzierung der Komplexität beim Erstellen von Sicherheitsregeln können Sie optional das [Diensttag](../virtual-network/service-tags-overview.md) **LogicAppsManagement** verwenden, anstatt für jede Region Logic Apps-IP-Adresspräfixe für die eingehende Richtung anzugeben.
-> Bei verwalteten Connectors können Sie optional das **AzureConnectors**-Diensttag verwenden, anstatt für jede Region IP-Adresspräfixe des verwalteten Connectors für die ausgehende Richtung anzugeben.
-> Diese Tags funktionieren in den Regionen, in denen der Logic Apps-Dienst verfügbar ist.
+> Zur Reduzierung der Komplexität beim Erstellen von Sicherheitsregeln können Sie optional das [Diensttag](../virtual-network/service-tags-overview.md) **LogicAppsManagement** verwenden, anstatt für jede Region Logic Apps-IP-Adresspräfixe für die eingehende Richtung anzugeben. Optional können Sie auch das Diensttag **AzureConnectors** für verwaltete Connectors verwenden, die eingehende Webhook-Rückrufe an den Logic Apps-Dienst senden, anstatt für jede Region IP-Adresspräfixe des verwalteten Connectors für die eingehende Richtung anzugeben. Diese Tags funktionieren in den Regionen, in denen der Logic Apps-Dienst verfügbar ist.
+>
+> Die folgenden Connectors führen eingehende Webhookrückrufe an den Logic Apps-Dienst durch:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP:** Der Aufrufer der Rückgabe hängt davon ab, ob es sich bei der Bereitstellungsumgebung um eine mehrinstanzenfähige Azure-Umgebung oder eine ISE handelt. In einer mehrinstanzenfähigen Umgebung führt das lokale Datengateway den Rückruf an den Logic Apps-Dienst aus. In einer ISE führt der SAP-Connector den Rückruf an den Logic Apps-Dienst aus.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +498,7 @@ In diesem Abschnitt sind nur die IP-Adressen des Azure Logic Apps-Diensts für d
 In diesem Abschnitt sind die IP-Adressen für die ausgehende Richtung aufgeführt, die für den Azure Logic Apps-Dienst und die verwalteten Connectors gelten. Informationen zur Vorgehensweise bei Verwendung von Azure Government finden Sie unter [Azure Government: IP-Adressen für die ausgehende Richtung](#azure-government-outbound).
 
 > [!TIP]
-> Zur Reduzierung der Komplexität beim Erstellen von Sicherheitsregeln können Sie optional das [Diensttag](../virtual-network/service-tags-overview.md) **LogicApps** verwenden, anstatt für jede Region Logic Apps-IP-Adresspräfixe für die ausgehende Richtung anzugeben.
-> Dieses Tag funktioniert in allen Regionen, in denen der Logic Apps-Dienst verfügbar ist. 
+> Zur Reduzierung der Komplexität beim Erstellen von Sicherheitsregeln können Sie optional das [Diensttag](../virtual-network/service-tags-overview.md) **LogicApps** verwenden, anstatt für jede Region Logic Apps-IP-Adresspräfixe für die ausgehende Richtung anzugeben. Optional können Sie auch das Diensttag **AzureConnectors** für verwaltete Connectors verwenden, die ausgehende Aufrufe an die entsprechenden Dienste wie Azure Storage oder Azure Event Hubs senden, anstatt für jede Region IP-Adresspräfixe des verwalteten Connectors für die ausgehende Richtung anzugeben. Diese Tags funktionieren in den Regionen, in denen der Logic Apps-Dienst verfügbar ist.
 
 <a name="multi-tenant-outbound"></a>
 

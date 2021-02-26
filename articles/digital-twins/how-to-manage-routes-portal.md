@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533785"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070835"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Verwalten von Endpunkten und Routen in Azure Digital Twins (Portal)
 
@@ -33,11 +33,11 @@ Sie können Endpunkte und Routen alternativ auch mit den [Ereignisrouten-APIs](/
 
 Nachdem Sie Ihre Instanz eingerichtet haben, können Sie diese Details im [Azure-Portal](https://portal.azure.com) anzeigen. Melden Sie sich beim Portal an, und suchen Sie in der Suchleiste des Portals nach dem Namen Ihrer Instanz.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot: Suchleiste im Azure-Portal":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot: Suchleiste im Azure-Portal" lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-Wählen Sie Ihre Instanz in den Ergebnissen aus, um die Detailseite für Ihre Instanz anzuzeigen:
+Wählen Sie Ihre Instanz aus den Ergebnissen aus, damit diese Details auf der Seite „Übersicht“ für Ihre Instanz angezeigt werden:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot: Details zur ADT-Instanz" border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot der Seite „Übersicht“ für eine Azure Digital Twins-Instanz. Der Name und die Ressourcengruppe sind hervorgehoben.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Erstellen eines Endpunkts für Azure Digital Twins
 
@@ -48,83 +48,59 @@ Dies sind die unterstützten Typen von Endpunkten, die Sie für Ihre Instanz ers
 
 Weitere Informationen zu den verschiedenen Endpunkttypen finden Sie unter [*Wählen zwischen Azure-Messagingdiensten*](../event-grid/compare-messaging-services.md).
 
-Um einen Endpunkt mit Azure Digital Twins zu verknüpfen, muss das für den Endpunkt verwendete Event Grid-Thema, der Event Hub oder Service Bus bereits vorhanden sein. 
+In diesem Abschnitt wird erläutert, wie Sie einen dieser Endpunkte im [Azure-Portal](https://portal.azure.com) erstellen.
 
-### <a name="create-an-event-grid-endpoint"></a>Erstellen eines Event Grid-Endpunkts
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Voraussetzung**: Erstellen Sie ein Event Grid-Thema, indem Sie die folgenden Schritte im Abschnitt [*Erstellen eines benutzerdefinierten Themas* der Schnellstartanleitung](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)*Benutzerdefinierte Ereignisse* für die Event Grid-Instanz befolgen.
+### <a name="create-the-endpoint"></a>Erstellen des Endpunkts 
 
-Nachdem Sie das Thema erstellt haben, können Sie im [Azure-Portal](https://portal.azure.com) auf der Seite für Ihre Azure Digital Twins-Instanz dafür einen Link einrichten. (Sie finden die Instanz, indem Sie ihren Namen in die Suchleiste des Portals eingeben.)
+Sobald Sie die Endpunktressourcen erstellt haben, können Sie sie für einen Azure Digital Twins-Endpunkt verwenden. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Seite Ihrer Instanz, um einen neuen Endpunkt zu erstellen. Die Instanz finden Sie, indem Sie ihren Namen in die Suchleiste im Portal eingeben.
 
-Wählen Sie im Instanzmenü die Option _Endpunkte_ aus. Wählen Sie anschließend auf der darauffolgenden Seite *Endpunkte* die Option *+ Endpunkt erstellen* aus. 
+1. Wählen Sie im Instanzmenü die Option _Endpunkte_ aus. Wählen Sie anschließend auf der darauffolgenden Seite *Endpunkte* die Option *+ Endpunkt erstellen* aus. Dadurch wird die Seite *Endpunkt erstellen* geöffnet. Dort füllen Sie in den nächsten Schritten die Felder aus.
 
-Auf der geöffneten Seite *Endpunkt erstellen* können Sie einen Endpunkt vom Typ _Event Grid_ erstellen, indem Sie das entsprechende Optionsfeld auswählen. Geben Sie die anderen Details an: Geben Sie im Feld _Name_ einen Namen für Ihren Endpunkt ein, wählen Sie in der Dropdownliste Ihr _Abonnement_ aus, und wählen Sie in der dritten Dropdownliste dann Ihr vorab erstelltes _Event Grid-Thema_ aus.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot: Erstellen eines Endpunkts vom Typ „Event Grid“" lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
-Erstellen Sie anschließend Ihren Endpunkt, indem Sie _Speichern_ auswählen.
+1. Geben Sie einen **Namen** für Ihren Endpunkt ein, und wählen Sie den **Endpunkttyp**.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot: Erstellen eines Endpunkts vom Typ „Event Grid“":::
+1. Geben Sie die restlichen für Ihren Endpunkttyp erforderlichen Informationen an, einschließlich Ihres Abonnements und der [oben](#prerequisite-create-endpoint-resources) beschriebenen Endpunktressourcen.
+    1. Nur für Event Hub- und Service Bus-Endpunkte müssen Sie einen **Authentifizierungstyp** auswählen. Sie können die schlüsselbasierte Authentifizierung mit einer vorab erstellten Autorisierungsregel verwenden. Sie können auch die identitätsbasierte Authentifizierung verwenden, wenn Sie den Endpunkt mit einer [verwalteten Identität](concepts-security.md#managed-identity-for-accessing-other-resources-preview) für Ihre Azure Digital Twins-Instanz nutzen. 
 
-Sie können überprüfen, ob die Erstellung des Endpunkts erfolgreich war, indem Sie sich in der obersten Leiste im Azure-Portal das Benachrichtigungssymbol ansehen: 
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot: Erstellen eines Endpunkts vom Typ „Event Hub“" lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot: Benachrichtigung zur Überprüfung der Erstellung eines Endpunkts" border="false":::
+1. Schließen Sie die Erstellung Ihres Endpunkts ab, indem Sie auf _Speichern_ klicken.
+
+>[!IMPORTANT]
+> Damit Sie die identitätsbasierte Authentifizierung erfolgreich für Ihren Endpunkt verwenden können, müssen Sie eine verwaltete Identität für Ihre Instanz erstellen, indem Sie die Schritte unter [*Aktivieren einer verwalteten Identität für die Weiterleitung von Azure Digital Twins-Ereignissen (Vorschau)* ](how-to-enable-managed-identities.md) befolgen.
+
+Nach Erstellung Ihres Endpunkts können Sie überprüfen, ob der Endpunkt erfolgreich erstellt wurde, indem Sie das Benachrichtigungssymbol oben in der Leiste im Azure-Portal überprüfen: 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot: Benachrichtigung zur Überprüfung der Erstellung eines Endpunkts. Das Symbol in Form einer Glocke in der oberen Leiste des Portals ist ausgewählt, und es gibt eine Benachrichtigung, die „Endpoint ADT-eh-endpoint successfully created“ (Der Endpunkt „ADT-eh-endpoint“ wurde erfolgreich erstellt) lautet.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Falls bei der Erstellung des Endpunkts ein Fehler auftritt, sollten Sie die Fehlermeldung beachten und den Vorgang nach einigen Minuten wiederholen.
 
 Sie können auch den Endpunkt anzeigen, der erstellt wurde, indem Sie auf der Seite *Endpunkte* für Ihre Azure Digital Twins-Instanz nachsehen.
 
-Falls bei der Erstellung des Endpunkts ein Fehler auftritt, sollten Sie die Fehlermeldung beachten und den Vorgang nach einigen Minuten wiederholen.
-
-Nun ist das Event Grid-Thema als Endpunkt innerhalb von Azure Digital Twins unter dem Namen verfügbar, der im Feld _Name_ angegeben ist. Normalerweise verwenden Sie diesen Namen als Ziel einer **Ereignisroute**, die Sie [später in diesem Artikel](#create-an-event-route) erstellen.
-
-### <a name="create-an-event-hubs-endpoint"></a>Erstellen eines Event Hubs-Endpunkts
-
-**Voraussetzungen:** 
-* Sie benötigen einen _Event Hubs-Namespace_ und einen _Event Hub_. Erstellen Sie diese beiden Komponenten, indem Sie die Schritte in der Event Hubs-Schnellstartanleitung unter [*Erstellen eines Event Hubs mithilfe des Azure-Portals*](../event-hubs/event-hubs-create.md) befolgen.
-* Sie benötigen eine _Autorisierungsregel_. Informationen zur Erstellung finden Sie im Event Hubs-Artikel [*Autorisieren des Zugriffs auf Event Hubs-Ressourcen mit Shared Access Signatures*](../event-hubs/authorize-access-shared-access-signature.md).
-
-Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Detailseite für Ihre Azure Digital Twins-Instanz. (Sie können darauf zugreifen, indem Sie den Namen im Portal in der Suchleiste eingeben.)
-
-Wählen Sie im Instanzmenü die Option _Endpunkte_ aus. Wählen Sie anschließend auf der darauffolgenden Seite *Endpunkte* die Option *+ Endpunkt erstellen* aus. 
-
-Auf der geöffneten Seite *Endpunkt erstellen* können Sie einen Endpunkt vom Typ _Event Hub_ erstellen, indem Sie das entsprechende Optionsfeld auswählen. Geben Sie im Feld _Name_ einen Namen für Ihren Endpunkt ein. Wählen Sie anschließend Ihr _Abonnement_ und in den entsprechenden Dropdownlisten die vorab erstellten Elemente _Event Hub-Namespace_, _Event Hub_ und _Autorisierungsregel_ aus.
-
-Erstellen Sie anschließend Ihren Endpunkt, indem Sie _Speichern_ auswählen.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot: Erstellen eines Endpunkts vom Typ „Event Hub“":::
-
-Sie können überprüfen, ob die Erstellung des Endpunkts erfolgreich war, indem Sie sich in der obersten Leiste im Azure-Portal das Benachrichtigungssymbol ansehen. 
-
-Falls bei der Erstellung des Endpunkts ein Fehler auftritt, sollten Sie die Fehlermeldung beachten und den Vorgang nach einigen Minuten wiederholen.
-
-Nun ist das Event Hub-Thema als Endpunkt innerhalb von Azure Digital Twins unter dem Namen verfügbar, der im Feld _Name_ angegeben ist. Normalerweise verwenden Sie diesen Namen als Ziel einer **Ereignisroute**, die Sie [später in diesem Artikel](#create-an-event-route) erstellen.
-
-### <a name="create-a-service-bus-endpoint"></a>Erstellen eines Service Bus-Endpunkts
-
-**Voraussetzungen:** 
-* Sie benötigen einen _Service Bus-Namespace_ und ein _Service Bus-Thema_. Erstellen Sie diese beiden Komponenten, indem Sie die Schritte in der Service Bus-Schnellstartanleitung unter [*Erstellen von Themen und Abonnements*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) befolgen. Es ist nicht erforderlich, dass Sie den Abschnitt [*Erstellen von Abonnements für das Thema*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) durcharbeiten.
-* Sie benötigen eine _Autorisierungsregel_. Informationen zur Erstellung finden Sie im Service Bus-Artikel zur [*Authentifizierung und Autorisierung*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
-
-Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Detailseite für Ihre Azure Digital Twins-Instanz. (Sie können darauf zugreifen, indem Sie den Namen im Portal in der Suchleiste eingeben.)
-
-Wählen Sie im Instanzmenü die Option _Endpunkte_ aus. Wählen Sie anschließend auf der darauffolgenden Seite *Endpunkte* die Option *+ Endpunkt erstellen* aus. 
-
-Auf der Seite *Endpunkt erstellen*, die geöffnet wird, können Sie einen Endpunkt vom Typ _Service Bus_ erstellen, indem Sie das entsprechende Optionsfeld auswählen. Geben Sie im Feld _Name_ einen Namen für Ihren Endpunkt ein. Wählen Sie anschließend Ihr _Abonnement_ und in den entsprechenden Dropdownlisten die vorab erstellten Elemente _Service Bus-Namespace_, _Service Bus-Thema_ und _Autorisierungsregel_ aus.
-
-Erstellen Sie anschließend Ihren Endpunkt, indem Sie _Speichern_ auswählen.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot: Erstellen eines Endpunkts vom Typ „Service Bus“":::
-
-Sie können überprüfen, ob die Erstellung des Endpunkts erfolgreich war, indem Sie sich in der obersten Leiste im Azure-Portal das Benachrichtigungssymbol ansehen. 
-
-Falls bei der Erstellung des Endpunkts ein Fehler auftritt, sollten Sie die Fehlermeldung beachten und den Vorgang nach einigen Minuten wiederholen.
-
-Nun ist das Service Bus-Thema als Endpunkt innerhalb von Azure Digital Twins unter dem Namen verfügbar, der im Feld _Name_ angegeben ist. Normalerweise verwenden Sie diesen Namen als Ziel einer **Ereignisroute**, die Sie [später in diesem Artikel](#create-an-event-route) erstellen.
+Nun ist das Event Grid-, Event Hub- oder Service Bus-Thema als Endpunkt innerhalb von Azure Digital Twins unter dem Namen verfügbar, den Sie für den Endpunkt ausgewählt haben. Normalerweise verwenden Sie diesen Namen als Ziel einer **Ereignisroute**, die Sie [später in diesem Artikel](#create-an-event-route) erstellen.
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Erstellen eines Endpunkts mit unzustellbaren Nachrichten
 
 Wenn ein Endpunkt innerhalb eines bestimmten Zeitraums oder nach einer bestimmten Anzahl von Übermittlungsversuchen nicht übermittelt werden kann, kann Event Grid das nicht übermittelte Ereignis an ein Speicherkonto senden. Dieser Prozess wird als Speicherung **unzustellbarer Nachrichten** bezeichnet.
 
-Zum Erstellen eines Endpunkts mit aktivierten unzustellbaren Nachrichten müssen Sie die [ARM-APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) anstelle des Azure-Portals verwenden, um den Endpunkt zu erstellen.
+Zum Erstellen eines Endpunkts mit aktivierten unzustellbaren Nachrichten müssen Sie die [CLI-Befehle](how-to-use-cli.md) oder die [APIs der Steuerungsebene](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) anstelle des Azure-Portals verwenden, um den Endpunkt zu erstellen.
 
-Anweisungen dazu, wie dies mit den APIs funktioniert, finden Sie in der Version [*APIs und CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) dieses Artikels.
+Anweisungen dazu, wie dies mit diesen Tools funktioniert, finden Sie in der [*APIs und CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)-Version dieses Artikels.
 
 ## <a name="create-an-event-route"></a>Erstellen einer Ereignisroute
 

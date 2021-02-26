@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993975"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581124"
 ---
 # <a name="manual-qos-capacity-pool"></a>Manueller QoS-Kapazitätspool
 
@@ -29,7 +29,7 @@ Dieser Artikel bietet eine Einführung in die Funktionalität des manuellen QoS-
 
 Der [QoS-Typ](azure-netapp-files-understand-storage-hierarchy.md#qos_types) ist ein Attribut eines Kapazitätspools. Azure NetApp Files bietet zwei QoS-Typen von Kapazitätspools – automatisch (Standard) und manuell.  
 
-In einem *manuellen* QoS-Kapazitätspool können Sie Kapazität und Durchsatz für ein Volume separat zuweisen. Der Gesamtdurchsatz aller Volumes, die mit einem Kapazitätspool mit dem QoS-Typ „Manuell“ erstellt werden, ist durch den Gesamtdurchsatz des Pools begrenzt. Dieser wird anhand der Kombination von Poolgröße und Serviceleveldurchsatz ermittelt. 
+In einem *manuellen* QoS-Kapazitätspool können Sie Kapazität und Durchsatz für ein Volume separat zuweisen. Informationen zum Mindest- und Höchstdurchsatz finden Sie unter [Ressourcenlimits für Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). Der Gesamtdurchsatz aller Volumes, die mit einem Kapazitätspool mit dem QoS-Typ „Manuell“ erstellt werden, ist durch den Gesamtdurchsatz des Pools begrenzt. Dieser wird anhand der Kombination von Poolgröße und Serviceleveldurchsatz ermittelt. 
 
 In einem *automatischen* QoS-Kapazitätspool wird der Durchsatz den Volumes im Pool automatisch zugewiesen. Dies erfolgt proportional zum Größenkontingent, das den Volumes zugewiesen ist.  
 

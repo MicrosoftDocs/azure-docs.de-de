@@ -4,6 +4,15 @@
   items:
     - name: "Was ist Virtual\_WAN?"
       href: virtual-wan-about.md
+- name: Schnellstarts
+  expanded: true
+  items:
+    - name: ARM-Vorlagen
+      expanded: true
+      items:
+        - name: Any-to-Any-Routing
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: Tutorials
   expanded: true
   items:
@@ -107,24 +116,34 @@
           href: certificates-point-to-site.md
         - name: "Konfigurieren eines Azure\_AD-Mandanten"
           href: openvpn-azure-ad-tenant.md
-        - name: Clientprofil
-          href: about-vpn-profile-download.md
-        - name: Globales und hubbasiertes Profil
-          href: global-hub-profile.md
-        - name: "Konfigurieren von Azure VPN Client für Windows\_10"
-          href: openvpn-azure-ad-client.md
-        - name: Konfigurieren von OpenVPN-Clients
-          href: howto-openvpn-clients.md?
-        - name: "Konfigurieren eines Always\_On-VPN-Benutzertunnels"
-          href: howto-always-on-user-tunnel.md
-        - name: "Konfigurieren eines Always\_On-VPN-Gerätetunnels"
-          href: howto-always-on-device-tunnel.md
-        - name: Aktivieren von Multi-Factor Authentication (MFA)
-          href: openvpn-azure-ad-mfa.md
-        - name: Konfigurieren von Azure AD-Authentifizierung
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: "Konfigurieren der Azure\_AD-Authentifizierung für mehrere Anwendungen"
-          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Clientprofile
+          items:
+            - name: Herunterladen von globalen und hubbasierten Profilen
+              href: global-hub-profile.md
+            - name: Extrahieren und Anzeigen von Profilinformationen
+              href: about-vpn-profile-download.md
+            - name: Bereitstellen von Profilen mithilfe von Intune
+              href: vpn-profile-intune.md
+        - name: VPN-Clients
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: OpenVPN
+              href: howto-openvpn-clients.md?
+        - name: "Konfigurieren von Always\_On-Tunneln"
+          items:
+            - name: Benutzertunnel
+              href: howto-always-on-user-tunnel.md
+            - name: Gerätetunnel
+              href: howto-always-on-device-tunnel.md
+        - name: Authentifizierung
+          items:
+            - name: Multi-Factor Authentication (MFA)
+              href: openvpn-azure-ad-mfa.md
+            - name: Azure AD-Authentifizierung
+              href: virtual-wan-point-to-site-azure-ad.md
+            - name: "Azure\_AD-Authentifizierung für mehrere Anwendungen"
+              href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routing
       items:
         - name: Konfigurieren des Routings für virtuelle Hubs

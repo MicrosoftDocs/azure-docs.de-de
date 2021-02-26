@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195873"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576392"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Verwenden der Anwendungsänderungsanalyse (Vorschau) in Azure Monitor
 
@@ -28,6 +28,17 @@ Die Änderungsanalyse erkennt von der Infrastrukturebene bis hin zur Anwendungsb
 Das folgende Diagramm zeigt die Architektur der Änderungsanalyse:
 
 ![Architekturdiagramm zum Abrufen von Änderungsdaten und Bereitstellung dieser Daten für Clienttools durch die Änderungsanalyse](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Unterstützte Ressourcentypen
+
+Der Dienst für die Anwendungsänderungsanalyse unterstützt Änderungen auf der Ressourceneigenschaftsebene für alle Azure-Ressourcentypen einschließlich der folgenden allgemeinen Ressourcen:
+- Virtual Machine
+- VM-Skalierungsgruppe
+- App Service
+- Azure Kubernetes Service
+- Azure Function
+- Netzwerkressourcen (z. B. Netzwerksicherheitsgruppe, Virtual Network und Application Gateway)
+- Datendienste (z. B. Azure Storage, SQL, Redis Cache, Cosmos DB)
 
 ## <a name="data-sources"></a>Datenquellen
 
@@ -49,17 +60,27 @@ Die Änderungsanalyse erfasst alle vier Stunden den Bereitstellungs- und Konfigu
 
 ### <a name="dependency-changes"></a>Abhängigkeitsänderungen
 
-Änderungen an Ressourcenabhängigkeiten können ebenfalls zu Problemen in einer Web-App führen. Wenn eine Web-App beispielsweise Aufrufe an einen Redis Cache richtet, kann die Web-App-Leistung durch die Redis Cache-SKU beeinträchtigt werden. Zum Erkennen von Änderungen bei Abhängigkeiten überprüft die Änderungsanalyse dem DNS-Eintrag der Web-App. Auf diese Weise identifiziert sie Änderungen in allen App-Komponenten, die Probleme verursachen könnten.
-Derzeit werden die folgenden Abhängigkeiten unterstützt:
+Änderungen an Ressourcenabhängigkeiten können ebenfalls zu Problemen in einer Ressource führen. Wenn eine Web-App beispielsweise Aufrufe an einen Redis Cache richtet, kann die Web-App-Leistung durch die Redis Cache-SKU beeinträchtigt werden. Weitere Beispiel: Wenn Port 22 in der Netzwerksicherheitsgruppe eines virtuellen Computers geschlossen wurde, führt dies zu Verbindungsfehlern. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Web-App-Navigator für die Diagnose und Problembehandlung (Vorschauversion)
+Zum Erkennen von Änderungen bei Abhängigkeiten überprüft die Änderungsanalyse dem DNS-Eintrag der Web-App. Auf diese Weise identifiziert sie Änderungen in allen App-Komponenten, die Probleme verursachen könnten.
+Derzeit werden die folgenden Abhängigkeiten im **Web-App-Navigator für die Diagnose und Problembehandlung (Vorschauversion)** unterstützt:
 - Web-Apps
 - Azure Storage
 - Azure SQL
 
-## <a name="application-change-analysis-service"></a>Anwendungsänderungsanalyse-Dienst
+#### <a name="related-resources"></a>Zugehörige Ressourcen
+Die Anwendungsänderungsanalyse erkennt zugehörige Ressourcen. Gängige Beispiele sind Netzwerksicherheitsgruppen, das Virtual Network, Application Gateway und Load Balancer im Zusammenhang mit einem virtuellen Computer. Die Netzwerkressourcen werden in der Regel automatisch in derselben Ressourcengruppe wie die Ressourcen bereitgestellt, die sie verwenden. Wenn Sie die Änderungen also nach Ressourcengruppe filtern, werden alle Änderungen für den virtuellen Computer und die zugehörigen Netzwerkressourcen angezeigt.
+
+![Screenshot: Netzwerkänderungen](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Aktivieren des Anwendungsänderungsanalyse-Diensts
 
 Der Anwendungsänderungsanalyse-Dienst berechnet und aggregiert Änderungsdaten aus den oben erwähnten Datenquellen. Er bietet eine Reihe von Analysen für Benutzer, um bequem durch alle Ressourcenänderungen zu navigieren und zu ermitteln, welche Änderung im Kontext der Problembehandlung oder Überwachung relevant ist.
-Der Ressourcenanbieter „Microsoft.ChangeAnalysis“ muss bei einem Abonnement registriert werden, damit die Daten zu nachverfolgten Änderungen und per Proxy übermittelten Einstellungsänderungen von Azure Resource Manager verfügbar sind. Wenn Sie das Diagnose- und Problembehandlungstool in der Web-App öffnen oder die eigenständige Registerkarte „Änderungsanalyse“ aufrufen, wird dieser Ressourcenanbieter automatisch registriert. Es gibt keine Leistungs- oder Kostenimplementierungen für Ihr Abonnement. Wenn Sie die Änderungsanalyse für Web-Apps aktivieren (oder die Aktivierung im Diagnose- und Problembehandlungstool vornehmen) hat dies nur geringfügige Auswirkungen auf die Leistung der Web-App und bewirkt keinerlei Abrechnungskosten.
-Bei Web-App-Änderungen, die das Gastbetriebssystem betreffen, ist eine separate Aktivierung erforderlich, um Codedateien in einer Web-App zu überprüfen. Weitere Informationen finden Sie unter [Änderungsanalyse im Tool „Diagnose und Problembehandlung“](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) weiter unten in diesem Artikel.
+Der Ressourcenanbieter „Microsoft.ChangeAnalysis“ muss bei einem Abonnement registriert werden, damit die Daten zu nachverfolgten Änderungen und per Proxy übermittelten Einstellungsänderungen von Azure Resource Manager verfügbar sind. Wenn Sie das Diagnose- und Problembehandlungstool in der Web-App öffnen oder die eigenständige Registerkarte „Änderungsanalyse“ aufrufen, wird dieser Ressourcenanbieter automatisch registriert. Bei Web-App-Änderungen, die das Gastbetriebssystem betreffen, ist eine separate Aktivierung erforderlich, um Codedateien in einer Web-App zu überprüfen. Weitere Informationen finden Sie unter [Änderungsanalyse im Tool „Diagnose und Problembehandlung“](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) weiter unten in diesem Artikel.
+
+## <a name="cost"></a>Cost
+Bei der Anwendungsänderungsanalyse handelt es sich um einen kostenlosen Dienst, der keine Kosten für Abonnements verursacht, in denen er aktiviert ist. Der Dienst hat auch keine Auswirkungen auf die Leistung beim Scannen von Änderungen der Azure-Ressourceneigenschaften. Wenn Sie die Änderungsanalyse für Gastdateiänderungen in Web-Apps aktivieren (oder die Aktivierung im Tool für die Diagnose und Problembehandlung vornehmen), hat dies nur geringfügige Auswirkungen auf die Leistung der Web-App und verursacht keinerlei Abrechnungskosten.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualisierungen für die Anwendungsänderungsanalyse
 
@@ -82,6 +103,11 @@ Klicken Sie auf eine Ressource, um alle ihre Änderungen anzuzeigen. Führen Sie
 Zum Senden von Feedback verwenden Sie die entsprechende Schaltfläche auf dem Blatt, oder senden Sie eine E-Mail an changeanalysisteam@microsoft.com.
 
 ![Screenshot der Feedbackschaltfläche auf dem Blatt „Änderungsanalyse“](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Unterstützung mehrerer Abonnements
+Die Benutzeroberfläche unterstützt das Auswählen mehrerer Abonnements zum Anzeigen von Ressourcenänderungen. Verwenden Sie den Abonnementfilter:
+
+![Screenshot: Abonnementfilter, der das Auswählen mehrerer Abonnements unterstützt](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Diagnose und Behandlung von Problemen bei Web-Apps
 

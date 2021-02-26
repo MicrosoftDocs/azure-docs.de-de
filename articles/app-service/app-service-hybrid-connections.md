@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie Hybridverbindungen in Azure App Service für 
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825974"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594230"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridverbindungen
 
@@ -42,7 +42,7 @@ Die Funktion für Hybridverbindungen bietet eine Reihe von Vorteilen wie etwa Fo
 - Sie erfordert normalerweise keine Firewalllücken. Die Verbindungen sind alle ausgehend über Standardwebports.
 - Da die Funktion auf Netzwerkebene ausgeführt wird, ist sie nicht von der Sprache, die von Ihrer App verwendet wird, und von der Technologie, die vom Endpunkt verwendet wird, abhängig.
 - Sie kann verwendet werden, um über eine einzige App Zugriff in mehreren Netzwerken bereitzustellen. 
-- Sie wird in der allgemeinen Verfügbarkeit für native Windows-Apps unterstützt und ist für Linux-Apps als Vorschauversion verfügbar. Sie wird für Windows-Container-Apps nicht unterstützt.
+- Sie wird in den allgemein verfügbaren Versionen von Windows- und Linux-Apps unterstützt. Sie wird für Windows-Container-Apps nicht unterstützt.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Einschränkungen bei Hybridverbindungen ###
 
@@ -201,13 +201,20 @@ Jeder Benutzer mit `Reader`-Zugriff auf das Relay kann die Hybridverbindung _anz
 
 ## <a name="troubleshooting"></a>Problembehandlung ##
 
-Der Status „Verbunden“ bedeutet, dass mindestens ein HCM mit dieser Hybridverbindung konfiguriert ist und Azure erreichen kann. Wenn der Status für die Hybridverbindung nicht **Verbunden** ist, wurde die Hybridverbindung nicht auf einem HCM konfiguriert, der auf Azure zugreifen kann.
+Der Status „Verbunden“ bedeutet, dass mindestens ein HCM mit dieser Hybridverbindung konfiguriert ist und Azure erreichen kann. Wenn der Status für die Hybridverbindung nicht **Verbunden** ist, wurde die Hybridverbindung nicht auf einem HCM konfiguriert, der auf Azure zugreifen kann. Wenn für Ihren HCM der Status **Nicht verbunden** angezeigt wird, müssen Sie einige Punkte überprüfen:
 
-Der Hauptgrund, warum Clients keine Verbindung mit dem jeweiligen Endpunkt herstellen können, ist, dass der Endpunkt mit einer IP-Adresse anstelle eines DNS-Namens angegeben wurde. Wenn Ihre App den gewünschten Endpunkt nicht erreichen kann und Sie eine IP-Adresse verwendet haben, gehen Sie zur Verwendung eines DNS-Namens über, der auf dem Host, auf dem der HCM ausgeführt wird, gültig ist. Überprüfen Sie außerdem, ob der DNS-Name auf dem Host, auf dem der HCM ausgeführt wird, ordnungsgemäß aufgelöst wird. Vergewissern Sie sich, dass zwischen dem Host, auf dem der HCM ausgeführt wird, und dem Hybridverbindungs-Endpunkt Konnektivität besteht.  
+* Verfügt Ihr Host an Port 443 über ausgehenden Zugriff auf Azure? Sie können dies über Ihren HCM-Host mithilfe des PowerShell-Befehls *Test-NetConnection Destination -P Port* testen. 
+* Ist Ihr HCM möglicherweise in einem fehlerhaften Zustand? Versuchen Sie den lokalen Dienst „Azure Hybrid Connection Manager Service“ neu zu starten.
 
-In App Service kann das Befehlszeilentool **tcpping** über die Konsole „Erweiterte Tools“ (Kudu) aufgerufen werden. Mit diesem Tool können Sie feststellen, ob Sie Zugriff auf einen TCP-Endpunkt haben, jedoch nicht, ob Sie Zugriff auf einen Hybridverbindungsendpunkt haben. Wenn Sie das Tool an der Konsole für einen Hybridverbindungs-Endpunkt verwenden, bestätigen Sie nur, dass eine Host-Port-Kombination verwendet wird.  
+Gehen Sie wie folgt vor, wenn der Status **Verbunden** lautet, die App den Endpunkt aber nicht erreichen kann:
 
-Wenn Sie über einen Befehlszeilenclient für Ihren Endpunkt verfügen, können Sie die Konnektivität an der App-Konsole testen. Sie können beispielsweise den Zugriff auf Webserver-Endpunkte mithilfe von cURL testen.
+* Stellen Sie sicher, dass Sie einen DNS-Namen in Ihrer Hybridverbindung verwenden. Wenn Sie eine IP-Adresse verwenden, wird möglicherweise das erforderliche Client-DNS-Lookup nicht durchgeführt. Wenn der Client, der in Ihrer Web-App ausgeführt wird, kein DNS-Lookup durchführt, funktioniert die Hybridverbindung nicht.
+* Prüfen Sie, ob der DNS-Name, der in Ihrer Hybridverbindung verwendet wird, vom HCM-Host aufgelöst werden kann. Überprüfen Sie die Auflösung mithilfe von *nslookup EndpointDNSname*, wobei EndpointDNSname eine genaue Entsprechung für die Verwendung in der Definition Ihrer Hybridverbindung ist.
+* Testen Sie den Zugriff von Ihrem HCM-Host auf den Endpunkt mithilfe des PowerShell-Befehls *Test-NetConnection EndpointDNSname -P Port*. Wenn Sie den Endpunkt von Ihrem HCM-Host aus nicht erreichen können, überprüfen Sie die Firewalls zwischen den beiden Hosts einschließlich aller hostbasierten Firewalls für den Zielhost.
+
+In App Service kann das Befehlszeilentool **tcpping** über die Konsole „Erweiterte Tools (Kudu)“ aufgerufen werden. Mit diesem Tool können Sie feststellen, ob Sie Zugriff auf einen TCP-Endpunkt haben, jedoch nicht, ob Sie Zugriff auf einen Hybridverbindungsendpunkt haben. Wenn Sie das Tool an der Konsole für einen Hybridverbindungs-Endpunkt verwenden, bestätigen Sie nur, dass eine Host-Port-Kombination verwendet wird.  
+
+Wenn Sie über einen Befehlszeilenclient für Ihren Endpunkt verfügen, können Sie die Konnektivität über die App-Konsole testen. Sie können beispielsweise den Zugriff auf Webserver-Endpunkte mithilfe von cURL testen.
 
 
 <!--Image references-->

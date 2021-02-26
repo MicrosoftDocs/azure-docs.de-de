@@ -3,18 +3,17 @@ title: Linux erkunden
 titleSuffix: Azure Data Science Virtual Machine
 description: Erfahren Sie, wie Sie mit Linux Data Science Virtual Machine typische Data Science-Aufgaben erledigen können.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315794"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517670"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data Science mit Ubuntu Data Science Virtual Machine in Azure
 
@@ -315,7 +314,7 @@ Einige Beispielnotebooks sind auf der DSVM bereits installiert:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily) ist ein grafisches R-Tool für Data Mining-Aufgaben. Rattle verfügt über eine intuitive Benutzeroberfläche, die Ihnen das Laden, Untersuchen und Transformieren von Daten und das Erstellen und Auswerten von Modellen erleichtert. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: Data Mining-GUI für R) enthält eine exemplarische Vorgehensweise zur Veranschaulichung der Features von Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A* nalytical *T* ool *T* o *L* earn *E* asily) ist ein grafisches R-Tool für Data Mining-Aufgaben. Rattle verfügt über eine intuitive Benutzeroberfläche, die Ihnen das Laden, Untersuchen und Transformieren von Daten und das Erstellen und Auswerten von Modellen erleichtert. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: Data Mining-GUI für R) enthält eine exemplarische Vorgehensweise zur Veranschaulichung der Features von Rattle.
 
 Installieren und starten Sie Rattle, indem Sie diese Befehle ausführen:
 
@@ -345,17 +344,17 @@ Gehen Sie wie folgt vor, um die Daten zu untersuchen:
 
 Sie können die Registerkarte **Explore** (Untersuchen) auch verwenden, um aufschlussreiche Plots zu generieren. Gehen Sie wie folgt vor, um ein Histogramm mit den Daten zu plotten:
 
-1. Wählen Sie **Distributions** (Verteilungen).
+1. Wählen Sie **Distributions**(Verteilungen).
 1. Wählen Sie für auf **word_freq_remove** und **word_freq_you** die Option **Histogram** (Histogramm) aus.
-1. Wählen Sie **Execute** (Ausführen). Beide Dichteplotergebnisse werden zusammen in einem Graphfenster angezeigt, und es wird deutlich, dass das Wort _you_ in E-Mails viel häufiger als das Wort _remove_ enthalten ist.
+1. Wählen Sie **Execute**(Ausführen). Beide Dichteplotergebnisse werden zusammen in einem Graphfenster angezeigt, und es wird deutlich, dass das Wort _you_ in E-Mails viel häufiger als das Wort _remove_ enthalten ist.
 
 Die Plots vom Typ **Correlation** (Korrelation) sind ebenfalls interessant. So erstellen Sie einen Plot:
 
 1. Wählen Sie als **Type** (Typ) die Option **Correlation** (Korrelation) aus.
-1. Wählen Sie **Execute** (Ausführen).
+1. Wählen Sie **Execute**(Ausführen).
 1. Rattle warnt Sie, dass maximal 40 Variablen verwendet werden sollten. Wählen Sie **Yes** (Ja), um das Plotergebnis anzuzeigen.
 
-Einige interessante Korrelationen werden angezeigt: Beispielsweise korreliert _technology_ stark mit _HP_ und _labs_. Außerdem besteht eine starke Korrelation mit _650_ , da die Ortskennzahl der Anbieter des Datasets 650 lautet.
+Einige interessante Korrelationen werden angezeigt: Beispielsweise korreliert _technology_ stark mit _HP_ und _labs_. Außerdem besteht eine starke Korrelation mit _650_, da die Ortskennzahl der Anbieter des Datasets 650 lautet.
 
 Die numerischen Werte für die Korrelationen zwischen Wörtern sind im Fenster **Explore** (Untersuchen) verfügbar. Es ist beispielsweise interessant, dass _technology_ für _your_ und _money_ eine negative Korrelation aufweist.
 
@@ -374,7 +373,7 @@ Rattle kann auch Clusteranalysen ausführen. Wir schließen einige Features aus,
 * word_freq_business
 * spam
 
-Kehren Sie auf die Registerkarte **Cluster** zurück. Wählen Sie **KMeans** aus, und legen Sie dann **Number of clusters** (Anzahl Cluster) auf **4** fest. Wählen Sie **Execute** (Ausführen). Die Ergebnisse werden im Ausgabefenster angezeigt. Ein Cluster weist eine hohe Häufigkeit für _george_ und _hp_ auf und ist vermutlich eine legitime geschäftliche E-Mail.
+Kehren Sie auf die Registerkarte **Cluster** zurück. Wählen Sie **KMeans** aus, und legen Sie dann **Number of clusters** (Anzahl Cluster) auf **4** fest. Wählen Sie **Execute**(Ausführen). Die Ergebnisse werden im Ausgabefenster angezeigt. Ein Cluster weist eine hohe Häufigkeit für _george_ und _hp_ auf und ist vermutlich eine legitime geschäftliche E-Mail.
 
 Gehen Sie wie folgt vor, um ein einfaches Machine Learning-Modell mit Entscheidungsstruktur zu erstellen:
 
@@ -386,8 +385,8 @@ Gehen Sie wie folgt vor, um ein einfaches Machine Learning-Modell mit Entscheidu
 Ein hilfreiches Feature von Rattle ist die Möglichkeit, mehrere Machine Learning-Methoden auszuführen und schnell auszuwerten. Gehen Sie wie folgt vor:
 
 1. Wählen Sie als **Type** (Typ) die Option **All** (Alle) aus.
-1. Wählen Sie **Execute** (Ausführen).
-1. Wenn Rattle die Ausführung beendet hat, können Sie einen beliebigen Wert für **Type** (Typ) auswählen (etwa **SVM** ) und die Ergebnisse anzeigen.
+1. Wählen Sie **Execute**(Ausführen).
+1. Wenn Rattle die Ausführung beendet hat, können Sie einen beliebigen Wert für **Type** (Typ) auswählen (etwa **SVM**) und die Ergebnisse anzeigen.
 1. Außerdem können Sie die Leistung der Modelle für den Validierungssatz mithilfe der Registerkarte **Evaluate** (Auswerten) vergleichen. In der Auswahl **Error Matrix** (Fehlermatrix) werden beispielsweise die Wahrheitsmatrix, der Gesamtfehler und der durchschnittliche Klassenfehler für jedes Modell des Validierungssatzes angezeigt. Sie können auch ROC-Kurven plotten, Empfindlichkeitsanalysen durchführen und andere Formen der Modellevaluierung nutzen.
 
 Wählen Sie nach Abschluss der Modellerstellung die Registerkarte **Log** (Protokoll), um den R-Code anzuzeigen, der von Rattle während Ihrer Sitzung ausgeführt wurde. Sie können die Schaltfläche **Export** (Exportieren) wählen, um diese Daten zu speichern.
@@ -416,7 +415,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Ändern Sie die Zeile **IPv4 local connections** , um **md5** anstelle von **ident** zu verwenden, damit die Anmeldung mit einem Benutzernamen und Kennwort möglich ist:
+Ändern Sie die Zeile **IPv4 local connections**, um **md5** anstelle von **ident** zu verwenden, damit die Anmeldung mit einem Benutzernamen und Kennwort möglich ist:
 
 ```
 # IPv4 local connections:
@@ -465,10 +464,10 @@ Wir sehen uns nun die Daten an und führen einige Abfragen mit SQuirrel SQL aus.
 Starten Sie SQuirrel SQL über das Menü **Applications** (Anwendungen), um zu beginnen. Richten Sie den Treiber ein:
 
 1. Wählen Sie **Windows** > **View Drivers** (Windows > Treiber anzeigen) aus.
-1. Klicken Sie mit der rechten Maustaste auf **PostgreSQL** , und wählen Sie die Option **Modify Driver** (Treiber ändern) aus.
+1. Klicken Sie mit der rechten Maustaste auf **PostgreSQL**, und wählen Sie die Option **Modify Driver** (Treiber ändern) aus.
 1. Wählen Sie **Extra Class Path** > **Add** (Zusätzlicher Klassenpfad > Hinzufügen) aus.
 1. Geben Sie unter **File Name** (Dateiname) die Angabe **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar** ein.
-1. Wählen Sie **Open** (Öffnen).
+1. Wählen Sie **Open**(Öffnen).
 1. Wählen Sie **List Drivers** (Treiber auflisten) aus. Wählen Sie als **Class Name** (Klassenname) die Option **org.postgresql.Driver** aus, und wählen Sie dann **OK** aus.
 
 Gehen Sie wie folgt vor, um die Verbindung mit dem lokalen Server einzurichten:

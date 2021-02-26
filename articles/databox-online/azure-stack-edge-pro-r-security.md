@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465736"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548640"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sicherheit und Schutz von Daten für Azure Stack Edge Pro R und Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 Sicherheit ist bei der Einführung neuer Technologien immer ein zentrales Anliegen. Das gilt insbesondere, wenn die Technologie mit vertraulichen oder proprietären Daten verwendet wird. Mit Azure Stack Edge Pro R und Azure Stack Edge Mini R können Sie sicherstellen, dass Ihre Daten nur von autorisierten Entitäten angezeigt, geändert oder gelöscht werden können.
 
@@ -77,7 +77,7 @@ Ihre Möglichkeiten:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Einrichten der Vertrauensstellung mit dem Gerät über Zertifikate
 
-Beim widerstandsfähigen Azure Stack Edge-Gerät können Sie Ihre eigenen Zertifikate nutzen und installieren, damit sie für alle öffentlichen Endpunkte verwendet werden können. Weitere Informationen finden Sie unter [Hochladen von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Eine Liste mit allen Zertifikaten, die auf Ihrem Gerät installiert werden können, finden Sie unter [Verwenden von Zertifikaten mit einem Azure Stack Edge Pro-GPU-Gerät](azure-stack-edge-j-series-manage-certificates.md).
+Beim widerstandsfähigen Azure Stack Edge-Gerät können Sie Ihre eigenen Zertifikate nutzen und installieren, damit sie für alle öffentlichen Endpunkte verwendet werden können. Weitere Informationen finden Sie unter [Hochladen von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Eine Liste mit allen Zertifikaten, die auf Ihrem Gerät installiert werden können, finden Sie unter [Verwenden von Zertifikaten mit einem Azure Stack Edge Pro-GPU-Gerät](azure-stack-edge-gpu-manage-certificates.md).
 
 - Wenn Sie Compute auf Ihrem Gerät konfigurieren, werden ein IoT-Gerät und ein IoT Edge-Gerät erstellt. Diesen Geräten werden automatisch symmetrische Zugriffsschlüssel zugewiesen. Diese Schlüssel werden aus Sicherheitsgründen regelmäßig über den IoT Hub-Dienst rotiert.
 

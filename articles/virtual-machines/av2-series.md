@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: d0972c9ed48f56a495804052c1ffc2b28e1db083
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650747"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095323"
 ---
 # <a name="av2-series"></a>Av2-Serie
 
@@ -21,9 +21,11 @@ Die VMs der Av2-Reihe können auf vielen verschiedenen Hardwaretypen und Prozess
 [ACU:](acu.md) 100<br>
 [Storage Premium:](premium-storage-performance.md) Nicht unterstützt <br>
 [Storage Premium-Zwischenspeicherung:](premium-storage-performance.md) Nicht unterstützt <br>
-[Livemigration:](maintenance-and-updates.md) Unterstützt <br>
-[Updates mit Speicherbeibehaltung:](maintenance-and-updates.md) Unterstützt <br>
-[Unterstützung von VM-Generationen:](generation-2.md) Generation 1 <br>
+[Livemigration](maintenance-and-updates.md): Unterstützt <br>
+[Updates mit Speicherbeibehaltung](maintenance-and-updates.md): Unterstützt <br>
+[Unterstützung von VM-Generationen](generation-2.md): Generation 1 <br>
+[Beschleunigter Netzwerkbetrieb](../virtual-network/create-vm-accelerated-networking-cli.md): Nicht unterstützt<br>
+[Kurzlebige Betriebssystemdatenträger](ephemeral-os-disks.md): Nicht unterstützt <br>
 <br>
 
 | Size | Virtueller Kern | Memory: GiB | Temporärer Speicher (SSD): GiB | Maximaler Durchsatz (temporärer Speicher): IOPS/MBit/s Lesen/MBit/s Schreiben | Max. Datenträger/Durchsatz: IOPS | Maximale Anzahl NICs | Erwartete Netzwerkbandbreite (MBit/s)

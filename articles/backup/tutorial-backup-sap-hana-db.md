@@ -3,12 +3,12 @@ title: 'Tutorial: Sichern von SAP HANA-Datenbanken auf virtuellen Azure-Compute
 description: In diesem Tutorial wird beschrieben, wie Sie SAP HANA-Datenbanken, die auf einem virtuellen Azure-Computer ausgeführt werden, in einem Azure Backup Recovery Services-Tresor sichern.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695213"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987782"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Sichern von SAP HANA-Datenbanken auf einem virtuellen Azure-Computer
 
@@ -98,6 +98,46 @@ Sie können auch die folgenden FQDNs verwenden, um den Zugriff auf die erforderl
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Verwenden eines HTTP-Proxyservers für das Weiterleiten von Datenverkehr
 
 Wenn Sie eine SAP HANA-Datenbank auf einem virtuellen Azure-Computer sichern, verwendet die Sicherungserweiterung auf dem virtuellen Computer die HTTPS-APIs, um Verwaltungsbefehle an Azure Backup und Daten an Azure Storage zu senden. Die Sicherungserweiterung verwendet auch Azure AD zur Authentifizierung. Leiten Sie den Datenverkehr der Sicherungserweiterung für diese drei Dienste über den HTTP-Proxy weiter. Verwenden Sie die oben genannte Liste der IPs und FQDNs, um den Zugriff auf die erforderlichen Dienste zuzulassen. Authentifizierte Proxyserver werden nicht unterstützt.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>Grundlegendes zur Durchsatzleistung bei der Sicherung und Wiederherstellung
+
+Bei den über Backint bereitgestellten Sicherungen (Protokoll und protokollfremd) für virtuelle SAP HANA-Azure-Computer handelt es sich um Streams zu Azure Recovery Services-Tresoren. Daher ist es wichtig, diese Streamingmethodik zu verstehen.
+
+Die Backint-Komponente von HANA stellt die Pipes (eine Pipe für Lese- und eine für Schreibvorgänge) bereit. Diese sind mit zugrunde liegenden Datenträgern verbunden, auf denen sich Datenbankdateien befinden, die dann durch den Azure Backup-Dienst gelesen und an einen Azure Recovery Services-Tresor übertragen werden. Vom Azure Backup-Dienst wird neben den nativen Validierungsüberprüfungen von Backint auch eine Prüfsumme erstellt. Durch diese Überprüfungen wird sichergestellt, dass die im Azure Recovery Services-Tresor enthaltenen Daten zuverlässig und wiederherstellbar sind.
+
+Da es bei den Streams in erster Linie um Datenträger geht, müssen Sie mit der Datenträgerleistung vertraut sein, um die Sicherungs- und Wiederherstellungsleistung beurteilen zu können. Ausführliche Informationen zu Datenträgerdurchsatz und -leistung bei virtuellen Azure-Computern finden Sie in [diesem Artikel](https://docs.microsoft.com/azure/virtual-machines/disks-performance). Diese Informationen sind auf die Sicherungs- und Wiederherstellungsleistung übertragbar.
+
+**Der Azure Backup-Dienst versucht, bei protokollfremden Sicherungen für HANA (beispielsweise vollständig, differenziell oder inkrementell) eine Geschwindigkeit von bis zu ~420 MBit/s und bei Protokollsicherungen für HANA eine Geschwindigkeit von bis zu 100 MBit/s zu erreichen.** Wie bereits erwähnt, können diese Geschwindigkeiten nicht garantiert werden und hängen von folgenden Faktoren ab:
+
+* Maximaler Datenträgerdurchsatz des virtuellen Computers (ohne Cache)
+* Zugrunde liegender Datenträgertyp und dessen Durchsatz
+* Anzahl von Prozessen, von denen gleichzeitig versucht wird, Lese- und Schreibvorgänge auf dem gleichen Datenträger durchzuführen
+
+> [!IMPORTANT]
+> Bei kleineren virtuellen Computern, bei denen der Durchsatz des Datenträgers ohne Cache sehr nahe bei oder unter 400 MBit/s liegt, gibt es ggf. Bedenken, dass die gesamten Datenträger-IOPS durch den Sicherungsdienst beansprucht werden, wodurch unter Umständen Lese- und Schreibvorgänge von SAP HANA auf den Datenträgern beeinträchtigt werden. Im nächsten Abschnitt erfahren Sie, wie Sie in diesem Fall den Verbrauch des Sicherungsdiensts drosseln oder auf den maximal zulässigen Grenzwert beschränken können.
+
+### <a name="limiting-backup-throughput-performance"></a>Beschränken der Durchsatzleistung bei der Sicherung
+
+Wenn den Datenträger-IOPS-Verbrauch des Sicherungsdiensts auf einen Höchstwert beschränken möchten, führen Sie die folgenden Schritte aus:
+
+1. Navigieren Sie zum Ordner „opt/msawb/bin“.
+2. Erstellen Sie eine neue JSON-Datei namens „ExtensionSettingOverrides.JSON“.
+3. Fügen Sie der JSON-Datei ein Schlüssel-Wert-Paar hinzu:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Ändern Sie die Berechtigungen und den Besitz der Datei:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. Es muss kein Dienst neu gestartet werden. Vom Azure Backup-Dienst wird versucht, die Durchsatzleistung gemäß den Angaben in dieser Datei zu begrenzen.
 
 ## <a name="what-the-pre-registration-script-does"></a>Aufgaben des Vorregistrierungsskripts
 

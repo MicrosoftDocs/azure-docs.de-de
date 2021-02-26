@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207392"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928028"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Wiederherstellen von Sicherungsdaten in Azure Service Fabric
 
@@ -28,11 +28,16 @@ Hierzu können Sie einen Dienst beispielsweise so konfigurieren, dass er seine D
 - Zum Auslösen einer Wiederherstellung muss der _Fault Analysis Service (FAS)_ (Fehleranalysedienst) für den Cluster aktiviert sein.
 - Der _Backup Restore Service (BRS)_ (Sicherungswiederherstellungsdienst) hat die Sicherung erstellt.
 - Die Wiederherstellung kann nur auf einer Partition ausgelöst werden.
-- Installieren Sie das Microsoft.ServiceFabric.Powershell.Http-Modul [Vorschau], um Konfigurationsaufrufe vorzunehmen.
+- Installieren Sie das Modul Microsoft.ServiceFabric.PowerShell.Http (Vorschau), um Konfigurationsaufrufe vorzunehmen.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Wenn Ihre PowerShellGet-Version kleiner als 1.6.0 ist, müssen Sie ein Update ausführen, um Unterstützung für das *-AllowPrerelease*-Flag hinzuzufügen:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Stellen Sie mit dem Befehl `Connect-SFCluster` sicher, dass der Cluster verbunden ist, bevor Sie Konfigurationsanforderungen mit dem Microsoft.ServiceFabric.Powershell.Http-Modul vornehmen.
 
@@ -148,7 +153,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Für die Wiederherstellungs-API müssen die Sicherungs-ID ( _BackupId_ ) und der Sicherungsspeicherort ( _BackupLocation_ ) angegeben werden.
+Für die Wiederherstellungs-API müssen die Sicherungs-ID (_BackupId_) und der Sicherungsspeicherort (_BackupLocation_) angegeben werden.
 
 Darüber hinaus muss eine Zielpartition im alternativen Cluster ausgewählt werden, wie im [Partitionsschema](service-fabric-concepts-partitioning.md#get-started-with-partitioning) dargestellt. Die alternative Clustersicherung wird in der Partition wiederhergestellt, die im Partitionsschema des ursprünglichen, verloren gegangenen Clusters angegeben ist.
 
@@ -229,7 +234,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Geben Sie für die Wiederherstellungs-API die Sicherungs-ID ( _BackupId_ ) und den Sicherungsspeicherort ( _BackupLocation_ ) an. Da für den Cluster die Sicherung aktiviert ist, identifiziert der _Backup Restore Service (BRS)_ (Sicherungswiederherstellungsdienst) in Service Fabric den korrekten Speicherort anhand der zugeordneten Sicherungsrichtlinie.
+Geben Sie für die Wiederherstellungs-API die Sicherungs-ID (_BackupId_) und den Sicherungsspeicherort (_BackupLocation_) an. Da für den Cluster die Sicherung aktiviert ist, identifiziert der _Backup Restore Service (BRS)_ (Sicherungswiederherstellungsdienst) in Service Fabric den korrekten Speicherort anhand der zugeordneten Sicherungsrichtlinie.
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell mit dem Microsoft.ServiceFabric.Powershell.Http-Modul
@@ -282,7 +287,7 @@ $restoreResponse | Format-List
 
 Die Wiederherstellungsanforderung durchläuft folgende Zustände in der angegebenen Reihenfolge:
 
-1. **Akzeptiert** : Der Wiederherstellungszustand _Accepted_ (Akzeptiert) gibt an, dass die angeforderte Partition mit korrekten Anforderungsparametern ausgelöst wurde.
+1. **Akzeptiert**: Der Wiederherstellungszustand _Accepted_ (Akzeptiert) gibt an, dass die angeforderte Partition mit korrekten Anforderungsparametern ausgelöst wurde.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -297,8 +302,8 @@ Die Wiederherstellungsanforderung durchläuft folgende Zustände in der angegebe
     RestoredLsn   : 3552
     ```
     
-3. **Erfolg** , **Fehler** oder **Timeout** : Eine angeforderte Wiederherstellung kann mit einem der folgenden Zustände abgeschlossen werden. Im Anschluss werden die Bedeutung und die Antwortdetails der einzelnen Zustände erläutert:
-    - **Erfolg** : Der Wiederherstellungszustand _Success_ (Erfolgreich) gibt an, dass ein Partitionszustand wiederhergestellt wurde. Die Partition meldet die Zustände _RestoredEpoch_ und _RestoredLSN_ sowie die Zeit im UTC-Format.
+3. **Erfolg**, **Fehler** oder **Timeout**: Eine angeforderte Wiederherstellung kann mit einem der folgenden Zustände abgeschlossen werden. Im Anschluss werden die Bedeutung und die Antwortdetails der einzelnen Zustände erläutert:
+    - **Erfolg**: Der Wiederherstellungszustand _Success_ (Erfolgreich) gibt an, dass ein Partitionszustand wiederhergestellt wurde. Die Partition meldet die Zustände _RestoredEpoch_ und _RestoredLSN_ sowie die Zeit im UTC-Format.
 
         ```
         RestoreState  : Success
@@ -306,7 +311,7 @@ Die Wiederherstellungsanforderung durchläuft folgende Zustände in der angegebe
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Fehler** : Der Wiederherstellungszustand _Failure_ (Fehler) gibt an, dass die Wiederherstellungsanforderung nicht erfolgreich war. Die Ursache des Fehlers wird gemeldet.
+    - **Fehler**: Der Wiederherstellungszustand _Failure_ (Fehler) gibt an, dass die Wiederherstellungsanforderung nicht erfolgreich war. Die Ursache des Fehlers wird gemeldet.
 
         ```
         RestoreState  : Failure
@@ -314,7 +319,7 @@ Die Wiederherstellungsanforderung durchläuft folgende Zustände in der angegebe
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout** : Der Wiederherstellungszustand _Timeout_ gibt an, dass für die Anforderung ein Timeout aufgetreten ist. Erstellen Sie eine neue Wiederherstellungsanforderung mit einem höheren Wert für [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Das Standardtimeout beträgt zehn Minuten. Vergewissern Sie sich, dass sich die Partition nicht in einem Datenverlustzustand befindet, bevor Sie die Wiederherstellung erneut anfordern.
+    - **Timeout**: Der Wiederherstellungszustand _Timeout_ gibt an, dass für die Anforderung ein Timeout aufgetreten ist. Erstellen Sie eine neue Wiederherstellungsanforderung mit einem höheren Wert für [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Das Standardtimeout beträgt zehn Minuten. Vergewissern Sie sich, dass sich die Partition nicht in einem Datenverlustzustand befindet, bevor Sie die Wiederherstellung erneut anfordern.
      
         ```
         RestoreState  : Timeout

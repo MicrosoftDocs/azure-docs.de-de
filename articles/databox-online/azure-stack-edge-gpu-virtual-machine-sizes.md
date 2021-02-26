@@ -1,6 +1,6 @@
 ---
 title: In Azure Stack Edge unterstützte VM-Größen
-description: Hier werden die unterstützten Größen für virtuelle Computer (Virtual Machines, VMs) in Azure Stack Edge Pro-Gerätevorlagen beschrieben.
+description: Hier werden die unterstützten Größen für VMs auf einem Azure Stack Edge Pro-Gerät beschrieben.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: eace537c3860bb0225b72b0c29be563b4fe08883
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a52ed05e03176bcb9b2fde9f2da1c746cedd6d49
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763676"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475037"
 ---
-# <a name="vm-sizes-and-types-for-your-azure-stack-edge-pro"></a>VM-Größen und -Typen für Azure Stack Edge Pro 
+# <a name="vm-sizes-and-types-for-azure-stack-edge-pro"></a>VM-Größen und -Typen für Azure Stack Edge Pro 
 
 In diesem Artikel werden die unterstützten Größen für die virtuellen Computer beschrieben, die auf Ihren Azure Stack Edge Pro-Geräten ausgeführt werden. Ziehen Sie diesen Artikel heran, bevor Sie virtuelle Computer auf Ihren Azure Stack Edge Pro-Geräten bereitstellen.
 

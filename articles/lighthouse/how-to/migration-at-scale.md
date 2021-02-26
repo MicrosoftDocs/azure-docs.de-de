@@ -1,27 +1,27 @@
 ---
-title: Verwalten von Migrationsprojekten im großen Maßstab mit Azure Migrate
+title: Verwalten von Azure Migrate-Projekten im großen Stil mit Azure Lighthouse
 description: Erfahren Sie, wie Sie Azure Migrate für delegierte Kundenressourcen effektiv verwenden können.
-ms.date: 12/4/2020
+ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788942"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093607"
 ---
-# <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Verwalten von Migrationsprojekten im großen Maßstab mit Azure Migrate
+# <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Verwalten von Azure Migrate-Projekten im großen Stil mit Azure Lighthouse
 
-Als Dienstanbieter haben Sie möglicherweise mehrere Kundenmandanten in [Azure Lighthouse](../overview.md) integriert. Azure Lighthouse ermöglicht Dienstanbietern das gleichzeitige Ausführen von Vorgängen für mehrere Azure Active Directory-Mandanten (Azure AD) im großen Maßstab, wodurch Verwaltungsaufgaben effizienter werden.
+Dieses Thema bietet eine Übersicht darüber, wie [Azure Lighthouse](../overview.md) Ihnen dabei helfen kann, [Azure Migrate](../../migrate/migrate-services-overview.md) auf skalierbare Weise über mehrere Azure Active Directory-Mandanten (Azure AD) zu verwenden.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) verfügt über einen zentralisierten Hub zum Bewerten und Migrieren von lokalen Servern, Infrastrukturen, Anwendungen und Daten zu Azure. In der Regel müssen Partner, die Bewertungen und eine umfassende Migration für mehrere Kunden durchführen, auf jedes Kundenabonnement einzeln zugreifen, indem sie das [CSP-Abonnementmodell (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) verwenden oder [einen Gastbenutzer im Kundenmandanten erstellen](../../active-directory/external-identities/what-is-b2b.md).
+Azure Lighthouse ermöglicht Dienstanbietern das gleichzeitige Ausführen von skalierbaren Vorgängen für mehrere Mandanten, wodurch Verwaltungsaufgaben effizienter werden.
+
+Azure Migrate verfügt über einen zentralisierten Hub für die Bewertung und die Migration von lokalen Servern sowie der lokalen Infrastruktur, Anwendungen und Daten zu Azure. In der Regel müssen Partner, die Bewertungen und eine umfassende Migration für mehrere Kunden durchführen, auf jedes Kundenabonnement einzeln zugreifen, indem sie das [CSP-Abonnementmodell (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) verwenden oder [einen Gastbenutzer im Kundenmandanten erstellen](../../active-directory/external-identities/what-is-b2b.md).
 
 Durch die Azure Lighthouse-Integration in Azure Migrate können Dienstanbieter Workloads für verschiedene Kunden umfassend ermitteln, bewerten und migrieren und gleichzeitig den Kunden eine vollständige Transparenz und Kontrolle ihrer Umgebungen ermöglichen. Dank der delegierten Azure-Ressourcenverwaltung verfügen Dienstanbieter über eine einzige Ansicht aller Azure Migrate-Projekte, die sie für mehrere Kundenmandanten verwalten.
 
 > [!NOTE]
 > Über Azure Lighthouse können Partner die Ermittlung, Bewertung und Migration für lokale VMware-VMs, Hyper-V-VMs, physische Server und AWS-/GCP-Instanzen durchführen. Für die [Migration von VMware-VMs](../../migrate/server-migrate-overview.md) sind zwei Optionen verfügbar. Derzeit kann bei der Arbeit an einem Migrationsprojekt in einem delegierten Kundenabonnement nur die Agent-basierte Migrationsmethode verwendet werden. Die Migration mithilfe der Replikation ohne Agent über den delegierten Zugriff auf den Bereich des Kunden wird derzeit nicht unterstützt.
-
-Dieses Thema bietet einen Überblick über die Verwendung von [Azure Migrate](../../migrate/migrate-services-overview.md) im großen Maßstab.
 
 > [!TIP]
 > Zwar beziehen wir uns in diesem Thema auf Dienstanbieter und Kunden, doch gelten diese Anweisungen auch für [Unternehmen, die Azure Lighthouse zum Verwalten mehrerer Mandanten verwenden](../concepts/enterprise.md).
@@ -72,11 +72,11 @@ HINWEIS: Sie müssen die Parameterdatei ändern, um Ihre Umgebung vor der Bereit
 
 ## <a name="partner-recognition-for-customer-migrations"></a>Partnererkennung für Kundenmigrationen
 
-Als Mitglied des [Microsoft Partner Network](https://partner.microsoft.com) können Sie Ihre Partner-ID mit den Anmeldeinformationen verknüpfen, die für die Verwaltung delegierter Kundenressourcen verwendet werden. Über Partner Admin Link (PAL) kann Microsoft Ihrer Organisation basierend auf den Aufgaben, die Sie für Kunden ausführen, einschließlich Migrationsprojekten, den Einfluss und den in Azure verbrauchten Umsatz zuordnen.
+Als Mitglied des [Microsoft Partner Network](https://partner.microsoft.com) können Sie Ihre Partner-ID mit den Anmeldeinformationen verknüpfen, die für die Verwaltung delegierter Kundenressourcen verwendet werden. Dadurch kann Microsoft Ihrer Organisation basierend auf den Aufgaben, die Sie für Kunden ausführen, einschließlich Migrationsprojekten, den Einfluss und den in Azure verbrauchten Umsatz zuordnen.
 
 Weitere Informationen finden Sie im Thema zum [Verknüpfen der Partner-ID, um die Auswirkungen auf delegierte Ressourcen nachzuverfolgen](partner-earned-credit.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über [Azure Migrate](../../migrate/migrate-services-overview.md).
-- Erfahren Sie über [Mandantenübergreifende Verwaltungsmöglichkeiten](../concepts/cross-tenant-management-experience.md).
+- Erfahren Sie mehr über [Azure Migrate](../../migrate/migrate-services-overview.md).
+- Erfahren Sie mehr über andere [mandantenübergreifende Verwaltungsmöglichkeiten](../concepts/cross-tenant-management-experience.md), die von Azure Lighthouse unterstützt werden.

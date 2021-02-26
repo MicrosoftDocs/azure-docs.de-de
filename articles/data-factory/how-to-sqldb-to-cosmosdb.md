@@ -1,19 +1,17 @@
 ---
 title: Migrieren von Azure SQL-Datenbank-Tabellen zu Azure Cosmos DB mit Azure Data Factory
 description: Migrieren Sie ein vorhandenes normalisiertes Datenbankschema aus Azure SQL-Datenbank mit Azure Data Factory zu einem denormalisierten Azure Cosmos DB-Container.
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.author: makromer
-ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383941"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrieren eines normalisierten Datenbankschemas von Azure SQL-Datenbank zu einem denormalisierten Azure Cosmos DB-Container
 

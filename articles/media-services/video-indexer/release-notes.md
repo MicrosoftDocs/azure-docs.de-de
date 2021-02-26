@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120086"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427656"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer: Versionshinweise
 
@@ -30,7 +30,23 @@ Damit Sie bezüglich der aktuellen Entwicklungen auf dem neuesten Stand bleiben,
 * Behebung von Programmfehlern
 * Veraltete Funktionen
 
-##  <a name="december-2020"></a>Dezember 2020
+## <a name="january-2021"></a>Januar 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer in der Cloud der US-Regierung bereitgestellt 
+
+Sie können jetzt ein kostenpflichtiges Video Indexer-Konto in einer Cloud der US-Regierung in den Regionen „US Gov Virginia“ und „US Gov Arizona“ erstellen. Die kostenlose Testversion von Video Indexer ist in den genannten Regionen nicht verfügbar. Weitere Informationen finden Sie in Dokumentation zu Video Indexer. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer in der Region „Indien, Mitte“ bereitgestellt 
+
+Sie können jetzt ein kostenpflichtiges Video Indexer-Konto in der Region „Indien, Mitte“ erstellen. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Neuer dunkler Modus für die Video Indexer-Website
+
+Für die Video Indexer-Website ist nun auch ein dunkler Modus verfügbar. Um den dunklen Modus zu aktivieren, öffnen Sie den Einstellungsbereich und aktivieren die Option **Dunkler Modus**. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Einstellung für den dunklen Modus":::
+
+## <a name="december-2020"></a>Dezember 2020
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer in den Regionen „Schweiz, Westen“ und „Schweiz, Norden“ bereitgestellt
 

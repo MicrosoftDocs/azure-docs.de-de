@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247896"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928031"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Bedarfsgesteuerte Sicherung in Azure Service Fabric
 
@@ -21,11 +21,16 @@ Azure Service Fabric verfügt über Features zur [regelmäßigen Sicherung von D
 Die Features zur bedarfsgesteuerten Sicherung sind für die Erfassung von Dienstzuständen hilfreich, noch bevor Sie einen Vorgang im Zusammenhang mit dem Dienst oder der Dienstumgebung manuell auslösen. Sie nehmen z.B. beim Upgrade oder Downgrade des Diensts eine Änderung in Dienstbinärdateien vor. In diesem Fall kann eine bedarfsgesteuerte Sicherung die Daten vor Beschädigung durch Fehler im Anwendungscode schützen.
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Installieren Sie das Microsoft.ServiceFabric.Powershell.Http-Modul [Vorschau], um Konfigurationsaufrufe vorzunehmen.
+- Installieren Sie das Modul Microsoft.ServiceFabric.PowerShell.Http (Vorschau), um Konfigurationsaufrufe vorzunehmen.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Wenn Ihre PowerShellGet-Version kleiner als 1.6.0 ist, müssen Sie ein Update ausführen, um Unterstützung für das *-AllowPrerelease*-Flag hinzuzufügen:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Stellen Sie mit dem Befehl `Connect-SFCluster` sicher, dass der Cluster verbunden ist, bevor Sie Konfigurationsanforderungen mit dem Microsoft.ServiceFabric.Powershell.Http-Modul vornehmen.
 

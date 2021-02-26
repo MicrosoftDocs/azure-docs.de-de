@@ -14,12 +14,12 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: f0f2e009220292d298848cf93c479639b2318062
-  ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+  ms.openlocfilehash: f88271d7d212cf28356745a7a4e0f56e3350200d
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/16/2020
-  ms.locfileid: "97588487"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100636247"
 landingContent:
 - title: Übersetzer
   linkLists:
@@ -27,8 +27,10 @@ landingContent:
     links:
     - text: Übersetzer
       url: translator-info-overview.md
+    - text: Dokumentübersetzung
+      url: document-translation/overview.md
     - text: Benutzerdefinierter Translator
-      url: translator-info-overview.md
+      url: custom-translator/overview.md
     - text: Preise
       url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - text: Kompatibilität
@@ -57,7 +59,7 @@ landingContent:
       url: request-limits.md
     - text: Sprachunterstützung
       url: language-support.md
-- title: Benutzerdefinierter Translator
+- title: Benutzerdefinierte Übersetzung
   linkLists:
   - linkListType: quickstart
     links:

@@ -2,25 +2,29 @@
 title: CI/CD mit Azure Pipelines und Vorlagen
 description: Beschreibt die Konfiguration von Continuous Integration in Azure Pipelines mithilfe von Azure Resource Manager-Vorlagen. Es wird gezeigt, wie Sie ein PowerShell-Skript verwenden oder Dateien an einen Stagingspeicherort kopieren und von dort aus bereitstellen.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233813"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594196"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrieren von ARM-Vorlagen in Azure Pipelines
 
-Sie können Azure Resource Manager-Vorlagen (ARM-Vorlagen) in Azure Pipelines integrieren für Continuous Integration und Continuous Deployment (CI/CD). Das Tutorial [Continuous Integration von ARM-Vorlagen in Azure Pipelines](deployment-tutorial-pipeline.md) zeigt, wie Sie die [ARM-Vorlagenbereitstellungsaufgabe](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) verwenden, um eine Vorlage aus Ihrem GitHub-Repository bereitzustellen. Diese Vorgehensweise funktioniert, wenn Sie eine Vorlage direkt aus einem Repository bereitstellen möchten.
+Sie können Azure Resource Manager-Vorlagen (ARM-Vorlagen) in Azure Pipelines integrieren für Continuous Integration und Continuous Deployment (CI/CD). In diesem Artikel lernen Sie zwei fortgeschrittene Methoden kennen, um Vorlagen mit Azure Pipelines bereitzustellen.
 
-In diesem Artikel lernen Sie zwei Methoden kennen, um Vorlagen mit Azure Pipelines bereitzustellen. In diesem Artikel werden die folgenden Aufgaben erläutert:
+## <a name="select-your-option"></a>Auswählen einer Option
 
-* **Hinzufügen einer Ausgabe, die ein Azure PowerShell-Skript ausführt**. Diese Option bietet einen konsistenten Entwicklungslebenszyklus, da Sie dasselbe Skript verwenden können, das Sie zur Ausführung lokaler Tests verwendet haben. Ihr Skript stellt die Vorlage bereit, kann aber auch andere Vorgänge ausführen, z. B. das Abrufen von Werten, die als Parameter verwendet werden sollen.
+Bevor Sie mit diesem Artikel fortfahren, machen Sie sich mit den verschiedenen Optionen für die Bereitstellung einer ARM-Vorlage über eine Pipeline vertraut.
+
+* **Verwenden einer Aufgabe zur ARM-Vorlagenbereitstellung**. Diese Option stellt den einfachsten Ansatz dar. Diese Vorgehensweise funktioniert, wenn Sie eine Vorlage direkt aus einem Repository bereitstellen möchten. Diese Option wird nicht in diesem Artikel behandelt, sondern im Tutorial [Continuous Integration von ARM-Vorlagen mit Azure Pipelines](deployment-tutorial-pipeline.md). Es wird gezeigt, wie Sie die [Aufgabe zur ARM-Vorlagenbereitstellung](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) verwenden, um eine Vorlage aus Ihrem GitHub-Repository bereitzustellen.
+
+* **Hinzufügen einer Ausgabe, die ein Azure PowerShell-Skript ausführt**. Diese Option bietet einen konsistenten Entwicklungslebenszyklus, da Sie dasselbe Skript verwenden können, das Sie zur Ausführung lokaler Tests verwendet haben. Ihr Skript stellt die Vorlage bereit, kann aber auch andere Vorgänge ausführen, z. B. das Abrufen von Werten, die als Parameter verwendet werden sollen. Diese Option wird in diesem Artikel gezeigt. Weitere Informationen finden Sie unter [Azure PowerShell-Aufgabe](#azure-powershell-task).
 
    Visual Studio stellt das [Azure Resource Group-Projekt](create-visual-studio-deployment-project.md) bereit, das ein PowerShell-Skript enthält. Das Skript stellt Artefakte aus Ihrem Projekt einem Speicherkonto zur Verfügung, auf das der Resource Manager zugreifen kann. Artefakte sind Elemente in Ihrem Projekt, wie z.B. verknüpfte Vorlagen, Skripte und Binärdateien von Anwendungen. Wenn Sie das Skript aus dem Projekt weiterhin verwenden möchten, verwenden Sie die in diesem Artikel gezeigte PowerShell-Skriptaufgabe.
 
-* **Hinzufügen von Aufgaben zum Kopieren und Bereitstellen von Tasks**. Diese Option bietet eine praktische Alternative zum Projektskript. Sie konfigurieren zwei Aufgaben in der Pipeline. Eine Aufgabe stellt die Artefakte an einem zugänglichen Speicherort zur Verfügung. Die andere Aufgabe stellt die Vorlage von diesem Ort aus bereit.
+* **Hinzufügen von Aufgaben zum Kopieren und Bereitstellen von Tasks**. Diese Option bietet eine praktische Alternative zum Projektskript. Sie konfigurieren zwei Aufgaben in der Pipeline. Eine Aufgabe stellt die Artefakte an einem zugänglichen Speicherort zur Verfügung. Die andere Aufgabe stellt die Vorlage von diesem Ort aus bereit. Diese Option wird in diesem Artikel gezeigt. Weitere Informationen finden Sie unter [Aufgaben zum Kopieren und Bereitstellen](#copy-and-deploy-tasks).
 
 ## <a name="prepare-your-project"></a>Vorbereiten Ihres Projekts
 

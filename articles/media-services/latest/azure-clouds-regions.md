@@ -1,5 +1,5 @@
 ---
-title: Clouds und Regionen, in denen Azure Media Services v3 verfügbar ist
+title: Regionen, in denen Azure Media Services v3 verfügbar ist
 description: In diesem Artikel werden Azure-Clouds und -Regionen behandelt, in denen Azure Media Services v3 verfügbar ist.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 20c025cfabf6ed3cedd838f8be964bec06ad595e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 91df515703b4b6b368b07482fad1aa8b781281f6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954445"
 ---
 # <a name="azure-media-services-v3-clouds-and-regions-availability"></a>Clouds und Regionen, in denen Azure Media Services v3 verfügbar ist
 

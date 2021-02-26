@@ -7,17 +7,17 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2020
 ms.author: kumud
-ms.openlocfilehash: e30697fe93e2debaa68e12561f18be7f85d772a4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2801aa6b2e2b72df815b170200587c49ec0bae14
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586413"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538991"
 ---
 # <a name="what-is-subnet-delegation"></a>Was ist die Subnetzdelegierung?
 

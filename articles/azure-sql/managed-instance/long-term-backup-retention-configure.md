@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a5a2ff85395a55bcd4e8405e2eb60c6a4645818c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987489"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833438"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Verwalten der langfristigen Sicherungsaufbewahrung für Azure SQL Managed Instance (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,27 +62,61 @@ $resourceGroup = "<resourceGroupName>"
 $dbName = "<databaseName>"
 
 Connect-AzAccount
+
 Select-AzSubscription -SubscriptionId $subId
 
 $instance = Get-AzSqlInstance -Name $instanceName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
-   -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W
+$LTRPolicy = @{
+    InstanceName = $instanceName 
+    DatabaseName = $dbName 
+    ResourceGroupName = $resourceGroup 
+    WeeklyRetention = 'P12W'
+}
+Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
-    -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+$LTRPolicy = @{
+    InstanceName = $instanceName 
+    DatabaseName = $dbName 
+    ResourceGroupName = $resourceGroup 
+    WeeklyRetention = 'P12W' 
+    YearlyRetention = 'P5Y' 
+    WeekOfYear = '16'
+}
+Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
 ## <a name="view-ltr-policies"></a>Anzeigen von LTR-Richtlinien
 
-In diesem Beispiel wird gezeigt, wie Sie die LTR-Richtlinien in einer Instanz auflisten.
+In diesem Beispiel wird gezeigt, wie Sie die LTR-Richtlinien in einer Instanz für eine Einzeldatenbank auflisten.
 
 ```powershell
-# gets the current version of LTR policy for the database
-$ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
-    -DatabaseName $dbName -ResourceGroupName $resourceGroup
+# gets the current version of LTR policy for a database
+$LTRPolicies = @{
+    InstanceName = $instanceName 
+    DatabaseName = $dbName 
+    ResourceGroupName = $resourceGroup
+}
+Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy 
+```
+
+In diesem Beispiel wird gezeigt, wie Sie die LTR-Richtlinien in einer Instanz für alle Datenbanken auflisten.
+
+```powershell
+# gets the current version of LTR policy for all of the databases on an instance
+
+$Databases = Get-AzSqlInstanceDatabase -ResourceGroupName $resourceGroup -InstanceName $instanceName
+
+$LTRParams = @{
+    InstanceName = $instanceName
+    ResourceGroupName = $resourceGroup
+}
+
+foreach($database in $Databases.Name){
+    Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRParams  -DatabaseName $database
+ }
 ```
 
 ## <a name="clear-an-ltr-policy"></a>Löschen einer LTR-Richtlinie
@@ -90,8 +124,14 @@ $ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceN
 In diesem Beispiel wird gezeigt, wie Sie eine LTR-Richtlinie aus einer Datenbank löschen.
 
 ```powershell
-Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
-   -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+# remove the LTR policy from a database
+$LTRPolicy = @{
+    InstanceName = $instanceName 
+    DatabaseName = $dbName 
+    ResourceGroupName = $resourceGroup 
+    RemovePolicy = $true
+}
+Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy @LTRPolicy
 ```
 
 ## <a name="view-ltr-backups"></a>Anzeigen von LTR-Sicherungen
@@ -99,21 +139,42 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 In diesem Beispiel wird gezeigt, wie Sie die LTR-Sicherungen in einer Instanz auflisten.
 
 ```powershell
+
+$instance = Get-AzSqlInstance -Name $instanceName -ResourceGroupName $resourceGroup
+
 # get the list of all LTR backups in a specific Azure region
 # backups are grouped by the logical database id, within each group they are ordered by the timestamp, the earliest backup first
-$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location
+Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location
 
 # get the list of LTR backups from the Azure region under the given managed instance
-$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    InstanceName = $instanceName
+}
+Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam
 
 # get the LTR backups for a specific database from the Azure region under the given managed instance
-$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName -DatabaseName $dbName
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    InstanceName = $instanceName
+    DatabaseName = $dbName
+}
+Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam
 
 # list LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -DatabaseState Live
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    DatabaseState = 'Live'
+}
+Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam
 
 # only list the latest LTR backup for each database
-$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName -OnlyLatestPerDatabase
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    InstanceName = $instanceName
+    OnlyLatestPerDatabase = $true
+}
+Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam 
 ```
 
 ## <a name="delete-ltr-backups"></a>Löschen von LTR-Sicherungen
@@ -122,6 +183,13 @@ Dieses Beispiel zeigt, wie Sie eine LTR-Sicherung aus der Liste der Sicherungen 
 
 ```powershell
 # remove the earliest backup
+# get the LTR backups for a specific database from the Azure region under the given managed instance
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    InstanceName = $instanceName
+    DatabaseName = $dbName
+}
+$ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam
 $ltrBackup = $ltrBackups[0]
 Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
@@ -135,8 +203,22 @@ Dieses Beispiel zeigt, wie Sie eine LTR-Sicherung wiederherstellen. Beachten Sie
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
-Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId `
-   -TargetInstanceName $instanceName -TargetResourceGroupName $resourceGroup -TargetInstanceDatabaseName $dbName
+$LTRBackupParam = @{
+    Location = $instance.Location 
+    InstanceName = $instanceName
+    DatabaseName = $dbname
+    OnlyLatestPerDatabase = $true
+}
+$ltrBackup = Get-AzSqlInstanceDatabaseLongTermRetentionBackup @LTRBackupParam 
+
+$RestoreLTRParam = @{
+    TargetInstanceName          = $instanceName 
+    TargetResourceGroupName     = $resourceGroup 
+    TargetInstanceDatabaseName  = $dbName
+    FromLongTermRetentionBackup = $true
+    ResourceId                  = $ltrBackup.ResourceId 
+}
+Restore-AzSqlInstanceDatabase @RestoreLTRParam
 ```
 
 > [!IMPORTANT]

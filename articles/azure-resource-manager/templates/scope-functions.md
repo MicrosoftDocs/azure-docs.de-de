@@ -3,12 +3,12 @@ title: Vorlagenfunktionen in bereichsbezogenen Bereitstellungen
 description: In diesem Artikel wird beschrieben, wie Vorlagenfunktionen in bereichsbezogenen Bereitstellungen aufgelöst werden. Bei dem Bereich kann es sich um einen Mandanten, Verwaltungsgruppen, Abonnements und Ressourcengruppen handeln.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681311"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492092"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Azure Resource Manager-Vorlagenfunktionen in Bereitstellungsbereichen
 
@@ -40,15 +40,15 @@ Beim Bereitstellen in verschiedenen Bereichen sind einige wichtige Aspekte zu be
 * Verwenden Sie die Funktion [extensionResourceId()](template-functions-resource.md#extensionresourceid) für Ressourcen, die als Erweiterungen der Verwaltungsgruppe implementiert sind. Benutzerdefinierte Richtliniendefinitionen, die für die Verwaltungsgruppe bereitgestellt werden, sind Erweiterungen der Verwaltungsgruppe.
 
   Verwenden Sie den folgenden Code, um die Ressourcen-ID für eine benutzerdefinierte Richtliniendefinition auf Verwaltungsgruppenebene zu erhalten:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Verwenden Sie die Funktion [tenantResourceId](template-functions-resource.md#tenantresourceid), um die ID einer Ressource abzurufen, die im Mandanten bereitgestellt wurde. Integrierte Richtliniendefinitionen sind Ressourcen auf Mandantenebene. Wenn Sie eine integrierte Richtlinie auf der Verwaltungsgruppenebene zuweisen, verwenden Sie die Funktion tenantResourceId.
+* Verwenden Sie die Funktion [tenantResourceId()](template-functions-resource.md#tenantresourceid), um die ID einer Ressource abzurufen, die im Mandanten bereitgestellt wurde. Integrierte Richtliniendefinitionen sind Ressourcen auf Mandantenebene. Wenn Sie eine integrierte Richtlinie auf der Verwaltungsgruppenebene zuweisen, verwenden Sie die Funktion tenantResourceId.
 
   Verwenden Sie beispielsweise den folgenden Code, um die Ressourcen-ID für eine integrierte Richtliniendefinition abzurufen:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -138,6 +138,6 @@ Die Ausgabe aus dem vorherigen Beispiel lautet wie folgt:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Um zu verstehen, wie Parameter in der Vorlage definiert werden, lesen Sie [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
+* Um zu verstehen, wie Parameter in der Vorlage definiert werden, lesen Sie [Verstehen der Struktur und Syntax von ARM-Vorlagen](template-syntax.md).
 * Tipps zum Beheben gängiger Azure-Bereitstellungsfehler finden Sie unter [Beheben gängiger Azure-Bereitstellungsfehler mit Azure Resource Manager](common-deployment-errors.md).
-* Informationen zum Bereitstellen einer Vorlage, die ein SAS-Token erfordert, finden Sie unter [Bereitstellen einer privaten Vorlage mit SAS-Token](secure-template-with-sas-token.md).
+* Informationen zum Bereitstellen einer Vorlage, die ein SAS-Token erfordert, finden Sie unter [Bereitstellen einer privaten ARM-Vorlage mit SAS-Token](secure-template-with-sas-token.md).

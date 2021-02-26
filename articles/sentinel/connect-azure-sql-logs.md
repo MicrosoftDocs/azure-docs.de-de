@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103889"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807732"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Verbinden von Diagnose- und Überwachungsprotokollen von Azure SQL-Datenbank
 
 Azure SQL ist eine vollständig verwaltete PaaS-Datenbank-Engine (Platform-as-a-Service), bei der die meisten Funktionen für die Datenbankverwaltung ohne Benutzereingriff erfolgen, z. B. Upgrades, Patches, Sicherungen und Überwachung. 
 
-Mit dem Azure SQL-Datenbank-Connector können Sie die Überwachungs- und Diagnoseprotokolle Ihrer Datenbanken in Sentinel streamen, sodass Sie die Aktivitäten in allen Instanzen kontinuierlich überwachen können.
+Mit dem Azure SQL-Datenbank-Connector können Sie die Überwachungs- und Diagnoseprotokolle Ihrer Datenbanken in Azure Sentinel streamen, sodass Sie die Aktivitäten in allen Instanzen kontinuierlich überwachen können.
 
-- Das Verbinden von Diagnose Protokollen ermöglicht Ihnen das Senden von Datenbankdiagnoseprotokollen mit unterschiedlichen Datentypen an Ihren Sentinel-Arbeitsbereich.
+- Das Verbinden von Diagnoseprotokollen ermöglicht Ihnen das Senden von Datenbankdiagnoseprotokollen mit unterschiedlichen Datentypen an Ihren Azure Sentinel-Arbeitsbereich.
 
 - Durch das Verbinden von Überwachungsprotokollen können Sie Sicherheitsüberwachungsprotokolle aus allen Azure SQL-Datenbanken auf Serverebene streamen.
 

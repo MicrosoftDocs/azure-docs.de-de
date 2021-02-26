@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936208"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586344"
 ---
 # <a name="app-service-overview"></a>App Service: Übersicht
 
@@ -28,7 +28,7 @@ Hier sind einige wichtige Features von App Service aufgeführt:
 * **Verwaltete Produktionsumgebung:** App Service [patcht und wartet die Betriebssystem- und Sprachframeworks](overview-patch-os-runtime.md) automatisch für Sie. Konzentrieren Sie sich auf das Schreiben erstklassiger Apps, Azure kümmert sich um die Plattform.
 * **Containerisierung und Docker**: Dockerisieren Sie Ihre App, und hosten Sie einen benutzerdefinierten Windows- oder Linux-Container in App Service. Führen Sie mit Docker Compose Apps mit mehreren Containern aus. Übertragen Sie Ihr Docker-Know-how direkt auf App Service.
 * **DevOps-Optimierung**: Richten Sie mit Azure DevOps, GitHub, BitBucket, Docker Hub oder Azure Container Registry die [fortlaufende Integration und Bereitstellung](deploy-continuous-deployment.md) ein. Stufen Sie Updates über [Test- und Stagingumgebungen](deploy-staging-slots.md)herauf. Verwalten Sie Ihre Apps in App Service mithilfe von [Azure PowerShell](/powershell/azure/) oder der [plattformübergreifenden Befehlszeilenschnittstelle (Command-Line Interface, CLI)](/cli/azure/install-azure-cli).
-* **Globale Skalierung mit Hochverfügbarkeit** – Skalieren Sie manuell oder automatisch [zentral](manage-scale-up.md) oder [horizontal](../azure-monitor/platform/autoscale-get-started.md) hoch. Hosten Sie Ihre Apps überall in der globalen Rechenzentrumsinfrastruktur von Microsoft. Die App Service-[SLA](https://azure.microsoft.com/support/legal/sla/app-service/) garantiert Hochverfügbarkeit.
+* **Globale Skalierung mit Hochverfügbarkeit** – Skalieren Sie manuell oder automatisch [zentral](manage-scale-up.md) oder [horizontal](../azure-monitor/autoscale/autoscale-get-started.md) hoch. Hosten Sie Ihre Apps überall in der globalen Rechenzentrumsinfrastruktur von Microsoft. Die App Service-[SLA](https://azure.microsoft.com/support/legal/sla/app-service/) garantiert Hochverfügbarkeit.
 * **Verbindungen mit SaaS-Plattformen und lokalen Daten**: Wählen Sie aus über 50 [Connectors](../connectors/apis-list.md) für Unternehmenssysteme (z.B. SAP), SaaS-Dienste (z.B. Salesforce) sowie Internetdienste (z.B. Facebook). Greifen Sie über [Hybridverbindungen](app-service-hybrid-connections.md) und [Azure Virtual Networks](web-sites-integrate-with-vnet.md) auf lokale Daten zu.
 * **Sicherheit und Compliance** – App Service ist [ISO-, SOC- und PCI-konform](https://www.microsoft.com/en-us/trustcenter). Authentifizieren Sie Benutzer per [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) oder [Microsoft-Konto](configure-authentication-provider-microsoft.md). Erstellen Sie [IP-Adresseinschränkungen](app-service-ip-restrictions.md) und [verwalten Sie Dienstidentitäten](overview-managed-identity.md).
 * **Anwendungsvorlagen**: Wählen Sie im [Azure Marketplace](https://azure.microsoft.com/marketplace/) aus zahlreichen Anwendungsvorlagen wie WordPress, Joomla und Drupal.
@@ -56,7 +56,7 @@ Wenn Sie eine weitere Web-App mit einer veralteten Runtimeversion erstellen müs
 
 - App Service für Linux wird im Tarif [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) nicht unterstützt. 
 - Windows- und Linux-Apps können nicht im gleichen App Service-Plan miteinander kombiniert werden.  
-- Innerhalb einer Ressourcengruppe können Windows- und Linux-Apps nicht in der gleichen Region miteinander kombiniert werden.
+- In der Vergangenheit konnten Windows- und Linux-Apps nicht in der gleichen Ressourcengruppe miteinander kombiniert werden. Allerdings unterstützen alle Ressourcengruppen, die am oder nach dem 21. Januar 2021 erstellt wurden, dieses Szenario. Für Ressourcengruppen, die vor dem 21. Januar 2021 erstellt wurden, wird die Möglichkeit zum Hinzufügen gemischter Plattformbereitstellungen in Azure-Regionen (einschließlich nationaler Cloudregionen) in Kürze eingeführt.
 - Im Azure-Portal werden nur Features angezeigt, die aktuell für Linux-Apps geeignet sind. Wenn neue Features hinzukommen, werden sie im Portal aktiviert.
 - Bei der Bereitstellung in integrierten Images wird Ihrem Code und Ihren Inhalten ein Azure Storage-basiertes Speichervolume für Webinhalte zugeordnet. Die Datenträgerwartezeit dieses Volumes ist höher und variabler als die Wartezeit des Containerdateisystems. Für Apps, die intensiven Lesezugriff auf Inhaltsdateien erfordern, ist unter Umständen die benutzerdefinierte Containeroption von Vorteil, da die Dateien hierbei im Containerdateisystem platziert werden und nicht auf dem Inhaltsvolume.
 

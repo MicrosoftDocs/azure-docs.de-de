@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533054"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979622"
 ---
 # <a name="modify-target-settings"></a>Ändern von Zieleinstellungen
 
@@ -37,15 +37,15 @@ In der folgenden Tabelle sind die Konfigurationseinstellungen zusammengefasst, d
 **Ressource** | **Optionen** 
 --- | --- | --- 
 **VM-Name** | Optionen:<br/><br/> – Erstellen einer neuen VM mit demselben Namen in der Zielregion<br/><br/> – Erstellen einer neuen VM mit einem anderen Namen in der Zielregion<br/><br/> – Auswählen einer vorhandenen VM in der Zielregion<br/><br/> Wenn Sie eine neue VM erstellen, werden der neuen Ziel-VM bis auf die von Ihnen geänderten Einstellungen dieselben Einstellungen wie der Quell-VM zugewiesen.
-**VM-Verfügbarkeitszone** | Die Verfügbarkeitszone, in der die Ziel-VM platziert wird. Diese kann mit **Nicht zutreffend** gekennzeichnet werden, wenn Sie die Quelleinstellungen nicht ändern oder die VM in keiner Verfügbarkeitszone platzieren möchten.
+**VM-Verfügbarkeitszone** | Die Verfügbarkeitszone, in der die Ziel-VM platziert wird. Wählen Sie **Nicht zutreffend** aus, wenn Sie die Quelleinstellungen nicht ändern oder die VM in keiner Verfügbarkeitszone platzieren möchten.
 **VM-SKU** | Der [VM-Typ](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (verfügbar in der Zielregion), der für die Ziel-VM verwendet wird.<br/><br/> Die ausgewählte Ziel-VM sollte nicht kleiner sein als die Quell-VM.
-**Netzwerkressourcen** | Optionen für virtuelle Netzwerke (Virtual Networks, VNETs)/Netzwerksicherheitsgruppen/Netzwerkschnittstellen:<br/><br/> – Erstellen einer neuen Ressource mit demselben Namen in der Zielregion<br/><br/> – Erstellen einer neuen Ressource mit einem anderen Namen in der Zielregion<br/><br/> – Verwenden einer vorhandene Netzwerkressource in der Zielregion<br/><br/> Wenn Sie eine neue Zielressource erstellen, werden dieser bis auf die von Ihnen geänderten Einstellungen dieselben Einstellungen wie der Quellressource zugewiesen.
-**Name der öffentlichen IP-Adresse** | Geben Sie den Namen an.
-**SKU der öffentlichen IP-Adresse** | Geben Sie die [SKU](../virtual-network/public-ip-addresses.md#sku) an.
-**Öffentliche IP-Adresszone** | Geben Sie die [Zone](../virtual-network/public-ip-addresses.md#standard) für die öffentliche Standard-IP-Adressen an.<br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.
-**Name des Lastenausgleichs** | Geben Sie den Namen an.
-**SKU des Lastenausgleichs** | „Basic“ oder „Standard“. Es wird empfohlen, „Standard“ zu verwenden.
-**Zone des Lastenausgleichs** | Geben Sie eine Zone für den Lastenausgleich an. <br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.
+**VM-Verfügbarkeitsgruppe | Die Verfügbarkeitsgruppe, in der die Ziel-VM platziert wird. Wählen Sie **Nicht zutreffend** aus, wenn Sie die Quelleinstellungen nicht ändern oder die VM in keiner Verfügbarkeitsgruppe platzieren möchten.
+**VM-Schlüsseltresor** | Der zugeordnete Schlüsseltresor, wenn Sie auf einer VM die Azure-Datenträgerverschlüsselung aktivieren.
+**Datenträgerverschlüsselungssatz** | Der zugehörige Datenträgerverschlüsselungssatz, wenn die VM einen vom Kunden verwalteten Schlüssel für die serverseitige Verschlüsselung verwendet.
+**Ressourcengruppe** | Die Ressourcengruppe, in der die Ziel-VM platziert wird.
+**Netzwerkressourcen** | Optionen für Netzwerkschnittstellen, virtuelle Netzwerke (VNets) und Netzwerksicherheitsgruppen/Netzwerkschnittstellen:<br/><br/> – Erstellen einer neuen Ressource mit demselben Namen in der Zielregion<br/><br/> – Erstellen einer neuen Ressource mit einem anderen Namen in der Zielregion<br/><br/> – Verwenden einer vorhandene Netzwerkressource in der Zielregion<br/><br/> Wenn Sie eine neue Zielressource erstellen, werden dieser bis auf die von Ihnen geänderten Einstellungen dieselben Einstellungen wie der Quellressource zugewiesen.
+**Name, SKU und Zone der öffentlichen IP-Adresse** | Gibt den Namen, die [SKU](../virtual-network/public-ip-addresses.md#sku) und [Zone](../virtual-network/public-ip-addresses.md#standard) für die standardmäßige öffentliche IP-Adresse an.<br/><br/> Wenn die Zone redundant sein soll, geben Sie **Zonenredundant** ein.
+**Name, SKU und Zone des Lastenausgleichs ** | Gibt den Namen, die SKU (Basic oder Standard) und Zone des Lastenausgleichs an.<br/><br/> Wir empfehlen die SKU „Standard“.<br/><br/> Wenn die Zone redundant sein soll, geben Sie sie als **Zonenredundant** an.
 **Ressourcenabhängigkeiten** | Optionen für die einzelnen Abhängigkeiten:<br/><br/>– Die Ressource verwendet quellenabhängige Ressourcen, die in die Zielregion verschoben werden.<br/><br/> – Die Ressource verwendet andere abhängige Ressourcen, die sich in der Zielregion befinden. In diesem Fall können Sie aus beliebigen ähnlichen Ressourcen in der Zielregion auswählen.
 
 ### <a name="edit-vm-target-settings"></a>Ändern der VM-Zieleinstellungen

@@ -3,15 +3,15 @@ title: 'Verwalten einer Confluent Cloud-Ressource: Azure-Partnerlösungen'
 description: In diesem Artikel wird die Verwaltung einer Confluent Cloud-Ressource im Azure-Portal beschrieben. Hier erfahren Sie, wie Sie das einmalige Anmelden einrichten, eine Confluent-Organisation löschen und Support anfordern.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253248"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989134"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Verwalten der Confluent Cloud-Ressource
 
@@ -66,13 +66,23 @@ Um eine Supportanfrage an Confluent zu übermitteln, wenden Sie sich entweder an
 > [!NOTE]
 > Für erstmalige Benutzer: Setzen Sie Ihr Kennwort zurück, bevor Sie sich beim Confluent-Supportportal anmelden. Wenn Sie kein Confluent Cloud-Konto haben, senden Sie eine E-Mail an `cloud-support@confluent.io`, um weitere Unterstützung zu erhalten.
 
+Im Portal können Sie eine Anforderung entweder über „Hilfe und Support“ oder direkt über Ihre Instanz von Apache Kafka on Confluent Cloud in Azure übermitteln.
+
+So übermitteln Sie eine Anforderung über „Hilfe und Support“:
+
+1. Wählen Sie **Hilfe und Support**.
+1. Klicken Sie auf **Supportanfrage erstellen**.
+1. Wählen Sie im Formular für **Problemtyp** die Option **Technisch** aus. Wählen Sie Ihr Abonnement aus. Wählen Sie in der Liste der Dienste **Confluent on Azure** aus.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Erstellen einer Supportanfrage über „Hilfe und Support“":::
+
 Führen Sie die folgenden Schritte aus, um eine Anforderung von Ihrer Ressource zu übermitteln:
 
 1. Wählen Sie im Azure-Portal Ihre Confluent-Organisation aus.
 1. Wählen Sie im Menü links im Bildschirm **Neue Supportanfrage** aus.
 1. Um eine Supportanfrage zu erstellen, wählen Sie den Link zum **Confluent-Portal** aus.
 
-    :::image type="content" source="media/support-request.png" alt-text="Erstellen einer Supportanfrage":::
+    :::image type="content" source="media/support-request.png" alt-text="Erstellen einer Supportanfrage über eine Instanz":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

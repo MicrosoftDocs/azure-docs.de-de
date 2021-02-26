@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 63fbac0919e06b29377afacaaa5708d195c6b319
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887107"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986852"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Kundenzuständigkeiten für die Ausführung von Azure Spring Cloud im VNET
 Dieses Dokument enthält Spezifikationen für die Verwendung von Azure Spring Cloud in einem virtuellen Netzwerk.
@@ -35,7 +35,7 @@ Unten ist eine Liste mit den Ressourcenanforderungen für Azure Spring Cloud-Die
   | Zielendpunkt | Port | Zweck | Hinweis |
   |------|------|------|
   | *:1194 *oder* [Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags): AzureCloud:1194 | UDP:1194 | Verwaltung des zugrunde liegenden Kubernetes-Clusters | |
-  | *:443 *oder* [Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags): AzureCloud:443 | TCP:443 | Verwaltung des Azure Spring Cloud-Diensts | Informationen zur Dienstinstanz „requiredTraffics“ sind in den Ressourcennutzdaten ggf. bekannt (Abschnitt „networkProfile“). |
+  | *:443 *oder* [Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags): AzureCloud:443 | TCP:443 | Azure Spring Cloud-Dienstverwaltung. | Informationen zur Dienstinstanz „requiredTraffics“ sind in den Ressourcennutzdaten ggf. bekannt (Abschnitt „networkProfile“). |
   | *:9000 *oder* [Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags): AzureCloud:9000 | TCP:9000 | Verwaltung des zugrunde liegenden Kubernetes-Clusters |
   | *:123 *oder* ntp.ubuntu.com:123 | UDP:123 | NTP-Zeitsynchronisierung auf Linux-Knoten | |
   | *.azure.io:443 *oder* [Diensttag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags): AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. | Kann ersetzt werden, indem der *Azure Container Registry*-[Dienstendpunkt im virtuellen Netzwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) aktiviert wird. |
@@ -57,6 +57,9 @@ Von Azure Firewall wird das Tag **AzureKubernetesService** für den FQDN (vollqu
   | <i>login.microsoftonline.com</i> | HTTPS: 443 | Azure Active Directory-Authentifizierung |
   |<i>packages.microsoft.com</i>    | HTTPS: 443 | Microsoft-Paketrepository |
   | <i>acs-mirror.azureedge.net</i> | HTTPS: 443 | Repository, das zum Installieren erforderlicher Binärdateien, z. B. für kubenet und Azure CNI, benötigt wird. |
+  | *mscrl.microsoft.com* | HTTPS:80 | Pfade zu erforderlichen Microsoft-Zertifikatketten. |
+  | *crl.microsoft.com* | HTTPS:80 | Pfade zu erforderlichen Microsoft-Zertifikatketten. |
+  | *crl3.digicert.com* | HTTPS:80 | Pfade zu SSL-Zertifikatketten von Drittanbietern. |
 
 ## <a name="see-also"></a>Siehe auch
 * [Zugreifen auf eine Anwendung im privaten Netzwerk](spring-cloud-access-app-virtual-network.md)

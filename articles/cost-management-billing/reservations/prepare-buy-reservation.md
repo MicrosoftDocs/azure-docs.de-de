@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b03db9632f5f47a7600c5b9037d16b1cff6ccf69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344248"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574973"
 ---
 # <a name="buy-a-reservation"></a>Kaufen einer Reservierung
 
@@ -67,7 +67,7 @@ Für Ressourcen, die in einem Abonnement mit anderen Angebotstypen ausgeführt w
 
 Sie können Reservierungen über das Azure-Portal, APIs, PowerShell und die CLI erwerben. Lesen Sie die folgenden Artikel, wenn Sie Reservierungen kaufen möchten:
 
-- [App Service](prepay-app-service-isolated-stamp.md)
+- [App Service](prepay-app-service.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)

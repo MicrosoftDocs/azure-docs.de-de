@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785124"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582654"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Desktop-App, die Web-APIs aufruft: Abrufen eines Token
 
@@ -445,7 +445,7 @@ Weitere Informationen zur Einwilligung finden Sie unter [Berechtigungen und Einw
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-In MSAL.NET müssen Sie Folgendes verwenden:
+Verwenden Sie in MSAL.NET Folgendes:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Dieser Flow wird in MSAL für macOS nicht unterstützt.
 
 ### <a name="device-code-flow"></a>Gerätecodefluss
 
-Wenn Sie ein Befehlszeilentool schreiben, das keine Websteuerelemente enthält, und die obigen Flows nicht verwenden können oder möchten, müssen Sie den Gerätecodeflow verwenden.
+Verwenden Sie den Gerätecodeflow, wenn Sie ein Befehlszeilentool schreiben, das keine Websteuerelemente enthält, und Sie dabei die obigen Flows nicht verwenden können oder möchten.
 
 Für die interaktive Authentifizierung mit Azure AD wird ein Webbrowser benötigt. Weitere Informationen finden Sie unter [Verwenden von Webbrowsern](https://aka.ms/msal-net-uses-web-browser). Für die Authentifizierung von Benutzern bei Geräten oder Betriebssystemen ohne Webbrowser ermöglicht der Gerätecodeflow dem Benutzer, ein anderes Gerät wie einen Computer oder ein Mobiltelefon zu verwenden, um sich interaktiv anzumelden. Mithilfe des Gerätecodeflows ruft die Anwendung Token in einem zweistufigen Prozess ab, der für diese Geräte oder Betriebssysteme entwickelt wurde. Beispiele für solche Anwendungen sind iOT-Anwendungen oder Befehlszeilentools (CLI). Dahinter steckt folgender Gedanke:
 

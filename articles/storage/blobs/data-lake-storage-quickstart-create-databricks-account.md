@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d712dc0ebe91ea8815adf235e02b8945e0dea84
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518860"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Schnellstart: Analysieren von Daten mit Databricks
 
@@ -76,7 +76,7 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Arbeitsbereich über da
 
 4. Klicken Sie auf **Cluster erstellen**. Sobald der Cluster ausgeführt wird, können Sie Notizbücher an den Cluster anfügen und Spark-Aufträge ausführen.
 
-Weitere Informationen zum Erstellen von Clustern in Azure Databricks finden Sie unter [Creating Clusters](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Erstellen von Clustern).
+Weitere Informationen zum Erstellen von Clustern in Azure Databricks finden Sie unter [Creating Clusters](/azure/databricks/clusters/create) (Erstellen von Clustern).
 
 ## <a name="create-notebook"></a>Erstellen eines Notebooks
 
@@ -149,7 +149,7 @@ Führen Sie die folgenden Aufgaben aus, um einen Spark SQL-Auftrag für die Date
 
     Nach erfolgreicher Ausführung des Befehls liegen alle Daten aus der JSON-Datei als Tabelle im Databricks-Cluster vor.
 
-    Der Befehl `%sql` ermöglicht die Ausführung von SQL-Code über das Notizbuch, auch wenn es sich um ein Notizbuch eines anderen Typs handelt. Weitere Informationen finden Sie unter [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook) (Mischen von Sprachen in einem Notizbuch).
+    Der Befehl `%sql` ermöglicht die Ausführung von SQL-Code über das Notizbuch, auch wenn es sich um ein Notizbuch eines anderen Typs handelt. Weitere Informationen finden Sie unter [Mixing languages in a notebook](/azure/databricks/notebooks/notebooks-use#mix-languages) (Mischen von Sprachen in einem Notizbuch).
 
 2. Zum besseren Verständnis der ausgeführten Abfrage sehen wir uns eine Momentaufnahme der JSON-Beispieldaten an. Fügen Sie den folgenden Codeausschnitt in die Codezelle ein, und drücken Sie **UMSCHALT+EINGABE**.
 
@@ -200,6 +200,6 @@ Im nächsten Artikel erfahren Sie, wie Sie unter Verwendung von Azure Databricks
 > [!div class="nextstepaction"]
 >[Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)
 
-- Unter [Projektmappen-Explorer](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) erfahren Sie, wie Sie Daten aus anderen Datenquellen in Azure Databricks importieren.
+- Unter [Projektmappen-Explorer](/azure/databricks/data/data-sources/) erfahren Sie, wie Sie Daten aus anderen Datenquellen in Azure Databricks importieren.
 
-- Informationen zu anderen Möglichkeiten für den Zugriff auf Azure Data Lake Storage Gen2 über einen Azure Databricks-Arbeitsbereich finden Sie unter [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- Informationen zu anderen Möglichkeiten für den Zugriff auf Azure Data Lake Storage Gen2 über einen Azure Databricks-Arbeitsbereich finden Sie unter [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).

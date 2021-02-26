@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: c3dc2f91fcd09807a7eaaaaa638e78ba3717faec
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98061768"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580886"
 ---
 # <a name="whats-new-in-qna-maker"></a>Neuerungen in QnA Maker
 
@@ -36,7 +36,7 @@ Informieren Sie sich über Neuigkeiten zu QnA Maker.
 ### <a name="july-2020"></a>Juli 2020
 
 * [Metadaten: `OR` logische Kombination mehrerer Metadatenpaare](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* [Schritte](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) zum Konfigurieren der Cognitive Search-Endpunkte, dass sie privat, aber dennoch für QnA Maker zugänglich sind.
+* [Schritte](how-to/set-up-qnamaker-service-azure.md#recommended-settings-for-network-isolation) zum Konfigurieren der Cognitive Search-Endpunkte, dass sie privat, aber dennoch für QnA Maker zugänglich sind.
 * Kostenlose Cognitive Search-Ressourcen werden nach [90 Tagen Inaktivität](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources) entfernt.
 
 ### <a name="june-2020"></a>Juni 2020

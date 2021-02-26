@@ -1,22 +1,18 @@
 ---
 title: Automatisieren der Installation von selbstgehosteter Integration Runtime mithilfe von lokalen PowerShell-Skripts
 description: Informationen zum Automatisieren der Installation von selbstgehosteter Integration Runtime auf lokalen Computern
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376206"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatisieren der Installation von selbstgehosteter Integration Runtime mithilfe von lokalen PowerShell-Skripts
 Sie können mithilfe von lokalen PowerShell-Skripts die Installation von selbstgehosteter Integration Runtime auf lokalen Computern automatisieren (mit Ausnahme von Azure VMs, bei denen Sie stattdessen die Resource Manager-Vorlage nutzen können). In diesem Artikel werden zwei Skripts vorgestellt, die Sie dafür verwenden können.
@@ -38,7 +34,7 @@ Sie können mithilfe von lokalen PowerShell-Skripts die Installation von selbstg
 
 * Zur Automatisierung manueller Updates: Aktualisieren Sie den selbstgehosteten IR-Knoten mit einer bestimmten Version oder auf die neueste Version **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** . Dies wird auch für den Fall unterstützt, dass Sie das automatische Update deaktiviert haben oder mehr Kontrolle über Updates haben möchten. Das Skript kann zum Aktualisieren des selbstgehosteten Integration Runtime-Knotens auf die neueste Version oder eine angegebene höhere Version verwendet werden (ein Downgrade funktioniert nicht). Es akzeptiert ein Argument zur Angabe der Versionsnummer (Beispiel: „-Version 3.13.6942.1“). Wenn keine Version angegeben wurde, wird die selbstgehostete IR immer auf die neueste Version aus den [Downloads](https://www.microsoft.com/download/details.aspx?id=39717) aktualisiert.
     > [!NOTE]
-    > Es können nur die letzten 3 Versionen angegeben werden. Im Idealfall wird damit ein vorhandener Knoten auf die neueste Version aktualisiert. **DABEI WIRD DAVON AUSGEGANGEN, DASS SIE EINE REGISTRIERTE SELBSTGEHOSTETE IR HABEN** . 
+    > Es können nur die letzten 3 Versionen angegeben werden. Im Idealfall wird damit ein vorhandener Knoten auf die neueste Version aktualisiert. **DABEI WIRD DAVON AUSGEGANGEN, DASS SIE EINE REGISTRIERTE SELBSTGEHOSTETE IR HABEN**. 
 
 ## <a name="usage-examples"></a>Anwendungsbeispiele
 

@@ -1,5 +1,5 @@
 ---
-title: Optimieren der Leistung virtueller Azure-Computer der Lsv2-Serie – Speicher
+title: Optimieren der Leistung virtueller Azure-Computer der Lsv2-Serie
 description: Erfahren Sie anhand eines Beispiels für Windows, wie Sie die Leistung für Ihre Lösung auf virtuellen Computern der Lsv2-Serie optimieren.
 author: sasha-melamed
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 9d20379f60307fb8b8181ec50b87d3713a02ec6b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8eab37c5bc23711e27986813a2012a1efc3206db
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306853"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807817"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Optimieren der Leistung virtueller Windows-Computer der Lsv2-Serie
 

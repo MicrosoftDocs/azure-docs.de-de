@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201051"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986038"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurieren des Netzwerkleistungsmonitors für ExpressRoute
 
@@ -96,7 +96,7 @@ Es wird empfohlen, dass Sie zur Bereitstellung von Redundanz mindestens zwei Age
   >
 
 1. Führen Sie das **Setup** aus, um den Agent auf jedem Server zu installieren, den Sie zum Überwachen von ExpressRoute verwenden möchten. Der Server, den Sie für die Überwachung verwenden, kann lokal oder ein virtueller Computer sein und benötigt Zugriff auf das Internet. Sie müssen mindestens einen Agent lokal und einen in jedem Netzwerksegment, das in Azure überwacht werden soll, installieren.
-2. Klicken Sie auf der Seite **Willkommen**auf **Weiter**.
+2. Klicken Sie auf der Seite **Willkommen** auf **Weiter**.
 3. Lesen Sie die Seite **Lizenzbedingungen** durch, und klicken Sie anschließend auf **Ich stimme zu**.
 4. Auf der Seite **Zielordner** können Sie den Standardinstallationsordner entweder ändern oder beibehalten. Klicken Sie anschließend auf **Weiter**.
 5. Auf der Seite **Agent-Setupoptionen** können Sie auswählen, ob der Agent mit Azure Monitor-Protokollen oder Operations Manager verbunden werden soll. Sie können die Auswahl auch leer lassen, wenn Sie den Agent später konfigurieren möchten. Klicken Sie auf **Weiter**, nachdem Sie Ihre Auswahl getroffen haben.
@@ -169,7 +169,7 @@ Weitere Informationen zu Netzwerksicherheitsgruppen finden Sie unter [Netzwerksi
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Schritt 4: Ermitteln von Peeringverbindungen
 
-1. Navigieren Sie zur Übersichtskachel „Netzwerkleistungsmonitor“, indem Sie zur Seite **Alle Ressourcen** wechseln und dann auf den in eine Whitelist aufgenommenen NPM-Arbeitsbereich klicken.
+1. Navigieren Sie zur Übersichtskachel „Netzwerkleistungsmonitor“, indem Sie zur Seite **Alle Ressourcen** wechseln und dann auf den in eine Zulassungsliste aufgenommenen NPM-Arbeitsbereich klicken.
 
    ![NPM-Arbeitsbereich](./media/how-to-npm/npm.png)
 2. Klicken Sie auf die Übersichtskachel **Netzwerkleistungsmonitor**, um das Dashboard zu öffnen. Das Dashboard enthält die Seite „ExpressRoute“, die anzeigt, dass ExpressRoute sich in einem nicht konfigurierten Zustand befindet. Klicken Sie auf **Featureeinrichtung**, um die Konfigurationsseite des Netzwerkleistungsmonitors zu öffnen.

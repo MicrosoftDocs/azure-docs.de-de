@@ -2,13 +2,13 @@
 title: Einschränkungen bei Ressourcennamen
 description: Zeigt die Benennungsregeln und -einschränkungen für Azure-Ressourcen
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 01/27/2021
+ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806876"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220852"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Benennungsregeln und -einschränkungen für Azure-Ressourcen
 
@@ -92,7 +92,7 @@ In den folgenden Tabellen bezieht sich der Begriff alphanumerisch auf:
 > [!div class="mx-tableFixed"]
 > | Entität | `Scope` | Länge | Gültige Zeichen |
 > | --- | --- | --- | --- |
-> | automationAccounts | Ressourcengruppe | 6-50 | Alphanumerische Zeichen und Bindestriche.<br><br>Beginnen Sie mit einem Buchstaben, und enden Sie mit einem alphanumerischen Zeichen. |
+> | automationAccounts | Ressourcengruppe und Region <br>(Siehe Hinweis unten) | 6-50 | Alphanumerische Zeichen und Bindestriche.<br><br>Beginnen Sie mit einem Buchstaben, und enden Sie mit einem alphanumerischen Zeichen. |
 > | automationAccounts/certificates | Automation-Konto | 1–128 | Verwendung nicht möglich:<br> `<>*%&:\?.+/` <br><br>Darf nicht mit einem Leerzeichen enden.  |
 > | automationAccounts/connections | Automation-Konto | 1–128 | Verwendung nicht möglich:<br> `<>*%&:\?.+/` <br><br>Darf nicht mit einem Leerzeichen enden. |
 > | automationAccounts/credentials | Automation-Konto | 1–128 | Verwendung nicht möglich:<br> `<>*%&:\?.+/` <br><br>Darf nicht mit einem Leerzeichen enden. |
@@ -101,6 +101,9 @@ In den folgenden Tabellen bezieht sich der Begriff alphanumerisch auf:
 > | automationAccounts/variables | Automation-Konto | 1–128 | Verwendung nicht möglich:<br> `<>*%&:\?.+/` <br><br>Darf nicht mit einem Leerzeichen enden. |
 > | automationAccounts/watchers | Automation-Konto | 1 - 63 |  Alphanumerische Zeichen, Unterstriche und Bindestriche.<br><br>Beginnen Sie mit einem Buchstaben. |
 > | automationAccounts/webhooks | Automation-Konto | 1–128 | Verwendung nicht möglich:<br> `<>*%&:\?.+/` <br><br>Darf nicht mit einem Leerzeichen enden. |
+
+> [!NOTE]
+> Automation-Kontonamen sind für jede Region und Ressourcengruppe eindeutig. Namen gelöschter Automation-Konten sind möglicherweise nicht sofort wieder verfügbar.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 

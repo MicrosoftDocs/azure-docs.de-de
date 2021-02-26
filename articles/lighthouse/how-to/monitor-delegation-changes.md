@@ -1,14 +1,14 @@
 ---
 title: Überwachen von Delegierungsänderungen in Ihrem Verwaltungsmandanten
 description: Erfahren Sie, wie Sie Delegierungsaktivitäten von Kundenmandanten für Ihren Verwaltungsmandanten überwachen.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936106"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089415"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Überwachen von Delegierungsänderungen in Ihrem Verwaltungsmandanten
 
@@ -16,10 +16,12 @@ Als Dienstanbieter möchten Sie möglicherweise wissen, wenn Kundenabonnements o
 
 Im Verwaltungsmandanten werden Delegierungsaktivitäten auf Mandantenebene im [Azure-Aktivitätsprotokoll](../../azure-monitor/platform/platform-logs-overview.md) erfasst. Diese protokollierten Aktivitäten umfassen alle hinzugefügten oder entfernten Delegierungen von allen Kundenmandanten.
 
-In diesem Thema werden die Berechtigungen erläutert, die zum Überwachen von Delegierungsaktivitäten für Ihren Mandanten (übergreifend für alle Ihre Kunden) erforderlich sind, sowie die bewährten Methoden dafür beschrieben. Es enthält auch ein Beispielskript, das eine Methode zum Abfragen und zur Berichterstellung für diese Daten zeigt.
+In diesem Thema werden die erforderlichen Berechtigungen zum Überwachen von Delegierungsaktivitäten für Ihren Mandanten (übergreifend für alle Ihre Kunden) erläutert. Es enthält auch ein Beispielskript, das eine Methode zum Abfragen und zur Berichterstellung für diese Daten zeigt.
 
 > [!IMPORTANT]
 > Alle diese Schritte müssen in Ihrem Verwaltungsmandanten und nicht in einem Kundenmandanten ausgeführt werden.
+>
+> Zwar beziehen wir uns in diesem Thema auf Dienstanbieter und Kunden, doch können [Unternehmen, die mehrere Mandanten verwalten](../concepts/enterprise.md), denselben Prozess verwenden.
 
 ## <a name="enable-access-to-tenant-level-data"></a>Ermöglichen des Datenzugriffs auf Mandantenebene
 
@@ -33,33 +35,21 @@ Ausführliche Anweisungen zum Hinzufügen und Entfernen der Erhöhung von Rechte
 
 Nachdem Sie Ihre Zugriffsrechte erhöht haben, weist Ihr Konto die Rolle „Benutzerzugriffsadministrator“ in Azure für den Stammbereich auf. Durch diese Rollenzuweisung können Sie alle Ressourcen anzeigen und den Zugriff in jeder Abonnement- oder Verwaltungsgruppe im Verzeichnis zuweisen sowie Rollenzuweisungen im Stammbereich vornehmen.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Erstellen eines neuen Dienstprinzipalkontos für den Datenzugriff auf Mandantenebene
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>Zuweisen der Rolle „Überwachungsleser“ im Stammbereich
 
 Nachdem Sie die Zugriffsrechte erhöht haben, können Sie einem Konto die entsprechenden Berechtigungen zuweisen, damit es Aktivitätsprotokolldaten auf Mandantenebene abfragen kann. Diesem Konto muss die integrierte Azure-Rolle [Überwachungsleser](../../role-based-access-control/built-in-roles.md#monitoring-reader) im Stammbereich Ihres Verwaltungsmandanten zugewiesen sein.
 
 > [!IMPORTANT]
-> Das Erteilen einer Rollenzuweisung im Stammbereich bedeutet, dass die gleichen Berechtigungen für jede Ressource im Mandanten gelten.
+> Das Erteilen einer Rollenzuweisung im Stammbereich bedeutet, dass die gleichen Berechtigungen für jede Ressource im Mandanten gelten. Da dies einen sehr weitgefassten Zugriff ermöglicht, sollten Sie [diese Rolle möglicherweise einem Dienstprinzipalkonto zuweisen und dieses Konto für das Abfragen von Daten verwenden](#use-a-service-principal-account-to-query-the-activity-log). Sie können auch einzelnen Benutzern oder Benutzergruppen die Rolle „Überwachungsleser“ im Stammbereich zuweisen, damit sie die [Delegierungsinformationen direkt im Azure-Portal anzeigen](#view-delegation-changes-in-the-azure-portal) können. Beachten Sie, dass es sich hierbei um einen umfassenden Zugriff handelt, der auf eine möglichst geringe Anzahl von Benutzern begrenzt sein sollte.
 
-Da dies ein umfassender Zugriff ist, wird empfohlen, diese Rolle einem Dienstprinzipalkonto und nicht einem einzelnen Benutzer oder einer Gruppe zuzuweisen.
-
- Darüber hinaus werden die folgenden bewährten Methoden empfohlen:
-
-- [Erstellen Sie ein neues Dienstprinzipalkonto](../../active-directory/develop/howto-create-service-principal-portal.md), das nur für diese Funktion verwendet wird, statt diese Rolle einem vorhandenen Dienstprinzipal zuzuweisen, der für andere Automatisierungen verwendet wird.
-- Stellen Sie sicher, dass dieser Dienstprinzipal keinen Zugriff auf delegierte Kundenressourcen hat.
-- [Verwenden Sie ein Zertifikat zum Authentifizieren](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), und [speichern Sie es sicher in Azure Key Vault](../../key-vault/general/security-overview.md).
-- Beschränken Sie die Anzahl der Benutzer, die entsprechenden Zugriff zum Handeln im Namen des Dienstprinzipals haben.
-
-> [!NOTE]
-> Sie können die integrierte Azure-Rolle „Überwachungsleser“ im Stammbereich auch einzelnen Benutzern oder Benutzergruppen zuweisen. Dies kann nützlich sein, wenn ein Benutzer in der Lage sein soll, [Delegierungsinformationen direkt im Azure-Portal anzuzeigen](#view-delegation-changes-in-the-azure-portal). Beachten Sie, dass es sich hierbei um einen umfassenden Zugriff handelt, der auf eine möglichst geringe Anzahl von Benutzern begrenzt sein sollte.
-
-Verwenden Sie eine der folgenden Methoden für die Stammbereichszuweisungen.
+Verwenden Sie eine der folgenden Methoden für die Stammbereichszuweisung.
 
 #### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>Azure CLI
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Entfernen der erhöhten Zugriffsrechte für das globale Administratorkonto
 
-Nachdem Sie das Dienstprinzipalkonto erstellt und die Rolle „Überwachungsleser“ im Stammbereich zugewiesen haben, stellen Sie sicher, dass Sie die [erhöhten Zugriffsrechte für das globale Administratorkonto entfernen](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access), da diese Zugriffsebene nicht mehr benötigt wird.
+Nachdem Sie dem gewünschten Konto die Rolle „Überwachungsleser“ im Stammbereich zugewiesen haben, müssen Sie die [erhöhten Zugriffsrechte für das globale Administratorkonto entfernen](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access), da diese Zugriffsebene nicht mehr benötigt wird.
 
-## <a name="query-the-activity-log"></a>Abfragen des Aktivitätsprotokolls
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Anzeigen von Delegierungsänderungen im Azure-Portal
+
+Benutzer, denen die Rolle „Überwachungsleser“ im Stammbereich zugewiesen wurde, können Delegierungsänderungen direkt im Azure-Portal anzeigen.
+
+1. Navigieren Sie zur Seite **Meine Kunden**, und wählen Sie dann im linken Navigationsmenü die Option **Aktivitätsprotokoll** aus.
+1. Stellen Sie sicher, dass **Verzeichnisaktivität** im Filter am oberen Rand des Bildschirms ausgewählt ist.
+
+Eine Liste der Delegierungsänderungen wird angezeigt. Sie können **Spalten bearbeiten** auswählen, um die Werte für **Status**, **Ereigniskategorie**, **Zeit**, **Zeitstempel**, **Abonnement**, **Ereignis initiiert von**, **Ressourcengruppe**, **Ressourcentyp** und **Ressource** ein- oder auszublenden.
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Screenshot von Delegierungsänderungen im Azure-Portal":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>Verwenden eines Dienstprinzipalkontos zum Abfragen des Aktivitätsprotokolls
+
+Da die Rolle „Überwachungsleser“ im Stammbereich einen so weitreichenden Zugriff erlaubt, sollten Sie die Rolle einem Dienstprinzipalkonto zuweisen und Daten über dieses Konto abfragen. Verwenden Sie dazu das folgende Skript.
+
+> [!IMPORTANT]
+> Derzeit treten bei Mandanten mit einer großen Menge an Delegierungsaktivitäten möglicherweise Fehler auf, wenn diese Daten abgefragt werden.
+
+Wenn Sie zum Abfragen des Aktivitätsprotokolls ein Dienstprinzipalkonto verwenden, werden die folgenden bewährten Methoden empfohlen:
+
+- [Erstellen Sie ein neues Dienstprinzipalkonto](../../active-directory/develop/howto-create-service-principal-portal.md), das nur für diese Funktion verwendet wird, statt diese Rolle einem vorhandenen Dienstprinzipal zuzuweisen, der für andere Automatisierungen verwendet wird.
+- Stellen Sie sicher, dass dieser Dienstprinzipal keinen Zugriff auf delegierte Kundenressourcen hat.
+- [Verwenden Sie ein Zertifikat zum Authentifizieren](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), und [speichern Sie es sicher in Azure Key Vault](../../key-vault/general/security-overview.md).
+- Beschränken Sie die Anzahl der Benutzer, die entsprechenden Zugriff zum Handeln im Namen des Dienstprinzipals haben.
 
 Nachdem Sie ein neues Dienstprinzipalkonto mit dem Zugriffsrecht der Rolle „Überwachungsleser“ im Stammbereich Ihres Verwaltungsmandanten erstellt haben, können Sie damit Delegierungsaktivitäten in Ihrem Mandanten abfragen und Berichte erstellen.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> Zwar beziehen wir uns in diesem Thema auf Dienstanbieter und Kunden, doch können [Unternehmen, die mehrere Mandanten verwalten](../concepts/enterprise.md), denselben Prozess verwenden.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Anzeigen von Delegierungsänderungen im Azure-Portal
-
-Benutzer, denen die integrierte Azure-Rolle „Überwachungsleser“ im Stammbereich zugewiesen wurde, können Delegierungsänderungen direkt im Azure-Portal anzeigen.
-
-1. Navigieren Sie zur Seite **Meine Kunden**, und wählen Sie dann im linken Navigationsmenü die Option **Aktivitätsprotokoll** aus.
-1. Stellen Sie sicher, dass **Verzeichnisaktivität** im Filter am oberen Rand des Bildschirms ausgewählt ist.
-
-Eine Liste der Delegierungsänderungen wird angezeigt. Sie können **Spalten bearbeiten** auswählen, um die Werte für **Status**, **Ereigniskategorie**, **Zeit**, **Zeitstempel**, **Abonnement**, **Ereignis initiiert von**, **Ressourcengruppe**, **Ressourcentyp** und **Ressource** ein- oder auszublenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

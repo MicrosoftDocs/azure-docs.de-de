@@ -4,7 +4,7 @@ description: Erläuterungen von Fehlern, die während des Vorgangs des Genehmige
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9f829672f88ea848e4611000b54d9cc200bc166d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658484"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259976"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Unerwarteter Fehler beim Vorgang des Genehmigens einer Anwendung
 
@@ -35,7 +35,7 @@ Bestimmte Bedingungen müssen sein erfüllt, damit ein Benutzer die von einer An
 * **AADSTS90093:** &lt;Anzeigename_der_Client-App&gt; fordert mindestens eine Berechtigung an, für deren Erteilung Sie nicht autorisiert sind. Wenden Sie sich an einen Administrator, der diese Anwendung in Ihrem Auftrag genehmigen kann.
 * **AADSTS90094:** &lt;Anzeigename der Client-App&gt; benötigt eine Berechtigung zum Zugriff auf Ressourcen in Ihrer Organisation, die nur ein Administrator erteilen kann. Bitten Sie einen Administrator, dieser App Berechtigungen zu erteilen, bevor Sie sie verwenden können.
 
-Dieser Fehler tritt auf, wenn ein Benutzer, der kein Unternehmensadministrator ist, versucht, eine Anwendung zu verwenden, die Berechtigungen anfordert, die nur ein Administrator erteilen kann. Dieser Fehler kann von einem Administrator behoben werden, indem der Zugriff auf die Anwendung im Auftrag der Organisation gewährt wird.
+Dieser Fehler tritt auf, wenn ein Benutzer, der kein globaler Administrator ist, versucht, eine Anwendung zu verwenden, die Berechtigungen anfordert, die nur ein Administrator erteilen kann. Dieser Fehler kann von einem Administrator behoben werden, indem der Zugriff auf die Anwendung im Auftrag der Organisation gewährt wird.
 
 Dieser Fehler kann auch auftreten, wenn ein Benutzer daran gehindert wird, einer Anwendung zuzustimmen, weil Microsoft erkennt, dass die Berechtigungsanforderung riskant ist. In diesem Fall wird auch ein Überwachungsereignis der Kategorie „ApplicationManagement“ mit dem Aktivitätstyp „Zustimmung zu Anwendung“ und dem Statusgrund „Riskante Anwendung erkannt“ protokolliert.
 
@@ -44,7 +44,7 @@ Ein weiteres Szenario, in dem dieser Fehler auftreten kann, ist, wenn die Benutz
 ## <a name="policy-prevents-granting-permissions-error"></a>Richtlinien verhindern das Erteilen von Berechtigungen
 * **AADSTS90093:** Ein Administrator von &lt;Anzeigename_des_Mandanten&gt; hat eine Richtlinie festgelegt, die Sie daran hindert, &lt;Name der App&gt; die angeforderten Berechtigungen zu erteilen. Wenden Sie sich an einen Administrator von &lt;Anzeigename_des_Mandanten&gt;, der Berechtigungen für diese App in Ihrem Auftrag erteilen kann.
 
-Dieser Fehler tritt auf, wenn ein Unternehmensadministrator für Benutzer die Fähigkeit deaktiviert, Anwendungen zu genehmigen, und ein Nichtadministrator anschließend versucht, eine Anwendung zu nutzen, die eine Genehmigung erfordert. Dieser Fehler kann von einem Administrator behoben werden, indem der Zugriff auf die Anwendung im Auftrag der Organisation gewährt wird.
+Dieser Fehler tritt auf, wenn ein globaler Administrator für Benutzer die Möglichkeit zur Genehmigung von Anwendungen deaktiviert, und ein Nichtadministrator anschließend versucht, eine Anwendung zu nutzen, die eine Genehmigung erfordert. Dieser Fehler kann von einem Administrator behoben werden, indem der Zugriff auf die Anwendung im Auftrag der Organisation gewährt wird.
 
 ## <a name="intermittent-problem-error"></a>Vorübergehendes Problem
 * **AADSTS90090:** Beim Anmeldevorgang ist ein vorübergehendes Problem beim Aufzeichnen der Berechtigungen aufgetreten, die Sie &lt;Anzeigename_der_Client-App&gt; erteilen wollten. Versuchen Sie es später erneut.

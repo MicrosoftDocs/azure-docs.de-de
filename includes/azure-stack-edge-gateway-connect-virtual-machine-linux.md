@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
-ms.openlocfilehash: caa17a02305c9e9fcba30cf8c39c4288d83d3da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92688051cf591470246094dd0d8ea1d436a8efb1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419395"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500147"
 ---
-Stellen Sie eine Verbindung mit der VM her, indem Sie die private IP-Adresse verwenden, die Sie während der VM-Erstellung übergeben haben.
+Stellen Sie eine Verbindung mit dem virtuellen Computer her, und verwenden Sie dabei die private IP-Adresse, die Sie im Rahmen der VM-Erstellung übergeben haben.
 
 Öffnen Sie eine SSH-Sitzung, um die Verbindung mit der IP-Adresse herzustellen.
 

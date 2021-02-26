@@ -1,19 +1,19 @@
 ---
 title: Azure Policy Einhaltung gesetzlicher Vorschriften für die Azure-API für die Azure-API
 description: Listet Azure Policy gesetzliche Kompatibilitäts Kontrollen auf, die für die Azure-API für die Azure-API Diese integrierten Richtliniendefinitionen bieten allgemeine Ansätze für die Verwaltung der Compliance Ihrer Azure-Ressourcen.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d18c7dd1e4791edf448eaae3b02964e805e796f6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 06e94456b8c2032c75de7249d8875cf3fc6cb006
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99106253"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091651"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>Azure Policy Einhaltung gesetzlicher Vorschriften für die Azure-API für die Azure-API
 

@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 45b249dbe8e95a063cdeb30c3b7389eb1dcf2001
-  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+  ms.openlocfilehash: 917508f1fee4e4a53083a29e2459a442f7fddccd
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96929530"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100650234"
 landingContent:
 - title: Informationen zu Azure App Configuration
   linkLists:
@@ -23,7 +23,9 @@ landingContent:
     - text: Was ist Azure App Configuration?
       url: overview.md
     - text: Häufig gestellte Fragen
-      url: faq.md
+      url: faq.yml
+    - text: Bewährte Methoden
+      url: howto-best-practices.md
   - linkListType: video
     links:
     - text: Erste Schritte mit Azure App Configuration
@@ -52,16 +54,18 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Programmieren einer ASP.NET Core-App
+      url: quickstart-aspnet-core-app.md
     - text: Programmieren einer .NET Core-App
       url: quickstart-dotnet-core-app.md
     - text: Programmieren einer .NET Framework-App
       url: quickstart-dotnet-app.md
-    - text: Programmieren einer ASP.NET Core-App
-      url: quickstart-aspnet-core-app.md
     - text: Programmieren einer Azure Functions-App in C#
       url: quickstart-azure-functions-csharp.md
-    - text: Programmieren einer Spring Boot-App
+    - text: Programmieren einer Java Spring-App
       url: quickstart-java-spring-app.md
+    - text: Programmieren einer Python-App
+      url: quickstart-python.md
     - text: Azure Resource Manager-Vorlage
       url: quickstart-resource-manager.md
   - linkListType: tutorial
@@ -76,6 +80,8 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Verwenden einer dynamischen Konfiguration in Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
+    - text: Integrieren der dynamischen Konfiguration mithilfe des Pushmodells
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Integrieren in eine CI/CD-Pipeline
@@ -100,10 +106,10 @@ landingContent:
       url: concept-feature-management.md
   - linkListType: quickstart
     links:
-    - text: .NET Core-App
-      url: use-feature-flags-dotnet-core.md
     - text: ASP.NET Core-App
       url: quickstart-feature-flag-aspnet-core.md
+    - text: .NET Core-App
+      url: use-feature-flags-dotnet-core.md
     - text: .NET Framework-App
       url: quickstart-feature-flag-dotnet.md
     - text: Spring Boot-App
@@ -112,6 +118,12 @@ landingContent:
     links:
     - text: Verwalten von Featureflags
       url: manage-feature-flags.md
+    - text: Verwenden von Featureflags in ASP.NET Core
+      url: use-feature-flags-dotnet-core.md
+    - text: Verwenden von Featureflags in Spring Boot
+      url: use-feature-flags-spring-boot.md
+    - text: Aktivieren einer Funktion für bestimmte Benutzer/Gruppen
+      url: howto-targetingfilter-aspnet-core.md
   - linkListType: reference
     links:
     - text: .NET Core-Bibliothek

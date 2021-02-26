@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Kontingente und Grenzwerte
       href: speech-services-quotas-and-limits.md
-    - name: Neues in der Dokumentation
-      href: whats-new.md
 - name: Spracherkennung
   items:
     - name: Dokumentation zur Spracherkennung
@@ -113,22 +111,10 @@
           href: long-audio-api.md
     - name: Anpassung
       items:
-        - name: Verantwortungsvolle Bereitstellung
-          items:
-            - name: Abgrenzung von Custom Voice
-              href: concepts-gating-overview.md
-            - name: Bereitstellung von Synthesetechnologie
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Offenlegung für Sprecher
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Entwurfsrichtlinien für die Offenlegung
-              href: concepts-disclosure-guidelines.md
-            - name: Entwurfsmuster für die Offenlegung
-              href: concepts-disclosure-patterns.md
-            - name: Verhaltensregeln
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: "Custom\_Voice-Portal"
           items:
+            - name: Worum handelt es sich bei „Benutzerdefinierte neuronale Stimme“?
+              href: custom-neural-voice.md
             - name: Erste Schritte mit Custom Voice
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,7 +128,33 @@
           items:
             - name: Audio Content Creation
               href: how-to-audio-content-creation.md
-    - name: Referenz
+    - name: Verantwortungsvolle Verwendung von KI
+      items:
+        - name: Benutzerdefinierte neuronale Stimme
+          items:
+            - name: Transparenzhinweis
+              items:
+                - name: Anwendungsfälle für „Benutzerdefinierte neuronale Stimme“
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Merkmale und Einschränkungen
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integration und verantwortungsvolle Verwendung
+              items:
+                - name: Eingeschränkter Zugriff
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Verantwortungsvolle Bereitstellung synthetischer Sprache
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Offenlegung für Sprecher
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Entwurfsrichtlinien für die Offenlegung
+                  href: concepts-disclosure-guidelines.md
+                - name: Entwurfsmuster für die Offenlegung
+                  href: concepts-disclosure-patterns.md
+                - name: Verhaltensregeln
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Daten, Datenschutz und Sicherheit'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+    - name: Verweis
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
@@ -517,8 +529,6 @@
           displayName: 'ACI,azure container instances,container instances,containers'
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
-        - name: Häufig gestellte Fragen zu Containern
-          href: speech-container-faq.md
         - name: "Dokumentation zu Cognitive\_Services-Containern"
           href: ../containers/index.yml
 - name: Geräte

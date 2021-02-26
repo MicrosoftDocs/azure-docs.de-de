@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858585"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222932"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Anleitung zur Leistung und Optimierung der Mapping Data Flow-Funktion
 
@@ -161,7 +161,7 @@ Azure SQL-Datenbank verfügt über eine eindeutige Partitionierungsoption, die d
 
 #### <a name="isolation-level"></a>Isolationsstufe
 
-Die Isolationsstufe des Lesevorgangs auf einem Azure SQL-Quellsystem hat eine Auswirkung auf die Leistung. Wenn Sie die Option „Lesen ohne Commit“ auswählen, ergibt sich die schnellste Leistung, und Datenbanksperren werden verhindert. Weitere Informationen zu SQL-Isolationsstufen finden Sie unter [Grundlegendes zu Isolationsstufen](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+Die Isolationsstufe des Lesevorgangs auf einem Azure SQL-Quellsystem hat eine Auswirkung auf die Leistung. Wenn Sie die Option „Lesen ohne Commit“ auswählen, ergibt sich die schnellste Leistung, und Datenbanksperren werden verhindert. Weitere Informationen zu SQL-Isolationsstufen finden Sie unter [Grundlegendes zu Isolationsstufen](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lesen per Abfrage
 
@@ -208,7 +208,7 @@ Dies kann sowohl nativ mit Pre- und Post-SQL-Skripts auf einer Azure SQL-Datenba
 ![Indizes deaktivieren](media/data-flow/disable-indexes-sql.png "Indizes deaktivieren")
 
 > [!WARNING]
-> Beim Deaktivieren von Indizes übernimmt der Datenfluss quasi die Kontrolle über eine Datenbank, und die Durchführung von Abfragen ist dann wahrscheinlich nicht erfolgreich. Aus diesem Grund werden viele ETL-Aufträge nachts ausgelöst, um Konflikte dieser Art zu vermeiden. Weitere Informationen finden Sie im Artikel [Deaktivieren von Indizes und Einschränkungen](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
+> Beim Deaktivieren von Indizes übernimmt der Datenfluss quasi die Kontrolle über eine Datenbank, und die Durchführung von Abfragen ist dann wahrscheinlich nicht erfolgreich. Aus diesem Grund werden viele ETL-Aufträge nachts ausgelöst, um Konflikte dieser Art zu vermeiden. Weitere Informationen finden Sie im Artikel [Deaktivieren von Indizes und Einschränkungen](/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Hochskalieren Ihrer Datenbank
 
@@ -216,7 +216,7 @@ Planen Sie die Anpassung der Größe Ihrer Quelle und Senke in Azure SQL-Datenba
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics-Senken
 
-Stellen Sie beim Schreiben in Azure Synapse Analytics sicher, dass die Option **Staging aktivieren** aktiviert ist. Hierdurch wird für ADF das Schreiben mit dem [SQL-Befehl COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) ermöglicht, sodass für die Daten quasi ein Massenladevorgang erfolgt. Bei Verwendung von Staging müssen Sie auf ein Azure Data Lake Storage Gen2- oder Azure Blob Storage-Konto für das Staging der Daten verweisen.
+Stellen Sie beim Schreiben in Azure Synapse Analytics sicher, dass die Option **Staging aktivieren** aktiviert ist. Hierdurch wird für ADF das Schreiben mit dem [SQL-Befehl COPY](/sql/t-sql/statements/copy-into-transact-sql) ermöglicht, sodass für die Daten quasi ein Massenladevorgang erfolgt. Bei Verwendung von Staging müssen Sie auf ein Azure Data Lake Storage Gen2- oder Azure Blob Storage-Konto für das Staging der Daten verweisen.
 
 Mit Ausnahme von Staging gelten für Azure Synapse Analytics die gleichen bewährten Methoden wie für Azure SQL-Datenbank.
 
@@ -244,11 +244,11 @@ Bei **Ausgabe in eine einzelne Datei** werden alle Daten in einer Partition komb
 
 Beim Schreiben in Cosmos DB kann die Leistung verbessert werden, indem der Durchsatz und die Batchgröße während der Ausführung des Datenflusses geändert werden. Diese Änderungen sind nur während der Datenfluss-Aktivitätsausführung wirksam und werden nach Abschluss des Vorgangs auf die ursprünglichen Sammlungseinstellungen zurückgesetzt. 
 
-**Batchgröße:** Berechnen Sie die ungefähre Zeilengröße der Daten, und stellen Sie sicher, dass die Multiplikation von Zeilengröße und Batchgröße einen Wert von weniger als 2 Millionen ergibt. Erhöhen Sie andernfalls die Batchgröße, um einen besseren Durchsatz zu erzielen.
+**Batchgröße:** Normalerweise reicht als Startwert die Batchgröße aus. Um diesen Wert weiter anzupassen, berechnen Sie die ungefähre Objektgröße Ihrer Daten, und stellen Sie sicher, dass das Produkt aus Objektgröße und Batchgöße kleiner als 2 MB ist. Erhöhen Sie andernfalls die Batchgröße, um einen besseren Durchsatz zu erzielen.
 
 **Durchsatz:** Legen Sie hier einen höheren Durchsatz fest, damit Dokumente schneller in Cosmos DB geschrieben werden können. Beachten Sie die höheren RU-Kosten bei einer höheren Durchsatzeinstellung.
 
-**Write Throughput Budget** (Budget für Schreibdurchsatz): Verwenden Sie einen Wert, der kleiner als die Gesamtanzahl der RUs pro Minute ist. Wenn Ihr Datenfluss eine hohe Anzahl von Spark-Partitionen enthält, können Sie durch das Festlegen eines Durchsatzbudgets eine bessere Balance zwischen diesen Partitionen erzielen.
+**Write throughput budget** (Schreibdurchsatz): Verwenden Sie einen Wert, der kleiner als die Gesamtanzahl der RUs pro Minute ist. Wenn Ihr Datenfluss eine hohe Anzahl von Spark-Partitionen enthält, können Sie durch das Festlegen eines Durchsatzbudgets eine bessere Balance zwischen diesen Partitionen erzielen.
 
 ## <a name="optimizing-transformations"></a>Optimieren von Transformationen
 

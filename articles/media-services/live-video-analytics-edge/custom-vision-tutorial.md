@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie mit Azure Custom Vision ein Containermodell e
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060499"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055364"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analysieren von Livevideo mit Live Video Analytics in IoT Edge and Azure Custom Vision
 
@@ -51,7 +51,6 @@ Lesen Sie die folgenden Artikel, bevor Sie beginnen:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Lesen Sie die folgenden Artikel, bevor Sie beginnen:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Von diesem Custom Vision-Modul werden nur **Intel x86- und amd64-Architekturen** unterstützt. Überprüfen Sie die Architektur Ihres Edgegeräts an, bevor Sie fortfahren.
+
 ## <a name="review-the-sample-video"></a>Überprüfen des Beispielvideos
 
 In diesem Tutorial wird mit einer [Spielzeugauto-Rückschlussvideodatei](https://lvamedia.blob.core.windows.net/public/t2.mkv) ein Livestream simuliert. Sie können das Video z. B. in der Anwendung [VLC Media Player](https://www.videolan.org/vlc/) überprüfen. Wählen Sie **STRG+N** aus, und fügen Sie dann einen Link zum [Spielzeugauto-Rückschlussvideo](https://lvamedia.blob.core.windows.net/public/t2.mkv) ein, um die Wiedergabe zu starten. Beachten Sie während der Wiedergabe des Videos, dass am 36-Sekunden-Marker ein Spielzeug-LKW im Video erscheint. Das benutzerdefinierte Modell wurde zum Erkennen dieses speziellen Spielzeug-LKW trainiert. 
@@ -81,6 +84,9 @@ Der HTTP-Erweiterungsknoten übernimmt dabei die Rolle eines Proxys.  Dabei werd
 Wie der Name besagt, können Sie mit Custom Vision eine eigene benutzerdefinierte Objekterkennung oder -klassifizierung in der Cloud erstellen. Es bietet eine einfache, benutzerfreundliche und intuitive Oberfläche zum Erstellen von Custom Vision-Modellen, die über Container in der Cloud oder auf Edge-Ebene bereitgestellt werden können.
 
 Zum Erstellen einer Erkennung für Spielzeug-LKW befolgen Sie die Schritte in [Schnellstart: Erstellen einer Objekterkennung mit der Custom Vision-Website](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Von diesem Custom Vision-Modul werden nur **Intel x86- und amd64-Architekturen** unterstützt. Überprüfen Sie die Architektur Ihres Edgegeräts an, bevor Sie fortfahren.
 
 Weitere Hinweise:
  

@@ -6,16 +6,16 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752208"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491990"
 ---
 # <a name="dependency-analysis"></a>Abhängigkeitsanalyse
 
-In diesem Artikel wird die Abhängigkeitsanalyse in der Azure Migrate-Serverbewertung beschrieben.
+In diesem Artikel wird die Abhängigkeitsanalyse in Azure Migrate: Server Assessment“ (Azure Migrate-Serverbewertung) erstellen.
 
 
 Die Abhängigkeitsanalyse identifiziert Abhängigkeiten zwischen entdeckten lokalen Computern. Dies bietet folgende Vorteile: 

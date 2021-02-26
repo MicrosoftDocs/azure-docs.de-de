@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825677"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219110"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Schnellstart: Erstellen eines Azure App Configuration-Speichers per ARM-Vorlage
 
@@ -108,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Fahren Sie mit dem folgenden Artikel fort, um sich über die Erstellung anderer Anwendungen mit Azure App Configuration zu informieren:
+Sehen Sie sich die unten angegebenen Beispiele für ARM-Vorlagen an, um sich über das Hinzufügen von Featureflags zu informieren und sich mit dem App Configuration-Speicher vertraut zu machen.
 
-> [!div class="nextstepaction"]
-> [Schnellstart: Erstellen einer ASP.NET Core-App mit Azure App Configuration](quickstart-aspnet-core-app.md)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

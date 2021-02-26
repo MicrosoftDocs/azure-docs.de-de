@@ -4,12 +4,12 @@ description: In diesem Artikel wird beschrieben, wie Sie Azure AD in Azure Autom
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894659"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576802"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Authentifizieren bei Azure mithilfe von Azure AD
 
@@ -50,7 +50,7 @@ Vor dem Installieren der Azure AD-Module auf Ihrem Computer:
 
 1. Stellen Sie sicher, dass die Microsoft .NET Framework 3.5.x-Funktion auf Ihrem Computer aktiviert ist. Es ist wahrscheinlich, dass auf Ihrem Computer eine neuere Version installiert ist, aber die Abwärtskompatibilität mit älteren Versionen des .NET Frameworks kann aktiviert oder deaktiviert werden. 
 
-2. Installieren Sie die 64-Bit-Version des [Microsoft Online Services-Anmelde-Assistenten](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Installieren Sie die 64-Bit-Version des [Microsoft Online Services-Anmelde-Assistenten](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Führen Sie Windows PowerShell als Administrator aus, um eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten zu erstellen.
 

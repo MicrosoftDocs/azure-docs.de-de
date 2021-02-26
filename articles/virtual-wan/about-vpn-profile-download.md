@@ -5,18 +5,22 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 116ec518f7788e620fc6bd177e535c8f6af99d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83b6ed2ae83db569d3c61e3cf4cd887f875eb25
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267770"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980914"
 ---
-# <a name="working-with-user-vpn-client-profiles"></a>Arbeiten mit Benutzer-VPN-Clientprofilen
+# <a name="working-with-user-vpn-client-profile-files"></a>Arbeiten mit Benutzer-VPN-Clientprofildateien
 
-Die heruntergeladene Profildatei enthält Informationen, die zum Konfigurieren einer VPN-Verbindung erforderlich sind. Dieser Artikel hilft Ihnen beim Abrufen und Verstehen der Informationen, die für ein Benutzer-VPN-Clientprofil erforderlich sind.
+Die Profildateien enthalten Informationen, die zum Konfigurieren einer VPN-Verbindung erforderlich sind. Dieser Artikel hilft Ihnen beim Abrufen und Verstehen der Informationen, die für ein Benutzer-VPN-Clientprofil erforderlich sind.
+
+## <a name="download-the-profile"></a>Herunterladen des Profils
+
+Sie können die Schritte im Artikel [Herunterladen eines globalen oder hubbasierten Profils für Benutzer-VPN-Clients](global-hub-profile.md) verwenden, um die ZIP-Datei für das Clientprofil herunterzuladen.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 

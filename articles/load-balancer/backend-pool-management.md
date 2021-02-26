@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575298"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429601"
 ---
 # <a name="backend-pool-management"></a>Back-End-Pool-Verwaltung
 Der Back-End-Pool ist eine kritische Komponente des Lastenausgleichs. Der Back-End-Pool definiert die Gruppe der Ressourcen, die den Datenverkehr für eine bestimmte Lastenausgleichsregel verarbeiten.
@@ -25,6 +25,8 @@ Es gibt zwei Möglichkeiten, einen Back-End-Pool zu konfigurieren:
 Konfigurieren Sie Ihren Back-End-Pool anhand der NIC, wenn Sie vorhandene virtuelle Computer und VM-Skalierungsgruppen verwenden. Diese Methode erstellt die direkteste Verknüpfung zwischen ihrer Ressource und dem Back-End-Pool. 
 
 Wenn Sie Ihrem Back-End-Pool vorab einen IP-Adressbereich zuweisen, in dem Sie später virtuelle Computer und VM-Skalierungsgruppen erstellen möchten, konfigurieren Sie den Back-End-Pool anhand der Kombination aus IP-Adresse und VNET-ID.
+
+Sie können IP- und NIC-basierte Back-End-Pools für dasselbe Lastenausgleichsmodul konfigurieren. Es ist aber nicht möglich, nur einen Back-End-Pool zu erstellen, in dem für die Netzwerkkarte bestimmte Back-End-Adressen und zusätzlich IP-Adressen gemischt vorkommen.
 
 Die Konfigurationsabschnitte dieses Artikels konzentrieren sich auf Folgendes:
 

@@ -1,22 +1,18 @@
 ---
 title: Sicherheitsüberlegungen für Datenverschiebung in Azure Data Factory
 description: Sie erhalten Informationen über das Schützen von Datenverschiebung in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093603"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375101"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Sicherheitsüberlegungen für Datenverschiebung
 
@@ -33,10 +29,10 @@ Obwohl Data Factory nur in den Regionen **USA, Westen**, **USA, Osten** und **Eu
 Azure Data Factory selbst speichert keine Daten mit Ausnahme für verknüpfte Dienstanmeldeinformationen für Clouddatenspeicher, die mit Zertifikaten verschlüsselt sind. Der Dienst ermöglicht das Erstellen von datengesteuerten Workflows, um die Verschiebung von Daten zwischen [unterstützten Datenspeichern](data-factory-data-movement-activities.md#supported-data-stores-and-formats) und die Verarbeitung von Daten mithilfe von [Compute Services](data-factory-compute-linked-services.md) in anderen Regionen oder in einer lokalen Umgebung zu orchestrieren. Außerdem können Sie mit programmgesteuerten und UI-basierten Mechanismen [Workflows überwachen und verwalten](data-factory-monitor-manage-pipelines.md) .
 
 Datenverschiebung mit Azure Data Factory ist **zertifiziert** für:
--   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-    [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
+-    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Informationen zur Compliance von Azure und zur eigenständigen Sicherung der Azure-Infrastruktur finden Sie im [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
@@ -122,7 +118,7 @@ Alle Datenübertragungen erfolgen über den sicheren Kanal **HTTPS** und **TLS �
  
 Sie können auch [IPSec-VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) oder [ExpressRoute](../../expressroute/expressroute-introduction.md) verwenden, um den Kommunikationskanal zwischen Ihrem lokalen Netzwerk und Azure zusätzlich zu schützen.
 
-Das virtuelle Netzwerk ist eine logische Darstellung Ihres Netzwerks in der Cloud. Sie können ein lokales Netzwerk mit Ihrem virtuellen Azure-Netzwerk (VNet) verbinden, indem Sie IPSec-VPN (Standort-zu-Standort) oder ExpressRoute (privates Peering) einrichten.     
+Das virtuelle Netzwerk ist eine logische Darstellung Ihres Netzwerks in der Cloud. Sie können ein lokales Netzwerk mit Ihrem virtuellen Azure-Netzwerk (VNet) verbinden, indem Sie IPSec-VPN (Standort-zu-Standort) oder ExpressRoute (privates Peering) einrichten.        
 
 In der folgenden Tabelle sind die Empfehlungen für die Netzwerk- und Gatewaykonfiguration zusammengefasst, die sich aus verschiedenen Kombinationen von Quell- und Zielstandort für hybride Datenverschiebung ergeben.
 
@@ -144,7 +140,7 @@ Die folgenden Abbildungen veranschaulichen die Verwendung von Datenverwaltungsga
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Firewallkonfigurationen und Filtern der IP-Adresse des Gateways
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Firewallanforderungen für lokales/privates Netzwerk  
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Firewallanforderungen für lokales/privates Netzwerk    
 In einem Unternehmen wird eine **Unternehmensfirewall** auf dem zentralen Router der Organisation ausgeführt. Außerdem wird die **Windows-Firewall** als Daemon auf dem lokalen Computer ausgeführt, auf dem das Gateway installiert ist. 
 
 Die folgende Tabelle enthält die Anforderungen für **ausgehende Ports** und die Domänenanforderungen für die **Unternehmensfirewall**.
@@ -154,7 +150,7 @@ Die folgende Tabelle enthält die Anforderungen für **ausgehende Ports** und di
 | `*.servicebus.windows.net` | 443, 80 | Erforderlich für das Gateway, um Verbindungen mit Datenverschiebungsdiensten in Data Factory herzustellen. |
 | `*.core.windows.net` | 443 | Wird vom Gateway verwendet, um Verbindungen mit dem Azure Storage-Konto herzustellen, wenn Sie das Feature [gestaffeltes Kopieren](data-factory-copy-activity-performance.md#staged-copy) verwenden. | 
 | `*.frontend.clouddatahub.net` | 443 | Erforderlich für das Gateway, um Verbindungen mit dem Azure Data Factory-Dienst herzustellen. | 
-| `*.database.windows.net` | 1433   | (OPTIONAL) Erforderlich, wenn Ihr Ziel Azure SQL-Datenbank/Azure Synapse Analytics ist. Verwenden Sie das Feature „gestaffeltes Kopieren“ um Daten nach Azure SQL-Datenbank/Azure Synapse Analytics zu kopieren, ohne Port 1433 zu öffnen. | 
+| `*.database.windows.net` | 1433    | (OPTIONAL) Erforderlich, wenn Ihr Ziel Azure SQL-Datenbank/Azure Synapse Analytics ist. Verwenden Sie das Feature „gestaffeltes Kopieren“ um Daten nach Azure SQL-Datenbank/Azure Synapse Analytics zu kopieren, ohne Port 1433 zu öffnen. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) Erforderlich, wenn Ihr Ziel Azure Data Lake Store ist. | 
 
 > [!NOTE] 

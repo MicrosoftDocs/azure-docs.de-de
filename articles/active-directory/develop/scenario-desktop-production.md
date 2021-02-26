@@ -1,5 +1,6 @@
 ---
-title: Verschieben einer Desktop-App, die Web-APIs aufruft, in die Produktion – Microsoft Identity Platform | Azure
+title: Verschieben von Desktop-Apps, die Web-APIs aufrufen, in die Produktion | Azure
+titleSuffix: Microsoft identity platform
 description: Erfahren Sie, wie Sie eine Desktop-App in die Produktion verschieben, die Web-APIs aufruft.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629781"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584413"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Desktop-App, die Web-APIs aufruft: Überführen in die Produktion
 
@@ -31,14 +32,14 @@ Sie haben anhand der unterschiedlichen Flows und Codeausschnitte gelernt, wie Si
 > [!NOTE]
 > Das Einholen der Einwilligung für mehrere Ressourcen ist mit Microsoft Identity Platform, nicht aber mit Azure Active Directory B2C (Azure AD) möglich. Azure AD B2C unterstützt nur die Administrator- und nicht die Benutzereinwilligung.
 
-Pber den Endpunkt von Microsoft Identity Platform (v2.0) können Sie kein Token für mehrere Ressourcen gleichzeitig abrufen. Der Parameter `scopes` kann nur Bereiche für eine einzelne Ressource enthalten. Mit dem Parameter `extraScopesToConsent` können Sie sicherstellen, dass der Benutzer vorab seine Einwilligung zu mehreren Ressourcen erteilt.
+Sie können über den Endpunkt von Microsoft Identity Platform kein Token für mehrere Ressourcen gleichzeitig abrufen. Der Parameter `scopes` kann nur Bereiche für eine einzelne Ressource enthalten. Mit dem Parameter `extraScopesToConsent` können Sie sicherstellen, dass der Benutzer vorab seine Einwilligung zu mehreren Ressourcen erteilt.
 
 Angenommen, Sie verfügen über zwei Ressourcen mit jeweils zwei Bereichen:
 
 - `https://mytenant.onmicrosoft.com/customerapi` mit den Bereichen `customer.read` und `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` mit den Bereichen `vendor.read` und `vendor.write`
 
-In diesem Fall sollten Sie den `.WithAdditionalPromptToConsent`-Modifizierer verwenden, der über den Parameter `extraScopesToConsent` verfügt.
+In diesem Fall sollten Sie den `.WithExtraScopesToConsent`-Modifizierer verwenden, der über den Parameter `extraScopesToConsent` verfügt.
 
 Beispiel:
 
@@ -95,7 +96,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Durch diesen Aufruf wird ein Zugriffstoken für die erste Web-API aufgerufen.
 
-Rufen Sie die `AcquireTokenSilent`-API auf, wenn Sie die zweite Web-API aufrufen müssen.
+Rufen Sie beim Aufrufen der zweiten Web-API die API mit `AcquireTokenSilent` auf.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
@@ -105,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Für Benutzer eines persönlichen Microsoft-Kontos besteht das beabsichtigte Verhalten darin, bei jedem Aufruf des nativen Clients (Desktop oder mobile App) zur Autorisierung erneut eine Einwilligung einzuholen. Die Identität des nativen Clients ist im Gegensatz zur vertraulichen Identität der Clientanwendung grundsätzlich unsicher. Um ihre Identität nachzuweisen, tauschen vertrauliche Clientanwendungen ein Geheimnis mit Azure AD aus. Microsoft Identity Platform schränkt dieses Sicherheitsrisiko für Verbraucherdienste ein, indem der Benutzer bei jeder Anwendungsautorisierung seine Einwilligung geben muss.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## <a name="next-steps"></a>Nächste Schritte
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+Weitere Beispiele zum Testen finden Sie unter [Öffentliche Desktop- und mobile Client-Apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+
+
+

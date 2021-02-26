@@ -1,5 +1,5 @@
 ---
-title: Hochladen von Inhalten in ein Azure Media Services-Medienobjekt mithilfe der Azure CLI
+title: Hochladen von Inhalten in eine Medienobjekt-CLI
 description: Das Azure CLI-Skript in diesem Thema zeigt, wie ein Media Services-Medienobjekt erstellt wird, in das Inhalt hochgeladen werden kann.
 services: media-services
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/31/2020
+ms.date: 02/16/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa5c9178bc84983b7e577cd63cf5b8d9fb9a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3923394e76d5ce4001d3652ae9cbc263df08e4e2
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254660"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545614"
 ---
 # <a name="create-an-asset"></a>Erstellen eines Medienobjekts
 
@@ -51,10 +51,6 @@ Führen Sie die Schritte unter [Erstellen eines Media Services-Kontos](./create-
 ### <a name="using-curl"></a>Verwenden von cURL
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
-
-## <a name="using-postman"></a>Verwenden von Postman
-
-[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
 
 ## <a name="net"></a>[.NET](#tab/net/)
 

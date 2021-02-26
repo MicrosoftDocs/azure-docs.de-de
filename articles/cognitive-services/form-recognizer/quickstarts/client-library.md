@@ -13,25 +13,25 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Formularverarbeitung, automatisierte Datenverarbeitung
-ms.openlocfilehash: cc18cc9e54a5a8887ecd3e079285ba5130b88278
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d468f40d9de7fd7efb4ac7d8021a667e0c6c31f6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218042"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584607"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Schnellstart: Verwenden der Clientbibliothek oder REST-API für die Formularerkennung
 
-Enthält Informationen zu den ersten Schritten mit der Formularerkennung in der Sprache Ihrer Wahl. Die Azure-Formularerkennung ist ein kognitiver Dienst, mit dem Sie unter Verwendung von Technologie für maschinelles Lernen Software für die automatisierte Datenverarbeitung entwickeln können. Identifizieren und extrahieren Sie Schlüssel-Wert-Paare, Auswahlmarkierungen, Tabellendaten und Ähnliches aus Formulardokumenten. Der Dienst gibt strukturierte Daten aus, die auch die Beziehungen in der ursprünglichen Datei umfassen. Die Formularerkennung kann per REST-API oder per SDK verwendet werden. Führen Sie die nachfolgenden Schritte zum Installieren des SDK-Pakets aus, und testen Sie den Beispielcode für grundlegende Aufgaben. 
+Hier finden Sie Informationen zu den ersten Schritten mit der Formularerkennung in der Entwicklungssprache Ihrer Wahl. Die Azure-Formularerkennung ist ein kognitiver Dienst, mit dem Sie unter Verwendung von Technologie für maschinelles Lernen Software für die automatisierte Datenverarbeitung entwickeln können. Identifizieren und extrahieren Sie Schlüssel-Wert-Paare, Auswahlmarkierungen, Tabellendaten und Ähnliches aus Formulardokumenten. Der Dienst gibt strukturierte Daten aus, die auch die Beziehungen in der ursprünglichen Datei umfassen. Die Formularerkennung kann per REST-API oder per SDK verwendet werden. Führen Sie die nachfolgenden Schritte zum Installieren des SDK-Pakets aus, und testen Sie den Beispielcode für grundlegende Aufgaben. 
 
 Verwenden Sie die Formularerkennung für Folgendes:
 
 * [Analysieren des Layouts](#analyze-layout)
-* [Analysieren von Belegen](#analyze-receipts)
-* [Analysieren von Visitenkarten](#analyze-business-cards)
 * [Analysieren von Rechnungen](#analyze-invoices)
 * [Trainieren eines benutzerdefinierten Modells](#train-a-custom-model)
 * [Analysieren von Formularen mit einem benutzerdefinierten Modell](#analyze-forms-with-a-custom-model)
+* [Analysieren von Belegen](#analyze-receipts)
+* [Analysieren von Visitenkarten](#analyze-business-cards)
 * [Verwalten von benutzerdefinierten Modellen](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"

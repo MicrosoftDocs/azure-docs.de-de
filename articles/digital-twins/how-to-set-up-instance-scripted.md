@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 5ac41ecc068238cbb20c05b253dc071dfc4a8138
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560802"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Einrichten einer Azure Digital Twins-Instanz und -Authentifizierung (per Skript)
 

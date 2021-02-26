@@ -781,6 +781,8 @@
             - name: Verfügbarkeitswarnungen
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: SLA-Bericht
+              href: app/sla-report.md
             - name: Problembehandlung
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,6 +796,8 @@
         - name: Live Metric-Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: Integration von Arbeitselementen
+          href: app/work-item-integration.md
         - name: Metriken
           items:
             - name: Protokollbasierte und vorab aggregierte Metriken
@@ -1022,7 +1026,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: Analysieren von Daten mit Protokollabfragen
           href: insights/vminsights-log-search.md
-        - name: Überwachen der Leistung
+        - name: Alerts
           href: insights/vminsights-alerts.md
         - name: Überwachen von Änderungen
           href: insights/vminsights-change-analysis.md
@@ -1044,6 +1048,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Aktivieren für einen vorhandenen AKS-Cluster
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Aktivieren für AKS mit Azure Policy
+              href: containers/container-insights-enable-aks-policy.md
             - name: Aktivieren für einen Cluster mit Arc-Aktivierung
               href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Aktivieren für einen Hybridcluster

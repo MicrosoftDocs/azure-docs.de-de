@@ -1,22 +1,18 @@
 ---
 title: Kopieren und Transformieren von Daten in Azure Cosmos DB (SQL-API)
 description: Hier erfahren Sie, wie Sie mithilfe von Data Factory Daten in und aus Azure Cosmos DB (SQL-API) kopieren sowie Daten in Azure Cosmos DB (SQL-API) transformieren.
-services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-ms.service: multiple
-ms.workload: data-services
+ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 2a084683d99117697657ba8900fcd6534b4a3e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013682"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379946"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopieren und Transformieren von Daten in Azure Cosmos DB (SQL-API) mithilfe von Azure Data Factory
 
@@ -160,6 +156,7 @@ Die folgenden Eigenschaften werden im Abschnitt **source** der Kopieraktivität 
 | Abfrage |Geben Sie die Azure Cosmos DB-Abfrage an, um Daten zu lesen.<br/><br/>Beispiel:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nein <br/><br/>Falls nicht angegeben, wird die folgende SQL-Anweisung ausgeführt: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Die bevorzugte Liste der Regionen, mit denen beim Abrufen von Daten aus Cosmos DB eine Verbindung hergestellt werden soll. | Nein |
 | pageSize | Die Anzahl der Dokumente pro Seite des Abfrageergebnisses. Der Standardwert ist „-1“. Dies bedeutet, dass im Ergebnis die dienstseitige dynamische Seitengröße bis zu 1000 verwendet wird. | Nein |
+| detectDatetime | Legt fest, ob datetime aus den Zeichenfolgenwerten in den Dokumenten erkannt werden soll. Zulässige Werte sind **true** (Standard) oder **false** | Nein |
 
 Wenn Sie eine Quelle vom Typ „DocumentDbCollectionSource“ verwenden, wird sie aus Gründen der Abwärtskompatibilität weiterhin unverändert unterstützt. Es wird empfohlen, in Zukunft das neue Modell zu verwenden, das umfangreichere Funktionen zum Kopieren von Daten aus Cosmos DB enthält.
 
@@ -259,7 +256,7 @@ Informationen zum Kopieren von Daten aus Azure Cosmos DB in eine tabellarische S
 
 ## <a name="mapping-data-flow-properties"></a>Eigenschaften von Mapping Data Flow
 
-Beim Transformieren von Daten im Zuordnungsdatenfluss können Sie Sammlungen in Cosmos DB lesen und in diese schreiben. Weitere Informationen finden Sie unter [Quelltransformation für Zuordnungsdatenflüsse](data-flow-source.md) und [Senkentransformation für einen Datenfluss](data-flow-sink.md).
+Beim Transformieren von Daten im Zuordnungsdatenfluss können Sie Sammlungen in Cosmos DB lesen und in diese schreiben. Weitere Informationen finden Sie unter [Quellentransformation](data-flow-source.md) und [Senkentransformation](data-flow-sink.md) in Zuordnungsdatenflüssen.
 
 ### <a name="source-transformation"></a>Quellentransformation
 
@@ -295,13 +292,16 @@ Spezifische Einstellungen für Azure Cosmos DB sind auf der Registerkarte **Eins
 * Keine: Es wird keine Aktion an der Sammlung vorgenommen.
 * Neu erstellen: Die Sammlung wird gelöscht und neu erstellt.
 
-**Batchgröße**: Steuert, wie viele Zeilen in die einzelnen Buckets geschrieben werden. Durch größere Batches werden zwar Komprimierung und Arbeitsspeicheroptimierung verbessert, beim Zwischenspeichern von Daten besteht aber die Gefahr, dass Ausnahmen wegen unzureichenden Arbeitsspeichers auftreten.
+**Batchgröße**: Eine ganze Zahl, die die Anzahl der Objekte darstellt, die in jedem Batch in die Cosmos DB-Sammlung geschrieben werden. Normalerweise reicht die Batchgröße als Startwert aus. Wenn Sie diesen Wert weiter optimieren möchten, beachten Sie Folgendes:
+
+- Cosmos DB begrenzt die Größe der einzelnen Anforderung auf 2 MB. Die Formel lautet: „Anforderungsgröße = Einzeldokumentgröße * Batchgröße“. Wenn die Fehlermeldung „Anforderung ist zu groß“ angezeigt wird, verkleinern Sie den Wert für die Batchgröße.
+- Je größer die Batchgröße, desto besser ist der Durchsatz von ADF, und Sie können gleichzeitig sicherstellen, dass Sie genügend RUs zuweisen, um ihre Arbeitsauslastung zu verbessern.
 
 **Partitionsschlüssel:** Geben Sie eine Zeichenfolge ein, die den Partitionsschlüssel für Ihre Sammlung darstellt. Beispiel: ```/movies/title```
 
 **Durchsatz:** Legen Sie einen optionalen Wert für die Anzahl von RUs fest, die Sie für jede Ausführung dieses Datenflusses auf die CosmosDB-Sammlung anwenden möchten. Der Mindestwert ist 400.
 
-**Write throughput budget** (Schreibdurchsatz): Ein Integer, der die Anzahl RUs darstellt, die Sie dem Spark-Sammelerfassungsauftrag zuordnen möchten. Dieser Wert ist unabhängig vom gesamten der Sammlung zugeordneten Durchsatz.
+**Write throughput budget** (Schreibdurchsatz): Eine ganze Zahl zur Darstellung der RUs, die Sie für diesen Datenfluss-Schreibvorgang zuordnen möchten, und nicht nur des Gesamtdurchsatzes, der der Sammlung zugeordnet wurde.
 
 ## <a name="lookup-activity-properties"></a>Eigenschaften der Lookup-Aktivität
 

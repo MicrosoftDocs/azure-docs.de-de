@@ -4,12 +4,12 @@ description: Verfügbarkeit von Compute- und Arbeitsspeicherressourcen für den 
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661373"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831279"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Ressourcenverfügbarkeit für Azure Container Instances in Azure-Regionen
 
@@ -34,7 +34,7 @@ Die folgenden Regionen und maximalen Ressourcen sind für Containergruppen mit L
 | Australien (Osten) | 4 | 16 | 4 | 16 | 50 | – |
 | Brasilien, Süden | 4 | 16 | 2 | 8 | 50 | – |
 | Kanada, Mitte | 4 | 16 | 4 | 16 | 50 | – |
-| Indien, Mitte | 4 | 16 | – | – | 50 | V100 |
+| Indien, Mitte | 4 | 16 | 4 | 4 | 50 | V100 |
 | USA, Mitte | 4 | 16 | 4 | 16 | 50 | – |
 | Asien, Osten | 4 | 16 | 4 | 16 | 50 | – |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

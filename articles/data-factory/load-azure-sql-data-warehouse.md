@@ -1,22 +1,18 @@
 ---
 title: Laden von Daten in Azure Synapse Analytics
 description: Verwenden von Azure Data Factory zum Kopieren von Daten in Azure Synapse Analytics
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 12630e5e4b332d875a75c59d2fdafecd23be0b17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/29/2020
+ms.openlocfilehash: 94f5884cb9d1886a9e7aa6b09817b26bba6d47f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005428"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370715"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Laden von Daten in Azure Synapse Analytics mithilfe von Azure Data Factory
 
@@ -126,7 +122,7 @@ In diesem Artikel erfahren Sie, wie Sie das Tool zum Kopieren von Daten in Data 
 
     b. Wählen Sie auf der Seite **Neuer verknüpfter Dienst** Ihr Speicherkonto und dann **Erstellen** aus, um den verknüpften Dienst bereitzustellen.
 
-    c. Deaktivieren Sie im Abschnitt **Erweiterte Einstellungen** die Option **Use type default** (Typstandard verwenden), und wählen Sie dann **Weiter** aus.
+    c. Deaktivieren Sie die Option **Typstandard verwenden**, und wählen Sie dann **Weiter** aus.
 
     ![Konfigurieren von PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 

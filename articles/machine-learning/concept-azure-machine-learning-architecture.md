@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540203"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091668"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>So funktioniert Azure Machine Learning: Architektur und Konzepte
 
@@ -46,19 +46,6 @@ Ein Arbeitsbereich enthält andere Azure-Ressourcen, die er verwendet:
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Speichert Geheimnisse, die von Computezielen verwendet werden, sowie andere vertrauliche Informationen, die vom Arbeitsbereich benötigt werden.
 
 Sie können einen Arbeitsbereich mit anderen Benutzern teilen.
-
-### <a name="create-workspace"></a>Arbeitsbereich erstellen
-
-Das folgende Diagramm zeigt den Workflow des Erstellens des Arbeitsbereichs.
-
-* Sie melden sich von einem der unterstützten Azure Machine Learning-Clients (Azure CLI, Python, SDK, Azure-Portal) aus bei Azure AD an und fordern das entsprechende Azure Resource Manager-Token an.
-* Sie rufen Azure Resource Manager auf, um den Arbeitsbereich zu erstellen. 
-* Der Azure Resource Manager fordert den Azure Machine Learning-Ressourcenanbieter auf, den Arbeitsbereich bereitzustellen.
-* Wenn Sie keine vorhandenen Ressourcen angeben, werden zusätzliche erforderliche Ressourcen in Ihrem Abonnement erstellt.
-
-Sie können bei Bedarf auch andere Computeziele bereitstellen, die an einen Arbeitsbereich angefügt sind (wie Azure Kubernetes Service oder VMs).
-
-[![Erstellen eines Arbeitsbereichs-Workflows](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Berechnungen
 
@@ -126,10 +113,6 @@ Beispiele für Ausführungskonfigurationen finden Sie unter [Konfigurieren einer
 [Arbeitsbereich](#workspace) > [Experimente](#experiments) > [Ausführen](#runs) > **Momentaufnahme**
 
 Beim Übermitteln einer Ausführung komprimiert Azure Machine Learning das Verzeichnis, in dem das Skript als ZIP-Datei enthalten ist, und sendet es an das Computeziel. Die ZIP-Datei wird dann extrahiert, und das Skript wird ausgeführt. Azure Machine Learning speichert die ZIP-Datei im Rahmen der Ausführungsaufzeichnung zudem als Momentaufnahme. Alle Benutzer mit Zugriff auf den Arbeitsbereich können eine Ausführungsaufzeichnung durchsuchen und die Momentaufnahme herunterladen.
-
-Das folgende Diagramm zeigt den Workflow der Codemomentaufnahme.
-
-[![Workflow der Codemomentaufnahme](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Protokollierung
 

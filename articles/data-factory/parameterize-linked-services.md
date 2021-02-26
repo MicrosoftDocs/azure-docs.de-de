@@ -1,21 +1,17 @@
 ---
 title: Parametrisieren von verknüpften Diensten in Azure Data Factory
 description: Erfahren Sie, wie Sie in Azure Data Factory verknüpfte Dienste parametrisieren und dynamische Werte zur Laufzeit übergeben.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: e463328df195b5a91db8ce272d138f980d000e79
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232062"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372925"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrisieren von verknüpften Diensten in Azure Data Factory
 
@@ -27,6 +23,9 @@ Sie können mithilfe der Data Factory-Benutzeroberfläche im Azure-Portal oder e
 
 > [!TIP]
 > Es wird empfohlen, Kennwörter oder Geheimnisse nicht zu parametrisieren. Speichern Sie stattdessen alle Verbindungszeichenfolgen in Azure Key Vault, und parametrisieren Sie den *geheimen Namen*.
+
+> [!Note]
+> Es gibt derzeit noch einen ungelösten Fehler bei Verwendung von „-“ in Parameternamen. Es wird empfohlen, Namen ohne „-“ zu verwenden, bis der Fehler behoben wurde.
 
 Das folgende Video enthält eine siebenminütige Einführung und Demonstration dieses Features:
 
@@ -43,7 +42,7 @@ Für die Erstellung verknüpfter Dienste auf der Benutzeroberfläche bietet Data
 - Azure Database for MySQL
 - Azure Databricks
 - Azure-Schlüsseltresor
-- Azure SQL-Datenbank
+- Azure SQL-Datenbank
 - Verwaltete Azure SQL-Instanz
 - Azure Synapse Analytics 
 - MySQL

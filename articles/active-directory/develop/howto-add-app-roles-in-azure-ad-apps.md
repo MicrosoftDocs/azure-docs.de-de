@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013701"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104245"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Vorgehensweise: Hinzufügen von App-Rollen zu Ihrer Anwendung und Empfangen der Rollen im Token
 
@@ -49,7 +49,7 @@ Die Anzahl der von Ihnen hinzugefügten Rollen wird durch Beschränkungen begren
 
 So erstellen Sie eine App-Rolle mithilfe der Benutzeroberfläche des Azure-Portals:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wählen Sie den Filter **Verzeichnis + Abonnement** im oberen Menü und dann den Azure Active Directory-Mandanten aus, der die App-Registrierung enthält, zu der Sie eine App-Rolle hinzufügen möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie unter **Verwalten** die Option **App-Registrierungen** und dann die Anwendung aus, in der Sie App-Rollen definieren möchten.
@@ -74,7 +74,7 @@ So erstellen Sie eine App-Rolle mithilfe der Benutzeroberfläche des Azure-Porta
 
 So fügen Sie Rollen hinzu, indem Sie das Manifest direkt bearbeiten:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wählen Sie den Filter **Verzeichnis + Abonnement** im oberen Menü und dann den Azure Active Directory-Mandanten aus, der die App-Registrierung enthält, zu der Sie eine App-Rolle hinzufügen möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie unter **Verwalten** die Option **App-Registrierungen** und dann die Anwendung aus, in der Sie App-Rollen definieren möchten.
@@ -136,7 +136,7 @@ Nachdem Sie App-Rollen in Ihrer Anwendung hinzugefügt haben, können Sie den Ro
 
 So weisen Sie Benutzern und Gruppen im Azure-Portal Rollen zu:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wählen Sie in **Azure Active Directory** im linken Navigationsmenü die Option **Unternehmensanwendungen** aus.
 1. Wählen Sie **Alle Anwendungen**, um eine Liste mit Ihren Anwendungen anzuzeigen. Falls die Anwendung nicht in der Liste angezeigt wird, können Sie oben in der Liste **Alle Anwendungen** die Filter verwenden, um den Inhalt der Liste einzugrenzen. Sie können auch in der Liste nach unten scrollen, um nach Ihrer Anwendung zu suchen.
 1. Wählen Sie die Anwendung aus, in der Sie Benutzer oder eine Sicherheitsgruppe zu Rollen zuweisen möchten.
@@ -158,7 +158,7 @@ Wenn Sie einer Anwendung App-Rollen zuweisen, erstellen Sie *Anwendungsberechtig
 
 So weisen Sie einer Anwendung mithilfe des Azure-Portals App-Rollen zu:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wählen Sie in **Azure Active Directory** im linken Navigationsmenü die Option **App-Registrierungen** aus.
 1. Wählen Sie **Alle Anwendungen**, um eine Liste mit Ihren Anwendungen anzuzeigen. Falls die Anwendung nicht in der Liste angezeigt wird, können Sie oben in der Liste **Alle Anwendungen** die Filter verwenden, um den Inhalt der Liste einzugrenzen. Sie können auch in der Liste nach unten scrollen, um nach Ihrer Anwendung zu suchen.
 1. Wählen Sie die Anwendung aus, der Sie eine App-Rolle hinzufügen möchten.

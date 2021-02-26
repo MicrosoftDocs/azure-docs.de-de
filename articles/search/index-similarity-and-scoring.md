@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535660"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520594"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Ähnlichkeit und Bewertung in Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Der Begriff „Bewertung“ bezieht sich auf die Berechnung einer Suchbewertung 
 
 Standardmäßig werden in der Antwort die ersten 50 Elemente zurückgegeben, Sie können jedoch den **$top**-Parameter verwenden, um eine kleinere oder größere Anzahl von Elementen (bis zu 1000 in einer einzelnen Antwort) zurückzugeben, sowie den Parameter **$skip**, um zu den nächsten Ergebnissen zu gelangen.
 
-Eine Suchbewertung wird auf Basis der statistischen Eigenschaften der Daten und der Abfrage berechnet. Azure Cognitive Search findet Dokumente, die Suchbegriffe enthalten (einige oder alle, in Abhängigkeit von [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), wobei Dokumente bevorzugt werden, in denen der Suchbegriff häufig vorkommt. Die Suchbewertung fällt sogar noch höher aus, wenn der Begriff nur selten im Datenindex, jedoch innerhalb des Dokuments häufig vorkommt. Die Grundlage für diesen Ansatz zur Berechnung der Relevanz wird als *TF-IDF* (Term Frequency – Inverse Document Frequency, Vorkommenshäufigkeit – Inverse Dokumenthäufigkeit) bezeichnet.
+Eine Suchbewertung wird auf Basis der statistischen Eigenschaften der Daten und der Abfrage berechnet. Azure Cognitive Search findet Dokumente, die Suchbegriffe enthalten (einige oder alle, in Abhängigkeit von [searchMode](/rest/api/searchservice/search-documents#query-parameters)), wobei Dokumente bevorzugt werden, in denen der Suchbegriff häufig vorkommt. Die Suchbewertung fällt sogar noch höher aus, wenn der Begriff nur selten im Datenindex, jedoch innerhalb des Dokuments häufig vorkommt. Die Grundlage für diesen Ansatz zur Berechnung der Relevanz wird als *TF-IDF* (Term Frequency – Inverse Document Frequency, Vorkommenshäufigkeit – Inverse Dokumenthäufigkeit) bezeichnet.
 
 Suchbewertungswerte können in einem Resultset wiederholt vorkommen. Wenn mehrere Treffer die gleiche Suchbewertung aufweisen, ist die Sortierung von Elementen mit gleicher Bewertung nicht definiert und somit auch nicht stabil. Wenn Sie die Abfrage noch mal ausführen, sehen Sie möglicherweise, dass sich die Position von Elementen ändert. Dies ist insbesondere dann der Fall, wenn Sie den kostenlosen Dienst oder einen abrechenbaren Dienst mit vielen Replikaten verwenden. Wenn zwei Elemente mit identischer Bewertung vorliegen, kann nicht garantiert werden, welches Element zuerst angezeigt wird.
 

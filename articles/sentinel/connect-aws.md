@@ -1,6 +1,6 @@
 ---
 title: Verbinden von AWS CloudTrail mit Azure Sentinel | Microsoft-Dokumentation
-description: Verwenden Sie den AWS-Connector, um den Zugriff von Azure Sentinel auf AWS-Ressourcenprotokolle zu delegieren, und eine Vertrauensstellung zwischen AWS CloudTrail und Sentinel herzustellen.
+description: Verwenden Sie den AWS-Connector, um den Zugriff von Azure Sentinel auf AWS-Ressourcenprotokolle zu delegieren und eine Vertrauensstellung zwischen AWS CloudTrail und Azure Sentinel herzustellen.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436605"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807596"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Herstellen einer Verbindung zwischen Azure Sentinel und AWS CloudTrail
 

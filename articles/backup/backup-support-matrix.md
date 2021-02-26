@@ -4,12 +4,12 @@ description: Enthält eine Zusammenfassung der Unterstützungseinstellungen und 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9e20c21694678acf7be13ccbbe9cce9af38c32c5
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757439"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915708"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Supportmatrix für Azure Backup
 
@@ -150,8 +150,8 @@ In Azure Backup wurde ein Feature zur regionsübergreifenden Wiederherstellung h
 
 | Sicherungsverwaltungstyp | Unterstützt                                                    | Unterstützte Regionen |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Wird bei virtuellen Azure-Computern mit verwalteten und nicht verwalteten Datenträgern unterstützt. Für klassische VMs nicht unterstützt. | Alle öffentlichen Azure-Regionen  |
-| SQL/SAP HANA | Ja                                                          | Alle öffentlichen Regionen außer Frankreich |
+| Azure VM               | Wird bei virtuellen Azure-Computern mit verwalteten und nicht verwalteten Datenträgern unterstützt. Für klassische VMs nicht unterstützt. | Verfügbar in allen öffentlichen Azure-Regionen mit Ausnahme der Regionen „Frankreich, Mitte“, „Australien, Mitte“, „Südafrika, Norden“, „VAE, Norden“, „Schweiz, Norden“, „Deutschland, Westen-Mitte“, „Norwegen, Osten“. <br>Weitere Informationen zur Verwendung in diesen Regionen erhalten Sie von [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com). |
+| SQL/SAP HANA | In der Vorschau                                                      | Verfügbar in allen öffentlichen Azure-Regionen mit Ausnahme der Regionen „Frankreich, Mitte“, „Australien, Mitte“, „Südafrika, Norden“, „VAE, Norden“, „Schweiz, Norden“, „Deutschland, Westen-Mitte“, „Norwegen, Osten“. <br>Weitere Informationen zur Verwendung in diesen Regionen erhalten Sie von [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com). |
 | MARS-Agent/lokal  | Nein                                                           | –               |
 | AFS (Azure-Dateifreigaben)                 | Nein                                                           | –               |
 

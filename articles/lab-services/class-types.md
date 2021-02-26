@@ -3,16 +3,21 @@ title: Beispielklassentypen für Azure Lab Services | Microsoft-Dokumentation
 description: In diesem Artikel sind einige Typen von Klassen aufgeführt, für die Sie mithilfe von Azure Lab Services Labs einrichten können.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436401"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627432"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Übersicht über Klassentypen: Azure Lab Services
 
 Mithilfe von Azure Lab Services können Sie schnell eine Classroom-Lab-Umgebung in der Cloud einrichten. Die Artikel in diesem Abschnitt bieten Anleitungen zum Einrichten verschiedener Typen von Labs mithilfe von Azure Lab Services.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) ist ein geografisches Informationssystem (GIS).  Sie können ein Lab einrichten, das die verschiedenen Anwendungen von ArcGIS Desktop verwendet, z. B. [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) zum Erstellen, Bearbeiten und Analysieren von 2D-Karten.
+
+Ausführliche Informationen zum Einrichten dieser Art von Lab finden Sie unter [Einrichten eines Labs für ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## <a name="big-data-analytics"></a>Big Data-Analyse
 Sie können für einen Big Data-Analysekurs ein GPU-Lab einrichten. Bei dieser Art von Kurs lernen die Kursteilnehmer, mit großen Datenmengen umzugehen und maschinelle und statistische Lernalgorithmen anzuwenden, um Erkenntnisse aus Daten zu gewinnen. Ein wichtiges Ziel für Kursteilnehmer ist es, den Umgang mit Datenanalysetools zu erlernen, z. B. mit dem Open-Source-Softwarepaket von Apache Hadoop, das Tools für die Speicherung, Verwaltung und Verarbeitung von Big Data bereitstellt. 
@@ -41,6 +46,11 @@ Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Ein
 
 Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Einrichten eines Labs zum Kennenlernen von MATLAB](class-type-matlab.md).
 
+## <a name="networking-with-gns3"></a>Netzwerk mit GNS3
+Sie können ein Lab für einen Kurs einrichten, in dem Kursteilnehmer unter Verwendung der Software [GNS3](https://www.gns3.com/) virtuelle und reale Netzwerke emulieren, konfigurieren und testen und auftretende Fehler beheben. 
+
+Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Einrichten eines Labs für einen Netzwerkkurs](class-type-networking-gns3.md).
+
 ## <a name="project-lead-the-way-pltw"></a>Project Lead The Way (PLTW)
 [Project Lead The Way (PLTW)](https://www.pltw.org/) ist eine gemeinnützige Organisation, die in den USA einen PreK-12-Lehrplan für Informatik, Engineering und biomedizinische Wissenschaft bereitstellt.  In jedem PLTW-Kurs verwenden die Kursteilnehmer eine Reihe von Softwareanwendungen als Teil ihrer praktischen Lernerfahrung.
 
@@ -62,6 +72,11 @@ Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Ein
 Sie können ein GPU-Lab einrichten, mit dem Studenten der Ingenieurswissenschaften Zugriff auf [SolidWorks](https://www.solidworks.com/) erhalten.  SolidWorks stellt eine 3D-CAD-Umgebung für die Modellierung von Festkörpern dar.  Mit SolidWorks können Engineers ihre Entwürfe problemlos erstellen, visualisieren, simulieren und dokumentieren.
 
 Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Einrichten eines Labs für Engineeringkurse mithilfe von SolidWorks](class-type-solidworks.md).
+
+## <a name="sql-database-and-management"></a>SQL-Datenbank und Verwaltung
+SQL (Structured Query Language) ist die Standardsprache für die Verwaltung relationaler Datenbanken. Hierzu zählen das Hinzufügen, Aufrufen und Verwalten von Inhalten in einer Datenbank.  Sie können ein Lab einrichten, um Datenbankkonzepte sowohl mithilfe eines Datenbankservers mit [MySQL](https://www.mysql.com/) als auch eines Servers mit [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) zu vermitteln.
+
+Ausführliche Informationen zum Einrichten derartiger Labs finden Sie unter [Einrichten eines Labs zum Vermitteln von Kenntnissen zur Verwaltung von relationalen Datenbanken](class-type-database-management.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen finden Sie in folgenden Artikeln:

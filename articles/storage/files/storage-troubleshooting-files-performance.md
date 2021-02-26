@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632494"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393852"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Problembehandlung bei Leistungsproblemen mit Azure-Dateifreigaben
 
@@ -22,7 +22,7 @@ In diesem Artikel sind einige allgemeine Probleme aufgeführt, die im Zusammenha
 
 ### <a name="cause-1-share-was-throttled"></a>Ursache 1: Freigabe wurde gedrosselt
 
-Anforderungen werden gedrosselt, wenn die E/A-Vorgänge pro Sekunde (I/O Operations Per Second, IOPS) und Grenzwerte für „eingehend“ oder „ausgehend“ für eine Dateifreigabe erreicht werden. Informationen zu den Grenzwerten für Standard- und Premium-Dateifreigaben finden Sie unter [Skalierungsziele für Dateifreigaben und Dateien](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+Anforderungen werden gedrosselt, wenn die E/A-Vorgänge pro Sekunde (I/O Operations Per Second, IOPS) und Grenzwerte für „eingehend“ oder „ausgehend“ für eine Dateifreigabe erreicht werden. Informationen zu den Grenzwerten für Standard- und Premium-Dateifreigaben finden Sie unter [Skalierungsziele für Dateifreigaben und Dateien](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 Wenn Sie überprüfen möchten, ob Ihre Freigabe gerade gedrosselt wird, können Sie im Portal auf Azure-Metriken zugreifen und sie verwenden.
 
@@ -34,14 +34,28 @@ Wenn Sie überprüfen möchten, ob Ihre Freigabe gerade gedrosselt wird, können
 
 1. Wählen Sie **Transaktionen** als Metrik aus.
 
-1. Fügen Sie einen Filter für **Antworttyp** hinzu, und überprüfen Sie dann, ob es für Anforderungen einen der folgenden Antwortcodes gibt:
-   * **SuccessWithThrottling**: Für Server Message Block (SMB)
-   * **ClientThrottlingError**: Für REST
+1. Fügen Sie einen Filter für den **Antworttyp** hinzu, und überprüfen Sie dann, ob Anforderungen gedrosselt wurden. 
 
-   ![Der Screenshot der Metrikoptionen für Premium-Dateifreigaben zeigt einen Eigenschaftsfilter „Antworttyp“.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    Bei Standard-Dateifreigaben werden die folgenden Antworttypen protokolliert, wenn eine Anforderung gedrosselt wird:
 
-   > [!NOTE]
-   > Informationen zum Empfangen einer Warnung finden Sie weiter unten in diesem Artikel im Abschnitt [„Erstellen einer Warnung, wenn eine Dateifreigabe gedrosselt ist“](#how-to-create-an-alert-if-a-file-share-is-throttled).
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Bei Premium-Dateifreigaben werden die folgenden Antworttypen protokolliert, wenn eine Anforderung gedrosselt wird:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Weitere Informationen zu den einzelnen Antworttypen finden Sie unter [Metrikdimensionen](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Der Screenshot der Metrikoptionen für Premium-Dateifreigaben zeigt einen Eigenschaftsfilter „Antworttyp“.](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Informationen zum Empfangen einer Warnung finden Sie weiter unten in diesem Artikel im Abschnitt [„Erstellen einer Warnung, wenn eine Dateifreigabe gedrosselt ist“](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Lösung
 
@@ -219,48 +233,63 @@ Zur Überprüfung können Sie die Azure-Metriken im Portal folgendermaßen verwe
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Erstellen einer Warnung, wenn eine Dateifreigabe gedrosselt ist
 
-1. Wechseln Sie im Azure-Portal zu Ihrem Speicherkonto.
-1. Wählen Sie im Abschnitt **Überwachung** die Option **Warnungen** und dann **Neue Warnungsregel** aus.
-1. Wählen Sie nacheinander **Ressource bearbeiten**, den **Dateiressourcentyp** für das Speicherkonto und dann **Fertig** aus. Wenn der Name des Speicherkontos beispielsweise *contoso* lautet, wählen Sie die Ressource „contoso/datei“ aus.
-1. Wählen Sie **Bedingung auswählen** aus, um eine Bedingung hinzuzufügen.
-1. Wählen Sie in der Liste der für das Speicherkonto unterstützten Signale die Metrik **Transaktionen** aus.
-1. Wählen Sie im Bereich **Signallogik konfigurieren** in der Dropdownliste **Dimensionsname** den Eintrag **Antworttyp** aus.
-1. Wählen Sie in der Dropdownliste **Dimensionswerte** den Eintrag **SuccessWithThrottling** (für SMB) oder **ClientThrottlingError** (für REST) aus.
+1. Navigieren Sie im **Azure-Portal** zu Ihrem **Speicherkonto**.
+2. Klicken Sie im Abschnitt **Überwachung** auf **Warnungen** und anschließend auf **+ Neue Warnungsregel**.
+3. Klicken Sie auf **Ressource bearbeiten**, wählen Sie unter **Ressourcentyp** den Ressourcentyp für das Speicherkonto aus, und klicken Sie anschließend auf **Fertig**. Wenn der Name des Speicherkontos beispielsweise `contoso` ist, wählen Sie die `contoso/file`-Ressource aus.
+4. Klicken Sie auf **Bedingung hinzufügen**, um eine Bedingung hinzuzufügen.
+5. Wählen Sie in der daraufhin angezeigten Liste der für das Speicherkonto unterstützten Signale die Metrik **Transaktionen** aus.
+6. Klicken Sie auf dem Blatt **Signallogik konfigurieren** auf das Dropdownmenü **Dimensionsname**, und wählen Sie **Antworttyp** aus.
+7. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die entsprechenden Antworttypen für die Dateifreigabe aus.
+
+    Wählen Sie für Standard-Dateifreigaben die folgenden Antworttypen aus:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Wählen Sie für Premium-Dateifreigaben die folgenden Antworttypen aus:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Wenn keiner der Dimensionswerte **SuccessWithThrottling** oder **ClientThrottlingError** aufgeführt wird, bedeutet dies, dass die Ressource nicht gedrosselt wurde. Wählen Sie zum Hinzufügen des Dimensionswerts neben der Dropdownliste **Dimensionswerte** die Option **Benutzerdefinierten Wert hinzufügen** aus, geben Sie **SuccessWithThrottling** oder **ClientThrottlingError** ein, wählen Sie **OK** aus, und wiederholen Sie dann Schritt 7.
+   > Wenn die Antworttypen nicht in der Dropdownliste **Dimensionswerte** aufgeführt werden, bedeutet dies, dass die Ressource nicht gedrosselt wurde. Wählen Sie zum Hinzufügen der Dimensionswerte neben der Dropdownliste **Dimensionswerte** die Option **Benutzerdefinierten Wert hinzufügen** aus, geben Sie den Typ ein (z. B. **SuccessWithThrottling**), und wählen Sie **OK** aus. Wiederholen Sie diese Schritte zum Hinzufügen aller betreffenden Antworttypen für die Dateifreigabe.
 
-1. Wählen Sie in der Dropdownliste **Dimensionsname** den Eintrag **Dateifreigabe** aus.
-1. Wählen Sie in der Dropdownliste **Dimensionswerte** die Dateifreigabe oder Freigaben aus, für die Sie eine Warnung einrichten möchten.
+8. Klicken Sie auf die Dropdownliste **Dimensionsname**, und wählen Sie **Dateifreigabe** aus.
+9. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die Dateifreigaben aus, für die Sie eine Warnung einrichten möchten.
+
 
    > [!NOTE]
-   > Handelt es sich bei der Dateifreigabe um eine Standarddateifreigabe, wählen Sie **Alle aktuellen und zukünftigen Werte** aus. Die Dateifreigaben werden in der Dropdownliste mit den Dimensionswerten nicht aufgeführt, weil für Standarddateifreigaben keine freigabespezifischen Metriken zur Verfügung stehen. Die Drosselung von Warnungen für Standarddateifreigaben wird ausgelöst, wenn eine Dateifreigabe im Speicherkonto gedrosselt wird und die Warnung nicht identifiziert, welche Freigabe gedrosselt wurde. Weil freigabespezifische Metriken für Standarddateifreigaben nicht verfügbar sind, empfehlen wir, dass Sie eine einzige Dateifreigabe pro Speicherkonto verwenden.
+   > Handelt es sich bei der Dateifreigabe um eine Standarddateifreigabe, wählen Sie **Alle aktuellen und zukünftigen Werte** aus. Die Dateifreigaben werden in der Dropdownliste mit den Dimensionswerten nicht aufgeführt, da für Standarddateifreigaben keine freigabespezifischen Metriken zur Verfügung stehen. Die Drosselung von Warnungen für Standarddateifreigaben wird ausgelöst, wenn eine Dateifreigabe im Speicherkonto gedrosselt wird und die Warnung nicht identifiziert, welche Freigabe gedrosselt wurde. Da Metriken pro Freigabe für Standarddateifreigaben nicht verfügbar sind, wird empfohlen, dass es eine einzige Dateifreigabe pro Speicherkonto gibt.
 
-1. Definieren Sie die Warnungsparameter durch Eingabe der gewünschten Werte in **Schwellenwert**, **Operator**, **Aggregationsgranularität** und **Häufigkeit der Auswertung**. Wählen Sie dann **Fertig** aus.
+10. Definieren Sie die **Warnungsparameter** (Schwellenwert, Operator, Aggregationsgranularität und Häufigkeit der Auswertung), und klicken Sie auf **Fertig**.
 
     > [!TIP]
-    > Bei Verwendung eines statischen Schwellenwerts kann Ihnen das Metrikdiagramm bei der Ermittlung eines sinnvollen Schwellenwerts helfen, wenn die Dateifreigabe gerade gedrosselt wird. Falls Sie einen dynamischen Schwellenwert verwenden, zeigt das Metrikdiagramm die berechneten Schwellenwerte basierend auf aktuellen Daten an.
+    > Bei Verwendung eines statischen Schwellenwerts kann das Metrikdiagramm bei der Ermittlung eines sinnvollen Schwellenwerts helfen, wenn die Dateifreigabe gerade gedrosselt wird. Falls Sie einen dynamischen Schwellenwert verwenden, zeigt das Metrikdiagramm die berechneten Schwellenwerte basierend auf aktuellen Daten an.
 
-1. Wählen Sie **Aktionsgruppe auswählen** aus, und fügen Sie der Warnung eine Aktionsgruppe (z. B. E-Mail oder SMS) hinzu, indem Sie entweder eine vorhandene Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
-1. Geben Sie die Warnungsdetails ein, z. B. **Warnungsregelname**, **Beschreibung** und **Schweregrad**.
-1. Wählen Sie **Benachrichtigungsregel erstellen** aus, um die Benachrichtigung zu erstellen.
+11. Klicken Sie auf **Aktionsgruppe hinzufügen**, und fügen Sie der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzu, indem Sie eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
+12. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung** und **Schweregrad** ein.
+13. Klicken Sie auf **Warnungsregel erstellen**, um die Warnung zu erstellen.
 
 Weitere Informationen zum Konfigurieren von Warnungen in Azure Monitor finden Sie unter [Übersicht über Warnungen in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Erstellen von Warnungen, wenn sich eine Premium-Dateifreigabe der Drosselung nähert
 
 1. Wechseln Sie im Azure-Portal zu Ihrem Speicherkonto.
-1. Wählen Sie im Abschnitt **Überwachung** die Option **Warnungen** und dann **Neue Warnungsregel** aus.
-1. Wählen Sie nacheinander **Ressource bearbeiten**, den **Dateiressourcentyp** für das Speicherkonto und dann **Fertig** aus. Wenn der Name des Speicherkontos beispielsweise *contoso* lautet, wählen Sie die Ressource „contoso/datei“ aus.
-1. Wählen Sie **Bedingung auswählen** aus, um eine Bedingung hinzuzufügen.
-1. Wählen Sie in der Liste der für das Speicherkonto unterstützten Signale die Metrik **Ausgehend** aus.
+2. Wählen Sie im Abschnitt **Überwachung** die Option **Warnungen** und dann **Neue Warnungsregel** aus.
+3. Wählen Sie nacheinander **Ressource bearbeiten**, den **Dateiressourcentyp** für das Speicherkonto und dann **Fertig** aus. Wenn der Name des Speicherkontos beispielsweise *contoso* lautet, wählen Sie die Ressource „contoso/datei“ aus.
+4. Wählen Sie **Bedingung auswählen** aus, um eine Bedingung hinzuzufügen.
+5. Wählen Sie in der Liste der für das Speicherkonto unterstützten Signale die Metrik **Ausgehend** aus.
 
    > [!NOTE]
    > Sie müssen drei separate Warnungen erstellen, um benachrichtigt zu werden, wenn die Werte für eingehenden Datenverkehr, ausgehenden Datenverkehr oder Transaktionen die von Ihnen festgelegten Schwellenwerte überschreiten. Dies liegt daran, dass eine Warnung nur dann ausgelöst wird, wenn alle Bedingungen erfüllt sind. Wenn Sie beispielsweise alle Bedingungen in eine einzige Warnung einfügen, werden Sie nur benachrichtigt, wenn die Schwellenwerte für „Eingehend“, „Ausgehend“ und „Transaktionen“ überschritten werden.
 
-1. Scrollen Sie nach unten. Wählen Sie in der Dropdownliste **Dimensionsname** den Eintrag **Dateifreigabe** aus.
-1. Wählen Sie in der Dropdownliste **Dimensionswerte** die Dateifreigabe oder Freigaben aus, für die Sie eine Warnung einrichten möchten.
-1. Definieren Sie die Warnungsparameter, indem Sie in den Dropdownlisten **Operator**, **Schwellenwert**, **Aggregationsgranularität** und **Häufigkeit der Auswertung** die gewünschten Werte und dann **Fertig** auswählen.
+6. Scrollen Sie nach unten. Wählen Sie in der Dropdownliste **Dimensionsname** den Eintrag **Dateifreigabe** aus.
+7. Wählen Sie in der Dropdownliste **Dimensionswerte** die Dateifreigabe oder Freigaben aus, für die Sie eine Warnung einrichten möchten.
+8. Definieren Sie die Warnungsparameter, indem Sie in den Dropdownlisten **Operator**, **Schwellenwert**, **Aggregationsgranularität** und **Häufigkeit der Auswertung** die gewünschten Werte und dann **Fertig** auswählen.
 
    Die Metriken „Eingehend“, „Ausgehend“ und „Transaktionen“ werden in Minuten ausgedrückt, obwohl die Abrechnung für „Eingehend“, „Ausgehend“ und „E/A“ nach Sekunden erfolgt. Wenn Ihr bereitgestellter ausgehender Datenverkehr beispielsweise 90&nbsp;Mebibyte pro Sekunde (MiB/s) ist und Ihr Schwellenwert 80&nbsp;% des bereitgestellten ausgehenden Datenverkehrs sein soll, wählen Sie die folgenden Warnungsparameter aus: 
    - Für **Fehlerschwellenwert**: *75497472* 
@@ -271,9 +300,9 @@ Weitere Informationen zum Konfigurieren von Warnungen in Azure Monitor finden Si
    - Für **Aggregationsgranularität**: *1 Stunde*
    - Für **Häufigkeit der Auswertung**: *1 Stunde*
 
-1. Wählen Sie **Aktionsgruppe auswählen** aus, und fügen Sie der Warnung eine Aktionsgruppe (z. B. E-Mail oder SMS) hinzu, indem Sie entweder eine vorhandene Aktionsgruppe auswählen oder eine neue erstellen.
-1. Geben Sie die Warnungsdetails ein, z. B. **Warnungsregelname**, **Beschreibung** und **Schweregrad**.
-1. Wählen Sie **Benachrichtigungsregel erstellen** aus, um die Benachrichtigung zu erstellen.
+9. Wählen Sie **Aktionsgruppe hinzufügen** aus, und fügen Sie der Warnung eine Aktionsgruppe (z. B. E-Mail oder SMS) hinzu, indem Sie entweder eine vorhandene Aktionsgruppe auswählen oder eine neue erstellen.
+10. Geben Sie die Warnungsdetails ein, z. B. **Warnungsregelname**, **Beschreibung** und **Schweregrad**.
+11. Wählen Sie **Benachrichtigungsregel erstellen** aus, um die Benachrichtigung zu erstellen.
 
     > [!NOTE]
     > - Wenn Sie benachrichtigt werden möchten, dass Ihre Premium-Dateifreigabe *aufgrund von bereitgestelltem eingehendem Datenverkehr* bald gedrosselt wird, führen Sie die vorstehenden Anweisungen aus, aber mit der folgenden Änderung:

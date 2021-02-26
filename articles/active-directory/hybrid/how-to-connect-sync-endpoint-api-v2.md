@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567630"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937612"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect-Synchronisierung: V2-Endpunkt-API 
 Microsoft hat einen neuen Endpunkt (API) für Azure AD Connect bereitgestellt, mit dem die Leistung der Synchronisierungsdienstvorgänge für Azure Active Directory verbessert wird. Wenn Sie den neuen V2-Endpunkt verwenden, treten beim Exportieren aus und Importieren in Azure AD spürbare Leistungssteigerungen auf. Dieser neue Endpunkt unterstützt Folgendes:
@@ -176,7 +176,7 @@ Wenn Sie den V2-Endpunkt aktiviert haben und ein Rollback ausführen müssen, f�
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen  
  
 **Wann wird der neue Endpunkt zum Standard für Upgrades und Neuinstallationen?**   
-</br>Wir planen ein neues Release von AAD Connect, das im Januar 2021 zum Download veröffentlicht werden soll. Dieses Release verwendet standardmäßig den V2-Endpunkt und ermöglicht die Synchronisierung von Gruppen mit mehr als 50.000 Mitgliedern ohne zusätzliche Konfigurationen. Anschließend wird das Release dann für das automatische Upgrade auf geeignete Server veröffentlicht.
+</br>Wir planen ein neues Release von AADConnect, das im Februar 2021 zum Herunterladen veröffentlicht werden soll. Dieses Release verwendet standardmäßig den V2-Endpunkt und ermöglicht die Synchronisierung von Gruppen mit mehr als 50.000 Mitgliedern ohne zusätzliche Konfigurationen. Anschließend wird dieses Release dann für das automatische Upgrade auf geeigneten Servern veröffentlicht.
  
 ## <a name="next-steps"></a>Nächste Schritte
 

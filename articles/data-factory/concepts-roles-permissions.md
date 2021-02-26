@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498573"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053770"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rollen und Berechtigungen für Azure Data Factory
 
@@ -56,6 +56,12 @@ Berechtigungen für Azure Repos und GitHub sind unabhängig von Data Factory-Ber
 
 > [!IMPORTANT]
 > Die Resource Manager-Vorlagenbereitstellung mit der Rolle **Data Factory-Mitwirkender** erhöht Ihre Berechtigungen nicht. Ein Beispiel: Wenn Sie eine Vorlage bereitstellen, die einen virtuellen Azure-Computer erstellt, und nicht über die Berechtigung zum Erstellen virtueller Computer verfügen, tritt bei der Bereitstellung ein Autorisierungsfehler auf.
+
+> [!IMPORTANT]
+> Die Berechtigung **Microsoft.DataFactory/factories/write** ist in beiden Modi im Veröffentlichungskontext erforderlich.
+
+- Im Livemodus ist diese Berechtigung nur erforderlich, wenn der Kunde globale Parameter ändert.
+- Im Git-Modus ist diese Berechtigung immer erforderlich, da nach jeder Veröffentlichung durch den Kunden das Factoryobjekt mit der letzten Commit-ID aktualisiert wird.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Benutzerdefinierte Szenarien und benutzerdefinierte Rollen
 

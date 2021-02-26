@@ -8,15 +8,15 @@ ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5a457a673500c542dd6130d5cfadd73ab677f7b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308654"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518350"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassisch): Fehlercodes der REST-API
 

@@ -2,13 +2,13 @@
 title: Azure NetApp Files mit Azure VMware Solution
 description: Verwenden Sie Azure NetApp Files mit Azure VMware Solution-VMs, um Daten zwischen lokalen Servern, Azure VMware Solution-VMs und Cloudinfrastrukturen zu migrieren und zu synchronisieren.
 ms.topic: how-to
-ms.date: 01/20/2021
-ms.openlocfilehash: 97a9172dfbed2722d4af0abbd6231a0367dc4e3c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.date: 02/08/2021
+ms.openlocfilehash: 69d4e3a99de28d55b2fd95b1fc05c04c2ae0a37b
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798023"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988644"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files mit Azure VMware Solution
 
@@ -16,7 +16,7 @@ In diesem Artikel werden die Schritte erläutert, mit denen Azure NetApp Files i
 
 ## <a name="azure-netapp-files-overview"></a>Übersicht über Azure NetApp Files
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) ist ein Azure-Erstanbieterdienst für die Migration und die Ausführung anspruchsvoller Unternehmensdateiworkloads in der Cloud, z. B. Datenbanken, SAP und High Performance Computing-Anwendungen, ohne dass Codeänderungen erforderlich sind.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) ist ein Azure-Dienst zum Migrieren und Ausführen der anspruchsvollsten Dateiworkloads von Unternehmen in der Cloud. Dies schließt Datenbanken, SAP und High Performance Computing-Anwendungen ohne Codeänderungen ein.
 
 ### <a name="features"></a>Features
 (Dienste, für die Azure NetApp Files verwendet wird.)
@@ -31,7 +31,7 @@ Azure NetApp Files ist in vielen Azure-Regionen verfügbar und unterstützt die 
 
 ## <a name="reference-architecture"></a>Referenzarchitektur
 
-Im folgenden Diagramm ist eine Verbindung über Azure ExpressRoute mit einer privaten Azure VMware Solution-Cloud dargestellt. Es veranschaulicht die Nutzung einer Azure NetApp Files-Freigabe, die auf Azure VMware Solution-VMs bereitgestellt wird und auf die von der Azure VMware Solution-Umgebung zugegriffen wird.
+Im folgenden Diagramm ist eine Verbindung über Azure ExpressRoute mit einer privaten Azure VMware Solution-Cloud dargestellt. Die Azure VMware Solution-Umgebung greift auf die Azure NetApp Files-Freigabe zu, die auf Azure VMware Solution-VMs bereitgestellt ist.
 
 ![Diagramm: NetApp Files für Azure VMware Solution-Architektur](media/net-app-files/net-app-files-topology.png)
 
@@ -83,11 +83,11 @@ In den folgenden Schritten geht es um die Überprüfung der vorkonfigurierten Az
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot: Konfigurationsdetails eines Volumes":::
 
-    Sie sehen, dass das Volume „anfvolume“ mit einer Größe von 200 GiB im Kapazitätspool „anfpool1“ erstellt und als NFS-Dateifreigabe über „10.22.3.4:/ANFVOLUME“ exportiert wurde. Eine private IP-Adresse aus dem virtuellen Azure-Netzwerk (VNET) wurde für Azure NetApp Files und den NFS-Pfad für die Bereitstellung der VM erstellt. Informationen zur Leistung des Azure NetApp Files-Volumes relativ zur Größe („Kontingent“) finden Sie unter [Überlegungen zur Leistung für Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    Sie können erkennen, dass das Volume ANFVOLUME eine Größe von 200 GiB hat und sich im Kapazitätspool ANFPOOL1 befindet.  Es wird als NFS-Dateifreigabe über 10.22.3.4:/ANFVOLUME exportiert. Eine private IP-Adresse aus dem virtuellen Azure-Netzwerk (VNET) wurde für Azure NetApp Files und den NFS-Pfad für die Bereitstellung der VM erstellt. Informationen zur Leistung des Azure NetApp Files-Volumes relativ zur Größe (bzw. zum Kontingent) finden Sie unter [Überlegungen zur Leistung für Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## <a name="verify-pre-configured-azure-vmware-solution-vm-share-mapping"></a>Überprüfen der Freigabezuordnung für die vorkonfigurierte Azure VMware Solution-VM
 
-Es ist wichtig, dass Sie sich vor dem Einrichten des Zugriffs einer Azure NetApp Files-Freigabe auf eine Azure VMware Solution-VM mit der Zuordnung von SMB- und NFS-Freigaben vertraut machen. Die SMB- oder NFS-Volumes können erst dann wie hier beschrieben bereitgestellt werden, nachdem sie konfiguriert wurden.
+Damit eine Azure NetApp Files-Freigabe auf eine Azure VMware Solution-VM zugreifen kann, ist es wichtig, die Zuordnung zwischen SMB- und NFS-Freigaben zu verstehen. Die SMB- oder NFS-Volumes können erst dann wie hier beschrieben bereitgestellt werden, nachdem sie konfiguriert wurden.
 
 - SMB-Freigabe: Erstellen Sie eine Active Directory-Verbindung, bevor Sie ein SMB-Volume bereitstellen. Damit erfolgreich eine Verbindung hergestellt werden kann, muss das delegierte Subnetz von Azure NetApp Files auf die angegebenen Domänencontroller zugreifen können. Nachdem die Active Directory-Instanz im Azure NetApp Files-Konto konfiguriert wurde, wird sie beim Erstellen eines SMB-Volumes als auswählbares Element angezeigt.
 
@@ -102,7 +102,10 @@ Hier sind einige interessante Anwendungsfälle für Azure NetApp Files aufgefüh
 - Dateifreigaben unter Azure VMware Solution
 
 ## <a name="next-steps"></a>Nächste Schritte
-- Informieren Sie sich über [Ressourcenlimits für Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
-- Lesen Sie den Artikel mit den [Richtlinien für die Azure NetApp Files-Netzwerkplanung](../azure-netapp-files/azure-netapp-files-network-topologies.md).
-- Erfahren Sie mehr zur [regionsübergreifenden Replikation von Azure NetApp Files-Volumes](../azure-netapp-files/cross-region-replication-introduction.md). 
-- Lesen Sie den Artikel mit den [häufig gestellten Fragen zu Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md).
+
+Nachdem Sie sich mit der Integration von Azure NetApp Files und Ihrer Azure VMware Solution-Workloads beschäftigt haben, möchten Sie möglicherweise mehr über Folgendes erfahren:
+
+- [Ressourceneinschränkungen](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
+- [Richtlinien für die Azure NetApp Files-Netzwerkplanung](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Regionsübergreifende Replikation von Azure NetApp Files-Volumes](../azure-netapp-files/cross-region-replication-introduction.md) 
+- [Häufig gestellte Fragen zu Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)

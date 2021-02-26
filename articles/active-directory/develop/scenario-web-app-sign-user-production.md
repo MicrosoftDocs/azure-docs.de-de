@@ -1,5 +1,6 @@
 ---
-title: Überführen einer Web-App für Benutzeranmeldungen in die Produktion – Microsoft Identity Platform | Azure
+title: Verschieben einer Web-App für die Benutzeranmeldung in die Produktion | Azure
+titleSuffix: Microsoft identity platform
 description: Erfahren Sie, wie Sie eine Web-App erstellen, die Benutzer anmeldet (Übergang in die Produktion).
 services: active-directory
 author: jmprieur
@@ -11,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169289"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584296"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Web-App für Benutzeranmeldungen: Überführen in die Produktion
 
-Da Sie nun wissen, wie Sie ein Token zum Abrufen von Web-APIs aufrufen, erfahren Sie in diesem Artikel, wie Ihnen der Übergang in die Produktion gelingt.
+Nachdem Sie nun wissen, wie Sie ein Token zum Aufrufen von Web-APIs abrufen, sollten Sie die folgenden Punkte beachten, wenn Sie Ihre Anwendung in die Produktion verschieben.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Problembehandlung
-
-> [!NOTE]
-> Wenn Benutzer sich das erste Mal bei der Webanwendung anmelden, ist eine Einwilligung erforderlich. In manchen Organisationen wird Benutzern jedoch eine Meldung ähnlich der folgenden angezeigt:
->
-> *Name_der_App benötigt für den Zugriff auf Ressourcen in Ihrer Organisation Berechtigungen, die nur ein Administrator erteilen kann. Bitten Sie einen Administrator, die Berechtigungen für diese App zu erteilen, damit Sie die App verwenden können.*
->
-> Dies liegt daran, dass Ihr Mandantenadministrator die Möglichkeit für Benutzer zur Zustimmung **deaktiviert** hat. In diesem Fall müssen Sie sich an Ihre Mandantenadministratoren wenden, damit diese eine Administratorzustimmung für die Bereiche erteilen, die für die Anwendung erforderlich sind.
+Wenn Benutzer sich das erste Mal bei der Webanwendung anmelden, ist eine Einwilligung erforderlich. In manchen Organisationen wird Benutzern jedoch eine Meldung ähnlich der folgenden angezeigt: *Name_der_App benötigt für den Zugriff auf Ressourcen in Ihrer Organisation Berechtigungen, die nur ein Administrator erteilen kann. Bitten Sie einen Administrator, die Berechtigungen für diese App zu erteilen, damit Sie die App verwenden können.*
+Dies liegt daran, dass Ihr Mandantenadministrator die Möglichkeit für Benutzer zur Zustimmung **deaktiviert** hat. In diesem Fall wenden Sie sich an Ihre Mandantenadministratoren, damit diese eine Administratoreinwilligung für die Bereiche erteilen, die für die Anwendung erforderlich sind.
 
 ## <a name="same-site"></a>Gleiche Website
 

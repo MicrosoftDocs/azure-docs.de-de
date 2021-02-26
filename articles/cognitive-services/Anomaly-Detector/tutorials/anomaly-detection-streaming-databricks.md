@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519132"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Anomalieerkennung für Streamingdaten mit Azure Databricks
 
@@ -95,7 +95,7 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Arbeitsbereich über da
     Übernehmen Sie alle anderen Standardwerte bis auf Folgendes:
 
    * Geben Sie einen Namen für den Cluster ein.
-   * Erstellen Sie im Rahmen dieses Artikels einen Cluster mit der Runtime **5.2**. Wählen Sie NICHT die Runtime  **5.3** aus.
+   * Erstellen Sie im Rahmen dieses Artikels einen Cluster mit der Runtime **5.2**. Wählen Sie NICHT die Runtime **5.3** aus.
    * Aktivieren Sie das Kontrollkästchen **Terminate after \_\_ minutes of inactivity** (Nach \_\_ Minuten Inaktivität beenden). Geben Sie an, nach wie vielen Minuten der Cluster beendet werden soll, wenn er nicht verwendet wird.
 
      Klicken Sie auf **Cluster erstellen**.
@@ -105,7 +105,7 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Arbeitsbereich über da
 
 Für den Empfang eines Datenstroms mit Tweets müssen Sie eine Anwendung in Twitter erstellen. Führen Sie die Schritte aus, um eine Twitter-Anwendung zu erstellen, und notieren Sie sich die Werte, die Sie zum Durcharbeiten dieses Tutorials benötigen.
 
-1. Navigieren Sie in einem Webbrowser zur Anwendungsverwaltung von Twitter ( [Twitter Application Management](https://apps.twitter.com/)), und klicken Sie auf **Create New App** (Neue App erstellen).
+1. Navigieren Sie in einem Webbrowser zur Anwendungsverwaltung von Twitter ([Twitter Application Management](https://apps.twitter.com/)), und klicken Sie auf **Create New App** (Neue App erstellen).
 
     ![Erstellen einer Twitter-Anwendung](../media/tutorials/databricks-create-twitter-app.png "Erstellen einer Twitter-Anwendung")
 
@@ -172,7 +172,7 @@ In diesem Tutorial verwenden Sie die [Anomalieerkennungs-APIs von Azure Cognitiv
 
      Klicken Sie auf **Erstellen**.
 
-5. Nachdem die Ressource erstellt wurde, kopieren Sie auf der Registerkarte **Übersicht** die **Endpunkt** -URL, und speichern Sie sie, wie es im Screenshot gezeigt ist. Wählen Sie dann **Zugriffsschlüssel anzeigen** aus.
+5. Nachdem die Ressource erstellt wurde, kopieren Sie auf der Registerkarte **Übersicht** die **Endpunkt**-URL, und speichern Sie sie, wie es im Screenshot gezeigt ist. Wählen Sie dann **Zugriffsschlüssel anzeigen** aus.
 
     ![Anzeigen von Zugriffsschlüsseln](../media/tutorials/cognitive-services-get-access-keys.png "Anzeigen von Zugriffsschlüsseln")
 
@@ -184,7 +184,7 @@ In diesem Tutorial verwenden Sie die [Anomalieerkennungs-APIs von Azure Cognitiv
 
 In diesem Abschnitt erstellen Sie zwei Notebooks mit den folgenden Namen im Databricks-Arbeitsbereich.
 
-- **SendTweetsToEventHub** : Ein Producer-Notebook, um Tweets von Twitter abzurufen und an Event Hubs zu streamen.
+- **SendTweetsToEventHub**: Ein Producer-Notebook, um Tweets von Twitter abzurufen und an Event Hubs zu streamen.
 - **AnalyzeTweetsFromEventHub:** Consumer-Notebook zum Lesen der Tweets von Event Hubs und Ausführen der Anomalieerkennung.
 
 1. Wählen Sie im linken Bereich des Azure Databricks-Arbeitsbereichs die Option **Arbeitsbereich** aus. Wählen Sie in der Dropdownliste **Arbeitsbereich** die Option **Erstellen** und dann **Notebook**.
@@ -586,7 +586,7 @@ groupTime                       average
 
 Führen Sie anschließend ein Delta für die ausgegebenen Ergebnisse aus. Da für die Anomalieerkennung ein längeres Verlaufsfenster erforderlich ist, verwenden wir Delta, um die Verlaufsdaten für den zu untersuchenden Zeitpunkt beizubehalten.
 Ersetzen Sie „[Placeholder: table name]“ durch einen qualifizierten Delta-Tabellennamen, der erstellt werden soll (z.B. „Tweets“). Ersetzen Sie „[Placeholder: folder name for checkpoints]“ durch einen Zeichenfolgenwert, der bei jeder Ausführung dieses Codes eindeutig ist (z.B. „etl-from-eventhub-20190605“).
-Weitere Informationen zu Delta Lake in Azure Databricks finden Sie im [Handbuch zu Delta Lake](https://docs.azuredatabricks.net/delta/index.html).
+Weitere Informationen zu Delta Lake in Azure Databricks finden Sie im [Handbuch zu Delta Lake](/databricks/delta/).
 
 
 ```scala
@@ -684,7 +684,7 @@ Auch wenn in diesem Tutorial ein Zeitraum von einer Stunde verwendet wurde, kön
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Nach Abschluss des Tutorials können Sie den Cluster beenden. Wählen Sie hierzu im linken Bereich des Azure Databricks-Arbeitsbereichs **Cluster** aus. Bewegen Sie den Cursor zum Beenden des Clusters auf die Auslassungspunkte in der Spalte **Aktionen** , und wählen Sie das Symbol **Beenden** und dann **Bestätigen** aus.
+Nach Abschluss des Tutorials können Sie den Cluster beenden. Wählen Sie hierzu im linken Bereich des Azure Databricks-Arbeitsbereichs **Cluster** aus. Bewegen Sie den Cursor zum Beenden des Clusters auf die Auslassungspunkte in der Spalte **Aktionen**, und wählen Sie das Symbol **Beenden** und dann **Bestätigen** aus.
 
 ![Beenden eines Databricks-Clusters](../media/tutorials/terminate-databricks-cluster.png "Beenden eines Databricks-Clusters")
 

@@ -12,6 +12,8 @@
   items:
     - name: Verschieben virtueller Azure-Computer in eine andere Region
       href: tutorial-move-region-virtual-machines.md
+    - name: Verschieben von verschlüsselten virtuellen Azure-Computern in eine andere Region
+      href: tutorial-move-region-encrypted-virtual-machines.md
     - name: Verschieben von SQL-Ressourcen in eine andere Region
       href: tutorial-move-region-sql.md
 - name: Konzepte

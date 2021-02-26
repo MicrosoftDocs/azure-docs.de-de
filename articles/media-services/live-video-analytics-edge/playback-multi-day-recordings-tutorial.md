@@ -3,12 +3,12 @@ title: 'Wiedergeben von mehrtägigen Aufzeichnungen: Azure'
 description: In diesem Tutorial erfahren Sie, wie Sie Azure Media Service-APIs verwenden, um eine mehrtägige fortlaufende Videoaufzeichnung wiederzugeben.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803431"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492788"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Wiedergeben von mehrtägigen Aufzeichnungen  
 
@@ -57,7 +57,7 @@ Im Rahmen des [CVR-Tutorials](continuous-video-recording-tutorial.md) haben Sie 
 }
 ```
 
-Öffnen Sie dann in Visual Studio „src/ams-asset-player“. Dieser Ordner enthält die erforderlichen Dateien für dieses Tutorial. Öffnen Sie die Datei „appsettings.json“, und kopieren Sie den Inhalt in eine neue Datei: „appsettings.development.json“. Nehmen Sie an der letztgenannten Datei folgende Änderungen vor:
+Öffnen Sie dann in Visual Studio „src/ams-asset-player“. Dieser Ordner enthält die erforderlichen Dateien für dieses Tutorial. Öffnen Sie die Datei „appsettings.json“, und kopieren Sie den Inhalt in eine neue Datei: „appsettings.development.json“. Nehmen Sie an der neu erstellten Datei „appsettings.development.json“ die folgenden Änderungen vor:
 
 ```
   "AMS" : {
@@ -70,7 +70,7 @@ Im Rahmen des [CVR-Tutorials](continuous-video-recording-tutorial.md) haben Sie 
 } 
 ```
 
-1. Öffnen Sie in Visual Studio Code die Registerkarte **Erweiterungen** (oder drücken Sie STRG+UMSCHALT+X), und suchen Sie nach Azure IoT Hub.
+1. Öffnen Sie in Visual Studio Code die Registerkarte **Erweiterungen** (oder drücken Sie STRG + UMSCHALT + X), und suchen Sie nach Azure IoT Hub.
 1. Klicken Sie mit der rechten Maustaste, um das Kontextmenü zu öffnen, und wählen Sie **Erweiterungseinstellungen** aus.
 
     > [!div class="mx-imgBorder"]
@@ -78,7 +78,7 @@ Im Rahmen des [CVR-Tutorials](continuous-video-recording-tutorial.md) haben Sie 
 1. Suchen Sie nach dem Kontrollkästchen „Show Verbose Message“ (Ausführliche Meldung anzeigen), und aktivieren Sie es.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Erweiterungseinstellungen":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message (Ausführliche Meldung anzeigen)":::
 1. <!--In Visual Studio Code, you can click-->Klicken Sie auf das Ausführen-Symbol auf der linken Seite (oder drücken Sie STRG+UMSCHALT+D), um die Ausführung der verfügbaren Anwendungen zu starten:
 
     ![Screenshot: Menü in Visual Studio Code mit dem ausgewählten Ausführungselement](./media/playback-multi-day-recordings-tutorial/run.png)

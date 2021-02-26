@@ -212,6 +212,8 @@
       items:
         - name: Erstellen eines Indexers
           href: search-howto-create-indexers.md
+        - name: Ausführen oder Zurücksetzen von Indexern
+          href: search-howto-run-reset-indexers.md
         - name: Planen eines Indexers
           href: search-howto-schedule-indexers.md
         - name: Definieren von Feldzuordnungen
@@ -302,10 +304,10 @@
               href: knowledge-store-projections-examples.md
     - name: Abfragen
       items:
-        - name: Abfragetypen und Komposition
-          href: search-query-overview.md
         - name: Erstellen einer einfachen Abfrage
           href: search-query-create.md
+        - name: Abfragetypen und Komposition
+          href: search-query-overview.md
         - name: Verwenden von einfacher Syntax (Beispiele)
           href: search-query-simple-examples.md
         - name: Verwenden der vollständigen Lucene-Syntax (Beispiele)
@@ -530,6 +532,8 @@
   items:
     - name: Azure-Communitysupport
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Partnerschwerpunktthema
+      href: resource-partners-knowledge-mining.md
     - name: Azure-Updates
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Feedback-Forum (UserVoice)
@@ -554,8 +558,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Developer-Kurs (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Partnerlösungen
-      href: resource-partners-knowledge-mining.md
     - name: Häufig gestellte Fragen
       href: search-faq-frequently-asked-questions.md
     - name: Preise

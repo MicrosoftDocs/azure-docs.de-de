@@ -3,7 +3,7 @@ title: Anzeigen und Konfigurieren von DDoS Protection-Warnungen für Azure DDoS 
 description: Erfahren Sie mehr zum Anzeigen und Konfigurieren von DDoS Protection-Warnungen für Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915146"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832520"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Anzeigen und Konfigurieren von DDoS-Schutzwarnungen
 
@@ -41,13 +41,14 @@ In diesem Tutorial lernen Sie Folgendes:
 Mit diesen Vorlagen können Sie Warnungen für alle öffentlichen IP-Adressen konfigurieren, für die Sie die Diagnoseprotokollierung aktiviert haben. Um diese Vorlagen für Warnungen verwenden zu können, benötigen Sie daher zunächst einen Log Analytics-Arbeitsbereich, in dem Diagnoseeinstellungen aktiviert sind. Weitere Informationen finden Sie unter [Anzeigen und Konfigurieren der DDoS-Diagnoseprotokollierung](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Azure Monitor-Warnungsregel
-Diese [Azure Monitor-Warnregel](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) führt eine einfache Abfrage aus, um festzustellen, wann eine aktive DDoS-Entschärfung auftritt. Dies deutet auf einen potenziellen Angriff hin. Aktionsgruppen dienen zum Aufrufen von Aktionen als Ergebnis der Warnung.
+
+Diese [Azure Monitor-Warnregel](https://aka.ms/DDOSmitigationstatus) führt eine einfache Abfrage aus, um festzustellen, wann eine aktive DDoS-Entschärfung auftritt. Dies deutet auf einen potenziellen Angriff hin. Aktionsgruppen dienen zum Aufrufen von Aktionen als Ergebnis der Warnung.
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Azure Monitor-Warnungsregel mit Logik-App
 
-Diese [Vorlage](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) stellt die erforderlichen Komponenten einer angereicherten DDoS-Entschärfungswarnung bereit: Azure Monitor-Warnungsregel, Aktionsgruppe und Logik-App. Das Ergebnis des Vorgangs ist eine E-Mail-Warnung mit Details zur angegriffenen IP-Adresse, einschließlich Informationen zur mit der IP-Adresse verbundene Ressource. Der Besitzer der Ressource wird neben dem Sicherheitsteam als Empfänger der E-Mail hinzugefügt. Es erfolgt auch ein grundlegender Test der Verfügbarkeit der Anwendung, dessen Ergebnisse in die E-Mail-Warnung aufgenommen werden.
+Diese [Vorlage](https://aka.ms/ddosalert) stellt die erforderlichen Komponenten einer angereicherten DDoS-Entschärfungswarnung bereit: Azure Monitor-Warnungsregel, Aktionsgruppe und Logik-App. Das Ergebnis des Vorgangs ist eine E-Mail-Warnung mit Details zur angegriffenen IP-Adresse, einschließlich Informationen zur mit der IP-Adresse verbundene Ressource. Der Besitzer der Ressource wird neben dem Sicherheitsteam als Empfänger der E-Mail hinzugefügt. Es erfolgt auch ein grundlegender Test der Verfügbarkeit der Anwendung, dessen Ergebnisse in die E-Mail-Warnung aufgenommen werden.
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
@@ -64,7 +65,7 @@ Mithilfe der Warnungskonfiguration von Azure Monitor können Sie jede der verfü
     |---------                |---------                                                                                           |
     | Bereich                   | Klicken Sie auf **Ressource auswählen**. </br> Wählen Sie das **Abonnement** mit der öffentlichen IP-Adresse aus, die Sie protokollieren möchten. Wählen Sie **Öffentliche IP-Adresse** als **Ressourcentyp** aus. Wählen Sie anschließend die öffentliche IP-Adresse aus, für die Sie Metriken protokollieren möchten. </br> Wählen Sie **Fertig** aus. | 
     | Bedingung | Wählen Sie **Bedingung auswählen** aus. </br> Wählen Sie unter „Signalname“ die Option **Unter DDoS-Angriff oder nicht** aus. </br> Wählen Sie **Größer oder gleich** als **Operator** aus. </br> Wählen Sie **Maximum** für **Aggregationstyp** aus. </br> Geben Sie *1* in **Schwellenwert** ein. Bei der Metrik **Unter DDoS-Angriff oder nicht** bedeutet **0**, dass Sie nicht angegriffen werden, während **1** bedeutet, dass Sie angegriffen werden. </br> Wählen Sie **Fertig** aus. | 
-    | Actions | Wählen Sie **Aktionsgruppen hinzufügen** aus. </br> Wählen Sie **Aktionsgruppe erstellen** aus. </br> Wählen Sie unter **Benachrichtigungen** als **Benachrichtigungstyp** die Option **E-Mail/SMS/Push/Sprachanruf** aus. </br> Geben Sie _MyUnderAttackEmailAlert_ in **Name** ein. </br> Klicken Sie auf die Schaltfläche „Bearbeiten“. Wählen Sie dann **E-Mail** und so viele der folgenden Optionen, wie Sie benötigen, und anschließend **OK** aus. </br> Klicken Sie auf **Überprüfen + erstellen**. | 
+    | Aktionen | Wählen Sie **Aktionsgruppen hinzufügen** aus. </br> Wählen Sie **Aktionsgruppe erstellen** aus. </br> Wählen Sie unter **Benachrichtigungen** als **Benachrichtigungstyp** die Option **E-Mail/SMS/Push/Sprachanruf** aus. </br> Geben Sie _MyUnderAttackEmailAlert_ in **Name** ein. </br> Klicken Sie auf die Schaltfläche „Bearbeiten“. Wählen Sie dann **E-Mail** und so viele der folgenden Optionen, wie Sie benötigen, und anschließend **OK** aus. </br> Klicken Sie auf **Überprüfen + erstellen**. | 
     | Warnungsregeldetails | Geben Sie _MyDdosAlert_ unter **Name der Warnungsregel** ein. |
 
 Innerhalb weniger Minuten nach Erkennung eines Angriffs erhalten Sie eine E-Mail von Azure Monitor-Metriken, die der folgenden Abbildung ähnelt:

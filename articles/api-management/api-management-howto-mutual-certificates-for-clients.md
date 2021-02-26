@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099345"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988886"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Sichern von APIs über eine Clientzertifikatauthentifizierung in API Management
 
@@ -94,6 +94,18 @@ Das folgende Beispiel zeigt, wie Sie den Fingerabdruck eines Clientzertifikats a
 > [!TIP]
 > Das Problem aufgrund eines Clientzertifikat-Deadlocks, das in [diesem Artikel](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) beschrieben ist, kann auf unterschiedliche Art und Weise auftreten, z. B. Einfrieren von Anforderungen, Anforderungen führen nach dem Timeout zum Status `403 Forbidden` oder `context.Request.Certificate` ist `null`. Dieses Problem wirkt sich normalerweise auf Anforderungen vom Typ `POST` und `PUT` mit einer Inhaltslänge von ca. 60 KB oder mehr aus.
 > Um dieses Problem zu verhindern, aktivieren Sie auf dem Blatt „Benutzerdefinierte Domänen“ die Einstellung „Clientzertifikat aushandeln“ für gewünschte Hostnamen, wie auf der ersten Abbildung dieses Dokuments gezeigt. Dieses Feature ist im Tarif „Verbrauch“ nicht verfügbar.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Zertifikatsüberprüfung in selbs gehostetem Gateway
+
+Das Standardimage des [selbstgehosteten Gateways](self-hosted-gateway-overview.md) von API Management unterstützt nicht die Validierung von Server- und Clientzertifikaten mithilfe von [Stammzertifikaten von Zertifizierungsstellen](api-management-howto-ca-certificates.md), die in eine API Management-Instanz hochgeladen wurden. Bei Clients, die dem selbstgehosteten Gateway ein benutzerdefiniertes Zertifikat vorlegen, kann es zu langsamen Antworten kommen, da es bei der Überprüfung der Zertifikatssperrliste auf dem Gateway sehr lange bis zu einem Timeout dauern kann. 
+
+Als Problemumgehung beim Ausführen des Gateways können Sie die IP-Adresse der PKI so konfigurieren, dass sie auf die Adresse von localhost (127.0.0.1) statt auf die API Management-Instanz zeigt. Dies führt dazu, dass die Überprüfung der Zertifikatsperrliste schnell fehlschlägt, wenn das Gateway versucht, das Zertifikat des Clients zu überprüfen. Fügen Sie zum Konfigurieren des Gateways einen DNS-Eintrag für die API Management-Instanz hinzu, der in der Datei `/etc/hosts` im Container in localhost aufgelöst wird. Sie können diesen Eintrag während der Gatewaybereitstellung hinzufügen:
+ 
+* Fügen Sie für die Docker-Bereitstellung dem Befehl `docker run` den Parameter `--add-host <hostname>:127.0.0.1` hinzu. Weitere Informationen finden Sie unter [Hinzufügen von Einträgen zur Containerdatei „hosts“](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
+ 
+* Fügen Sie für die Kubernetes-Bereitstellung zur Konfigurationsdatei `myGateway.yaml` die Spezifikation `hostAliases` hinzu. Weitere Informationen finden Sie unter [Adding entries to Pod /etc/hosts with Host Aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/) (Hinzufügen von Einträgen zu Pod (/etc/hosts) mit Hostaliasen).
+
+
 
 
 ## <a name="next-steps"></a>Nächste Schritte

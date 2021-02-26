@@ -7,33 +7,45 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358795"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063212"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Festlegen eines Zeitplans für Indexer in der kognitiven Azure-Suche
 
-Ein Indexer wird normal einmal ausgeführt, und zwar sofort nach der Erstellung. Sie können ihn über das Portal, die REST-API oder das .NET SDK nach Bedarf erneut ausführen. Sie können den Indexer auch so konfigurieren, dass er regelmäßig nach einem Zeitplan ausgeführt wird.
+Ein Indexer wird normal einmal ausgeführt, und zwar sofort nach der Erstellung. Anschließend können Sie ihn im Azure-Portal, über [Indexer ausführen (REST-API)](/rest/api/searchservice/run-indexer) oder über ein Azure SDK nach Bedarf erneut ausführen. Alternativ können Sie einen Indexer auch so konfigurieren, dass er nach einem Zeitplan ausgeführt wird. Fälle, in denen das Festlegen eines Zeitplans für einen Indexer nützlich ist:
 
-Situationen, in denen das Festlegen eines Zeitplans für den Indexer nützlich ist:
-
-* Quelldaten ändern sich im Lauf der Zeit, und die Indexer der kognitiven Azure-Suche sollten die geänderten Daten automatisch verarbeiten.
-* Der Index wird aus mehreren Datenquellen aufgefüllt, und Sie möchten sicherstellen, dass die Indexer zu unterschiedlichen Zeiten ausgeführt werden, um Konflikte zu vermeiden.
+* Die Quelldaten ändern sich im Lauf der Zeit, und der Suchindexer soll die Deltadaten automatisch verarbeiten.
 * Die Quelldaten sind sehr groß, und die Indexerausführung soll auf verschiedene Zeiten verteilt werden. Weitere Informationen zur Indizierung großer Datenmengen finden Sie unter [Indizieren großer Datasets in der kognitiven Azure-Suche](search-howto-large-index.md).
+* Ein Suchindex wird aus mehreren Datenquellen aufgefüllt, und die Indexer sollen zu unterschiedlichen Zeiten ausgeführt werden, um Konflikte zu vermeiden.
 
-Der Scheduler ist eine integrierte Funktion der kognitiven Azure-Suche. Sie können keinen externen Scheduler verwenden, um Azure Search-Indexer zu steuern.
+Ein Zeitplan kann beispielsweise wie folgt aussehen: Beginn am 1. Januar und Ausführung alle 50 Minuten.
 
-## <a name="define-schedule-properties"></a>Definieren der Zeitplaneigenschaften
+```json
+{
+    "dataSourceName" : "myazuresqldatasource",
+    "targetIndexName" : "target index name",
+    "schedule" : { "interval" : "PT50M", "startTime" : "2021-01-01T00:00:00Z" }
+}
+```
 
-Ein Indexerzeitplan besitzt zwei Eigenschaften:
-* **Intervall**: Definiert die Zeitspanne zwischen geplanten Indexerausführungen. Das kleinste zulässige Intervall beträgt 5 Minuten, und das größte 24 Stunden.
-* **Startzeit (UTC)** : Gibt an, wann der Indexer zum ersten Mal ausgeführt werden soll.
+> [!NOTE]
+> Der Scheduler ist eine integrierte Funktion der kognitiven Azure-Suche. Externe Scheduler werden nicht unterstützt.
 
-Sie können einen Zeitplan festlegen, wenn Sie den Indexer erstmalig erstellen, oder die Eigenschaften des Indexers später aktualisieren. Zeitpläne für Indexer können mit dem [Portal](#portal), der [REST-API](#restApi) oder dem [.NET SDK](#dotNetSdk) festgelegt werden.
+## <a name="schedule-property"></a>schedule-Eigenschaft
+
+Ein Zeitplan ist Teil der Indexerdefinition. Wenn die **schedule**-Eigenschaft ausgelassen wird, wird der Indexer nur einmal unmittelbar nach seiner Erstellung ausgeführt. Wenn Sie eine **schedule**-Eigenschaft hinzufügen, geben Sie zwei Teile an.
+
+| Eigenschaft | BESCHREIBUNG |
+|----------|-------------|
+|**Intervall** | (erforderlich) Die Zeitspanne zwischen dem Start von zwei aufeinanderfolgenden Indexerausführungen. Das kürzeste zulässige Zeitintervall ist 5 Minuten und das längste 1.440 Minuten (24 Stunden). Es muss als XSD-Wert „dayTimeDuration“ formatiert sein (eine eingeschränkte Teilmenge eines [ISO 8601-Zeitwerts](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Das Muster hierfür lautet wie folgt: `P(nD)(T(nH)(nM))`. <br/><br/>Beispiele: `PT15M` = alle 15 Minuten, `PT2H` = alle 2 Stunden.|
+| **Startzeit (UTC)** | (optional) Gibt an, wann die geplanten Ausführungen beginnen sollen. Wenn kein Wert angegeben wird, wird die aktuelle UTC-Zeit verwendet. Diese Zeitangabe kann in der Vergangenheit liegen. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der ursprünglich mit **startTime** angegebenen Startzeit kontinuierlich ausgeführt worden.<br/><br/>Beispiele: `2021-01-01T00:00:00Z` ab Mitternacht am 1. Januar, `2021-01-05T22:28:00Z` ab 22:28 Uhr am 5. Januar.|
+
+## <a name="scheduling-behavior"></a>Planungsverhalten
 
 Nur eine Ausführung eines Indexers kann zu einem gegebenen Zeitpunkt ausgeführt werden. Wird ein Indexer zu dem Zeitpunkt, für den seine nächste Ausführung geplant ist, bereits ausgeführt, wird diese Ausführung auf den nächsten geplanten Zeitpunkt verschoben.
 
@@ -44,29 +56,11 @@ Betrachten wir ein Beispiel, um dies zu konkreter veranschaulichen. Angenommen, 
 * Der Start der dritten Ausführung ist für 10:00 Uhr (UTC) geplant, aber zu diesem Zeitpunkt ist die vorherige Ausführung noch nicht abgeschlossen. Diese geplante Ausführung wird dann übersprungen. Die nächste Ausführung des Indexers startet somit erst um 11:00 Uhr (UTC).
 
 > [!NOTE]
-> Wenn ein Indexer auf einen bestimmten Zeitplan festgelegt ist, im gleichen Dokument bei erneuter Ausführung aber immer wieder ein Fehler auftritt, wird der Indexer in selteneren Intervallen ausgeführt (bis hin zum Maximum von mindestens einmal in 24 Stunden), bis die Ausführung fehlerfrei verläuft.  Wenn Sie der Meinung sind, dass Sie das Problem behoben haben, das dafür gesorgt hat, dass der Indexer an einem bestimmten Punkt hängengeblieben ist, können Sie eine bedarfsgesteuerte Ausführung des Indexers veranlassen. Wenn diese Ausführung erfolgreich verläuft, wird der Indexer wieder im festgelegten Zeitplanintervall ausgeführt.
+> Wenn ein Indexer auf einen bestimmten Zeitplan festgelegt ist, im gleichen Dokument aber wiederholt ein Fehler auftritt, wird der Indexer in selteneren Intervallen ausgeführt (bis hin zum maximalen Intervall von mindestens einmal in 24 Stunden), bis die Ausführung fehlerfrei verläuft. Wenn Sie denken, dass Sie das zugrunde liegende Problem behoben haben, können Sie den Indexer manuell ausführen. Wenn die Indizierung dann erfolgreich ausgeführt wird, wird der Indexer auf den regulären Zeitplan zurückgesetzt.
 
-<a name="portal"></a>
+## <a name="schedule-using-rest"></a>Festlegen eines Zeitplans mit REST
 
-## <a name="schedule-in-the-portal"></a>Festlegen eines Zeitplans im Portal
-
-Mit dem Datenimport-Assistenten im Portal können Sie den Zeitplan für einen Indexer zum Zeitpunkt der Erstellung definieren. Die Standardeinstellung für den Zeitplan ist **Stündlich**. Das bedeutet, dass der Indexer einmal nach der Erstellung ausgeführt und die Ausführung dann stündlich einmal wiederholt wird.
-
-Sie können die Zeitplaneinstellung auf **Einmal** ändern, wenn der Indexer nicht automatisch erneut ausgeführt werden soll, oder auf **Täglich**, um ihn einmal pro Tag auszuführen. Legen Sie ihn auf **Benutzerdefiniert** fest, wenn Sie ein anderes Intervall oder eine bestimmte Startzeit in der Zukunft angeben möchten.
-
-Wenn Sie den Zeitplan auf **Benutzerdefiniert** festlegen, werden weitere Felder angezeigt, in denen Sie das **Intervall** und die **Startzeit (UTC)** angeben können. Das kürzeste zulässige Zeitintervall ist 5 Minuten und das längste 1440 Minuten (24 Stunden).
-
-   ![Festlegen des Indexerzeitplans im Datenimport-Assistenten](media/search-howto-schedule-indexers/schedule-import-data.png "Festlegen des Indexerzeitplans im Datenimport-Assistenten")
-
-Nach der Erstellung eines Indexers können Sie die Zeitplaneinstellungen mithilfe des Bearbeitungsbereichs im Indexer ändern. Die Zeitplanfelder im Datenimport-Assistent sind identisch.
-
-   ![Festlegen des Zeitplans im Bearbeitungsbereich des Indexers](media/search-howto-schedule-indexers/schedule-edit.png "Festlegen des Zeitplans im Bearbeitungsbereich des Indexers")
-
-<a name="restApi"></a>
-
-## <a name="schedule-using-rest-apis"></a>Festlegen eines Zeitplans mithilfe von REST-APIs
-
-Sie können den Zeitplan für einen Indexer mithilfe der REST-API definieren. Dazu fügen Sie die **schedule**-Eigenschaft beim Erstellen oder Aktualisieren des Indexers hinzu. Das folgende Beispiel zeigt eine PUT-Anforderung zum Aktualisieren eines vorhandenen Indexers:
+Geben Sie die **schedule**-Eigenschaft beim Erstellen oder Aktualisieren des Indexers an.
 
 ```http
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
@@ -76,23 +70,13 @@ Sie können den Zeitplan für einen Indexer mithilfe der REST-API definieren. Da
     {
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
     }
 ```
 
-Der Parameter **interval** ist erforderlich. Das Intervall bezieht sich auf den Zeitraum zwischen dem Start von zwei aufeinander folgenden Indexerausführungen. Das kleinste zulässige Intervall beträgt 5 Minuten. Das längste ist ein Tag. Es muss als XSD-Wert „dayTimeDuration“ formatiert sein (eine eingeschränkte Teilmenge eines [ISO 8601-Zeitwerts](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Das Muster hierfür lautet wie folgt: `P(nD)(T(nH)(nM))`. Beispiele: `PT15M` = alle 15 Minuten, `PT2H` = alle 2 Stunden.
+## <a name="schedule-using-net"></a>Festlegen eines Zeitplans mithilfe von .NET
 
-Der optionale Parameter **startTime** gibt an, wann die geplanten Ausführungen beginnen sollen. Wird er weggelassen, wird die aktuelle UTC-Zeit verwendet. Diese Zeitangabe kann in der Vergangenheit liegen. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der ursprünglich mit **startTime** angegebenen Startzeit kontinuierlich ausgeführt worden.
-
-Sie können einen Indexer bei Bedarf auch jederzeit mit dem Aufruf „Indexer ausführen“ ausführen. Weitere Informationen zum Ausführen von Indexern und zum Festlegen von Indexerzeitplänen finden Sie unter [Run Indexer](/rest/api/searchservice/run-indexer) (Ausführen eines Indexers), [Get Indexer](/rest/api/searchservice/get-indexer) (Abrufen eines Indexers) und [Update Indexer](/rest/api/searchservice/update-indexer) (Aktualisieren eines Indexers) in der REST-API-Referenz.
-
-<a name="dotNetSdk"></a>
-
-## <a name="schedule-using-the-net-sdk"></a>Festlegen eines Zeitplans mit dem .NET SDK
-
-Sie können den Zeitplan für einen Indexer mithilfe des .NET SDK der kognitiven Azure-Suche definieren. Dazu fügen Sie beim Erstellen oder Aktualisieren eines Indexers die **Schedule**-Eigenschaft hinzu.
-
-Das folgende C#-Beispiel erstellt einen Indexer für Azure SQL-Datenbank unter Verwendung einer vordefinierten Datenquelle und eines Index und legt den Zeitplan so fest, dass der Indexer jetzt und dann einmal pro Tag ausgeführt wird:
+Das folgende C#-Beispiel erstellt einen Indexer für Azure SQL-Datenbank unter Verwendung einer vordefinierten Datenquelle und eines Index und legt den Zeitplan so fest, dass der Indexer sofort und dann einmal pro Tag ausgeführt wird:
 
 ```csharp
 var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
@@ -109,15 +93,11 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
 await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
+Wenn Sie einen Indexer mit [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) erstellen oder aktualisieren, wird der Zeitplan mithilfe der [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule)-Klasse definiert. Der **IndexingSchedule**-Konstruktor erfordert einen **Interval**-Parameter, der mit einem **TimeSpan**-Objekt angegeben wird. Wie bereits erwähnt, beträgt das kleinste zulässige Intervall 5 Minuten und das größte 24 Stunden. Der zweite **StartTime**-Parameter, der als ein **DateTimeOffset**-Objekt angegeben wird, ist optional.
 
-Wenn der **Schedule**-Parameter ausgelassen wird, wird der Indexer nur einmal ausgeführt, unmittelbar nachdem er erstellt wurde.
+## <a name="next-steps"></a>Nächste Schritte
 
-Der **StartTime**-Parameter kann auf einen Zeitpunkt in der Vergangenheit festgelegt werden. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der mit **StartTime** angegebenen Startzeit kontinuierlich ausgeführt worden.
+Für Indexer, die nach einem Zeitplan ausgeführt werden, können Sie Vorgänge überwachen, indem Sie den Status des Suchdiensts abrufen, oder detaillierte Informationen abfragen, indem Sie die Diagnoseprotokollierung aktivieren.
 
-Der Zeitplan wird mit der [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule)-Klasse definiert. Der **IndexingSchedule**-Konstruktor erfordert einen **Interval**-Parameter, der mit einem **TimeSpan**-Objekt angegeben wird. Das kleinste zulässige Intervall beträgt 5 Minuten, und das größte 24 Stunden. Der zweite **StartTime**-Parameter, der als ein **DateTimeOffset**-Objekt angegeben wird, ist optional.
-
-Das .NET SDK ermöglicht Ihnen, Indexervorgänge mit [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) zu steuern. 
-
-Sie können einen Indexer bei Bedarf jederzeit mit einer der Methoden [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) oder [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) ausführen.
-
-Weitere Informationen zum Erstellen, Aktualisieren und Ausführen von Indexern finden Sie unter [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
+* [Überwachen des Status von Suchindexern](search-howto-monitor-indexers.md)
+* [Sammeln und Analysieren von Protokolldaten](search-monitor-logs.md)

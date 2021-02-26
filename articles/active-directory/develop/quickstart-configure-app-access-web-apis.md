@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012120"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102562"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Schnellstart: Konfigurieren einer Clientanwendung für den Zugriff auf eine Web-API
 
@@ -42,7 +42,7 @@ Im folgenden Diagramm ist dargestellt, wie die beiden App-Registrierungen zueina
 
 Nachdem Sie sowohl die Client-App als auch die Web-API registriert und die API durch das Erstellen von Bereichen verfügbar gemacht haben, können Sie die Berechtigungen der Client-App für die API konfigurieren, indem Sie die folgenden Schritte ausführen:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im oberen Menü den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, der die Registrierung der Client-App enthält.
 1. Wählen Sie **Azure Active Directory** > **App-Registrierungen** aus, und wählen Sie dann Ihre Client Anwendung aus (*nicht* Ihre Web-API).
 1. Wählen Sie über die Option **API-Berechtigungen** > **Berechtigung hinzufügen** > **Meine APIs** aus.
@@ -71,7 +71,7 @@ Zusätzlich zum Zugriff auf Ihre eigene Web-API im Namen des angemeldeten Benutz
 
 Konfigurieren Sie die delegierte Berechtigung für Microsoft Graph, damit Ihre Clientanwendung Vorgänge im Namen des angemeldeten Benutzers ausführen kann, z. B. das Lesen seiner E-Mail oder das Ändern seines Profils. Standardmäßig werden die Benutzer Ihrer Client-App bei der Anmeldung aufgefordert, den delegierten Berechtigungen zuzustimmen, die Sie für die App konfiguriert haben.
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im oberen Menü den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, der die Registrierung der Client-App enthält.
 1. Wählen Sie **Azure Active Directory** > **App-Registrierungen** aus, und wählen Sie dann Ihre Client Anwendung aus.
 1. Wählen Sie **API-Berechtigungen** > **Berechtigung hinzufügen** > **Microsoft Graph** aus.
@@ -96,7 +96,7 @@ Konfigurieren Sie Anwendungsberechtigungen für eine Anwendung, die sich ohne Be
 
 In den folgenden Schritten erteilen Sie die Berechtigung für die Microsoft Graph-Berechtigung *Files.Read.All* als Beispiel.
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im oberen Menü den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, der die Registrierung der Client-App enthält.
 1. Wählen Sie **Azure Active Directory** > **App-Registrierungen** aus, und wählen Sie dann Ihre Client Anwendung aus.
 1. Wählen Sie **API-Berechtigungen** > **Berechtigung hinzufügen** > **Microsoft Graph** > **Anwendungsberechtigungen** aus.

@@ -7,29 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 10dff18f7b9db7273fcd6ec92bcca5970bb83b08
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 01/27/2021
+ms.openlocfilehash: b5ae38a3dc4a9324a4141314106d67c96c06c8e6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510368"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955036"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Java-Codebeispiele für Azure Cognitive Search
 
-Hier finden Sie Informationen zu den Java-Codebeispielen, die die Features und Funktionen von Azure Cognitive Search veranschaulichen. Primäre Repositorys:
+Hier finden Sie Informationen zu den Java-Codebeispielen, die die Funktionen und den Workflow einer Azure Cognitive Search-Lösung veranschaulichen. In diesen Beispielen wird die [**Azure Cognitive Search-Clientbibliothek**](/java/api/overview/azure/search-documents-readme) für das [**Azure SDK für .Java**](/azure/developer/java/sdk) verwendet, die Sie über die folgenden Links erkunden können.
 
-| Repository | BESCHREIBUNG |
-|------------|-------------|
-| [azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | Vom Azure SDK-Team erstellte Beispiele, die in der Clientbibliothek „Azure.Search.Documents“ des SDK enthalten sind. Anhand von [Komponententests](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) für die Clientbibliothek können Sie sich außerdem ansehen, wie verschiedene APIs aufgerufen werden. |
-| [Azure-Samples/azure-search-java-samples](https://github.com/Azure-Samples/azure-search-java-samples) | Codebeispiele zu Artikeln mit Anleitungen. **Die Beispiele in diesem Repository wurden noch nicht für das Azure SDK für Java aktualisiert**. Derzeit werden in diesen Beispielen REST-APIs in Java-Code aufgerufen.|
+| Ziel | Link |
+|--------|------|
+| Paketdownload | [search.maven.org/artifact/com.azure/azure-search-documents](https://search.maven.org/artifact/com.azure/azure-search-documents) |
+| API-Referenz | [com.azure.search.documents](/java/api/com.azure.search.documents)  |
+| API-Testfälle | [github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/test](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/test) |
+| Quellcode | [github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src)  |
 
-> [!Tip]
-> Testen Sie den [Beispielbrowser](/samples/browse/?languages=java&products=azure-cognitive-search), um GitHub nach Microsoft-Codebeispielen zu durchsuchen (gefiltert nach Produkt, Dienst und Sprache).
+## <a name="sdk-samples"></a>SDK-Beispiele
 
-## <a name="java-sdk-samples"></a>Java SDK-Beispiele
-
-Das Azure SDK für Java enthält zahlreiche Beispiele und eine [Seite „Erste Schritte“](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) zur Paketinstallation. Auf der Seite ist außerdem eine Reihe von Beispielen aufgeführt. Einige der gängigeren Vorgänge sind unten aufgeführt.
+Die Codebeispiele vom Azure SDK-Entwicklungsteam veranschaulichen die API-Verwendung. Sie finden diese Beispiele in GitHub unter [**Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples**](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples).
 
 | Beispiele | BESCHREIBUNG |
 |---------|-------------|
@@ -41,11 +40,22 @@ Das Azure SDK für Java enthält zahlreiche Beispiele und eine [Seite „Erste S
 | [Laden von Dokumenten](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/IndexContentManagementExample.java) | Veranschaulicht das Hochladen oder Zusammenführen von Dokumenten in einen Index in einem [Datenimport](search-what-is-data-import.md)-Vorgang. |
 | [Abfragesyntax](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchAsyncWithFullyTypedDocumentsExample.java) | Veranschaulicht das Einrichten einer [einfachen Abfrage](search-query-overview.md). |
 
-## <a name="documentation-samples"></a>Dokumentationsbeispiele
+## <a name="doc-samples"></a>Dokumentationsbeispiele
 
-Zu den folgenden Beispielen ist ein entsprechender Artikel in der [Dokumentation zu Azure Cognitive Search](./index.yml) vorhanden.
+Die Codebeispiele vom Cognitive Search-Team veranschaulichen die Funktionen und Workflows. Auf viele dieser Beispiele wird in Tutorials, Schnellstarts und Anleitungen verwiesen. Sie finden diese Beispiele in GitHub unter [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples).
 
-| Beispiele | BESCHREIBUNG | 
+| Beispiele | Artikel | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | Quellcode für [Schnellstart: Erstellen eines Suchindex in Java](search-get-started-java.md). In diesem Beispiel werden die REST-APIs aufgerufen. |
-| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Veranschaulicht einen Azure Cosmos DB-Indexer in Java. In diesem Beispiel werden die REST-APIs aufgerufen. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Quellcode für [Schnellstart: Erstellen eines Suchindex in Java und REST](search-get-started-java.md). Dieses Beispiel wurde nicht für das Java SDK aktualisiert. Es werden die REST-APIs aufgerufen. |
+
+> [!Tip]
+> Testen Sie den [Beispielbrowser](/samples/browse/?languages=java&products=azure-cognitive-search), um GitHub nach Microsoft-Codebeispielen zu durchsuchen (gefiltert nach Produkt, Dienst und Sprache).
+
+## <a name="other-samples"></a>Weitere Beispiele
+
+Die folgenden Beispiele werden ebenfalls vom Cognitive Search-Team veröffentlicht, ohne dass jedoch in der Dokumentation auf sie Bezug genommen wird. Die zugehörigen Infodateien enthalten Anweisungen zu ihrer Verwendung.
+
+| Beispiele | BESCHREIBUNG |
+|---------|-------------|
+| [search-java-getting-started](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-getting-started) | Verwendet die Java SDK-Clientbibliothek, um einen Suchindex zu erstellen, zu laden und abzufragen. Dieses Beispiel ist derzeit eigenständig. |
+| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/search-java-indexer-demo) | Veranschaulicht einen Azure Cosmos DB-Indexer in Java. Dieses Beispiel wurde nicht für das Java SDK aktualisiert. Es werden die REST-APIs aufgerufen.|

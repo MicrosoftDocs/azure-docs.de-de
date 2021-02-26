@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786841"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559657"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Verwenden von Speech-Diensten über einen privaten Endpunkt
 
@@ -268,8 +268,6 @@ Wenn Sie nur über private Endpunkte auf die Ressource zugreifen, können Sie di
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Überprüfen Sie, ob die IP-Adresse mit der IP-Adresse Ihres privaten Endpunkts übereinstimmt.
-
 > [!NOTE]
 > Die aufgelöste IP-Adresse verweist auf einen Proxyendpunkt eines virtuellen Netzwerks, der den Netzwerkdatenverkehr an den privaten Endpunkt für die Cognitive Services-Ressource sendet. Das Verhalten unterscheidet sich bei einer Ressource mit einem benutzerdefinierter Domänennamen aber *ohne* private Endpunkte. Details dazu finden Sie in [diesem Abschnitt](#dns-configuration).
 
@@ -311,6 +309,10 @@ Hier sehen Sie ein Beispiel für eine Anforderungs-URL:
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> In [diesem Artikel](sovereign-clouds.md) finden Sie Informationen zu Azure Government- und Azure China-Endpunkten.
+
 Nachdem Sie benutzerdefinierte Domänen für eine Speech-Ressource aktiviert haben (für private Endpunkte erforderlich), verwendet diese das folgende DNS-Namensmuster für den grundlegenden REST-API-Endpunkt: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 In diesem Beispiel lautet der Name des REST-API-Endpunkts dann: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ Die [Spracherkennungs-REST-API für kurze Audiodaten](rest-speech-to-text.md#spe
 - [Regionale Cognitive Services-Endpunkte](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) für die Kommunikation mit der Cognitive Services-REST-API, um ein Autorisierungstoken abzurufen
 - Spezielle Endpunkte für alle sonstigen Vorgänge
 
-Eine ausführliche Beschreibung dieser speziellen Endpunkte und Informationen zur Transformation der URL für eine Speech-Ressource mit aktivierten privaten Endpunkten finden Sie in [diesem Unterabschnitt](#general-principles) zur Verwendung mit dem Speech-SDK. Das Prinzip für das SDK gilt auch für die Spracherkennungs-REST-API 1.0 und die Sprachsynthese-REST-API.
+> [!NOTE]
+> In [diesem Artikel](sovereign-clouds.md) finden Sie Informationen zu Azure Government- und Azure China-Endpunkten.
+
+Eine ausführliche Beschreibung dieser speziellen Endpunkte und Informationen zur Transformation der URL für eine Speech-Ressource mit aktivierten privaten Endpunkten finden Sie in [diesem Unterabschnitt](#construct-endpoint-url) zur Verwendung mit dem Speech-SDK. Das Prinzip für das SDK gilt auch für die Spracherkennungs-REST-API für kurze Audiodaten und die Sprachsynthese-REST-API.
 
 Lesen Sie das Material im entsprechenden Unterabschnitt im vorherigen Absatz, und sehen Sie sich dann das folgende Beispiel an. In diesem Beispiel wird die Sprachsynthese-REST-API beschrieben. Die Verwendung der Spracherkennungs-REST-API für kurze Audiodaten ist identisch.
 
 > [!NOTE]
-> Wenn Sie die Spracherkennungs-REST-API für kurze Audiodaten in Szenarios mit privaten Endpunkten nutzen, verwenden Sie ein Autorisierungstoken, das im `Authorization`-[Header](rest-speech-to-text.md#request-headers) [übergeben](rest-speech-to-text.md#request-headers) wird. Das Übergeben eines Speech-Abonnementschlüssels an den speziellen Endpunkt über den `Ocp-Apim-Subscription-Key`-Header funktioniert *nicht* und führt dazu, dass der Fehler 401 auftritt.
+> Wenn Sie die Spracherkennungs-REST-API für kurze Audiodaten und die Sprachsynthese-REST-API in Szenarien mit privaten Endpunkten verwenden, nutzen Sie einen Abonnementschlüssel, der über den `Ocp-Apim-Subscription-Key`-Header übergeben wird. (Weitere Informationen finden Sie unter [Spracherkennungs-REST-API für kurze Audiodaten](rest-speech-to-text.md#request-headers) und [Sprachsynthese-REST-API](rest-text-to-speech.md#request-headers))
+>
+> Das Verwenden eines Autorisierungstokens und dessen Übergabe an den speziellen Endpunkt über den `Authorization`-Header funktioniert *nur*, wenn Sie die Zugriffsoption **Alle Netzwerke** im Abschnitt **Netzwerk** Ihrer Speech-Ressource aktiviert haben. In anderen Fällen erhalten Sie entweder den Fehler `Forbidden` oder `BadRequest`, wenn Sie versuchen, ein Autorisierungstoken abzurufen.
 
 **Verwendungsbeispiel für die Sprachsynthese-REST-API**
 
 In diesem Beispiel wird „Europa, Westen“ als Azure-Region und `my-private-link-speech.cognitiveservices.azure.com` als DNS-Name der Speech-Ressource (benutzerdefinierte Domäne) verwendet. Der benutzerdefinierte Domänenname `my-private-link-speech.cognitiveservices.azure.com` in diesem Beispiel gehört zu der Ressource, die in der Region „Europa, Westen“ erstellt wurde.
 
-Die folgenden beiden Vorgänge sind erforderlich, um die Liste der unterstützten Stimmen für die Region abzurufen:
+Führen Sie die folgende Anforderung durch, um die Liste der unterstützten Stimmen für die Region abzurufen:
 
-- Rufen Sie ein Autorisierungstoken ab:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- Verwenden Sie das Token, um die Liste der Stimmen abzurufen:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Eine ausführlichere Erläuterung der obigen Schritte finden Sie in der [Dokumentation zur Sprachsynthese-REST-API](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Weitere Informationen finden Sie in der [Dokumentation zur Sprachsynthese-REST-API](rest-text-to-speech.md).
 
-Für Speech-Ressourcen mit aktivierten privaten Endpunkten müssen die Endpunkt-URLs geändert werden, damit diese Abfolge funktioniert. Die Abfolge sollte folgendermaßen aussehen:
+Für Speech-Ressourcen mit aktivierten privaten Endpunkten muss die Endpunkt-URL für denselben Vorgang geändert werden. Dieselbe Anforderung sieht dann wie folgt aus:
 
-- Rufen Sie ein Autorisierungstoken ab:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Eine ausführlichere Erläuterung finden Sie weiter oben im Unterabschnitt [Spracherkennungs-REST-API 3.0](#speech-to-text-rest-api-v30).
-
-- Verwenden Sie das Authentifizierungstoken, um die Liste der Stimmen abzurufen:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Eine ausführliche Erläuterung finden Sie im Unterabschnitt [Allgemeine Prinzipien](#general-principles) für das Speech-SDK.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Eine ausführliche Erläuterung finden Sie im Unterabschnitt [Erstellen der Endpunkt-URL](#construct-endpoint-url) für das Speech SDK.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Verwenden von Speech-Ressourcen mit benutzerdefiniertem Domänennamen und privatem Endpunkt: Verwendung mit dem Speech-SDK
 
@@ -377,9 +372,9 @@ Für die Verwendung des Speech-SDK mit Speech-Ressourcen, für die benutzerdefin
 
 In diesem Abschnitt wird `my-private-link-speech.cognitiveservices.azure.com` als DNS-Beispielname (benutzerdefinierte Domäne) für die Speech-Ressource verwendet.
 
-##### <a name="general-principles"></a>Allgemeine Prinzipien
+##### <a name="construct-endpoint-url"></a>Erstellen der Endpunkt-URL
 
-In SDK-Szenarios (und Szenarios mit der Sprachsynthese-REST-API) verwenden Speech-Ressourcen in der Regel die dedizierten regionalen Endpunkte für verschiedene Dienstangebote. Das DNS-Namensformat für diese Endpunkte lautet:
+In SDK-Szenarios (und Szenarios mit der Spracherkennungs-REST-API für kurze Audiodaten und der Sprachsynthese-REST-API) verwenden Speech-Ressourcen in der Regel die dedizierten regionalen Endpunkte für verschiedene Dienstangebote. Das DNS-Namensformat für diese Endpunkte lautet:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,7 +382,7 @@ Ein DNS-Name kann beispielsweise folgendermaßen lauten:
 
 `westeurope.stt.speech.microsoft.com`
 
-Die möglichen Werte für die Region (erstes Element des DNS-Namens) werden [hier](regions.md) aufgeführt. Die folgende Tabelle enthält die möglichen Werte für das jeweilige Speech-Angebot (zweites Element des DNS-Namens):
+Die möglichen Werte für die Region (erstes Element des DNS-Namens) werden [hier](regions.md) aufgeführt. (In [diesem Artikel](sovereign-clouds.md) finden Sie Informationen zu Azure Government- und Azure China-Endpunkten.) Die folgende Tabelle enthält die möglichen Werte für das jeweilige Speech-Angebot (zweites Element des DNS-Namens):
 
 | DNS-Namenswert | Speech-Angebot                                    |
 |----------------|-------------------------------------------------------------|
@@ -395,7 +390,7 @@ Die möglichen Werte für die Region (erstes Element des DNS-Namens) werden [hie
 | `convai`       | [Unterhaltungstranskription](conversation-transcription.md) |
 | `s2s`          | [Sprachübersetzung](speech-translation.md)                 |
 | `stt`          | [Spracherkennung](speech-to-text.md)                         |
-| `tts`          | [Text-zu-Sprache](text-to-speech.md)                         |
+| `tts`          | [Sprachsynthese](text-to-speech.md)                         |
 | `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
 
 Das obige Beispiel (`westeurope.stt.speech.microsoft.com`) steht also für den Spracherkennungs-Endpunkt in der Region „Europa, Westen“.
@@ -459,7 +454,7 @@ Führen Sie die folgenden Schritte aus, um Ihren Code zu ändern:
 
 2. Erstellen Sie eine `SpeechConfig`-Instanz, indem Sie eine vollständige Endpunkt-URL verwenden:
 
-   1. Ändern Sie den festgelegten Endpunkt wie zuvor unter [Allgemeine Prinzipien](#general-principles) beschrieben.
+   1. Ändern Sie den festgelegten Endpunkt wie zuvor im Abschnitt [Erstellen der Endpunkt-URL](#construct-endpoint-url) beschrieben.
 
    1. Passen Sie die Erstellung der `SpeechConfig`-Instanz an. Ihre Anwendung enthält wahrscheinlich eine Zeile, die der folgenden ähnelt:
       ```csharp
@@ -537,70 +532,28 @@ Die Verwendung der Spracherkennungs-REST-API 3.0 entspricht dem Szenario für [
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>Spracherkennungs-REST-API für kurze Audiodaten und Sprachsynthese-REST-API
 
-In diesem Fall besteht im Allgemeinen kein Unterschied zwischen der Verwendung der Spracherkennungs-REST-API für kurze Audiodaten und der Sprachsynthese-REST-API. Lediglich bei der Spracherkennungs-REST-API für kurze Audiodaten gibt es eine Ausnahme. Beachten Sie hierzu den folgenden Hinweis. Beide APIs sollten wie in den Dokumentationen [Spracherkennungs-REST-API für kurze Audiodaten](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) und [Sprachsynthese-REST-API](rest-text-to-speech.md) beschrieben eingesetzt werden.
+In diesem Fall besteht im Allgemeinen kein Unterschied zwischen der Verwendung der Spracherkennungs-REST-API für kurze Audiodaten und der Sprachsynthese-REST-API. Es gibt lediglich eine Ausnahme. Beachten Sie hierzu den folgenden Hinweis. Beide APIs sollten wie in den Dokumentationen [Spracherkennungs-REST-API für kurze Audiodaten](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) und [Sprachsynthese-REST-API](rest-text-to-speech.md) beschrieben eingesetzt werden.
 
 > [!NOTE]
-> Wenn Sie die Spracherkennungs-REST-API für kurze Audiodaten in Szenarios mit benutzerdefinierten Domänen nutzen, verwenden Sie ein Autorisierungstoken, das über einen `Authorization`-[Header](rest-speech-to-text.md#request-headers) [übergeben](rest-speech-to-text.md#request-headers) wird. Das Übergeben eines Speech-Abonnementschlüssels an den speziellen Endpunkt über den `Ocp-Apim-Subscription-Key`-Header funktioniert *nicht* und führt dazu, dass der Fehler 401 auftritt.
+> Wenn Sie die Spracherkennungs-REST-API für kurze Audiodaten und die Sprachsynthese-REST-API in Szenarien mit benutzerdefinierten Domänen verwenden, nutzen Sie einen Abonnementschlüssel, der über den `Ocp-Apim-Subscription-Key`-Header übergeben wird. (Weitere Informationen finden Sie unter [Spracherkennungs-REST-API für kurze Audiodaten](rest-speech-to-text.md#request-headers) und [Sprachsynthese-REST-API](rest-text-to-speech.md#request-headers))
+>
+> Das Verwenden eines Autorisierungstokens und dessen Übergabe an den speziellen Endpunkt über den `Authorization`-Header funktioniert *nur*, wenn Sie die Zugriffsoption **Alle Netzwerke** im Abschnitt **Netzwerk** Ihrer Speech-Ressource aktiviert haben. In anderen Fällen erhalten Sie entweder den Fehler `Forbidden` oder `BadRequest`, wenn Sie versuchen, ein Autorisierungstoken abzurufen.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Verwenden einer Speech-Ressource mit benutzerdefiniertem Domänennamen und ohne private Endpunkte: Verwendung mit dem Speech-SDK
 
-Für die Verwendung des Speech-SDK mit Speech-Ressourcen, für die benutzerdefinierte Domänen, aber *keine* privaten Endpunkte aktiviert sind, sind höchstwahrscheinlich ein Review und Änderungen an Ihrem Anwendungscode notwendig. Beachten Sie, dass diese Änderungen sich vom Szenario einer [Speech-Ressource mit aktivierten privaten Endpunkten](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) unterscheidet. Eine nahtlosere Unterstützung des Szenarios mit privaten Endpunkten und benutzerdefinierten Domänen ist in Arbeit.
+Die Verwendung des Speech SDK mit Speech-Ressourcen mit aktivierter benutzerdefinierter Domäne *ohne* private Endpunkte entspricht dem allgemeinen Fall, wie er in der [Dokumentation zum Speech SDK](speech-sdk.md) beschrieben ist.
 
-In diesem Abschnitt wird `my-private-link-speech.cognitiveservices.azure.com` als DNS-Beispielname (benutzerdefinierte Domäne) für die Speech-Ressource verwendet.
+Falls Sie Ihren Code geändert haben, um ihn mit einer [Speech-Ressource mit aktiviertem privaten Endpunkt](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) zu verwenden, beachten Sie Folgendes.
 
 Im Abschnitt zu [Speech-Ressourcen mit aktivierten privaten Endpunkten](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) wurde erläutert, wie die Endpunkt-URL bestimmt, geändert und über die Initialisierungen FromEndpoint und WithEndpoint der Klasseninstanz `SpeechConfig` funktionsfähig gemacht werden kann.
 
 Wenn Sie diese Anwendung jedoch ausführen, nachdem alle privaten Endpunkte entfernt wurden (mit etwas Zeit für die erneute Bereitstellung des entsprechenden DNS-Eintrags), tritt ein interner Dienstfehler (404) auf. Das liegt daran, dass der [DNS-Eintrag](#dns-configuration) jetzt auf den regionalen Cognitive Services-Endpunkt anstatt auf den Proxy des virtuellen Netzwerks verweist. Dort werden URL-Pfade wie `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` nicht gefunden.
 
-Wenn Sie die Anwendung wie im folgenden Code auf die Standardinstanziierung von `SpeechConfig` zurücksetzen, wird sie beendet, und der Authentifizierungsfehler 401 wird angezeigt:
+Sie müssen ein Rollback Ihrer Anwendung auf die Standardinstanziierung von `SpeechConfig` im Stil des folgenden Codes ausführen:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>Ändern von Anwendungen
-
-Führen Sie die folgenden Schritte aus, damit Ihre Anwendung eine Speech-Ressource mit einem benutzerdefinierten Domänennamen und ohne private Endpunkte verwendet:
-
-1. Fordern Sie ein Autorisierungstoken über die Cognitive Services-REST-API an. In [diesem Artikel](../authentication.md#authenticate-with-an-authentication-token) wird beschrieben, wie Sie das Token abrufen.
-
-   Verwenden Sie Ihren benutzerdefinierten Domänennamen in der Endpunkt-URL. In diesem Beispiel lautet die URL wie folgt:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Diese URL finden Sie im Azure-Portal. Klicken Sie auf der Seite Ihrer Speech-Ressource in der Gruppe **Ressourcenverwaltung** auf **Keys and Endpoint** (Schlüssel und Endpunkt).
-
-1. Erstellen Sie mit dem im vorherigen Abschnitt abgerufenen Autorisierungstoken eine `SpeechConfig`-Instanz. Nehmen Sie an, dass die folgenden Variablen definiert sind:
-
-   - `token` enthält das im vorherigen Abschnitt abgerufene Autorisierungstoken.
-   - `azureRegion` enthält den Namen der [Region](regions.md) der Speech-Ressource (z. B. `westeurope`).
-   - `outError`: nur für [Objective-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror)-Szenarios
-
-   Erstellen Sie eine solche `SpeechConfig`-Instanz:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> Der Aufrufer muss sicherstellen, dass das Autorisierungstoken gültig ist. Bevor das Autorisierungstoken abläuft, muss der Aufrufer es aktualisieren, indem er diesen Setter mit einem neuen gültigen Token aufruft. Da die Konfigurationswerte bei der Erstellung eines neuen Erkennungs- oder Synthesemoduls kopiert werden, gilt der neue Tokenwert nicht für bereits erstellte Erkennungs- oder Synthesemodule.
->
-> Legen Sie für diese das Autorisierungstoken des entsprechenden Erkennungs- oder Synthesemoduls fest, um das Token zu aktualisieren. Wenn Sie das Token nicht aktualisieren, treten bei der Verwendung des Erkennungs- oder Synthesemoduls Fehler auf.
-
-Nachdem Sie diese Änderung vorgenommen haben, sollte Ihre Anwendung mit Speech-Ressourcen kompatibel sein, die einen benutzerdefinierten Domänennamen ohne private Endpunkte verwenden.
 
 ## <a name="pricing"></a>Preise
 
@@ -611,4 +564,4 @@ Ausführliche Preisinformationen finden Sie unter [Azure Private Link – Preise
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
 * [Spracherkennungs-REST-API](rest-speech-to-text.md)
-* [Sprachsynthese-REST-API](rest-text-to-speech.md)
+* [Text-to-Speech-REST-API](rest-text-to-speech.md)

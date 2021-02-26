@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/07/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: eb71db05a61a0e32f3f092f37a4da72bc04e581d
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935648"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525754"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Konfigurieren der Computerolle auf einem Azure Stack Edge Pro-Gerät mit GPU
 
@@ -43,40 +43,7 @@ Stellen Sie Folgendes sicher, bevor Sie eine Computerolle auf Ihrem Azure Stack 
 
 ## <a name="configure-compute"></a>Konfigurieren der Computeumgebung
 
-Zur Konfiguration der Computerolle auf Ihrem Azure Stack Edge Pro-Gerät erstellen Sie im Azure-Portal eine IoT Hub-Ressource.
-
-1. Navigieren Sie im Azure-Portal für Ihre Azure Stack Edge-Ressource zu **Übersicht**, und wählen Sie **IoT Edge** aus.
-
-   ![Erste Schritte mit Compute](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
-
-2. Wählen Sie unter **IoT Edge-Dienst aktivieren** die Option **Hinzufügen** aus.
-
-   ![Konfigurieren der Computeumgebung](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
-
-3. Geben Sie auf dem Blatt **Edgecomputing konfigurieren** die folgenden Informationen ein:
-   
-   |Feld  |Wert  |
-   |---------|---------|
-   |IoT Hub     | Wählen Sie zwischen **Neu** und **Vorhanden**. <br> Standardmäßig wird ein Standard-Tarif (S1) verwendet, um eine IoT-Ressource zu erstellen. Wenn Sie eine IoT-Ressource im Free-Tarif verwenden möchten, können Sie diese erstellen und dann als vorhandene Ressource auswählen. <br> Die IoT Hub-Ressource nutzt in jedem Fall dasselbe Abonnement und dieselbe Ressourcengruppe wie die Azure Stack Edge-Ressource.     |
-   |Name     |Geben Sie einen Namen für Ihre IoT Hub-Ressource ein.         |
-
-   ![Erste Schritte mit Compute 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
-
-4. Wenn Sie die Einstellungen abgeschlossen haben, wählen Sie **Überprüfen + erstellen** aus. Überprüfen Sie die Einstellungen für Ihre IoT Hub-Ressource, und wählen Sie **Erstellen** aus.
-
-   Die Ressourcenerstellung für eine IoT Hub-Ressource dauert einige Minuten. Nach der Erstellung der Ressource ist in der **Übersicht** angegeben, dass der IoT Edge-Dienst jetzt ausgeführt wird.
-
-   ![Erste Schritte mit Compute 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
-
-5. Wenn Sie überprüfen möchten, ob die Edge-Computerolle konfiguriert wurde, wählen Sie **Eigenschaften** aus.
-
-   ![Erste Schritte mit Compute 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
-
-   Wenn die Edge-Computerolle auf dem Edge-Gerät eingerichtet ist, werden zwei Geräte erstellt: ein IoT-Gerät und ein IoT Edge-Gerät. Beide Geräte können in der IoT Hub-Ressource angezeigt werden. Auf diesem IoT Edge-Gerät wird auch eine IoT Edge-Runtime ausgeführt. Derzeit ist für Ihr IoT Edge-Gerät nur die Linux-Plattform verfügbar.
-
-Die Computekonfiguration kann 20 bis 30 Minuten dauern, da im Hintergrund virtuelle Computer und ein Kubernetes-Cluster erstellt werden.
-
-Nachdem Sie die Computerolle erfolgreich im Azure-Portal konfiguriert haben, sind ein Kubernetes-Cluster und ein Standardbenutzer vorhanden, die dem IoT-Namespace (einem von Azure Stack Edge Pro kontrollierten Systemnamespace) zugeordnet sind.
+[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
 
 ## <a name="get-kubernetes-endpoints"></a>Abrufen der Kubernetes-Endpunkte
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602122"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576260"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codieren mit den Azure Digital Twins-APIs
 
@@ -253,12 +253,16 @@ An dieser Stelle des Tutorials verfügen Sie über eine vollständige Client-App
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
- 
-Die in diesem Tutorial verwendete Instanz kann im nächsten Tutorial wiederverwendet werden: [ *Erkunden von Azure Digital Twins mit einer Beispielclient-App*](tutorial-command-line-app.md). Wenn Sie auch das nächste Tutorial bearbeiten möchten, können Sie die hier eingerichtete Azure Digital Twins-Instanz beibehalten.
+
+Nach Abschluss dieses Tutorials können Sie die zu entfernenden Ressourcen auswählen, abhängig davon, wie Sie weiter vorgehen möchten.
+
+* **Wenn Sie mit dem nächsten Tutorial fortfahren möchten**, kann die in diesem Tutorial verwendete Instanz im nächsten Tutorial wiederverwendet werden. Sie können die hier eingerichteten Azure Digital Twins-Ressourcen behalten und den restlichen Teil dieses Abschnitts überspringen.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Löschen Sie abschließend den Projektordner, den Sie auf Ihrem lokalen Computer erstellt haben.
+Löschen Sie ggf. auch den Projektordner von Ihrem lokalen Computer.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

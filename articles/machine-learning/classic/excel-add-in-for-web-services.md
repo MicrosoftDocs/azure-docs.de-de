@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Excel-Add-In für Webdienste – Azure'
 description: Hier wird erläutert, wie Sie Azure Machine Learning-Webdienste direkt in Excel ohne Erstellung von Code verwenden.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310086"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519999"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-Add-In für (klassische) Azure Machine Learning Studio-Webdienste
 
@@ -49,7 +49,7 @@ Rufen Sie den API-Schlüssel Ihres Webdiensts ab. Wo diese Aktion durchgeführt 
 
 **Verwenden eines klassischen Webdiensts** 
 
-1. Klicken Sie in Machine Learning Studio (klassisch) im linken Bereich auf den Abschnitt **WEBDIENSTE** , und wählen Sie den Webdienst aus.
+1. Klicken Sie in Machine Learning Studio (klassisch) im linken Bereich auf den Abschnitt **WEBDIENSTE**, und wählen Sie den Webdienst aus.
    
     ![Studio – Webdienst auswählen](./media/excel-add-in-for-web-services/image4.png)
 2. Kopieren Sie den API-Schlüssel für den Webdienst.

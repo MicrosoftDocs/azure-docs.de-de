@@ -3,17 +3,17 @@ title: Benutzerdefinierte Zuweisungsrichtlinien beim Azure IoT Hub Device Provis
 description: Verwenden benutzerdefinierter Zuweisungsrichtlinien mit Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2019
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571639"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919202"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Verwenden benutzerdefinierter Zuweisungsrichtlinien
 
@@ -66,7 +66,7 @@ In diesem Abschnitt verwenden Sie Azure Cloud Shell zum Erstellen eines Bereitst
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Verwenden Sie Azure Cloud Shell zum Erstellen eines Device Provisioning-Diensts mit dem Befehl [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). Der Bereitstellungsdienst wird zu *contoso-us-resource-group* hinzugefügt.
+2. Verwenden Sie Azure Cloud Shell zum Erstellen eines Gerätebereitstellungsdiensts mit dem Befehl [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). Der Bereitstellungsdienst wird zu *contoso-us-resource-group* hinzugefügt.
 
     Im folgenden Beispiel wird am Standort *westus* ein Bereitstellungsdienst mit dem Namen *contoso-provisioning-service-1098* erstellt. Sie müssen einen eindeutigen Dienstnamen verwenden. Verwenden Sie im Dienstnamen ein eigenes Suffix anstelle von **1098**.
 
@@ -78,8 +78,11 @@ In diesem Abschnitt verwenden Sie Azure Cloud Shell zum Erstellen eines Bereitst
 
 3. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Toaster“** . Der IoT-Hub wird zu *contoso-us-resource-group* hinzugefügt.
 
-    Im folgenden Beispiel wird in der Region *westus* ein IoT-Hub mit dem Namen *contoso-toasters-hub-1098* erstellt. Sie müssen einen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. Im Beispielcode für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname `-toasters-` enthalten.
+    Im folgenden Beispiel wird in der Region *westus* ein IoT-Hub mit dem Namen *contoso-toasters-hub-1098* erstellt. Sie müssen einen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. 
 
+    > [!CAUTION]
+    > Im Beispielcode der Azure-Funktion für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname die Teilzeichenfolge `-toasters-` enthalten. Stellen Sie sicher, dass Sie einen Namen verwenden, der die erforderliche Teilzeichenfolge „Toaster“ enthält.
+    
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
@@ -88,13 +91,35 @@ In diesem Abschnitt verwenden Sie Azure Cloud Shell zum Erstellen eines Bereitst
 
 4. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Wärmepumpen“** . Dieser IoT-Hub wird ebenfalls zu *contoso-us-resource-group* hinzugefügt.
 
-    Im folgenden Beispiel wird in der Region *westus* ein IoT-Hub mit dem Namen *contoso-heatpumps-hub-1098* erstellt. Sie müssen einen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. Im Beispielcode für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname `-heatpumps-` enthalten.
+    Im folgenden Beispiel wird in der Region *westus* ein IoT-Hub mit dem Namen *contoso-heatpumps-hub-1098* erstellt. Sie müssen einen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. 
+
+    > [!CAUTION]
+    > Im Beispielcode der Azure-Funktion für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname die Teilzeichenfolge `-heatpumps-` enthalten. Stellen Sie sicher, dass Sie einen Namen wählen, der die erforderliche Teilzeichenfolge „Wärmepumpen“ enthält.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
     Die Ausführung dieses Befehls kann einige Minuten in Anspruch nehmen.
+
+5. Die IoT-Hubs müssen mit der DPS-Ressource verknüpft werden. 
+
+    Führen Sie die beiden folgenden Befehle aus, um die Verbindungszeichenfolgen für die gerade erstellten Hubs zu erhalten. Ersetzen Sie die Namen der Hubressourcen durch die Namen, die Sie in den einzelnen Befehlen gewählt haben:
+
+    ```azurecli-interactive 
+    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
+    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```
+
+    Führen Sie die folgenden Befehle aus, um die Hubs mit der DPS-Ressource zu verknüpfen. Ersetzen Sie den DPS-Ressourcennamen durch den Namen, den Sie in den einzelnen Befehlen gewählt haben:
+
+    ```azurecli-interactive 
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    ```
+
+
+
 
 ## <a name="create-the-custom-allocation-function"></a>Erstellen der benutzerdefinierten Zuordnungsfunktion
 
@@ -114,6 +139,8 @@ In diesem Abschnitt erstellen Sie eine Azure-Funktion, die Ihre benutzerdefinier
 
     **Laufzeitstapel**: Wählen Sie in der Dropdownliste **.NET Core** aus.
 
+    **Version**: Wählen Sie in der Dropdownliste **3.1** aus.
+
     **Region**: Wählen Sie die gleiche Region wie für Ihre Ressourcengruppe aus. In diesem Beispiel wird **USA, Westen** verwendet.
 
     > [!NOTE]
@@ -123,19 +150,15 @@ In diesem Abschnitt erstellen Sie eine Azure-Funktion, die Ihre benutzerdefinier
 
 4. Wählen Sie auf der Seite **Zusammenfassung** die Option **Erstellen** aus, um die Funktions-App zu erstellen. Die Bereitstellung kann mehrere Minuten dauern. Wenn der Vorgang abgeschlossen ist, wählen Sie **Zu Ressource wechseln** aus.
 
-5. Wählen Sie im linken Bereich der Seite **Zusammenfassung** für die Funktions-App **+** neben **Funktionen** aus, um eine neue Funktion hinzuzufügen.
+5. Klicken Sie im linken Bereich der Funktions-App auf der Seite **Übersicht** auf **Funktionen** und dann auf **+ Hinzufügen**, um die neue Funktion hinzuzufügen.
 
-    ![Hinzufügen einer Funktion zur Funktions-App](./media/how-to-use-custom-allocation-policies/create-function.png)
+6. Klicken Sie auf der Seite **Funktion hinzufügen** auf **HTTP-Trigger** und dann auf die Schaltfläche **Hinzufügen**.
 
-6. Wählen Sie auf der Seite **Azure-Funktionen für .NET – Erste Schritte** für den Schritt **WÄHLEN SIE EINE BEREITSTELLUNGSUMGEBUNG AUS** die Kachel **Im Portal** aus, und wählen Sie dann **Weiter**.
+7. Klicken Sie auf der nächsten Seite auf **Programmieren und testen**. Dadurch können Sie den Code für die Funktion namens **HttpTrigger1** bearbeiten. Die Codedatei **run.csx** sollte zur Bearbeitung geöffnet werden.
 
-    ![Auswählen der Portalentwicklungsumgebung](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+8. Verweisen Sie auf die erforderlichen NuGet-Pakete. Zum Erstellen des anfänglichen Gerätezwillings verwendet die benutzerdefinierte Zuordnungsfunktion Klassen, die in zwei NuGet-Paketen definiert sind, die in die Hostumgebung geladen werden müssen. In Azure Functions wird auf NuGet-Pakete über die *function.proj* verwiesen. In diesem Schritt speichern Sie die Datei *function.proj* für die benötigten Assemblys und laden sie hoch.  Weitere Informationen finden Sie unter [Verwenden von NuGet-Paketen mit Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
-7. Wählen Sie auf der nächsten Seite für den Schritt **FUNKTION ERSTELLEN** die Kachel **Webhook + API** aus, und wählen Sie dann **Erstellen**. Eine Funktion mit dem Namen **HttpTrigger1** wird erstellt, und im Portal wird der Inhalt der Codedatei **run.csx** angezeigt.
-
-8. Verweisen Sie auf die erforderlichen NuGet-Pakete. Zum Erstellen des anfänglichen Gerätezwillings verwendet die benutzerdefinierte Zuordnungsfunktion Klassen, die in zwei NuGet-Paketen definiert sind, die in die Hostumgebung geladen werden müssen. In Azure Functions wird auf NuGet-Pakete mithilfe der Datei *function.host* verwiesen. In diesem Schritt speichern Sie die Datei *function.host* und laden sie hoch.
-
-    1. Kopieren Sie die folgenden Zeilen in Ihren bevorzugten Editor, und speichern Sie die Datei unter dem Namen *function.host* auf Ihrem Computer.
+    1. Kopieren Sie die folgenden Zeilen in Ihren bevorzugten Editor, und speichern Sie die Datei unter dem Namen *function.proj* auf Ihrem Computer.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -143,21 +166,15 @@ In diesem Abschnitt erstellen Sie eine Azure-Funktion, die Ihre benutzerdefinier
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
             </ItemGroup>  
         </Project>
         ```
 
-    2. Erweitern Sie in der **HttpTrigger1**-Funktion auf der rechten Seite des Fensters die Registerkarte **Dateien anzeigen**.
+    2. Klicken Sie über dem Code-Editor auf die Schaltfläche **Hochladen**, um Ihre Datei *function.proj* hochzuladen. Wählen Sie nach dem Hochladen die Datei im Code-Editor über das Dropdownfeld aus, um den Inhalt zu überprüfen.
 
-        ![Öffnen von „Dateien anzeigen“](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
-
-    3. Wählen Sie **Hochladen** aus, navigieren Sie zur Datei **function.proj**, und wählen Sie **Öffnen**, um die Datei hochzuladen.
-
-        ![Option zum Hochladen der Datei](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
-
-9. Ersetzen Sie den Code für die **HttpTrigger1**-Funktion durch den folgenden Code, und wählen Sie **Speichern** aus:
+9. Stellen Sie sicher, dass im Code-Editor *run.csx* für **HttpTrigger1** ausgewählt ist. Ersetzen Sie den Code für die **HttpTrigger1**-Funktion durch den folgenden Code, und wählen Sie **Speichern** aus:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -314,29 +331,15 @@ In diesem Abschnitt erstellen Sie eine neue Registrierungsgruppe, von der die be
 
     **Wählen Sie, wie Geräte den Hubs zugewiesen werden sollen**: Wählen Sie **Benutzerdefiniert (Azure-Funktion verwenden)** .
 
+    **Abonnement**: Wählen Sie das Abonnement aus, in dem Sie Ihre Azure-Funktion erstellt haben.
+
+    **Funktions-App**: Wählen Sie Ihre Funktions-App anhand des Namens aus. In diesem Beispiel wurde **contoso-function-app-1098** verwendet.
+
+    **Funktion**: Wählen Sie die Funktion **HttpTrigger1** aus.
+
     ![Hinzufügen einer benutzerdefinierten Zuweisungsregistrierungsgruppe für den Nachweis des symmetrischen Schlüssels](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. Wählen Sie unter **Registrierungsgruppe hinzufügen** die Option **Neuen IoT-Hub verknüpfen** aus, um die beiden neuen IoT-Hubs für die Abteilungen zu verknüpfen.
-
-    Führen Sie diesen Schritt für beide Abteilungs-IoT Hubs aus.
-
-    **Abonnement**: Wenn Sie über mehrere Abonnements verfügen, sollten Sie das Abonnement auswählen, in dem Sie die IoT Hubs für die Abteilungen erstellt haben.
-
-    **IoT-Hub**: Wählen Sie einen der von Ihnen erstellten Abteilungshubs aus.
-
-    **Zugriffsrichtlinie**: Wählen Sie **iothubowner**.
-
-    ![Verknüpfen der Abteilungs-IoT-Hubs mit dem Bereitstellungsdienst](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
-5. Nachdem die beiden IoT-Hubs für die Abteilungen verknüpft wurden, müssen Sie sie unter **Registrierungsgruppe hinzufügen** wie unten gezeigt als IoT-Hub-Gruppe für die Registrierungsgruppe auswählen:
-
-    ![Erstellen der Abteilungshubgruppe für die Registrierung](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
-6. Scrollen Sie in **Registrierungsgruppe hinzufügen** nach unten zum Abschnitt **Azure-Funktions-App auswählen**, und wählen Sie die Funktions-App aus, die Sie im vorherigen Abschnitt erstellt haben. Wählen Sie dann die erstellte Funktion aus, und wählen Sie „Speichern“ aus, um die Registrierungsgruppe zu speichern.
-
-    ![Auswählen der Funktion und Speichern der Registrierungsgruppe](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-7. Öffnen Sie die Registrierungsgruppe nach dem Speichern erneut, und notieren Sie sich den **Primärschlüssel**. Sie müssen die Registrierung speichern, damit die Schlüssel generiert werden. Mit diesem Schlüssel werden später eindeutige Geräteschlüssel für simulierte Geräte generiert.
+4. Öffnen Sie die Registrierungsgruppe nach dem Speichern erneut, und notieren Sie sich den **Primärschlüssel**. Sie müssen die Registrierung speichern, damit die Schlüssel generiert werden. Mit diesem Schlüssel werden später eindeutige Geräteschlüssel für simulierte Geräte generiert.
 
 ## <a name="derive-unique-device-keys"></a>Ableiten eindeutiger Geräteschlüssel
 
@@ -349,56 +352,59 @@ Verwenden Sie für das Beispiel in diesem Artikel die folgenden beiden Gerätere
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-### <a name="linux-workstations"></a>Linux-Arbeitsstationen
 
-Wenn Sie eine Linux-Arbeitsstation verwenden, können Sie die abgeleiteten Geräteschlüssel mit OpenSSL generieren, wie im folgenden Beispiel gezeigt.
-
-1. Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
-
-    ```bash
-    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-    REG_ID1=breakroom499-contoso-tstrsd-007
-    REG_ID2=mainbuilding167-contoso-hpsd-088
-
-    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-    ```
-
-    ```bash
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
-
-### <a name="windows-based-workstations"></a>Windows-Arbeitsstationen
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Wenn Sie eine Windows-Arbeitsstation verwenden, können Sie die abgeleiteten Geräteschlüssel mit PowerShell generieren, wie im folgenden Beispiel gezeigt.
 
-1. Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
+Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
 
-    ```powershell
-    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+```powershell
+$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-    $REG_ID1='breakroom499-contoso-tstrsd-007'
-    $REG_ID2='mainbuilding167-contoso-hpsd-088'
+$REG_ID1='breakroom499-contoso-tstrsd-007'
+$REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($key)
-    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-    $derivedkey1 = [Convert]::ToBase64String($sig1)
-    $derivedkey2 = [Convert]::ToBase64String($sig2)
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+$derivedkey1 = [Convert]::ToBase64String($sig1)
+$derivedkey2 = [Convert]::ToBase64String($sig2)
 
-    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-    ```
+echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+```
 
-    ```powershell
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
+```powershell
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Wenn Sie eine Linux-Arbeitsstation verwenden, können Sie die abgeleiteten Geräteschlüssel mit OpenSSL generieren, wie im folgenden Beispiel gezeigt.
+
+Ersetzen Sie den Wert von **KEY** durch den **Primärschlüssel**, den Sie zuvor notiert haben.
+
+```bash
+KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+
+REG_ID1=breakroom499-contoso-tstrsd-007
+REG_ID2=mainbuilding167-contoso-hpsd-088
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+
+echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+```
+
+```bash
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+---
 
 Die simulierten Geräte verwenden die abgeleiteten Geräteschlüssel mit der jeweiligen Registrierungs-ID für den Nachweis des symmetrischen Schlüssels.
 

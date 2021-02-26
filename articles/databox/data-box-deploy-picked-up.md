@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9b40ff3a5c9ce2103cde00b26543711d4c05efb0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028375"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539110"
 ---
 ::: zone target="docs"
 
@@ -276,6 +276,35 @@ Sollten Probleme auftreten, senden Sie eine E-Mail mit Einzelheiten zu den Probl
 
 ## <a name="erasure-of-data-from-data-box"></a>Löschen von Daten von der Data Box
  
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Vereinigte Arabische Emirate](#tab/in-uae)
+
+1. Bewahren Sie den Originalversandkarton des Geräts für den Rückversand auf.
+2. Vergewissern Sie sich, dass die Daten vollständig auf das Gerät kopiert wurden und dass der Schritt **Versandvorbereitung** erfolgreich war.
+3. Notieren Sie sich die Referenznummer, die auf der lokalen Webbenutzeroberfläche des Geräts auf der Seite **Versandvorbereitung** angezeigt wird.
+4. Schalten Sie das Gerät aus, und entfernen Sie die Kabel. Wickeln Sie das mitgelieferte Netzkabel auf, und befestigen Sie es sicher an der Rückseite des Geräts.
+6. Verpacken Sie das Gerät für den Rückversand im Originalkarton.
+7. Senden Sie eine E-Mail an [Azure Data Box Operations](mailto:adbops@microsoft.com), um eine ID zum Identifizieren des Pakets beim Eintreffen im Rechenzentrum zu erhalten.
+8. Notieren Sie diese ID gut sichtbar auf dem gedruckten Adressetikett neben der Adresse für den Rückversand.  
+9. Reservieren Sie online unter [DHL Express für VAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Schedule a Pickup (Buchen Sie eine Abholung)** einen Abholtermin.
+   - Geben Sie die Referenznummer an, die auf der lokalen Webbenutzeroberfläche des Geräts auf der Seite **Versandvorbereitung** im Feld für die Frachtbriefnummer angezeigt wird.
+   - Buchungen werden an sechs Tagen die Woche (außer freitags und an öffentlichen Feiertagen) von 9:00 Uhr bis 14:00 Uhr angenommen.
+   - Abholungsanforderungen müssen mindestens 90 Minuten vor Kundengeschäftsschluss erteilt werden.
+10. Wenn beim DHL-Buchungstool Probleme auftreten, können Sie sich wie folgt an DHL wenden:
+    - Rufen Sie DHL unter 04-2924545 an.
+    - Senden Sie eine E-Mail mit Einzelheiten zu den Problemen an [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com). Geben Sie im Betreff die Frachtbriefnummer an.
+    - Wenden Sie sich unter 600 567567 an den DHL-Kundensupport.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Überprüfen des Datenuploads in Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Löschen von Daten von der Data Box
+ 
 Nachdem die Daten in Azure hochgeladen wurden, löscht die Data Box die Daten auf den Datenträgern gemäß den [NIST-Richtlinien (SP 800-88 Revision 1)](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
@@ -322,7 +351,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Selbst verwalteter Versand](#tab/in-selfmanaged)
 
-Wenn Sie Data Box in US Government, Japan, Singapur, Südkorea, Indien, Südafrika oder Westeuropa verwenden und bei der Auftragserstellung die Option für selbst verwalteten Versand ausgewählt haben, gehen Sie wie folgt vor.
+Gehen Sie wie folgt vor, wenn Sie Data Box in den Regionen „US Government“, „Japan“, „Singapur“, „Südkorea“, „Indien“, „Südafrika“, „Vereinigtes Königreich“, „Europa, Westen“ oder „Australien“ verwenden und bei der Auftragserstellung die Option für selbst verwalteten Versand ausgewählt haben.
 
 1. Notieren Sie sich den Autorisierungscode, der auf der Seite **Versandvorbereitung** der lokalen Webbenutzeroberfläche von Data Box angezeigt wird, nachdem dieser Schritt erfolgreich abgeschlossen wurde.
 2. Schalten Sie das Gerät aus, und entfernen Sie die Kabel. Wickeln Sie das mitgelieferte Netzkabel auf, und befestigen Sie es sicher an der Rückseite des Geräts.

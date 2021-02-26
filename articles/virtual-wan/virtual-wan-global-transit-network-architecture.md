@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563731"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428182"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architektur mit einem globalen Transitnetzwerk und Azure Virtual WAN
 
@@ -133,9 +133,6 @@ Die Azure Virtual WAN-Hubs verbinden alle Netzwerkendpunkte über das hybride Ne
 
 **Abbildung 5: Geschützter virtueller Hub mit Azure Firewall**
 
-> [!NOTE]
-> Ein Transit zwischen Hubs mit Firewall wird derzeit nicht unterstützt. Der Datenverkehr zwischen Hubs erfolgt direkt unter Umgehung der Azure Firewall in jedem Hub.
-
 Die Azure Firewall zum Virtual WAN unterstützt die folgenden globalen geschützten Transitverbindungsarten. Die Buchstaben in Klammern entsprechen den Buchstaben in Abbildung 5.
 
 * Geschützter VNet-zu-VNet-Transit (e)
@@ -152,6 +149,23 @@ VNet-zu-Internet ermöglicht es virtuellen Netzwerken, sich über die Azure Fire
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Zweigstelle-zu-Internet oder Sicherheitsdienst von Drittanbietern (j)
 Zweigstelle-zu-Internet ermöglicht es Zweigstellen, sich über die Azure Firewall im virtuellen WAN-Hub mit dem Internet zu verbinden. Der Datenverkehr zum Internet über unterstützte Sicherheitsdienste von Drittanbietern fließt nicht durch die Azure Firewall. Sie können den Zweigstelle-zu-Internet-Pfad über einen unterstützten Sicherheitsdienst eines Drittanbieters mit Azure Firewall Manager konfigurieren. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Geschützter regionsübergreifender Zweigstelle-zu-Zweigstelle-Transit (f)
+
+Zweigstellen können mit einem geschützten virtuellen Hub mit Azure Firewall über ExpressRoute-Leitungen und/oder Site-to-Site-VPN-Verbindungen verbunden sein. Sie können die Zweigstellen mit einem Virtual WAN-Hub verbinden, der sich in einer Region befindet, die der Zweigstelle am nächsten ist.
+
+Durch diese Option können Unternehmen den Azure-Backbone zum Verbinden von Zweigstellen verwenden. Diese Funktion ist zwar verfügbar, Sie sollten aber dennoch die Vorteile der Verbindung von Zweigstellen über Azure Virtual WAN mit den Vorteilen eines privaten WAN vergleichen.  
+
+> [!NOTE]
+> Die Verarbeitung von Datenverkehr zwischen Hubs über die Firewall wird derzeit nicht unterstützt. Der Datenverkehr zwischen Hubs wird an die richtige Zweigstelle innerhalb des geschützten virtuellen Hubs weitergeleitet, Azure Firewall in jedem Hub wird jedoch umgangen.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Geschützter Zweigstelle-zu-VNet-Transit (f)
+
+Der geschützte Zweigstelle-zu-VNet-Transit ermöglicht die Kommunikation von Zweigstellen mit virtuellen Netzwerken in der gleichen Region wie der virtuelle WAN-Hub sowie mit einem anderen virtuellen Netzwerk, das mit einem anderen virtuellen WAN-Hub in einer anderen Region verbunden ist.
+
+> [!NOTE]
+> Ein Transit zwischen Hubs mit Firewall wird derzeit nicht unterstützt. Der Datenverkehr zwischen Hubs erfolgt direkt unter Umgehung der Azure Firewall in jedem Hub.  Datenverkehr über eine Verbindung mit einem virtuellen Netzwerk in der gleichen Region wird über die Azure Firewall im geschützten Hub verarbeitet.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Wie aktiviere ich die Standardroute (0.0.0.0/0) in einem geschützten virtuellen Hub?
 

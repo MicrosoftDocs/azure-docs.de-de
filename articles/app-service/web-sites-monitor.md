@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125205"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509552"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Überwachen von Apps in Azure App Service
 [Azure App Service](./overview.md) bietet integrierte Überwachungsfunktionen für Web-Apps, mobile und API-Apps im [Azure-Portal](https://portal.azure.com).
@@ -27,7 +27,7 @@ In App Service gehostete Apps unterliegen bestimmten Grenzwerten in Bezug auf di
 
 Wenn die App in einem Plan vom Typ *Free* oder *Shared* gehostet wird, werden die Grenzwerte für die Ressourcen, die von der App verwendet werden können, durch Kontingente definiert.
 
-Wenn die App in einem Plan vom Typ *Basic* , *Standard* oder *Premium* gehostet wird, werden die Grenzwerte der Ressourcen, die verwendet werden können, über die Elemente *Größe* (Klein, Mittel, Groß) und *Instanzanzahl* (1, 2, 3,...) des App Service-Plans festgelegt.
+Wenn die App in einem Plan vom Typ *Basic*, *Standard* oder *Premium* gehostet wird, werden die Grenzwerte der Ressourcen, die verwendet werden können, über die Elemente *Größe* (Klein, Mittel, Groß) und *Instanzanzahl* (1, 2, 3,...) des App Service-Plans festgelegt.
 
 Im Folgenden sind die Kontingente für Free- oder Shared-Apps aufgelistet:
 
@@ -39,7 +39,7 @@ Im Folgenden sind die Kontingente für Free- oder Shared-Apps aufgelistet:
 | **Bandwidth** | Die zulässige Gesamtmenge an ausgehender Bandbreite für diese App für einen Tag. Dieses Kontingent wird alle 24 Stunden um Mitternacht (UTC) zurückgesetzt. |
 | **Filesystem** | Die zulässige Gesamtmenge an Speicher. |
 
-Das einzige Kontingent, das für Apps gilt, die in *Basic* , *Standard* und *Premium* gehostet werden, ist „Filesystem“ (Dateisystem).
+Das einzige Kontingent, das für Apps gilt, die in *Basic*, *Standard* und *Premium* gehostet werden, ist „Filesystem“ (Dateisystem).
 
 Weitere Informationen zu den spezifischen Kontingenten, Grenzwerten und Features, die für die verschiedenen App Service-SKUs gelten sind, finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
@@ -82,7 +82,7 @@ Für eine App sind folgende Metriken verfügbar:
 | **Aktuelle Assemblys** | Die aktuelle Anzahl von Assemblys, die in allen Anwendungsdomänen in dieser Anwendung geladen wurden. |
 | **Eingehende Daten** | Die Menge an eingehender Bandbreite in MiB, die von der App verbraucht wird. |
 | **Ausgehende Daten** | Die Menge an ausgehender Bandbreite in MiB, die von der App verbraucht wird. |
-| **Dateisystemnutzung** | Prozentsatz des von der App genutzten Dateisystemkontingents. |
+| **Dateisystemnutzung** | Die Nutzungsmenge in Bytes nach Speicherfreigabe. |
 | **Garbage Collections der Generation 0** | Die Häufigkeit, mit der seit dem Start des App-Prozesses eine Garbage Collection für die Objekte der Generation 0 ausgeführt wurde. In Garbage Collections höherer Generationen sind alle Garbage Collections niedrigerer Generationen enthalten.|
 | **Garbage Collections der Generation 1** | Die Häufigkeit, mit der seit dem Start des App-Prozesses eine Garbage Collection für die Objekte der Generation 1 ausgeführt wurde. In Garbage Collections höherer Generationen sind alle Garbage Collections niedrigerer Generationen enthalten.|
 | **Garbage Collections der Generation 2** | Die Häufigkeit, mit der seit dem Start des App-Prozesses eine Garbage Collection für die Objekte der Generation 2 ausgeführt wurde.|
@@ -114,7 +114,7 @@ Für eine App sind folgende Metriken verfügbar:
 Für einen App Service-Plan sind folgende Metriken verfügbar:
 
 > [!NOTE]
-> Metriken für App Service-Pläne sind nur für Pläne in den Tarifen *Basic* , *Standard* und *Premium* verfügbar.
+> Metriken für App Service-Pläne sind nur für Pläne in den Tarifen *Basic*, *Standard* und *Premium* verfügbar.
 > 
 
 | Metrik | BESCHREIBUNG |
@@ -131,7 +131,7 @@ Für einen App Service-Plan sind folgende Metriken verfügbar:
 
 Es gibt zwei Metriken, die die CPU-Auslastung widerspiegeln:
 
-**CPU-Zeit** : Hilfreich für Apps, die unter einem Plan vom Typ „Free“ oder „Shared“ gehostet werden, da eines der Kontingente basierend auf den von der App verbrauchten CPU-Minuten definiert ist.
+**CPU-Zeit**: Hilfreich für Apps, die unter einem Plan vom Typ „Free“ oder „Shared“ gehostet werden, da eines der Kontingente basierend auf den von der App verbrauchten CPU-Minuten definiert ist.
 
 **CPU percentage** (CPU-Prozentsatz): Hilfreich für Apps, die in den Plänen „Basic“, „Standard“ und „Premium“ gehostet werden, da sie horizontal hochskaliert werden können. Der CPU-Prozentsatz ist ein guter Indikator für die allgemeine Nutzung über alle Instanzen hinweg.
 

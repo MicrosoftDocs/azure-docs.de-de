@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: f8b134c1cce93468d68d8d920b412d2c5751b104
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: b69cc5b8d9b8ae14dddc33f69e96b5fd6e2f63d8
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98737064"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100516157"
 landingContent:
 - title: Informationen zum Gesichtserkennungsdienst
   linkLists:
@@ -92,8 +92,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Gesichtserkennungs-API v1.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: REST-API
+      url: https://docs.microsoft.com/rest/api/face/
     - text: .NET SDK
       url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - text: Python SDK

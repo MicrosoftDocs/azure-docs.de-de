@@ -1,22 +1,17 @@
 ---
 title: Kopieren von Daten von und zu einem REST-Endpunkt mithilfe von Azure Data Factory
 description: Erfahren Sie, wie Sie eine Kopieraktivität in einer Azure Data Factory-Pipeline verwenden, um Daten aus einer Cloud- oder lokalen REST-Quelle in unterstützte Senkendatenspeicher oder aus unterstützten Quelldatenspeichern in eine REST-Senke zu kopieren.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931301"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369882"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Kopieren von Daten von und zu einem REST-Endpunkt mithilfe von Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +21,7 @@ In diesem Artikel wird beschrieben, wie Sie die Kopieraktivität in Azure Data F
 Dies sind die Unterschiede zwischen diesem REST-Connector, dem [HTTP-Connector](connector-http.md) und dem [Webtabellenconnector](connector-web-table.md):
 
 - **REST-Connector:** Dieser unterstützt insbesondere das Kopieren von Daten aus RESTful-APIs. 
-- **HTTP-Connector:** Dieser dient allgemein dazu, Daten von jedem HTTP-Endpunkt abzurufen, z. B. um Dateien herunterzuladen. Solange der REST-Connector noch nicht verfügbar ist, verwenden Sie möglicherweise den HTTP-Connector, um Daten aus RESTful-APIs zu kopieren. Dieser wird unterstützt, verfügt jedoch über weniger Funktionen als der REST-Connector.
+- **HTTP-Connector:** Dieser dient allgemein dazu, Daten von jedem HTTP-Endpunkt abzurufen, z. B. um Dateien herunterzuladen. Vor diesem REST-Connector mussten Sie möglicherweise mit dem HTTP-Connector Daten aus RESTful-APIs kopieren. Dieser wird unterstützt, verfügt jedoch über weniger Funktionen als der REST-Connector.
 - **Webtabellenconnector:** Dieser extrahiert Tabelleninhalte aus einer HTML-Webseite.
 
 ## <a name="supported-capabilities"></a>Unterstützte Funktionen
@@ -385,7 +380,7 @@ In Paginierungsregeln **unterstützte Werte**:
 
 **Beispiel:**
 
-Die Facebook-Graph-API gibt eine Antwort in der folgenden Struktur zurück. In diesem Fall wird die URL der nächsten Seite in **_paging.next_* _ dargestellt:
+In der folgenden Struktur gibt die Facebook-Graph-API eine Antwort zurück. In diesem Fall wird die URL der nächsten Seite in ***paging.next*** dargestellt:
 
 ```json
 {
@@ -440,7 +435,7 @@ In diesem Abschnitt wird beschrieben, wie Sie eine Lösungsvorlage verwenden, um
 ### <a name="about-the-solution-template"></a>Informationen zur Lösungsvorlage
 
 Die Vorlage enthält zwei Aktivitäten:
-- Eine Aktivität vom Typ _ *Web** ruft das Bearertoken ab und übergibt es als Autorisierung an die nachfolgende Kopieraktivität.
+- **Webaktivität** ruft das Bearertoken ab und übergibt es als Autorisierung an die nachfolgende Kopieraktivität.
 - **Kopieraktivität** kopiert Daten aus REST in Azure Data Lake Storage.
 
 Die Vorlage definiert zwei Parameter:

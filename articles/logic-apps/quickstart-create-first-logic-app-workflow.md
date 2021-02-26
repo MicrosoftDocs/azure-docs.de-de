@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455065"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052041"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Schnellstart: Erstellen Ihres ersten Logic Apps-Workflows – Azure-Portal
 
@@ -30,11 +30,14 @@ Verwenden Sie die folgenden weiteren Logic Apps-Schnellstartanleitungen, um zu e
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Azure-Abonnement. Falls Sie noch nicht über einen solchen Schlüssel verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Ein Azure-Konto und ein Azure-Abonnement. Falls Sie noch nicht über einen solchen Schlüssel verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Ein E-Mail-Konto eines von Logic Apps unterstützten Diensts (z. B. Office 365 Outlook oder Outlook.com). Informationen zu anderen unterstützten E-Mail-Anbietern finden Sie in der [Liste mit den Connectors](/connectors/).
 
     > [!IMPORTANT]
     > Beachten Sie bei Verwendung des [Gmail-Connectors](/connectors/gmail/), dass dieser in Logic Apps nur von G Suite-Konten ohne Einschränkung verwendet werden kann. Wenn Sie über ein Gmail-Consumerkonto verfügen, können Sie diesen Connector nur mit bestimmten von Google genehmigten Diensten verwenden, sofern Sie keine [Google-Client-App für die Authentifizierung mit Ihrem Gmail-Connector erstellen](/connectors/gmail/#authentication-and-bring-your-own-application). Weitere Informationen finden Sie unter [Datensicherheit und Datenschutzrichtlinien für Google-Connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Falls Ihre Logik-App über eine Firewall kommunizieren muss, mit der der Datenverkehr auf bestimmte IP-Adressen beschränkt wird, muss Folgendes sichergestellt sein: In der Firewall muss der Zugriff für IP-Adressen, die vom Logic Apps-Dienst oder der Runtime in der Azure-Region Ihrer Logik-App genutzt werden, in [eingehender](logic-apps-limits-and-config.md#inbound) *und* [ausgehender](logic-apps-limits-and-config.md#outbound) Richtung zugelassen sein. Falls für Ihre Logik-App auch [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors), z. B. Office 365 Outlook-Connector oder SQL-Connector, oder [benutzerdefinierte Connectors](/connectors/custom-connectors/) verwendet werden, muss in der Firewall in der Azure-Region Ihrer Logik-App zusätzlich der Zugriff für *alle* [ausgehenden IP-Adressen des verwalteten Connectors](logic-apps-limits-and-config.md#outbound) zulässig sein.
 
 <a name="create-logic-app"></a>
 
@@ -51,7 +54,7 @@ Verwenden Sie die folgenden weiteren Logic Apps-Schnellstartanleitungen, um zu e
    ![Screenshot: Seite des Logic Apps-Diensts im Azure-Portal mit Logik-App-Liste und ausgewählter Schaltfläche „Hinzufügen“](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. Geben Sie im Bereich **Logik-App** die grundlegenden Details und Einstellungen für Ihre Logik-App an. Erstellen Sie eine neue [Ressourcengruppe](../azure-resource-manager/management/overview.md#terminology) für diese Beispiel-Logik-App.
-    
+
    | Eigenschaft | Wert | Beschreibung |
    |----------|-------|-------------|
    | **Name** | <*logic-app-name*> | Der Name Ihrer Logik-App, der regionsübergreifend eindeutig sein muss. Der Name darf nur Buchstaben, Ziffern, Bindestriche (`-`), Unterstriche (`_`), Klammern (`(`, `)`) und Punkte (`.`) enthalten. In diesem Beispiel wird „My-First-Logic-App“ verwendet. |

@@ -1,18 +1,18 @@
 ---
 title: Konfigurieren benutzerdefinierter Einstellungen
 description: Konfigurieren Sie Einstellungen, die für die gesamte Azure App Service-Umgebung gelten. Hier erfahren Sie, wie Sie dazu Azure Resource Manager-Vorlagen verwenden.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713292"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226388"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Benutzerdefinierte Konfigurationseinstellungen für App Service-Umgebungen
 ## <a name="overview"></a>Übersicht
@@ -61,7 +61,7 @@ Wenn eine App Service-Umgebung beispielsweise über vier Front-Ends verfügt, da
 
 ## <a name="enable-internal-encryption"></a>Aktivieren der internen Verschlüsselung
 
-Die App Service-Umgebung wird als Blackbox-System betrieben, bei dem Sie die internen Komponenten oder die Kommunikation innerhalb des Systems nicht sehen können. Um einen höheren Durchsatz zu ermöglichen, ist die Verschlüsselung zwischen internen Komponente standardmäßig nicht aktiviert. Das System ist sicher, da der Datenverkehr vollständig vor Überwachung und Zugriff geschützt ist. Bei einer Kompatibilitätsanforderung, die eine End-to-End-Verschlüsselung des Datenpfads voraussetzt, kann diese mit einer Clustereinstellung (clusterSetting) aktiviert werden.  
+Die App Service-Umgebung wird als Blackbox-System betrieben, bei dem Sie die internen Komponenten oder die Kommunikation innerhalb des Systems nicht sehen können. Um einen höheren Durchsatz zu ermöglichen, ist die Verschlüsselung zwischen internen Komponente standardmäßig nicht aktiviert. Das System ist sicher, da der Datenverkehr vor Überwachung und Zugriff geschützt ist. Bei einer Kompatibilitätsanforderung, die eine End-to-End-Verschlüsselung des vollständigen Datenpfads voraussetzt, kann diese mit einer Clustereinstellung (clusterSetting) aktiviert werden.  
 
 ```json
 "clusterSettings": [
@@ -71,7 +71,7 @@ Die App Service-Umgebung wird als Blackbox-System betrieben, bei dem Sie die int
     }
 ],
 ```
-Dadurch werden der interne Netzwerkdatenverkehr in Ihrer App Service-Umgebung (ASE) zwischen den Front-Ends und Workern, die Auslagerungsdatei und die Workerdatenträger verschlüsselt. Nach der Aktivierung der Clustereinstellung (clusterSetting) „InternalEncryption“ kann es zu einer Beeinträchtigung der Systemleistung kommen. Wenn Sie „InternalEncryption“ aktivieren, befindet sich die ASE in einem instabilen Zustand, bis die Änderung vollständig weitergegeben wurde. Die vollständige Weitergabe der Änderung kann abhängig von der Anzahl von Instanzen in Ihrer ASE einige Stunden in Anspruch nehmen. Es wird dringend empfohlen, diese Option nicht für eine ASE zu aktivieren, während sie verwendet wird. Wenn Sie die Option für eine aktiv genutzte ASE aktivieren müssen, wird dringend empfohlen, den Datenverkehr an eine Sicherungsumgebung umzuleiten, bis der Vorgang abgeschlossen ist. 
+Wenn Sie „InternalEncryption“ auf „true“ festlegen, werden der interne Netzwerkdatenverkehr in Ihrer App Service-Umgebung (ASE) zwischen den Front-Ends und Workern, die Auslagerungsdatei und die Workerdatenträger verschlüsselt. Nach der Aktivierung der Clustereinstellung (clusterSetting) „InternalEncryption“ kann es zu einer Beeinträchtigung der Systemleistung kommen. Wenn Sie „InternalEncryption“ aktivieren, befindet sich die ASE in einem instabilen Zustand, bis die Änderung vollständig weitergegeben wurde. Die vollständige Weitergabe der Änderung kann abhängig von der Anzahl von Instanzen in Ihrer ASE einige Stunden in Anspruch nehmen. Es wird dringend empfohlen, „InternalEncryption“ nicht für eine ASE zu aktivieren, während sie verwendet wird. Wenn Sie „InternalEncryption“ für eine aktiv genutzte ASE aktivieren müssen, wird dringend empfohlen, den Datenverkehr an eine Sicherungsumgebung umzuleiten, bis der Vorgang abgeschlossen ist. 
 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Deaktivieren von TLS 1.0 und TLS 1.1
@@ -92,13 +92,13 @@ Wenn Sie sämtlichen eingehenden TLS 1.0- und TLS 1.1-Datenverkehr für alle App
 Im Namen der Einstellung ist zwar 1.0 angegeben, sie deaktiviert jedoch sowohl TLS 1.0 als auch TLS 1.1, nachdem sie konfiguriert wurde.
 
 ## <a name="change-tls-cipher-suite-order"></a>Ändern der Reihenfolge der TLS-Verschlüsselungssammlung
-Eine weitere Frage von Kunden lautet, ob sie die Liste der Verschlüsselungsverfahren ändern können, die von ihrem Server ausgehandelt wird. Dies ist, wie im Folgenden gezeigt, durch Ändern der Einstellung **clusterSettings** möglich. Die Liste der verfügbaren Verschlüsselungssammlungen kann aus [diesem MSDN-Artikel](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx) abgerufen werden.
+Die ASE unterstützt das Ändern der Standardverschlüsselungssammlung. Der Standardsatz von Verschlüsselungsverfahren ist der Satz, der auch im mehrinstanzenfähigen Dienst verwendet wird. Eine Änderung der Verschlüsselungssammlungen wirkt sich auf die gesamte App Service-Bereitstellung aus und ist daher nur in einer ASE mit einem einzelnen Mandanten möglich. Für eine ASE sind zwei Verschlüsselungssammlungen erforderlich: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 und TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Wenn Sie Ihre ASE mit dem stärksten und minimalsten Satz an Verschlüsselungssammlungen betreiben möchten, verwenden Sie nur die beiden erforderlichen Verschlüsselungsverfahren. Wenn Sie die ASE so konfigurieren möchten, dass nur die erforderlichen Verschlüsselungsverfahren verwendet werden, ändern Sie **clusterSettings** wie nachfolgend gezeigt: 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

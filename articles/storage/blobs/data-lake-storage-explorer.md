@@ -5,26 +5,27 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5ccef241a37e63467b681d5fd12c65072cb92e58
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624774"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626459"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Verwenden von Azure Storage-Explorer zum Verwalten von Verzeichnissen, Dateien und Zugriffssteuerungslisten in Azure Data Lake Storage Gen2
 
-In diesem Artikel erfahren Sie, wie Sie [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) zum Erstellen und Verwalten von Verzeichnissen, Dateien und Berechtigungen in Speicherkonten verwenden, für die der hierarchische Namespace aktiviert ist.
+In diesem Artikel erfahren Sie, wie Sie [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/) zum Erstellen und Verwalten von Verzeichnissen, Dateien und Zugriffssteuerungslisten (ACLs) in Speicherkonten verwenden, für die der hierarchische Namespace aktiviert ist.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-> [!div class="checklist"]
-> * Ein Azure-Abonnement. Siehe [Kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/).
-> * Ein Speicherkonto, für das der hierarchische Namespace aktiviert ist. Befolgen Sie [diese Anleitung](../common/storage-account-create.md) für die Erstellung.
-> * Azure Storage-Explorer muss auf dem lokalen Computer installiert sein. Informationen zum Installieren von Azure Storage-Explorer für Windows, Macintosh oder Linux finden Sie unter [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- Ein Azure-Abonnement. Siehe [Kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/).
+
+- Ein Speicherkonto, für das der hierarchische Namespace aktiviert ist. Befolgen Sie [diese Anleitung](../common/storage-account-create.md) für die Erstellung.
+
+- Azure Storage-Explorer muss auf dem lokalen Computer installiert sein. Informationen zum Installieren von Azure Storage-Explorer für Windows, Macintosh oder Linux finden Sie unter [Azure Storage-Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Anmelden bei Storage-Explorer
 
@@ -46,7 +47,7 @@ Nach Abschluss des Verbindungsvorgangs wird Azure Storage-Explorer geladen, und 
 
 ## <a name="create-a-container"></a>Erstellen eines Containers
 
-Ein Container enthält Verzeichnisse und Dateien. Erweitern Sie das Speicherkonto, das Sie im vorherigen Schritt erstellt haben, um einen Container zu erstellen. Wählen Sie **BLOB-Container**, klicken Sie mit der rechten Maustaste, und wählen Sie **BLOB-Container erstellen**. Geben Sie den Namen für den Container ein. Eine Liste mit den Regeln und Einschränkungen für die Benennung von Containern finden Sie unter [Erstellen eines Containers](storage-quickstart-blobs-dotnet.md#create-a-container). Drücken Sie nach Abschluss des Vorgangs die **EINGABETASTE**, um den Container zu erstellen. Nach der erfolgreichen Erstellung des Containers wird dieser im Ordner **Blobcontainer** für das ausgewählte Speicherkonto angezeigt.
+Ein Container enthält Verzeichnisse und Dateien. Erweitern Sie das Speicherkonto, das Sie im vorherigen Schritt erstellt haben, um einen Container zu erstellen. Wählen Sie die Option **Blobcontainer** aus, klicken Sie mit der rechten Maustaste darauf, und wählen Sie **Blobcontainer erstellen** aus. Geben Sie den Namen für den Container ein. Eine Liste mit den Regeln und Einschränkungen für die Benennung von Containern finden Sie unter [Erstellen eines Containers](storage-quickstart-blobs-dotnet.md#create-a-container). Drücken Sie nach Abschluss des Vorgangs die **EINGABETASTE**, um den Container zu erstellen. Nach der erfolgreichen Erstellung des Containers wird dieser im Ordner **Blobcontainer** für das ausgewählte Speicherkonto angezeigt.
 
 ![Microsoft Azure Storage-Explorer – Erstellen eines Containers](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -76,39 +77,37 @@ Wählen Sie in der Anwendung **Azure Storage-Explorer** ein Verzeichnis unter ei
 
 Wählen Sie auf dem Menüband bei ausgewählter Datei die Option **Herunterladen** aus, um mit **Azure Storage-Explorer** Dateien herunterzuladen. Ein Dialogfeld für Dateien wird geöffnet, und Sie können einen Dateinamen eingeben. Wählen Sie **Speichern** aus, um mit dem Herunterladen einer Datei in den lokalen Speicherort zu beginnen.
 
-## <a name="managing-access"></a>Verwalten des Zugriffs
+<a id="managing-access"></a>
 
-Sie können Berechtigungen im Stammverzeichnis Ihres Containers festlegen. Hierzu müssen Sie mit Ihrem individuellen Konto mit entsprechenden Rechten beim Azure Storage-Explorer angemeldet sein (anstatt über eine Verbindungszeichenfolge). Klicken Sie mit der rechten Maustaste auf Ihren Container, und wählen Sie **Berechtigungen verwalten** aus, um das Dialogfeld **Berechtigung verwalten** zu öffnen.
+## <a name="manage-acls"></a>Verwalten von Zugriffssteuerungslisten
 
-![Microsoft Azure Storage-Explorer – Verzeichniszugriff verwalten](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+Klicken Sie mit der rechten Maustaste auf einen Container, ein Verzeichnis oder eine Datei, und klicken Sie dann auf **Zugriffssteuerungslisten verwalten**.  Der folgende Screenshot zeigt das Menü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf ein Verzeichnis klicken.
 
-Das Dialogfeld **Berechtigung verwalten** ermöglicht es Ihnen, Berechtigungen für den Besitzer und die Besitzergruppe zu verwalten. Sie können auch neue Benutzer und Gruppen zur Zugriffssteuerungsliste hinzufügen, für die Sie dann die Berechtigungen verwalten können.
+> [!div class="mx-imgBorder"]
+> ![Klick mit der rechten Maustaste auf ein Verzeichnis in Azure Storage-Explorer](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
 
-Um einen neuen Benutzer oder eine Gruppe zur Zugriffssteuerungsliste hinzuzufügen, wählen Sie das Feld **Benutzer oder Gruppe hinzufügen** aus.
+Das Dialogfeld **Zugriff verwalten** ermöglicht Ihnen, Berechtigungen für den Besitzer und die Besitzergruppe zu verwalten. Sie können auch neue Benutzer und Gruppen zur Zugriffssteuerungsliste hinzufügen, für die Sie dann die Berechtigungen verwalten können.
 
-Geben Sie den entsprechenden Azure Active Directory (AAD)-Eintrag ein, den Sie zur Liste hinzufügen möchten, und wählen Sie dann **Hinzufügen**.
+> [!div class="mx-imgBorder"]
+> ![Dialogfeld „Zugriff verwalten“](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
 
-Der Benutzer oder die Gruppe erscheint nun im Feld **Benutzer und Gruppen:** , sodass Sie mit der Verwaltung ihrer Berechtigungen beginnen können.
+Um der Zugriffssteuerungsliste einen neuen Benutzer oder eine Gruppe hinzuzufügen, wählen Sie die Schaltfläche **Hinzufügen** aus. Geben Sie den zugehörigen Azure Active Directory-Eintrag (AAD) ein, den Sie der Liste hinzufügen möchten, und wählen Sie dann **Hinzufügen** aus.  Der Benutzer oder die Gruppe erscheint nun im Feld **Benutzer und Gruppen:** , sodass Sie mit der Verwaltung ihrer Berechtigungen beginnen können.
 
 > [!NOTE]
-> Es ist eine Best Practice und es wird empfohlen, eine Sicherheitsgruppe in AAD zu erstellen und die Berechtigungen für die Gruppe und nicht für einzelne Benutzer zu verwalten. Einzelheiten zu dieser Empfehlung sowie zu anderen Best Practices finden Sie unter [Best Practices für Data Lake Storage Gen2](data-lake-storage-best-practices.md).
+> Es ist eine Best Practice und es wird empfohlen, eine Sicherheitsgruppe in AAD zu erstellen und die Berechtigungen für die Gruppe und nicht für einzelne Benutzer zu verwalten. Einzelheiten zu dieser Empfehlung sowie zu anderen bewährten Methoden finden Sie unter [Zugriffssteuerungsmodell in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
-Es gibt zwei Kategorien von Berechtigungen, die Sie zuweisen können: Zugriffs-ACLs und Standard-ACLs.
+Verwenden Sie die Kontrollkästchen, um den Zugriff und Standard-ACLs festzulegen. Weitere Informationen zum Unterschied zwischen diesen Arten von ACLs finden Sie unter [Typen von ACLs](data-lake-storage-access-control.md#types-of-acls).
 
-* **Zugriff**: Zugriffs-ACLs steuern den Zugriff auf ein Objekt. Dateien und Verzeichnisse verfügen jeweils über Zugriffs-ACLs.
+<a id="apply-acls-recursively"></a>
 
-* **Standard:** Eine Vorlage von ACLs, die einem Verzeichnis zugeordnet ist, das die Zugriffs-ACLs für alle untergeordneten Elemente bestimmt, die unter diesem Verzeichnis erstellt werden. Dateien verfügen über keine Standard-ACLs.
+## <a name="apply-acls-recursively"></a>Rekursives Anwenden von Zugriffssteuerungslisten
 
-Innerhalb dieser beiden Kategorien gibt es drei Berechtigungen, die Sie dann Dateien oder Verzeichnissen zuweisen können: **Lesen**, **Schreiben** und **Ausführen**.
+Sie können Einträge aus Zugriffssteuerungslisten rekursiv auf die vorhandenen untergeordneten Elemente eines übergeordneten Verzeichnisses anwenden, ohne diese Änderungen für jedes untergeordnete Element einzeln vornehmen zu müssen.
 
->[!NOTE]
-> Wenn Sie hier eine Auswahl treffen, werden keine Berechtigungen für ein aktuell vorhandenes Element im Verzeichnis festgelegt. Sie müssen jedes einzelne Element aufrufen und die Berechtigungen manuell festlegen, wenn die Datei bereits existiert.
+Wenn Sie ACL-Einträge rekursiv anwenden möchten, klicken Sie mit der rechten Maustaste auf den Container oder ein Verzeichnis, und klicken Sie dann auf **Zugriffssteuerungslisten weitergeben**.  Der folgende Screenshot zeigt das Menü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf ein Verzeichnis klicken.
 
-Sie können Berechtigungen für einzelne Verzeichnisse sowie einzelne Dateien verwalten, was Ihnen eine differenzierte Zugriffssteuerung ermöglicht. Der Prozess zur Verwaltung von Berechtigungen für Verzeichnisse und Dateien ist derselbe wie oben beschrieben. Klicken Sie mit der rechten Maustaste auf die Datei oder das Verzeichnis, für das Sie die Berechtigungen verwalten möchten, und folgen Sie dem gleichen Prozess.
-
-## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Private Endpunkte in Azure Data Lake Storage Gen2
-
-Storage Explorer nutzt bei Verwendung von Azure Data Lake Storage Gen2 sowohl den Blob-[Endpunkt](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) (blob) als auch den Data Lake Storage Gen2-Endpunkt (dfs). Wenn der Zugriff auf Azure Data Lake Storage Gen2 über private Endpunkte konfiguriert wird, stellen Sie sicher, dass zwei private Endpunkte für das Speicherkonto erstellt werden: einer mit der Zielunterressource `blob` und der andere mit der Zielunterressource `dfs`.
+> [!div class="mx-imgBorder"]
+> ![Klicken mit der rechten Maustaste auf ein Verzeichnis und Auswählen der Einstellung „Zugriffssteuerungslisten weitergeben“](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

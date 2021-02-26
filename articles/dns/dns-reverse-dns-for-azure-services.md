@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c72e17e601ebf87b0f344a4723159ae22abc81d1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965628"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919866"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurieren von Reverse-DNS für in Azure gehostete Dienste
 
@@ -33,7 +33,7 @@ Bevor Sie diesen Artikel lesen, sollten Sie sich mit dieser [Übersicht über Re
 In Azure DNS werden Computeressourcen (z.B. virtuelle Computer, VM-Skalierungsgruppen oder Service Fabric-Cluster) über eine öffentliche IP-Adressressource verfügbar gemacht. Reverse-DNS-Lookups werden mithilfe der ReverseFqdn-Eigenschaft der öffentlichen IP-Adresse konfiguriert.
 
 
-Reverse-DNS wird für Azure App Service derzeit nicht unterstützt.
+Reverse-DNS wird für Azure App Service und Application Gateway derzeit nicht unterstützt.
 
 ## <a name="validation-of-reverse-dns-records"></a>Überprüfung der Reverse-DNS-Einträge
 

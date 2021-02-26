@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Erneutes Trainieren eines Webdiensts (Azure)'
 description: Erfahren Sie, wie Sie einen Webdienst aktualisieren, sodass er das neu trainierte Machine Learning-Modell in Azure Machine Learning Studio (klassisch) verwendet.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325818"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517585"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Erneutes Trainieren und Bereitstellen eines Machine Learning-Modells
 
@@ -39,9 +39,9 @@ Mit einem Webdienst zum erneuten Trainieren können Sie Ihr Modell erneut mit ei
 
 Stellen Sie mit folgenden Schritten einen Webdienst zum erneuten Trainieren bereit:
 
-1. Stellen Sie die Verbindung eines **Web Service Input** -Moduls mit Ihrer Dateneingabe her. Dadurch wird sichergestellt, dass Ihre Daten für das erneute Training genau so verarbeitet werden wie Ihre ursprünglichen Trainingsdaten.
-1. Stellen Sie die Verbindung eines **Web Service Output** -Moduls mit der Ausgabe Ihres **Train Model** her.
-1. Wenn Sie ein **Evaluate Model** -Modul haben, können Sie die Verbindung eines **Web Service Output** -Moduls zur Ausgabe der Auswertungsergebnisse herstellen.
+1. Stellen Sie die Verbindung eines **Web Service Input**-Moduls mit Ihrer Dateneingabe her. Dadurch wird sichergestellt, dass Ihre Daten für das erneute Training genau so verarbeitet werden wie Ihre ursprünglichen Trainingsdaten.
+1. Stellen Sie die Verbindung eines **Web Service Output**-Moduls mit der Ausgabe Ihres **Train Model** her.
+1. Wenn Sie ein **Evaluate Model**-Modul haben, können Sie die Verbindung eines **Web Service Output**-Moduls zur Ausgabe der Auswertungsergebnisse herstellen.
 1. Führen Sie das Experiment aus.
 
     Nachdem Sie Ihr Experiment ausgeführt haben, sollte der resultierende Workflow dem folgenden Image ähneln:
@@ -76,27 +76,27 @@ Der folgende Screenshot zeigt die Seite **Consume** im Azure Machine Learning-We
 
 ### <a name="update-the-apikey-declaration"></a>Aktualisieren der apiKey-Deklaration
 
-Suchen Sie die **apiKey** -Deklaration:
+Suchen Sie die **apiKey**-Deklaration:
 
 ```csharp
 const string apiKey = "abc123"; // Replace this with the API key for the web service
 ```
 
-Kopieren Sie auf der Seite **Consume** (Verbrauchen) im Abschnitt **Basic consumption info** (Grundlegende Verbrauchsinformationen) den Primärschlüssel, und fügen Sie ihn in die **apikey** -Deklaration ein.
+Kopieren Sie auf der Seite **Consume** (Verbrauchen) im Abschnitt **Basic consumption info** (Grundlegende Verbrauchsinformationen) den Primärschlüssel, und fügen Sie ihn in die **apikey**-Deklaration ein.
 
 ### <a name="update-the-azure-storage-information"></a>Aktualisieren der Azure Storage-Informationen
 
 Der BES-Beispielcode lädt eine Datei von einem lokalen Laufwerk (z.B. „C:\temp\CensusInput.csv“) in Azure Storage hoch, verarbeitet sie und schreibt die Ergebnisse zurück in Azure Storage.
 
 1. Anmelden beim Azure-Portal
-1. Klicken Sie in der linken Navigationsspalte auf **Weitere Dienste** , suchen Sie nach **Speicherkonten** , und wählen Sie die Option aus.
+1. Klicken Sie in der linken Navigationsspalte auf **Weitere Dienste**, suchen Sie nach **Speicherkonten**, und wählen Sie die Option aus.
 1. Wählen Sie in der Speicherkontenliste ein Speicherkonto zum Speichern des neu trainierten Modells aus.
 1. Klicken Sie in der linken Navigationsspalte auf **Zugriffsschlüssel**.
 1. Kopieren und speichern Sie den Wert für **Primärer Zugriffsschlüssel**.
 1. Klicken Sie im linken Navigationsbereich auf **Blobs**.
 1. Wählen Sie einen vorhandenen Container aus, oder erstellen Sie einen neuen, und speichern Sie den Namen.
 
-Suchen Sie die Deklarationen *StorageAccountName* , *StorageAccountKey* und *StorageContainerName* , und aktualisieren Sie die Werte mit den gespeicherten Werten aus dem Portal.
+Suchen Sie die Deklarationen *StorageAccountName*, *StorageAccountKey* und *StorageContainerName*, und aktualisieren Sie die Werte mit den gespeicherten Werten aus dem Portal.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Hier ist eine Beispielausgabe zum erneuten Trainieren:
 
 Wenn Sie die Anwendung ausführen, enthält die Ausgabe die URL und das erforderliche SAS-Token für den Zugriff auf die Auswertungsergebnisse.
 
-Sie können die Leistungsergebnisse des erneut trainierten Modells anzeigen, indem Sie *BaseLocation* , *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen für *output2* kombinieren und die vollständige URL in die Adressleiste des Browsers einfügen.
+Sie können die Leistungsergebnisse des erneut trainierten Modells anzeigen, indem Sie *BaseLocation*, *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen für *output2* kombinieren und die vollständige URL in die Adressleiste des Browsers einfügen.
 
 Überprüfen Sie die Ergebnisse, um festzustellen, ob das neu trainierte Modell besser ist als das vorhandene.
 
-Speichern Sie die Werte für *BaseLocation* , *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen.
+Speichern Sie die Werte für *BaseLocation*, *RelativeLocation* und *SasBlobToken* aus den Ausgabeergebnissen.
 
 ## <a name="update-the-predictive-experiment"></a>Aktualisieren des Vorhersageexperiments
 

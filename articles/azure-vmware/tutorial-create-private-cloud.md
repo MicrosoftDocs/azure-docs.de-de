@@ -3,12 +3,12 @@ title: 'Tutorial: Bereitstellen eines vSphere-Clusters in Azure'
 description: In diesem Tutorial erfahren Sie, wie Sie mithilfe von Azure VMware Solution einen vSphere-Cluster in Azure bereitstellen.
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966308"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093946"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Bereitstellen einer privaten Azure VMware Solution-Cloud in Azure
 
@@ -74,25 +74,6 @@ Geben Sie einen Namen für die Ressourcengruppe und für die private Cloud sowie
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Löschen einer privaten Azure VMware Solution-Cloud
-
-Wenn Sie über eine private Azure VMware Solution-Cloud verfügen, die Sie nicht mehr benötigen, können Sie sie löschen. Eine private Azure VMware Solution-Cloud umfasst eine isolierte Netzwerkdomäne, mindestens einen bereitgestellten vSphere-Cluster auf dedizierten Serverhosts und mehrere virtuelle Computer. Wenn eine private Cloud gelöscht wird, werden auch alle virtuellen Computer, ihre Daten und Cluster entfernt. Die dedizierten Bare-Metal-Hosts werden auf sichere Weise bereinigt und an den freien Pool zurückgegeben. Die für den Kunden bereitgestellte Netzwerkdomäne wird gelöscht.  
-
-> [!CAUTION]
-> Das Löschen der privaten Cloud kann nicht rückgängig gemacht werden. Die Daten können nach dem Löschen der privaten Cloud nicht wiederhergestellt werden, da alle aktiven Workloads und Komponenten beendet und sämtliche Daten und Konfigurationseinstellungen der privaten Cloud zerstört werden (einschließlich der öffentlichen IP-Adressen).
-
-### <a name="prerequisites"></a>Voraussetzungen
-
-Nachdem eine private Cloud gelöscht wurde, gibt es keine Möglichkeit, die virtuellen Computer und die zugehörigen Daten wiederherzustellen. Wenn die Daten des virtuellen Computers später benötigt werden, muss der Administrator vor dem Löschen der privaten Cloud zuerst alle Daten sichern.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Schritte zum Löschen einer privaten Azure VMware Solution-Cloud
-
-1. Greifen Sie im Azure-Portal auf die Azure VMware Solution-Seite zu.
-
-2. Wählen Sie die zu löschende private Cloud aus.
- 
-3. Geben Sie den Namen der privaten Cloud ein, und wählen Sie **Ja** aus. Der Löschvorgang ist in einigen Stunden abgeschlossen.  
 
 ## <a name="azure-vmware-commands"></a>Azure VMware-Befehle
 

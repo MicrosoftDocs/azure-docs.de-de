@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346196"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831296"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Bereitstellen und Durchlaufen einer Anwendungsvorlage für digitale Verteilzentren
-
-
 
 In diesem Tutorial wird der Einstieg durch das Bereitstellen einer IoT Central-Anwendungsvorlage für **digitale Verteilzentren** gezeigt. Sie erfahren, wie Sie die Vorlage bereitstellen, was im Lieferumfang enthalten ist und welche nächsten Schritte sinnvoll sind.
 
 In diesem Tutorial lernen Sie Folgendes: 
-* Erstellen einer Anwendung für digitale Verteilzentren 
-* Einführung in die Anwendung 
+
+> [!div class="checklist"]
+> Erstellen einer Anwendung für digitale Verteilzentren und Durchlaufen der Anwendung 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 * Zum Bereitstellen dieser App sind keine besonderen Voraussetzungen erforderlich.
@@ -110,8 +109,8 @@ Wenn Sie diese Anwendung nicht mehr verwenden möchten, löschen Sie die Anwendu
 > ![Screenshot: Löschen der Anwendung, wenn Sie sie nicht mehr benötigen](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Weitere Informationen zur Lösungsarchitektur von digitalen Verteilzentren: 
+
+Weitere Informationen zur Lösungsarchitektur digitaler Verteilzentren finden Sie hier:
+
 > [!div class="nextstepaction"]
 > [Architektur der IoT Central-Anwendungsvorlage für digitale Verteilzentren](./architecture-digital-distribution-center.md)
-* Weitere Informationen zu anderen [IoT Central-Einzelhandelsvorlagen](./overview-iot-central-retail.md)
-* Lesen Sie die [Übersicht über IoT Central](../core/overview-iot-central.md).

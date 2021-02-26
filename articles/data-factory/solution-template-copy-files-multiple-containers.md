@@ -1,22 +1,18 @@
 ---
 title: Kopieren von Dateien aus mehreren Containern
 description: Erfahren Sie, wie Sie mit Azure Data Factory eine Lösungsvorlage verwenden, um Dateien aus mehreren Containern zu kopieren.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629424"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376087"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Kopieren mehrerer Ordner mit Azure Data Factory
 
@@ -37,10 +33,10 @@ Die Vorlage enthält drei Aktivitäten:
 - **Copy** kopiert jeden Ordner aus dem Quell- in den Zielspeicher.
 
 Die Vorlage definiert die folgenden Parameter:
-- *SourceFileFolder* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory* : Hier wird die Liste der Unterordner abgerufen. 
-- *SourceFileDirectory* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory* : Hier wird die Liste der Unterordner abgerufen. 
-- *DestinationFileFolder* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory* : In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
-- *DestinationFileDirectory* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory* : In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
+- *SourceFileFolder* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory*: Hier wird die Liste der Unterordner abgerufen. 
+- *SourceFileDirectory* gehört zum Pfad des übergeordneten Ordners im Quelldatenspeicher: *SourceFileFolder/SourceFileDirectory*: Hier wird die Liste der Unterordner abgerufen. 
+- *DestinationFileFolder* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory*: In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
+- *DestinationFileDirectory* gehört zum Pfad des übergeordneten Ordners: *DestinationFileFolder/DestinationFileDirectory*: In diesen Ordner bzw. dieses Verzeichnis im Zielspeicher werden die Dateien kopiert. 
 
 Wenn Sie mehrere Container in Stammordnern zwischen Speichern kopieren möchten, können Sie alle vier Parameter als */* angeben. Dadurch replizieren Sie sämtliche Daten zwischen den Speichern.
 
@@ -62,7 +58,7 @@ Wenn Sie mehrere Container in Stammordnern zwischen Speichern kopieren möchten,
 
     ![Pipeline anzeigen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Klicken Sie auf **Debuggen** , geben Sie die **Parameter** ein, und klicken Sie dann auf **Fertig stellen**.
+5. Klicken Sie auf **Debuggen**, geben Sie die **Parameter** ein, und klicken Sie dann auf **Fertig stellen**.
 
     ![Führen Sie die Pipeline aus.](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

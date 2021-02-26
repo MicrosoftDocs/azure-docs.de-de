@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746103"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592754"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Behandeln von Problemen mit der Back-End-Integrität in Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ Standardmäßig testet Application Gateway Back-End-Server, um deren Integrität
 
 ### <a name="how-to-check-backend-health"></a>Überprüfen der Back-End-Integrität
 
-Zum Überprüfen der Integrität des Back-End-Pools können Sie die Seite **Back-End-Integrität** im Azure-Portal verwenden. Sie können auch [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), die [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) oder die [REST-API](/rest/api/application-gateway/applicationgateways/backendhealth) verwenden.
+Zum Überprüfen der Integrität des Back-End-Pools können Sie die Seite **Back-End-Integrität** im Azure-Portal verwenden. Sie können auch [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), die [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) oder die [REST-API](/rest/api/application-gateway/applicationgateways/backendhealth) verwenden.
 
 Der Status, der von einer dieser Methoden abgerufen wird, kann einer der folgenden sein:
 
@@ -119,7 +119,7 @@ Um den Wert des Timeouts zu erhöhen, führen Sie die folgenden Schritte aus:
 
 1.  Wenn Sie eine Azure-DNS-Standardadresse verwenden, überprüfen Sie bei Ihrer Domänennamen-Registrierungsstelle, ob eine ordnungsgemäße Zuordnung eines A-Eintrags oder CNAME-Eintrags vorgenommen wurde.
 
-1.  Wenn die Domäne privat oder intern ist, versuchen Sie, Sie von einem virtuellen Computer aus im selben virtuellen Netzwerk aufzulösen. Wenn Sie sie auflösen können, starten Sie Application Gateway neu, und überprüfen Sie es noch mal. Um Application Gateway neu zu starten, müssen Sie die in diesen verlinkten Ressourcen beschriebenen PowerShell-Befehle zum [Beenden (stop)](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) und [Starten (start)](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) verwenden.
+1.  Wenn die Domäne privat oder intern ist, versuchen Sie, Sie von einem virtuellen Computer aus im selben virtuellen Netzwerk aufzulösen. Wenn Sie sie auflösen können, starten Sie Application Gateway neu, und überprüfen Sie es noch mal. Um Application Gateway neu zu starten, müssen Sie die in diesen verlinkten Ressourcen beschriebenen PowerShell-Befehle zum [Beenden (stop)](/powershell/module/azurerm.network/stop-azurermapplicationgateway) und [Starten (start)](/powershell/module/azurerm.network/start-azurermapplicationgateway) verwenden.
 
 #### <a name="tcp-connect-error"></a>TCP-Verbindungsfehler
 

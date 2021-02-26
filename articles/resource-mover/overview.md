@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89653294"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820162"
 ---
 # <a name="what-is-azure-resource-mover"></a>Was ist Azure Resource Mover?
 
@@ -29,19 +29,17 @@ Sie können Ressourcen aus folgenden Gründen in verschiedene Azure-Regionen ver
 - **Reagieren auf Bereitstellungsanforderungen**: Verschieben von Ressourcen, die fehlerhaft bereitgestellt wurden, oder als Reaktion auf Kapazitätsanforderungen.
 - **Reagieren auf Außerbetriebnahmen**: Verschieben von Ressourcen aufgrund der Außerbetriebnahme einer Region
 
-> [!IMPORTANT]
-> Azure Resource Mover ist derzeit als öffentliche Vorschauversion verfügbar.
 
 ## <a name="why-use-resource-mover"></a>Gründe für die Verwendung von Azure Resource Mover
 
 Resource Mover bietet Folgendes:
 
-- Einen einzelnen Hub für das regionsübergreifende Verschieben von Ressourcen
-- Schnellere Verschiebung und geringere Komplexität Alles, was Sie brauchen, an einem zentralen Ort
+- Eine einzelne Anlaufstelle für das regionsübergreifende Verschieben von Ressourcen.
+- Kürzere Verschiebungszeit und verringerte Komplexität Alle erforderlichen Komponenten an einem einzelnen Ort
 - Ein einfaches und konsistentes Verfahren zum Verschieben verschiedener Arten von Azure-Ressourcen
 - Eine einfache Möglichkeit zum Erkennen von Abhängigkeiten zwischen den zu verschiebenden Ressourcen. Dies hilft Ihnen, zusammenhängende Ressourcen gemeinsam zu verschieben, damit nach der Verschiebung in der Zielregion alles wie erwartet funktioniert.
 - Automatische Bereinigung der Ressourcen in der Quellregion, falls Sie sie nach dem Verschieben löschen möchten
-- Tests. Sie können eine Verschiebung testen und ggf. verwerfen, wenn Sie keine vollständige Verschiebung durchführen möchten.
+- Tests. Sie können eine Verschiebung ausprobieren und sie dann verwerfen, wenn Sie keine vollständige Verschiebung durchführen möchten.
 
 ## <a name="move-across-regions"></a>Regionsübergreifendes Verschieben
 
@@ -62,13 +60,14 @@ Sie können Ressourcen innerhalb des Azure Resource Mover-Hubs oder innerhalb ei
 Mit Resource Mover können Sie derzeit die folgenden Ressourcen regionsübergreifend verschieben:
 
 - Azure-VMs und zugehörige Datenträger
+- Verschlüsselte virtuelle Azure-Computer und zugehörige Datenträger. Dazu zählen virtuelle Computer mit aktivierter Azure-Datenträgerverschlüsselung und virtuelle Azure-Computer mit der serverseitigen Standardverschlüsselung (sowohl mit plattformseitig verwalteten Schlüsseln als auch kundenseitig verwalteten Schlüsseln).
 - NICs
 - Verfügbarkeitsgruppen 
 - Virtuelle Azure-Netzwerke 
 - Öffentliche IP-Adressen
 - Netzwerksicherheitsgruppen (NSGs)
-- Interne und externe Lastenausgleichsmodule 
-- Azure SQL-Datenbank-Instanzen und Pools für elastische Datenbanken
+- Interne und öffentliche Load Balancer 
+- Azure SQL-Datenbanken und Pools für elastische Datenbanken
 
 
 ## <a name="next-steps"></a>Nächste Schritte

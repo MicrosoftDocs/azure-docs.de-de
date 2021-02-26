@@ -3,12 +3,12 @@ title: 'Abfragen der Wissensdatenbank: QnA Maker'
 description: Eine Wissensdatenbank muss veröffentlicht werden. Nach der Veröffentlichung wird die Wissensdatenbank mithilfe der generateAnswer-API am Vorhersageendpunkt der Runtime abgefragt.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346204"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820380"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Abfragen der Wissensdatenbank nach Antworten
 
@@ -31,7 +31,7 @@ Der Prozess wird in der folgenden Tabelle erläutert:
 |1|Die Clientanwendung sendet die Benutzerabfrage an die [GenerateAnswer-API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker führt die Vorverarbeitung der Benutzerabfrage mit Spracherkennung, Rechtschreibprüfung und Worttrennung durch.|
 |3|Diese Vorverarbeitung hat das Ziel, die Benutzerabfrage so anzupassen, dass die besten Suchergebnisse erzielt werden.|
-|4|Die geänderte Abfrage wird an den Azure Cognitive Search-Index gesendet, der die mit `top` festgelegte Anzahl von Ergebnissen empfängt. Falls diese Ergebnisse die richtige Antwort nicht enthalten, sollten Sie den Wert von `top` leicht erhöhen. Im Allgemeinen eignet sich der Wert „10“ für `top` bei 90 % aller Abfragen.|
+|4|Die geänderte Abfrage wird an den Azure Cognitive Search-Index gesendet, der die mit `top` festgelegte Anzahl von Ergebnissen empfängt. Falls diese Ergebnisse die richtige Antwort nicht enthalten, sollten Sie den Wert von `top` leicht erhöhen. Im Allgemeinen eignet sich der Wert „10“ für `top` bei 90 % aller Abfragen. Azure Search filtert [Stoppwörter](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in diesem Schritt.|
 |5|QnA Maker verwendet eine auf Syntax und Semantik basierende Featurebereitstellung, um die Ähnlichkeit zwischen der Benutzerabfrage und den abgerufenen QnA-Ergebnissen zu ermitteln.|
 |6|Das maschinell erlernte Bewertermodell verwendet die verschiedenen Features aus Schritt 5, um die Zuverlässigkeitsbewertungen und die neue Rangfolge zu ermitteln.|
 |7|Die neuen Ergebnisse werden in der Rangfolge an die Clientanwendung zurückgegeben.|
@@ -54,7 +54,7 @@ Der Prozess wird in der folgenden Tabelle erläutert:
 |1|Die Clientanwendung sendet die Benutzerabfrage an die [GenerateAnswer-API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker führt die Vorverarbeitung der Benutzerabfrage mit Spracherkennung, Rechtschreibprüfung und Worttrennung durch.|
 |3|Diese Vorverarbeitung hat das Ziel, die Benutzerabfrage so anzupassen, dass die besten Suchergebnisse erzielt werden.|
-|4|Die geänderte Abfrage wird an den Azure Cognitive Search-Index gesendet, der die mit `top` festgelegte Anzahl von Ergebnissen empfängt. Falls diese Ergebnisse die richtige Antwort nicht enthalten, sollten Sie den Wert von `top` leicht erhöhen. Im Allgemeinen eignet sich der Wert „10“ für `top` bei 90 % aller Abfragen.|
+|4|Die geänderte Abfrage wird an den Azure Cognitive Search-Index gesendet, der die mit `top` festgelegte Anzahl von Ergebnissen empfängt. Falls diese Ergebnisse die richtige Antwort nicht enthalten, sollten Sie den Wert von `top` leicht erhöhen. Im Allgemeinen eignet sich der Wert „10“ für `top` bei 90 % aller Abfragen. Azure Search filtert [Stoppwörter](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in diesem Schritt.|
 |5|QnA Maker verwendet ein modernes transformatorbasiertes Modell, um die Ähnlichkeit zwischen der Benutzerabfrage und den aus Azure Cognitive Search abgerufenen QnA-Kandidatenergebnissen zu ermitteln. Das transformatorbasierte Modell ist ein mehrsprachiges Deep Learning-Modell, das für alle Sprachen horizontal arbeitet, um die Konfidenzscores sowie die neue Rangfolge zu bestimmen.|
 |6|Die neuen Ergebnisse werden in der Rangfolge an die Clientanwendung zurückgegeben.|
 |||

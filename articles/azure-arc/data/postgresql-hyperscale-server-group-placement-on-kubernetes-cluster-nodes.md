@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148111"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985919"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Platzieren einer Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 Die Architektur kann wie folgt dargestellt werden:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Logische Darstellung von vier Knoten, die in einem Kubernetes-Cluster gruppiert sind":::
 
 Auf dem Kubernetes-Cluster werden ein Azure Arc-Datencontroller und eine Azure Arc-fähige PostgreSQL Hyperscale-Servergruppe gehostet. Diese Servergruppe besteht aus drei PostgreSQL-Instanzen: einem Koordinator und zwei Workern.
 
@@ -60,30 +60,30 @@ Die folgende Ausgabe wird erzeugt:
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          9h
-postgres01-1         3/3     Running   0          9h
-postgres01-2         3/3     Running   0          9h
+postgres01c-0         3/3     Running   0          9h
+postgres01w-0         3/3     Running   0          9h
+postgres01w-1         3/3     Running   0          9h
 ```
 Auf jedem dieser Pods wird eine PostgreSQL-Instanz gehostet. Diese bilden zusammen die Azure Arc-fähige PostgreSQL Hyperscale-Servergruppe:
 
 ```output
 Pod name        Role in the server group
-postgres01-0  Coordinator
-postgres01-1    Worker
-postgres01-2    Worker
+postgres01c-0 Coordinator
+postgres01w-0   Worker
+postgres01w-1   Worker
 ```
 
 ## <a name="placement"></a>Platzierung
 Sehen wir uns nun an, wie Kubernetes die Pods der Servergruppe platziert. Beschreiben Sie die einzelnen Pods, und legen Sie fest, auf welchem physischen Knoten des Kubernetes-Clusters sie platziert werden. Führen Sie für den Koordinator z. B. den folgenden Befehl aus:
 
 ```console
-kubectl describe pod postgres01-0 -n arc3
+kubectl describe pod postgres01c-0 -n arc3
 ```
 
 Die folgende Ausgabe wird erzeugt:
 
 ```output
-Name:         postgres01-0
+Name:         postgres01c-0
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -101,7 +101,7 @@ Wenn wir diesen Befehl für die einzelnen Pods ausführen, fassen wir die aktuel
 Notieren Sie in der Beschreibung der Pods auch die Namen der Container, die von den einzelnen Pods gehostet werden. Führen Sie für den zweiten Worker z. B. den folgenden Befehl aus:
 
 ```console
-kubectl describe pod postgres01-2 -n arc3
+kubectl describe pod postgres01w-1 -n arc3
 ```
 
 Die folgende Ausgabe wird erzeugt:
@@ -129,7 +129,7 @@ Jeder Pod, der Teil der Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe is
 
 Die Architektur sieht wie folgt aus:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="Drei Pods, die jeweils auf separaten Knoten platziert sind":::
 
 Dies bedeutet, dass an diesem Punkt jede PostgreSQL-Instanz, die Bestandteil der Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe ist, auf einem bestimmten physischen Host im Kubernetes-Container gehostet wird. Diese Konfiguration ist ideal, um die optimale Leistung der Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe zu erzielen, da die einzelnen Rollen (Koordinator und Worker) die Ressourcen der einzelnen physischen Knoten nutzen. Diese Ressourcen werden nicht von mehreren PostgreSQL-Rollen gemeinsam genutzt.
 
@@ -172,23 +172,23 @@ kubectl get pods -n arc3
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          11h
-postgres01-1         3/3     Running   0          11h
-postgres01-2         3/3     Running   0          11h
-postgres01-3         3/3     Running   0          5m2s
+postgres01c-0         3/3     Running   0          11h
+postgres01w-0         3/3     Running   0          11h
+postgres01w-1         3/3     Running   0          11h
+postgres01w-2         3/3     Running   0          5m2s
 ```
 
 Beschreiben Sie den neuen Pod, um anzugeben, auf welchem der physischen Knoten des Kubernetes-Clusters er gehostet wird.
 Führen Sie den folgenden Befehl aus:
 
 ```console
-kubectl describe pod postgres01-3 -n arc3
+kubectl describe pod postgres01w-2 -n arc3
 ```
 
 So identifizieren Sie den Namen des Hostknotens
 
 ```output
-Name:         postgres01-3
+Name:         postgres01w-2
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -203,11 +203,11 @@ Die Platzierung der PostgreSQL-Instanzen auf den physischen Knoten des Clusters 
 |Worker|postgres01-2|aks-agentpool-42715708-vmss000003
 |Worker|postgres01-3|aks-agentpool-42715708-vmss000000
 
-Beachten Sie, dass der Pod des neuen Workers (postgres01-3) auf demselben Knoten wie der Koordinator platziert wurde. 
+Beachten Sie, dass der Pod des neuen Workers (postgres01w-2) auf demselben Knoten wie der Koordinator platziert wurde. 
 
 Die Architektur sieht wie folgt aus:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Vierter Pod auf demselben Knoten wie der Koordinator":::
 
 Warum befindet sich der neue Worker/Pod nicht auf dem verbleibenden physischen Knoten des Kubernetes-Clusters aks-agentpool-42715708-vmss000003?
 
@@ -235,7 +235,7 @@ Sehen wir uns mit den gleichen Befehlen wie an, was auf den einzelnen physischen
 
 Die Architektur sieht wie folgt aus:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Alle Pods im Namespace auf verschiedenen Knoten":::
 
 Dies bedeutet, dass die Koordinatorknoten (Pod 1) der Azure Arc-fähigen PostgreSQL Hyperscale-Servergruppe und der dritte Workerknoten (Pod 4) die gleichen physischen Ressourcen der Servergruppe verwenden. Dies ist akzeptabel, da der Koordinatorknoten in der Regel im Vergleich zu einem Workerknoten sehr wenig Ressourcen nutzt. Daraus folgt, dass Sie beim Konfigurieren folgender Werte sorgfältig vorgehen sollten:
 - Größe des Kubernetes-Clusters und die Eigenschaften der einzelnen physischen Knoten (Arbeitsspeicher, virtuelle Kerne)
@@ -259,16 +259,16 @@ Fügen Sie dem AKS-Cluster einen fünften Knoten hinzu:
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Azure-Portal-Layout vorher":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Azure-Portal-Layout nachher":::
     :::column-end:::
 :::row-end:::
 
 Die Architektur sieht wie folgt aus:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Logisches Layout auf dem Kubernetes-Cluster nach dem Update":::
 
 Sehen wir uns an, welche Pods des Arc-Datencontroller-Namespace auf dem neuen physischen AKS-Knoten gehostet werden, indem wir den folgenden Befehl ausführen:
 
@@ -278,7 +278,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 Aktualisieren wir nun die Darstellung der Architektur unseres Systems:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Alle Pods im logischen Diagramm des Clusters":::
 
 Wir sehen, dass der neue physische Knoten des Kubernetes-Clusters nur den Metrikpod hostet, der für Azure Arc Data Services erforderlich ist. Beachten Sie, dass wir in diesem Beispiel nur den Namespace des Arc-Datencontrollers betrachten, die anderen Pods werden nicht dargestellt.
 
@@ -318,42 +318,42 @@ kubectl get pods -n arc3
 
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          13h
-postgres01-1         3/3     Running   0          13h
-postgres01-2         3/3     Running   0          13h
-postgres01-3         3/3     Running   0          179m
-postgres01-4         3/3     Running   0          3m13s
+postgres01c-0         3/3     Running   0          13h
+postgres01w-0         3/3     Running   0          13h
+postgres01w-1         3/3     Running   0          13h
+postgres01w-2         3/3     Running   0          179m
+postgres01w-3         3/3     Running   0          3m13s
 ```
 
 Die Servergruppe hat jetzt die folgende Form:
 
 |Servergruppenrolle|Servergruppenpod
 |----|-----
-|Koordinator|postgres01-0
-|Worker|postgres01-1
-|Worker|postgres01-2
-|Worker|postgres01-3
-|Worker|postgres01-4
+|Koordinator|postgres01c-0
+|Worker|postgres01w-0
+|Worker|postgres01w-1
+|Worker|postgres01w-2
+|Worker|postgres01w-3
 
-Jetzt beschreiben wir den Pod „postgres01-4“, um zu ermitteln, auf welchem physischen Knoten er gehostet wird:
+Jetzt beschreiben wir den Pod „postgres01w-3“, um zu ermitteln, auf welchem physischen Knoten er gehostet wird:
 
 ```console
-kubectl describe pod postgres01-4 -n arc3
+kubectl describe pod postgres01w-3 -n arc3
 ```
 
 Beobachten Sie, auf welchen Pods er ausgeführt wird:
 
 |Servergruppenrolle|Servergruppenpod| Pod
 |----|-----|------
-|Koordinator|postgres01-0|aks-agentpool-42715708-vmss000000
-|Worker|postgres01-1|aks-agentpool-42715708-vmss000002
-|Worker|postgres01-2|aks-agentpool-42715708-vmss000003
-|Worker|postgres01-3|aks-agentpool-42715708-vmss000000
-|Worker|postgres01-4|aks-agentpool-42715708-vmss000004
+|Koordinator|postgres01c-0|aks-agentpool-42715708-vmss000000
+|Worker|postgres01w-0|aks-agentpool-42715708-vmss000002
+|Worker|postgres01w-1|aks-agentpool-42715708-vmss000003
+|Worker|postgres01w-2|aks-agentpool-42715708-vmss000000
+|Worker|postgres01w-3|aks-agentpool-42715708-vmss000004
 
 Die Architektur sieht wie folgt aus:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="AKS-Cluster mit vier Knoten im Azure-Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes plant den neuesten Pod auf dem Knoten mit der geringsten Auslastung":::
 
 Kubernetes hat den neuen PostgreSQL-Pod auf dem am wenigsten ausgelasteten physischen Knoten des Kubernetes-Clusters geplant.
 

@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/20/2020
-  ms.openlocfilehash: 5dce232111e6f244fd56f19f5913737b5da67682
-  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+  ms.date: 01/29/2021
+  ms.openlocfilehash: 9f9d2c694196b48aa4905a3783cb16609727b951
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98035018"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100099131"
 highlightedContent:
   items:
   - title: Übersicht über Governance
@@ -113,8 +113,12 @@ additionalContent:
         url: /powershell/module/az.resources/#resources
       - text: Azure SDK für .NET
         url: /dotnet/api/overview/azure/managementgroups
+      - text: Azure SDK für Go
+        url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
       - text: Azure SDK für JavaScript
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
+      - text: Azure SDK für Python
+        url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
       - text: REST
         url: /rest/api/resources/managementgroups
       - text: Resource Manager-Vorlagen

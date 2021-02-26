@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 ms.author: banders
-ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673830"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593585"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Grundlegendes zu Verwaltungsrollen für Microsoft-Kundenvereinbarungen in Azure
 
@@ -100,6 +100,8 @@ In den folgenden Tabellen wird aufgezeigt, welche Rolle Sie zum Ausführen von A
 |Aktualisieren der Eigenschaften des Abrechnungsprofils |✔|✔|✘|✘|✘|✘|✘|
 |Anzeigen der auf das Abrechnungsprofil angewendeten Richtlinien wie z. B. Azure-Reservierungseinkäufe aktivieren und Azure Marketplace-Einkäufe aktivieren|✔|✔|✔|✔|✔|✔|✔|
 |Anwenden von Richtlinien auf das Abrechnungsprofil |✔|✔|✘|✘|✘|✘|✘|
+|Verwalten von Reservierungsaufträgen |✔|✔|✘|✘|✘|✘|✘|
+|Anzeigen von Reservierungsaufträgen |✔|✔|✔|✘|✘|✘|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Verwalten von Rechnungen für das Abrechnungsprofil
 

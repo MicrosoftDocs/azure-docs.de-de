@@ -2,13 +2,13 @@
 title: Sparen von Kosten mit einer reservierten Azure VMware Solution-Instanz
 description: Es wird beschrieben, wie Sie eine reservierte Instanz für Azure VMware Solution erwerben.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600866"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550974"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Sparen von Kosten mit Azure VMware Solution
 
@@ -132,3 +132,12 @@ Ausführliche Informationen zu von CSP verwalteten Reservierungen finden Sie unt
 Reservierungen können unter bestimmten Einschränkungen storniert, umgetauscht oder rückerstattet werden. Weitere Informationen finden Sie unter [Self-Service-Umtausch und -Rückerstattungen für Azure-Reservierungen](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 CSP können für ihre Kunden erworbene Reservierungen mit bestimmten Einschränkungen stornieren, umtauschen oder rückerstatten. Weitere Informationen finden Sie unter [Verwalten, Abbrechen, Umtauschen oder Rückerstatten von Microsoft Azure-Reservierungen für Kunden](/partner-center/azure-reservations-manage).
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Nachdem Sie jetzt erfahren haben, wie Sie eine reservierte Instanz von Azure VMware Solution erwerben, möchten Sie vielleicht mehr über Folgendes erfahren:
+
+- [Erstellen einer Azure VMware Solution-Bewertung](../migrate/how-to-create-azure-vmware-solution-assessment.md)
+- [Verwalten von DHCP in Azure VMware Solution](manage-dhcp.md)
+- [Lebenszyklusverwaltung von Azure VMware Solution-VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
+ 

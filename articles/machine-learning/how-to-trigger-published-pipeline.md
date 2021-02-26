@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881736"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584860"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Auslösen von Machine Learning-Pipelines mit dem Azure Machine Learning-SDK für Python
+# <a name="trigger-machine-learning-pipelines"></a>Auslösen von Machine Learning-Pipelines
 
-In diesem Artikel erfahren Sie, wie Sie programmgesteuert eine Pipeline für die Ausführung in Azure planen. Sie können wahlweise einen Plan erstellen, der auf verstrichener Zeit oder auf Änderungen im Dateisystem beruht. Zeitbasierte Pläne können zum Erledigen von Routineaufgaben (z.B. Datendriftüberwachung) verwendet werden. Pläne auf Basis von Änderungen können für die Reaktion auf unregelmäßige bzw. unvorhersehbare Änderungen (z.B. Hochladen neuer Daten oder Bearbeiten alter Daten) verwendet werden. Nachdem Sie gelernt haben, wie Pläne erstellt werden, erfahren Sie, wie Sie diese abrufen und deaktivieren können. Schließlich erfahren Sie, wie Sie mit einer Azure-Logik-App komplexere auslösende Logik oder komplexeres Verhalten ermöglichen.
+In diesem Artikel erfahren Sie, wie Sie programmgesteuert eine Pipeline für die Ausführung in Azure planen. Sie können einen Plan erstellen, der auf verstrichener Zeit oder auf Änderungen im Dateisystem beruht. Zeitbasierte Pläne können zum Erledigen von Routineaufgaben (z.B. Datendriftüberwachung) verwendet werden. Pläne auf Basis von Änderungen können für die Reaktion auf unregelmäßige bzw. unvorhersehbare Änderungen (z.B. Hochladen neuer Daten oder Bearbeiten alter Daten) verwendet werden. Nachdem Sie gelernt haben, wie Pläne erstellt werden, erfahren Sie, wie Sie diese abrufen und deaktivieren können. Schließlich erfahren Sie, wie Sie andere Azure-Dienste, Azure Logic App und Azure Data Factory zur Ausführung von Pipelines verwenden können. Eine Azure Logic App ermöglicht eine komplexere Logik oder ein komplexeres Verhalten für die Auslösung. Mit Azure Data Factory-Pipelines können Sie eine Machine Learning-Pipeline als Teil einer größeren Datenorchestrierung aufrufen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -29,7 +29,7 @@ In diesem Artikel erfahren Sie, wie Sie programmgesteuert eine Pipeline für die
 
 * Ein Machine Learning-Arbeitsbereich mit einer veröffentlichten Pipeline. Sie können die Pipeline verwenden, die in [Erstellen und Ausführen von Machine Learning-Pipelines mit dem Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md) erstellt wurde.
 
-## <a name="initialize-the-workspace--get-data"></a>Initialisieren des Arbeitsbereichs und Abrufen von Daten
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Auslösen von Pipelines mit dem Azure Machine Learning SDK für Python
 
 Zum Planen einer Pipeline benötigen Sie einen Verweis auf Ihren Arbeitsbereich, den Bezeichner (ID) der veröffentlichten Pipeline und den Namen des Experiments, in dem Sie den Plan erstellen möchten. Diese Werte können Sie mithilfe des folgenden Codes abrufen:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Erstellen eines änderungsbasierten Plans
 
-Pipelines, die durch Dateiänderungen ausgelöst werden, sind möglicherweise effizienter als zeitbasierte Pläne. Vielleicht möchten Sie zum Beispiel einen Vorverarbeitungsschritt ausführen, wenn eine Datei geändert oder einem Datenverzeichnis eine neue Datei hinzugefügt wird. Sie können alle Änderungen an einem Datenspeicher oder Änderungen in einem bestimmten Verzeichnis des Datenspeichers überwachen. Wenn Sie ein bestimmtes Verzeichnis überwachen, lösen Änderungen in den Unterverzeichnissen dieses Verzeichnisses _keine_ Ausführung aus.
+Pipelines, die durch Dateiänderungen ausgelöst werden, sind möglicherweise effizienter als zeitbasierte Pläne. Wenn Sie vor dem Ändern einer Datei oder dem Hinzufügen einer neuen Datei zu einem Datenverzeichnis etwas unternehmen möchten, können Sie diese Datei vorverarbeiten. Sie können alle Änderungen an einem Datenspeicher oder Änderungen in einem bestimmten Verzeichnis des Datenspeichers überwachen. Wenn Sie ein bestimmtes Verzeichnis überwachen, lösen Änderungen in den Unterverzeichnissen dieses Verzeichnisses _keine_ Ausführung aus.
 
 Um einen `Schedule` zu erstellen, der auf Dateiänderungen reagiert, müssen Sie den `datastore`-Parameter im Aufruf auf [Schedule.create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-) festlegen. Zum Überwachen eines Ordners legen Sie das `path_on_datastore`-Argument fest.
 
@@ -104,7 +104,7 @@ Neben den zuvor beschriebenen Argumenten können Sie das `status`-Argument auf `
 
 Navigieren Sie in Ihrem Webbrowser zu Azure Machine Learning. Wählen Sie im Navigationsbereich im Bereich **Endpunkte** den Eintrag **Pipelineendpunkte** aus. Dadurch gelangen Sie zu einer Liste der im Arbeitsbereich veröffentlichten Pipelines.
 
-![Seite „Pipelines“ in AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Seite „Pipelines“ in AML":::
 
 Auf dieser Seite können Sie Übersichtsinformationen wie Name, Beschreibung, Status usw. zu allen Pipelines im Arbeitsbereich anzeigen. Durch Klicken auf eine Pipeline erhalten Sie ausführlichere Informationen. Auf der Seite, die dann geöffnet wird, finden Sie weitere Details zu Ihrer Pipeline und können einzelne Ausführungen genauer betrachten.
 
@@ -161,11 +161,11 @@ Führen Sie nach der Bereitstellung Ihrer Logik-App die folgenden Schritte aus, 
 
 1. Navigieren Sie zur Logik-App-Designer-Ansicht, und wählen Sie die Vorlage „Leere Logik-App“ aus. 
     > [!div class="mx-imgBorder"]
-    > ![Leere Vorlage](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Leere Vorlage":::
 
 1. Suchen Sie im Designer nach **Blob**. Wählen Sie den Trigger **Beim Hinzufügen oder Ändern eines Blobs (nur Eigenschaften)** aus, und fügen Sie diesen Trigger Ihrer Logik-App hinzu.
     > [!div class="mx-imgBorder"]
-    > ![Hinzufügen eines Triggers](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Hinzufügen eines Triggers":::
 
 1. Geben Sie die Verbindungsinformationen für das Blob Storage-Konto ein, das Sie auf Ergänzungen oder Änderungen an Blobs überwachen möchten. Wählen Sie den zu überwachenden Container aus. 
  
@@ -177,7 +177,7 @@ Führen Sie nach der Bereitstellung Ihrer Logik-App die folgenden Schritte aus, 
 1. Fügen Sie eine HTTP-Aktion hinzu, die ausgeführt wird, wenn ein neues oder geändertes Blob erkannt wird. Wählen Sie **+ Neuer Schritt** aus, suchen Sie nach der HTTP-Aktion, und wählen Sie sie aus.
 
   > [!div class="mx-imgBorder"]
-  > ![Suchen einer HTTP-Aktion](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Suchen einer HTTP-Aktion":::
 
   Konfigurieren Sie Ihre Aktion mit den folgenden Einstellungen:
 
@@ -208,12 +208,18 @@ Führen Sie nach der Bereitstellung Ihrer Logik-App die folgenden Schritte aus, 
     Verwenden Sie den `DataStoreName`, den Sie Ihrem Arbeitsbereich als [Voraussetzung](#prerequisites) hinzugefügt haben.
      
     > [!div class="mx-imgBorder"]
-    > ![HTTP-Einstellungen](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="HTTP-Einstellungen":::
 
 1. Wählen Sie **Speichern** aus. Der Zeitplan ist nun bereit.
 
 > [!IMPORTANT]
 > Wenn Sie mit der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC) den Zugriff auf Ihre Pipeline verwalten, [legen Sie die Berechtigungen für Ihr Pipelineszenario fest (Training oder Bewertung)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Aufrufen von Machine Learning-Pipelines über Azure Data Factory
+
+In einer Azure Data Factory-Pipeline führt die Aktivität *Machine Learning-Pipelineausführung* eine Azure Machine Learning-Pipeline aus. Sie finden diese Aktivität auf der Data Factory-Erstellungsseite unter der Kategorie *Machine Learning*:
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Der Screenshot zeigt die Aktivität der ML-Pipeline in der Azure Data Factory-Erstellungsumgebung":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

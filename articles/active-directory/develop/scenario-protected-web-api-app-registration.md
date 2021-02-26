@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756456"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584379"
 ---
 # <a name="protected-web-api-app-registration"></a>Geschützte Web-API: App-Registrierung
 
@@ -58,7 +58,7 @@ Weitere für Web-APIs spezifische Einstellungen sind die verfügbar gemachte API
 
 Bereiche haben in der Regel das Format `resourceURI/scopeName`. Bei Microsoft Graph haben die Bereiche Verknüpfungen. `User.Read` ist beispielsweise eine Verknüpfung für `https://graph.microsoft.com/user.read`.
 
-Bei der App-Registrierung müssen Sie die folgenden Parameter definieren:
+Definieren Sie bei der App-Registrierung die folgenden Parameter:
 
 - Den Ressourcen-URI
 - Mindestens einen Bereich
@@ -68,7 +68,7 @@ Standardmäßig empfiehlt das Anwendungsregistrierungsportal die Verwendung von 
 
 Den Clientanwendungen werden Bereiche als *delegierte Berechtigungen* und App-Rollen als *Anwendungsberechtigungen* für Ihre Web-API angezeigt.
 
-Bereiche werden den Benutzern Ihrer App auch im Zustimmungsfenster angezeigt. Daher müssen Sie die entsprechenden Zeichenfolgen angeben, die den Bereich beschreiben:
+Bereiche werden den Benutzern Ihrer App auch im Zustimmungsfenster angezeigt. Geben Sie daher die entsprechenden Zeichenfolgen an, die den Bereich beschreiben:
 
 - Aus Sicht eines Benutzers
 - Aus Sicht eines Mandantenadministrators, der Administratoreinwilligung erteilen kann
@@ -99,7 +99,7 @@ In diesem Abschnitt erfahren Sie, wie Sie Ihre geschützte Web-API registrieren,
 
 #### <a name="exposing-application-permissions-app-roles"></a>Verfügbarmachen von Anwendungsberechtigungen (App-Rollen)
 
-Zum Verfügbarmachen von Anwendungsberechtigungen müssen Sie das Manifest bearbeiten.
+Bearbeiten Sie das Manifest, um Anwendungsberechtigungen verfügbar zu machen.
 
 1. Wählen Sie in der Anwendungsregistrierung für Ihre Anwendung **Manifest** aus.
 1. Suchen Sie zum Bearbeiten des Manifests nach der Einstellung `appRoles`, und fügen Sie Anwendungsrollen hinzu. Die Rollendefinitionen gehen aus dem folgenden Beispiel eines JSON-Blocks hervor.

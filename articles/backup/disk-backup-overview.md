@@ -3,12 +3,12 @@ title: Übersicht über Azure Disk Backup
 description: Erfahren Sie mehr über die Azure Disk Backup-Lösung.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733029"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915507"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Übersicht über Azure Disk Backup (Vorschau)
 
@@ -53,7 +53,7 @@ Erwägen Sie Azure Disk Backup in Szenarien, in denen:
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Funktionsweise des Sicherungs- und Wiederherstellungsprozesses
 
-- Der erste Schritt beim Konfigurieren der Sicherung für Azure-Dateifreigaben ist das Erstellen eines [Sicherungstresors](backup-vault-overview.md). Der Tresor bietet eine konsolidierte Ansicht der Sicherungen, die für unterschiedliche Workloads konfiguriert wurden.
+- Der erste Schritt beim Konfigurieren der Sicherung für verwaltete Azure-Datenträger ist das Erstellen eines [Sicherungstresors](backup-vault-overview.md). Der Tresor bietet eine konsolidierte Ansicht der Sicherungen, die für unterschiedliche Workloads konfiguriert wurden.
 
 - Erstellen Sie dann eine Sicherungsrichtlinie, mit der Sie die Sicherungshäufigkeit und die Aufbewahrungsdauer konfigurieren können.
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741897"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625126"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Häufig gestellte Fragen zum Azure AD-Kennwortschutz in lokalen Umgebungen
 
@@ -150,6 +150,146 @@ Der Überwachungsmodus wird nur in der lokalen Active Directory-Umgebung unterst
 **F: Meinen Benutzern wird die herkömmliche Windows-Fehlermeldung angezeigt, wenn ein Kennwort durch den Azure AD-Kennwortschutz abgelehnt wird. Kann diese Fehlermeldung angepasst werden, damit die Benutzer wissen, was wirklich passiert ist?**
 
 Nein. Die Fehlermeldung, die Benutzern angezeigt wird, wenn ein Kennwort von einem Domänencontroller abgelehnt wird, wird nicht vom Domänencontroller gesteuert, sondern vom Clientcomputer. Dieses Verhalten tritt auf, wenn ein Kennwort aufgrund der standardmäßigen Active Directory-Kennwortrichtlinien oder durch eine kennwortfilterbasierte Lösung wie den Azure AD-Kennwortschutz abgelehnt wird.
+
+## <a name="password-testing-procedures"></a>Vorgehensweisen zum Testen von Kennwörtern
+
+Sie sollten mit verschiedenen Kennwörtern einige grundlegende Tests durchführen, um den ordnungsgemäßen Betrieb der Software zu überprüfen und den [Kennwortüberprüfungsalgorithmus](concept-password-ban-bad.md#how-are-passwords-evaluated) besser verstehen zu können. In diesem Abschnitt wird eine Methode für derartige Tests beschrieben, die für das Erzeugen wiederholbarer Ergebnisse konzipiert ist.
+
+Warum ist es notwendig, derartige Schritte auszuführen? Es gibt mehrere Faktoren, die kontrollierte wiederholbare Kennworttests in der lokalen Active Directory-Umgebung erschweren:
+
+* Die Kennwortrichtlinie wird in Azure konfiguriert und dauerhaft gespeichert. Kopien der Richtlinie werden regelmäßig mithilfe eines Abrufmechanismus vom lokalen DC-Agent synchronisiert. Die diesem Abrufzyklus eigene Zeitverzögerung kann Verwirrung stiften. Wenn Sie z. B. die Richtlinie in Azure konfigurieren, aber vergessen, sie mit dem DC-Agent zu synchronisieren, erzielen Sie mit Ihren Tests möglicherweise nicht die erwarteten Ergebnisse. Das Abrufintervall ist derzeit auf ein Mal pro Stunde hartcodiert. Für ein interaktives Testszenario ist es jedoch nicht ideal, zwischen Richtlinienänderungen eine Stunde warten zu müssen.
+* Wenn eine neue Kennwortrichtlinie mit einem Domänencontroller synchronisiert wird, treten aufgrund der Replikation auf anderen Domänencontrollern weitere Wartezeiten auf. Diese Verzögerungen können zu unerwarteten Ergebnissen führen, wenn Sie eine Kennwortänderung mit einem Domänencontroller testen, der noch nicht die neueste Version der Richtlinie erhalten hat.
+* Das Testen von Kennwortänderungen über eine Benutzeroberfläche erschwert das Vertrauen in die Ergebnisse. Es ist beispielsweise einfach, auf einer Benutzeroberfläche ein ungültiges Kennwort falsch einzugeben, besonders auch deshalb, weil auf den meisten Benutzeroberflächen zur Kennworteingabe (z. B. auf der Windows-Benutzeroberfläche „STRG+ALT+Entf -> Kennwort ändern“) die Benutzereingabe verborgen wird.
+* Es lässt sich nicht genau steuern, welcher Domänencontroller beim Testen von Kennwortänderungen von in die Domäne eingebundenen Clients verwendet wird. Das Windows-Betriebssystem des Clients wählt anhand von Faktoren wie Active Directory-Standort und -Subnetzzuordnungen, umgebungsspezifischer Netzwerkkonfiguration usw. den Domänencontroller aus.
+
+Um diese Probleme zu vermeiden, basieren die folgenden Schritte auf Tests von Kennwortzurücksetzungen über die Befehlszeile, während Sie bei einem Domänencontroller angemeldet sind.
+
+> [!WARNING]
+> Diese Vorgehensweisen sollten nur in einer Testumgebung verwendet werden, da alle eingehenden Kennwortänderungen und -zurücksetzungen ohne Überprüfung akzeptiert werden, während der DC-Agent-Dienst beendet wird, aber auch, um die größeren Risiken bei der Anmeldung bei einem Domänencontroller zu vermeiden.
+
+Bei den folgenden Schritten wird davon ausgegangen, dass Sie den DC-Agent auf mindestens einem Domänencontroller installiert haben und mindestens ein Proxy installiert ist. Außerdem müssen Sie sowohl den Proxy als auch die Gesamtstruktur registriert haben.
+
+1. Melden Sie sich mit den Anmeldeinformationen eines Domänenadministrators (oder mit anderen Anmeldeinformationen, die über ausreichende Berechtigungen zum Erstellen von Testbenutzerkonten und zum Zurücksetzen von Kennwörtern verfügen) bei einem Domänencontroller an, auf dem die DC-Agent-Software installiert ist und der neu gestartet wurde.
+1. Öffnen Sie die Ereignisanzeige, und navigieren Sie zum [DC-Agent-Administratorereignisprotokoll](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten.
+1. Erstellen eines Testkontos für Kennworttests
+
+   Es gibt viele Möglichkeiten, ein Benutzerkonto zu erstellen. Hier wird jedoch eine Befehlszeilenoption angeboten, um den Vorgang bei wiederholten Testzyklen zu vereinfachen:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   In Bezug auf die Erläuterungen weiter unten wird davon ausgegangen, dass ein Testkonto mit dem Namen „ContosoUser“ erstellt wurde, z. B.:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Öffnen Sie einen Webbrowser (Sie müssen möglicherweise anstelle des Domänencontrollers ein separates Gerät verwenden), melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu „Azure Active Directory > Sicherheit > Authentifizierungsmethoden > Kennwortschutz“.
+1. Ändern Sie für die Tests, die Sie durchführen möchten, die Azure AD-Kennwortschutzrichtlinie nach Bedarf.  Sie können beispielsweise entweder den erzwungenen Modus oder den Überwachungsmodus konfigurieren, oder Sie können in der benutzerdefinierten Liste gesperrter Kennwörter die gesperrten Begriffe ändern.
+1. Synchronisieren Sie die neue Richtlinie, indem Sie den DC-Agent-Dienst beenden und neu starten.
+
+   Dieser Schritt kann auf verschiedene Weise ausgeführt werden. Eine Möglichkeit besteht darin, die Verwaltungskonsole der Dienstverwaltung zu verwenden, indem Sie mit der rechten Maustaste auf den DC-Agent-Dienst für den Azure AD-Kennwortschutz klicken und „Neu starten“ auswählen. Er kann aber auch wie folgt im Eingabeaufforderungsfenster ausgeführt werden:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Überprüfen Sie die Ereignisanzeige, um sicherzustellen, dass eine neue Richtlinie heruntergeladen wurde.
+
+   Jedes Mal, wenn der DC-Agent-Dienst beendet und neu gestartet wird, sollten in kurzer Folge zwei Ereignisse vom Typ 30006 ausgegeben werden. Das erste Ereignis vom Typ 30006 spiegelt die Richtlinie wider, die auf dem Datenträger in der SYSVOL-Freigabe zwischengespeichert wurde. Das zweite Ereignis vom Typ 30006 (falls vorhanden) sollte ein aktualisiertes Mandantenrichtliniendatum enthalten und spiegelt in diesem Fall die Richtlinie wider, die von Azure heruntergeladen wurde. Der Wert für das Mandantenrichtliniendatum ist derzeit codiert und gibt den ungefähren Zeitstempel für das Herunterladen der Richtlinie von Azure an.
+   
+   Wenn das zweite Ereignis vom Typ 30006 nicht angezeigt wird, sollten Sie das Problem beheben, bevor Sie den Vorgang fortsetzen.
+   
+   Die Ereignisse vom Typ 30006 sehen etwa wie in diesem Beispiel aus:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Wenn Sie z. B. zwischen erzwungenem Modus und Überwachungsmodus wechseln, wird das AuditOnly-Flag geändert (die obige Richtlinie mit „AuditOnly=0“ befindet sich im erzwungenen Modus). Änderungen an der benutzerdefinierten Liste gesperrter Kennwörter werden im obigen Ereignis vom Typ 30006 nicht direkt widergespiegelt (und werden aus Sicherheitsgründen auch nicht an anderer Stelle protokolliert). Wenn Sie nach einer solchen Änderung die Richtlinie erfolgreich von Azure herunterladen, enthält der Download auch die geänderte benutzerdefinierte Liste gesperrter Kennwörter.
+
+1. Führen Sie einen Test aus, indem Sie versuchen, ein neues Kennwort für das Testbenutzerkonto zurückzusetzen.
+
+   Dieser Schritt kann über das Eingabeaufforderungsfenster wie folgt ausgeführt werden:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Nachdem Sie den Befehl ausgeführt haben, können Sie weitere Informationen zum Ergebnis des Befehls in der Ereignisanzeige anzeigen. Das Ergebnis der Kennwortüberprüfung mit den entsprechenden Ereignissen ist im Thema [DC-Agent-Administratorereignisprotoll](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) dokumentiert. Diese Ereignisse werden verwendet, um das Ergebnis des Tests zusätzlich zur interaktiven Ausgabe der „net.exe“-Befehle zu überprüfen.
+
+   Ein Beispiel: Sie versuchen, ein Kennwort festzulegen, das durch die globale Microsoft-Liste gesperrt ist. (Diese Liste ist [nicht dokumentiert](concept-password-ban-bad.md#global-banned-password-list). Zum Testen können Sie hier jedoch einen bekannten, gesperrten Begriff verwenden.) In diesem Beispiel wird davon ausgegangen, dass Sie für die Richtlinie den erzwungenen Modus konfiguriert haben und der benutzerdefinierten Liste gesperrter Kennwörter noch keine Begriffe hinzugefügt haben.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   Da es sich bei dem Test um einen Kennwortzurücksetzungsvorgang handelt, sollten gemäß der Dokumentation für den Benutzer „ContosoUser“ ein Ereignis vom Typ 10017 und ein Ereignis vom Typ 30005 angezeigt werden.
+
+   Das Ereignis vom Typ 10017 sollte wie im folgenden Beispiel aussehen:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Das Ereignis vom Typ 30005 sollte wie im folgenden Beispiel aussehen:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Das hat Spaß gemacht. Probieren Sie ein weiteres Beispiel aus. Dieses Mal versuchen Sie, ein Kennwort festzulegen, das durch die benutzerdefinierte Sperrliste gesperrt ist, während für die Richtlinie der Überwachungsmodus konfiguriert ist. In diesem Beispiel wird davon ausgegangen, dass Sie die folgenden Schritte ausgeführt haben: Sie haben für die Richtlinie den Überwachungsmodus konfiguriert. Sie haben der benutzerdefinierten Liste gesperrter Kennwörter den Begriff „lachrymose“ hinzugefügt. Sie haben die resultierende neue Richtlinie mit dem Domänencontroller synchronisiert, indem Sie im DC-Agent-Dienst die oben beschriebenen Schritte ausgeführt haben.
+
+   In Ordnung. Legen Sie nun eine Variante des gesperrten Kennworts fest:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Beachten Sie, dass Sie dieses Mal erfolgreich waren, weil sich die Richtlinie im Überwachungsmodus befindet. Für den Benutzer „ContosoUser“ sollte ein Ereignis vom Typ 10025 und ein Ereignis vom Typ 30007 angezeigt werden.
+
+   Das Ereignis vom Typ 10025 sollte wie im folgenden Beispiel aussehen:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Das Ereignis vom Typ 30007 sollte wie im folgenden Beispiel aussehen:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Setzen Sie das Testen mit verschiedenen Kennwörtern Ihrer Wahl fort, und überprüfen Sie anhand der im vorherigen Schritt beschriebenen Vorgehensweisen die Ergebnisse in der Ereignisanzeige. Wenn Sie die Richtlinie im Azure-Portal ändern müssen, denken Sie daran, die neue Richtlinie, wie zuvor beschrieben, mit dem DC-Agent zu synchronisieren.
+
+Wir haben Vorgehensweisen erläutert, mit denen Sie das Kennwortüberprüfungsverhalten des Azure AD-Kennwortschutzes auf kontrollierte Weise testen können. Das Verwenden der Befehlszeile unmittelbar auf einem Domänencontroller zum Zurücksetzen von Benutzerkennwörtern mag als merkwürdiges Mittel für solche Tests erscheinen, eignet sich jedoch, wie oben beschrieben, zum Erzeugen wiederholbarer Ergebnisse. Beachten Sie beim Testen verschiedener Kennwörter auch den [Kennwortüberprüfungsalgorithmus](concept-password-ban-bad.md#how-are-passwords-evaluated), da er möglicherweise bei der Erläuterung unerwarteter Ergebnisse hilfreich sein kann.
+
+> [!WARNING]
+> Wenn Sie alle Tests abgeschlossen haben, denken Sie daran, die zu Testzwecken erstellten Benutzerkonten zu löschen!
 
 ## <a name="additional-content"></a>Zusätzliche Inhalte
 

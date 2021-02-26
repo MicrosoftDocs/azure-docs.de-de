@@ -4,19 +4,18 @@ description: 'Anleitung: Verwenden von Azure Machine Learning Webdienstparameter
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308615"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518333"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Verwenden von (klassischen) Azure Machine Learning Studio-Webdienstparametern
 
@@ -51,11 +50,11 @@ Nehmen wir beispielsweise an, wir hätten ein Experiment mit einem Modul [Export
 1. Klicken Sie in Machine Learning Studio (klassisch) auf das Modul [Export Data][writer], um es auszuwählen. Die Moduleigenschaften werden rechts neben dem Canvas mit dem Experiment im Eigenschaftenbereich angezeigt.
 2. Geben Sie den Speichertyp an:
    
-   * Wählen Sie unter **Please specify data destination** (Datenziel angeben) das Ziel "Azure Blob Storage" (Azure-Blob-Speicher" aus.
-   * Wählen Sie unter **Please specify authentication type** (Authentifizierungstyp angeben) die Option "Account" (Konto) aus.
+   * Wählen Sie unter **Please specify data destination**(Datenziel angeben) das Ziel "Azure Blob Storage" (Azure-Blob-Speicher" aus.
+   * Wählen Sie unter **Please specify authentication type**(Authentifizierungstyp angeben) die Option "Account" (Konto) aus.
    * Geben Sie die Kontoinformationen für Azure Blob Storage ein. 
 
-3. Klicken Sie auf das Symbol rechts neben **Path to blob beginning with container parameter** (Blob-Pfad beginnt mit Containerparameter). Es sieht folgendermaßen aus:
+3. Klicken Sie auf das Symbol rechts neben **Path to blob beginning with container parameter**(Blob-Pfad beginnt mit Containerparameter). Es sieht folgendermaßen aus:
    
    ![Symbol für Webdienstparameter](./media/web-service-parameters/icon.png)
    
@@ -67,7 +66,7 @@ Nehmen wir beispielsweise an, wir hätten ein Experiment mit einem Modul [Export
    
    ![Webdienstparameter](./media/web-service-parameters/parameter.png)
 6. Klicken Sie auf **Ausführen**. 
-7. Klicken Sie auf **Deploy Web Service** , und wählen Sie **Deploy Web Service [Classic]** oder **Deploy Web Service [New]** aus, um den Webdienst bereitzustellen.
+7. Klicken Sie auf **Deploy Web Service**, und wählen Sie **Deploy Web Service [Classic]** oder **Deploy Web Service [New]** aus, um den Webdienst bereitzustellen.
 
 > [!NOTE] 
 > Zum Bereitstellen eines neuen Webdiensts müssen Sie über ausreichende Berechtigungen in dem Abonnement verfügen, an das Sie den Webdienst bereitstellen. Weitere Informationen finden Sie unter [Verwalten eines Webdiensts im Azure Machine Learning Web Services-Portal](manage-new-webservice.md). 

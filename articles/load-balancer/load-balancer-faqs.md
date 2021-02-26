@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222988"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576040"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Häufig gestellte Fragen zu Load Balancer
 
@@ -49,8 +49,14 @@ Mit dem Befehl „nslookup“ können Sie eine DNS-Abfrage für den Namen „myi
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>Kann ich einen virtuellen Computer aus derselben Verfügbarkeitsgruppe zu anderen Back-End-Pools eines Load Balancers hinzufügen?
 Nein, das ist nicht möglich.
 
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Wie hoch ist der maximale Datendurchsatz, der über eine Azure Load Balancer-Instanz erreicht werden kann?
+Da Azure Load Balancer ein Passthrough-Lastenausgleich für das Netzwerk ist, werden die Durchsatzbeschränkungen vom im Back-End-Pool verwendeten VM-Typ vorgegeben. Weitere Informationen zum Netzwerkdurchsatz finden Sie unter [VM-Netzwerkdurchsatz](../virtual-network/virtual-machine-network-throughput.md).
+
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Wie funktionieren Verbindungen mit Azure Storage in derselben Region?
 Eine ausgehende Konnektivität mithilfe der oben genannten Szenarios ist nicht erforderlich, um eine Verbindung mit Azure Storage in derselben Region wie die VM herzustellen. Alternativ können Sie NSGs (Netzwerksicherheitsgruppen) verwenden, wenn Sie dies nicht möchten. Für Verbindungen mit Azure Storage in anderen Regionen ist die ausgehende Konnektivität erforderlich. Beachten Sie, dass es sich bei der Quell-IP-Adresse in den Azure Storage-Diagnoseprotokollen um eine interne Anbieteradresse handelt und nicht um die öffentliche IP-Adresse Ihrer VM, wenn Sie eine Verbindung mit Azure Storage über eine VM in derselben Region herstellen. Wenn Sie den Zugriff auf Ihr Azure Storage-Konto für VMs in mindestens einem Subnetz des virtuellen Netzwerks innerhalb derselben Region einschränken möchten, sollten Sie [VNET-Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) anstelle Ihrer öffentlichen IP-Adresse verwenden, wenn Sie die Firewall für Ihr Speicherkonto konfigurieren. Sobald die Dienstendpunkte konfiguriert wurden, wird Ihre private VNET-IP-Adresse in Ihren Azure Storage-Diagnoseprotokollen anstelle der internen Anbieteradresse angezeigt.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Unterstützt Azure Load Balancer TLS/SSL-Terminierung?
+Nein, Azure Load Balancer unterstützt derzeit keine Terminierung, da es sich um einen Pass-Through-Netzwerklastenausgleich handelt. Application Gateway könnte eine potenzielle Lösung sein, wenn Ihre Anwendung dies erfordert.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Welche Best Practices gelten in Bezug auf ausgehende Verbindungen?
 Load Balancer Standard und Standard Public IP führen Fähigkeiten und andere Verhaltensweisen für ausgehende Verbindungen ein. Sie sind nicht identisch mit Basic-SKUs. Wenn Sie bei der Arbeit mit Standard-SKUs ausgehende Verbindungen wünschen, müssen Sie diese explizit entweder mit Standard Public IP-Adressen oder Standard Public Load Balancer definieren. Dies umfasst die Erstellung von ausgehenden Verbindungen bei der Verwendung eines internen Load Balancer Standard. Es wird empfohlen, dass Sie für einen Standard Public Load Balancer immer Ausgangsregeln verwenden. Das bedeutet, dass Sie bei Verwendung eines internen Load Balancer Standard Schritte unternehmen müssen, um die ausgehenden Verbindungen für die VMs im Back-End-Pool herzustellen, wenn ausgehende Verbindungen gewünscht sind. Im Kontext der ausgehenden Verbindungen verhalten sich eine einzelne eigenständige VM, alle VMs in einer Verfügbarkeitsgruppe sowie alle Instanzen in einem VMSS wie eine Gruppe. Das bedeutet, wenn eine einzelne VM in einer Verfügbarkeitsgruppe einer Standard-SKU zugeordnet ist, verhalten sich jetzt alle VM-Instanzen in dieser Verfügbarkeitsgruppe nach denselben Regeln wie bei der Zuordnung zu einer Standard-SKU, auch wenn eine einzelne Instanz nicht direkt mit ihr verbunden ist. Dieses Verhalten wird auch bei einem eigenständigen virtuellen Computer mit mehreren Netzwerkschnittstellenkarten beobachtet, die an einen Lastenausgleich angeschlossen sind. Wenn eine eigenständige NIC hinzugefügt wird, zeigt sie dasselbe Verhalten. Lesen Sie dieses Dokument sorgfältig und vollständig, um die allgemeinen Konzepte zu verstehen, überprüfen Sie [Load Balancer Standard](./load-balancer-overview.md) auf Unterschiede zwischen den SKUs, und überprüfen Sie die [Ausgangsregeln](load-balancer-outbound-connections.md#outboundrules).

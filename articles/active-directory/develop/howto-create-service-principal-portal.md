@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014942"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104211"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal
 
@@ -75,7 +75,7 @@ So überprüfen Sie die Berechtigungen Ihres Abonnements:
 
 Wir beginnen gleich mit der Erstellung der Identität. Falls ein Problem auftritt, sollten Sie die [erforderlichen Berechtigungen](#permissions-required-for-registering-an-app) überprüfen, um sicherzustellen, dass die Identität mit Ihrem Konto erstellt werden kann.
 
-1. Melden Sie sich über das <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> bei Ihrem Azure-Konto an.
+1. Melden Sie sich über das <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> bei Ihrem Azure-Konto an.
 1. Wählen Sie **Azure Active Directory** aus.
 1. Wählen Sie **App-Registrierungen** aus.
 1. Wählen Sie **Neue Registrierung** aus.
@@ -115,7 +115,7 @@ Im nächsten Abschnitt wird veranschaulicht, wie Sie Werte abrufen, die beim pro
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Abrufen der Werte für Mandanten-ID und App-ID für die Anmeldung
 
-Beim programmgesteuerten Anmelden müssen Sie mit Ihrer Authentifizierungsanforderung und der Anwendungs-ID auch die Mandanten-ID übergeben.  Außerdem benötigen Sie ein Zertifikat oder einen Authentifizierungsschlüssel (im folgenden Abschnitt beschrieben). Führen Sie die folgenden Schritte aus, um diese Werte abzurufen:
+Beim programmgesteuerten Anmelden übergeben Sie mit Ihrer Authentifizierungsanforderung und der Anwendungs-ID auch die Mandanten-ID.  Außerdem benötigen Sie ein Zertifikat oder einen Authentifizierungsschlüssel (im folgenden Abschnitt beschrieben). Führen Sie die folgenden Schritte aus, um diese Werte abzurufen:
 
 1. Wählen Sie **Azure Active Directory** aus.
 1. Wählen Sie in Azure AD unter **App-Registrierungen** Ihre Anwendung aus.
@@ -162,7 +162,7 @@ So laden Sie das Zertifikat hoch:
 
 1. Wählen Sie **Hinzufügen**.
 
-Nach dem Registrieren des Zertifikats bei Ihrer Anwendung im Portal der Anwendungsregistrierung müssen Sie dem Code der Clientanwendung die Verwendung des Zertifikats ermöglichen.
+Nach dem Registrieren des Zertifikats bei Ihrer Anwendung im Portal der Anwendungsregistrierung ermöglichen Sie dem Code der Clientanwendung die Verwendung des Zertifikats.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Option 2: Erstellen eines neuen Anwendungsgeheimnisses
 
@@ -181,7 +181,7 @@ Wenn Sie sich entscheiden, kein Zertifikat zu verwenden, können Sie ein neues A
 ## <a name="configure-access-policies-on-resources"></a>Konfigurieren von Zugriffsrichtlinien für Ressourcen
 Beachten Sie, dass Sie möglicherweise zusätzliche Berechtigungen für Ressourcen konfigurieren müssen, auf die Ihre Anwendung zugreifen muss. Sie müssen beispielsweise auch die [Zugriffsrichtlinien eines Schlüsseltresors aktualisieren](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies), um der Anwendung Zugriff auf Schlüssel, Geheimnisse oder Zertifikate zu gewähren.
 
-1. Navigieren Sie im <a href="https://portal.azure.com/" target="_blank">Azure-Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> zu Ihrem Schlüsseltresor, und wählen Sie **Zugriffsrichtlinien** aus.
+1. Navigieren Sie im <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> zu Ihrem Schlüsseltresor, und wählen Sie **Zugriffsrichtlinien** aus.
 1. Wählen Sie **Zugriffsrichtlinie hinzufügen** und anschließend die Schlüssel-, Geheimnis- und Zertifikatberechtigungen aus, die Sie Ihrer Anwendung gewähren möchten.  Wählen Sie den zuvor erstellten Dienstprinzipal aus.
 1. Wählen Sie **Hinzufügen** aus, um die Zugriffsrichtlinie hinzuzufügen, und wählen Sie dann **Speichern** aus, um Ihre Änderungen zu übernehmen.
     ![Zugriffsrichtlinie hinzufügen](./media/howto-create-service-principal-portal/add-access-policy.png)

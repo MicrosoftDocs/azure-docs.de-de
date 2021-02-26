@@ -2,17 +2,19 @@
 title: Fehlerreferenz für Registrierungsintegritätsprüfung
 description: Fehlercodes und mögliche Lösungen für Probleme, die beim Ausführen des Diagnosebefehls az acr check-health in Azure Container Registry gefunden wurden.
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565597"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061867"
 ---
 # <a name="health-check-error-reference"></a>Fehlerreferenz für die Integritätsprüfung
 
 Im Folgenden finden Sie Informationen zu Fehlercodes, die vom Befehl [az acr check-health][az-acr-check-health] zurückgegeben werden. Für jeden Fehler werden mögliche Lösungen aufgeführt.
+
+Informationen zum Ausführen von `az acr check-healh` finden Sie unter [Überprüfen der Integrität einer Azure-Containerregistrierung](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -49,6 +51,12 @@ Dieser Fehler weist darauf hin, dass der Helm-Client von der CLI nicht gefunden 
 Dieser Fehler weist darauf hin, dass die CLI die installierte Helm-Version nicht ermitteln konnte. Dies kann passieren, wenn die verwendete Version der Azure CLI (oder die Helm-Version) veraltet ist.
 
 *Mögliche Lösungen*: Führen Sie ein Update auf die neueste Azure CLI-Version oder auf die empfohlene Helm-Version durch. Führen Sie den Befehl manuell aus, und untersuchen Sie die Fehlermeldung.
+
+## <a name="cmk_error"></a>CMK_ERROR
+
+Dieser Fehler weist darauf hin, dass die Registrierung nicht auf die benutzerseitig oder systemseitig zugewiesene verwaltete Identität zugreifen kann, die zum Konfigurieren der Registrierungsverschlüsselung mit einem kundenseitig verwalteten Schlüssel verwendet wurde. Die verwaltete Identität wurde möglicherweise gelöscht.  
+
+*Mögliche Lösung*: Informationen zum Beheben des Problems und zum Rotieren des Schlüssels mithilfe einer anderen verwalteten Identität finden Sie in den Schritten zur Problembehandlung [der benutzerseitig zugewiesenen Identität](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508759"
 ---
 # <a name="manage-individual-sensors"></a>Verwalten einzelner Sensoren
 
@@ -367,9 +367,9 @@ So ändern Sie den Namen
 
 1. Löschen Sie den Sensor aus dem Fenster **Sensorverwaltung**.
 
-1. Führen Sie eine Registrierung mit dem neuen Namen aus.
+1. Führen Sie eine erneute Registrierung mit dem neuen Namen aus.
 
-1. Laden Sie eine neue Aktivierungsdatei herunter.
+1. Laden Sie die neue Aktivierungsdatei herunter.
 
 1. Melden Sie sich beim Sensor an, und laden Sie die neue Aktivierungsdatei hoch.
 

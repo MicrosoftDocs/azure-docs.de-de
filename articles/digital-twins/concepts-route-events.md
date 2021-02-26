@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049285"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050514"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Weiterleiten von Ereignissen innerhalb und außerhalb von Azure Digital Twins
 
@@ -55,7 +55,7 @@ Entwickler müssen erst Endpunkte definieren, um eine Ereignisroute definieren z
 * Event Hub
 * Service Bus
 
-Um einen Endpunkt zu erstellen, können Sie die [**Steuerungsebenen-APIs**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) von Azure Digital Twins, [**CLI-Befehle**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) oder das [**Azure-Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) verwenden. 
+Sie können die [REST-APIs von Azure Digital Twins, CLI-Befehle](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) oder das [Azure-Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) verwenden, um einen Endpunkt zu erstellen.
 
 Beim Definieren eines Endpunkts müssen Sie Folgendes angeben:
 * Name des Endpunkts
@@ -71,7 +71,7 @@ In der Steuerungsebene sind Endpunkt-APIs für Folgendes verfügbar:
 
 ## <a name="create-an-event-route"></a>Erstellen einer Ereignisroute
  
-Um eine Ereignisroute zu erstellen, können Sie die [**Datenebenen-APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route) von Azure Digital Twins, [**CLI-Befehle**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) oder das [**Azure-Portal**](how-to-manage-routes-portal.md#create-an-event-route) verwenden. 
+Sie können zum Erstellen einer Ereignisroute die [REST-APIs von Azure Digital Twins, CLI-Befehle](how-to-manage-routes-apis-cli.md#create-an-event-route) oder das [Azure-Portal](how-to-manage-routes-portal.md#create-an-event-route) verwenden.
 
 Im Folgenden finden Sie ein Beispiel für das Erstellen einer Ereignisroute in einer Clientanwendung mithilfe des [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)-Aufrufs `CreateOrReplaceEventRouteAsync`: 
 
@@ -85,8 +85,6 @@ Im Folgenden finden Sie ein Beispiel für das Erstellen einer Ereignisroute in e
 
 > [!TIP]
 > Alle SDK-Funktionen sind in synchronen und asynchronen Versionen enthalten.
-
-Routen können auch über die [Azure Digital Twins-CLI](how-to-use-cli.md) erstellt werden.
 
 ## <a name="dead-letter-events"></a>„Unzustellbare Nachrichten“-Ereignisse
 

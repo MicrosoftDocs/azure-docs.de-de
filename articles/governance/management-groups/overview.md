@@ -4,12 +4,12 @@ description: Informationen zu Verwaltungsgruppen und ihrer Verwendung sowie zur 
 ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9843b824c62e0f9919d7a71a717d9aad03dcbd9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736321"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590847"
 ---
 # <a name="what-are-azure-management-groups"></a>Was sind Azure-Verwaltungsgruppen?
 
@@ -184,7 +184,7 @@ Damit eine Verwaltungsgruppe oder ein Abonnement als untergeordnetes Element ein
 Wenn Sie die Verschiebung durchführen, muss Folgendes zutreffen: 
 
 - Verwaltungsgruppenschreib- und Rollenzuweisungsschreibberechtigung für das untergeordnete Abonnement oder die untergeordnete Verwaltungsgruppe.
-  - Beispiel für eine integrierte Rolle **Besitzer**
+  - Beispiel für eine integrierte Rolle: **Besitzer**
 - Verwaltungsgruppen-Schreibzugriff auf die übergeordnete Zielverwaltungsgruppe.
   - Beispiel für eine integrierte Rolle: **Besitzer**, **Mitwirkender**, **Verwaltungsgruppenmitwirkender**
 - Verwaltungsgruppen-Schreibzugriff auf die bestehende übergeordnete Verwaltungsgruppe.
@@ -196,7 +196,7 @@ Wenn die Rolle „Besitzer“ in Ihrem Abonnement von der aktuellen Verwaltungsg
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Überwachen von Verwaltungsgruppen mithilfe von Aktivitätsprotokollen
 
-Verwaltungsgruppen werden im [Azure-Aktivitätsprotokoll](../../azure-monitor/platform/platform-logs-overview.md) unterstützt. Alle Ereignisse, die für eine Verwaltungsgruppe auftreten, können am gleichen zentralen Ort wie bei anderen Azure-Ressourcen gesucht werden. Sie können beispielsweise alle Änderungen an Rollen- oder Richtlinienzuweisungen anzeigen, die für eine bestimmte Verwaltungsgruppe vorgenommen wurden.
+Verwaltungsgruppen werden im [Azure-Aktivitätsprotokoll](../../azure-monitor/essentials/platform-logs-overview.md) unterstützt. Alle Ereignisse, die für eine Verwaltungsgruppe auftreten, können am gleichen zentralen Ort wie bei anderen Azure-Ressourcen gesucht werden. Sie können beispielsweise alle Änderungen an Rollen- oder Richtlinienzuweisungen anzeigen, die für eine bestimmte Verwaltungsgruppe vorgenommen wurden.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Screenshot: Aktivitätsprotokolle und -vorgänge im Zusammenhang mit der ausgewählten Verwaltungsgruppe" border="false":::
 

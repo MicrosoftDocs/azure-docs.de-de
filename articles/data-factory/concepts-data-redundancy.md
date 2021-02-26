@@ -1,23 +1,18 @@
 ---
 title: Datenredundanz in Azure Data Factory | Microsoft-Dokumentation
 description: Erfahren Sie mehr über die Redundanzmechanismen für Metadaten in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: weehyongtok
 ms.reviewer: abnarain
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 7f95adc264ed91e75eef668b43f674ddeb7d9e89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369695"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Datenredundanz in Azure Data Factory**
 

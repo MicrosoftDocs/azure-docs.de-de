@@ -7,16 +7,20 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208436"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429244"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Schnellstart: Einrichten von Azure Attestation mithilfe der Azure CLI
 
 Führen Sie erste Schritte mit [Azure Attestation unter Verwendung der Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest) aus.
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 ## <a name="get-started"></a>Erste Schritte
 

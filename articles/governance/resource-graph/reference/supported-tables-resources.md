@@ -1,15 +1,15 @@
 ---
 title: Unterstützte Azure Resource Manager-Ressourcentypen
 description: Stellen Sie eine Liste der Azure Resource Manager-Ressourcentypen bereit, die von Azure Resource Graph und dem Änderungsverlauf unterstützt werden.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4198c60bc298eb6a1b9902bb92e3df44648b2c0b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251776"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594332"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph-Tabelle und Ressourcentypreferenz
 
@@ -130,6 +130,9 @@ Azure Resource Graph unterstützt die folgenden **Ressourcentypen** von [Azure R
 - microsoft.azurestack/linkedsubscriptions
 - Microsoft.Azurestack/registrations (Azure Stack Hub)
 - Microsoft.AzureStackHCI/clusters (Azure Stack HCI)
+- microsoft.azurestackhci/galleryimages
+- microsoft.azurestackhci/networkinterfaces
+- microsoft.azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (Cray-Server)
 - Microsoft.BareMetal/monitoringServers (Überwachungsserver)
@@ -331,6 +334,9 @@ Azure Resource Graph unterstützt die folgenden **Ressourcentypen** von [Azure R
 - microsoft.insights/workbooktemplates (Vorlagen für Azure-Arbeitsmappen)
 - Microsoft.IntelligentITDigitalTwin/digitalTwins (Minervas)
 - microsoft.intelligentitdigitaltwin/digitaltwins/assets
+- microsoft.intelligentitdigitaltwin/digitaltwins/executionplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/testplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/tests
 - Microsoft.IoTCentral/IoTApps (IoT Central-Anwendungen)
 - Microsoft.IoTSpaces/Graph (Digital Twins (veraltet))
 - microsoft.keyvault/hsmpools
@@ -494,6 +500,7 @@ Azure Resource Graph unterstützt die folgenden **Ressourcentypen** von [Azure R
 - Microsoft.Resources/templateSpecs (Vorlagenspezifikationen)
 - microsoft.resources/templatespecs/versions
 - Microsoft.SaaS/applications (Software-as-a-Service (SaaS, klassisch))
+- Microsoft.SaaS/resources (CPX-Platzhalter)
 - Microsoft.Scheduler/jobCollections (Scheduler-Auftragssammlungen)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (SCVMM-VM – Azure Arc)
@@ -588,6 +595,7 @@ Azure Resource Graph unterstützt die folgenden **Ressourcentypen** von [Azure R
 - Microsoft.Web/StaticSites (Static Web Apps (Vorschau))
 - Microsoft.WindowsESU/multipleActivationKeys (Windows-Mehrfachaktivierungsschlüssel)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- microsoft.workloadbuilder/migrationagents
 - microsoft.workloadbuilder/workloads
 - MyGet.PackageManagement/services (MyGet – NuGet, NPM, Bower und Vsix gehostet)
 - Paraleap.CloudMonix/services (CloudMonix)

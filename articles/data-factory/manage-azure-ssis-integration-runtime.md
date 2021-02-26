@@ -1,22 +1,17 @@
 ---
 title: Neukonfigurieren der Azure-SSIS-Integration Runtime
 description: Erfahren Sie, wie Sie eine Azure SSIS Integration Runtime in Azure Data Factory neu konfigurieren, nachdem Sie sie bereits bereitgestellt haben.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 724411dc12654aec1614230c943923062b334cd2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636271"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370681"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Neukonfigurieren der Azure-SSIS-Integration Runtime
 
@@ -28,10 +23,10 @@ In diesem Artikel erfahren Sie, wie Sie eine Instanz von Azure-SSIS Integration 
 Sie können die Data Factory-Benutzeroberfläche verwenden, um eine Azure-SSIS IR zu beenden, zu bearbeiten bzw. neu zu konfigurieren oder zu löschen. 
 
 1. Öffnen Sie die Data Factory-Benutzeroberfläche, indem Sie auf der Startseite Ihrer Data Factory auf die Kachel **Author & Monitor** (Erstellen und überwachen) klicken.
-2. Klicken Sie unter den Hubs **Start** , **Bearbeiten** und **Überwachen** auf den Hub **Verwalten** , um den Bereich **Verbindungen** anzuzeigen.
+2. Klicken Sie unter den Hubs **Start**, **Bearbeiten** und **Überwachen** auf den Hub **Verwalten**, um den Bereich **Verbindungen** anzuzeigen.
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Neukonfigurieren einer Azure-SSIS IR
-Wechseln Sie im Bereich **Verbindungen** von **Verwaltungshub** zur Seite **Integration Runtimes** , und wählen Sie **Aktualisieren** aus. 
+Wechseln Sie im Bereich **Verbindungen** von **Verwaltungshub** zur Seite **Integration Runtimes**, und wählen Sie **Aktualisieren** aus. 
 
    ![Bereich „Verbindungen“](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 

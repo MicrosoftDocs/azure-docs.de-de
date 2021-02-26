@@ -3,14 +3,14 @@ title: Übersicht über Backup Center
 description: Dieser Artikel enthält eine Übersicht zu Backup Center für Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173736"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893608"
 ---
-# <a name="overview-of-backup-center"></a>Übersicht über Backup Center
+# <a name="overview-of-backup-center-preview"></a>Übersicht über Backup Center (Vorschau)
 
 Backup Center bietet eine **zentralisierte einheitliche Verwaltungsumgebung** in Azure, mit der Unternehmen Sicherungen in großem Maßstab steuern, überwachen, betreiben und analysieren können. Als solches ist Backup Center konsistent mit den nativen Verwaltungsumgebungen von Azure.
 
@@ -22,7 +22,7 @@ Zu den wichtigsten Vorteilen von Backup Center gehören:
 
 ## <a name="supported-scenarios"></a>Unterstützte Szenarien
 
-* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern und Azure Database for PostgreSQL-Servern unterstützt.
+* Backup Center wird derzeit für Sicherungen von virtuellen Azure-Computern, für SQL in Azure-VM-Sicherungen, für SAP HANA in Azure-VM-Sicherungen, für Azure Files-Sicherungen und für Azure Database for PostgreSQL-Serversicherungen unterstützt.
 * Eine ausführliche Liste der unterstützten und nicht unterstützten Szenarien finden Sie in der [Supportmatrix](backup-center-support-matrix.md).
 
 ## <a name="get-started"></a>Erste Schritte
@@ -47,7 +47,7 @@ Führen Sie die [nächsten Schritte](#next-steps) aus, um die verschiedenen Funk
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Überwachen und Betreiben von Sicherungen mit Backup Center](backup-center-monitor-operate.md)
+* [Überwachen und Betreiben von Sicherungen](backup-center-monitor-operate.md)
 * [Steuern Ihres Sicherungsbestands mit Backup Center](backup-center-govern-environment.md)
 * [Gewinnen von Einblicken in Ihre Sicherungen](backup-center-obtain-insights.md)
 * [Ausführen von Aktionen mithilfe des Backup Centers](backup-center-actions.md)

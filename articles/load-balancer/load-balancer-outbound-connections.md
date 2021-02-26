@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878221"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052821"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Verwenden von SNAT für ausgehende Verbindungen
 
@@ -80,7 +80,7 @@ Wenn das weiter unten beschriebene [Szenario 2](#scenario2) konfiguriert ist, f
 
  | Associations | Methode | IP-Protokolle |
  | ------------ | ------ | ------------ |
- | Öffentlicher Load Balancer | Verwendung von Load Balancer-Front-End-IP-Adressen für [SNAT](#snat)| TCP </br> UDP |
+ | Öffentliche Instanz von Load Balancer Standard | Verwendung von Load Balancer-Front-End-IP-Adressen für [SNAT](#snat)| TCP </br> UDP |
 
 
  #### <a name="description"></a>BESCHREIBUNG
@@ -103,8 +103,18 @@ Wenn das weiter unten beschriebene [Szenario 2](#scenario2) konfiguriert ist, f
 
  In diesem Zusammenhang werden die kurzlebigen für SNAT verwendeten Ports als SNAT-Ports bezeichnet. Es wird dringend empfohlen, explizit eine [Ausgangsregel](./outbound-rules.md) zu konfigurieren. Bei Verwendung von Standard-SNAT über eine Lastenausgleichsregel werden SNAT-Ports vorab zugeordnet, wie in der [Tabelle zur Zuordnung von Standard-SNAT-Ports](#snatporttable) angegeben.
 
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>Szenario 3: VM ohne öffentliche IP-Adresse und hinter interner Instanz von Load Balancer Standard
 
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Szenario 3: VM ohne öffentliche IP-Adresse und hinter öffentlichem Load Balancer Basic
+
+ | Associations | Methode | IP-Protokolle |
+ | ------------ | ------ | ------------ |
+ | Interne Instanz von Load Balancer Standard | Keine Internetverbindung| Keine |
+
+ #### <a name="description"></a>BESCHREIBUNG
+ 
+Bei Verwendung einer internen Instanz von Load Balancer Standard werden keine kurzlebigen IP-Adressen für SNAT verwendet. Dadurch wird standardmäßig die Sicherheit unterstützt und sichergestellt, dass alle von der Ressource verwendeten IP-Adressen konfigurierbar sind und reserviert werden können. Für das Einrichten ausgehender Verbindungen mit dem Internet bei einer internen Instanz von Load Balancer Standard haben Sie zwei Möglichkeiten: Konfigurieren Sie eine öffentliche IP-Adresse auf Instanzebene gemäß der Vorgehensweise in (Szenario 1)[#scenario1], oder fügen Sie die Back-End-Instanzen zusätzlich zur internen Instanz von Load Balancer Standard auch noch einer öffentlichen Instanz von Load Balancer Standard mit einer konfigurierten Ausgangsregel hinzu, wie in (Szenario 2)[#scenario2] beschrieben. 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>Szenario 4: VM ohne öffentliche IP-Adresse und hinter öffentlichem Load Balancer Basic
 
 
  | Associations | Methode | IP-Protokolle |
@@ -126,7 +136,6 @@ Wenn das weiter unten beschriebene [Szenario 2](#scenario2) konfiguriert ist, f
 
 
  Verwenden Sie dieses Szenario nicht, um IP-Adressen einer Positivliste hinzuzufügen. Verwenden Sie Szenario 1 oder 2, bei dem Sie das ausgehende Verhalten explizit deklarieren. [SNAT](#snat)-Ports sind vorab zugeordnet, wie in der [Tabelle zur Zuordnung von Standard-SNAT-Ports](#snatporttable) angegeben.
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Ausschöpfung von Ports
 

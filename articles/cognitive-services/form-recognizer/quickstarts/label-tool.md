@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Verarbeiten von Dokumenten
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845551"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364789"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Trainieren eines Formularerkennungsmodells mit Beschriftungen mithilfe des Tools für die Beschriftung von Beispielen
 
@@ -176,7 +176,7 @@ Es zeigt außerdem, welche Tabellen automatisch extrahiert wurden. Klicken Sie a
 
 ### <a name="apply-labels-to-text"></a>Anwenden von Beschriftungen auf Text
 
-Als Nächstes erstellen Sie Beschriftungen (Tags) und wenden sie auf die Textelemente an, die das Modell erkennen soll.
+Als Nächstes erstellen Sie Tags (Beschriftungen) und wenden sie auf die Textelemente an, die das Modell analysieren soll.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Verwenden Sie zuerst den Bearbeitungsbereich des Editors, um die Tags zu erstellen, die Sie identifizieren möchten.
@@ -202,7 +202,7 @@ Als Nächstes erstellen Sie Beschriftungen (Tags) und wenden sie auf die Textele
    1. Klicken Sie auf **+** , um ein neues Tag zu erstellen.
    1. Geben Sie den Tagnamen ein.
    1. Drücken Sie die EINGABETASTE, um das Tag zu speichern.
-1. Klicken Sie im Hauptbereich des Editors, um Wörter in den markierten Textelementen auszuwählen. In _v2.1 preview.2_ können Sie auch klicken, um _Auswahlmarkierungen_ wie Optionsfelder und Kontrollkästchen als Schlüssel-Wert-Paare auszuwählen. Die Formularerkennung ermittelt, ob für die Auswahlmarkierung der Wert „ausgewählt“ oder „nicht ausgewählt“ angegeben ist.
+1. Klicken Sie im Hauptbereich des Editors, um Wörter in den markierten Textelementen auszuwählen. In der API _v2.1 preview.2_ können Sie auch klicken, um _Auswahlmarkierungen_ wie Optionsfelder und Kontrollkästchen als Schlüssel-Wert-Paare auszuwählen. Die Formularerkennung ermittelt, ob für die Auswahlmarkierung der Wert „ausgewählt“ oder „nicht ausgewählt“ angegeben ist.
 1. Klicken Sie auf das Tag, das Sie anwenden möchten, oder drücken Sie die entsprechende Taste auf der Tastatur. Die Zifferntasten sind als Schnellzugriffstasten für die ersten zehn Tags zugewiesen. Sie können die Beschriftungen mithilfe der nach oben und unten weisenden Pfeilsymbole im Bearbeitungsbereich neu anordnen.
     > [!Tip]
     > Beachten Sie beim Beschriften Ihrer Formulare die folgenden Tipps.
@@ -228,7 +228,7 @@ Führen Sie die oben genannten Schritte aus, um mindestens fünf Ihrer Formulare
 Optional können Sie den erwarteten Datentyp für jedes Tag festlegen. Öffnen Sie das Kontextmenü rechts neben einem Tag, und wählen Sie im Menü einen Typ aus. Diese Funktion ermöglicht es dem Erkennungsalgorithmus, bestimmte Annahmen zu treffen, die die Genauigkeit der Texterkennung verbessern. Außerdem wird sichergestellt, dass die erkannten Werte in der endgültigen JSON-Ausgabe in einem standardisierten Format zurückgegeben werden. Informationen zum Werttyp werden in der Datei *fields.json* unter demselben Pfad wie Ihre Beschriftungsdateien gespeichert.
 
 > [!div class="mx-imgBorder"]
-> ![Werttypauswahl mit dem Tool für die Beschriftung von Beispielen](../media/whats-new/formre-value-type.png)
+> ![Werttypauswahl mit dem Tool für die Beschriftung von Beispielen](../media/whats-new/value-type.png)
 
 Derzeit werden die folgenden Werttypen und Variationen unterstützt:
 * `string`
@@ -290,7 +290,7 @@ Dieses Feature ist derzeit in der Vorschauversion v2.1 verfügbar.
 
 Mit der Modellerstellung können Sie bis zu 100 Modelle mit einer einzelnen Modell-ID erstellen. Wenn Sie mit dieser zusammengesetzten Modell-ID die Option zum Analysieren aufrufen, klassifiziert die Formularerkennung zunächst das übermittelte Formular, gleicht es mit dem am ehesten übereinstimmenden Modell ab und gibt dann Ergebnisse für dieses Modell zurück. Dies ist nützlich, wenn eingehende Formulare zu einer von mehreren Vorlagen gehören können.
 
-Um Modelle im Tool für die Beschriftung von Beispielen zu erstellen, klicken Sie auf der linken Seite auf das Symbol zum Erstellen von Modellen (zusammengeführter Pfeil). Wählen Sie auf der linken Seite die Modelle aus, die Sie zusammen erstellen möchten. Modelle mit dem Pfeilsymbol sind bereits zusammengesetzte Modelle. Klicken Sie auf die Schaltfläche „Erstellen“. Geben Sie im Popupfenster einen Namen für das neue erstellte Modell ein, und klicken Sie auf „Erstellen“. Nach Abschluss des Vorgangs sollte das neue erstellte Modell in der Liste angezeigt werden. 
+Um Modelle im Tool für die Beschriftung von Beispielen zu erstellen, klicken Sie auf der linken Seite auf das Symbol zum Erstellen von Modellen (zusammengeführter Pfeil). Wählen Sie auf der linken Seite die Modelle aus, die Sie zusammen erstellen möchten. Modelle mit dem Pfeilsymbol sind bereits zusammengesetzte Modelle. Klicken Sie auf die Schaltfläche „Erstellen“. Geben Sie im Popupfenster einen Namen für Ihr neu erstelltes Modell ein, und klicken Sie auf „Erstellen“. Nach Abschluss des Vorgangs sollte das neue erstellte Modell in der Liste angezeigt werden. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Benutzeroberflächenansicht für die Modellerstellung":::
 

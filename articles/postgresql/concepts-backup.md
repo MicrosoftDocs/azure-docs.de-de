@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706769"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219722"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sicherung und Wiederherstellung in Azure Database for PostgreSQL – Einzelserver
 
@@ -82,6 +82,16 @@ Die Point-in-Time-Wiederherstellung ist für viele Szenarien hilfreich. Beispiel
 
 Unter Umständen müssen Sie warten, bis die nächste Transaktionsprotokollsicherung erstellt wird, bevor Sie die Wiederherstellung für einen Zeitpunkt innerhalb der letzten fünf Minuten durchführen können.
 
+Wenn Sie eine gelöschte Tabelle wiederherstellen möchten 
+1. Stellen Sie den Quellserver mit der Zeitpunktmethode wieder her.
+2. Sichern Sie die Tabelle mit `pg_dump` auf dem wiederhergestellten Server.
+3. Benennen Sie die Quelltabelle auf dem ursprünglichen Server um.
+4. Importieren Sie die Tabelle mit der psql-Befehlszeile auf den ursprünglichen Server.
+5. Optional können Sie den wiederhergestellten Server löschen.
+
+>[!Note]
+> Es wird empfohlen, nicht mehrere Wiederherstellungen für denselben Server gleichzeitig zu erstellen. 
+
 ### <a name="geo-restore"></a>Geowiederherstellung
 
 Sie können einen Server in einer anderen Azure-Region wiederherstellen, in der der Dienst verfügbar ist, wenn Sie Ihren Server für georedundante Sicherungen konfiguriert haben. Server, die bis zu 4 TB Speicherkapazität unterstützen, können in der geografisch gekoppelten Region oder in einer beliebigen Region wiederhergestellt werden, die bis zu 16 TB Speicherkapazität unterstützt. Für Server, die bis zu 16 TB Speicherkapazität unterstützen, können Geosicherungen auch in beliebigen Regionen wiederhergestellt werden, die Server mit 16 TB unterstützen. Eine Liste der unterstützten Regionen finden Sie unter [Azure Database for PostgreSQL-Tarife](concepts-pricing-tiers.md).
@@ -97,7 +107,7 @@ Während der Geowiederherstellung können folgende Serverkonfigurationen geände
 
 Nach beiden Wiederherstellungsverfahren sollten Sie die folgenden Aufgaben durchführen, um Ihre Benutzer und Anwendungen wieder in den betriebsbereiten Zustand zu versetzen:
 
-- Umleiten von Clients und Clientanwendungen an den neuen Server, wenn der neue Server den ursprünglichen Server ersetzen soll
+- Umleiten von Clients und Clientanwendungen an den neuen Server, wenn der neue Server den ursprünglichen Server ersetzen soll. Ändern Sie auch den Benutzernamen in `username@new-restored-server-name`.
 - Sicherstellen, dass geeignete Firewallregeln auf Serverebene und VNet-Regeln vorhanden sind, damit Benutzer eine Verbindung herstellen können Diese Regeln werden nicht vom ursprünglichen Server kopiert.
 - Sicherstellen, dass geeignete Anmeldungen und Berechtigungen auf Datenbankebene vorhanden sind
 - Konfigurieren der erforderlichen Warnungen

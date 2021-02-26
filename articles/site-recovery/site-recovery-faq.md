@@ -4,12 +4,12 @@ description: In diesem Artikel werden häufig gestellte allgemeine Fragen zu Azu
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746474"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820195"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allgemeine Fragen zu Azure Site Recovery
 
@@ -188,7 +188,7 @@ Ja, [ExpressRoute kann zum Replizieren virtueller Computer zu Azure verwendet we
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Wenn ich in Azure repliziere, welche Art von Speicherkonto oder verwaltetem Datenträger benötige ich?
 
-Sie benötigen LRS- oder GRS-Speicher. Wir empfehlen Ihnen die Verwendung von GRS, damit Resilienz für die Daten besteht, wenn es zu einem regionalen Ausfall kommt oder wenn die primäre Region nicht wiederhergestellt werden kann. Das Konto muss sich in derselben Region wie der Recovery Services-Tresor befinden. Storage Premium wird für die Replikation von virtuellen VMware-Computern, virtuellen Hyper-V-Computern und physischen Servern verwendet, wenn Sie Site Recovery im Azure-Portal bereitstellen. Verwaltete Datenträger unterstützen nur LRS.
+Die Verwendung von Speicherkonten als Zielspeicher wird von Azure Site Recovery nicht unterstützt. Es wird empfohlen, stattdessen verwaltete Datenträger als Zielspeicher für Ihre Computer zu verwenden. Verwaltete Datenträger unterstützen nur den LRS-Typ für die Datenresilienz.
 
 ### <a name="how-often-can-i-replicate-data"></a>Wie oft kann ich Daten replizieren?
 * **Hyper-V:** Hyper-V-VMs können alle 30 Sekunden (außer bei Storage Premium), alle fünf Minuten oder alle 15 Minuten repliziert werden.

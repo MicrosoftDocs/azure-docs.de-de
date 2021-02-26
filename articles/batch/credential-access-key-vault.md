@@ -1,17 +1,17 @@
 ---
-title: Sicherer Zugriff auf Key Vault mit Batch
+title: Verwenden von Zertifikaten und sicheres Zugreifen auf Azure Key Vault mit Batch
 description: Erfahren Sie, wie Sie mit Azure Batch programmgesteuert auf Ihre Anmeldeinformationen aus Key Vault zugreifen können.
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350686"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260128"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Sicherer Zugriff auf Key Vault mit Batch
+# <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>Verwenden von Zertifikaten und sicheres Zugreifen auf Azure Key Vault mit Batch
 
 In diesem Artikel erfahren Sie, wie Sie Batch-Knoten einrichten, um sicher auf die in [Azure Key Vault](../key-vault/general/overview.md) gespeicherten Anmeldeinformationen zuzugreifen. Es ist nicht sinnvoll, Ihre Administratoranmeldeinformationen in Key Vault einzugeben und dann eine Hartcodierung für die Anmeldeinformationen vorzunehmen, um von einem Skript aus auf Key Vault zuzugreifen. Die Lösung ist die Verwendung eines Zertifikats, das Ihren Batch-Knoten Zugriff auf Key Vault gewährt.
 

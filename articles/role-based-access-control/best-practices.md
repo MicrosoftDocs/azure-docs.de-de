@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617373"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526414"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Bewährte Methoden für Azure RBAC
 
@@ -41,6 +41,10 @@ Sie sollten höchstens 3 Abonnementbesitzer haben, um die Möglichkeit einer Si
 Um privilegierte Konten vor bösartigen Cyberangriffen zu schützen, können Sie mit Azure Active Directory Privileged Identity Management (PIM) die Dauer der Aktivierung von Berechtigungen verkürzen und sich mittels Berichten und Warnungen einen besseren Überblick über deren Verwendung verschaffen. PIM hilft Ihnen beim Schutz privilegierter Konten, indem es privilegierten Just-In-Time-Zugriff auf Azure AD- und Azure-Ressourcen gewährt. Der Zugriff kann zeitgebunden sein, sodass Berechtigungen nach dessen Ablauf automatisch entzogen werden. 
 
 Weitere Informationen finden Sie unter [Was ist Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+
+## <a name="assign-roles-to-groups-not-users"></a>Zuweisen von Rollen zu Gruppen,nicht zu Benutzern
+
+Damit Rollenzuweisungen besser verwaltbar sind, sollten Sie Benutzern keine Rollen direkt zuweisen. Weisen Sie Rollen stattdessen Gruppen zu. Das Zuweisen von Rollen zu Gruppen anstelle von Benutzern trägt auch dazu bei, die Anzahl von Rollenzuweisungen zu minimieren, die auf [2.000 Rollenzuweisungen pro Abonnement](troubleshooting.md#azure-role-assignments-limit) beschränkt sind. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881094"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626324"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrieren von Computern als physische Server zu Azure
 
@@ -28,9 +28,9 @@ In diesem Artikel wird veranschaulicht, wie Sie Computer als physische Server zu
 Dieses Tutorial ist das dritte in einer Reihe zur Bewertung physischer Server und deren Migration zu Azure. In diesem Tutorial lernen Sie Folgendes:
 
 > [!div class="checklist"]
-> * Bereiten Sie die Verwendung von Azure mit der Azure Migrate-Servermigration vor.
+> * Vorbereiten der Verwendung von Azure mit Azure Migrate: Servermigration.
 > * Überprüfen der Anforderungen für zu migrierende Computer und Vorbereiten eines Computers für die Azure Migrate-Replikationsappliance, die zum Ermitteln und Migrieren von Computern zu Azure verwendet wird
-> * Hinzufügen des Tools für die Azure Migrate-Servermigration im Azure Migrate-Hub
+> * Fügen Sie das Azure Migrate- Servermigrationstool im Azure Migrate-Hub zu.
 > * Einrichten der Replikationsappliance
 > * Installieren des Mobility Service auf Computern, die Sie migrieren möchten
 > * Aktivieren Sie die Replikation.
@@ -51,7 +51,7 @@ Bevor Sie mit diesem Tutorial beginnen, sollten folgende Voraussetzungen erfüll
 
 ## <a name="prepare-azure"></a>Vorbereiten von Azure
 
-Bereiten Sie Azure für die Migration mit der Servermigration vor.
+Vorbereiten von Azure für die Migration mit Azure Migrate: Servermigration.
 
 **Aufgabe** | **Details**
 --- | ---
@@ -99,7 +99,7 @@ Stellen Sie sicher, dass die Computer die Anforderungen für die Migration zu Az
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Vorbereiten eines Computers für die Replikationsappliance
 
-Bei der Azure Migrate-Servermigration wird eine Replikationsappliance verwendet, um Computer in Azure zu replizieren. Die Replikationsappliance führt die hier angegebenen Komponenten aus.
+Von der Azure Bei der Servermigration wird eine Replikationsappliance verwendet, um Computer in Azure zu replizieren. Die Replikationsappliance führt die hier angegebenen Komponenten aus.
 
 - **Konfigurationsserver**: Der Konfigurationsserver koordiniert die Kommunikation zwischen der lokalen Umgebung und Azure und verwaltet die Datenreplikation.
 - **Prozessserver** Der Prozessserver fungiert als Replikationsgateway. Er empfängt Replikationsdaten, optimiert sie durch Zwischenspeicherung, Komprimierung und Verschlüsselung und sendet sie an ein Cachespeicherkonto in Azure. 
@@ -116,7 +116,7 @@ Bereiten Sie die Bereitstellung der Appliance wie folgt vor:
 
 ## <a name="set-up-the-replication-appliance"></a>Einrichten der Replikationsappliance
 
-Der erste Schritt bei der Migration besteht darin, die Replikationsappliance einzurichten. Zum Einrichten der Appliance für die Migration physischer Server laden Sie die Installationsdatei für die Appliance herunter, und führen Sie diese dann auf dem [vorbereiteten Computer](#prepare-a-machine-for-the-replication-appliance) aus. Nachdem Sie die Appliance installiert haben, registrieren Sie sie bei Azure Migrate-Servermigration.
+Der erste Schritt bei der Migration besteht darin, die Replikationsappliance einzurichten. Zum Einrichten der Appliance für die Migration physischer Server laden Sie die Installationsdatei für die Appliance herunter, und führen Sie diese dann auf dem [vorbereiteten Computer](#prepare-a-machine-for-the-replication-appliance) aus. Nachdem Sie die Appliance installiert haben, registrieren Sie sie bei Azure Migrate- Servermigration.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Herunterladen des Installationsprogramms für die Replikationsappliance
@@ -129,7 +129,7 @@ Der erste Schritt bei der Migration besteht darin, die Replikationsappliance ein
 4. Wählen Sie unter **Zielregion** die Azure-Region aus, zu der Sie die Computer migrieren möchten.
 5. Aktivieren Sie das Kontrollkästchen **Bestätigen Sie, dass die Zielregion für die Migration „<Name der Region>“ lautet**.
 6. Klicken Sie auf **Ressourcen erstellen**. Daraufhin wird im Hintergrund ein Azure Site Recovery-Tresor erstellt.
-    - Falls Sie die Migration bereits mit dem Tool für die Azure Migrate-Servermigration eingerichtet haben, kann die Zieloption nicht konfiguriert werden, da die Ressourcen bereits vorher eingerichtet wurden.    
+    - Falls Sie die Migration bereits mit dem Tool für die Azure Migrate-Servermigration eingerichtet haben, kann die Zieloption nicht konfiguriert werden, da die Ressourcen bereits vorher eingerichtet wurden.    
     - Nach dem Klicken auf diese Schaltfläche kann die Zielregion für dieses Projekt nicht mehr geändert werden.
     - Alle anschließenden Migrationen erfolgen zu dieser Region.
 

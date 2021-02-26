@@ -1,22 +1,17 @@
 ---
 title: Fehlertoleranz der Kopieraktivität in Azure Data Factory
 description: Hier erfahren Sie, wie Sie der Kopieraktivität in Azure Data Factory Fehlertoleranz hinzufügen, indem die inkompatiblen Daten übersprungen werden.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593643"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390962"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fehlertoleranz der Kopieraktivität in Azure Data Factory
 > [!div class="op_single_selector" title1="Wählen Sie die von Ihnen verwendete Version des Data Factory-Diensts aus:"]
@@ -58,7 +53,8 @@ Wenn Sie Binärdateien zwischen Storage-Speichern kopieren, können Sie die Fehl
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +79,7 @@ skipErrorFile | Eine Gruppe von Eigenschaften zur Angabe der Fehlertypen, die w�
 fileMissing | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie von anderen Anwendungen gelöschte Dateien überspringen möchten, wenn ADF in der Zwischenzeit kopiert. <br/> – True: Sie möchten den Rest kopieren, indem Sie die von anderen Anwendungen gelöschten Dateien überspringen. <br/> – False: Die Kopieraktivität soll abgebrochen werden, sobald alle Dateien während der Datenverschiebung aus dem Quellspeicher gelöscht werden. <br/>Beachten Sie, dass diese Eigenschaft auf „true“ als Standardwert festgelegt wird. | True (Standard) <br/>False | Nein
 fileForbidden | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie die jeweiligen Dateien überspringen möchten, wenn die ACLs dieser Dateien oder Ordner eine höhere Berechtigungsstufe als die in ADF konfigurierte Verbindung erfordern. <br/> – True: Sie möchten den Rest kopieren, indem Sie die Dateien überspringen. <br/> – False: Sie möchten die Kopieraktivität abbrechen, nachdem Ihnen das Berechtigungsproblem bei Ordnern oder Dateien mitgeteilt wurde. | True <br/>False (Standard) | Nein
 dataInconsistency | Eines der Schlüssel-Wert-Paare in der „skipErrorFile“-Eigenschaftensammlung zur Bestimmung, ob Sie die inkonsistenten Daten zwischen Quell- und Zielspeicher überspringen möchten. <br/> – True: Sie möchten den Rest kopieren, indem Sie inkonsistente Daten überspringen. <br/> – False: Sie möchten die Kopieraktivität abbrechen, sobald inkonsistente Daten gefunden wurden. <br/>Beachten Sie, dass diese Eigenschaft nur gültig ist, wenn Sie „validateDataConsistency“ als „True“ festlegen. | True <br/>False (Standard) | Nein
+invalidFileName | Eines der Schlüssel-Wert-Paare in der skipErrorFile-Eigenschaftensammlung zur Bestimmung, ob Sie bestimmte Dateien überspringen möchten, wenn die Dateinamen im Zielspeicher ungültig sind. <br/> \- TRUE: Sie möchten den Rest kopieren, indem Sie die Dateien mit ungültigen Dateinamen überspringen. <br/> - FALSE: Sie möchten die Kopieraktivität abbrechen, wenn Dateien ungültige Dateinamen aufweisen. <br/>Beachten Sie, dass diese Eigenschaft nur funktioniert, wenn Sie Binärdateien aus einem Speicher in ADLS Gen2 oder aus AWS S3 in einen beliebigen Speicher kopieren. | True <br/>False (Standard) | Nein
 logSettings  | Eine Gruppe von Eigenschaften, die angegeben werden können, wenn Sie die Namen der übersprungenen Objekte protokollieren möchten. | &nbsp; | Nein
 linkedServiceName | Der verknüpfte Dienst von [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) oder [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) zum Speichern der Sitzungsprotokolldateien. | Die Namen eines verknüpften Diensts vom Typ `AzureBlobStorage` oder `AzureBlobFS`, der auf die Instanz verweist, in der Sie die Protokolldatei speichern. | Nein
 path | Der Pfad der Protokolldateien. | Geben Sie den Pfad an, in dem Sie die Protokolldateien speichern. Wenn Sie keinen Pfad angeben, erstellt der Dienst automatisch einen Container. | Nein
@@ -166,7 +163,7 @@ Die Kopieraktivität unterstützt drei Szenarien zum Erkennen, Überspringen und
     Beispiel: Kopieren von Daten von einer SQL Server-Instanz in eine SQL-Datenbank. In der SQL-Datenbank der Senke ist ein Primärschlüssel definiert, in der SQL Server-Instanz der Quelle ist dagegen kein Primärschlüssel definiert. Die doppelten Zeilen, die in der Quelle vorhanden sind, können nicht in die Senke kopiert werden. Die Kopieraktivität kopiert nur die erste Zeile der Quelldaten in die Senke. Die nachfolgenden Quellzeilen, die den doppelten Primärschlüsselwert enthalten, werden als inkompatibel erkannt und übersprungen.
 
 >[!NOTE]
->- Wenn Sie Daten mit PolyBase in Azure Synapse Analytics (ehemals SQL Data Warehouse) laden möchten, konfigurieren Sie die nativen Fehlertoleranzeinstellungen von PolyBase, indem Sie in der Kopieraktivität über „[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)“ Ablehnungsrichtlinien angeben. Sie können für nicht mit PolyBase kompatible Zeilen weiterhin die Umleitung an ein Blob oder ADLS aktivieren, wie unten gezeigt.
+>- Wenn Sie Daten mit PolyBase in Azure Synapse Analytics laden möchten, konfigurieren Sie die nativen Fehlertoleranzeinstellungen von PolyBase, indem Sie in der Kopieraktivität über [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) Ablehnungsrichtlinien angeben. Sie können für nicht mit PolyBase kompatible Zeilen weiterhin die Umleitung an ein Blob oder ADLS aktivieren, wie unten gezeigt.
 >- Dieses Feature ist nicht anwendbar, wenn die Kopieraktivität zum Aufruf von [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) konfiguriert ist.
 >- Dieses Feature ist nicht anwendbar, wenn die Kopieraktivität dafür konfiguriert ist, eine [gespeicherte Prozedur aus einer SQL-Senke](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink) aufzurufen.
 

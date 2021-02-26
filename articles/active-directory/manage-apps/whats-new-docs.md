@@ -1,24 +1,51 @@
 ---
 title: Neuerungen bei der Azure Active Directory-Anwendungsverwaltung
 description: Neue und aktualisierte Dokumentation für die Azure Active Directory-Anwendungsverwaltung
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563397"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258573"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory-Anwendungsverwaltung: Neues
 
 Hier erfahren Sie mehr über die Neuerungen in der Dokumentation zur Azure Active Directory-Anwendungsverwaltung. In diesem Artikel werden neu hinzugefügte Dokumente aufgelistet sowie Dokumente, die in den letzten drei Monaten grundlegend überarbeitet wurden. Informationen zu den Neuerungen beim Anwendungsverwaltungsdienst finden Sie unter [Neuerungen in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Januar 2021
+
+### <a name="new-articles"></a>Neue Artikel
+- [Planen der Konfiguration von „Meine Apps“ in Azure Active Directory](my-apps-deployment-plan.md)
+
+### <a name="updated-articles"></a>Aktualisierte Artikel
+- [Problem beim Installieren des Anwendungsproxy-Agent-Connectors](application-proxy-connector-installation-problem.md)
+- [Behandeln von Problemen beim kennwortbasierten einmaligen Anmelden in Azure AD](troubleshoot-password-based-sso.md)
+- [Bewährte Methoden für die Anwendungsverwaltung](application-management-fundamentals.md)
+- [Erste Schritte zur Integration von Anwendungen in Azure Active Directory](plan-an-application-integration.md)
+- [Worum handelt es sich bei der Anwendungsverwaltung?](what-is-application-management.md)
+- [Häufig gestellte Fragen zum Azure Active Directory-Anwendungsproxy (Azure AD-Anwendungsproxy)](application-proxy-faq.md)
+- [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Verwenden von vorhandenen lokalen Proxyservern](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Entwickeln von Branchen-Apps für Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Grundlegendes zu Azure AD-Anwendungsproxyconnectors](application-proxy-connectors.md)
+- [Grundlagen der verknüpften Anmeldung](configure-linked-sign-on.md)
+- [Grundlegendes zum kennwortbasierten einmaligen Anmelden](configure-password-single-sign-on-non-gallery-applications.md)
+- [Grundlegendes zum SAML-basierten einmaligen Anmelden](configure-saml-single-sign-on.md)
+- [Behandeln gängiger Probleme beim Hinzufügen oder Entfernen einer Anwendung in Azure Active Directory](troubleshoot-adding-apps.md)
+- [Anzeigen von Apps mithilfe Ihres Azure AD-Mandanten für die Identitätsverwaltung](application-types.md)
+- [Informationen dazu, wie Benutzer Apps in Azure Active Directory zugewiesen werden](ways-users-get-assigned-to-applications.md)
+- [Schnellstart: Löschen einer Anwendung von Ihrem Azure AD-Mandanten (Azure Active Directory)](delete-application-portal.md)
+- [Veröffentlichen von Remotedesktop mit Azure AD-Anwendungsproxy](application-proxy-integrate-with-remote-desktop-services.md)
+- [Maßnahmen bei verdächtigen Anwendungen oder Anwendungen mit zu vielen Berechtigungen in Azure Active Directory](manage-application-permissions.md)
+
 
 ## <a name="december-2020"></a>Dezember 2020
 
@@ -90,7 +117,7 @@ Hier erfahren Sie mehr über die Neuerungen in der Dokumentation zur Azure Acti
 - [Verwenden des Self-Service-Anwendungszugriffs](access-panel-manage-self-service-access.md)
 - [Beheben von Anmeldeproblemen bei einer Anwendung aus „Meine Apps“ in Azure AD](application-sign-in-other-problem-access-panel.md)
 - [Behandeln von Problemen beim kennwortbasierten einmaligen Anmelden in Azure AD](troubleshoot-password-based-sso.md)
-- [Planen einer Bereitstellung von „Meine Apps“ in Azure Active Directory](access-panel-deployment-plan.md)
+- [Planen einer Bereitstellung von „Meine Apps“ in Azure Active Directory](my-apps-deployment-plan.md)
 - [Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?](what-is-single-sign-on.md)
 - [Maßnahmen bei verdächtigen Anwendungen oder Anwendungen mit zu vielen Berechtigungen in Azure Active Directory](manage-application-permissions.md)
 - [Schnellstart: Konfigurieren von Eigenschaften für eine Anwendung auf Ihrem Azure AD-Mandanten (Azure Active Directory)](add-application-portal-configure.md)

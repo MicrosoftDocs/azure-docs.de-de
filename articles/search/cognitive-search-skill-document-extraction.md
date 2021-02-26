@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814294"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474845"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Kognitive Qualifikation „Dokumentextrahierung“
 
@@ -37,7 +37,7 @@ Bei den Parametern wird zwischen Groß- und Kleinschreibung unterschieden.
 | Eingaben | Zulässige Werte | BESCHREIBUNG |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Legen Sie diesen Parameter auf `default` fest, um die Dokumentextrahierung aus Dateien durchzuführen, die keine reinen Text- oder JSON-Dateien sind. Legen Sie diesen Parameter auf `text` fest, um die Leistung von Nur-Text-Dateien zu verbessern. Legen Sie diesen Parameter auf `json` fest, um strukturierte Inhalte aus JSON-Dateien zu extrahieren. Wenn der Parameter `parsingMode` nicht explizit definiert ist, wird er auf `default` festgelegt. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Legen Sie diesen Parameter auf `contentAndMetadata` fest, um aus jeder Datei alle Metadaten und Textinhalte zu extrahieren. Legen Sie diesen Parameter auf `allMetadata` fest, um nur die [Inhaltstyp-spezifischen Metadaten](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) zu extrahieren (z.B. Metadaten, die nur für PNG-Dateien eindeutig sind). Wenn der Parameter `dataToExtract` nicht explizit definiert ist, wird er auf `contentAndMetadata` festgelegt. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Legen Sie diesen Parameter auf `contentAndMetadata` fest, um aus jeder Datei alle Metadaten und Textinhalte zu extrahieren. Legen Sie diesen Parameter auf `allMetadata` fest, um nur die [für den Inhaltstyp spezifischen Metadaten](search-blob-metadata-properties.md) zu extrahieren (z. B. Metadaten, die nur für PNG-Dateien eindeutig sind). Wenn der Parameter `dataToExtract` nicht explizit definiert ist, wird er auf `contentAndMetadata` festgelegt. |
 | `configuration` | Siehe unten. | Ein Wörterbuch mit optionalen Parametern zur Anpassung der Durchführung der Dokumentextrahierung. In der folgenden Tabelle finden Sie Beschreibungen der unterstützten Konfigurationseigenschaften. |
 
 | Konfigurationsparameter   | Zulässige Werte | BESCHREIBUNG |

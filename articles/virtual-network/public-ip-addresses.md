@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223226"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806958"
 ---
 # <a name="public-ip-addresses"></a>Öffentliche IP-Adressen
 
@@ -54,7 +54,7 @@ Für öffentliche IP-Adressen mit Standard-SKU gilt Folgendes:
 - Sie verfügen über ein anpassbares Leerlauftimeout für den ursprünglich eingehenden Datenfluss, das auf einen Wert zwischen vier und 30 Minuten (Standardwert: vier Minuten) festgelegt werden kann, sowie über ein vorgegebenes Leerlauftimeout für den ursprünglich ausgehenden Datenfluss von vier Minuten.
 - Sie sind standardmäßig sicher und für eingehenden Datenverkehr geschlossen. Sie ermöglichen das Auflisten von eingehendem Datenverkehr mit einer [Netzwerksicherheitsgruppe](./network-security-groups-overview.md#network-security-groups).
 - Sie werden Netzwerkschnittstellen, öffentlichen Load Balancer Standard-Instanzen oder Application Gateway-Instanzen zugewiesen. Weitere Informationen zu Load Balancer Standard finden Sie unter [Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sie können zonenredundant (aus allen 3 Zonen gemeldet) oder zonengebunden sein (also zonengebunden erstellt und in einer bestimmten Verfügbarkeitszone garantiert werden). Weitere Informationen zu Verfügbarkeitszonen finden Sie unter [Übersicht über Verfügbarkeitszonen in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) und [Azure Load Balancer Standard und Verfügbarkeitszonen](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zonenredundante IP-Adressen können nur in [Regionen mit drei aktiven Verfügbarkeitszonen](../availability-zones/az-region.md) erstellt werden.** IP-Adressen, die vor der Aktivierung der Zonen erstellt wurden, sind nicht zonenredundant.
+- Sie können zonenredundant (aus allen 3 Zonen angekündigt), zonenbezogen ( in einer bestimmten vorausgewählten Verfügbarkeitszone garantiert) oder nicht zonenbezogen (keiner bestimmten vorausgewählten Verfügbarkeitszone zugeordnet) sein. Weitere Informationen zu Verfügbarkeitszonen finden Sie unter [Übersicht über Verfügbarkeitszonen in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) und [Azure Load Balancer Standard und Verfügbarkeitszonen](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zonenredundante IP-Adressen können nur in [Regionen mit drei aktiven Verfügbarkeitszonen](../availability-zones/az-region.md) erstellt werden.** IP-Adressen, die vor der Aktivierung der Zonen erstellt wurden, sind nicht zonenredundant.
 - Können als Anycast-Front-End-IP-Adressen für [regionsübergreifende Load Balancer](../load-balancer/cross-region-overview.md) verwendet werden (Vorschaufunktionalität).
  
 > [!NOTE]
@@ -62,6 +62,9 @@ Für öffentliche IP-Adressen mit Standard-SKU gilt Folgendes:
 
 > [!NOTE]
 > Nur öffentliche IP-Adressen mit SKU-Typ „Basic“ stehen zur Verfügung, wenn der [Instance Metadata Service IMDS](../virtual-machines/windows/instance-metadata-service.md) verwendet wird. Die SKU vom Typ „Standard“ wird nicht unterstützt.
+
+> [!NOTE]
+> Diagnoseeinstellungen werden nicht unter dem Blatt „Ressource“ angezeigt, wenn eine öffentliche IP-Adresse der Standard-SKU verwendet wird. Um die Protokollierung Ihrer öffentlichen Standard-IP-Adressenressource zu aktivieren, navigieren Sie unter dem Blatt „Azure Monitor“ zu „Diagnoseeinstellungen“, und wählen Sie Ihre IP-Adressenressource aus.
 
 ### <a name="basic"></a>Basic
 

@@ -2,13 +2,13 @@
 title: Vorlagenfunktionen – Bereitstellung
 description: Informationen zu den Funktionen, die in einer Azure Resource Manager-Vorlage (ARM-Vorlage) zum Abrufen von Informationen zur Bereitstellung verwendet werden können.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920519"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943477"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Bereitstellungsfunktionen für ARM-Vorlagen
 
@@ -33,6 +33,7 @@ Gibt Informationen zum aktuellen Bereitstellungsvorgang zurück.
 
 Diese Funktion gibt das Objekt zurück, das während der Bereitstellung übergeben wird. Die Eigenschaften in dem zurückgegebenen Objekt unterscheiden sich abhängig davon, wo Sie sich befinden:
 
+* Bereitstellen einer Vorlage oder einer Vorlagenspezifikation.
 * Bereitstellen einer Vorlage, bei der es sich um eine lokale Datei handelt, oder Bereitstellen einer Vorlage, bei der es sich um eine Remotedatei handelt, auf die über einen URI zugegriffen wird.
 * Bereitstellen in einer Ressourcengruppe oder Bereitstellen in einem der anderen Bereiche ([Azure-Abonnement](deploy-to-subscription.md), [Verwaltungsgruppe](deploy-to-management-group.md) oder [Mandant](deploy-to-tenant.md)).
 
@@ -66,6 +67,31 @@ Beim Bereitstellen einer Remotevorlage in einer Ressourcengruppe gibt die Funkti
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+Beim Bereitstellen einer Vorlagenspezifikation für eine Ressourcengruppe gibt die Funktion das folgende Format zurück:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",

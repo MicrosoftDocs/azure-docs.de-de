@@ -3,14 +3,14 @@ title: Was-wäre-wenn für die Vorlagenbereitstellung
 description: Legen Sie vor der Bereitstellung einer Azure Resource Manager-Vorlage fest, welche Änderungen an Ihren Ressourcen vorgenommen werden.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673969"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591623"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM-Vorlagenbereitstellung: Was-wäre-wenn-Vorgang
 
@@ -21,10 +21,6 @@ Sie können den Was-wäre-wenn-Vorgang mit Azure PowerShell-, Azure CLI- oder RE
 ## <a name="install-azure-powershell-module"></a>Installieren des Azure PowerShell-Moduls
 
 Wenn Sie den Was-wäre-wenn-Vorgang in PowerShell verwenden möchten, benötigen Sie Version **4.2 oder höher des Az-Moduls**.
-
-Stellen Sie vor der Installation des erforderlichen Moduls jedoch sicher, dass Sie über PowerShell Core (6.x oder 7.x) verfügen. Wenn Sie über PowerShell 5.x oder früher verfügen, [aktualisieren Sie Ihre PowerShell-Version](/powershell/scripting/install/installing-powershell). Das erforderliche Modul kann nicht in PowerShell 5.x oder früher installiert werden.
-
-### <a name="install-latest-version"></a>Installieren der neuesten Version
 
 Führen Sie folgenden Befehl aus, um das Modul zu installieren:
 

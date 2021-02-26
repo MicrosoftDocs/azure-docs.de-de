@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728090"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979571"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Pullen von Einstellungen aus App Configuration mit Azure Pipelines
 
@@ -60,7 +60,7 @@ Weisen Sie der für die Aufgabe verwendeten Dienstverbindung die passende App Co
 
 In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration“ in einer Azure DevOps-Buildpipeline verwenden.
 
-1. Klicken Sie auf **Pipelines** > **Pipelines**, um zur Seite für Buildpipelines zu navigieren. Eine Dokumentation zur Buildpipeline finden Sie unter [Erstellen Ihrer ersten Pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Klicken Sie auf **Pipelines** > **Pipelines**, um zur Seite für Buildpipelines zu navigieren. Eine Dokumentation zur Buildpipeline finden Sie unter [Erstellen Ihrer ersten Pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
       - Wenn Sie eine neue Buildpipeline erstellen, klicken Sie auf **Neue Pipeline**, und wählen Sie das Repository für die Pipeline aus. Wählen Sie auf der rechten Seite der Pipeline die Option **Assistent anzeigen** aus, und suchen Sie nach der Aufgabe **Azure App Configuration**.
       - Wenn Sie eine vorhandene Buildpipeline verwenden, wählen Sie **Bearbeiten** aus, um die Pipeline zu bearbeiten. Suchen Sie auf der Registerkarte **Aufgaben** nach der Aufgabe **Azure App Configuration**.
 1. Konfigurieren Sie die erforderlichen Parameter für die Aufgabe, um die Schlüsselwerte aus dem App Configuration-Speicher zu pullen. Die Parameter werden weiter unten im Abschnitt **Parameter** sowie in QuickInfos neben dem jeweiligen Parameter beschrieben.
@@ -73,10 +73,10 @@ In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration
 
 In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration“ in einer Azure DevOps-Releasepipeline verwenden.
 
-1. Wählen Sie **Pipelines** > **Releases** aus, um zur Seite für Releasepipelines zu navigieren. Eine Dokumentation zu Releasepipelines finden Sie unter [Releasepipelines](/azure/devops/pipelines/release?view=azure-devops).
+1. Wählen Sie **Pipelines** > **Releases** aus, um zur Seite für Releasepipelines zu navigieren. Eine Dokumentation zu Releasepipelines finden Sie unter [Releasepipelines](/azure/devops/pipelines/release).
 1. Wählen Sie eine vorhandene Releasepipeline aus. Sollten Sie nicht über eine verfügen, wählen Sie **Neue Pipeline** aus, um eine zu erstellen.
 1. Wählen Sie rechts oben die Schaltfläche **Bearbeiten** aus, um die Releasepipeline zu bearbeiten.
-1. Wählen Sie die **Phase** aus, um die Aufgabe hinzuzufügen. Weitere Informationen zu Stages finden Sie unter [Hinzufügen von Stages, Abhängigkeiten und Bedingungen](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Wählen Sie die **Phase** aus, um die Aufgabe hinzuzufügen. Weitere Informationen zu Stages finden Sie unter [Hinzufügen von Stages, Abhängigkeiten und Bedingungen](/azure/devops/pipelines/release/environments).
 1. Klicken Sie für „Auf Agent ausführen“ auf **+** , und fügen Sie dann die Aufgabe **Azure App Configuration** auf der Registerkarte **Aufgaben hinzufügen** hinzu.
 1. Konfigurieren Sie die erforderlichen Parameter in der Aufgabe, um Ihre Schlüsselwerte aus Ihrem App Configuration-Speicher zu pullen. Die Parameter werden weiter unten im Abschnitt **Parameter** sowie in QuickInfos neben dem jeweiligen Parameter beschrieben.
       - Legen Sie den Parameter **Azure subscription** (Azure-Abonnement) auf den Namen der Dienstverbindung fest, die Sie in einem vorherigen Schritt erstellt haben.

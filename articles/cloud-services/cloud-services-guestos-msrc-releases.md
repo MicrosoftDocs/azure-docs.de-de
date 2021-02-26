@@ -10,46 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/26/2021
+ms.date: 2/5/2021
 ms.author: yohaddad
-ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d5892d0b2ae2004f8604333294411e849dc8394b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089206"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805883"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbetriebssystem
 Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MSRC), die auf das Azure-Gastbetriebssystem angewendet wurden. Durchsuchen Sie diesen Artikel, um zu ermitteln, ob ein bestimmtes Update für das Gastbetriebssystem gilt, das Sie verwenden. Updates werden für die [Familie][family-explain], in der sie eingeführt wurden, immer in die jeweils neueste Version übertragen.
 
 ## <a name="january-2021-guest-os"></a>Gastbetriebssystem für Januar 2021
->[!NOTE]
->Das Gastbetriebssystem für Januar wird derzeit auf Clouddienst-VMs eingeführt, die für automatische Updates konfiguriert sind. Wenn die Bereitstellung abgeschlossen ist, wird diese Version für manuelle Updates über das Azure-Portal und Konfigurationsdateien verfügbar gemacht. Die folgenden Patches sind im Gastbetriebssystem für Januar enthalten. Änderungen an der Liste sind vorbehalten.
 
 | Produktkategorie | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |
 | --- | --- | --- | --- | --- |
-|  Rel 21-01 |  [4598230]  |  Letztes kumulatives Update | 6.27 | 12. Januar 2021 |
-|  Rel 21-01 |  [4580325]  |  Flash-Update | 3.93, 4.86, 5.51, 6.27 | 13. Oktober 2020 |
-|  Rel 21-01 |  [4586768]  |  Kumulative IE-Updates | 2.106, 3.93, 4.86 | 10. November 2020 |
-|  Rel 21-01 |  [4598243]  |  Letztes kumulatives Update | 5.51 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578952]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 2.106 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 2.106 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578953]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 4,86 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 4,86 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578950]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | 3,93 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | 3,93 | 12. Januar 2021 |
-|  Rel 21-01 |  [4578966]  |  Kumulatives Update für .NET Framework 3.5 und 4.7.2 | 6.27 | 13. Oktober 2020 |
-|  Rel 21-01 |  [4598279]  |  Monatlicher Rollup | 2.106 | 12. Jan 2020 |
-|  Rel 21-01 |  [4598278]  |  Monatlicher Rollup | 3,93 | 12. Jan 2020 |
-|  Rel 21-01 |  [4598285]  |  Monatlicher Rollup | 4,86 | 12. Jan 2020 |
-|  Rel 21-01 |  [4566426]  |  Wartungsstapelaktualisierung | 3,93 | 14. Jul 2020 |
-|  Rel 21-01 |  [4566425]  |  Wartungsstapelaktualisierung | 4,86 | 14. Jul 2020 |
-|  Rel 21-01 OOB |  [4578013]  |  Eigenständiges Sicherheitsupdate | 4,86 | 19. August 2020 |
-|  Rel 21-01 |  [4576750]  |  Wartungsstapelaktualisierung | 5.51 | 8\. September 2020 |
-|  Rel 21-01 |  [4592510]  |  Wartungsstapelaktualisierung | 2.106 | 8\. Dezember 2020 |
-|  Rel 21-01 |  [4598480]  |  Wartungsstapelaktualisierung | 6.27 | 12. Januar 2021 |
-|  Rel 21-01 |  [4494175]  |  Microcode | 5.51 | 1\. September 2020 |
-|  Rel 21-01 |  [4494174]  |  Microcode | 6.27 | 3\. September 2020 |
+|  Rel 21-01 |  [4598230]  |  Letztes kumulatives Update | [6.27] | 12. Januar 2021 |
+|  Rel 21-01 |  [4580325]  |  Flash-Update | [3.93], [4.86], [5.51], [6.27] | 13. Oktober 2020 |
+|  Rel 21-01 |  [4586768]  |  Kumulative IE-Updates | [2.106], [3.93], [4.86] | 10. November 2020 |
+|  Rel 21-01 |  [4598243]  |  Letztes kumulatives Update | [5.51] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | [2.106] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [2.106] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | [4,86] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [4,86] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework 3.5: Sicherheits- und Qualitätsrollup | [3,93] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2: Sicherheits- und Qualitätsrollup | [3,93] | 12. Januar 2021 |
+|  Rel 21-01 |  [4578966]  |  Kumulatives Update für .NET Framework 3.5 und 4.7.2 | [6.27] | 13. Oktober 2020 |
+|  Rel 21-01 |  [4598279]  |  Monatlicher Rollup | [2.106] | 12. Jan 2020 |
+|  Rel 21-01 |  [4598278]  |  Monatlicher Rollup | [3,93] | 12. Jan 2020 |
+|  Rel 21-01 |  [4598285]  |  Monatlicher Rollup | [4,86] | 12. Jan 2020 |
+|  Rel 21-01 |  [4566426]  |  Wartungsstapelaktualisierung | [3,93] | 14. Jul 2020 |
+|  Rel 21-01 |  [4566425]  |  Wartungsstapelaktualisierung | [4,86] | 14. Jul 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Eigenständiges Sicherheitsupdate | [4,86] | 19. August 2020 |
+|  Rel 21-01 |  [4576750]  |  Wartungsstapelaktualisierung | [5.51] | 8\. September 2020 |
+|  Rel 21-01 |  [4592510]  |  Wartungsstapelaktualisierung | [2.106] | 8\. Dezember 2020 |
+|  Rel 21-01 |  [4598480]  |  Wartungsstapelaktualisierung | [6.27] | 12. Januar 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcode | [5.51] | 1\. September 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcode | [6.27] | 3\. September 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +71,11 @@ Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MS
 [4598480]: https://support.microsoft.com/kb/4598480
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="december-2020-guest-os"></a>Gastbetriebssystem für Dezember 2020
 

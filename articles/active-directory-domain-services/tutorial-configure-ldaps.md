@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618534"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256541"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Konfigurieren von Secure LDAP (LDAPS) für eine verwaltete Azure AD Domain Services-Domäne
 
@@ -213,6 +213,12 @@ Es dauert einige Minuten, bis Secure LDAP für Ihre verwaltete Domäne aktiviert
 
 Häufige Gründe für Fehler sind: Der Domänenname ist falsch, als Verschlüsselungsalgorithmus für das Zertifikat ist nicht *TripleDES-SHA1* festgelegt, oder das Zertifikat läuft bald ab oder ist bereits abgelaufen. Sie können das Zertifikat mit gültigen Parametern erneut erstellen und dann Secure LDAP mit diesem aktualisierten Zertifikat aktivieren.
 
+## <a name="change-an-expiring-certificate"></a>Ändern eines ablaufendes Zertifikats
+
+1. Erstellen Sie ein Ersatz-Secure LDAP-Zertifikat, indem Sie die unter [Erstellen eines Zertifikats für Secure LDAP](#create-a-certificate-for-secure-ldap) beschriebenen Schritte ausführen.
+1. Wenn Sie das Ersatzzertifikat auf Azure AD DS anwenden möchten, wählen Sie im Azure-Portal im linken Menü für Azure AD DS **Secure LDAP** und dann **Zertifikat ändern** aus.
+1. Verteilen Sie das Zertifikat an alle Clients, die mithilfe von Secure LDAP eine Verbindung herstellen. 
+
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Beschränken des Secure LDAP-Zugriffs über das Internet
 
 Wenn Sie Secure LDAP-Zugriff auf Ihre verwaltete Domäne über das Internet zulassen, entsteht ein Sicherheitsrisiko. Auf die verwaltete Domäne kann aus dem Internet über TCP-Port 636 zugegriffen werden. Es empfiehlt sich, den Zugriff auf die verwaltete Domäne auf bestimmte bekannte IP-Adressen für Ihre Umgebung zu beschränken. Zum Beschränken des Zugriffs auf Secure LDAP kann eine Azure-Netzwerksicherheitsgruppen-Regel verwendet werden.
@@ -229,10 +235,10 @@ Erstellen Sie jetzt eine Regel, um eingehenden Secure LDAP-Zugriff über TCP-Por
     | `Source`                            | IP-Adressen |
     | IP-Quelladressen/CIDR-Bereiche | Eine gültige IP-Adresse oder ein gültiger IP-Adressbereich für Ihre Umgebung |
     | Source port ranges                | *            |
-    | Destination                       | Any          |
+    | Destination                       | Beliebig          |
     | Zielportbereiche           | 636          |
     | Protocol                          | TCP          |
-    | Aktion                            | Zulassen        |
+    | Aktion                            | Allow        |
     | Priority                          | 401          |
     | Name                              | AllowLDAPS   |
 

@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639093"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221209"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Grundlegendes zur Netzwerkkonnektivität für Windows Virtual Desktop
 
@@ -50,7 +50,7 @@ Die Clientverbindungssequenz wird im Folgenden beschrieben:
 
 ## <a name="connection-security"></a>Verbindungssicherheit
 
-TLS 1.2 wird für alle Verbindungen verwendet, die von den Clients und Sitzungshosts mit den Komponenten der Windows Virtual Desktop-Infrastruktur initiiert werden.
+TLS 1.2 wird für alle Verbindungen verwendet, die von den Clients und Sitzungshosts mit den Komponenten der Windows Virtual Desktop-Infrastruktur initiiert werden. Windows Virtual Desktop verwendet dasselbe TLS 1.2-Verschlüsselungsverfahren wie [Azure Front Door](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Es ist wichtig, sicherzustellen, dass sowohl Clientcomputer als auch Sitzungshosts diese Verschlüsselungsverfahren verwenden können.
 Für den Reverse Connection-Transport stellt sowohl der Client als auch der Sitzungshost eine Verbindung mit dem Windows Virtual Desktop-Gateway her. Nach dem Einrichten der TCP-Verbindung überprüft der Client oder Sitzungshost das Zertifikat des Windows Virtual Desktop-Gateways.
 Nach dem Einrichten des Basistransports stellt RDP mithilfe der Zertifikate des Sitzungshosts eine geschachtelte TLS-Verbindung zwischen dem Client und dem Sitzungshost her. Standardmäßig wird das Zertifikat, das für die RDP-Verschlüsselung verwendet wird, vom Betriebssystem bei der Bereitstellung selbst generiert. Bei Bedarf können Kunden zentral verwaltete Zertifikate bereitstellen, die von der Unternehmenszertifizierungsstelle ausgestellt werden. Weitere Informationen zur Konfiguration von Zertifikaten finden Sie in der [Windows Server-Dokumentation](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: de8b6cba87d0297841f4e6236ee69d4f6a856eb4
-  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+  ms.openlocfilehash: b5660f58368bd866035b4cf772f8bd8564ed3b9c
+  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98027875"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100596843"
 landingContent:
 - title: Informationen zu Load Balancer
   linkLists:
@@ -42,8 +42,6 @@ landingContent:
       url: quickstart-load-balancer-standard-internal-portal.md
   - linkListType: tutorial
     links:
-    - text: Vornehmen eines Lastausgleichs für Internetdatenverkehr virtueller Computer
-      url: tutorial-load-balancer-standard-manage-portal.md
     - text: Verfügbarkeitszonenübergreifender Lastenausgleich für VMs mit einer Load Balancer Standard-Instanz
       url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - text: Konfigurieren der Portweiterleitung in Azure Load Balancer

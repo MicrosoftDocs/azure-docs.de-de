@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602352"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388480"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Verwalten von für die VM-Verschiebung erstellten Ressourcen
 
@@ -28,7 +28,7 @@ Löschen Sie die Sammlung für die VM-Verschiebung und die erstellten Site Recov
 2. Überprüfen Sie, ob die VMs und alle anderen Quellressourcen in der Verschiebungssammlung verschoben/gelöscht wurden. Dadurch wird sichergestellt, dass sie nicht von ausstehenden Ressourcen verwendet werden.
 2. Löschen Sie diese Ressourcen.
 
-    - Der Name der Sammlung für die Verschiebung ist ```movecollection-<sourceregion>-<target-region>```.
+    - Der Name der Sammlung für die Verschiebung ist ```movecollection-<sourceregion>-<target-region>-<metadata-region>```.
     - Der Name des Cachespeichers lautet ```resmovecache<guid>```.
     - Der Tresorname ist ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 

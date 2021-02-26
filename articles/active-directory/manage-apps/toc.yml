@@ -158,6 +158,8 @@
           href: migration-resources.md
         - name: "Migrieren einer AD\_FS-App zu Azure"
           href: migrate-adfs-apps-to-azure.md
+        - name: Migrieren der Anwendungsauthentifizierung zu Azure Active Directory
+          href: migrate-application-authentication-to-azure-active-directory.md
         - name: "Verwenden des AD\_FS-Anwendungsaktivitätsberichts (Vorschau)"
           href: migrate-adfs-application-activity.md
     - name: Konfigurieren von lokalen Connectors

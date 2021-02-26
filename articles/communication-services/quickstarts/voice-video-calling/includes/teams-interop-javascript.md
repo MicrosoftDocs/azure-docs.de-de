@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dbba87be839d7f172d42827698a8e485c2edddd8
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: fa7f279e13e5dbb59af7eb3a7939be1edf0f7d5d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256479"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552433"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -55,7 +55,7 @@ Ersetzen Sie den Code in „client.js“ durch den folgenden Codeausschnitt.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -66,7 +66,7 @@ const callStateElement = document.getElementById('call-state');
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
     teamsMeetingJoinButton.disabled = false;
 }

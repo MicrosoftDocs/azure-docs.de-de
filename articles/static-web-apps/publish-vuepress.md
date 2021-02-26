@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250129"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650444"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Veröffentlichen einer VuePress-Website in Azure Static Web Apps (Vorschauversion)
 
@@ -100,7 +100,7 @@ Sie benötigen ein Repository auf GitHub, um eine Verbindung mit Azure Static We
 1. Übertragen Sie Ihr lokales Repository auf GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Bereitstellen Ihrer Web-App
@@ -127,7 +127,7 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue Static Web Apps-Anwen
 
 1. Wählen Sie unter _SKU_ die Option **Free** aus.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Eingegebene Details":::
 
 1. Klicken Sie auf die Schaltfläche **Mit GitHub anmelden**.
 
@@ -135,9 +135,9 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue Static Web Apps-Anwen
 
 1. Wählen Sie unter _Repository_ die Option **vuepress-static-app** aus.
 
-1. Wählen Sie unter _Branch_ die Option **Master** aus.
+1. Wählen Sie unter _Branch_ die Option **main** aus.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Eingegebene GitHub-Informationen":::
 
 ### <a name="build"></a>Entwickeln
 
@@ -151,7 +151,7 @@ Als Nächstes fügen Sie Konfigurationseinstellungen hinzu, die beim Buildprozes
 
 Ein Wert für _API-Speicherort_ ist nicht erforderlich, da Sie hier keine API bereitstellen.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Buildeinstellungen":::
 
 ### <a name="review-and-create"></a>Überprüfen und Erstellen
 
@@ -163,7 +163,7 @@ Ein Wert für _API-Speicherort_ ist nicht erforderlich, da Sie hier keine API be
 
 1. Klicken Sie auf dem Ressourcenbildschirm auf den Link _URL_, um Ihre bereitgestellte Anwendung zu öffnen. Sie müssen ggf. ein bis zwei Minuten warten, bis der GitHub Actions-Vorgang abgeschlossen ist.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Bereitgestellte Anwendung":::
 
 ### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

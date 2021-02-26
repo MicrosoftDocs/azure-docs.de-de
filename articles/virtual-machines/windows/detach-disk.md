@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201551"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055194"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Trennen eines Datenträgers von einem virtuellen Windows-Computer
 
@@ -53,11 +53,13 @@ Sie können einen Datenträger für Daten *im laufenden Betrieb* entfernen. Stel
 1. Wählen Sie im Menü auf der linken Seite die Option **Virtuelle Computer** aus.
 1. Wählen Sie den virtuellen Computer mit dem zu trennenden Datenträger aus.
 1. Wählen Sie unter **Einstellungen** die Option **Datenträger** aus.
-1. Klicken Sie im Bereich **Datenträger** ganz rechts neben dem Datenträger, den Sie trennen möchten, zum Löschen auf die Schaltfläche **X**.
+1. Klicken Sie im Bereich **Datenträger** ganz rechts neben dem Datenträger, den Sie trennen möchten, auf die Schaltfläche zum Trennen (**X**).
 1. Wählen Sie oben auf der Seite **Speichern** aus, um Ihre Änderungen zu speichern.
 
 Der Datenträger verbleibt im Speicher, ist jedoch nicht mehr an einen virtuellen Computer angefügt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn Sie den Datenträger wiederverwenden möchten, können Sie ihn einfach [an einen anderen virtuellen Computer anfügen](attach-managed-disk-portal.md)
+Wenn Sie den Datenträger wiederverwenden möchten, können Sie ihn einfach [an einen anderen virtuellen Computer anfügen](attach-managed-disk-portal.md).
+
+Wenn Sie den Datenträger löschen möchten, sodass keine Speicherkosten mehr anfallen, finden Sie entsprechende Informationen unter [Suchen und Löschen von nicht angefügten verwalteten und nicht verwalteten Azure-Datenträgern – Azure-Portal](../disks-find-unattached-portal.md).

@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 05ceda4909a792b60733645b6816d384555c6925
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 8e97fe287335837ad79e6446bb7abf196cda6f75
+  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98791188"
+  ms.lasthandoff: 02/03/2021
+  ms.locfileid: "99508115"
 highlightedContent:
   items:
   - title: Worum handelt es sich beim Speech-Dienst?
@@ -211,8 +211,6 @@ additionalContent:
         url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
     - title: Ressourcen
       links:
-      - text: Neues in der Dokumentation
-        url: whats-new.md
       - text: Preise
         url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
       - text: Regions

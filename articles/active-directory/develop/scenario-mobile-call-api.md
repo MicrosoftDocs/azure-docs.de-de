@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756470"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584396"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Aufrufen einer Web-API aus einer mobilen App
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Erstellen mehrerer API-Anforderungen
 
-Wenn Sie die gleiche API mehrmals oder mehrere APIs aufrufen müssen, berücksichtigen Sie beim Erstellen Ihrer App Folgendes:
+Um die gleiche API mehrmals oder mehrere APIs aufzurufen, sollten Sie beim Erstellen Ihrer App Folgendes berücksichtigen:
 
 - **Inkrementelle Zustimmung**: Mit Microsoft Identity Platform können Apps bei Bedarf (wenn Berechtigungen erforderlich sind) Benutzerzustimmungen einholen. Daher brauchen nicht alle Zustimmungen direkt am Anfang zu erfolgen. Jedes Mal, wenn Ihre App für den Aufruf einer API bereit ist, sollte sie nur die Bereiche anfordern, die sie benötigt.
 
@@ -125,7 +125,7 @@ Wenn Sie die gleiche API mehrmals oder mehrere APIs aufrufen müssen, berücksic
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Aufrufen mehrerer APIs mithilfe von inkrementeller Zustimmung und bedingtem Zugriff
 
-Wenn Sie nach dem Abrufen eines Tokens für einen Benutzer für denselben Benutzer mehrere APIs abrufen müssen, können Sie es vermeiden, den Benutzer wiederholt nach den Anmeldeinformationen zu fragen, indem Sie bei den Folgeaufrufen `AcquireTokenSilent` zum Abrufen eines Tokens aufrufen.
+Wenn Sie nach dem Abrufen eines Tokens für einen Benutzer für denselben Benutzer mehrere APIs aufrufen möchten, können Sie es vermeiden, den Benutzer wiederholt nach den Anmeldeinformationen zu fragen, indem Sie anschließend `AcquireTokenSilent` zum Abrufen eines Tokens aufrufen:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223124"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584516"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Verwenden von Synapse Studio zum Überwachen Ihrer Apache Spark-Anwendungen
 
@@ -155,6 +155,26 @@ Sie können alle Apache Spark-Anwendungen unter **Überwachen** -> **Apache Spar
 6. Überprüfen Sie die Fehlerinformationen.
 
    ![Informationen zu Auftrag mit Fehlern](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="compare-apache-spark-applications"></a>Vergleichen von Apache Spark-Anwendungen
+Klicken Sie auf die Schaltfläche **Anwendungen vergleichen**, und wählen Sie eine Anwendung aus, um die Leistung zu vergleichen. Benutzer erkennen intuitiv den Unterschied zwischen den beiden Anwendungen.
+
+![Anwendungen vergleichen](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. Zeigen Sie mit der Maus auf eine Anwendung, woraufhin das Symbol **Anwendungen vergleichen** angezeigt wird.
+
+2. Klicken Sie auf das Symbol **Anwendungen vergleichen**, woraufhin die Seite „Anwendungen vergleichen“ angezeigt wird.
+
+3. Klicken Sie auf die Schaltfläche **Anwendung auswählen**, um die Seite **Vergleichsanwendung auswählen** zu öffnen.
+
+4. Bei der Auswahl der Vergleichsanwendung müssen Benutzer entweder die Anwendungs-URL eingeben oder eine Auswahl aus der wiederkehrenden Liste treffen. Klicken Sie dann auf die Schaltfläche **OK**. 
+
+   ![Vergleichsanwendung auswählen](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. Das Vergleichsergebnis wird auf der Seite „Anwendungen vergleichen“ angezeigt.
+
+   ![Vergleichsergebnis](./media/how-to-monitor-spark-applications/comparison-result.png)
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

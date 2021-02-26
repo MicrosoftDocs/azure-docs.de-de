@@ -4,14 +4,13 @@ description: In diesem Artikel erfahren Sie, wie Sie die Updateverwaltung verwen
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915981"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Verwalten von Updates und Patches für Ihre VMs
 
@@ -35,11 +34,13 @@ Die Updateverwaltung verwendet eine Bereichskonfiguration innerhalb des Arbeitsb
 
 Bevor Sie Softwareupdates auf ihren Computern bereitstellen, überprüfen Sie die Ergebnisse der Updatekompatibilitätsbewertung für aktivierte Computer. Für jedes Softwareupdate wird der zugehörige Kompatibilitätszustand aufgezeichnet, nach Abschluss der Bewertung erfasst und per Massenvorgang an Azure Monitor-Protokolle weitergeleitet.
 
-Auf einem Windows-Computer wird der Konformitätsscan standardmäßig alle 12 Stunden ausgeführt. Außer dem geplanten Scan wird der Update-Konformitätsscan innerhalb von 15 Minuten nach dem Neustart des Log Analytics-Agent für Windows sowie vor und nach der Updateinstallation initiiert. Lesen Sie auch unbedingt unsere Empfehlungen zum [Konfigurieren von Windows Update-Einstellungen für die Azure Automation-Updateverwaltung](configure-wuagent.md), um Probleme zu vermeiden, die eine korrekte Verwaltung verhindern.
+Auf einem Windows-Computer wird der Konformitätsscan standardmäßig alle 12 Stunden ausgeführt und innerhalb von 15 Minuten nach einem Neustart des Log Analytics-Agents für Windows initiiert. Die Auswertungsdaten werden dann an den Arbeitsbereich weitergeleitet, um die Tabelle **Updates** zu aktualisieren. Vor und nach der Updateinstallation wird ein Konformitätsscan ausgeführt, um fehlende Updates zu ermitteln. Die Ergebnisse werden jedoch nicht zum Aktualisieren der Auswertungsdaten in der Tabelle verwendet.
+
+Lesen Sie unbedingt unsere Empfehlungen zum [Konfigurieren von Windows Update-Einstellungen für die Azure Automation-Updateverwaltung](configure-wuagent.md), um Probleme zu vermeiden, die eine korrekte Verwaltung verhindern.
 
 Für einen Linux-Computer wird der Konformitätsscan standardmäßig jede Stunde durchgeführt. Wenn der Log Analytics-Agent für Linux neu gestartet wird, wird ein Konformitätsscan innerhalb von 15 Minuten eingeleitet.
 
-Die Kompatibilitätsergebnisse werden für jeden bewerteten Computer in der Updateverwaltung angezeigt. Bis für einen neu für die Verwaltung aktivierten Computer aktualisierte Daten im Dashboard angezeigt werden, können bis zu 30 Minuten vergehen.
+Die Kompatibilitätsergebnisse werden für jeden bewerteten Computer in der Updateverwaltung angezeigt. Bis für einen neu für die Verwaltung aktivierten Computer aktualisierte Daten im Dashboard angezeigt werden, können bis zu 30 Minuten vergehen.
 
 Weitere Informationen zum Anzeigen von Kompatibilitätsergebnissen finden Sie unter [Anzeigen von Updatebewertungen](view-update-assessments.md).
 

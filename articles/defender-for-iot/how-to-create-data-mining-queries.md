@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811572"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507569"
 ---
 # <a name="sensor-data-mining-queries"></a>Data Mining-Abfragen für Sensoren
 
@@ -55,11 +55,11 @@ Die von Ihnen erstellten Data Mining-Abfragen werden bei jedem Öffnen dynamisch
 
 Mithilfe von Abfragen können Sie einen großen Bereich an Sicherheitsanforderungen für verschiedene Sicherheitsteams abdecken:
 
-- **SOC-Reaktion auf Vorfälle**: Generieren Sie einen Bericht in Echtzeit, um die sofortige Reaktion auf Vorfälle zu unterstützen. Beispielsweise können Sie einen Bericht für eine Liste von Geräten generieren, für die möglicherweise Patchen erforderlich ist.
+- **SOC-Reaktion auf Vorfälle**: Generieren Sie einen Bericht in Echtzeit, um die sofortige Reaktion auf Vorfälle zu unterstützen. Beispielsweise kann Data Mining einen Bericht für eine Liste von Geräten generieren, die möglicherweise gepatcht werden müssen.
 
 - **Forensik**: Generieren Sie einen Bericht auf der Grundlage von Verlaufsdaten für Untersuchungsberichte.
 
-- **IT-Netzwerkintegrität**: Generieren Sie einen Bericht, der zur Verbesserung der Netzwerk-Gesamtsicherheit beiträgt. Erstellen Sie beispielsweise einen Bericht mit Geräten, die mit schwachen Anmeldeinformationen geschützt sind.
+- **IT-Netzwerkintegrität**: Generieren Sie einen Bericht, der zur Verbesserung der Netzwerk-Gesamtsicherheit beiträgt. Beispielsweise kann ein Bericht generiert werden, der Geräte auflistet, die mit schwachen Anmeldeinformationen für die Authentifizierung geschützt sind.
 
 - **Transparenz**: Generieren Sie einen Bericht, der alle Abfragepunkte abdeckt, um alle Baselineparameter Ihres Netzwerks darzustellen.
 

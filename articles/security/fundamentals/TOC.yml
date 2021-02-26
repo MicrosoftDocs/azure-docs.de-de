@@ -138,7 +138,7 @@
       href: service-fabric-best-practices.md
 - name: 'Überwachung, Überprüfung und Vorgänge'
   items:
-    - name: Erweiterter Schutz vor Bedrohungen
+    - name: Bedrohungsschutz
       href: threat-detection.md
     - name: Azure-Protokollierung und -Überwachung
       href: log-audit.md

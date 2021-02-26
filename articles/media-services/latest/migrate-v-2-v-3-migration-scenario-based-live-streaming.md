@@ -1,5 +1,5 @@
 ---
-title: Szenariobasierter Leitfaden für die Migration von Media Services V2 zu V3 für das Livestreaming | Microsoft-Dokumentation
+title: Leitfaden zur Migration von Azure Media Services-Livestreaming
 description: In diesem Artikel finden Sie einen szenariobasierten Migrationsleitfaden für das Livestreaming, der Sie bei der Migration von Azure Media Services V2 zu V3 unterstützt.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 89fcf85b20d11664d5d1caa3fbe142fa5bbdbebc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689459"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955291"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Szenariobasierter Migrationsleitfaden für das Livestreaming
 

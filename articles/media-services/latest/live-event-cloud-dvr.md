@@ -1,6 +1,5 @@
 ---
-title: Verwenden von Timeshift und Liveausgaben zum Erstellen der bedarfsgesteuerten Videowiedergabe
-titleSuffix: Azure Media Services
+title: Verwenden von Timeshift zum Erstellen der bedarfsgesteuerten Videowiedergabe
 description: In diesem Artikel erfahren Sie, wie Sie mit Timeshift und Liveausgaben Livestreams aufzeichnen und bedarfsgesteuerte Wiedergaben erstellen können.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2bb876c164f0df56a8b7f3c4a3666ff306e9416
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289510"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955935"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Verwenden von Timeshift und Liveausgaben zum Erstellen der bedarfsgesteuerten Videowiedergabe
 

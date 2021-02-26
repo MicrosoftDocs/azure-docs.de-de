@@ -10,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ebde8048c26364d77d95b9c7b34f9d1d7a4a20ee
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+adobe-target: true
+ms.openlocfilehash: b597c483354a4bc1763e7b6a4bb3727aaaaf0c51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326263"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369202"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Machen Sie sich mit den ersten Schritten mit Azure Machine Learning in Jupyter Notebooks vertraut.
 

@@ -5,37 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3eb2d9469ab3a3d2c1d09e4adc3ee2cb1f86e6e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87515303"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979067"
 ---
-## <a name="1-download-the-file"></a>1. Herunterladen der Datei
-
-Führen Sie die folgenden Befehle aus: Kopieren Sie die Ergebnis-URL in Ihren Browser, um die ZIP-Datei für das Profil herunterzuladen.
-
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
-
-## <a name="2-extract-the-zip-file"></a>2. Extrahieren der ZIP-Datei
+## <a name="extract-the-zip-file"></a>Extrahieren der ZIP-Datei
 
 Extrahieren Sie die ZIP-Datei. Die Datei enthält die folgenden Ordner:
 
 * AzureVPN
 * Allgemein
-* OpenVPN (wenn Sie OpenVPN mit Einstellungen für ein **Azure-Zertifikat** oder eine **RADIUS-Authentifizierung** auf dem Gateway aktiviert haben). Informationen zu VPN Gateway finden Sie unter [Erstellen eines Azure Active Directory-Mandanten](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).) Informationen zu Virtual WAN finden Sie unter [Erstellen eines Azure Active Directory-Mandanten ](../articles/virtual-wan/openvpn-azure-ad-tenant.md).)
+* OpenVPN (wenn Sie OpenVPN mit Einstellungen für ein **Azure-Zertifikat** oder eine **RADIUS-Authentifizierung** auf dem Gateway aktiviert haben). Wählen Sie den zu Ihrer Konfiguration gehörenden Artikel aus, um einen Mandanten zu erstellen.
 
-## <a name="3-retrieve-information"></a>3. Abrufen von Informationen
+  * [VPN Gateway: Erstellen eines Mandanten](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
+  * [Virtual WAN: Erstellen eines Mandanten](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
-Navigieren Sie im Ordner **AzureVPN** zur Datei ***azurevpnconfig.xml***, und öffnen Sie sie mit Editor. Notieren Sie sich den Text zwischen den folgenden Tags.
+## <a name="retrieve-information"></a>Abrufen von Informationen
+
+Navigieren Sie im Ordner **AzureVPN** zur Datei **_azurevpnconfig.xml_**, und öffnen Sie sie in Editor. Notieren Sie sich den Text zwischen den folgenden Tags.
 
 ```
 <audience>          </audience>
@@ -49,11 +42,11 @@ Navigieren Sie im Ordner **AzureVPN** zur Datei ***azurevpnconfig.xml***, und ö
 
 Wenn Sie eine Verbindung hinzufügen, verwenden Sie die im vorherigen Schritt auf der Seite mit den Profildetails gesammelten Informationen. Die Felder entsprechen den folgenden Informationen:
 
-   * **Audience:** Die Empfängerressource, für die das Token vorgesehen ist
-   * **Issuer:** Der Azure AD-Mandant und der Sicherheitstokendienst (STS), der das Token ausgegeben hat
-   * **Tenant:** Ein unveränderlicher, eindeutiger Bezeichner des Verzeichnismandanten, der das Token ausgestellt hat
-   * **FQDN:** Der vollqualifizierte Domänenname (FQDN) in Azure VPN Gateway
-   * **ServerSecret:** Der vorinstallierte Schlüssel des VPN-Gateways
+* **Audience:** Die Empfängerressource, für die das Token vorgesehen ist.
+* **Issuer:** Hiermit wird der Azure AD-Mandant angegeben und der Sicherheitstokendienst (STS) identifiziert, der das Token ausgegeben hat.
+* **Tenant:** Ein unveränderlicher, eindeutiger Bezeichner des Verzeichnismandanten, der das Token ausgestellt hat.
+* **FQDN:** Der vollqualifizierte Domänenname (FQDN) in Azure VPN Gateway.
+* **ServerSecret:** Der vorinstallierte Schlüssel des VPN-Gateways.
 
 ## <a name="folder-contents"></a>Ordnerinhalt
 

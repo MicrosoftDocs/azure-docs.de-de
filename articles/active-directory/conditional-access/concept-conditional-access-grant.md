@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219945"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938390"
 ---
 # <a name="conditional-access-grant"></a>Bedingter Zugriff: Erteilen
 
@@ -121,7 +121,9 @@ In Ihrer Richtlinie für bedingten Zugriff können Sie festlegen, dass eine [Int
 
 Um dieses Gewährungssteuerelement zu nutzen, muss für den bedingten Zugriff das Gerät in Azure Active Directory registriert sein. Dafür ist eine Broker-App erforderlich. Die Broker-App kann entweder Microsoft Authenticator für iOS oder das Microsoft-Unternehmensportal für Android-Geräte sein. Wenn der Benutzer versucht, sich zu authentifizieren, und auf dem Gerät keine Broker-App installiert ist, wird er zum App Store umgeleitet, um die Broker-App zu installieren.
 
-Diese Einstellung gilt für die folgenden Client-Apps:
+Anwendungen müssen über das **Intune SDK** mit implementierter **Richtliniensicherung** verfügen und bestimmte andere Anforderungen erfüllen, um diese Einstellung zu unterstützen. Entwickler, die Anwendungen mit dem Intune SDK implementieren möchten, finden in der SDK-Dokumentation weitere Informationen zu diesen Anforderungen.
+
+Für die folgenden Client-Apps wurde bestätigt, dass diese Einstellung unterstützt wird:
 
 - Microsoft Cortana
 - Microsoft Edge

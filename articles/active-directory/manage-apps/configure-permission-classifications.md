@@ -3,7 +3,7 @@ title: Konfigurieren von Berechtigungsklassifizierungen bei Azure AD
 description: Hier erfahren Sie, wie Sie delegierte Berechtigungsklassifizierungen verwalten können.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b2d851f0f4476cd4b24b6ba30c237f9a42252726
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033203"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255219"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurieren von Berechtigungsklassifizierungen
 
@@ -34,7 +34,7 @@ Derzeit wird nur die Berechtigungsklassifizierung „Geringe Auswirkung“ unter
 
 Führen Sie die folgenden Schritte zum Klassifizieren von Berechtigungen über das Azure-Portal aus:
 
-1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator--company-administrator), als [Anwendungsadministrator](../roles/permissions-reference.md#application-administrator) oder als [Cloudanwendungsadministrator](../roles/permissions-reference.md#cloud-application-administrator) beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich als [globaler Administrator](../roles/permissions-reference.md#global-administrator), als [Anwendungsadministrator](../roles/permissions-reference.md#application-administrator) oder als [Cloudanwendungsadministrator](../roles/permissions-reference.md#cloud-application-administrator) beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie **Azure Active Directory** > **Unternehmensanwendungen** > **Einwilligung und Berechtigungen** > **Berechtigungsklassifizierungen** aus.
 1. Wählen Sie **Berechtigungen hinzufügen** aus, um eine weitere Berechtigung als „Geringe Auswirkung“ zu klassifizieren.
 1. Wählen Sie die API und dann die delegierten Berechtigungen aus.
@@ -126,4 +126,4 @@ Weitere Informationen:
 * [Berechtigungen und Zustimmung im Microsoft Identity Platform-Endpunkt](../develop/v2-permissions-and-consent.md)
 
 So erhalten Sie Hilfe oder finden Antworten auf Ihre Fragen:
-* [Azure AD bei StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD bei Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

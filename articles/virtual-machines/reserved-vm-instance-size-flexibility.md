@@ -1,25 +1,25 @@
 ---
 title: Flexibilität bei der VM-Größe – reservierte Azure-VM-Instanzen
 description: Es wird beschrieben, für welche Größenserie ein Reservierungsrabatt gilt, wenn Sie eine reservierte VM-Instanz erwerben.
-author: manish-shukla01
+author: yashesvi
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/03/2018
-ms.author: manshuk
-ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.author: yashar
+ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855507"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980438"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilität bei der VM-Größe mit reservierten VM-Instanzen
 
 Wenn Sie eine reservierte VM-Instanz erwerben, können Sie sich entscheiden, die Flexibilität bei der Instanzgröße oder die Kapazitätspriorität zu optimieren. Weitere Informationen zum Festlegen oder Ändern der Optimierungseinstellung für reservierte VM-Instanzen finden Sie unter [Ändern der Optimierungseinstellung für reservierte VM-Instanzen](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-Bei einer für Instanzgrößenflexibilität optimierten reservierten VM-Instanz kann die von Ihnen gekaufte Reservierung für die VM-Größen in derselben Gruppe der Instanzgrößenflexibilität gelten. Wenn Sie beispielsweise eine Reservierung für eine VM-Größe kaufen, die in der DSv2-Serie aufgeführt ist, z. B. Standard_DS5_v2, kann der Reservierungsrabatt für die anderen vier Größen gelten, die in derselben Gruppe der Instanzgrößenflexibilität aufgeführt sind:
+Bei einer für Instanzgrößenflexibilität optimierten reservierten VM-Instanz kann die von Ihnen gekaufte Reservierung für die VM-Größen in derselben Gruppe der Instanzgrößenflexibilität gelten. Wenn Sie beispielsweise eine Reservierung für eine VM-Größe kaufen, die in der DSv2-Serie aufgeführt ist (z. B. Standard_DS3_v2), kann der Reservierungsrabatt für die anderen Größen gelten, die in derselben Gruppe der Instanzgrößenflexibilität aufgeführt sind:
 
 - Standard_DS1_v2
 - Standard_DS2_v2

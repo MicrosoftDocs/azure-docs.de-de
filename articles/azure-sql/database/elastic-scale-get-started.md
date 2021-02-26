@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919543"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Erste Schritte mit Tools für elastische Datenbanken
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Verfahren Sie wie folgt, um die JAR-Dateien zu erstellen und erste Schritte mit 
 
 1. Klonen Sie das [GitHub-Repository](https://github.com/Microsoft/elastic-db-tools-for-java), das die Clientbibliothek zusammen mit der Beispiel-App enthält.
 
-2. Bearbeiten Sie die Datei _./sample/src/main/resources/resource.properties_ , um folgende Eigenschaften festzulegen:
+2. Bearbeiten Sie die Datei _./sample/src/main/resources/resource.properties_, um folgende Eigenschaften festzulegen:
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
@@ -85,13 +85,15 @@ Gehen Sie folgendermaßen vor, um das Beispiel herunterzuladen und auszuführen:
 
 1. Laden Sie das Beispiel [Elastic DB Tools for Azure SQL – Getting Started](https://github.com/Azure/elastic-db-tools) herunter. Entzippen Sie das Beispiel an einem Speicherort Ihrer Wahl.
 
-2. Um ein Projekt zu erstellen, öffnen Sie die Projektmappe *ElasticScaleStarterKit.sln* im Verzeichnis *C#* .
+2. Öffnen Sie zum Erstellen eines Projekts die Lösung *ElasticDatabaseTools.sln* im Verzeichnis *elastic-db-tools-master*. 
 
-3. Öffnen Sie in der Projektmappe für das Beispielprojekt der Datei *app.config* . Folgen Sie dann den Anweisungen in der Datei, um den Namen Ihres Servers und Ihre Anmeldeinformationen (Benutzername und Kennwort) hinzuzufügen.
+3. Legen Sie das Projekt *ElasticScaleStarterKit* als Startprojekt fest.
 
-4. Erstellen Sie die Anwendung, und führen Sie sie aus. Wenn Sie dazu aufgefordert werden, lassen Sie die NuGet-Pakete der Projektmappe von Visual Studio wiederherstellen. Dadurch wird die aktuelle Version der Clientbibliothek für elastische Datenbanken von NuGet heruntergeladen.
+4. Öffnen Sie im Projekt *ElasticScaleStarterKit* die Datei *App.config*. Folgen Sie dann den Anweisungen in der Datei, um den Namen Ihres Servers und Ihre Anmeldeinformationen (Benutzername und Kennwort) hinzuzufügen.
 
-5. Experimentieren Sie mit den verschiedenen Optionen, um mehr über die Funktionen der Clientbibliothek zu erfahren. Beachten Sie die von der Anwendung ausgeführten Schritte in der Konsolenausgabe, und erkunden Sie den zugrunde liegenden Code.
+5. Erstellen Sie die Anwendung, und führen Sie sie aus. Wenn Sie dazu aufgefordert werden, lassen Sie die NuGet-Pakete der Projektmappe von Visual Studio wiederherstellen. Dadurch wird die aktuelle Version der Clientbibliothek für elastische Datenbanken von NuGet heruntergeladen.
+
+6. Experimentieren Sie mit den verschiedenen Optionen, um mehr über die Funktionen der Clientbibliothek zu erfahren. Beachten Sie die von der Anwendung ausgeführten Schritte in der Konsolenausgabe, und erkunden Sie den zugrunde liegenden Code.
 
    ![Status][4]
 
@@ -102,19 +104,19 @@ Glückwunsch! Sie haben mit den Tools für elastische Datenbanken in SQL-Datenba
 
 ## <a name="key-pieces-of-the-code-sample"></a>Zentrale Elemente des Codebeispiels
 
-* **Verwalten von Shards und Shardzuordnungen** : Der Code in der Datei *ShardManagementUtils.cs* veranschaulicht die Arbeit mit Shards, Bereichen und Zuordnungen. Weitere Informationen finden Sie unter [Aufskalieren von Datenbanken mit dem Shardzuordnungs-Manager](https://go.microsoft.com/?linkid=9862595).  
+* **Verwalten von Shards und Shardzuordnungen**: Der Code in der Datei *ShardManagementUtils.cs* veranschaulicht die Arbeit mit Shards, Bereichen und Zuordnungen. Weitere Informationen finden Sie unter [Aufskalieren von Datenbanken mit dem Shardzuordnungs-Manager](https://go.microsoft.com/?linkid=9862595).  
 
-* **Datenabhängiges Routing** : Das Routing von Transaktionen zum richtigen Shard wird in der Datei *DataDependentRoutingSample.cs* dargestellt. Weitere Informationen finden Sie unter [Datenabhängiges Routing](https://go.microsoft.com/?linkid=9862596).
+* **Datenabhängiges Routing**: Das Routing von Transaktionen zum richtigen Shard wird in der Datei *DataDependentRoutingSample.cs* dargestellt. Weitere Informationen finden Sie unter [Datenabhängiges Routing](https://go.microsoft.com/?linkid=9862596).
 
-* **Abfragen über mehrere Shards hinweg** : Shardübergreifende Abfragen werden in der Datei *MultiShardQuerySample.cs* veranschaulicht. Weitere Informationen finden Sie unter [Abfragen mehrerer Shards](https://go.microsoft.com/?linkid=9862597).
+* **Abfragen über mehrere Shards hinweg**: Shardübergreifende Abfragen werden in der Datei *MultiShardQuerySample.cs* veranschaulicht. Weitere Informationen finden Sie unter [Abfragen mehrerer Shards](https://go.microsoft.com/?linkid=9862597).
 
-* **Hinzufügen leerer Shards** : Das iterative Hinzufügen neuer leerer Shards wird mit dem Code in der Datei *CreateShardSample.cs* durchgeführt. Weitere Informationen finden Sie unter [Aufskalieren von Datenbanken mit dem Shardzuordnungs-Manager](https://go.microsoft.com/?linkid=9862595).
+* **Hinzufügen leerer Shards**: Das iterative Hinzufügen neuer leerer Shards wird mit dem Code in der Datei *CreateShardSample.cs* durchgeführt. Weitere Informationen finden Sie unter [Aufskalieren von Datenbanken mit dem Shardzuordnungs-Manager](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Weitere Elastic Scale-Operationen
 
-* **Aufteilen eines vorhandenen Shards** : Die Möglichkeit zum Aufteilen von Shards wird durch das Split-Merge-Tool bereitgestellt. Weitere Informationen finden Sie unter [Verschieben von Daten zwischen horizontal hochskalierten Clouddatenbanken](elastic-scale-overview-split-and-merge.md).
+* **Aufteilen eines vorhandenen Shards**: Die Möglichkeit zum Aufteilen von Shards wird durch das Split-Merge-Tool bereitgestellt. Weitere Informationen finden Sie unter [Verschieben von Daten zwischen horizontal hochskalierten Clouddatenbanken](elastic-scale-overview-split-and-merge.md).
 
-* **Zusammenführen vorhandener Shards** : Shardzusammenführungen werden ebenfalls mit dem Split-Merge-Tool durchgeführt. Weitere Informationen finden Sie unter [Verschieben von Daten zwischen horizontal hochskalierten Clouddatenbanken](elastic-scale-overview-split-and-merge.md).
+* **Zusammenführen vorhandener Shards**: Shardzusammenführungen werden ebenfalls mit dem Split-Merge-Tool durchgeführt. Weitere Informationen finden Sie unter [Verschieben von Daten zwischen horizontal hochskalierten Clouddatenbanken](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Kosten
 

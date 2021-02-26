@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b609d8389504eb10dd35a5ab74b0c198d3da57a6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197590"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090491"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-Identitätsverwaltung und Sicherheit der Zugriffssteuerung – Bewährte Methoden
 
@@ -102,7 +102,7 @@ Organisationen, die ihre lokale Identität nicht in ihre Cloudidentität integri
 > Sie müssen auswählen, in welchen Verzeichnissen sich wichtige Konten befinden und ob die verwendete Administrator-Arbeitsstation von neuen Clouddiensten oder vorhandenen Prozessen verwaltet wird. Die Verwendung vorhandener Verwaltungs- und Identitätsbereitstellungsprozesse kann einige Risiken mindern, jedoch auch die Gefahr mit sich bringen, dass ein Angreifer ein lokales Konto manipuliert und Daten in die Cloud überträgt. Für verschiedene Rollen können sich unterschiedliche Strategien empfehlen (z.B. für IT-Administratoren und Geschäftsbereichsadministratoren). Sie haben zwei Möglichkeiten. Die erste Möglichkeit besteht darin, Azure AD-Konten zu erstellen, die nicht mir Ihrer lokalen Active Directory-Instanz synchronisiert sind. Binden Sie Ihre Administrator-Arbeitsstation in Azure AD ein, und Sie können sie mit Microsoft Intune verwalten und patchen. Die zweite Möglichkeit: Verwenden Sie vorhandene Administratorkonten, indem Sie die Synchronisierung mit Ihrer lokalen Active Directory-Instanz ausführen. Verwenden Sie vorhandene Arbeitsstationen in Ihrer Active Directory-Domäne für Verwaltung und Sicherheit.
 
 ## <a name="manage-connected-tenants"></a>Verwalten von verbundenen Mandanten
-In Ihrer Sicherheitsorganisation muss Sichtbarkeit gegeben sein, um Risiken zu bewerten und zu bestimmen, ob die Richtlinien Ihrer Organisation und geltende gesetzliche Anforderungen eingehalten werden. Sie müssen dafür sorgen, dass Ihre Sicherheitsorganisation über Sichtbarkeit hinsichtlich aller Abonnements verfügt, die mit Ihrer Produktionsumgebung und Ihrem Produktionsnetzwerk verbunden sind (über [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) oder [Site-to-Site-VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Ein [globaler Administrator/Unternehmensadministrator](../../active-directory/roles/permissions-reference.md#company-administrator-permissions) in Azure AD kann die Zugriffsrechte auf die Rolle [Benutzerzugriffsadministrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) erweitern und alle Abonnements und verwalteten Gruppen anzeigen, die mit Ihrer Umgebung verbunden sind.
+In Ihrer Sicherheitsorganisation muss Sichtbarkeit gegeben sein, um Risiken zu bewerten und zu bestimmen, ob die Richtlinien Ihrer Organisation und geltende gesetzliche Anforderungen eingehalten werden. Sie müssen dafür sorgen, dass Ihre Sicherheitsorganisation über Sichtbarkeit hinsichtlich aller Abonnements verfügt, die mit Ihrer Produktionsumgebung und Ihrem Produktionsnetzwerk verbunden sind (über [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) oder [Site-to-Site-VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Ein [globaler Administrator](../../active-directory/roles/permissions-reference.md#global-administrator-permissions) in Azure AD kann die Zugriffsrechte auf die Rolle [Benutzerzugriffsadministrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) erweitern und alle Abonnements und verwalteten Gruppen anzeigen, die mit Ihrer Umgebung verbunden sind.
 
 Lesen Sie den Artikel [Erhöhen der Zugriffsrechte zum Verwalten aller Azure-Abonnements und Verwaltungsgruppen](../../role-based-access-control/elevate-access-global-admin.md) durch, und stellen Sie sicher, dass Sie und Ihre Sicherheitsgruppe alle Abonnements oder Verwaltungsgruppen einsehen können, die mit Ihrer Umgebung verbunden sind. Sie sollten diese erweiterten Zugriffsrechte nach dem Bewerten von Risiken wieder aufheben.
 

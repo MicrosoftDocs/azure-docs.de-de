@@ -9,17 +9,32 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788874"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430996"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning: Anmerkungen zu dieser Version
 
 In diesem Artikel erhalten Sie Informationen zu Azure Machine Learning-Versionen.  Den vollständigen SDK-Referenzinhalt finden Sie auf der Hauptseite der Referenz zum [**Azure Machine Learning SDK für Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
+ ## <a name="2021-01-31"></a>31.01.2021
+### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Oberfläche von Azure Machine Learning Studio Notebooks (Aktualisierung vom Januar)
++ **Neue Features**
+  + Nativer Markdown-Editor in Azure Machine Learning: Benutzer können jetzt Markdowndateien nativ in Azure Machine Learning Studio rendern und bearbeiten.
+  + [Ausführungsschaltfläche für Skripts („.py“, „.R“ und „.sh“)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script): Benutzer können jetzt mühelos Python-, R- und Bash-Skripts in Azure Machine Learning ausführen.
+  + [Variablen-Explorer](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook): Erkunden Sie den Inhalt von Variablen und Datenrahmen in einem Popupbereich. Benutzer können problemlos den Datentyp, die Größe und den Inhalt überprüfen.
+  + [Inhaltsverzeichnis](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc): Navigieren Sie zu Abschnitten Ihres Notebooks (angegeben durch Markdown-Header).
+  + Exportieren Ihres Notebooks als LaTeX-/HTML-/PY-Datei: Exportieren Sie Notebook-Dateien als LaTeX-, HTML- oder PY-Datei, um eine problemlose Weitergabe zu ermöglichen.
+  + IntelliCode: Machine Learning-gestützte Ergebnisse sorgen für eine verbesserte [intelligente automatische Vervollständigung](https://docs.microsoft.com/visualstudio/intellicode/overview).
+
++ **Fehlerbehebungen und Verbesserungen**
+  + Verbesserte Seitenladezeiten
+  + Verbesserte Leistung 
+  + Verbesserte Geschwindigkeit und Kernelzuverlässigkeit
+  
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Azure Machine Learning SDK für Python v1.21.0

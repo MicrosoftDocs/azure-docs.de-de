@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741489"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491384"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Aktivieren der Self-Service-Kennwortzurücksetzung für Azure Active Directory auf dem Windows-Anmeldebildschirm
 
@@ -40,7 +40,7 @@ Die folgenden Einschränkungen gelten für die Verwendung der SSPR auf dem Windo
 - In Hybrid Azure AD eingebundene Computer müssen über eine direkte Netzwerkverbindung mit einem Domänencontroller verfügen, um das neue Kennwort verwenden und zwischengespeicherte Anmeldeinformationen aktualisieren zu können. Das heißt, die Geräte müssen sich im internen Unternehmensnetzwerk oder in einem VPN mit Netzwerkzugriff auf einen lokalen Domänencontroller befinden.
 - Wenn Sie ein Image verwenden, stellen Sie vor dem Ausführen von Sysprep sicher, dass der Webcache für den integrierten Administrator vor der Durchführung des CopyProfile-Schritts gelöscht ist. Weitere Informationen zu diesem Schritt finden Sie im Supportartikel [Schlechte Leistung bei Verwendung eines benutzerdefinierten Standardbenutzerprofils](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Bei den folgenden Einstellungen ist bekannt, dass sie das Verwenden und Zurücksetzen von Kennwörtern auf Windows 10-Geräten beeinträchtigen:
-    - Wenn eine Richtlinie in Windows 10-Versionen vor 1909 das Drücken von STRG+ALT+ENTF vorschreibt, funktioniert **Kennwort zurücksetzen** nicht.
+    - Wenn eine Richtlinie in Windows 10 das Drücken von STRG+ALT+ENTF erfordert, funktioniert **Kennwort zurücksetzen** nicht.
     - Wenn Benachrichtigungen bei gesperrtem Bildschirm deaktiviert sind, funktioniert **Kennwort zurücksetzen** nicht.
     - *HideFastUserSwitching* ist auf „Aktiviert“ oder „1“ festgelegt.
     - *DontDisplayLastUserName* ist auf „Aktiviert“ oder auf „1“ festgelegt.
@@ -51,6 +51,10 @@ Die folgenden Einschränkungen gelten für die Verwendung der SSPR auf dem Windo
     - Interaktive Anmeldung: Kein STRG+ALT+ENTF erforderlich = Deaktiviert
     - *DisableLockScreenAppNotifications* ist auf 1 oder „Aktiviert“ festgelegt.
     - Bei der Windows-SKU handelt es sich nicht um die Home oder Professional Edition.
+
+> [!NOTE]
+> Diese Einschränkungen gelten auch für das Zurücksetzen der PIN für Windows Hello for Business über den Sperrbildschirm des Geräts.
+>
 
 ## <a name="windows-10-password-reset"></a>Windows 10-Kennwortzurücksetzung
 

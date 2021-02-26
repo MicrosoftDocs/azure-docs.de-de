@@ -5,13 +5,14 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 11/06/2020
-ms.openlocfilehash: 35134f3ee4946d294ba6c6f71bd3953823d6d138
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: db85594ad4fef37ec7411f7d5791fdb5279ec504
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250027"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581651"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Überwachen von Azure IoT Hub
 

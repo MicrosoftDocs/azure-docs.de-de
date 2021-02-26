@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292454"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062994"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Aufrufen von Dienstendpunkten per HTTP oder HTTPS aus Azure Logic Apps
 
@@ -56,7 +56,7 @@ Dieser integrierte Trigger führt einen HTTP-Aufruf der angegebenen URL für ein
 
    ![Eingeben der HTTP-Triggerparameter](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Wenn Sie einen anderen Authentifizierungstyp als **Keiner**auswählen, unterscheiden sich die Authentifizierungseinstellungen je nach Ihrer Auswahl. Weitere Informationen zu verfügbaren Authentifizierungstypen für HTTP finden Sie unter den folgenden Themen:
+   Wenn Sie einen anderen Authentifizierungstyp als **Keiner** auswählen, unterscheiden sich die Authentifizierungseinstellungen je nach Ihrer Auswahl. Weitere Informationen zu verfügbaren Authentifizierungstypen für HTTP finden Sie unter den folgenden Themen:
 
    * [Hinzufügen der Authentifizierung zu ausgehenden Aufrufen](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Authentifizieren des Zugriffs auf Ressourcen mit verwalteten Identitäten](../logic-apps/create-managed-service-identity.md)
@@ -91,7 +91,7 @@ Diese integrierte Aktion führt einen HTTP-Aufruf der angegebenen URL für einen
 
    ![Eingeben der Parameter für die HTTP-Aktion](./media/connectors-native-http/http-action-parameters.png)
 
-   Wenn Sie einen anderen Authentifizierungstyp als **Keiner**auswählen, unterscheiden sich die Authentifizierungseinstellungen je nach Ihrer Auswahl. Weitere Informationen zu verfügbaren Authentifizierungstypen für HTTP finden Sie unter den folgenden Themen:
+   Wenn Sie einen anderen Authentifizierungstyp als **Keiner** auswählen, unterscheiden sich die Authentifizierungseinstellungen je nach Ihrer Auswahl. Weitere Informationen zu verfügbaren Authentifizierungstypen für HTTP finden Sie unter den folgenden Themen:
 
    * [Hinzufügen der Authentifizierung zu ausgehenden Aufrufen](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [Authentifizieren des Zugriffs auf Ressourcen mit verwalteten Identitäten](../logic-apps/create-managed-service-identity.md)
@@ -249,7 +249,7 @@ Wenn ein HTTP-Trigger oder eine HTTP-Aktion diese Header enthält, entfernt Logi
 
 * `Accept-*`-Header, außer für `Accept-version`
 * `Allow`
-* `Content-*` mit den folgenden Ausnahmen: `Content-Disposition`, `Content-Encoding` und `Content-Type`.
+* `Content-*`-Header mit Ausnahme von `Content-Disposition`, `Content-Encoding` und `Content-Type`, wenn Sie POST- und PUT-Vorgänge verwenden, aber nicht für GET-Vorgänge
 * `Cookie`
 * `Expires`
 * `Host`

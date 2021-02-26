@@ -3,17 +3,17 @@ title: 'ML Studio (Classic): PowerShell-Module – Azure'
 description: Sie können PowerShell verwenden, um Arbeitsbereiche, Experimente, Webdienste und vieles mehr in Azure Machine Learning Studio (klassisch) zu erstellen und zu verwalten.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: f66363ec8b64dea1a076f81f4fc89bafe5ca4151
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 684299d61ba6e9e27e16a162c9f226a7ea3b5f58
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322331"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518010"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-Module für Azure Machine Learning Studio (klassisch)
 
@@ -34,7 +34,7 @@ Trotz einiger Ähnlichkeiten ist jedes dieser PowerShell-Module für bestimmte S
 
 ## <a name="azure-powershell-az-and-azurerm"></a><a name="az-rm"></a> Azure PowerShell Az und AzureRM
 
-Az ist nun das vorgesehene PowerShell-Modul für die Interaktion mit Azure und umfasst die gesamte Funktionalität von AzureRM. Für AzureRM werden weiterhin Bugfixes bereitgestellt, jedoch keine neuen Cmdlets oder Features.  Az und AzureRM verwalten beide Lösungen, die mit dem **Azure Resource Manager** -Bereitstellungsmodell bereitgestellt werden. Zu diesen Ressourcen gehören Studio-Arbeitsbereiche (klassisch) und neue Studio-Webdienste (klassisch). 
+Az ist nun das vorgesehene PowerShell-Modul für die Interaktion mit Azure und umfasst die gesamte Funktionalität von AzureRM. Für AzureRM werden weiterhin Bugfixes bereitgestellt, jedoch keine neuen Cmdlets oder Features.  Az und AzureRM verwalten beide Lösungen, die mit dem **Azure Resource Manager**-Bereitstellungsmodell bereitgestellt werden. Zu diesen Ressourcen gehören Studio-Arbeitsbereiche (klassisch) und neue Studio-Webdienste (klassisch). 
 
 PowerShell (klassisch) kann zusammen mit Az oder AzureRM installiert werden, um sowohl neue als auch klassische Ressourcentypen abzudecken. Eine gleichzeitige Installation von Az und AzureRM wird jedoch nicht empfohlen. Bei der Auswahl zwischen Az und AzureRM empfiehlt Microsoft, Az für alle zukünftigen Bereitstellungen zu verwenden.  Weitere Informationen zu Az und AzureRM sowie zum Migrationspfad finden Sie in der [Einführung zu Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881160"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575770"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gewusst wie: Erzwingen einer App-Schutzrichtlinie und einer genehmigten Client-App für den Zugriff auf Cloud-Apps mithilfe des bedingten Zugriffs
 
@@ -34,7 +34,7 @@ Bei bedingtem Zugriff sind diese Client-Apps bekanntermaßen durch eine App-Schu
 > Nicht alle Anwendungen werden als genehmigte Anwendungen unterstützt oder unterstützen Anwendungsschutzrichtlinien. Eine Liste der qualifizierten Client-Apps finden Sie unter [App-Schutzrichtlinie als Voraussetzung](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> Die Option „Eine der ausgewählten Steuerungen anfordern“ unter den Zugriffserteilungssteuerungen funktioniert wie eine ODER-Klausel. Sie wird innerhalb einer Richtlinie verwendet, um Benutzern die Verwendung von Apps zu ermöglichen, welche die Zugriffserteilungssteuerungen **App-Schutzrichtlinie erforderlich** bzw. **Genehmigte Client-App erforderlich** unterstützen. **App-Schutzrichtlinie erforderlich** wird erzwungen, wenn eine App in beiden Richtlinien unterstützt wird. Weitere Informationen zu den Apps, welche die Zugriffserteilungssteuerung **App-Schutzrichtlinie erforderlich** unterstützen, finden Sie unter [App-Schutzrichtlinie als Voraussetzung](concept-conditional-access-grant.md#require-app-protection-policy).
+> Die Option „Eine der ausgewählten Steuerungen anfordern“ unter den Zugriffserteilungssteuerungen funktioniert wie eine ODER-Klausel. Sie wird innerhalb einer Richtlinie verwendet, um Benutzern die Verwendung von Apps zu ermöglichen, welche die Zugriffserteilungssteuerungen **App-Schutzrichtlinie erforderlich** bzw. **Genehmigte Client-App erforderlich** unterstützen. **App-Schutzrichtlinie erforderlich** wird erzwungen, wenn die App dieses Gewährungssteuerungselement unterstützt. Weitere Informationen zu den Apps, welche die Zugriffserteilungssteuerung **App-Schutzrichtlinie erforderlich** unterstützen, finden Sie unter [App-Schutzrichtlinie als Voraussetzung](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Szenario 1: Microsoft 365-Apps erfordern genehmigte Apps mit App-Schutzrichtlinien.
 

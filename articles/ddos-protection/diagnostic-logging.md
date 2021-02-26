@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915163"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806306"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Anzeigen und Konfigurieren der DDoS-Diagnoseprotokollierung
 
@@ -128,7 +128,7 @@ In der folgenden Tabelle sind die Feldnamen und Beschreibungen aufgeführt:
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Aktivieren der Diagnoseprotokollierung für alle öffentlichen IP-Adressen
 
-Diese [Vorlage](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) erstellt eine Azure Policy-Definition, um die Diagnoseprotokollierung für alle Protokolle für öffentliche IP-Adressen in einem definierten Bereich automatisch zu aktivieren.
+Diese [Vorlage](https://aka.ms/ddosdiaglogs) erstellt eine Azure Policy-Definition, um die Diagnoseprotokollierung für alle Protokolle für öffentliche IP-Adressen in einem definierten Bereich automatisch zu aktivieren.
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
@@ -142,7 +142,7 @@ Sie können Protokolle mit Azure Sentinel verbinden, Ihre Daten in Arbeitsmappen
 
 ### <a name="azure-ddos-protection-workbook"></a>Azure DDoS Protection-Arbeitsmappe
 
-Zum Bereitstellen einer Angriffsanalyse-Arbeitsmappe können Sie diese ARM-Vorlage (Azure Resource Manager) verwenden. Mit dieser Arbeitsmappe können Sie Angriffsdaten in mehreren filterbaren Panels visualisieren, um leicht nachzuvollziehen, was auf dem Spiel steht. 
+Zum Bereitstellen einer Arbeitsmappe zur Angriffsanalyse können Sie diese [ARM-Vorlage (Azure Resource Manager)](https://aka.ms/ddosworkbook) verwenden. Mit dieser Arbeitsmappe können Sie Angriffsdaten in mehreren filterbaren Panels visualisieren, um leicht nachzuvollziehen, was auf dem Spiel steht. 
 
 [![In Azure bereitstellen](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 

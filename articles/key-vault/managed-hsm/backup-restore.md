@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: e051a36b3c91fadc0c3b602cb4ba8e3dbcff1294
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367130"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093487"
 ---
 # <a name="full-backup-and-restore"></a>Vollständige Sicherung und Wiederherstellung
 
@@ -23,7 +23,7 @@ ms.locfileid: "94367130"
 
 Verwaltete HSMs unterstützen das Erstellen einer vollständigen Sicherung des gesamten Inhalts des HSM – einschließlich aller Schlüssel, Versionen, Attribute, Tags und Rollenzuweisungen. Die Sicherung wird mit kryptografischen Schlüsseln verschlüsselt, die der Sicherheitsdomäne des HSM zugeordnet sind.
 
-Sicherungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Sicherungsvorgang initiiert, muss über die Berechtigung zum Ausführen von „dataAction“ ( **Microsoft.KeyVault/managedHsm/backup/start/action** ) verfügen.
+Sicherungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Sicherungsvorgang initiiert, muss über die Berechtigung zum Ausführen von „dataAction“ (**Microsoft.KeyVault/managedHsm/backup/start/action**) verfügen.
 
 Nur die folgenden integrierten Rollen sind zum Ausführen einer vollständigen Sicherung berechtigt:
 - Managed HSM Administrator (Administrator für verwaltete HSMs)
@@ -44,9 +44,9 @@ Die Sicherung ist ein zeitintensiver Vorgang. Es wird jedoch sofort eine Auftrag
 Während des Sicherungsvorgangs ist der Durchsatz des HSM möglicherweise eingeschränkt, da einige HSM-Partitionen durch den Sicherungsvorgang beansprucht werden.
 
 ```azurecli-interactive
-# time for 30 minutes later for SAS token expiry
+# time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -72,7 +72,7 @@ Mit einer vollständigen Wiederherstellung können Sie den Inhalt des HSM aus ei
 > [!IMPORTANT]
 > Die vollständige Wiederherstellung ist ein äußerst destruktiver Vorgang. Daher muss innerhalb der letzten 30 Minuten eine vollständige Sicherung durchgeführt worden sein, damit ein Vorgang vom Typ `restore` ausgeführt werden kann.
 
-Wiederherstellungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Wiederherstellungsvorgang startet, muss über die Berechtigung zum Ausführen von „dataAction“ ( **Microsoft.KeyVault/managedHsm/restore/start/action** ) verfügen. Das Quell-HSM, in dem die Sicherung erstellt wurde, und das Ziel-HSM, in dem die Wiederherstellung durchgeführt wird, **müssen** über die gleiche Sicherheitsdomäne verfügen. Weitere Informationen zur Sicherheitsdomäne verwalteter HSMs finden Sie [hier](security-domain.md).
+Wiederherstellungsvorgänge werden auf der Datenebene durchgeführt. Der Aufrufer, der den Wiederherstellungsvorgang startet, muss über die Berechtigung zum Ausführen von „dataAction“ (**Microsoft.KeyVault/managedHsm/restore/start/action**) verfügen. Das Quell-HSM, in dem die Sicherung erstellt wurde, und das Ziel-HSM, in dem die Wiederherstellung durchgeführt wird, **müssen** über die gleiche Sicherheitsdomäne verfügen. Weitere Informationen zur Sicherheitsdomäne verwalteter HSMs finden Sie [hier](security-domain.md).
 
 Zum Ausführen einer vollständigen Wiederherstellung sind folgende Angaben erforderlich:
 - HSM-Name oder -URL
@@ -84,9 +84,9 @@ Zum Ausführen einer vollständigen Wiederherstellung sind folgende Angaben erfo
 Die Wiederherstellung ist ein zeitintensiver Vorgang. Es wird jedoch sofort eine Auftrags-ID zurückgegeben. Mithilfe dieser Auftrags-ID können Sie den Status des Wiederherstellungsprozesses überprüfen. Während des Wiederherstellungsprozesses wird das HSM in einen Wiederherstellungsmodus versetzt, und alle Datenebenenbefehle (mit Ausnahme von „check restore status“) sind deaktiviert.
 
 ```azurecli-interactive
-#### time for 30 minutes later for SAS token expiry
+#### time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -97,7 +97,7 @@ skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mh
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions rl --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 ```
 
-## <a name="backup-hsm"></a>Sichern des HSM
+## <a name="restore-hsm"></a>Wiederherstellen des HSM
 
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860

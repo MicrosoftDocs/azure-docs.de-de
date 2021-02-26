@@ -1,14 +1,14 @@
 ---
 title: Bewährte Methoden
 description: Erfahren Sie, welche bewährten Methoden und nützlichen Tipps es für das Entwickeln Ihrer Azure Batch-Lösungen gibt.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732410"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550860"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch: bewährte Methoden
 
@@ -169,6 +169,8 @@ Wenn Sie ein Problem bemerken, das mit dem Verhalten eines Knotens oder einer Au
 
 Bei Batch-Konten im Modus „Benutzerabonnement“ können automatische Betriebssystem-Upgrades den Taskfortschritt unterbrechen, insbesondere dann, wenn Tasks über einen längeren Zeitraum ausgeführt werden. Das [Entwickeln idempotenter Tasks](#build-durable-tasks) kann zur Reduzierung von Fehlern beitragen, die durch diese Unterbrechungen verursacht werden. Wir empfehlen außerdem, [Upgrades von Betriebssystem-Images für Uhrzeiten zu planen, in denen erwartungsgemäß keine Tasks ausgeführt werden](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+Für Windows-Pools ist `enableAutomaticUpdates` standardmäßig auf `true` festgelegt. Das Zulassen automatischer Updates wird zwar empfohlen, aber Sie können diesen Wert auf `false` festlegen, wenn Sie sicherstellen müssen, dass ein Betriebssystemupdate nicht unerwartet durchgeführt wird.
+
 ## <a name="isolation-security"></a>Isolierungssicherheit
 
 Falls Ihr Szenario die Isolierung von Aufträgen voneinander erfordert, sollten Sie zu diesem Zwecke die Aufträge in separaten Pools platzieren. Ein Pool ist die Sicherheitsisolierungsgrenze in Batch, und standardmäßig sind zwei Pools nicht gegenseitig sichtbar und können auch nicht miteinander kommunizieren. Vermeiden Sie die Verwendung separater Batch-Konten als Isolierungsmethode.
@@ -189,8 +191,7 @@ Lesen Sie den folgenden Leitfaden zur Konnektivität in Ihren Batch-Lösungen.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Netzwerksicherheitsgruppen (NSGs) und benutzerdefinierte Routen (UDRs)
 
-Wenn Sie [Batch-Pools in einem virtuellen Netzwerk](batch-virtual-network.md) bereitstellen, sollten Sie sicherstellen, dass Sie die Richtlinien bezüglich der Verwendung des `BatchNodeManagement`-Diensttags, der Ports, der Protokolle und der Richtung der Regel streng befolgen.
-Die Verwendung des Diensttags anstelle der zugrunde liegenden IP-Adressen des Batch-Diensts wird dringend empfohlen. Der Grund dafür ist, dass IP-Adressen sich im Laufe der Zeit ändern können. Die direkte Verwendung von IP-Adressen des Batch-Diensts kann zu Instabilität, Unterbrechungen oder Ausfällen für die Batch-Pools führen.
+Wenn Sie [Batch-Pools in einem virtuellen Netzwerk](batch-virtual-network.md) bereitstellen, sollten Sie sicherstellen, dass Sie die Richtlinien bezüglich der Verwendung des `BatchNodeManagement`-Diensttags, der Ports, der Protokolle und der Richtung der Regel streng befolgen. Die Verwendung des Diensttags anstelle der zugrunde liegenden IP-Adressen des Batch-Diensts wird dringend empfohlen. Der Grund dafür ist, dass IP-Adressen sich im Laufe der Zeit ändern können. Die direkte Verwendung von IP-Adressen des Batch-Diensts kann zu Instabilität, Unterbrechungen oder Ausfällen für die Batch-Pools führen.
 
 Stellen Sie für benutzerdefinierte Routen (User Defined Routes, UDRs) sicher, dass Sie über einen Prozess verfügen, um die IP-Adressen des Batch-Diensts in regelmäßigen Abständen in der Routingtabelle zu aktualisieren, da sich diese Adressen im Laufe der Zeit ändern. Informationen dazu, wie Sie die Liste mit den IP-Adressen des Batch-Diensts abrufen, finden Sie unter [Lokale Diensttags](../virtual-network/service-tags-overview.md). Die IP-Adressen des Batch-Diensts werden dem `BatchNodeManagement`-Diensttag (oder der regionalen Variante, die Ihrer Batch-Kontoregion entspricht) zugeordnet.
 

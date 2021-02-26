@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901197"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593949"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions-Workflows für Azure Static Web Apps (Vorschau)
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -87,16 +87,16 @@ Ein GitHub Actions-[Trigger](https://help.github.com/actions/reference/events-th
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Mit Einstellungen, die der Eigenschaft `on` zugeordnet sind, können Sie definieren, welche Branches einen Auftrag auslösen. Darüber hinaus können Sie Trigger festlegen, die für unterschiedliche Pull Request-Zustände ausgelöst werden.
 
-In diesem Beispiel wird ein Workflow gestartet, wenn sich der Branch _master_ ändert. Zu den Änderungen, die zum Starten des Workflows führen, gehören das Pushen von Commits und das Öffnen von Pull Requests für den ausgewählten Branch.
+In diesem Beispiel wird ein Workflow gestartet, wenn sich der Branch _main_ ändert. Zu den Änderungen, die zum Starten des Workflows führen, gehören das Pushen von Commits und das Öffnen von Pull Requests für den ausgewählten Branch.
 
 ## <a name="jobs"></a>Aufträge
 
@@ -107,7 +107,7 @@ In der Workflowdatei für Static Web Apps sind zwei verfügbare Aufträge enthal
 | Name  | BESCHREIBUNG |
 |---------|---------|
 |`build_and_deploy_job` | Wird ausgeführt, wenn Sie Commits pushen oder einen Pull Request für den Branch öffnen, der in der Eigenschaft `on` aufgelistet ist. |
-|`close_pull_request_job` | Wird NUR ausgeführt, wenn Sie einen Pull Request schließen, der die aus den Pull Requests erstellte Stagingumgebung entfernt. |
+|`close_pull_request_job` | Dieser Auftrag wird NUR ausgeführt, wenn Sie einen Pull Request schließen, der die aus den Pull Requests erstellte Stagingumgebung entfernt. |
 
 ## <a name="steps"></a>Schritte
 
@@ -194,6 +194,54 @@ jobs:
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Unterstützung für Monorepos
+
+Ein Monorepo ist ein Repository, das Code für mehr als eine Anwendung enthält. Eine Static Web Apps-Workflowdatei verfolgt standardmäßig alle Dateien in einem Repository nach, aber Sie können sie auch so anpassen, dass sie eine einzelne App als Ziel hat. Daher verfügt jede statische App für Monorepos über eine eigene Konfigurationsdatei, die sich ebenfalls im Ordner *.github/workflows* des Repositorys befindet.
+
+```files
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── README.md
+```
+
+Geben Sie die Pfade in den Abschnitten `push` und `pull_request` an, um für eine Workflowdatei eine einzelne App als Ziel festzulegen.
+
+Im folgenden Beispiel wird veranschaulicht, wie Sie einen `paths`-Knoten zu den Abschnitten `push` und `pull_request` einer Datei namens _azure-static-web-apps-purple-pond.yml_ hinzufügen.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+In diesem Fall wird nur bei Änderungen, die an den folgenden Dateien vorgenommen wurden, ein neuer Build ausgelöst:
+
+- alle Dateien im Ordner *app1*
+- alle Dateien im Ordner *api1*
+- Änderungen an der Workflowdatei *azure-static-web-apps-purple-pond.yml* der App
 
 ## <a name="next-steps"></a>Nächste Schritte
 

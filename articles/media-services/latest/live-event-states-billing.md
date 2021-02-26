@@ -1,5 +1,5 @@
 ---
-title: Status und Abrechnung von Liveereignissen in Azure Media Services | Microsoft-Dokumentation
+title: Status und Abrechnung von Liveereignissen in Azure Media Services
 description: Dieses Thema bietet eine Übersicht über den Status und die entsprechende Abrechnung von Liveereignissen in Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782364"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897814"
 ---
 # <a name="live-event-states-and-billing"></a>Status und Abrechnung von Liveereignissen
 

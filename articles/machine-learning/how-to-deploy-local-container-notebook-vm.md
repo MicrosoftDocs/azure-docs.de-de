@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527308"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954545"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Bereitstellen eines Modells auf einer Azure Machine Learning Studio-Compute-Instanz
 
@@ -38,11 +38,12 @@ Erfahren Sie, wie Sie mit Azure Machine Learning ein Modell als Webdienst auf Ih
 
 Ein Beispielnotebook mit einer Veranschaulichung lokaler Bereitstellungen ist auf Ihrer Compute-Instanz enthalten. Führen Sie die folgenden Schritte aus, um das Notebook zu laden und das Modell als Webdienst auf dem virtuellen Computer bereitzustellen:
 
-1. Wählen Sie in [Azure Machine Learning Studio](https://ml.azure.com) Ihre Azure Machine Learning-Compute-Instanzen aus.
+1. Wählen Sie in [Azure Machine Learning Studio](https://ml.azure.com) die Option „Notebooks“ und dann unter „Beispiel-Notebooks“ die Datei „how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb“ aus. Klonen Sie dieses Notebook in Ihren Benutzerordner.
 
-1. Öffnen Sie das Unterverzeichnis `samples-*` und anschließend `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Führen Sie dann das Notebook aus.
+1. Suchen Sie das in Schritt 1 geklonte Notebook, wählen oder erstellen Sie eine Compute-Instanz, um das Notebook auszuführen.
 
     ![Screenshot des ausgeführten lokalen Diensts auf dem Notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. Im Notebook werden die URL und der Port für den ausgeführten Dienst angezeigt. Beispiel: `https://localhost:6789`. Sie können zum Anzeigen des Ports auch die Zelle ausführen, die `print('Local service port: {}'.format(local_service.port))` enthält.
 

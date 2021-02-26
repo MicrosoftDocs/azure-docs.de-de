@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1d4eb69942ad9d58e4d0d358efc13c3dbcb77923
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 022e3cb5a6ec9cc85bf445f438ef5c25bc2914df
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98788365"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100516764"
 landingContent:
 - title: Informationen zur Formularerkennung
   linkLists:
@@ -138,8 +138,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Formularerkennungs-API Version 2.0
-      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+    - text: REST-API
+      url: https://docs.microsoft.com/rest/api/formrecognizer/
     - text: .NET SDK
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - text: Python SDK

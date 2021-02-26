@@ -3,19 +3,24 @@ title: 'Bereitstellen der RD-Gateway-Rolle in Windows Virtual Desktop: Azure'
 description: 'Vorgehensweise: Bereitstellen der RD-Gateway-Rolle in Windows Virtual Desktop.'
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798018"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220818"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Bereitstellen der RD-Gateway-Rolle in Windows Virtual Desktop
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Bereitstellen der RD-Gateway-Rolle in Windows Virtual Desktop (Vorschau)
 
-In diesem Artikel erfahren Sie, wie Sie die Remotedesktop-Gateway-Server in Ihrer Umgebung bereitstellen. Sie können die Serverrollen auf physischen oder virtuellen Computern installieren, je nachdem, ob Sie eine lokale, cloudbasierte oder Hybrid-Umgebung erstellen.
+> [!IMPORTANT]
+> Dieses Feature ist zurzeit als öffentliche Preview verfügbar.
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
+> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In diesem Artikel erfahren Sie, wie Sie die RD-Gateway-Rolle (Vorschau) verwenden, um Remotedesktopgateway-Server in Ihrer Umgebung bereitzustellen. Sie können die Serverrollen auf physischen Computern oder auf virtuellen Computern installieren (je nachdem, ob Sie eine lokale, eine cloudbasierte oder eine hybride Umgebung erstellen).
 
 ## <a name="install-the-rd-gateway-role"></a>Installieren der RD-Gateway-Rolle
 

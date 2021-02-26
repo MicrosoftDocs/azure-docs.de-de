@@ -5,12 +5,12 @@ description: In diesem Artikel werden die beiden Verschlüsselungsebenen beschri
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927320"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988622"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Doppelte Verschlüsselung für ruhende Daten in Azure HDInsight
 
@@ -116,7 +116,7 @@ HDInsight unterstützt nur Azure Key Vault. Falls Sie einen eigenen Schlüsseltr
 
 Sie können nun einen neuen HDInsight-Cluster erstellen. Kundenseitig verwaltete Schlüssel können ausschließlich im Rahmen der Clustererstellung auf neue Cluster angewendet werden. Die Verschlüsselung kann nicht aus Clustern mit kundenseitig verwalteten Schlüsseln entfernt werden, und der kundenseitig verwaltete Schlüssel kann keinen vorhandenen Clustern hinzugefügt werden.
 
-Ab dem [Release November 2020](hdinsight-release-notes.md#release-date-11182020) unterstützt HDInsight die Erstellung von Clustern mit Schlüssel-URIs mit und ohne Version. Wenn Sie den Cluster mit einem versionslosen Schlüssel-URI erstellen, versucht der HDInsight-Cluster, die automatische Rotation des Schlüssels auszuführen, wenn der Schlüssel in Ihrer Azure Key Vault-Instanz aktualisiert wird. Wenn Sie den Cluster mit einem Schlüssel-URI mit Versionsangabe erstellen, müssen Sie eine manuelle Schlüsselrotation ausführen, wie unter [Rotieren des Verschlüsselungsschlüssels](#rotating-the-encryption-key) erläutert.
+Ab dem Release November 2020 unterstützt HDInsight die Erstellung von Clustern mit Schlüssel-URIs mit und ohne Version. Wenn Sie den Cluster mit einem versionslosen Schlüssel-URI erstellen, versucht der HDInsight-Cluster, die automatische Rotation des Schlüssels auszuführen, wenn der Schlüssel in Ihrer Azure Key Vault-Instanz aktualisiert wird. Wenn Sie den Cluster mit einem Schlüssel-URI mit Versionsangabe erstellen, müssen Sie eine manuelle Schlüsselrotation ausführen, wie unter [Rotieren des Verschlüsselungsschlüssels](#rotating-the-encryption-key) erläutert.
 
 Für Cluster, die vor dem Release November 2020 erstellt wurden, müssen Sie die Schlüsselrotation manuell mit dem Schlüssel-URI mit Versionsangabe ausführen.
 

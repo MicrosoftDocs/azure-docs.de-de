@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825804"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008535"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Häufig gestellte Fragen und bekannte Probleme mit verwalteten Identitäten für Azure-Ressourcen
 
@@ -48,6 +48,10 @@ Nein. Verwaltete Identitäten und Azure AD-App-Registrierungen sind im Verzeichn
 App-Registrierungen setzen sich aus zwei Komponenten zusammen: Ein Anwendungsobjekt und ein Dienstprinzipalobjekt. Verwaltete Identitäten für Azure-Ressourcen verfügen nur über eine dieser Komponenten: Ein Dienstprinzipalobjekt. 
 
 Verwaltete Identitäten haben kein Anwendungsobjekt im Verzeichnis, womit im Allgemeinen App-Berechtigungen für MS Graph erteilt werden. Stattdessen müssen dem Dienstprinzipal MS Graph-Berechtigungen für verwaltete Identitäten direkt erteilt werden.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>Kann dieselbe verwaltete Identität in mehreren Regionen verwendet werden?
+
+Kurz gesagt, ja. Sie können vom Benutzer zugewiesene verwaltete Identitäten in mehr als einer Azure-Region verwenden. Die längere Antwort ist, dass, während vom Benutzer zugewiesene verwaltete Identitäten als regionale Ressourcen erstellt werden, der zugehörige [Dienstprinzipal](../develop/app-objects-and-service-principals.md#service-principal-object), der in Azure AD erstellt wurde, global verfügbar ist. Das Dienstprinzipal kann in jeder Azure-Region verwendet werden. Seine Verfügbarkeit ist von der von Azure AD abhängig. Wenn Sie z. B. eine vom Benutzer zugewiesene verwaltete Identität in der Region „USA, Süden-Mitte“ erstellt haben und diese Region nicht mehr verfügbar ist, wirkt sich dieses Problem nur auf Aktivitäten auf [Steuerungsebene](../../azure-resource-manager/management/control-plane-and-data-plane.md) für die verwaltete Identität selbst aus.  Die Aktivitäten von Ressourcen, die bereits für die Nutzung der verwalteten Identitäten konfiguriert sind, werden dadurch nicht beeinträchtigt.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Können verwaltete Identitäten für Azure-Ressourcen mit Azure Cloud Services verwendet werden?
 

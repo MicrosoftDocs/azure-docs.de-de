@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie eine private Verbindung mit einem Azure Batch
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579554"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920002"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Verwenden privater Endpunkte mit Azure Batch-Konten
 
@@ -20,7 +20,7 @@ Durch Verwendung von [Azure Private Link](../private-link/private-link-overview.
 Private Link ermöglicht Benutzern den Zugriff auf ein Azure Batch-Konto innerhalb des virtuellen Netzwerks oder über ein mittels Peering verbundenes Netzwerk. Auf Ressourcen, die Private Link zugeordnet sind, kann auch lokal über privates Peering über VPN oder [Azure ExpressRoute](../expressroute/expressroute-introduction.md) zugegriffen werden. Mithilfe der [automatischen oder manuellen Genehmigungsmethode](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) können Sie eine Verbindung mit einem Azure Batch-Konto herstellen, das über Private Link konfiguriert wurde.
 
 > [!IMPORTANT]
-> Private Verbindungen in Azure Batch sind derzeit mit Ausnahme von Deutschland, Mitte und Deutschland, Nordosten für alle öffentlichen Regionen verfügbar.
+> Private Verbindungen in Azure Batch sind derzeit mit Ausnahme von „Deutschland, Mitte“, „Deutschland, Nordosten“, „China, Osten“, „China, Osten 2“, „China, Norden“ und „China, Norden 2“ für alle öffentlichen Regionen verfügbar.
 
 In diesem Artikel werden die Schritte zum Erstellen eines privaten Batch-Kontos und für den Zugriff darauf mithilfe eines privaten Endpunkts beschrieben.
 

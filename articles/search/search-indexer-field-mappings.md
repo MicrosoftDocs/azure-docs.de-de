@@ -3,19 +3,17 @@ title: Feldzuordnungen in Indexern
 titleSuffix: Azure Cognitive Search
 description: Konfigurieren von Feldzuordnungen in einem Indexer zum Ausgleichen von Unterschieden in Feldnamen und Datendarstellungen.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358931"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430444"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Feldzuordnungen und Transformationen mithilfe von Indexern der kognitiven Azure-Suche
 
@@ -28,7 +26,7 @@ Feldzuordnungen sind beispielsweise in folgenden Situationen hilfreich:
 * Die Datenquelle enthält ein Feld mit dem Namen `_id`, in der kognitiven Azure-Suche sind jedoch keine Feldnamen zulässig, die mit einem Unterstrich beginnen. Mit einer Feldzuordnung können Sie ein Feld effektiv umbenennen.
 * Sie möchten im Index mehrere Felder aus der gleichen Datenquelle auffüllen. Beispielsweise möchten Sie verschiedene Analysen auf diese Felder anwenden.
 * Sie möchten ein Indexfeld mit Daten aus mehreren Datenquellen auffüllen, und in den einzelnen Datenquellen werden unterschiedliche Feldnamen verwendet.
-* Sie müssen Ihre Daten mit Base64 codieren oder decodieren. Feldzuordnungen unterstützen mehrere **Zuordnungsfunktionen** , einschließlich Funktionen für die Base64-Codierung und -Decodierung.
+* Sie müssen Ihre Daten mit Base64 codieren oder decodieren. Feldzuordnungen unterstützen mehrere **Zuordnungsfunktionen**, einschließlich Funktionen für die Base64-Codierung und -Decodierung.
 
 > [!NOTE]
 > Feldzuordnungen in Indexern sind eine einfache Möglichkeit, um Datenfelder Indexfeldern zuzuordnen, wobei in gewissem Umfang eine einfache Datenkonvertierung möglich ist. Komplexere Daten müssen möglicherweise vorverarbeitet werden, um sie in eine für die Indizierung geeignete Form umzuwandeln. Eine Option, die Sie ggf. in Betracht ziehen sollten, ist [Azure Data Factory](../data-factory/index.yml).
@@ -44,16 +42,15 @@ Eine Feldzuordnung besteht aus drei Teilen:
 Feldzuordnungen werden dem Array `fieldMappings` der Indexerdefinition hinzugefügt.
 
 > [!NOTE]
-> Wenn keine Feldzuordnungen hinzugefügt werden, nehmen Indexer an, dass die Datenquellenfelder den Indexfeldern mit demselben Namen zugeordnet werden sollen. Das Hinzufügen einer Feldzuordnung entfernt diese Standardfeldzuordnungen für das Quell- und Zielfeld. Manche Indexer, z. B. der [Blobspeicherindexer](search-howto-indexing-azure-blob-storage.md), fügen Standardfeldzuordnungen für das Indexschlüsselfeld hinzu.
+> Wenn keine Feldzuordnungen hinzugefügt werden, nehmen Indexer an, dass die Datenquellenfelder den Indexfeldern mit demselben Namen zugeordnet werden sollen. Das Hinzufügen einer Feldzuordnung entfernt diese Standardfeldzuordnungen für das Quell- und Zielfeld. Manche Indexer wie etwa der [Blobspeicherindexer](search-howto-indexing-azure-blob-storage.md) fügen Standardfeldzuordnungen für das Indexschlüsselfeld hinzu.
 
-## <a name="map-fields-using-the-rest-api"></a>Zuordnen von Feldern mithilfe der REST-API
+## <a name="map-fields-using-rest"></a>Zuordnen von Feldern mithilfe von REST
 
 Sie können Feldzuordnungen beim Erstellen eines neuen Indexers mithilfe der API-Anforderung [Indexer erstellen](/rest/api/searchservice/create-Indexer) hinzufügen. Sie können die Feldzuordnungen eines vorhandenen Indexers mithilfe der API-Anforderung [Indexer aktualisieren](/rest/api/searchservice/update-indexer) verwalten.
 
 Aus dem nachstehenden Beispiel geht hervor, wie Sie ein Quellfeld einem Zielfeld mit einem anderen Namen zuordnen:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -77,9 +74,8 @@ Auf ein Quellfeld kann in mehreren Feldzuordnungen verwiesen werden. Im folgende
 > [!NOTE]
 > Bei der kognitiven Azure-Suche wird ein von Groß- und Kleinschreibung unabhängiger Vergleich zum Auflösen von Feld- und Funktionsnamen in Feldzuordnungen verwendet. Dies ist zwar praktisch, weil Sie die Groß- und Kleinschreibung nicht berücksichtigen müssen, bedeutet aber, dass die Datenquelle oder der Index keine Felder aufweisen dürfen, die sich nur in der Groß- und Kleinschreibung unterscheiden.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Zuordnen von Feldern mithilfe des .NET SDK
+## <a name="map-fields-using-net"></a>Zuordnen von Feldern mithilfe von .NET
 
 Sie definieren Feldzuordnungen im .NET SDK mit der [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping)-Klasse. Diese weist die Eigenschaften `SourceFieldName` und `TargetFieldName` und einen optionalen `MappingFunction`-Verweis auf.
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516093"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218773"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Entwicklerhinweise zu benutzerdefinierten Richtlinien in Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Die meisten Optionen für benutzerdefinierte Richtlinien sind zwar nun allgemein
 ## <a name="features-that-are-generally-available"></a>Allgemein verfügbare Features
 
 - Erstellen und Hochladen von benutzerdefinierten User Journeys für die Authentifizierung mit benutzerdefinierten Richtlinien
-    - Beschreiben von User Journeys als Austauschvorgänge zwischen Anspruchsanbietern (Schritt für Schritt)
+    - Beschreiben von User Journeys (Schritt für Schritt) als Austauschvorgänge zwischen Anspruchsanbietern
     - Definieren der bedingten Verzweigung in User Journeys
 - Interagieren mit REST-API-fähigen Diensten in User Journeys für die benutzerdefinierte Authentifizierung
 - Einrichten von Verbünden mit Identitätsanbietern, die mit dem OpenID Connect-Protokoll konform sind
@@ -37,14 +37,14 @@ Die meisten Optionen für benutzerdefinierte Richtlinien sind zwar nun allgemein
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Zuständigkeiten für Entwickler von Featuregruppen für benutzerdefinierte Richtlinien
 
-Die manuelle Richtlinienkonfiguration gewährt eingehenderen Zugriff auf die zugrunde liegende Plattform von Azure AD B2C und führt zur Erstellung eines eindeutigen Vertrauensframeworks. Für die möglichen Permutationen von benutzerdefinierten Identitätsanbietern, Vertrauensstellungen, Integrationen in externe Dienste und ausführlichen Workflows ist ein methodischer Ansatz beim Entwurf und bei der Konfiguration nötig.
+Die manuelle Richtlinienkonfiguration gewährt eingehenderen Zugriff auf die zugrunde liegende Plattform von Azure AD B2C und führt zur Erstellung eines eindeutigen Vertrauensframeworks. Für die vielen möglichen Permutationen von benutzerdefinierten Identitätsanbietern, Vertrauensstellungen, Integrationen in externe Dienste und Schritt-für-Schritt-Workflows ist ein methodischer Ansatz für den Entwurf und die Konfiguration erforderlich.
 
 Entwickler, die das Feature für benutzerdefinierte Richtlinien verwenden, sollten folgende Leitlinien einhalten:
 
 - Machen Sie sich mit der Konfigurationssprache der benutzerdefinierten Richtlinien und der Verwaltung von Schlüsseln und Geheimnissen vertraut. Weitere Informationen finden Sie unter [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Übernehmen Sie den Besitz für Szenarien und benutzerdefinierte Integrationen. Dokumentieren Sie Ihre Arbeit, und halten Sie das Organisationsteam für Ihre Livewebsite auf dem Laufenden.
 - Führen Sie methodische Szenariotests durch.
-- Nutzen Sie die bewährten Methoden für die Softwareentwicklung und das Staging, und verwenden Sie mindestens eine Entwicklungs-/Testumgebung und eine Produktionsumgebung.
+- Berücksichtigen Sie bewährte Methoden für die Softwareentwicklung und das Staging. Die Verwendung von mindestens einer Entwicklungs- und Testumgebung wird empfohlen.
 - Informieren Sie sich regelmäßig über neue Entwicklungen bei den von Ihnen integrierten Identitätsanbietern und -diensten. Achten Sie beispielsweise auf Änderungen an Geheimnissen sowie auf geplante und ungeplante Änderungen am Dienst.
 - Richten Sie eine aktive Überwachung ein, und überwachen Sie die Reaktionsfähigkeit von Produktionsumgebungen. Weitere Informationen zur Integration mit Application Insights finden Sie unter [Nachverfolgen des Benutzerverhaltens in Azure Active Directory B2C mithilfe von Application Insights](analytics-with-application-insights.md).
 - Halten Sie die E-Mail-Adressen der Kontaktpersonen im Azure-Abonnement aktuell, und sorgen Sie dafür, dass auf die E-Mails des Microsoft-Livewebsite-Teams schnell reagiert wird.
@@ -58,7 +58,7 @@ Entwickler, die das Feature für benutzerdefinierte Richtlinien verwenden, sollt
 
 ## <a name="features-by-stage-and-known-issues"></a>Features nach Phase und bekannte Probleme
 
-Funktionen für benutzerdefinierte Richtlinien und das Identity Experience Framework werden laufend und schnell weiterentwickelt. Die folgende Tabelle dient als Index für die Verfügbarkeit von Features und Komponenten.
+Die Funktionen für benutzerdefinierte Richtlinien werden ständig weiterentwickelt. Die folgende Tabelle dient als Index für die Verfügbarkeit von Features und Komponenten.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protokolle und Autorisierungsabläufe
@@ -144,7 +144,7 @@ Funktionen für benutzerdefinierte Richtlinien und das Identity Experience Frame
 | Azure-Portal – IEF UX |  |  | X |  |
 | Hochladen von Richtlinien |  |  | X |  |
 | [Application Insights, User Journey-Protokolle](troubleshoot-with-application-insights.md) |  | X |  | für die Problembehandlung bei der Entwicklung  |
-| [Application Insights, Ereignisprotokolle](application-insights-technical-profile.md) |  | X |  | für die Überwachung von Benutzerabläufen in der Produktion |
+| [Application Insights, Ereignisprotokolle](analytics-with-application-insights.md) |  | X |  | für die Überwachung von Benutzerabläufen in der Produktion |
 
 
 ## <a name="next-steps"></a>Nächste Schritte

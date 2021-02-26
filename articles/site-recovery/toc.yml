@@ -478,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Hinzufügen von Automation-Runbooks zu Wiederherstellungsplänen
       href: site-recovery-runbook-automation.md
+    - name: ARM-Vorlagen
+      href: asr-arm-templates.md
 - name: Überwachung
   items:
     - name: Häufig gestellte Fragen zur Überwachung

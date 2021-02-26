@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80e6dbdc02b68c279452127933532106b0f78ab8
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 96a72dbc0e45ebd50a49000ae66e3713cb28aa9a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654658"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916919"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrieren einer SAML-Anwendung in Azure AD B2C
 
@@ -71,28 +71,9 @@ Um eine Vertrauensstellung zwischen Ihrem Dienstanbieter und Azure AD B2C zu ers
 
 Sie können ein Zertifikat verwenden, das von einer öffentlichen Zertifizierungsstelle ausgestellt wurde, oder für dieses Tutorial auch ein selbstsigniertes Zertifikat.
 
-### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Vorbereiten eines selbstsignierten Zertifikats
+### <a name="11-create-a-self-signed-certificate"></a>1.1 Erstellen eines selbstsignierten Zertifikats
 
-Wenn Sie noch nicht über ein Zertifikat verfügen, können Sie für dieses Tutorial ein selbstsigniertes Zertifikat verwenden. Unter Windows können Sie das PowerShell-Cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) verwenden, um ein Zertifikat zu generieren.
-
-1. Führen Sie diesen PowerShell-Befehl aus, um ein selbstsigniertes Zertifikat zu generieren. Ändern Sie das Argument `-Subject` entsprechend Ihrer Anwendung und des Azure AD B2C-Mandantennamens. Sie können auch das `-NotAfter`-Datum anpassen, um einen anderen Ablaufzeitpunkt für das Zertifikat anzugeben.
-
-    ```PowerShell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```
-
-1. Öffnen Sie **Benutzerzertifikate verwalten** > **Aktueller Benutzer** > **Persönliche** > **Zertifikate** > *yourappname.yourtenant.onmicrosoft.com*.
-1. Wählen Sie das Zertifikat und dann **Aktion** > **Alle Aufgaben** > **Exportieren** aus.
-1. Wählen Sie **Ja** > **Weiter** > **Ja, privaten Schlüssel exportieren** > **Weiter** aus.
-1. Übernehmen Sie die Standardeinstellungen für **Format der zu exportierenden Datei** aus.
-1. Angeben eines Kennworts für das Zertifikat
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ### <a name="12-upload-the-certificate"></a>1.2 Hochladen des Zertifikats
 

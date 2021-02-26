@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232334"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102647"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Aufrufen der Microsoft Graph-API über eine UWP-Anwendung (UWP = Universelle Windows-Plattform)
 
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-Bei MSAL.NET werden asynchrone Methoden zum Abrufen von Token oder Bearbeiten von Konten verwendet. Sie müssen dafür sorgen, dass UI-Aktionen im UI-Thread unterstützt werden. Dies ist der Grund für den `Dispatcher.RunAsync`-Aufruf und die Vorsichtsmaßnahmen zum Aufrufen von `ConfigureAwait(false)`.
+Bei MSAL.NET werden asynchrone Methoden zum Abrufen von Token oder Bearbeiten von Konten verwendet. Daher sollten UI-Aktionen im UI-Thread unterstützt werden. Dies ist der Grund für den `Dispatcher.RunAsync`-Aufruf und die Vorsichtsmaßnahmen zum Aufrufen von `ConfigureAwait(false)`.
 
 #### <a name="more-information-about-signing-out"></a>Weitere Informationen zum Abmelden<a name="more-information-on-sign-out"></a>
 
@@ -343,9 +343,9 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Anwendung registrieren
 
-Nun müssen Sie Ihre Anwendung registrieren:
+Registrieren Sie nun Ihre Anwendung:
 
-1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> an.
+1. Melden Sie sich beim <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> an.
 1. Wenn Sie Zugriff auf mehrere Mandanten haben, verwenden Sie im Menü am oberen Rand den Filter **Verzeichnis + Abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::, um den Mandanten auszuwählen, für den Sie eine Anwendung registrieren möchten.
 1. Suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
 1. Wählen Sie unter **Verwalten** Folgendes aus: **App-Registrierungen** > **Neue Registrierung**.
@@ -356,8 +356,8 @@ Nun müssen Sie Ihre Anwendung registrieren:
 
 Konfigurieren der Authentifizierung für Ihre Anwendung:
 
-1. Wenn Sie sich wieder im <a href="https://portal.azure.com/" target="_blank">Azure-Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> befinden, wählen Sie unter **Verwalten** die Optionen **Authentifizierung** > **Plattform hinzufügen** und dann **Mobilgerät- und Desktopanwendungen** aus.
-1. Aktivieren Sie **https://login.microsoftonline.com/common/oauth2/nativeclient** im Abschnitt **Umleitungs-URIs**.
+1. Wenn Sie sich wieder im <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a> befinden, wählen Sie unter **Verwalten** die Optionen **Authentifizierung** > **Plattform hinzufügen** und dann **Mobilgerät- und Desktopanwendungen** aus.
+1. Geben Sie im Abschnitt **Umleitungs-URIs** den URI `https://login.microsoftonline.com/common/oauth2/nativeclient` ein.
 1. Wählen Sie **Konfigurieren** aus.
 
 Konfigurieren Sie die API-Berechtigungen für Ihre Anwendung:

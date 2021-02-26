@@ -5,18 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: cbcaf4b4ad1b6c00f8c452582b986b6ee3b2806e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478840"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552206"
 ---
 In Azure Digital Twins wird [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) verwendet. Dies bedeutet, dass einem Benutzer eine Rolle mit entsprechenden Berechtigungen zugewiesen werden muss, bevor er Aufrufe auf Datenebene an Ihre Azure Digital Twins-Instanz richten kann.
 
 Bei Azure Digital Twins ist dies die Rolle _**Azure Digital Twins Data Owner**_ (Azure Digital Twins-Datenbesitzer). Weitere Informationen zu Rollen und Sicherheit finden Sie unter [ *-Konzepte: Sicherheit für Azure Digital Twins-Lösungen*](../articles/digital-twins/concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
 
 In diesem Abschnitt erfahren Sie, wie Sie eine Rollenzuweisung für einen Benutzer in Ihrer Azure Digital Twins-Instanz erstellen, indem Sie die E-Mail-Adresse dieses Benutzers im Azure AD-Mandanten in Ihrem Azure-Abonnement verwenden. Je nach Ihrer Rolle in Ihrer Organisation können Sie diese Berechtigung für sich selbst oder für eine andere Person einrichten, die die Azure Digital Twins-Instanz verwaltet.
 

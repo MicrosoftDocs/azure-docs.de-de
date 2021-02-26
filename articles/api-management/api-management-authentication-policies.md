@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071284"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492602"
 ---
 # <a name="api-management-authentication-policies"></a>API Management-Authentifizierungsrichtlinien
 Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinien. Weitere Informationen zum Hinzufügen und Konfigurieren von Richtlinien finden Sie unter [Richtlinien in API Management](./api-management-policies.md).
@@ -67,7 +67,10 @@ Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinie
 -   **Richtlinienbereiche:** alle Bereiche
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Authentifizieren mit Clientzertifikat
- Verwenden Sie die Richtlinie `authentication-certificate` für die Authentifizierung mit einem Back-End-Dienst unter Verwendung eines Clientzertifikats. Das Zertifikat muss zuerst [in API Management installiert](./api-management-howto-mutual-certificates.md) werden, es wird durch seinen Fingerabdruck identifiziert.
+ Verwenden Sie die Richtlinie `authentication-certificate` für die Authentifizierung mit einem Back-End-Dienst unter Verwendung eines Clientzertifikats. Das Zertifikat muss zuerst [in API Management installiert](./api-management-howto-mutual-certificates.md) werden. Es wird durch seinen Fingerabdruck oder seine Zertifikat-ID (Ressourcenname) identifiziert. 
+
+> [!CAUTION]
+> Wenn das Zertifikat auf ein in Azure Key Vault gespeichertes Zertifikat verweist, identifizieren Sie es anhand der Zertifikat-ID. Wenn ein Key Vault-Zertifikat rotiert wird, ändert sich dessen Fingerabdruck in API Management, und die Richtlinie löst das neue Zertifikat nicht auf, wenn es anhand des Fingerabdrucks identifiziert wird.
 
 ### <a name="policy-statement"></a>Richtlinienanweisung
 
@@ -77,18 +80,17 @@ Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinie
 
 ### <a name="examples"></a>Beispiele
 
-In diesem Beispiel wird das Clientzertifikat durch seinen Fingerabdruck identifiziert:
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-In diesem Beispiel wird das Clientzertifikat durch seinen Ressourcennamen identifiziert:
+In diesem Beispiel wird das Clientzertifikat durch die Zertifikat-ID identifiziert:
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+In diesem Beispiel wird das Clientzertifikat durch seinen Fingerabdruck identifiziert:
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 In diesem Beispiel wird das Clientzertifikat in der Richtlinie festgelegt und nicht aus dem integrierten Zertifikatspeicher abgerufen:
 
 ```xml

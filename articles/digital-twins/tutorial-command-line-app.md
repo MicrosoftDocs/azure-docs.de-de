@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050237"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576243"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Erkunden von Azure Digital Twins mit einer Beispielclient-App
 
@@ -274,12 +274,15 @@ Eine Hauptfunktion von Azure Digital Twins ist das einfache [Abfragen](concepts-
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Das Projekt in diesem Tutorial bildet die Grundlage für das nächste Tutorial: [*Tutorials: Erstellen einer End-to-End-Lösung*](tutorial-end-to-end.md). Wenn Sie mit dem nächsten Tutorial fortfahren möchten, können Sie die hier eingerichteten Ressourcen behalten, um diese Azure Digital Twins-Instanz und die konfigurierte Beispiel-App weiterhin zu verwenden.
-* Sie können die Befehle `DeleteAllTwins` und `DeleteAllModels` der Beispiel-App nutzen, um die Zwillinge und Modelle in Ihrer Instanz zu löschen. Dadurch können Sie im nächsten Tutorial von Grund auf neu beginnen.
+Nach Abschluss dieses Tutorials können Sie die zu entfernenden Ressourcen auswählen, abhängig davon, wie Sie weiter vorgehen möchten.
+
+* **Wenn Sie mit dem nächsten Tutorial fortfahren möchten**, können Sie die hier eingerichteten Ressourcen behalten, um diese Azure Digital Twins-Instanz und die konfigurierte Beispiel-App für das nächste Tutorial zu verwenden.
+
+* **Wenn Sie die Azure Digital Twins-Instanz weiterhin verwenden, aber alle ihre Modelle, Zwillinge und Beziehungen entfernen möchten**, können Sie die Befehle `DeleteAllTwins` und `DeleteAllModels` der Beispiel-App verwenden, um die Zwillinge und Modelle in Ihrer Instanz zu löschen. Dadurch können Sie im nächsten Tutorial von Grund auf neu beginnen.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Löschen Sie abschließend den Projektbeispielordner, den Sie auf Ihren lokalen Computer heruntergeladen haben.
+Löschen Sie ggf. auch den Projektordner von Ihrem lokalen Computer.
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

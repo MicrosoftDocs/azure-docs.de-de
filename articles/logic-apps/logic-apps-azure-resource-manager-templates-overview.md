@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2e1536d4f2ea7d71691c611e9127109c154f3266
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009771"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807342"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Übersicht: Automatisieren der Bereitstellung für Azure Logic Apps durch Verwenden von Azure Resource Manager-Vorlagen
 
@@ -328,7 +328,7 @@ Die [Workflowressourcendefinition Ihrer Logik-App in einer Vorlage](/azure/templ
 
 Die folgenden Attribute gehören speziell zur Ressourcendefinition Ihrer Logik-App:
 
-| attribute | Erforderlich | type | Beschreibung |
+| attribute | Erforderlich | type | BESCHREIBUNG |
 |-----------|----------|------|-------------|
 | `state` | Ja | String | Der Zustand Ihrer Logik-App bei der Bereitstellung, wobei `Enabled` bedeutet, dass Ihre Logik-App aktiv ist, und `Disabled` bedeutet, dass Ihre Logik-App inaktiv ist. Die Option `Disabled` können Sie beispielsweise verwenden, wenn Ihre Logik-App noch nicht aktiviert, aber bereits als Entwurfsversion bereitgestellt werden soll. |
 | `integrationAccount` | Nein | Object | Wird in Ihrer Logik-App ein Integrationskonto verwendet, das Artefakte für B2B-Szenarien (Business-to-Business) speichert, enthält dieses Objekt das `id`-Attribut, das die ID für das Integrationskonto angibt. |
@@ -627,7 +627,7 @@ Werden in Ihrer Logik-App Verbindungen mit anderen Diensten und Systemen erstell
 }
 ```
 
-In Verbindungsressourcendefinitionen wird für deren Werte auf Parameter auf der obersten Ebene der Vorlage verwiesen. Dies bedeutet, dass Sie diese Werte bei der Bereitstellung über eine Parameterdatei bereitstellen können. Achten Sie darauf, dass für Verbindungen dieselbe Azure-Ressourcengruppe und derselbe Azure-Speicherort wie für Ihre Logik-App verwendet werden.
+In Verbindungsressourcendefinitionen wird für deren Werte auf Parameter auf der obersten Ebene der Vorlage verwiesen. Daher können Sie diese Werte bei der Bereitstellung über eine Parameterdatei angeben. Achten Sie darauf, dass für Verbindungen dieselbe Azure-Ressourcengruppe und derselbe Azure-Speicherort wie für Ihre Logik-App verwendet werden.
 
 Es folgt eine Beispielressourcendefinition für eine Office 365 Outlook-Verbindung und die entsprechenden Vorlagenparameter:
 
@@ -746,12 +746,12 @@ In diesem Beispiel sind die Interaktionen zwischen der Ressourcendefinition ihre
                      }
                   }
                }
-            },
-            <other-logic-app-resource-information>,
-            "dependsOn": [
-               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-            ]
-         }
+            }
+         },
+         <other-logic-app-resource-information>,
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
          // End logic app resource definition
       },
       // Office 365 Outlook API connection resource definition

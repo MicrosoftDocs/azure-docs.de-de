@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787158"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635573"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Selektieren, Untersuchen und Beantworten von Sicherheitswarnungen
 Security Center analysiert Ihre Hybrid Cloud-Workloads ständig mithilfe von Advanced Analytics- und Threat Intelligence-Funktionen, um Sie vor potenziell schädlichen Aktivitäten auf Ihren Cloudressourcen warnen zu können. Sie können auch Warnungen aus anderen Sicherheitsprodukten und -diensten in Security Center integrieren. Nach der Auslösung einer Warnung muss schnell gehandelt werden, um das potenzielle Sicherheitsproblem zu untersuchen und zu beheben. 
@@ -40,9 +40,9 @@ Zum Durchlaufen der in diesem Tutorial behandelten Features muss Azure Defender 
 ## <a name="triage-security-alerts"></a>Selektieren von Sicherheitswarnungen
 Mit Security Center erhalten Sie einen einheitlichen Überblick über alle Sicherheitswarnungen. Sicherheitswarnungen werden nach Schweregrad der erkannten Aktivität angeordnet. 
 
-Beurteilen Sie die Warnungen auf der Seite **Sicherheitswarnungen** :
+Beurteilen Sie die Warnungen auf der Seite **Sicherheitswarnungen**:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Seite mit der Liste der Sicherheitswarnungen" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Liste der Sicherheitswarnungen von Azure Security Center":::
 
 Überprüfen Sie auf dieser Seite die aktiven Sicherheitswarnungen in Ihrer Umgebung, um die Warnungen auszuwählen, die Sie zuerst untersuchen möchten.
 
@@ -78,11 +78,11 @@ Gehen Sie wie folgt vor, sobald Sie entschieden haben, welche Warnung Sie zuerst
 ## <a name="respond-to-a-security-alert"></a>Reagieren auf eine Sicherheitswarnung
 Nachdem Sie eine Warnung untersucht und ihr Ausmaß ermittelt haben, können Sie in Azure Security Center auf Sicherheitswarnungen reagieren:
 
-1.  Öffnen Sie die Registerkarte **Aktion ausführen** , um die empfohlenen Reaktionen anzuzeigen.
+1.  Öffnen Sie die Registerkarte **Aktion ausführen**, um die empfohlenen Reaktionen anzuzeigen.
 
     :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Registerkarte „Maßnahme ergreifen“ zu Sicherheitswarnungen" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
-1.  Im Abschnitt **Auswirkungen der Bedrohung minimieren** , finden Sie die manuellen Schritte zur Behebung des Problems.
+1.  Im Abschnitt **Auswirkungen der Bedrohung minimieren**, finden Sie die manuellen Schritte zur Behebung des Problems.
 1.  Um Ihre Ressourcen zu sichern und zukünftige Angriffe dieser Art zu verhindern, setzen Sie die Sicherheitsempfehlungen im Abschnitt **Künftige Angriffe verhindern** um.
 1.  Um eine Logik-App mit automatisierten Reaktionsschriften zu starten, verwenden Sie den Abschnitt **Automatisierte Antwort auslösen**.
 1.  Wenn die erkannte Aktivität *nicht* bösartig ist, können Sie künftige Warnungen dieser Art im Abschnitt **Ähnliche Warnungen unterdrücken** unterdrücken.
@@ -111,7 +111,7 @@ Wenn Sie nicht mit den anderen Tutorials fortfahren möchten oder wenn Sie eines
 1. Kehren Sie zum Hauptmenü von Security Center zurück, und wählen Sie **Preise und Einstellungen** aus.
 1. Wählen Sie das relevante Abonnement aus.
 1. Wählen Sie zum Herabstufen **Azure Defender aus** aus.
-1. Um die automatische Bereitstellung zu deaktivieren, öffnen Sie die Seite **Datensammlung** , und legen Sie **Automatische Bereitstellung** auf **Aus** fest.
+1. Um die automatische Bereitstellung zu deaktivieren, öffnen Sie die Seite **Datensammlung**, und legen Sie **Automatische Bereitstellung** auf **Aus** fest.
 4. Wählen Sie **Speichern** aus.
 
 >[!NOTE]

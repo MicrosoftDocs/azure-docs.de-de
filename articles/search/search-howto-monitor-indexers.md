@@ -5,67 +5,40 @@ description: Erfahren Sie, wie Sie den Status, den Fortschritt und die Ergebniss
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.date: 01/28/2021
+ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372828"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063248"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Überwachen des Status und der Ergebnisse von Indexern der kognitiven Azure-Suche
 
-Die kognitive Azure-Suche stellt Status- und Überwachungsinformationen zu aktuellen und vergangenen Ausführungen jedes Indexers bereit.
+Sie können die Indexerverarbeitung im Azure-Portal oder programmatisch über REST-Aufrufe oder ein Azure-SDK überwachen. Zusätzlich zum Status über den Indexer selbst können Sie Start- und Endzeiten sowie detaillierte Fehler und Warnungen einer bestimmten Ausführung anzeigen.
 
-Die Indexerüberwachung ist in folgenden Fällen hilfreich:
+## <a name="monitor-using-azure-portal"></a>Überwachen mit dem Azure-Portal
 
-* Nachverfolgen des Fortschritts eines Indexers während einer laufenden Ausführung
-* Überprüfen der Ergebnisse einer laufenden oder vergangenen Indexerausführung
-* Ermitteln von allgemeinen Indexerfehlern sowie von Fehlern oder Warnungen im Zusammenhang mit einzelnen indizierten Dokumenten
-
-## <a name="get-status-and-history"></a>Abrufen von Status und Verlauf
-
-Auf die Überwachungsinformationen für Indexer kann auf unterschiedliche Weise zugegriffen werden:
-
-* Gehen Sie im [Azure-Portal](#portal) wie folgt vor:
-* Mithilfe der [REST API](#restapi)
-* Per [.NET SDK](#dotnetsdk)
-
-Zur Überwachung von Indexern stehen alle der folgenden Informationen zur Verfügung. Die Datenformate unterscheiden sich allerdings je nach verwendeter Zugriffsmethode:
-
-* Statusinformationen zum Indexer an sich
-* Informationen zur letzten Ausführung des Indexers – einschließlich Status, Start- und Endzeit sowie ausführliche Fehler und Warnungen
-* Eine Liste mit vergangenen Indexerausführungen – einschließlich Status, Ergebnissen, Fehlern und Warnungen
-
-Die Ausführung von Indexern, die große Datenmengen verarbeiten, kann sehr lange dauern. So können beispielsweise Indexer, die Millionen von Quelldokumenten verarbeiten, eine Laufzeit von 24 Stunden haben und nahezu umgehend neu gestartet werden. Indexer mit hohem Datenvolumen haben im Portal unter Umständen durchgehend den Status **In Bearbeitung**. Details zum Fortschritt sowie zu vergangenen Ausführungen sind allerdings auch während der Ausführung eines Indexers verfügbar.
-
-<a name="portal"></a>
-
-## <a name="monitor-using-the-portal"></a>Überwachung über das Portal
-
-Der aktuelle Status Ihrer Indexer wird auf der Übersichtsseite Ihres Suchdiensts in der Liste **Indexer** angezeigt.
+Der aktuelle Status all Ihrer Indexer wird auf der Übersichtsseite Ihres Suchdiensts angezeigt. Die Portalseiten werden alle paar Minuten aktualisiert, sodass nicht sofort ein Hinweis auf einen neuen Indizierungslauf erkennbar ist.
 
    ![Liste der Indexer](media/search-monitor-indexers/indexers-list.png "Liste der Indexer")
 
-Wenn ein Indexer ausgeführt wird, hat er in der Liste den Status **In Bearbeitung**, und der Wert **Dokumente erfolgreich**  gibt an, wie viele Dokumente bereits verarbeitet wurden. Die Aktualisierung der Statuswerte und der Dokumentanzahl für die Indexer kann im Portal ein paar Minuten dauern.
+| Status | BESCHREIBUNG |
+|--------|-------------|
+| **In Bearbeitung** | Gibt die aktive Ausführung an. Im Portal werden partielle Informationen angezeigt. Beim Fortschreiten der Indizierung erkennen Sie, dass der Wert **Dokumente erfolgreich** entsprechend ansteigt. Die Ausführung von Indexern, die große Datenmengen verarbeiten, kann sehr lange dauern. So können beispielsweise Indexer, die Millionen von Quelldokumenten verarbeiten, eine Laufzeit von 24 Stunden haben und nahezu umgehend neu gestartet werden. Indexer mit hohem Datenvolumen haben im Portal unter Umständen durchgehend den Status **In Bearbeitung**. Details zum Fortschritt sowie zu vergangenen Ausführungen sind allerdings auch während der Ausführung eines Indexers verfügbar. |
+| **Erfolgreich** | Gibt an, dass die Ausführung erfolgreich war. Eine Indexerausführung kann auch erfolgreich sein, wenn bei einzelnen Dokumenten Fehler aufgetreten sind – vorausgesetzt, die Fehleranzahl liegt unter der Indexereinstellung **Max. Fehlerelemente**. |
+| **Fehler** | Die Anzahl der Fehler hat **Max. Fehlerelemente** überschritten, und die Indizierung wurde beendet. |
+| **Zurücksetzen** | Der interne Änderungsnachverfolgungs-Zustand des Indexers wurde zurückgesetzt. Der Indexer wird vollständig ausgeführt, und es werden alle Dokumente aktualisiert, nicht nur diejenigen mit jüngeren Zeitstempeln. |
 
-Ein Indexer, dessen letzte Ausführung erfolgreich war, hat den Status **Erfolgreich**. Eine Indexerausführung kann auch erfolgreich sein, wenn bei einzelnen Dokumenten Fehler aufgetreten sind – vorausgesetzt, die Fehleranzahl liegt unter der Indexereinstellung **Max. Fehlerelemente**.
-
-Wenn die letzte Ausführung mit einem Fehler beendet wurde, lautet der Status **Fehler**. Der Status **Zurückgesetzt** bedeutet, dass der Änderungsnachverfolgungsstatus des Indexers zurückgesetzt wurde.
-
-Klicken Sie auf einen Indexer in der Liste, um weitere Informationen zur aktuellen Ausführung sowie zu vergangen Ausführungen des Indexers anzuzeigen.
+Sie können auf einen Indexer in der Liste klicken, um weitere Informationen zur aktuellen Ausführung sowie zu vergangen Ausführungen des Indexers anzuzeigen.
 
    ![Indexerzusammenfassung und Ausführungsverlauf](media/search-monitor-indexers/indexer-summary.png "Indexerzusammenfassung und Ausführungsverlauf")
 
 Im Diagramm **Indexerzusammenfassung** wird die Anzahl verarbeiteter Dokumente der letzten Ausführungen grafisch dargestellt.
 
-Die Liste **Ausführungsdetails** enthält bis zu 50 der letzten Ausführungsergebnisse.
-
-Klicken Sie in der Liste auf ein Ausführungsergebnis, um Einzelheiten zur entsprechenden Ausführung anzuzeigen. Hierzu zählen unter anderem die Start- und Endzeit sowie möglicherweise aufgetretene Fehler und Warnungen.
+Die Liste **Ausführungsdetails** enthält bis zu 50 der letzten Ausführungsergebnisse. Klicken Sie in der Liste auf ein Ausführungsergebnis, um Einzelheiten zur entsprechenden Ausführung anzuzeigen. Hierzu zählen unter anderem die Start- und Endzeit sowie möglicherweise aufgetretene Fehler und Warnungen.
 
    ![Ausführungsdetails eines Indexers](media/search-monitor-indexers/indexer-execution.png "Ausführungsdetails eines Indexers")
 
@@ -73,13 +46,11 @@ Sollten bei der Ausführung dokumentspezifische Probleme aufgetreten sein, werde
 
    ![Indexerdetails mit Fehlern](media/search-monitor-indexers/indexer-execution-error.png "Indexerdetails mit Fehlern")
 
-Warnungen sind bei bestimmten Arten von Indexern keine Seltenheit und deuten nicht immer auf ein Problem hin. So werden beispielsweise von Indexern, die Cognitive Services verwenden, unter Umständen Warnungen ausgegeben, wenn Bild- oder PDF-Dateien keinen zu verarbeitenden Text enthalten.
+Warnungen sind bei bestimmten Arten von Indexern keine Seltenheit und deuten nicht immer auf ein Problem hin. So werden beispielsweise von Indexern, die Cognitive Services verwenden, unter Umständen Warnungen ausgegeben, wenn Bild- oder PDF-Dateien keinen zu verarbeitenden Text enthalten. 
 
 Weitere Informationen zur Untersuchung von Indexerfehlern und -warnungen finden Sie unter [Beheben von häufigen Problemen bei Suchindexern in der kognitiven Azure-Suche](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## <a name="monitor-using-rest-apis"></a>Überwachung mithilfe von REST-APIs
+## <a name="monitor-using-get-indexer-status-rest-api"></a>Überwachen mithilfe des Befehls zum Abrufen des Indexerstatus (Rest-API)
 
 Status und Ausführungsverlauf eines Indexers können mithilfe des [Befehls zum Abrufen des Indexerstatus](/rest/api/searchservice/get-indexer-status) abgerufen werden:
 
@@ -126,11 +97,9 @@ Jede Ausführung des Indexers hat auch einen eigenen Status, der angibt, ob die 
 
 Wenn ein Indexer zurückgesetzt wird, um den Zustand seiner Änderungsnachverfolgung zu aktualisieren, wird ein separater Ausführungsverlaufseintrag mit dem Status **Reset** hinzugefügt.
 
-Ausführlichere Informationen zu Statuscodes und zu Indexerüberwachungsdaten finden Sie unter [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+Ausführlichere Informationen zu Statuscodes und zu Indexerüberwachungsdaten finden Sie unter [Abrufen des Indexerstatus](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## <a name="monitor-using-the-net-sdk"></a>Überwachung per .NET SDK
+## <a name="monitor-using-net"></a>Überwachung mit .NET
 
 Im folgenden C#-Beispiel wird das Azure Cognitive Search .NET SDK verwendet, um Informationen zum Status eines Indexers sowie die Ergebnisse der letzten (oder laufenden) Ausführung in der Konsole auszugeben.
 

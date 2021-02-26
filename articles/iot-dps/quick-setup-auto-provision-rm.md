@@ -3,17 +3,17 @@ title: 'Schnellstart: Einrichten von Azure IoT Hub Device Provisioning Service 
 description: In dieser Azure-Schnellstartanleitung erfahren Sie, wie Sie mithilfe einer Azure Resource Manager-Vorlage (ARM-Vorlage) eine Instanz von Azure IoT Hub Device Provisioning Service (DPS) erstellen.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/03/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746204"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928940"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Schnellstart: Einrichten von IoT Hub Device Provisioning Service (DPS) mithilfe einer ARM-Vorlage
 
@@ -35,6 +35,9 @@ Wenn Ihre Umgebung die Voraussetzungen erfüllt und Sie bereits mit der Verwendu
 ## <a name="review-the-template"></a>Überprüfen der Vorlage
 
 Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit den [Azure-Schnellstartvorlagen](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+
+> [!NOTE]
+> Derzeit ist keine Unterstützung für ARM-Vorlagen zum Erstellen von Registrierungen mit neuen DPS-Ressourcen vorhanden. Dies wird häufig angefragt und ist uns bewusst. Eine entsprechende Implementierung wird derzeit erwogen.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 
@@ -58,7 +61,7 @@ In der obigen Vorlage sind zwei Azure-Ressourcen definiert:
 
     Sofern nichts anderes angegeben ist, verwenden Sie jeweils den Standardwert, um den IoT-Hub und die DPS-Ressource zu erstellen.
 
-    | Feld | BESCHREIBUNG |
+    | Feld | Beschreibung |
     | :---- | :---------- |
     | **Abonnement** | Wählen Sie Ihr Azure-Abonnement. |
     | **Ressourcengruppe** | Klicken Sie auf **Neu erstellen**, geben Sie einen eindeutigen Namen für die Ressourcengruppe ein, und klicken Sie anschließend auf **OK**. |

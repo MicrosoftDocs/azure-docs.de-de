@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403380"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475487"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>KI-Anreicherung in Azure Cognitive Search
 
@@ -100,7 +100,7 @@ Die Bildanalyse ist selbst für einfache Fälle rechenintensiv, sodass die Verar
 
 Die maximale Laufzeit variiert je nach Tarif: mehrere Minuten beim Free-Tarif, 24-Stunden-Indizierung bei abrechenbaren Tarifen. Wenn die Verarbeitung nicht innerhalb eines 24-Stunden-Zeitraums für die bedarfsgesteuerte Verarbeitung abgeschlossen werden kann, wechseln Sie zu einem Zeitplan, damit der Indexer die Verarbeitung dort fortsetzt, wo sie unterbrochen wurde. 
 
-Bei geplanten Indexern wird die Indizierung beim letzten erfolgreich verarbeiteten Dokument planmäßig fortgesetzt. Durch die Verwendung eines wiederkehrenden Zeitplans kann sich der Indexer über eine Reihe von Stunden oder Tagen durch den Rückstand der Bilder arbeiten, bis schließlich alle Bilder verarbeitet sind. Weitere Informationen zur Zeitplansyntax finden Sie unter [Schritt 3: Erstellen eines Indexers](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) oder [Festlegen eines Zeitplans für Indexer in der kognitiven Azure-Suche](search-howto-schedule-indexers.md).
+Bei geplanten Indexern wird die Indizierung beim letzten erfolgreich verarbeiteten Dokument planmäßig fortgesetzt. Durch die Verwendung eines wiederkehrenden Zeitplans kann sich der Indexer über eine Reihe von Stunden oder Tagen durch den Rückstand der Bilder arbeiten, bis schließlich alle Bilder verarbeitet sind. Weitere Informationen zur Zeitplansyntax finden Sie unter [Planen eines Indexers](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Wenn ein Indexer auf einen bestimmten Zeitplan festgelegt ist, im gleichen Dokument bei erneuter Ausführung aber immer wieder ein Fehler auftritt, wird der Indexer in selteneren Intervallen ausgeführt (bis hin zum Maximum von mindestens einmal in 24 Stunden), bis die Ausführung fehlerfrei verläuft.  Wenn Sie der Meinung sind, dass Sie das Problem behoben haben, das dafür gesorgt hat, dass der Indexer an einem bestimmten Punkt hängengeblieben ist, können Sie eine bedarfsgesteuerte Ausführung des Indexers veranlassen. Wenn diese Ausführung erfolgreich verläuft, wird der Indexer wieder im festgelegten Zeitplanintervall ausgeführt.
@@ -109,12 +109,12 @@ Bei der portalbasierten Indizierung (wie im Schnellstart beschrieben) wird durch
 
 ## <a name="tip-8-increase-indexing-throughput"></a>Tipp 8: Erhöhen Sie den Durchsatz der Indizierung.
 
-Für eine [parallele Indizierung](search-howto-large-index.md) platzieren Sie Ihre Daten in mehrere Container oder mehrere virtuelle Ordner innerhalb desselben Containers. Erstellen Sie dann mehrere Datenquellen-Indexer-Paare. Alle Indexer können das gleiche Skillset verwenden und in den gleichen Zielsuchindex schreiben, sodass Ihre Such-App über diese Partitionierung nicht informiert sein muss.
+Für eine [parallele Indizierung](search-howto-large-index.md) platzieren Sie Ihre Daten in mehrere Container oder mehrere virtuelle Ordner innerhalb desselben Containers. Erstellen Sie dann mehrere Datenquellen- und Indexerpaare. Alle Indexer können das gleiche Skillset verwenden und in den gleichen Zielsuchindex schreiben, sodass Ihre Such-App über diese Partitionierung nicht informiert sein muss.
 
 ## <a name="see-also"></a>Weitere Informationen
 
 + [Schnellstart: Erstellen einer KI-Anreicherungspipeline im Portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: REST-APIs für KI-Anreicherungen](cognitive-search-tutorial-blob.md)
-+ [Angeben von Anmeldeinformationen](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Konfigurieren von Blobindexern](search-howto-indexing-azure-blob-storage.md)
 + [Definieren eines Skillsets](cognitive-search-defining-skillset.md)
 + [Zuordnen angereicherter Felder zu einem Index](cognitive-search-output-field-mapping.md)

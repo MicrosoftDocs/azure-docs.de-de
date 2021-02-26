@@ -30,6 +30,9 @@
     - name: Versioning policy (Versionsverwaltungsrichtlinie)
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Bekannte Probleme und Einschränkungen
+      href: concepts-known-issues-limitations.md
+      displayName: 'issues, limitations, postgresql'
 - name: Einzelner Server
   expanded: true
   items:

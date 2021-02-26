@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67178144"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552586"
 ---
 #### <a name="to-create-a-volume"></a>So erstellen Sie ein Volume
-1. Wählen Sie auf dem Blatt **Geräte** in der tabellarischen Geräteauflistung Ihr Gerät aus. Klicken Sie auf **+ Volume hinzufügen**.
+1. Wählen Sie auf dem Blatt **Geräte** in der tabellarischen Geräteauflistung Ihr Gerät aus. Klicken Sie auf **+ Volume hinzufügen**.<!--Note to reviewer. No screen updates. Had to rename screens to be able to correct a formatting error.-->
 
-    ![Hinzufügen eines neuen Volumes](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
+    ![Hinzufügen eines neuen Volumes](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
 
 2. Auf dem Blatt **Volume hinzufügen**:
    
@@ -35,19 +35,19 @@ ms.locfileid: "67178144"
        Sie können lokale Volumes von bis zu 8,5 TB oder mehrstufige Volumes von bis zu 200 TB auf dem 8100-Gerät bereitstellen. Auf dem größeren 8600-Gerät können Sie lokale Volumes von bis zu 22,5 TB oder mehrstufige Volumes von bis zu 500 TB bereitstellen. Da für das Hosten des Arbeitssatzes mehrstufiger Volumes lokaler Speicher auf dem Gerät erforderlich ist, wirkt sich die Erstellung lokaler Volumes auf den Speicherplatz aus, der für die Bereitstellung mehrstufiger Volumes zur Verfügung steht. Wenn Sie daher ein lokales Volume erstellen, verringert sich dadurch der verfügbare Speicherplatz für die Erstellung mehrstufiger Volumes. Wenn Sie ein mehrstufiges Volume erstellen, reduziert sich in gleicher Weise der verfügbare Speicherplatz für die Erstellung lokaler Volumes.
       
        Wenn Sie ein lokales Volume von 8,5 TB (maximal zulässige Größe) auf dem 8100-Gerät bereitstellen, haben Sie damit den gesamten lokalen Speicherplatz ausgeschöpft, der auf dem Gerät verfügbar ist. Ab diesem Zeitpunkt können Sie keine mehrstufigen Volumes mehr erstellen, da auf dem Gerät kein lokaler Speicherplatz zum Hosten des Arbeitssatzes mehrstufiger Volumes mehr vorhanden ist. Vorhandene mehrstufige Volumes wirken sich ebenfalls auf den verfügbaren Speicherplatz aus. Wenn Sie beispielsweise ein 8100-Gerät verwenden, auf dem bereits mehrstufige Volumes von ca. 106 TB vorhanden sind, stehen nur noch 4 TB Speicherplatz für lokale Volumes zur Verfügung.
-
+ 
       1. Klicken Sie im Feld **Verbundene Hosts** auf den Pfeil. 
 
-         ![Verbundene Hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Verbundene Hosts](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
 
       1. Wählen Sie auf dem Blatt **Verbundene Hosts** einen vorhandenen SCR aus, oder erstellen Sie mit den folgenden Schritten einen neuen ACR:
 
          1. Geben Sie einen **Namen** für den ACR ein.
-         2. Geben Sie unter **iSCSI-Initiatorname**den qualifizierten iSCSI-Namen (IQN) des Windows-Hosts an. Wenn Sie den IQN nicht kennen, fahren Sie mit [Abrufen des IQNs eines Windows Server-Hosts](#get-the-iqn-of-a-windows-server-host)fort.
+         2. Geben Sie unter **iSCSI-Initiatorname** den qualifizierten iSCSI-Namen (IQN) des Windows-Hosts an. Wenn Sie den IQN nicht kennen, fahren Sie mit [Abrufen des IQNs eines Windows Server-Hosts](#get-the-iqn-of-a-windows-server-host)fort.
 
       1. Klicken Sie auf **Erstellen**. Ein Volume wird mit den angegebenen Einstellungen erstellt.
 
-         ![Klicken Sie auf „Erstellen“.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Klicken Sie auf „Erstellen“.](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
 
          > [!NOTE]
          > Beachten Sie, dass das hier erstellte Volume nicht geschützt ist. Erstellen Sie Sicherungsrichtlinien, und ordnen Sie diese dem Volume zu, damit geplante Sicherungen durchgeführt werden. 

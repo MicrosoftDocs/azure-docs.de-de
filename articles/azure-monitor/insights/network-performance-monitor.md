@@ -6,17 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 1bb2b7ca22896ed279c8aac215109b7f7bc7854c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394270"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530603"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Netzwerkleistungsmonitor-Lösung in Azure
 
 ![Symbol des Netzwerkleistungsmonitors](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> Ab dem 1. Juli 2021 ist es nicht mehr möglich, neue Tests in einem vorhandenen Arbeitsbereich hinzuzufügen oder einen neuen Arbeitsbereich im Netzwerkleistungsmonitor zu aktivieren. Sie können weiterhin die Tests verwenden, die vor dem 1. Juli 2021 erstellt wurden. [Migrieren Sie Ihre Tests vor dem 29. Februar 2024 aus dem Netzwerkleistungsmonitor zum neuen Verbindungsmonitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher, um die Dienstunterbrechungen im Zusammenhang mit Ihren aktuellen Workloads zu minimieren.
 
 Der Netzwerkleistungsmonitor ist eine cloudbasierte hybride Netzwerküberwachungslösung, mit der Sie die Netzwerkleistung zwischen verschiedenen Punkten in Ihrer Netzwerkinfrastruktur überwachen können. Er hilft Ihnen auch, die Netzwerkkonnektivität mit Dienst- und Anwendungsendpunkten zu überwachen und die Leistung von Azure ExpressRoute zu überwachen. 
 
@@ -46,7 +48,7 @@ NPM kann die Konnektivität zwischen Netzwerken und Anwendungen in jedem Teil de
 * USA, Westen-Mitte
 * USA Nord Mitte
 * USA Süd Mitte
-* USA, Mitte
+* USA (Mitte)
 * East US
 * USA (Ost) 2
 * USA, Westen 2
@@ -82,15 +84,15 @@ Verwenden Sie zum Installieren von Agents die grundlegenden Prozesse, die unter 
 
     Zur Überwachung einer Netzwerkverbindung installieren Sie an beiden Endpunkten der Verbindung Agents. Sollten Sie sich hinsichtlich der Topologie Ihres Netzwerks nicht sicher sein, installieren Sie die Agents auf Servern mit kritischen Workloads, zwischen denen Sie die Netzwerkleistung überwachen möchten. Wenn Sie also beispielsweise die Netzwerkverbindung zwischen einem Webserver und einem Server mit SQL überwachen möchten, installieren Sie auf beiden Servern einen Agent. Agents überwachen nicht die eigentlichen Hosts, sondern die Netzwerkkonnektivität (Verbindungen) zwischen Hosts. 
 
-* **Dienstkonnektivitätsmonitor** : Installieren Sie einen Log Analytics-Agent auf jedem Knoten, von dem aus Sie die Netzwerkkonnektivität mit dem Dienstendpunkt überwachen möchten. Sie möchten beispielsweise die Netzwerkkonnektivität mit Microsoft 365 von Ihren Bürostandorten mit den Bezeichnungen O1, O2 und O3 überwachen. Installieren Sie den Log Analytics-Agent auf jeweils mindestens einem Knoten in O1, O2 und O3. 
+* **Dienstkonnektivitätsmonitor**: Installieren Sie einen Log Analytics-Agent auf jedem Knoten, von dem aus Sie die Netzwerkkonnektivität mit dem Dienstendpunkt überwachen möchten. Sie möchten beispielsweise die Netzwerkkonnektivität mit Microsoft 365 von Ihren Bürostandorten mit den Bezeichnungen O1, O2 und O3 überwachen. Installieren Sie den Log Analytics-Agent auf jeweils mindestens einem Knoten in O1, O2 und O3. 
 
-* **ExpressRoute-Monitor** : Installieren Sie mindestens einen Log Analytics-Agent in Ihrem virtuellen Azure-Netzwerk. Installieren Sie außerdem mindestens einen Agent in Ihrem lokalen-Subnetzwerk, das über privates ExpressRoute-Peering verbunden ist.  
+* **ExpressRoute-Monitor**: Installieren Sie mindestens einen Log Analytics-Agent in Ihrem virtuellen Azure-Netzwerk. Installieren Sie außerdem mindestens einen Agent in Ihrem lokalen-Subnetzwerk, das über privates ExpressRoute-Peering verbunden ist.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurieren von Log Analytics-Agents für die Überwachung 
 
 Der Netzwerkleistungsmonitor verwendet synthetische Transaktionen, um die Netzwerkleistung zwischen Quell- und Ziel-Agents zu überwachen. Bei der Überwachung im Systemmonitor und im Dienstkonnektivitätsmonitor kann zwischen dem TCP- und dem ICMP-Protokoll gewählt werden. Für den ExpressRoute-Monitor steht nur TCP als Überwachungsprotokoll zur Verfügung. Stellen Sie sicher, dass die Firewall die Kommunikation zwischen den für die Überwachung verwendeten Log Analytics-Agents über das ausgewählte Protokoll zulässt. 
 
-* **TCP-Protokoll** : Wenn Sie sich für TCP als Überwachungsprotokoll entschieden haben, öffnen Sie den Firewallport für die Agents, die für den Netzwerkleistungsmonitor und ExpressRoute-Monitor verwendet werden, um sicherzustellen, dass die Agents eine Verbindung miteinander herstellen können. Um den Port auf Windows-Computern zu öffnen, führen Sie das PowerShell-Skript [EnableRules.ps1](https://aka.ms/npmpowershellscript) ohne Parameter in einem PowerShell-Fenster mit Administratorrechten aus.
+* **TCP-Protokoll**: Wenn Sie sich für TCP als Überwachungsprotokoll entschieden haben, öffnen Sie den Firewallport für die Agents, die für den Netzwerkleistungsmonitor und ExpressRoute-Monitor verwendet werden, um sicherzustellen, dass die Agents eine Verbindung miteinander herstellen können. Um den Port auf Windows-Computern zu öffnen, führen Sie das PowerShell-Skript [EnableRules.ps1](https://aka.ms/npmpowershellscript) ohne Parameter in einem PowerShell-Fenster mit Administratorrechten aus.
 Auf Linux-Computern müssen die zu verwendenden Portnummern manuell geändert werden. 
 * Navigieren Sie zum Pfad „/var/opt/microsoft/omsagent/npm_state“. 
 * Öffnen Sie die Datei „npmdregistry“.
@@ -108,7 +110,7 @@ Das Skript erstellt die für die Lösung erforderlichen Registrierungsschlüssel
 
     
 
-* **ICMP-Protokoll** : Wenn Sie sich für ICMP als Überwachungsprotokoll entschieden haben, aktivieren Sie die folgenden Firewallregeln, um ICMP zuverlässig verwenden zu können:
+* **ICMP-Protokoll**: Wenn Sie sich für ICMP als Überwachungsprotokoll entschieden haben, aktivieren Sie die folgenden Firewallregeln, um ICMP zuverlässig verwenden zu können:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -122,7 +124,7 @@ Das Skript erstellt die für die Lösung erforderlichen Registrierungsschlüssel
 
 ### <a name="configure-the-solution"></a>Konfigurieren der Projektmappe 
 
-1. Fügen Sie die Netzwerkleistungsmonitor-Lösung Ihrem Arbeitsbereich aus [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) hinzu. Sie können auch den unter [Überwachungslösungen in Azure Monitor](./solutions.md) beschriebenen Prozess verwenden. 
+1. Fügen Sie die Netzwerkleistungsmonitor-Lösung Ihrem Arbeitsbereich aus [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview) hinzu. Sie können auch den unter [Überwachungslösungen in Azure Monitor](./solutions.md) beschriebenen Prozess verwenden. 
 2. Öffnen Sie Ihren Log Analytics-Arbeitsbereich, und wählen Sie die Kachel **Übersicht** aus. 
 3. Wählen Sie die Kachel **Netzwerkleistungsmonitor** mit der Meldung *Für die Lösung ist eine weitere Konfiguration erforderlich* aus.
 
@@ -130,15 +132,15 @@ Das Skript erstellt die für die Lösung erforderlichen Registrierungsschlüssel
 
 4. Auf der Seite **Setup** finden Sie die Option zum Installieren von Log Analytics-Agents sowie zum Konfigurieren der Agents für die Überwachung in der Ansicht **Allgemeine Einstellungen**. Wenn Sie Log Analytics-Agents installiert und konfiguriert haben, wählen Sie (wie bereits erläutert) die Ansicht **Setup** aus, um die Funktion zu konfigurieren, die Sie verwenden möchten. 
 
-   **Systemmonitor** : Wählen Sie in der Systemmonitor- **Standardregel** aus, welches Protokoll für synthetische Transaktionen verwendet werden soll, und wählen Sie dann **Speichern und fortfahren** aus. Diese Protokollauswahl gilt nur für die vom System generierte Standardregel. Sie müssen das Protokoll jedes Mal explizit auswählen, wenn Sie eine Systemmonitorregel erstellen. Sie können jederzeit zu den Einstellungen der **Standardregel** auf der Registerkarte **Systemmonitor** wechseln und das Protokoll später ändern (diese wird nach Abschluss der Tag-0-Konfiguration angezeigt). Sollten Sie die Systemmonitorfunktion nicht benötigen, können Sie die **Standardregel** über die Standardregeleinstellungen auf der Registerkarte **Systemmonitor** deaktivieren.
+   **Systemmonitor**: Wählen Sie in der Systemmonitor-**Standardregel** aus, welches Protokoll für synthetische Transaktionen verwendet werden soll, und wählen Sie dann **Speichern und fortfahren** aus. Diese Protokollauswahl gilt nur für die vom System generierte Standardregel. Sie müssen das Protokoll jedes Mal explizit auswählen, wenn Sie eine Systemmonitorregel erstellen. Sie können jederzeit zu den Einstellungen der **Standardregel** auf der Registerkarte **Systemmonitor** wechseln und das Protokoll später ändern (diese wird nach Abschluss der Tag-0-Konfiguration angezeigt). Sollten Sie die Systemmonitorfunktion nicht benötigen, können Sie die **Standardregel** über die Standardregeleinstellungen auf der Registerkarte **Systemmonitor** deaktivieren.
 
    ![Ansicht „Systemmonitor“](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Dienstkonnektivitätsmonitor** : Diese Funktion bietet integrierte, vorkonfigurierte Tests zur Überwachung der Netzwerkkonnektivität mit Microsoft 365 und Dynamics 365 über Ihre Agents. Wählen Sie die Microsoft 365- und Dynamics 365-Dienste aus, die Sie überwachen möchten, indem Sie die Kontrollkästchen neben ihnen aktivieren. Wählen Sie **Agents hinzufügen** aus, um die gewünschten Agents für die Überwachung auszuwählen. Wenn Sie diese Funktion nicht verwenden oder später einrichten möchten, nehmen Sie keine Auswahl vor, und wählen Sie dann **Speichern und fortfahren** aus.
+   **Dienstkonnektivitätsmonitor**: Diese Funktion bietet integrierte, vorkonfigurierte Tests zur Überwachung der Netzwerkkonnektivität mit Microsoft 365 und Dynamics 365 über Ihre Agents. Wählen Sie die Microsoft 365- und Dynamics 365-Dienste aus, die Sie überwachen möchten, indem Sie die Kontrollkästchen neben ihnen aktivieren. Wählen Sie **Agents hinzufügen** aus, um die gewünschten Agents für die Überwachung auszuwählen. Wenn Sie diese Funktion nicht verwenden oder später einrichten möchten, nehmen Sie keine Auswahl vor, und wählen Sie dann **Speichern und fortfahren** aus.
 
    ![Ansicht „Dienstkonnektivitätsmonitor“](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute-Monitor** : Wählen Sie **Jetzt ermitteln** aus, um alle privaten ExpressRoute-Peerings zu ermitteln, die mit den virtuellen Netzwerken in dem Azure-Abonnement verbunden sind, das mit diesem Log Analytics-Arbeitsbereich verknüpft ist. 
+   **ExpressRoute-Monitor**: Wählen Sie **Jetzt ermitteln** aus, um alle privaten ExpressRoute-Peerings zu ermitteln, die mit den virtuellen Netzwerken in dem Azure-Abonnement verbunden sind, das mit diesem Log Analytics-Arbeitsbereich verknüpft ist. 
 
    ![Ansicht „ExpressRoute-Monitor“](media/network-performance-monitor/npm-express-route.png)
 
@@ -206,15 +208,15 @@ Nach dem Aktivieren der Netzwerkleistungsmonitor-Lösung wird auf der Kachel der
 
 ### <a name="network-performance-monitor-dashboard"></a>Dashboard des Netzwerkleistungsmonitors 
 
-* **Top-Netzwerkintegritätsereignisse** : Diese Seite enthält eine Liste mit den aktuellen Integritätsereignissen und Warnungen im System sowie die Angabe, seit wann das Ereignis aktiv ist. Ein Integritätsereignis oder eine Warnung wird generiert, wenn der Wert der ausgewählten Metrik (Verlust, Wartezeit, Antwortzeit oder Bandbreitennutzung) für die Überwachungsregel den Schwellenwert überschreitet. 
+* **Top-Netzwerkintegritätsereignisse**: Diese Seite enthält eine Liste mit den aktuellen Integritätsereignissen und Warnungen im System sowie die Angabe, seit wann das Ereignis aktiv ist. Ein Integritätsereignis oder eine Warnung wird generiert, wenn der Wert der ausgewählten Metrik (Verlust, Wartezeit, Antwortzeit oder Bandbreitennutzung) für die Überwachungsregel den Schwellenwert überschreitet. 
 
-* **ExpressRoute-Monitor** : Auf dieser Seite werden Integritätsübersichten für die verschiedenen ExpressRoute-Peeringverbindungen bereitgestellt, die die Lösung überwacht. Die Kachel **Topologie** zeigt die Anzahl von Netzwerkpfaden durch die ExpressRoute-Verbindungen an, die in Ihrem Netzwerk überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren.
+* **ExpressRoute-Monitor**: Auf dieser Seite werden Integritätsübersichten für die verschiedenen ExpressRoute-Peeringverbindungen bereitgestellt, die die Lösung überwacht. Die Kachel **Topologie** zeigt die Anzahl von Netzwerkpfaden durch die ExpressRoute-Verbindungen an, die in Ihrem Netzwerk überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren.
 
-* **Dienstkonnektivitätsmonitor** : Auf dieser Seite finden Sie Integritätsübersichten für die verschiedenen Tests, die Sie erstellt haben. Die Kachel **Topologie** zeigt an, wie viele Endpunkte überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren.
+* **Dienstkonnektivitätsmonitor**: Auf dieser Seite finden Sie Integritätsübersichten für die verschiedenen Tests, die Sie erstellt haben. Die Kachel **Topologie** zeigt an, wie viele Endpunkte überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren.
 
-* **Systemmonitor** : Diese Seite enthält Integritätszusammenfassungen für die **Netzwerk** - und **Subnetzwerk** verbindungen, die die Lösung überwacht. Die Kachel **Topologie** zeigt die Anzahl von Netzwerkpfaden an, die in Ihrem Netzwerk überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren. 
+* **Systemmonitor**: Diese Seite enthält Integritätszusammenfassungen für die **Netzwerk**- und **Subnetzwerk** verbindungen, die die Lösung überwacht. Die Kachel **Topologie** zeigt die Anzahl von Netzwerkpfaden an, die in Ihrem Netzwerk überwacht werden. Wählen Sie diese Kachel aus, um zur Ansicht **Topologie** zu navigieren. 
 
-* **Allgemeine Abfragen** : Diese Seite enthält eine Sammlung von Suchabfragen zum direkten Abrufen von Rohdaten für die Netzwerküberwachung. Sie können diese Abfragen als Ausgangspunkt für das Erstellen eigener Abfragen für benutzerdefinierte Berichte verwenden. 
+* **Allgemeine Abfragen**: Diese Seite enthält eine Sammlung von Suchabfragen zum direkten Abrufen von Rohdaten für die Netzwerküberwachung. Sie können diese Abfragen als Ausgangspunkt für das Erstellen eigener Abfragen für benutzerdefinierte Berichte verwenden. 
 
    ![Dashboard des Netzwerkleistungsmonitors](media/network-performance-monitor/npm-dashboard.png)
 
@@ -280,7 +282,7 @@ Gehen Sie als NPM-Benutzer wie folgt vor, um eine Warnung über Log Analytics zu
 
 Gehen Sie als NPM-Benutzer wie folgt vor, um eine Warnung über das Azure-Portal zu erstellen:  
 1. Sie können wahlweise Ihre E-Mail-Adresse direkt eingeben oder Warnungen über Aktionsgruppen erstellen.
-2. Wenn Sie Ihre E-Mail-Adresse direkt eingeben möchten, wird eine Aktionsgruppe namens **NPM Email ActionGroup** erstellt und die E-Mail-ID wird dieser Aktionsgruppe hinzugefügt.
+2. Wenn Sie Ihre E-Mail-Adresse direkt eingeben möchten, wird eine Aktionsgruppe namens **NPM Email ActionGroup** erstellt, und die E-Mail-ID wird dieser Aktionsgruppe hinzugefügt.
 3. Wenn Sie sich für Aktionsgruppen entscheiden, müssen Sie eine zuvor erstellte Aktionsgruppe auswählen. [Hier](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) erfahren Sie, wie Sie eine Aktionsgruppe erstellen. 
 4. Nachdem die Warnung erfolgreich erstellt wurde, können Sie über den Link „Warnungen verwalten“ Ihre Warnungen verwalten. 
 
@@ -300,4 +302,3 @@ Informationen zu Preisen sind [online](network-performance-monitor-pricing-faq.m
 
 ## <a name="next-steps"></a>Nächste Schritte 
 Informieren Sie sich ausführlicher über [Systemmonitor](network-performance-monitor-performance-monitor.md), [Dienstkonnektivitätsmonitor](network-performance-monitor-performance-monitor.md) und [ExpressRoute-Monitor](network-performance-monitor-expressroute.md). 
-

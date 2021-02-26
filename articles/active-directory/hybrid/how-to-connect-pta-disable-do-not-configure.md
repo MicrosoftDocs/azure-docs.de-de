@@ -11,16 +11,21 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26112b1e799cbde3145e7137c686b4b336db4bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358343"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919934"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Deaktivieren der PTA bei Verwendung der Azure AD Connect-Funktion „Nicht konfigurieren“
+# <a name="disable-pta-when-using-azure-ad-connect"></a>Deaktivieren der PTA bei Verwendung von Azure AD Connect
 
-Wenn Sie die Passthrough-Authentifizierung (PTA) mit Azure AD Connect verwenden und diese auf „Nicht konfigurieren“ festgelegt haben, können Sie sie deaktivieren. Zum Deaktivieren der PTA können Sie die folgenden Cmdlets verwenden. 
+Wenn Sie die Passthrough-Authentifizierung (PTA) mit Azure AD Connect verwenden und diese auf **Nicht konfigurieren** festgelegt haben, können Sie sie deaktivieren. 
+
+>[!NOTE]
+>Wenn Sie bereits die Kennworthashsynchronisierung (PHS) aktiviert haben, erfolgt durch das Deaktivieren von PTA für den Mandanten ein Fallback zu PHS.
+
+Zum Deaktivieren der PTA können Sie die folgenden Cmdlets verwenden. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Die folgenden Voraussetzungen müssen erfüllt sein:

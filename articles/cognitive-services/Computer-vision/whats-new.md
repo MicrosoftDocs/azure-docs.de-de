@@ -10,16 +10,32 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738100"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007396"
 ---
 # <a name="whats-new-in-computer-vision"></a>Neuerungen beim maschinellen Sehen
 
 Informieren Sie sich über die Neuerungen im Dienst. Dabei kann es sich um Versionshinweise, Videos, Blogbeiträge und andere Informationen handeln. Legen Sie ein Lesezeichen für diese Seite an, um über den Dienst auf dem Laufenden zu bleiben.
+
+## <a name="february-2021"></a>Februar 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Lese-API v3.2 (Public Preview) mit OCR-Unterstützung für 73 Sprachen
+Die Lese-API v3.2 (Public Preview) für maschinelles Sehen ist als Clouddienst und Docker-Container verfügbar und beinhaltet diese Updates:
+* [OCR für 73 Sprachen](./language-support.md#optical-character-recognition-ocr), einschließlich vereinfachtes und traditionelles Chinesisch, Japanisch, Koreanisch und lateinische Sprachen
+* Natürliche Leserichtung für die Textzeilenausgabe
+* Klassifizierung der Handschrift für Textzeilen zusammen mit einer Konfidenzbewertung (nur lateinische Sprachen)
+* Extrahieren von Text nur für ausgewählte Seiten bei mehrseitigen Dokumenten
+* Verfügbar als [Container ohne Distribution](./computer-vision-how-to-install-containers.md?tabs=version-3-2) für die lokale Bereitstellung
+
+[Hier](concept-recognizing-text.md) finden Sie weitere Informationen zur Lese-API.
+
+> [!div class="nextstepaction"]
+> [Verwenden der Lese-API v3.2 (Public Preview)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Januar 2021
 
@@ -30,6 +46,12 @@ Für den [Container für die räumliche Analyse](spatial-analysis-container.md) 
 * [Vorgänge für räumliche Analysen](spatial-analysis-operations.md) können jetzt so konfiguriert werden, dass erkannt wird, ob eine Person eine schützende Gesichtsbedeckung (beispielsweise eine Maske) trägt. 
     * Durch Konfigurieren des Parameters `ENABLE_FACE_MASK_CLASSIFIER` kann für die Vorgänge `personcount`, `personcrossingline` und `personcrossingpolygon` ein Maskenklassifizierer aktiviert werden.
     * Die Attribute `face_mask` und `face_noMask` werden als Metadaten mit Zuverlässigkeitsbewertung für jede im Videostream erkannte Person zurückgegeben.
+* Der Vorgang *personcrossingpolygon* wurde erweitert, um die Berechnung der Wartezeit einer Person in einer Zone zu ermöglichen. Sie können den Parameter `type` in der Zonenkonfiguration für den Vorgang auf `zonedwelltime` festlegen, und ein neues Ereignis vom Typ *personZoneDwellTimeEvent* enthält das Feld `durationMs` mit der Anzahl von Millisekunden, die die Person in der Zone verbracht hat.
+* **Breaking Change:** Das Ereignis *personZoneEvent* wurde in *personZoneEnterExitEvent* umbenannt. Dieses Ereignis wird durch den Vorgang *personcrossingpolygon* ausgelöst, wenn eine Person die Zone betritt oder verlässt. Außerdem werden Richtungsinformationen in Form der nummerierten Seite der durchquerten Zone bereitgestellt.
+* Die Video-URL kann in allen Vorgängen als „Private Parameter/obfuscated“ (Privater Parameter/verschleiert) bereitgestellt werden. Die Verschleierung ist jetzt optional und funktioniert nur, wenn `KEY` und `IV` als Umgebungsvariablen bereitgestellt werden.
+* Die Kalibrierung ist für alle Vorgänge standardmäßig aktiviert. Legen Sie `do_calibration: false` fest, um sie zu deaktivieren.
+* Unterstützung der automatischen Neukalibrierung über den Parameter `enable_recalibration` wurde hinzugefügt (standardmäßig deaktiviert). Ausführliche Informationen finden Sie unter [Vorgänge der räumlichen Analyse](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Kamerakalibrierungsparameter für `DETECTOR_NODE_CONFIG`. Ausführliche Informationen finden Sie unter [Vorgänge der räumlichen Analyse](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
 
 
 ## <a name="october-2020"></a>Oktober 2020

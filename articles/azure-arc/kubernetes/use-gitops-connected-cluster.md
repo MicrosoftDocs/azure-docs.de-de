@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Verwenden von GitOps zum Konfigurieren eines Azure Arc-fähigen Kubernetes-Clusters (Vorschau)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, Container
-ms.openlocfilehash: a068ed90ea53b3b25a1f41cebd9a5b8e607afa54
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 72dc42fffb3653de81477fa504c11b9b0328d2eb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737183"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988702"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Bereitstellen von Konfigurationen mithilfe von GitOps in Arc-fähigen Kubernetes-Clustern (Vorschauversion)
 
@@ -148,17 +148,17 @@ Hier finden Sie einige weitere Parameter, um die Konfiguration anzupassen:
 
 `--helm-operator-params` : *Optionale* Chartwerte für den Helm-Operator (falls aktiviert).  Beispiel: „--set helm.versions=v3“
 
-`--helm-operator-chart-version` : *Optionale* Chartversion für den Helm-Operator (falls aktiviert). Standardwert: ‚1.2.0‘.
+`--helm-operator-version` : *Optionale* Chartversion für den Helm-Operator (falls aktiviert). Verwenden Sie „1.2.0“ oder höher. Standardwert: ‚1.2.0‘.
 
 `--operator-namespace` : *Optionaler* Name für den Operatornamespace. Standardwert: „default“. Maximal 23 Zeichen
 
-`--operator-params` : *Optionale* Parameter für den Operator. Diese müssen in einfachen Anführungszeichen angegeben werden. Zum Beispiel, ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
+`--operator-params` : *Optionale* Parameter für den Operator. Diese müssen in einfachen Anführungszeichen angegeben werden. Zum Beispiel, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main' ```
 
 Unterstützte Optionen in „--operator-params“
 
 | Option | BESCHREIBUNG |
 | ------------- | ------------- |
-| --git-branch  | Die Verzweigung des Git-Repositorys für Kubernetes-Manifeste. Der Standardwert ist „master“. |
+| --git-branch  | Die Verzweigung des Git-Repositorys für Kubernetes-Manifeste. Der Standardwert ist „master“. Neuere Repositorys haben einen Stammzweig namens „main“, in diesem Fall müssen Sie --git-branch=main festlegen. |
 | --git-path  | Dies ist der relative Pfad im Git-Repository für Flux zum Suchen von Kubernetes-Manifesten. |
 | --git-readonly | Das Git-Repository wird als schreibgeschützt betrachtet. Flux versucht nicht, in die Datei zu schreiben. |
 | --manifest-generation  | Wenn diese Option aktiviert ist, sucht Flux nach „.flux.yaml“ und führt Kustomize oder andere Manifest-Generatoren aus. |
@@ -226,16 +226,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-Wenn die `sourceControlConfiguration`-Ressource erstellt wird, geschieht im Hintergrund Folgendes:
+Wenn die Ressource `sourceControlConfiguration` erstellt oder aktualisiert wird, geschieht im Hintergrund Folgendes:
 
-1. Der `config-agent` von Azure Arc überwacht den Azure Resource Manager auf neue oder aktualisierte Konfigurationen (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`).
-1. Der `config-agent` bemerkt die neue `Pending`-Konfiguration.
-1. Der `config-agent` liest die Konfigurationseigenschaften und bereitet die Bereitstellung einer verwalteten Instanz von `flux` vor.
-    * Der `config-agent` erstellt den Zielnamespace.
-    * Der `config-agent` bereitet ein Kubernetes-Dienstkonto mit der entsprechenden Berechtigung vor (`cluster`- oder `namespace`-Bereich).
-    * Der `config-agent` stellt eine Instanz von `flux` bereit.
-    * `flux` generiert einen SSH-Schlüssel und protokolliert den öffentlichen Schlüssel (bei Verwendung der Option von SSH mit von Flux generierten Schlüsseln).
-1. Der `config-agent` meldet den Status zurück an die `sourceControlConfiguration`-Ressource in Azure.
+1. Der `config-agent` von Azure Arc überwacht Azure Resource Manager auf neue oder aktualisierte Konfigurationen (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`) und erkennt die neue Konfiguration `Pending`.
+1. Der `config-agent` liest die Konfigurationseigenschaften und erstellt den Zielnamespace.
+1. Der `controller-manager` von Azure Arc bereitet ein Kubernetes-Dienstkonto mit der entsprechenden Berechtigung vor (Bereich `cluster` oder `namespace`) und stellt dann eine Instanz von `flux` bereit.
+1. Bei Verwendung der Option von SSH mit von Flux generierten Schlüsseln generiert `flux` einen SSH-Schlüssel und protokolliert den öffentlichen Schlüssel.
+1. Der `config-agent` meldet den Status zurück an die Ressource `sourceControlConfiguration` in Azure.
 
 Während des Bereitstellungsprozesses wird der Status der `sourceControlConfiguration`-Ressource mehrfach geändert. Überwachen Sie den Fortschritt mit dem obigen `az k8sconfiguration show ...`-Befehl:
 

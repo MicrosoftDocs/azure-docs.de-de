@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427988"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831925"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Erstellen einer IoT Edge-Instanz für die Videoanalyse (Intel NUC)
 
@@ -148,6 +148,14 @@ Identifizieren Sie die RTSP-Datenstrom-URLs für die Kameras, die mit Ihrem IoT 
 
 > [!TIP]
 > Versuchen Sie, den Kameradatenstrom auf dem IoT Edge-Computer mit einem Media Player, z. B. VLC, anzuzeigen.
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Wenn Sie die Anwendung nicht mehr benötigen, können Sie alle erstellten Ressourcen wie folgt entfernen:
+
+1. Navigieren Sie in der IoT Central-Anwendung zur Seite **Ihre Anwendung** im Abschnitt **Verwaltung**. Wählen Sie anschließend die Option **Löschen**.
+1. Löschen Sie im Azure-Portal die Ressourcengruppe **lva-rg**.
+1. Beenden Sie auf Ihrem lokalen Computer den Docker-Container **amp-viewer**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

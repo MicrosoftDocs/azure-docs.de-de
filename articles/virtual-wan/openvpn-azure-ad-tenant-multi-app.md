@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043433"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898086"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Erstellen eines Azure Active Directory (AD)-Mandanten für Verbindungen mit dem P2S OpenVPN-Protokoll
 
@@ -57,7 +57,7 @@ Eine P2S-Konfiguration definiert die Parameter für das Herstellen der Verbindun
 
 3. Klicken Sie auf **Virtuellen Hub bearbeiten**.
 
-4. Aktivieren Sie das Kontrollkästchen **Point-to-Site-Gateway einschließen** , und wählen Sie die gewünschte **Gatewayskalierungseinheit** aus.
+4. Aktivieren Sie das Kontrollkästchen **Point-to-Site-Gateway einschließen**, und wählen Sie die gewünschte **Gatewayskalierungseinheit** aus.
 
     ![Der Screenshot zeigt das Dialogfeld „Virtuellen Hub bearbeiten“, in dem Sie Ihre Gatewayskalierungseinheit auswählen können.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
@@ -131,11 +131,19 @@ Verwenden Sie diesen [Link](https://go.microsoft.com/fwlink/?linkid=2117554), um
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>So diagnostizieren Sie Verbindungsprobleme
 
-1. Zum Diagnostizieren von Verbindungsproblemen können Sie das **Diagnose** -Tool verwenden. Wählen Sie neben der VPN-Verbindung, die Sie diagnostizieren möchten, die Auslassungspunkte (...) aus, um das Menü einzublenden. Wählen Sie dann **Diagnose** aus.
+1. Zum Diagnostizieren von Verbindungsproblemen können Sie das **Diagnose**-Tool verwenden. Wählen Sie neben der VPN-Verbindung, die Sie diagnostizieren möchten, die Auslassungspunkte (...) aus, um das Menü einzublenden. Wählen Sie dann **Diagnose** aus.
 
     ![Screenshot der im Menü ausgewählten Option „Diagnose“.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. Wählen Sie auf der Seite **Verbindungseigenschaften** die Option **Diagnose ausführen** aus.
+
+    ![Der Screenshot zeigt die Schaltfläche „Diagnose ausführen“ für eine Verbindung an.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Melden Sie sich mit Ihren Anmeldeinformationen an.
+
+    ![Diagnose 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. Zeigen Sie die Diagnoseergebnisse an.
 
     ![Der Screenshot zeigt die Schaltfläche „Diagnose ausführen“ für eine Verbindung an.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

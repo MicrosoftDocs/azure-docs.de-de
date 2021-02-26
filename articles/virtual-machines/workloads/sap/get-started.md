@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873772"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549387"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Verwenden von Azure zum Hosten und Ausführen von SAP-Workloadszenarien
 
@@ -84,6 +84,10 @@ In diesem Abschnitt finden Sie Dokumente zur Integration von Microsoft Power BI
 
 ## <a name="change-log"></a>Änderungsprotokoll
 
+- 02/03/2021: Änderung in [Einrichten von Pacemaker unter RHEL in Azure](./high-availability-guide-rhel-pacemaker.md), um pcmk_host_map im Befehl „stonith create“ zu aktualisieren
+- 02/03/2021: Änderung in [Einrichten von Pacemaker unter SLES in Azure](./high-availability-guide-suse-pacemaker.md), um pcmk_host_map im Befehl „stonith create“ hinzuzufügen 
+- 02/03/2021: Weitere Informationen zu den Einstellungen für den E/A-Scheduler für SUSE finden Sie im Artikel [SAP HANA: Speicherkonfigurationen für virtuelle Azure-Computer](./hana-vm-operations-storage.md).
+- 01.02.2021: Änderung in [Hochverfügbarkeit für SAP HANA-Hochskalierung mit ANF unter RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [Horizontale SAP HANA-Skalierung mit HSR und Pacemaker auf Azure-VMs unter RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), beim [horizontalen Hochskalieren von SAP Hana mit dem Standbyknoten auf Azure-VMs mit ANF unter SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) und beim [horizontalem Hochskalieren von SAP Hana mit dem Standbyknoten auf Azure-VMs mit ANF unter RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) zum Hinzufügen eines Links unter [NFS v4.1-Volumes unter Azure NetApp Files für SAP HANA](./hana-vm-operations-netapp.md)
 - 23.01.2021: Einführung in die Funktionalität der Partitionierung von HANA-Datenvolumes als Funktionalität für das Striping von E/A-Vorgängen für HANA-Datendateien über verschiedene Azure-Datenträger oder NFS-Freigaben hinweg, ohne einen Datenvolume-Manager zu verwenden, in den Artikeln [SAP HANA: Speicherkonfigurationen für virtuelle Azure-Computer](./hana-vm-operations-storage.md) und [NFS v4.1-Volumes unter Azure NetApp Files für SAP HANA](./hana-vm-operations-netapp.md).
 - 18.01.2021: Unterstützung für NFS auf Azure NetApp Files-Basis für Oracle in [Oracle-DBMS-Bereitstellung für SAP-Workload auf Azure Virtual Machines](./dbms_guide_oracle.md) hinzugefügt und Dezimalstellen in Tabellen im Dokument [NFS v4.1-Volumes unter Azure NetApp Files für SAP HANA](./hana-vm-operations-netapp.md) angepasst
 - 11.01.2021: Kleinere Änderungen in [HA für SAP NW auf virtuellen Azure-Computern unter RHEL for SAP-Anwendungen](./high-availability-guide-rhel.md), [HA für SAP NW auf virtuellen Azure-Computern unter RHEL mit ANF](./high-availability-guide-rhel-netapp-files.md) und [HA für SAP NW auf virtuellen Azure-Computern unter RHEL Multi-SID-Leitfaden](./high-availability-guide-rhel-multi-sid.md), um die Befehle so anzupassen, dass sie sowohl mit RHEL8 als auch RHEL7 sowie ENSA1 und ENSA2 funktionieren.

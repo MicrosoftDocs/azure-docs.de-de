@@ -1,23 +1,18 @@
 ---
 title: 'Tutorial: Erstellen einer Pipeline mit dem Kopier-Assistenten '
 description: In diesem Tutorial erstellen Sie eine Azure Data Factory-Pipeline mit einer Kopieraktivität, indem Sie den von der Data Factory unterstützten Kopier-Assistenten verwenden.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 60a575fc211c512c8657bffd567c96f98cc3d69a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128401"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377005"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Erstellen einer Pipeline mit Kopieraktivität mithilfe des Data Factory-Kopier-Assistenten
 > [!div class="op_single_selector"]
@@ -52,7 +47,7 @@ In diesem Schritt erstellen Sie im Azure-Portal eine Azure Data Factory namens *
 2. Gehen Sie auf dem Blatt **Neue Data Factory** wie folgt vor:
    
    1. Geben Sie **ADFTutorialDataFactory** als **Namen** ein.
-       Der Name der Azure Data Factory muss global eindeutig sein. Sollte der Fehler `Data factory name “ADFTutorialDataFactory” is not available` auftreten, ändern Sie den Namen der Data Factory (z.B. in „IhrNameADFTutorialDataFactoryTTMMJJJJ“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](data-factory-naming-rules.md) .  
+       Der Name der Azure Data Factory muss global eindeutig sein. Sollte der Fehler `Data factory name "ADFTutorialDataFactory" is not available` auftreten, ändern Sie den Namen der Data Factory (z.B. in „IhrNameADFTutorialDataFactoryTTMMJJJJ“), und wiederholen Sie den Vorgang. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](data-factory-naming-rules.md) .  
       
        ![Data Factory-Name nicht verfügbar](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Wählen Sie Ihr Azure- **Abonnement** aus.

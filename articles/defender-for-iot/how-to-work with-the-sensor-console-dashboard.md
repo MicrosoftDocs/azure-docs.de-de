@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 735b1ce4391598d05a1bf0b4486503092f4de37d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836261"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523633"
 ---
 # <a name="the-dashboard"></a>Das Dashboard
 
@@ -28,7 +28,7 @@ Das Dashboard ermöglicht es Ihnen, sich schnell einen Überblick über den Sich
 
 - Warnungen
 
-- Die beiden Messgeräte in der Mitte der Seite zeigen die Werte für Pakete pro Sekunde (Packets per Second, PPS) und nicht bestätigte Warnungen (Unacknowledged Alerts, UA) an. **PPS** ist die Anzahl der vom System pro Sekunde erkannten Pakete. **UA** ist die Anzahl der Warnungen, die noch nicht bestätigt wurden.
+- Die beiden Indikatoren in der Mitte der Seite zeigen die Werte für „Pakete pro Sekunde“ (Packets per Second, PPS) und „Nicht bestätigte Warnungen“ (Unacknowledged Alerts, UA) an. **PPS** ist die Anzahl der vom System pro Sekunde erkannten Pakete. **UA** ist die Anzahl der Warnungen, die noch nicht bestätigt wurden.
 
 - Liste nicht bestätigter Warnungen mit jeweiliger Beschreibung
 
@@ -78,28 +78,28 @@ Klicken Sie auf den Abwärtspfeil **V** im unteren Teil eines Warnungsfelds, dam
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Warnungseintrag und Geräteinformationen":::
 
-- Wählen Sie das Gerät aus, oder klicken Sie auf **Geräte anzeigen**, um die physische Zuordnungskarte anzuzeigen. Die betroffenen Geräte werden hervorgehoben.
+- Wählen Sie das Gerät aus, um die physische Zuordnungsübersicht anzuzeigen. Die betroffenen Geräte werden hervorgehoben.
+
+- Klicken Sie im Feld „Warnung“ auf eine beliebige Stelle, um weitere Details zur Warnung anzuzeigen. Es wird ein dem folgenden Bildschirm ähnliches Popup angezeigt.
 
 - Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel":::, um eine CSV-Datei zur Warnung zu exportieren.
 
 - Nur für Administratoren und Sicherheitsanalysten: Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Acknowledge all"::: (Alle bestätigen), um **alle entsprechenden Warnungen zu bestätigen**.
 
-- Klicken Sie auf den Warnungseintrag, damit der Typ und die Beschreibung der jeweiligen Warnung angezeigt wird:
-
 - Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF":::, um einen Warnungsbericht als PDF-Datei herunterzuladen.
 
-- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Pin":::, um die Warnung anzupinnen oder loszulösen.
+- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Pin":::, um die Warnung anzupinnen oder loszulösen. Wenn Sie die Option zum Anheften auswählen, wird sie im Fenster **Angeheftete Warnungen** des Bildschirms **Warnungen** angeheftet.
 
-- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Download":::, um die Warnung weiter zu untersuchen, indem die PCAP-Datei mit einer Analyse des Netzwerkprotokolls heruntergeladen wird.
+- Wählen Sie :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Download"::: aus, um die Warnung weiter zu untersuchen, indem Sie die zugehörige PCAP-Datei mit einer Analyse des Netzwerkprotokolls herunterladen.
 
-- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud":::, um eine gefilterte PCAP-Datei herunterzuladen, die nur die warnungsrelevanten Pakete enthält. So kann die Größe der Ausgabedatei reduziert werden, was eine fokussiertere Analyse ermöglicht. Sie können sie mithilfe von [Wireshark](https://www.wireshark.org/) anzeigen.
+- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud":::, um eine zugehörige gefilterte PCAP-Datei herunterzuladen, die nur die warnungsrelevanten Pakete enthält. So kann die Größe der Ausgabedatei reduziert werden, was eine fokussiertere Analyse ermöglicht. Sie können sie mithilfe von [Wireshark](https://www.wireshark.org/) anzeigen.
 
-- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation":::, um zur Ereigniszeitachse zum Zeitpunkt der angeforderten Warnung zu navigieren.
+- Klicken Sie auf :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation":::, um zur Ereigniszeitachse zum Zeitpunkt der angeforderten Warnung zu navigieren. Dies ermöglicht es Ihnen, andere Ereignisse zu bewerten, die um die jeweilige Warnung herum auftreten können.
 
 - Nur für Administratoren und Sicherheitsanalysten: Ändern Sie den Status einer Warnung von nicht bestätigt in bestätigt. Klicken Sie auf „Learn“, um die erkannte Aktivität zu genehmigen.
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Nicht autorisierte Internetverbindung erkannt":::
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Arbeiten mit Sensorwarnungen](how-to-work-with-alerts-on-your-sensor.md)

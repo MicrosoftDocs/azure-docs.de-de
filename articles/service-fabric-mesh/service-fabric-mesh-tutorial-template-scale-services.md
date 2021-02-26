@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747875"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625382"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Skalieren einer in Service Fabric Mesh ausgeführten Anwendung
+
+> [!IMPORTANT]
+> Die Vorschauversion von Azure Service Fabric Mesh wurde eingestellt. Neue Bereitstellungen über die Service Fabric Mesh-API werden nicht mehr gestattet. Unterstützung für vorhandene Bereitstellungen wird bis zum 28. April 2021 fortgesetzt.
+> 
+> Einzelheiten finden Sie unter [Ausmusterung der Vorschauversion von Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Dieses Tutorial ist der zweite Teil einer Reihe. Erfahren Sie, wie Sie die Anzahl der Dienstinstanzen einer Anwendung manuell skalieren, die [zuvor in Service Fabric Mesh bereitgestellt wurde](service-fabric-mesh-tutorial-template-deploy-app.md). Nach Abschluss des Tutorials verfügen Sie über einen Front-End-Dienst mit drei ausgeführten Instanzen sowie über einen Datendienst mit zwei ausgeführten Instanzen.
 
@@ -56,7 +61,7 @@ Um die Anzahl der ausgeführten Replikate für den ToDoService-Dienst anzuzeigen
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-In der Bereitstellungsvorlage für die Anwendungsressource weist jeder Dienst eine Eigenschaft *replicaCount* auf, mit der Sie festlegen können, wie oft der Dienst bereitgestellt werden soll. Eine Anwendung kann aus mehreren zusammen bereitgestellten und verwalteten Diensten bestehen, wobei jeder Dienst eine eindeutige *replicaCount* -Zahl aufweist. Um die Anzahl von Dienstreplikaten zu skalieren, ändern Sie für jeden Dienst, der skaliert werden soll, den *replicaCount* -Wert in der Bereitstellungsvorlage oder in der Parameterdatei.  Führen Sie anschließend ein Upgrade der Anwendung durch.
+In der Bereitstellungsvorlage für die Anwendungsressource weist jeder Dienst eine Eigenschaft *replicaCount* auf, mit der Sie festlegen können, wie oft der Dienst bereitgestellt werden soll. Eine Anwendung kann aus mehreren zusammen bereitgestellten und verwalteten Diensten bestehen, wobei jeder Dienst eine eindeutige *replicaCount*-Zahl aufweist. Um die Anzahl von Dienstreplikaten zu skalieren, ändern Sie für jeden Dienst, der skaliert werden soll, den *replicaCount*-Wert in der Bereitstellungsvorlage oder in der Parameterdatei.  Führen Sie anschließend ein Upgrade der Anwendung durch.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Ändern der Bereitstellungsvorlagenparameter
 
@@ -88,7 +93,7 @@ Speichern Sie Ihre Änderungen an der Parameterdatei.  Die Parameter *frontEndRe
     }
 ```
 
-Die Eigenschaft *replicaCount* des WebFrontEnd-Diensts verweist auf den Parameter *frontEndReplicaCount* , und die Eigenschaft *replicaCount* des ToDoService-Diensts verweist auf den Parameter *serviceReplicaCount* :
+Die Eigenschaft *replicaCount* des WebFrontEnd-Diensts verweist auf den Parameter *frontEndReplicaCount*, und die Eigenschaft *replicaCount* des ToDoService-Diensts verweist auf den Parameter *serviceReplicaCount*:
 
 ```json
     "services": [

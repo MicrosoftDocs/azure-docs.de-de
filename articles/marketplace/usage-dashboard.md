@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462934"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934400"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard „Nutzung“ in Analysen für den kommerziellen Marketplace
 
@@ -135,7 +135,7 @@ _**Tabelle 1: Wörterbuch mit Datenbegriffen**_
 | Angebotsname | Angebotsname | Der Name des Angebots im kommerziellen Marketplace. |
 | DeploymentMethod | Als veraltet markiert | Veraltet (dieselbe Definition wie „Angebotstyp“)
  |
-| Firmenname des Kunden | Firmenname des Kunden | Der vom Kunden angegebene Firmenname. Der Name kann sich vom angegebenen Ort im Azure-Abonnement eines Kunden unterscheiden. |
+| Firmenname des Kunden | Firmenname des Kunden | Der vom Kunden angegebene Firmenname. Der Name kann sich von der Angabe im Azure-Abonnement eines Kunden unterscheiden. |
 | Usage Date | Usage Date | Das Datum der Generierung von Nutzungsereignissen für verwendungsbasierte Ressourcen |
 | IsMultisolution | Entspricht mehreren Lösungen | Gibt an, ob der Angebotstyp mehrere Lösungen umfasst. |
 | Neuer Kunde | Als veraltet markiert | Als veraltet markiert |

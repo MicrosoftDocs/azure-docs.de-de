@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080831"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627768"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionierung und horizontale Skalierung in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -36,10 +36,13 @@ Es besteht keine Beschränkung für die Anzahl von logischen Partitionen in Ihre
 
 Ein Container wird skaliert, indem Daten und Durchsatz auf physische Partitionen verteilt werden. Intern wird mindestens eine logische Partition einer einzelnen physischen Partition zugeordnet. Normalerweise verfügen kleinere Container über viele logische Partitionen, benötigen aber nur eine einzige physische Partition. Im Gegensatz zu logischen Partitionen sind physische Partitionen eine interne Implementierung des Systems, und sie werden vollständig von Azure Cosmos DB verwaltet.
 
-Die Anzahl der physischen Partitionen in Ihrem Container hängt von der folgenden Konfiguration ab:
+Die Anzahl der physischen Partitionen in Ihrem Container hängt von folgenden Faktoren ab:
 
 * Der Menge des bereitgestellten Durchsatzes (jede einzelne physische Partition kann einen Durchsatz von bis zu 10.000 Anforderungseinheiten pro Sekunde bereitstellen)
 * Dem gesamten Datenspeicher (jede einzelne physische Partition kann bis zu 50 GB Daten speichern)
+
+> [!NOTE]
+> Physische Partitionen sind eine interne Implementierung des Systems, die vollständig von Azure Cosmos DB verwaltet werden. Sie müssen sich beim Entwickeln Ihrer Lösungen nicht auf physische Partitionen konzentrieren, da Sie diese nicht kontrollieren können. Konzentrieren Sie sich stattdessen auf die Partitionsschlüssel. Wenn Sie einen Partitionsschlüssel auswählen, der den verbrauchten Durchsatz gleichmäßig auf logische Partitionen verteilt, stellen Sie sicher, dass der Durchsatzverbrauch auf den physischen Partitionen ausgeglichen ist.
 
 Es besteht keine Beschränkung für die Gesamtanzahl von physischen Partitionen in Ihrem Container. Wenn der bereitgestellte Durchsatz oder die Datengröße zunimmt, erstellt Azure Cosmos DB automatisch neue physische Partitionen, indem die vorhandenen aufgeteilt werden. Die Aufteilung physischer Partitionen hat keine Auswirkungen auf die Verfügbarkeit Ihrer Anwendung. Nach der Aufteilung einer physischen Partition bleiben alle Daten innerhalb einer einzelnen logischen Partition weiterhin auf derselben physischen Partition gespeichert. Bei der Aufteilung physischer Partitionen wird einfach eine neue Zuordnung der logischen Partitionen zu physischen Partitionen erstellt.
 
@@ -49,12 +52,9 @@ Sie können die physischen Partitionen Ihres Containers im Azure-Portal auf dem 
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Anzeigen der Anzahl von physischen Partitionen" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-Im oben gezeigten Screenshot weist ein Container `/foodGroup` als Partitionsschlüssel auf. Jeder der drei Balken im Diagramm stellt eine physische Partition dar. In der Abbildung entspricht der **Partitionsschlüsselbereich** einer physischen Partition. Die ausgewählte physische Partition enthält drei logische Partitionen: `Beef Products`, `Vegetable and Vegetable Products` und `Soups, Sauces, and Gravies`.
+Im oben gezeigten Screenshot weist ein Container `/foodGroup` als Partitionsschlüssel auf. Jeder der drei Balken im Diagramm stellt eine physische Partition dar. In der Abbildung entspricht der **Partitionsschlüsselbereich** einer physischen Partition. Die ausgewählte physische Partition enthält die drei wichtigsten logischen Partitionen: `Beef Products`, `Vegetable and Vegetable Products` und `Soups, Sauces, and Gravies`.
 
 Wenn Sie einen Durchsatz von 18.000 Anforderungseinheiten pro Sekunde (RU/s) bereitstellen, kann jede der drei physischen Partitionen 1/3 des insgesamt bereitgestellten Durchsatzes nutzen. Innerhalb der ausgewählten physischen Partition können die logischen Partitionsschlüssel `Beef Products`, `Vegetable and Vegetable Products` und `Soups, Sauces, and Gravies` die 6.000 bereitgestellten RU/s der physischen Partition gemeinsam nutzen. Weil der bereitgestellte Durchsatz gleichmäßig auf die physischen Partitionen Ihres Containers aufgeteilt ist, müssen Sie unbedingt einen Partitionsschlüssel auswählen, der den verbrauchten Durchsatz gleichmäßig aufteilt. Informationen hierzu finden Sie unter [Auswählen eines Partitionsschlüssels](#choose-partitionkey). 
-
-> [!NOTE]
-> Wenn Sie einen Partitionsschlüssel auswählen, der den verbrauchten Durchsatz gleichmäßig auf logische Partitionen verteilt, stellen Sie sicher, dass der Durchsatzverbrauch auf den physischen Partitionen ausgeglichen ist.
 
 ## <a name="managing-logical-partitions"></a>Verwalten logischer Partitionen
 

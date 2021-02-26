@@ -1,5 +1,5 @@
 ---
-title: Multi-DRM-Inhaltsschutzsystem – Azure Media Services v3
+title: Multi-DRM-Inhaltsschutzsystem
 description: In diesem Artikel erhalten Sie eine detaillierte Beschreibung, wie Sie ein Multi-DRM-Inhaltsschutzsystem mit Azure Media Services entwerfen.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954900"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Entwurf eines Multi-DRM-Inhaltsschutzsystems mit Zugriffssteuerung
 

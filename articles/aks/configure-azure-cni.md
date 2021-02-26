@@ -4,12 +4,12 @@ description: Erfahren Sie, wie Sie Azure CNI-Netzwerke – „Advanced“ (Erwei
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000571"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062216"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurieren von Azure CNI-Netzwerken in Azure Kubernetes Service (AKS)
 
@@ -63,7 +63,7 @@ Die maximale Anzahl von Pods pro Knoten in einem AKS-Cluster ist 250. *Standardm
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (bis zu 250) |
 | Resource Manager-Vorlage | 110 | 30 | Ja (bis zu 250) |
-| Portal | 110 | 30 | Nein |
+| Portal | 110 | 110 (konfiguriert auf der Registerkarte „Knotenpools“) | Nein |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurieren des Höchstwerts: Neue Cluster
 
@@ -96,6 +96,8 @@ Beim Erstellen eines AKS-Clusters können folgende Parameter für Azure CNI-Netz
 **Virtuelles Netzwerk:** Das virtuelle Netzwerk, in dem Sie den Kubernetes-Cluster bereitstellen möchten. Wenn Sie ein neues virtuelles Netzwerk für Ihren Cluster erstellen möchten, können Sie *Neu erstellen* wählen und die Schritte im Abschnitt *Erstellen eines virtuellen Netzwerks* ausführen. Weitere Informationen zu Grenzwerten und Kontingenten für virtuelle Azure-Netzwerke finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnetz**: Das Subnetz im virtuellen Netzwerk, in dem Sie den Cluster bereitstellen möchten. Wenn Sie ein neues Subnetz im virtuellen Netzwerk für Ihren Cluster erstellen möchten, können Sie *Neu erstellen* wählen und die Schritte im Abschnitt *Erstellen eines Subnetzes* ausführen. Bei Hybridkonnektivität sollte sich der Adressbereich nicht mit anderen virtuellen Netzwerken in Ihrer Umgebung überschneiden.
+
+**Azure-Netzwerk-Plug-In:** Wenn das Azure-Netzwerk-Plug-In verwendet wird, kann nicht von VMs mit einer IP-Adresse in clusterCIDR außerhalb des AKS-Clusters mit „externalTrafficPolicy=Local“ auf den internen Load Balancer zugegriffen werden.
 
 **Kubernetes-Dienstadressbereich**: Dies ist der Satz mit den virtuellen IP-Adressen, die von Kubernetes den internen [Diensten][services] in Ihrem Cluster zugewiesen werden. Sie können jeden privaten Adressbereich verwenden, der die folgenden Anforderungen erfüllen:
 

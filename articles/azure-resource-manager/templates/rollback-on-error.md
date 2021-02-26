@@ -2,25 +2,34 @@
 title: Rollback bei Fehler zu erfolgreicher Bereitstellung
 description: Geben Sie an, dass für eine fehlerhafte Bereitstellung ein Rollback zu einer erfolgreichen Bereitstellung erfolgen soll.
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460142"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492211"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Rollback bei Fehler zu erfolgreicher Bereitstellung
 
-Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Diese Funktionalität ist nützlich, wenn es einen bekannten guten Zustand für die Infrastrukturbereitstellung gibt, der wiederhergestellt werden soll. Es gibt eine Reihe von Vorbehalten und Einschränkungen:
+Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Diese Funktionalität ist nützlich, wenn es einen bekannten guten Zustand für die Infrastrukturbereitstellung gibt, der wiederhergestellt werden soll. Sie können entweder eine bestimmte frühere Bereitstellung oder die letzte erfolgreiche Bereitstellung angeben.
 
+> [!IMPORTANT]
+> Dieses Feature führt einen Rollback für eine nicht erfolgreiche Bereitstellung durch und stellt dazu eine frühere Bereitstellung bereit. Dieses Ergebnis entspricht möglicherweise nicht dem, was Sie erwarten, wenn Sie die nicht erfolgreiche Bereitstellung rückgängig machen. Daher müssen Sie genau verstehen, wie die frühere Bereitstellung erneut bereitgestellt wird.
+
+## <a name="considerations-for-redeploying"></a>Überlegungen zur erneuten Bereitstellung
+
+Machen Sie sich vor der Verwendung dieses Features mit den folgenden Details zur Behandlung der erneuten Bereitstellung vertraut:
+
+- Die vorherige Bereitstellung wird unter Verwendung des [vollständigen Modus](./deployment-modes.md#complete-mode) ausgeführt, auch wenn bei der früheren Bereitstellung der [inkrementelle Modus](./deployment-modes.md#incremental-mode) verwendet wurde. Die erneute Bereitstellung im vollständigen Modus kann zu unerwarteten Ergebnissen führen, wenn bei der früheren Bereitstellung der inkrementelle Modus verwendet wurde. Im vollständigen Modus werden alle Ressourcen, die nicht in der vorherigen Bereitstellung enthalten waren, gelöscht. Geben Sie eine frühere Bereitstellung an, die alle Ressourcen und deren Zustände darstellt, die in der Ressourcengruppe vorhanden sein sollen. Weitere Informationen finden Sie unter [Azure Resource Manager-Bereitstellungsmodi](./deployment-modes.md).
 - Die Bereitstellung wird genauso wie zuvor mit denselben Parametern ausgeführt. Sie können die Parameter nicht ändern.
-- Die vorherige Bereitstellung wird im [vollständigen Modus](./deployment-modes.md#complete-mode) ausgeführt. Alle in der vorherigen Bereitstellung nicht enthaltenen Ressourcen werden gelöscht, und alle Ressourcenkonfigurationen werden auf ihren vorherigen Zustand zurückgesetzt. Sorgen Sie dafür, dass Sie die [Bereitstellungsmodi](./deployment-modes.md) vollständig verstehen.
 - Die erneute Bereitstellung wirkt sich nur auf die Ressourcen aus. Datenänderungen sind davon nicht betroffen.
-- Sie können diese Funktion nur in Verbindung mit Ressourcengruppenbereitstellungen verwenden, nicht in Verbindung mit Bereitstellungen auf Abonnement- oder Verwaltungsgruppenebene. Weitere Informationen zu Bereitstellungen auf Abonnementebene finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](./deploy-to-subscription.md).
+- Dieses Feature kann nur für Ressourcengruppenbereitstellungen verwendet werden. Bereitstellungen auf Abonnement-, Verwaltungsgruppen- oder Mandantenebene werden nicht unterstützt. Weitere Informationen zu Bereitstellungen auf Abonnementebene finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](./deploy-to-subscription.md).
 - Diese Option kann nur für Bereitstellungen auf Stammebene verwendet werden. Bereitstellungen aus einer geschachtelten Vorlage können nicht erneut bereitgestellt werden.
 
-Zur Verwendung dieser Option müssen die Bereitstellungen eindeutige Namen aufweisen, damit sie im Verlauf identifiziert werden können. Wenn die Bereitstellungen keine eindeutigen Namen aufweisen, wird die vorherige erfolgreich ausgeführte Bereitstellung im Verlauf möglicherweise durch die aktuelle fehlerhafte Bereitstellung überschrieben.
+Wenn Sie diese Option verwenden möchten, müssen Ihre Bereitstellungen im Bereitstellungsverlauf über eindeutige Namen verfügen. Eine bestimmte Bereitstellung kann nur mit eindeutigen Namen identifiziert werden. Ohne eindeutige Namen kann es passieren, dass eine erfolgreiche Bereitstellung im Verlauf durch eine nicht erfolgreiche Bereitstellung überschrieben wird.
+
+Wenn Sie eine frühere Bereitstellung angeben, die nicht im Bereitstellungsverlauf vorhanden ist, tritt beim Rollback ein Fehler auf.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -42,7 +51,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollBackDeploymentName ExampleDeployment01
 ```
 
-## <a name="azure-cli"></a>Azure-Befehlszeilenschnittstelle
+## <a name="azure-cli"></a>Azure CLI
 
 Um die letzte erfolgreiche Bereitstellung erneut bereitzustellen, fügen Sie den Parameter `--rollback-on-error` als Flag hinzu.
 
@@ -115,7 +124,5 @@ Die angegebene Bereitstellung muss erfolgreich ausgeführt worden sein.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informationen zum sicheren Rollout Ihres Diensts in mehreren Regionen finden Sie im Artikel zum [Azure-Bereitstellungs-Manager](deployment-manager-overview.md).
-- Wenn Sie angeben möchten, wie Ressourcen behandelt werden sollen, die in der Ressourcengruppe enthalten sind, aber nicht in der Vorlage definiert wurden, lesen Sie die Informationen unter [Azure Resource Manager-Bereitstellungsmodi](deployment-modes.md).
+- Informationen zum vollständigen und inkrementellen Modus finden Sie unter [Azure Resource Manager-Bereitstellungsmodi](deployment-modes.md).
 - Um zu verstehen, wie Parameter in der Vorlage definiert werden, lesen Sie [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](template-syntax.md).
-- Informationen zum Bereitstellen einer Vorlage, die ein SAS-Token erfordert, finden Sie unter [Bereitstellen einer privaten Vorlage mit SAS-Token](secure-template-with-sas-token.md).

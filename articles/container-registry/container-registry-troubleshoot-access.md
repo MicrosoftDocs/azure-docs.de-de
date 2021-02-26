@@ -3,12 +3,12 @@ title: Beheben von Netzwerkproblemen mit der Registrierung
 description: Enthält eine Beschreibung der Symptome, Ursachen und Lösungen häufiger Probleme, die beim Zugreifen auf eine Azure-Containerregistrierung in einem virtuellen Netzwerk oder hinter einer Firewall auftreten.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351792"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525075"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Beheben von Netzwerkproblemen mit der Registrierung
 
@@ -39,7 +39,9 @@ Beispiele für Symptome sind:
 
 Führen Sie den Befehl [az acr check-health](/cli/azure/acr#az-acr-check-health) aus, um weitere Informationen zur Integrität der Registrierungsumgebung abzurufen und optional Zugriff auf eine Zielregistrierung zu erhalten. Diagnostizieren Sie beispielsweise bestimmte Probleme mit der Netzwerkkonnektivität oder -konfiguration. 
 
-Befehlsbeispiele finden Sie unter [Überprüfen der Integrität einer Azure-Containerregistrierung](container-registry-check-health.md). Wenn Fehler gemeldet werden, sollten Sie die [Fehlerreferenz](container-registry-health-error-reference.md) und die folgenden Abschnitte auf empfohlene Lösungen überprüfen.
+Befehlsbeispiele finden Sie unter [Überprüfen der Integrität einer Azure-Containerregistrierung](container-registry-check-health.md). Wenn Fehler gemeldet werden, überprüfen Sie die [Fehlerreferenz](container-registry-health-error-reference.md) und die folgenden Abschnitte für empfohlene Lösungen.
+
+Wenn Sie Probleme bei Verwendung der Registrierung mit Azure Kubernetes Service haben, führen Sie den Befehl [az aks check-acr](/cli/azure/aks#az_aks_check_acr) aus, um zu überprüfen, ob der Zugriff auf die Registrierung vom AKS-Cluster aus möglich ist.
 
 > [!NOTE]
 > Einige Symptome in Bezug auf die Netzwerkkonnektivität können auch auftreten, wenn es Probleme mit der Authentifizierung oder Autorisierung der Registrierung gibt. Weitere Informationen finden Sie unter [Beheben von Problemen mit der Registrierungsanmeldung](container-registry-troubleshoot-login.md).
@@ -103,25 +105,25 @@ Verwandte Links:
 
 ### <a name="configure-service-access"></a>Konfigurieren des Dienstzugriffs
 
-Azure Security Center kann derzeit keine [Überprüfung von Images auf Sicherheitsrisiken](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in einer Registrierung durchführen, die den Zugriff auf private Endpunkte, ausgewählte Subnetze oder IP-Adressen beschränkt. Außerdem können Ressourcen der folgenden Dienste nicht auf Containerregistrierungen mit Netzwerkbeschränkungen zugreifen:
+Derzeit ist der Zugriff auf eine Containerregistrierung mit Netzwerkeinschränkungen von mehreren Azure-Diensten aus nicht zulässig:
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Azure Container Registry Tasks
+* Azure Security Center kann keine [Überprüfung von Images auf Sicherheitsrisiken](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in einer Registrierung durchführen, die den Zugriff auf private Endpunkte, ausgewählte Subnetze oder IP-Adressen beschränkt. 
+* Ressourcen bestimmter Azure-Dienste, einschließlich Azure App Service und Azure Container Instances, können nicht auf eine Containerregistrierung mit Netzwerkeinschränkung zugreifen.
 
 Wenn Zugriff oder eine Integration dieser Azure-Dienste mit Ihrer Containerregistrierung erforderlich ist, entfernen Sie die Netzwerkbeschränkung. Entfernen Sie z. B. die privaten Endpunkte der Registrierung, oder entfernen oder ändern Sie die Regeln der Registrierung für öffentlichen Zugriff.
+
+Seit Januar 2021 können Sie eine Registrierung mit Netzwerkeinschränkung so konfigurieren, dass der Zugriff von ausgewählten vertrauenswürdigen Diensten [zugelassen](allow-access-trusted-services.md) wird.
 
 Verwandte Links:
 
 * [Azure Container Registry-Imageprüfung durch Security Center](../security-center/defender-for-container-registries-introduction.md)
 * [Feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Konfigurieren von Netzwerkregeln für öffentliche IP-Adressen](container-registry-access-selected-networks.md)
-* [Herstellen einer privaten Verbindung mit einer Azure-Containerregistrierung über Azure Private Link](container-registry-private-link.md)
+* [Zulassen des sicheren Zugriffs vertrauenswürdiger Dienste auf eine Containerregistrierung mit Netzwerkeinschränkungen](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Erweiterte Problembehandlung
 
-Wenn die [Sammlung mit Ressourcenprotokollen](container-registry-diagnostics-audit-logs.md) in der Registrierung aktiviert ist, sollten Sie das Protokoll „ContainterRegistryLoginEvents“ überprüfen. In diesem Protokoll werden Authentifizierungsereignisse und der zugehörige Status gespeichert, z. B. eingehende Identität und IP-Adresse. Fragen Sie das Protokoll nach [Authentifizierungsfehlern für die Registrierung](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) ab. 
+Wenn [Sammlung von Ressourcenprotokollen](container-registry-diagnostics-audit-logs.md) in der Registrierung aktiviert ist, überprüfen Sie das Protokoll „ContainterRegistryLoginEvents“. In diesem Protokoll werden Registrierungauthentifizierungsereignisse und der -status gespeichert, einschließlich der eingehenden Identität und IP-Adresse. Fragen Sie das Protokoll nach [Authentifizierungsfehlern für die Registrierung](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) ab. 
 
 Verwandte Links:
 
@@ -132,11 +134,11 @@ Verwandte Links:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich die folgenden Optionen an, falls Sie Ihr Problem hier nicht lösen können.
+Wenn Sie Ihr Problem hier nicht lösen können, sehen Sie sich die folgenden Optionen an.
 
-* Weitere Themen zur Problembehandlung für die Registrierung sind:
+* Weitere Themen zur Problembehandlung der Registrierung sind:
   * [Beheben von Problemen mit der Registrierungsanmeldung](container-registry-troubleshoot-login.md) 
   * [Beheben von Problemen mit der Registrierungsleistung](container-registry-troubleshoot-performance.md)
 * [Optionen für Support durch die Community](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A (Fragen und Antworten)](/answers/products/)
+* [Microsoft Q&A (Fragen und Antworten)](https://docs.microsoft.com/answers/products/)
 * [Öffnen eines Supporttickets](https://azure.microsoft.com/support/create-ticket/)

@@ -1,24 +1,11 @@
 ---
-title: Transformationen und Aufträge in Media Services
-titleSuffix: Azure Media Services
-description: Erfahren Sie, wie Sie Transformationen erstellen, um die Regeln zu beschreiben, gemäß denen Ihre Videos in Azure Media Services verarbeitet werden.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426780"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pflichtfelder. Weitere Informationen finden Sie unter aka.ms/skyeye/meta.
+Titel: Transformationen und Aufträge in Media Services: Azure Media Services description: Erfahren Sie, wie Sie Transformationen erstellen, um die Regeln zu beschreiben, gemäß denen Ihre Videos in Azure Media Services verarbeitet werden.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019 ms.author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Transformationen und Aufträge in Media Services
 
 In diesem Thema werden Details zu [Transformationen](/rest/api/media/transforms) und [Aufträgen](/rest/api/media/jobs) erläutert und die Beziehung zwischen diesen Entitäten erläutert.
@@ -50,15 +37,15 @@ Angenommen, Sie möchten jeweils den ersten Frame aller Ihrer Videos als Miniatu
 Eine **Transformation** hilft Ihnen, die Konfiguration zu erstellen (Schritt 1) und dann Aufträge mithilfe dieser Konfiguration zu übermitteln (Schritt 2).
 
 > [!NOTE]
-> Eigenschaften von **Transform** und **Job** , die den Datetime-Typ haben, sind immer im UTC-Format angegeben.
+> Eigenschaften von **Transform** und **Job**, die den Datetime-Typ haben, sind immer im UTC-Format angegeben.
 
 ## <a name="transforms"></a>Transformationen
 
-Verwenden Sie **Transformationen** , um allgemeine Aufgaben zur Codierung oder Analyse von Videos zu konfigurieren. Jede **Transformation** beschreibt eine Vorgehensweise oder einen Workflow von Aufgaben zur Verarbeitung Ihrer Video- oder Audiodateien. Eine einzelne Transformation kann mehrere Regeln anwenden. Eine Transformation kann z.B. angeben, dass jedes Video in eine MP4-Datei mit einer festgelegten Bitrate codiert und eine Miniaturansicht aus dem ersten Bild im Video generiert werden soll. Sie würden für jede Regel, die Sie in die Transformation einfügen möchten, einen TransformOutput-Eintrag hinzufügen. Sie verwenden Voreinstellungen, um der Transformation mitzuteilen, wie die Eingabemediendateien verarbeitet werden sollen.
+Verwenden Sie **Transformationen**, um allgemeine Aufgaben zur Codierung oder Analyse von Videos zu konfigurieren. Jede **Transformation** beschreibt eine Vorgehensweise oder einen Workflow von Aufgaben zur Verarbeitung Ihrer Video- oder Audiodateien. Eine einzelne Transformation kann mehrere Regeln anwenden. Eine Transformation kann z.B. angeben, dass jedes Video in eine MP4-Datei mit einer festgelegten Bitrate codiert und eine Miniaturansicht aus dem ersten Bild im Video generiert werden soll. Sie würden für jede Regel, die Sie in die Transformation einfügen möchten, einen TransformOutput-Eintrag hinzufügen. Sie verwenden Voreinstellungen, um der Transformation mitzuteilen, wie die Eingabemediendateien verarbeitet werden sollen.
 
 ### <a name="viewing-schema"></a>Anzeigen des Schemas
 
-In Media Services v3 sind Voreinstellungen stark typisierte Entitäten in der API selbst. Die „Schema“-Definition für diese Objekte finden Sie in [Offene API-Spezifikation (oder Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Sie finden die voreingestellten Definitionen (wie **StandardEncoderPreset** ) auch in der Referenzdokumentation der [REST-API](/rest/api/media/transforms/createorupdate#standardencoderpreset), des [.NET SDKs](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) oder eines anderen Media Services v3 SDKs.
+In Media Services v3 sind Voreinstellungen stark typisierte Entitäten in der API selbst. Die „Schema“-Definition für diese Objekte finden Sie in [Offene API-Spezifikation (oder Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Sie finden die voreingestellten Definitionen (wie **StandardEncoderPreset**) auch in der Referenzdokumentation der [REST-API](/rest/api/media/transforms/createorupdate#standardencoderpreset), des [.NET SDKs](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) oder eines anderen Media Services v3 SDKs.
 
 ### <a name="creating-transforms"></a>Erstellen von Transformationen
 
@@ -94,7 +81,7 @@ Fortschritt und Status von Aufträgen können abgerufen werden, indem die Ereign
 
 ### <a name="updating-jobs"></a>Aktualisieren von Aufträgen
 
-Der Updatevorgang für den Auftrag ( [Job](/rest/api/media/jobs)-Entität) kann verwendet werden, um die Eigenschaften *description* und *priority* nach dem Übermitteln des Auftrags zu ändern. Eine Änderung an der *priority* -Eigenschaft wird nur wirksam, wenn sich der Auftrag noch in der Warteschlange befindet. Wenn die Verarbeitung des Auftrags gestartet oder bereits beendet wurde, hat das Ändern der Priorität keine Auswirkungen.
+Der Updatevorgang für den Auftrag ([Job](/rest/api/media/jobs)-Entität) kann verwendet werden, um die Eigenschaften *description* und *priority* nach dem Übermitteln des Auftrags zu ändern. Eine Änderung an der *priority*-Eigenschaft wird nur wirksam, wenn sich der Auftrag noch in der Warteschlange befindet. Wenn die Verarbeitung des Auftrags gestartet oder bereits beendet wurde, hat das Ändern der Priorität keine Auswirkungen.
 
 ### <a name="job-object-diagram"></a>Diagramm des Objekts „Job“
 

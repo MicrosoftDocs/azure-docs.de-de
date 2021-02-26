@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737675"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946265"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Regionsübergreifender Lastenausgleich (Vorschau)
 
@@ -142,6 +142,8 @@ Der regionsübergreifende Lastenausgleich leitet den Datenverkehr an den entspre
 * Regionsübergreifende IPv6-Front-End-IP-Konfigurationen werden nicht unterstützt. 
 
 * Zurzeit kann kein Integritätstest konfiguriert werden. Bei einem standardmäßigen Integritätstest werden alle 20 Sekunden automatisch Verfügbarkeitsinformationen zum regionalen Lastenausgleich abgerufen. 
+
+* Azure Kubernetes Service (AKS) kann derzeit nicht in regionsübergreifende Load Balancer integriert werden. Beim Einrichten eines regionsübergreifenden Load Balancers vor einem öffentlichen Load Balancer, der mit AKS bereitgestellt wurde, ist der Verlust der Verbindung zu erwarten.
 
 ## <a name="pricing-and-sla"></a>Preise und SLA
 Regionsübergreifender Lastenausgleich, verwendet die [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) des Standardlastenausgleichs.

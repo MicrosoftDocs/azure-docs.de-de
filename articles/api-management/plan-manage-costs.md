@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725936"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581328"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planen und Verwalten von Kosten für API Management
 
@@ -89,10 +89,10 @@ Sie können [Ihre Kostendaten](../cost-management-billing/costs/tutorial-export-
 
 ### <a name="choose-tier"></a>Auswählen einer Dienstebene
 
-Lesen Sie den [featurebasierten Vergleich der Azure API Management-Dienstebenen](api-management-features.md), um zu entscheiden, welche Dienstebene für Ihre Szenarien geeignet ist. Die verschiedenen Dienstebenen unterstützen Kombinationen von Features und Funktionen, die für verschiedene Anwendungsfälle entwickelt wurden, mit unterschiedlichen Kosten. Sie können jederzeit ein [Upgrade](upgrade-and-scale.md) auf eine andere Dienstebene vornehmen.
+Lesen Sie den [featurebasierten Vergleich der Azure API Management-Dienstebenen](api-management-features.md), um zu entscheiden, welche Dienstebene für Ihre Szenarien geeignet ist. Die verschiedenen Dienstebenen unterstützen Kombinationen von Features und Funktionen, die für verschiedene Anwendungsfälle entwickelt wurden, mit unterschiedlichen Kosten. 
 
 * Die Dienstebene **Verbrauch** (Consumption) bietet eine schlanke, serverlose Option, die keine Fixkosten verursacht. Die Abrechnung erfolgt basierend auf der Anzahl von API-Aufrufen an den Dienst oberhalb eines bestimmten Schwellenwerts. Die Kapazität wird auch automatisch basierend auf der Auslastung des Diensts skaliert.
-* Andere API Management-Dienstebenen verursachen monatliche Kosten und bieten einen höheren Durchsatz sowie umfangreichere Features für Evaluierungs- und Produktionsworkloads.
+* Die API Management-Dienstebenen **Developer**, **Basic**, **Standard** und **Premium** verursachen monatliche Kosten und bieten einen höheren Durchsatz sowie umfangreichere Features für Evaluierungs- und Produktionsworkloads. Sie können jederzeit ein [Upgrade](upgrade-and-scale.md) auf eine andere Dienstebene vornehmen.
 
 ### <a name="scale-using-capacity-units"></a>Skalieren mithilfe von Kapazitätseinheiten
 

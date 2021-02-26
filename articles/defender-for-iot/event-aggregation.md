@@ -1,30 +1,30 @@
 ---
-title: Ereignisaggregation
+title: Klassische Ereignisaggregation für Sicherheitsmodule
 description: Weitere Informationen zur Ereignisaggregation in Defender für IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832368"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809217"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>Ereignisaggregation in Defender für IoT
+# <a name="security-module-classic-event-aggregation"></a>Klassische Ereignisaggregation für Sicherheitsmodule
 
 Defender für IoT-Sicherheits-Agents erfassen Daten und Systemereignisse von Ihrem lokalen Gerät und senden diese Daten zur Verarbeitung und Analyse an die Azure-Cloud. Der Sicherheits-Agent sammelt viele Arten von Geräteereignissen, einschließlich neuer Prozess- und neuer Verbindungsereignisse. Sowohl neue Prozess- als auch neue Verbindungsereignisse können innerhalb einer Sekunde auf einem Gerät regelmäßig auftreten und sind wichtig für eine stabile und umfassende Sicherheit. Allerdings können aufgrund der Anzahl der Nachrichten, die die Sicherheits-Agents deshalb senden müssen, Ihr IoT Hub-Kontingent und die Kostengrenzen möglicherweise schnell erreicht oder überschritten werden. Diese Ereignisse enthalten jedoch äußerst wertvolle Sicherheitsinformationen, die für den Schutz Ihres Geräts von entscheidender Bedeutung sind.
 
-Um das zusätzliche Kontingent und die Kosten zu reduzieren, während Ihre Geräte geschützt bleiben, aggregieren Defender für IoT-Agents diese Ereignistypen.
+Azure Defender für IoT-Agents aggregiert diese Ereignistypen, um das zusätzliche Kontingent und die Kosten zu reduzieren und Ihre Geräte gleichzeitig geschützt zu halten.
 
 Die Ereignisaggregation ist standardmäßig **aktiviert**. Sie kann jederzeit manuell **deaktiviert** werden, obwohl von dieser Vorgehensweise abgeraten wird.
 
@@ -45,7 +45,7 @@ Um den Speicherbedarf des Agents zu verringern, erhöht der Agent immer dann die
 Ereignisse werden nur dann als identisch betrachtet, wenn die folgenden Bedingungen erfüllt sind:
 
 * ProcessCreate-Ereignisse: Wenn **commandLine**, **executable**, **username** und **userid** identisch sind
-* ConnectionCreate-Ereignisse: Wenn **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol und **destination port** identisch sind
+* ConnectionCreate-Ereignisse: **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol** und **destination port** sind identisch
 * „ProcessTerminate“-Ereignisse – Wenn **executable** und **exit status** identisch sind
 
 ### <a name="working-with-aggregated-events"></a>Arbeiten mit aggregierten Ereignissen
@@ -70,11 +70,11 @@ Nehmen Sie Änderungen an der Konfiguration der Ereignisaggregation von Defender
 | Konfigurationsname | Mögliche Werte | Details | Bemerkungen |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Ereignisaggregation für „ProcessCreate“-Ereignisse aktivieren/deaktivieren |
-| aggregationIntervalProcessCreate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ProcessCreate“-Ereignisse |
+| aggregationIntervalProcessCreate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ProcessCreates“-Ereignisse |
 | aggregationEnabledConnectionCreate | boolean| Ereignisaggregation für „ConnectionCreate“-Ereignisse aktivieren/deaktivieren |
-| aggregationIntervalConnectionCreate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ConnectionCreate“-Ereignisse |
+| aggregationIntervalConnectionCreate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ConnectionCreates“-Ereignisse |
 | aggregationEnabledProcessTerminate | boolean | Ereignisaggregation für „ProcessTerminate“-Ereignisse aktivieren/deaktivieren | Nur Windows|
-| aggregationIntervalProcessTerminate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ProcessTerminate“-Ereignisse | Nur Windows|
+| aggregationIntervalProcessTerminate | ISO8601 TimeSpan-Zeichenfolge | Aggregationsintervall für „ProcessTerminates“-Ereignisse | Nur Windows|
 |
 
 ## <a name="default-configurations-settings"></a>Standardkonfigurationseinstellungen

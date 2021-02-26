@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504731"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491010"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Verwenden von benannten Werten in Azure API Management-Richtlinien
 
@@ -43,7 +43,7 @@ Die Verwendung von Schlüsseltresorgeheimnissen wird empfohlen, da dadurch die S
 
 * In Schlüsseltresoren gespeicherte Geheimnisse können für mehrere Dienste verwendet werden.
 * Auf die Geheimnisse können präzise [Zugriffsrichtlinien](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) angewandt werden.
-* Wenn Geheimnisse im Schlüsseltresor aktualisiert werden, erfolgt in API Management automatisch eine Schlüsselrotation. Nach der Aktualisierung im Schlüsseltresor wird ein benannter Wert innerhalb von 4 Stunden in API Management aktualisiert. 
+* Wenn Geheimnisse im Schlüsseltresor aktualisiert werden, erfolgt in API Management automatisch eine Schlüsselrotation. Nach der Aktualisierung im Schlüsseltresor wird ein benannter Wert innerhalb von 4 Stunden in API Management aktualisiert. Sie können das Geheimnis auch manuell im Azure-Portal oder über die Verwaltungs-REST-API aktualisieren.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Voraussetzungen für die Key Vault-Integration
 
@@ -58,25 +58,16 @@ Die Verwendung von Schlüsseltresorgeheimnissen wird empfohlen, da dadurch die S
 
 Um das Schlüsseltresorgeheimnis zu verwenden, müssen Sie [einen benannten Wert hinzufügen oder bearbeiten](#add-or-edit-a-named-value) und einen Typ von **Schlüsseltresor** angeben. Wählen Sie das Geheimnis im Schlüsseltresor aus.
 
-> [!CAUTION]
-> Wenn Sie in API Management ein Geheimnis aus einem Schlüsseltresor verwenden, dürfen Sie auf keinen Fall das Geheimnis, den Schlüsseltresor oder die verwaltete Identität löschen, die für den Zugriff auf den Schlüsseltresor verwendet wird.
-
-Wenn die [Key Vault-Firewall](../key-vault/general/network-security.md) in Ihrem Schlüsseltresor aktiviert ist, gelten für die Verwendung von Schlüsseltresorgeheimnissen die folgenden zusätzlichen Anforderungen:
-
-* Sie müssen die **systemseitig zugewiesene** verwaltete Identität der API Management-Instanz verwenden, um auf den Schlüsseltresor zuzugreifen.
-* Aktivieren Sie in der Key Vault-Firewall die Option **Vertrauenswürdigen Microsoft-Diensten die Umgehung dieser Firewall erlauben?** .
-
-Wenn die API Management-Instanz in einem virtuellen Netzwerk bereitgestellt wird, müssen Sie darüber hinaus die folgenden Netzwerkeinstellungen konfigurieren:
-* Aktivieren Sie im API Management-Subnetz einen [Dienstendpunkt](../key-vault/general/overview-vnet-service-endpoints.md) für Azure Key Vault.
-* Konfigurieren Sie eine Netzwerksicherheitsgruppen-Regel (NSG), um ausgehenden Datenverkehr an die [Diensttags](../virtual-network/service-tags-overview.md) AzureKeyVault und AzureActiveDirectory zuzulassen. 
-
-Weitere Informationen zur Netzwerkkonfiguration finden Sie unter [Herstellen einer Verbindung mit einem virtuellen Netzwerk](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Hinzufügen oder Bearbeiten benannter Werte
 
 ### <a name="add-a-key-vault-secret"></a>Hinzufügen von Schlüsseltresorgeheimnissen
 
 Weitere Informationen finden Sie unter [Voraussetzungen für die Key Vault-Integration](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Wenn Sie in API Management ein Geheimnis aus einem Schlüsseltresor verwenden, dürfen Sie auf keinen Fall das Geheimnis, den Schlüsseltresor oder die verwaltete Identität löschen, die für den Zugriff auf den Schlüsseltresor verwendet wird.
 
 1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer API Management-Instanz.
 1. Wählen Sie unter **APIs** die Optionen **Benannte Werte** >  **+ Hinzufügen** aus.

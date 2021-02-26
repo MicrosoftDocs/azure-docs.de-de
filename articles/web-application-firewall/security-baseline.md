@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878120"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807868"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure-Sicherheitsbaseline für Azure Web Application Firewall
 
@@ -135,7 +135,7 @@ Wählen Sie Azure PowerShell oder die Azure CLI, um basierend auf ihren Tags nac
 
 **Leitfaden**: Konfigurieren Sie Azure Web Application Firewall (WAF)-Protokolle, die an eine zentrale Verwaltungslösung für Sicherheitsprotokolle gesendet werden sollen wie Azure Sentinel oder die SIEM-Lösung eines Drittanbieters. Diese Protokolle umfassen Azure-Aktivitäts-, Diagnose- und Echtzeitprotokolle für WAF. Diese Protokolle können dann in verschiedenen Tools wie Azure Monitor, Excel und Power BI angezeigt werden. Azure Web Application Firewall-Protokolle geben Aufschluss darüber, welche Daten die Azure WAF auswertet, abgleicht und blockiert.
 
-Azure Sentinel verfügt über eine integrierte Azure WAF-Arbeitsmappe, die einen Überblick über die Sicherheitsereignisse in der Azure WAF bietet. Diese Arbeitsmappe umfasst Ereignisse, Übereinstimmungs- und Blockierungsregeln und alle anderen Daten, die in den Firewallprotokollen aufgezeichnet werden. Diese Telemetriedaten können verwendet werden, um die Playbookautomatisierung zu starten, um zu benachrichtigen oder auf Grundlage von mit Sentinel erfassten WAF-Ereignissen Korrekturmaßnahmen zu ergreifen.
+Azure Sentinel verfügt über eine integrierte Azure WAF-Arbeitsmappe, die einen Überblick über die Sicherheitsereignisse in der Azure WAF bietet. Diese Arbeitsmappe umfasst Ereignisse, Übereinstimmungs- und Blockierungsregeln und alle anderen Daten, die in den Firewallprotokollen aufgezeichnet werden. Diese Telemetriedaten können verwendet werden, um die Playbookautomatisierung zu starten, um zu benachrichtigen oder auf Grundlage von mit Azure Sentinel erfassten WAF-Ereignissen Korrekturmaßnahmen zu ergreifen.
 
 - [Anzeigen von Aktivitätsprotokollen](../azure-resource-manager/management/view-activity-logs.md)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088937"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537795"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gewusst wie: Verwenden von Text Analytics for Health (Vorschauversion)
 
@@ -113,6 +113,9 @@ Ein Dokument darf maximal 5.120 Zeichen enthalten. Die maximal zulässige Anzahl
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Strukturieren der API-Anforderung für die gehostete asynchrone Web-API
 
 Sowohl für den Container als auch die gehostete Web-API müssen Sie eine POST-Anforderung erstellen. Sie können mithilfe von [Postman](text-analytics-how-to-call-api.md), einem cURL-Befehl oder der **API-Testkonsole** in der [Referenz zur gehosteten API für Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) schnell eine POST-Anforderung erstellen und an die gehostete Web-API in Ihrer gewünschten Region senden. 
+
+> [!NOTE]
+> Die asynchronen Endpunkte `/analyze` und `/health` sind nur in den folgenden Regionen verfügbar: USA, Westen 2; USA, Osten 2; USA, Mitte; Europa, Norden; Europa, Westen.  Um erfolgreiche Anforderungen an diese Endpunkte zu stellen, stellen Sie sicher, dass Ihre Ressource in einer dieser Regionen erstellt wurde.
 
 Nachstehend finden Sie ein Beispiel für eine JSON-Datei, die an den POST-Text der Text Analytics for Health-API-Anforderung angefügt ist:
 

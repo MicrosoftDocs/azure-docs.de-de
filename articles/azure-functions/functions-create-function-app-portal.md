@@ -4,18 +4,21 @@ description: Erfahren Sie, wie Sie Ihre erste Azure-Funktion für die serverlose
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: bebef4e8964576b968af8f8aebd06030ca0d0227
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222716"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980938"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Erstellen Ihrer ersten Funktion im Azure-Portal
 
 Mit Azure Functions können Sie Ihren Code in einer serverlosen Umgebung ausführen, ohne vorher einen virtuellen Computer zu erstellen oder eine Webanwendung zu veröffentlichen. In diesem Artikel erfahren Sie, wie Sie Azure Functions verwenden können, um eine HTTP-Triggerfunktion „Hello World“ im Azure-Portal zu erstellen.
 
-Es wird empfohlen, [Ihre Funktionen lokal zu entwickeln](functions-develop-local.md) und in einer Funktions-App in Azure zu veröffentlichen.  
+>[!NOTE]
+>Die Bearbeitung im Portal wird nur für JavaScript-, PowerShell-, TypeScript- und C#-Skriptfunktionen unterstützt.<br><br>Für Funktionen der C#-Klassenbibliothek und für Java- und Python-Funktionen können Sie die Funktions-App im Portal erstellen, Sie müssen die Funktionen jedoch auch lokal erstellen und sie dann für Azure veröffentlichen. 
+
+Es wird empfohlen, [Ihre Funktionen stattdessen lokal zu entwickeln](functions-develop-local.md) und in einer Funktions-App in Azure zu veröffentlichen.  
 Die folgenden Links bieten Informationen zum Einstieg mit der von Ihnen bevorzugten lokalen Entwicklungsumgebung und Sprache:
 
 | Visual Studio Code | Terminal/Eingabeaufforderung | Visual Studio |

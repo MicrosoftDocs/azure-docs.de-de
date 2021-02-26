@@ -1,21 +1,18 @@
 ---
 title: Kopieren von Daten aus einer lokalen SQL Server-Datenbank nach Azure mithilfe von PowerShell
 description: Dieses PowerShell-Skript kopiert Daten aus einer SQL Server-Datenbank in eine Azure Blob Storage-Instanz.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632231"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373384"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Verwenden von PowerShell zum Erstellen einer Data Factory-Pipeline zum Kopieren von SQL Server-Daten in Azure
 
@@ -27,12 +24,12 @@ Dieses PowerShell-Beispielskript erstellt eine Pipeline in Azure Data Factory, d
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- **SQL Server** . In diesem Beispiel verwenden Sie eine SQL Server-Datenbank als **Quelldatenspeicher** .
-- **Azure Storage-Konto** . In diesem Beispiel verwenden Sie Azure Blob Storage als **Ziel-/Senkendatenspeicher** . Wenn Sie kein Azure Storage-Konto haben, finden Sie im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md) Schritte zum Erstellen eines Azure Storage-Kontos.
-- **Selbstgehostete Integration Runtime** . Laden Sie die MSI-Datei aus dem [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) herunter, und führen Sie sie aus, um eine selbstgehostete Integration Runtime auf Ihrem Computer zu installieren.  
+- **SQL Server**. In diesem Beispiel verwenden Sie eine SQL Server-Datenbank als **Quelldatenspeicher**.
+- **Azure Storage-Konto**. In diesem Beispiel verwenden Sie Azure Blob Storage als **Ziel-/Senkendatenspeicher**. Wenn Sie kein Azure Storage-Konto haben, finden Sie im Artikel [Erstellen eines Speicherkontos](../../storage/common/storage-account-create.md) Schritte zum Erstellen eines Azure Storage-Kontos.
+- **Selbstgehostete Integration Runtime**. Laden Sie die MSI-Datei aus dem [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) herunter, und führen Sie sie aus, um eine selbstgehostete Integration Runtime auf Ihrem Computer zu installieren.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Erstellen einer Beispieldatenbank in SQL Server
-1. Erstellen Sie in der SQL Server-Datenbank eine Tabelle namens **emp** . Verwenden Sie dazu das folgende SQL-Skript:
+1. Erstellen Sie in der SQL Server-Datenbank eine Tabelle namens **emp**. Verwenden Sie dazu das folgende SQL-Skript:
 
    ```sql   
      CREATE TABLE dbo.emp

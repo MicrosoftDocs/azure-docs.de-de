@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001880"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980200"
 ---
 # <a name="blob-versioning"></a>Blobversionsverwaltung
 
@@ -37,6 +37,10 @@ Informationen zum Aktivieren der Blobversionsverwaltung finden Sie unter [Aktivi
 Eine Version erfasst den Zustand eines Blobs zu einem bestimmten Zeitpunkt. Wenn Blobversionsverwaltung für ein Speicherkonto aktiviert ist, erstellt Azure Storage automatisch jedes Mal eine neue Version eines Blobs, wenn dieses Blob geändert oder gelöscht wird.
 
 Wenn Sie ein Blob mit aktivierter Versionsverwaltung erstellen, entspricht das neue Blob der aktuellen Version des Blobs (oder des Basisblobs). Wenn Sie dieses Blob anschließend ändern, erstellt Azure Storage eine Version, die den Zustand des Blobs vor der Änderung erfasst. Das geänderte Blob wird zur neuen aktuellen Version. Wenn Sie das Blob ändern, wird jedes Mal eine neue Version erstellt.
+
+Die folgende Abbildung zeigt, wie Versionen bei Schreib- und Löschvorgängen erstellt werden und wie eine Vorgängerversion auf die aktuelle Version heraufgestuft werden kann:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Abbildung zur Veranschaulichung der Funktionsweise der Blobversionsverwaltung":::
 
 Wenn eine große Anzahl von Versionen pro Blob vorhanden ist, kann sich die Latenz bei Auflistungsvorgängen für Blobs erhöhen. Microsoft empfiehlt die Beibehaltung von weniger als 1000 Versionen pro Blob. Sie können die Lebenszyklusverwaltung verwenden, um alte Versionen automatisch zu löschen. Weitere Informationen zur Lebenszyklusverwaltung finden Sie unter [Optimieren der Kosten durch Automatisieren der Azure Blob Storage-Zugriffsebenen](storage-lifecycle-management-concepts.md).
 

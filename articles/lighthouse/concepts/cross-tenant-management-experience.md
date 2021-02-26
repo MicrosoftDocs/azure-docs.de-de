@@ -1,14 +1,14 @@
 ---
 title: Mandantenübergreifende Verwaltungsmöglichkeiten
 description: Die delegierte Azure-Ressourcenverwaltung ermöglicht eine mandantenübergreifende Verwaltungserfahrung.
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881400"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981084"
 ---
 # <a name="cross-tenant-management-experiences"></a>Mandantenübergreifende Verwaltungsmöglichkeiten
 
@@ -98,6 +98,7 @@ Die meisten Aufgaben und Dienste können auf delegierten Ressourcen über verwal
 - Anzeigen von Warnungen für delegierte Abonnements mit der Möglichkeit, Warnungen in allen Abonnements anzuzeigen und zu aktualisieren
 - Anzeigen von Aktivitätsprotokolldetails für delegierte Abonnements
 - [Protokollanalyse](../../azure-monitor/platform/service-providers.md): Abfragen von Daten aus Remotearbeitsbereichen in mehreren Mandanten. (Beachten Sie, dass Automation-Konten, die für den Zugriff auf Daten aus Arbeitsbereichen in Kundenmandanten verwendet werden, im selben Mandanten erstellt werden müssen.)
+- [Erstellen, Anzeigen und Verwalten von Aktivitätsprotokollwarnungen](../../azure-monitor/platform/alerts-activity-log.md) in Kundenmandanten
 - Erstellen von Warnungen in Kundenmandanten, die eine Automatisierung auslösen, wie z. B. Azure Automation-Runbooks oder Azure Functions im verwaltenden Mandanten über Webhooks
 - Erstellen von [Diagnoseeinstellungen](../..//azure-monitor/platform/diagnostic-settings.md) in Kundenmandanten zum Senden von Ressourcenprotokollen an Arbeitsbereiche im verwaltenden Mandanten
 - Für SAP-Workloads sollten Sie [die Metriken von SAP-Lösungen mit einer aggregierten Sicht über Kundenmandanten hinweg überwachen](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
@@ -142,7 +143,7 @@ Die meisten Aufgaben und Dienste können auf delegierten Ressourcen über verwal
 
 - Verwalten von Azure Sentinel-Ressourcen [in Kundenmandanten](../../sentinel/multiple-tenants-service-providers.md)
 - [Verfolgen von Angriffen und Anzeigen von Sicherheitswarnungen für mehrere Mandanten](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Anzeigen von Vorfällen](../../sentinel/multiple-workspace-view.md) in mehreren Sentinel-Arbeitsbereichen in verschiedenen Mandanten
+- [Anzeigen von Vorfällen](../../sentinel/multiple-workspace-view.md) in mehreren Azure Sentinel-Arbeitsbereichen in verschiedenen Mandanten
 
 [Azure Service Health](../../service-health/index.yml):
 
@@ -164,6 +165,7 @@ Die meisten Aufgaben und Dienste können auf delegierten Ressourcen über verwal
 Supportanfragen:
 
 - [Öffnen von Supportanfragen über das Blatt **Hilfe und Support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) im Azure-Portal für delegierte Ressourcen (durch Auswahl des für den delegierten Bereich verfügbaren Supportplans)
+- Anzeigen und Verwalten von Kontingenten für Azure-Dienste für delegierte Kundenressourcen mit der [Azure-Kontingent-API](/rest/api/reserved-vm-instances/quotaapi)
 
 ## <a name="current-limitations"></a>Aktuelle Einschränkungen
 

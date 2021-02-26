@@ -3,14 +3,14 @@ title: Ausführen von Azure Automation-Runbooks in einem Hybrid Runbook Worker
 description: In diesem Artikel wird beschrieben, wie Sie Runbooks auf Computern in Ihrem lokalen Rechenzentrum oder bei anderen Cloudanbietern mit dem Hybrid Runbook Worker ausführen.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301540"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220972"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ausführen von Runbooks in einer Hybrid Runbook Worker-Instanz
 
@@ -22,7 +22,7 @@ Wenn Sie ein Runbook zur Ausführung auf einem Hybrid Runbook Worker erstellen, 
 
 Azure Automation behandelt Aufträge in Hybrid Runbook Workern anders als Aufträge, die in Azure-Sandboxes ausgeführt werden. Bei einem zeitintensiven Runbook müssen Sie sicherstellen, dass das Runbook auch nach einem möglichen Neustart stabil läuft. Ausführliche Informationen zum Auftragsverhalten finden Sie unter [Hybrid Runbook Worker-Aufträge](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Aufträge für Hybrid Runbook Worker werden unter Windows mit dem lokalen Konto **System** oder unter Linux mit dem Konto **nxautomation** ausgeführt. Stellen Sie unter Linux sicher, dass das Konto **nxautomation** Zugriff auf den Speicherort der Runbookmodule hat. Wenn Sie das Cmdlet [Install-Module](/powershell/module/powershellget/install-module) verwenden, stellen Sie sicher, dass Sie „AllUsers“ für den Parameter `Scope` angeben, um sicherzustellen, dass das Konto **nxautomation** Zugriff hat. Weitere Informationen zu PowerShell unter Linux finden Sie unter [Bekannte Probleme bei PowerShell auf anderen Plattformen als Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
+Aufträge für Hybrid Runbook Worker werden unter Windows mit dem lokalen Konto **System** oder unter Linux mit dem Konto **nxautomation** ausgeführt. Stellen Sie unter Linux sicher, dass das Konto **nxautomation** Zugriff auf den Speicherort der Runbookmodule hat. Wenn Sie das Cmdlet [Install-Module](/powershell/module/powershellget/install-module) verwenden, stellen Sie sicher, dass Sie „AllUsers“ für den Parameter `Scope` angeben, um sicherzustellen, dass das Konto **nxautomation** Zugriff hat. Weitere Informationen zu PowerShell unter Linux finden Sie unter [Bekannte Probleme bei PowerShell auf anderen Plattformen als Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Konfigurieren von Runbookberechtigungen
 
@@ -94,6 +94,10 @@ Gehen Sie wie folgt vor, um ein ausführendes Konto für eine Hybrid Runbook W
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Installieren das Zertifikats für das ausführende Konto
 
 Im Rahmen Ihres automatisierten Buildprozesses für die Bereitstellung von Ressourcen in Azure ist es unter Umständen erforderlich, auf lokale Systeme zuzugreifen, um eine Aufgabe oder eine Reihe von Schritten in Ihrer Bereitstellungssequenz zu unterstützen. Um die Authentifizierung bei Azure mit einem ausführenden Konto zu ermöglichen, müssen Sie das Zertifikat für das ausführende Konto installieren.
+
+>[!NOTE]
+>Dieses PowerShell-Runbook wird derzeit nicht auf Linux-Computern ausgeführt. Es wird nur auf Windows-Computern ausgeführt.
+>
 
 Das folgende PowerShell-Runbook, **Export-RunAsCertificateToHybridWorker**, exportiert das Zertifikat für das ausführende Konto aus Ihrem Azure Automation-Konto. Es lädt das Zertifikat herunter und importiert es in den Zertifikatspeicher für den lokalen Computer auf einem Hybrid Runbook Worker, der mit dem gleichen Konto verbunden ist. Nach diesem Schritt überprüft das Runbook, ob der Worker sich unter Verwendung des ausführenden Kontos erfolgreich bei Azure authentifizieren kann.
 
@@ -327,4 +331,4 @@ Zur Unterstützung der Problembehandlung bei Runbooks, die auf einem Hybrid Runb
 
 * Wenn Ihre Runbooks nicht erfolgreich ausgeführt werden, lesen Sie den Problembehandlungsleitfaden zu [Fehlern bei der Ausführung von Runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Weitere Informationen zu PowerShell, einschließlich Sprachverzeichnis und Lernmodulen, finden Sie in der [PowerShell-Dokumentation](/powershell/scripting/overview).
-* Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation#automation).
+* Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation).

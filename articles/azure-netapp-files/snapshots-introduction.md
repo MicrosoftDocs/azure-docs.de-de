@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133513"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625246"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Funktionsweise von Azure NetApp Files-Momentaufnahmen
 
@@ -49,26 +49,26 @@ Gleichzeitig bleiben die Datenblöcke, auf die von einer Momentaufnahme verwiese
 
 Da in einer Volumemomentaufnahme nur die Blockänderungen seit der letzten Momentaufnahme aufgezeichnet werden, bietet sie die folgenden wichtigen Vorteile:
 
-* Momentaufnahmen sind ***speichereffizient** _.   
-    Momentaufnahmen verbrauchen nur minimalen Speicherplatz, da nicht die Datenblöcke des gesamten Volumes kopiert werden. Zwei nacheinander erstellte Momentaufnahmen unterscheiden sich nur in den Blöcken, die im Zeitraum zwischen den beiden hinzugefügt oder geändert wurden. Durch dieses blockbezogene, inkrementelle Verhalten wird die verbrauchte Speicherkapazität reduziert. Viele alternative Implementierungen für Momentaufnahmen verbrauchen Speichervolumes, die dem aktiven Dateisystem entsprechen, und erhöhen so die Speicherkapazitätsanforderungen. Abhängig von der täglichen Änderungsrate auf _Blockebene* von Anwendungen verbrauchen Azure NetApp Files-Momentaufnahmen mehr oder weniger Kapazität, jedoch nur für die geänderten Daten. Der durchschnittliche Verbrauch liegt bei täglichen Momentaufnahmen auf vielen Anwendungsvolumes bei 1–5 % der genutzten Volumekapazität bzw. bei SAP HANA-Datenbankvolumes bei 20–30 %. [Überwachen Sie den Volume- und Momentaufnahmeverbrauch](azure-netapp-files-metrics.md#volumes) auf den Kapazitätsverbrauch von Momentaufnahmen im Verhältnis zur Anzahl der erstellten und verwalteten Momentaufnahmen.   
+* Momentaufnahmen sind ***speichereffizient***.   
+    Momentaufnahmen verbrauchen nur minimalen Speicherplatz, da nicht die Datenblöcke des gesamten Volumes kopiert werden. Zwei nacheinander erstellte Momentaufnahmen unterscheiden sich nur in den Blöcken, die im Zeitraum zwischen den beiden hinzugefügt oder geändert wurden. Durch dieses blockbezogene, inkrementelle Verhalten wird die verbrauchte Speicherkapazität reduziert. Viele alternative Implementierungen für Momentaufnahmen verbrauchen Speichervolumes, die dem aktiven Dateisystem entsprechen, und erhöhen so die Speicherkapazitätsanforderungen. Abhängig von der täglichen Änderungsrate auf *Blockebene* von Anwendungen verbrauchen Azure NetApp Files-Momentaufnahmen mehr oder weniger Kapazität, jedoch nur für die geänderten Daten. Der durchschnittliche Verbrauch liegt bei täglichen Momentaufnahmen auf vielen Anwendungsvolumes bei 1–5 % der genutzten Volumekapazität bzw. bei SAP HANA-Datenbankvolumes bei 20–30 %. [Überwachen Sie den Volume- und Momentaufnahmeverbrauch](azure-netapp-files-metrics.md#volumes) auf den Kapazitätsverbrauch von Momentaufnahmen im Verhältnis zur Anzahl der erstellten und verwalteten Momentaufnahmen.   
 
-* Momentaufnahmen können ***schnell erstellt, repliziert, wiederhergestellt oder geklont** _ werden.   
+* Momentaufnahmen können ***schnell erstellt, repliziert, wiederhergestellt oder geklont*** werden.   
     Es dauert nur wenige Sekunden, eine Momentaufnahme zu erstellen, zu replizieren, wiederherzustellen oder zu klonen. Außerdem ist diese Zeit unabhängig von der Volumegröße und dem Grad an Aktivität. Sie können Volumemomentaufnahmen [bei Bedarf](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume) erstellen. Sie können auch [Momentaufnahmerichtlinien](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) verwenden, um anzugeben, wann Azure NetApp Files automatisch eine Momentaufnahme erstellen soll und wie viele Momentaufnahmen für ein Volume aufbewahrt werden sollen.  Anwendungskonsistenz erreichen Sie durch die Orchestrierung von Momentaufnahmen mit der Anwendungsschicht, beispielsweise durch die Verwendung des Tools [AzAcSnap](azacsnap-introduction.md) für SAP HANA.
 
-_ Momentaufnahmen haben keine Auswirkung auf die ***Leistung** _ des Volumes.   
+* Momentaufnahmen haben keine Auswirkung auf die ***Leistung*** des Volumes.   
     Da die zugrunde liegende Technologie eine „Umleitung beim Schreiben“ nutzt, hat das Speichern oder Beibehalten von Azure NetApp Files-Momentaufnahmen keinerlei Auswirkungen auf die Leistung – selbst bei einer hohen Datenaktivität. Auch das Löschen einer Momentaufnahme hat in den meisten Fällen nur geringe oder gar keine Auswirkungen auf die Leistung. 
 
-_ Momentaufnahmen bieten ***Skalierbarkeit** _, da sie häufig erstellt und meistens beibehalten werden können.   
+* Momentaufnahmen bieten ***Skalierbarkeit***, da sie häufig erstellt und meistens beibehalten werden können.   
     Azure NetApp Files-Volumes unterstützen bis zu 255 Momentaufnahmen. Die Möglichkeit, eine große Anzahl von häufig erstellten Momentaufnahmen mit geringer Auswirkung zu speichern, erhöht die Wahrscheinlichkeit, dass die gewünschte Version der Daten erfolgreich wiederhergestellt werden kann.
 
-_ Momentaufnahmen bieten ***Sichtbarkeit für Benutzer** _ und ermöglichen das _*_Wiederherstellen von Dateien_*_.   
+* Momentaufnahmen bieten ***Sichtbarkeit für Benutzer** _ und ermöglichen das _*_Wiederherstellen von Dateien_**.   
 Die hohe Leistung, Skalierbarkeit und Stabilität der Azure NetApp Files-Momentaufnahmetechnologie macht sie zur idealen Option für die Onlinesicherung zur benutzergesteuerten Wiederherstellung. Momentaufnahmen können Benutzern für das Wiederherstellen von Dateien, Verzeichnissen oder Volumes verfügbar gemacht werden. Mit zusätzlichen Lösungen können Sie Sicherungen in den Offlinespeicher kopieren oder zum Zweck der Aufbewahrung oder Notfallwiederherstellung [zwischen Regionen replizieren](cross-region-replication-introduction.md).
 
 ## <a name="ways-to-create-snapshots"></a>Optionen zum Erstellen von Momentaufnahmen   
 
 Sie können verschiedene Methoden zum Erstellen und Verwalten von Momentaufnahmen verwenden:
 
-_ Manuell (bedarfsgesteuert) mit:   
+* Manuell (bedarfsgesteuert) mit:   
     * [Azure-Portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST-API](/rest/api/netapp/snapshots), [Azure-Befehlszeilenschnittstelle](/cli/azure/netappfiles/snapshot) oder [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)-Tools
     * Skripts (siehe [Beispiele](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts))
 
@@ -161,7 +161,7 @@ Weitere Informationen zum Verwalten der Löschung von Momentaufnahmen finden Sie
 * [Problembehandlung für Momentaufnahmenrichtlinien](troubleshoot-snapshot-policies.md)
 * [Ressourcenlimits für Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video „Azure NetApp Files Snapshots 101“](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [NetApp Snapshot – NetApp Video Library](https://tv.netapp.com/detail/video/2579133646001/snapshot) (NetApp-Videothek zu NetApp Snapshot)
+* [Azure NetApp Files-Momentaufnahmen: Übersicht](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

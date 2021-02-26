@@ -8,12 +8,10 @@
       href: whats-new.md
 - name: Schnellstarts
   items:
-    - name: "Mit QnA\_Maker-Portal"
-      items:
-        - name: Erstellen einer Wissensdatenbank
-          href: Quickstarts/create-publish-knowledge-base.md
-        - name: Abfragen einer Knowledge Base
-          href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: "Erstellen einer Wissensdatenbank im QnA\_Maker-Portal"
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Abfragen einer Wissensdatenbank mit REST-APIs
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: Verwenden von Clientbibliotheken oder REST-API
       href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
@@ -30,12 +28,16 @@
       href: Concepts/azure-resources.md
     - name: Datenquellen und Inhalte
       href: Concepts/data-sources-and-content.md
+    - name: "Rollenbasierte Zugriffssteuerung von Azure (Azure\_RBAC)"
+      href: Concepts/role-based-access-control.md
     - name: Einstufungsprozess
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
     - name: Lebenszyklus der Entwicklung
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Präzise Antworten
+      href: reference-precise-answering.md
     - name: Bewährte Methoden
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -46,8 +48,15 @@
     - name: Verwalten von Azure-Ressourcen
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
-    - name: Verwalten der QnA Maker-App
+    - name: "Verwalten des QnA\_Maker-Ressourcenzugriffs"
       href: How-To/manage-qna-maker-app.md
+    - name: Einrichten des aktiven Lernens zum Verbessern der Wissensdatenbank
+      items:
+        - name: Aktivieren des Features für aktives Lernen
+          href: How-To/use-active-learning.md
+        - name: Erhalten von Vorschlägen für alternative Fragen
+          href: How-to/improve-knowledge-base.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Aktivieren des Features für aktives Lernen
       href: How-To/use-active-learning.md
     - name: Verwalten einer Wissensdatenbank
@@ -84,18 +93,10 @@
       href: Overview/language-support.md
     - name: Einschränkungen
       href: limits.md
-    - name: "Rollenbasierte Zugriffssteuerung von Azure (Azure\_RBAC)"
-      href: Concepts/role-based-access-control.md
-    - name: Aktives Lernen
-      href: Concepts/active-learning-suggestions.md
     - name: Zuverlässigkeitsbewertung
       href: Concepts/confidence-score.md
     - name: Problembehandlung
       href: troubleshooting.md
-    - name: Frage-Antwort-Paare
-      href: Concepts/question-answer-set.md
-    - name: Präzise Antworten
-      href: reference-precise-answering.md
     - name: Hinzufügen von gesicherten SharePoint-Dateien
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
@@ -105,14 +106,6 @@
       href: reference-app-service.md
     - name: Richtlinien zum Inhaltsformat
       href: reference-document-format-guidelines.md
-    - name: Inhalts- und Datenformate
-      items:
-        - name: Richtlinien zum Inhaltsformat
-          href: reference-document-format-guidelines.md
-        - name: URLs
-          href: reference-document-type-url.md
-        - name: Richtlinien zum Importieren und Exportieren von Daten
-          href: reference-data-guidelines.md
     - name: Anzeigeformat
       href: reference-markdown-format.md
     - name: Private Links

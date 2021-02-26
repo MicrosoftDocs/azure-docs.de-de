@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753634"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582552"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Abrufen eines Tokens für eine mobile App, die Web-APIs aufruft
 
@@ -26,7 +26,7 @@ Damit Ihre App geschützte Web-APIs aufrufen kann, benötigt sie ein Zugriffstok
 
 ## <a name="define-a-scope"></a>Definieren eines Bereichs
 
-Wenn Sie ein Token anfordern, müssen Sie einen Bereich definieren. Der Gültigkeitsbereich bestimmt, auf welche Daten Ihre App zugreifen kann.
+Wenn Sie ein Token anfordern, definieren Sie einen Bereich. Der Gültigkeitsbereich bestimmt, auf welche Daten Ihre App zugreifen kann.
 
 Die einfachste Vorgehensweise zum Definieren eines Bereichs besteht darin, den `App ID URI` der Web-API mit dem Bereich `.default` zu kombinieren. Diese Definition informiert Microsoft Identity Platform darüber, dass Ihre App alle im Portal festgelegten Bereiche benötigt.
 
@@ -236,7 +236,7 @@ Die Klasse definiert die folgenden Konstanten:
     Diese Option kann nützlich sein, wenn beim Tokenerwerb ein Fehler auftritt, und Sie dem Benutzer die erneute Anmeldung ermöglichen wollen. In diesem Fall sendet MSAL `prompt=login` an den Identitätsanbieter. Die Verwendung dieser Option kann in sicherheitsorientierten Anwendungen sinnvoll sein, wenn die Governance der Organisation vorschreibt, dass sich Benutzer beim Zugriff auf bestimmte Teile einer Anwendung stets erneut anmelden müssen.
 - `Never` ist nur für .NET 4.5 und Windows Runtime (WinRT) verfügbar. Mit dieser Konstante ergeht keine Aufforderung an den Benutzer, vielmehr wird versucht, das in der verborgenen eingebetteten Webansicht gespeicherte Cookie zu verwenden. Weitere Informationen finden Sie unter [Verwenden von Webbrowsern mit MSAL.NET](./msal-net-web-browsers.md).
 
-    Wenn bei dieser Option ein Fehler auftritt, löst `AcquireTokenInteractive` eine Ausnahme aus, um Sie zu informieren, dass ein Eingriff an der Benutzeroberfläche erforderlich ist. Dann müssen Sie einen anderen `Prompt`-Parameter verwenden.
+    Wenn bei dieser Option ein Fehler auftritt, löst `AcquireTokenInteractive` eine Ausnahme aus, um Sie zu informieren, dass ein Eingriff an der Benutzeroberfläche erforderlich ist. Verwenden Sie dann einen anderen `Prompt`-Parameter.
 - `NoPrompt` sendet keine Eingabeaufforderung an den Identitätsanbieter.
 
     Diese Option ist nur für Richtlinien für die Profilbearbeitung in Azure Active Directory B2C nützlich. Weitere Informationen finden Sie unter [Spezifische Informationen zu B2C](https://aka.ms/msal-net-b2c-specificities).

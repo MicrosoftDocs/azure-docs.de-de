@@ -1,35 +1,36 @@
 ---
 title: Einrichten einer Stagingumgebung in Azure Spring Cloud | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie die Blaugrün-Bereitstellung mit Azure Spring Cloud verwenden.
-author: bmitchell287
+author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090708"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574728"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Einrichten einer Stagingumgebung in Azure Spring Cloud
 
 **Dieser Artikel gilt für:** ✔️ Java
 
-In diesem Artikel wird erläutert, wie Sie unter Verwendung des Blaugrün-Bereitstellungsmusters in Azure Spring Cloud eine Stagingbereitstellung einrichten. Die Blau/Grün-Bereitstellung ist ein Azure DevOps-Muster für Continuous Delivery, bei dem eine vorhandene Version (blau) live bleibt, während eine neue Version (grün) bereitgestellt wird. In diesem Artikel wird außerdem gezeigt, wie Sie diese Stagingbereitstellung in die Produktion überführen, ohne die Produktionsbereitstellung direkt zu ändern.
+In diesem Artikel wird erläutert, wie Sie unter Verwendung des Blau-Grün-Bereitstellungsmusters in Azure Spring Cloud eine Stagingbereitstellung einrichten. Die Blau-Grün-Bereitstellung ist ein Azure DevOps-Muster für Continuous Delivery, bei dem eine vorhandene Version (blau) live bleibt, während eine neue Version (grün) bereitgestellt wird. In diesem Artikel wird außerdem gezeigt, wie Sie diese Stagingbereitstellung in die Produktion überführen, ohne die Produktionsbereitstellung zu ändern.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In diesem Artikel wird davon ausgegangen, dass Sie die PiggyMetrics-Anwendung aus dem [Tutorial zum Starten einer Azure Spring Cloud-Anwendung](./spring-cloud-quickstart.md) bereits bereitgestellt haben. PiggyMetrics umfasst drei Anwendungen: „gateway“, „account-service“ und „auth-service“.  
+* Azure Spring Cloud-Instanz im *Standard*-**Tarif**
+* Azure-Befehlszeilenschnittstelle mit [Azure Spring Cloud-Erweiterung](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
-Wenn Sie eine andere Anwendung für dieses Beispiel verwenden möchten, müssen Sie eine kleine Änderung am öffentlichen Teil der Anwendung vornehmen.  Durch diese Änderung wird die Stagingbereitstellung von der Produktion unterschieden.
+In diesem Artikel wird eine Anwendung verwendet, die mit dem Spring Initializr erstellt wurde. Wenn Sie für dieses Beispiel eine andere Anwendung verwenden möchten, müssen Sie am öffentlichen Teil der Anwendung eine kleine Änderung vornehmen, um die Stagingbereitstellung von der Produktion zu unterscheiden.
 
 >[!TIP]
 > Azure Cloud Shell ist eine kostenlose interaktive Shell, mit der Sie die Anweisungen in diesem Artikel ausführen können.  Sie verfügt über allgemeine vorinstallierte Azure-Tools, u. a. die aktuellen Versionen von Git, JDK, Maven und der Azure-Befehlszeilenschnittstelle. Wenn Sie bei Ihrem Azure-Abonnement angemeldet sind, starten Sie die [Azure Cloud Shell](https://shell.azure.com).  Weitere Informationen finden Sie in der [Übersicht über Azure Cloud Shell](../cloud-shell/overview.md).
 
-Befolgen Sie die Anweisungen in den nächsten Abschnitten, um eine Stagingumgebung in Azure Spring Cloud einzurichten.
+Befolgen Sie die Anweisungen in den nächsten Abschnitten, um Blau-Grün-Bereitstellungen in Azure Spring Cloud einzurichten.
 
 ## <a name="install-the-azure-cli-extension"></a>Installieren der Erweiterung für die Azure-Befehlszeilenschnittstelle
 
@@ -38,35 +39,94 @@ Führen Sie den folgenden Befehl aus, um die Azure Spring Cloud-Erweiterung für
 ```azurecli
 az extension add --name spring-cloud
 ```
-    
-## <a name="view-all-deployments"></a>Anzeigen aller Bereitstellungen
+## <a name="prepare-app-and-deployments"></a>Vorbereiten von App und Bereitstellungen
+Führen Sie die folgenden Schritte aus, um diese Anwendung zu erstellen:
+1. Generieren Sie den Code für die Beispiel-App mit dem Spring Initializr und [dieser Konfiguration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
 
-Navigieren Sie im Azure-Portal zu Ihrer Dienstinstanz, und wählen Sie **Bereitstellungsverwaltung** aus, um alle Bereitstellungen anzuzeigen. Wählen Sie bei Bedarf die einzelnen Bereitstellungen aus, um weitere Details anzuzeigen.
+2. Laden Sie den Code herunter.
+3. Fügen Sie die folgende Quelldatei „HelloController.java“ im Ordner `\src\main\java\com\example\hellospring\` hinzu.
+```java
+package com.example.hellospring; 
+import org.springframework.web.bind.annotation.RestController; 
+import org.springframework.web.bind.annotation.RequestMapping; 
 
-## <a name="create-a-staging-deployment"></a>Erstellen einer Stagingbereitstellung
+@RestController 
 
-1. Nehmen Sie in Ihrer lokalen Entwicklungsumgebung eine kleine Änderung an der PiggyMetrics-Gatewayanwendung vor. Ändern Sie beispielsweise die Farbe in der Datei *gateway/src/main/resources/static/css/launch.css*. Auf diese Weise können Sie die beiden Bereitstellungen problemlos unterscheiden. Führen Sie den folgenden Befehl aus, um das JAR-Paket zu erstellen: 
+public class HelloController { 
 
-    ```console
-    mvn clean package
-    ```
+@RequestMapping("/") 
 
-1. Erstellen Sie in der Azure CLI eine neue Bereitstellung, und geben Sie Ihr den Stagingbereitstellungsnamen „green“.
+  public String index() { 
 
-    ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
-    ```
+      return "Greetings from Azure Spring Cloud!"; 
+  } 
 
-1. Wenn die Bereitstellung erfolgreich abgeschlossen wurde, navigieren Sie über das **Anwendungsdashboard** zur Gatewayseite. Alle Ihre Instanzen werden links auf der Registerkarte **App Instances** (App-Instanzen) angezeigt.
-  
-> [!NOTE]
-> Der Ermittlungsstatus lautet *OUT_OF_SERVICE*. Daher wird erst dann Datenverkehr an diese Bereitstellung weitergeleitet, wenn die Überprüfung abgeschlossen ist.
+} 
+```
+4. Erstellen Sie die JAR-Datei:
+```azurecli
+mvn clean packge -DskipTests
+```
+5. Erstellen Sie die App in Ihrer Azure Spring Cloud-Instanz:
+```azurecli
+az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --is-public
+```
+6. Stellen Sie die App in Azure Spring Cloud bereit:
+```azurecli
+az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+```
+7. Ändern Sie den Code für die Stagingbereitstellung:
+```java
+package com.example.hellospring; 
+import org.springframework.web.bind.annotation.RestController; 
+import org.springframework.web.bind.annotation.RequestMapping; 
 
-## <a name="verify-the-staging-deployment"></a>Überprüfen der Stagingbereitstellung
+@RestController 
 
-1. Kehren Sie zur Seite **Bereitstellungsverwaltung** zurück, und wählen Sie Ihre neue Bereitstellung aus. Der Bereitstellungsstatus sollte *Wird ausgeführt* lauten. Die Schaltfläche **Assign/Unassign domain** (Domäne zuweisen/Zuweisung für Domäne aufheben) wird grau unterlegt dargestellt, da es sich bei der Umgebung um eine Stagingumgebung handelt.
+public class HelloController { 
 
-1. Im Abschnitt **Übersicht** sollte ein **Testendpunkt** angezeigt werden. Kopieren Sie ihn, und fügen Sie ihn in einem neuen Browserfenster ein. Die neue PiggyMetrics-Seite wird angezeigt.
+@RequestMapping("/") 
+
+  public String index() { 
+
+      return "Greetings from Azure Spring Cloud! THIS IS THE GREEN DEPLOYMENT"; 
+  } 
+
+} 
+```
+8. Erstellen Sie die JAR-Datei neu:
+```azurecli
+mvn clean packge -DskipTests
+```
+9. Erstellen Sie die Grün-Bereitstellung: 
+```azurecli
+az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar 
+```
+
+## <a name="view-apps-and-deployments"></a>Anzeigen von Apps und Bereitstellungen
+
+Bereitgestellte Apps können wie folgt angezeigt werden:
+
+1. Navigieren Sie im Azure-Portal zu Ihrer Azure Spring Cloud-Instanz.
+
+1. Öffnen Sie über den Navigationsbereich auf der linken Seite das Blatt „Apps“, um Apps für Ihre Dienstinstanz anzuzeigen.
+
+    [ ![Apps-dashboard](media/spring-cloud-blue-green-staging/app-dashboard.png)](media/spring-cloud-blue-green-staging/app-dashboard.png)
+
+1. Sie können auf eine App klicken und Details anzeigen.
+
+    [ ![Apps-overview](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
+
+1. Öffnen Sie **Bereitstellungen**, um alle Bereitstellungen der App anzuzeigen. Das Raster zeigt die Produktions- und Stagingbereitstellungen.
+
+    [ ![Dashboard mit Apps/Bereitstellungen](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+
+1. Klicken Sie auf die URL, um die aktuell bereitgestellte Anwendung zu öffnen.
+    ![URL der Bereitstellung](media/spring-cloud-blue-green-staging/running-blue-app.png)
+1. Klicken Sie in der Spalte **State** (Status) auf **Production**, um die Standard-App anzuzeigen.
+    ![Standard ausgeführt](media/spring-cloud-blue-green-staging/running-default-app.png)
+1. Klicken Sie in der Spalte **State** (Status) auf **Staging**, um die Staging-App anzuzeigen.
+    ![Staging ausgeführt](media/spring-cloud-blue-green-staging/running-staging-app.png)
 
 >[!TIP]
 > * Vergewissern Sie sich, dass der Testendpunkt mit einem Schrägstrich (/) endet, um sicherzustellen, dass die CSS-Datei richtig geladen wird.  
@@ -76,14 +136,18 @@ Navigieren Sie im Azure-Portal zu Ihrer Dienstinstanz, und wählen Sie **Bereits
 > Die Konfigurationsservereinstellungen gelten sowohl für die Stagingumgebung als auch für die Produktion. Beispiel: Wenn Sie als Kontextpfad (`server.servlet.context-path`) für App Gateway auf dem Konfigurationsserver *somepath* festgelegt haben, ändert sich der Pfad zu Ihrer grünen Bereitstellung in „https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...“.
  
  Wenn Sie jetzt die öffentliche App Gateway-Instanz aufrufen, wird die alte Seite ohne die Änderung angezeigt.
-    
+
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>Festlegen der grünen Bereitstellung als Produktionsumgebung
 
-1. Nachdem Sie die Änderung in Ihrer Stagingumgebung überprüft haben, können Sie sie in die Produktion überführen. Kehren Sie zur Seite **Bereitstellungsverwaltung** zurück, und aktivieren Sie das Kontrollkästchen für die Anwendung **gateway**.
+1. Nachdem Sie die Änderung in Ihrer Stagingumgebung überprüft haben, können Sie sie in die Produktion überführen. Wählen Sie auf der Seite **Apps**/**Bereitstellungen** die Anwendung aus, die derzeit den Status `Production` aufweist.
 
-2. Wählen Sie **Set deployment** (Bereitstellung festlegen) aus.
-3. Wählen Sie in der Liste **Produktionsbereitstellung** die Option **Grün** und anschließend **Anwenden** aus.
-4. Navigieren Sie zur Seite **Übersicht** der Gatewayanwendung. Wenn Sie bereits eine Domäne für Ihre Gatewayanwendung zugewiesen haben, wird die URL auf der Seite **Übersicht** angezeigt. Wählen Sie URL aus, und navigieren Sie zur Website, um die geänderte PiggyMetrics-Seite anzuzeigen.
+1. Klicken Sie auf die Ellipse hinter dem **Registrierungsstatus** der Grün-Bereitstellung, und ändern Sie ihren Status mit der Option „Als Produktion festlegen“. 
+
+   [ ![„Als Produktion festlegen“ für Stagingbereitstellung](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+
+1. Die URL der App sollte Ihre Änderungen widerspiegeln.
+
+   ![Staging jetzt in der Bereitstellung](media/spring-cloud-blue-green-staging/new-production-deployment.png)
 
 >[!NOTE]
 > Sobald die grüne Bereitstellung als Produktionsumgebung festgelegt wurde, wird die vorherige Bereitstellung zur Stagingbereitstellung.
@@ -108,4 +172,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Schnellstart: Bereitstellen Ihrer ersten Azure Spring Cloud-Anwendung](spring-cloud-quickstart.md)
+* [CI/CD für Azure Spring Cloud](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-cicd?branch=pr-en-us-142929&pivots=programming-language-java)

@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 08/10/2020
-  ms.openlocfilehash: 396b32a9f84895532c8c233b5c7ccc3d2ce85c11
-  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+  ms.openlocfilehash: a39493fd0a1487602fd9cd2ad81fa81900f860d2
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96937303"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100652699"
 landingContent:
 - title: Informationen zu Azure Communication Services
   linkLists:
@@ -78,7 +78,7 @@ landingContent:
       url: concepts/telephony-sms/sdk-features.md
     - text: Übersicht über Anrufe
       url: concepts/voice-video-calling/calling-sdk-features.md
-    - text: Planen Ihrer Telefonie- und SMS-Lösung
+    - text: Telefonnummerntypen
       url: concepts/telephony-sms/plan-solution.md
 - title: Chat
   linkLists:

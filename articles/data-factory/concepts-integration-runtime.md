@@ -1,22 +1,18 @@
 ---
 title: Integrationslaufzeit
 description: Enthält Informationen zur Integrationslaufzeit in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636645"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389942"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integrationslaufzeit in Azure Data Factory 
 
@@ -24,7 +20,7 @@ ms.locfileid: "92636645"
 
 Bei der Integrationslaufzeit (Integration Runtime, IR) handelt es sich um die Computeinfrastruktur, mit der Azure Data Factory die folgenden Datenintegrationsfunktionen für verschiedene Netzwerkumgebungen bereitstellt:
 
-- **Datenfluss** : Ausführen eines [Datenflusses](concepts-data-flow-overview.md) in einer verwalteten Azure-Computeumgebung.  
+- **Datenfluss**: Ausführen eines [Datenflusses](concepts-data-flow-overview.md) in einer verwalteten Azure-Computeumgebung.  
 - **Datenverschiebung:** Dient zum Kopieren von Daten in Datenspeichern im öffentlichen Netzwerk und Datenspeichern im privaten Netzwerk (lokales oder virtuelles privates Netzwerk). Es wird Unterstützung für integrierte Connectors, Formatkonvertierung, Spaltenzuordnung und eine leistungsstarke und skalierbare Datenübertragung bereitgestellt.
 - **Aktivitätsverteilung:**  Dient zum Verteilen und Überwachen von Transformationsaktivitäten, die in vielen verschiedenen Computediensten wie Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL-Datenbank, SQL Server und vielen weiteren ausgeführt werden.
 - **SSIS-Paketausführung:** Dient zum nativen Ausführen von SSIS-Paketen (SQL Server Integration Services) in einer verwalteten Azure-Computeumgebung.
@@ -180,9 +176,9 @@ Im folgenden Diagramm sind die Standorteinstellungen von Data Factory und die da
 
 Für die Kopieraktivität sind hierbei verknüpfte Quellen- und Senkendienste zum Definieren der Datenflussrichtung erforderlich. Anhand der folgenden Logik wird ermittelt, welche Integrationslaufzeit-Instanz zum Durchführen des Kopiervorgangs verwendet wird: 
 
-- **Kopieren zwischen zwei Clouddatenquellen** : Wenn sowohl der verknüpfte Quelldienst als auch der verknüpfte Senkendienst die Azure IR nutzt, verwendet ADF die regionale Azure IR (sofern angegeben) oder bestimmt automatisch einen Speicherort der Azure IR, sofern Sie wie unter [Ort der Integrationslaufzeit](#integration-runtime-location) beschrieben die IR mit automatischer Auflösung (Standardeinstellung) ausgewählt haben.
-- **Kopieren zwischen einer Clouddatenquelle und einer Datenquelle im privaten Netzwerk** : Wenn entweder der verknüpfte Quellen- oder Senkendienst auf eine selbstgehostete Integrationslaufzeit zeigt, wird die Kopieraktivität unter dieser selbstgehosteten Integrationslaufzeit ausgeführt.
-- **Kopieren zwischen zwei Datenquellen im privaten Netzwerk** : Sowohl der verknüpfte Quelldienst als auch der verknüpfte Senkendienst muss auf die gleiche Integrationslaufzeit verweisen, und diese Integrationslaufzeit wird zum Ausführen der Kopieraktivität verwendet.
+- **Kopieren zwischen zwei Clouddatenquellen**: Wenn sowohl der verknüpfte Quelldienst als auch der verknüpfte Senkendienst die Azure IR nutzt, verwendet ADF die regionale Azure IR (sofern angegeben) oder bestimmt automatisch einen Speicherort der Azure IR, sofern Sie wie unter [Ort der Integrationslaufzeit](#integration-runtime-location) beschrieben die IR mit automatischer Auflösung (Standardeinstellung) ausgewählt haben.
+- **Kopieren zwischen einer Clouddatenquelle und einer Datenquelle im privaten Netzwerk**: Wenn entweder der verknüpfte Quellen- oder Senkendienst auf eine selbstgehostete Integrationslaufzeit zeigt, wird die Kopieraktivität unter dieser selbstgehosteten Integrationslaufzeit ausgeführt.
+- **Kopieren zwischen zwei Datenquellen im privaten Netzwerk**: Sowohl der verknüpfte Quelldienst als auch der verknüpfte Senkendienst muss auf die gleiche Integrationslaufzeit verweisen, und diese Integrationslaufzeit wird zum Ausführen der Kopieraktivität verwendet.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Lookup-/GetMetadata-Aktivität
 

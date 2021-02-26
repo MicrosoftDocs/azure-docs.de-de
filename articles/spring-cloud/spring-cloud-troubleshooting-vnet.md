@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887093"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935261"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Problembehandlung für Azure Spring Cloud in virtuellen Netzwerken
 
@@ -39,7 +39,7 @@ Wenn Sie die Azure Spring Cloud-Dienstinstanz mithilfe der Resource Manager-Vorl
 |------|------|
 | Von Azure Spring Cloud erstellte Ressourcen wurden von der Richtlinie nicht zugelassen. | Netzwerkressourcen werden erstellt, wenn Sie Azure Spring Cloud in Ihrem eigenen virtuellen Netzwerk bereitstellen. Überprüfen Sie, ob Sie in [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) definiert haben, diese Erstellung zu blockieren. Eine Fehlermeldung teilt mit, dass Ressourcen nicht erstellt werden konnten. |
 | Angegebene Subnetze sind Routingtabellen zugeordnet, bitte heben Sie die Zuordnung auf. | Derzeit wird die Bereitstellung von Azure Spring Cloud in Subnetzen, die vorhandenen Routingtabellen zugeordnet sind, nicht unterstützt. Heben Sie die Zuordnung auf, und versuchen Sie es erneut. |
-| Der erforderliche Datenverkehr ist nicht in der Whitelist enthalten. | Weitere Informationen, um sicherzustellen, dass der gewünschte Datenverkehr in der Whitelist enthalten ist, finden Sie unter [Kundenzuständigkeiten für die Ausführung von Azure Spring Cloud im VNET](spring-cloud-vnet-customer-responsibilities.md). |
+| Der erforderliche Datenverkehr ist nicht in der Positivliste enthalten. | Weitere Informationen dazu, wie Sie sicherstellen, dass der gewünschte Datenverkehr in der Positivliste enthalten ist, finden Sie unter [Kundenzuständigkeiten für die Ausführung von Azure Spring Cloud im VNet](spring-cloud-vnet-customer-responsibilities.md). |
 
 ## <a name="my-application-cant-be-registered"></a>Meine Anwendung kann nicht registriert werden
 

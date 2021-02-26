@@ -4,12 +4,12 @@ description: Hier finden Sie Demonstrationsvideos zum Arbeiten mit Azure-Dienste
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852607"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550440"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Anleitungsvideos für das Azure-Portal
 
@@ -17,17 +17,17 @@ In den Anleitungsvideos für das Azure-Portal wird gezeigt, wie Sie mit Azure-Di
 
 ## <a name="featured-video"></a>Vorgestelltes Video
 
-In diesem vorgestellten Video erfahren Sie, wie Sie das Azure Quickstart Center beim Einstieg in Azure untersützt.
+In diesem vorgestellten Video erfahren Sie, wie Sie Azure Cost Management-Ansichten verwenden.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Einstieg in Azure mit dem Azure Quickstart Center](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[Verwenden von Azure Cost Management-Ansichten](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Sehen Sie sich auch die folgenden aktuellen Videos an, die Sie möglicherweise verpasst haben:
 
-| [Verwalten von Anwendungen in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Erstellen von Azure-Arbeitsmappen mithilfe von Protokollen und Parametern](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Vorgehensweise beim Hinzufügen und Sichern einer benutzerdefinierten Domäne in der App Service-Web-App](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [Verwenden von ovalen Steuerelementen zum Filtern im Azure-Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Abrufen einer Visualisierungsansicht Ihrer Ressourcen](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Anheften von Inhalten an Ihr Dashboard im Azure-Portal](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Abbildung eines YouTube-Videos über das Verwalten von Anwendungen in Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Abbildung eines YouTube-Videos über das Erstellen von Azure-Arbeitsmappen mithilfe von Protokollen und Parametern](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Abbildung eines YouTube-Videos zum Hinzufügen und Sichern einer benutzerdefinierten Domäne in der App Service-Web-App](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![Abbildung des YouTube-Videos zum Verwenden von ovalen Steuerelementen zum Filtern im Azure-Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Abbildung des YouTube-Videos zum Abrufen einer Visualisierungsansicht Ihrer Ressourcen](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Abbildung des YouTube-Videos zum Anheften von Inhalten an Ihr Dashboard im Azure-Portal](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>Wiedergabeliste
 

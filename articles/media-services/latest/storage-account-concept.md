@@ -1,24 +1,9 @@
 ---
-title: Azure-Speicherkonten
-titleSuffix: Azure Media Services
-description: Erfahren Sie, wie Sie ein Azure-Speicherkonto für die Verwendung mit Azure Media Services erstellen.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882245"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Pflichtfelder. Weitere Informationen finden Sie unter aka.ms/skyeye/meta.
+Titel: Azure-Speicherkonten: Azure Media Services description: Erfahren Sie, wie Sie ein Azure-Speicherkonto für die Verwendung mit Azure Media Services erstellen.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 01/29/2021 ms.author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Azure Storage-Konten
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -34,7 +19,7 @@ Wir empfehlen Ihnen, GPv2 zu verwenden, damit Sie in den Genuss der aktuellen Fe
 > [!NOTE]
 > Nur die heiße Zugriffsebene wird für die Verwendung mit Azure Media Services unterstützt. Die anderen Zugriffsebenen können aber verwendet werden, um Speicherkosten für Inhalt zu reduzieren, der nicht aktiv genutzt wird.
 
-Es gibt verschiedene SKUs, die Sie für Ihr Speicherkonto auswählen können. Weitere Informationen finden Sie unter [Storage accounts](/cli/azure/storage/account?view=azure-cli-latest) (Speicherkonten). Falls Sie mit Speicherkonten experimentieren möchten, verwenden Sie `--sku Standard_LRS`. Wenn Sie eine SKU für die Produktion auswählen, sollten Sie jedoch die Verwendung von `--sku Standard_RAGRS` erwägen, da diese Option geografische Replikation zum Gewährleisten der Geschäftskontinuität bietet.
+Es gibt verschiedene SKUs, die Sie für Ihr Speicherkonto auswählen können. Falls Sie mit Speicherkonten experimentieren möchten, verwenden Sie `--sku Standard_LRS`. Wenn Sie eine SKU für die Produktion auswählen, sollten Sie jedoch die Verwendung von `--sku Standard_RAGRS` erwägen, da diese Option geografische Replikation zum Gewährleisten der Geschäftskontinuität bietet.
 
 ## <a name="assets-in-a-storage-account"></a>Medienobjekte in einem Speicherkonto
 
@@ -49,14 +34,15 @@ Zum Schutz Ihrer im Ruhezustand befindlichen Medienobjekte sollten die Medienobj
 
 |Verschlüsselungsoption|BESCHREIBUNG|Media Services v3|
 |---|---|---|
-|Media Services-Speicherverschlüsselung| AES-256-Verschlüsselung, Schlüssel von Media Services verwaltet. |Nicht unterstützt.<sup>(1)</sup>|
+|Media Services-Speicherverschlüsselung| AES-256-Verschlüsselung, Schlüssel von Media Services verwaltet. |Nicht unterstützt.<sup>1</sup>|
 |[Speicherdienstverschlüsselung für ruhende Daten](../../storage/common/storage-service-encryption.md)|Durch Azure Storage angebotene serverseitige Verschlüsselung – Schlüssel wird von Azure oder vom Kunden verwaltet.|Unterstützt.|
 |[Clientseitige Speicherverschlüsselung](../../storage/common/storage-client-side-encryption.md)|Durch Azure Storage angebotene clientseitige Verschlüsselung – Schlüssel wird vom Kunden in Key Vault verwaltet.|Wird nicht unterstützt.|
 
 <sup>1</sup> In Media Services v3 wird Speicherverschlüsselung (AES-256-Verschlüsselung) nur für die Abwärtskompatibilität unterstützt, wenn Ihre Medienobjekte mit Media Services v2 erstellt wurden. Dies bedeutet, dass v3 mit vorhandenen speicherverschlüsselten Medienobjekten funktioniert, jedoch keine Erstellung von neuen zulässt.
 
-## <a name="double-encryption"></a>Doppelte Verschlüsselung
-Media Services unterstützt die Mehrfachverschlüsselung.  Weitere Informationen dazu finden Sie unter [Mehrfachverschlüsselung in Azure](../../security/fundamentals/double-encryption.md).
+## <a name="storage-account-double-encryption"></a>Speicherkonto: Mehrfachverschlüsselung
+
+Speicherkonten unterstützen die Mehrfachverschlüsselung, aber die zweite Ebene muss explizit aktiviert werden. Weitere Informationen finden Sie unter [Azure Storage-Verschlüsselung für ruhende Daten](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Speicherkontofehler
 
@@ -68,10 +54,6 @@ Unten sind die wichtigsten Szenarien aufgeführt, die bewirken, dass ein Media S
 |---|---|
 |Das Media Services-Konto oder angefügte Speicherkonten wurden zu separaten Abonnements migriert. |Migrieren Sie das bzw. die Speicherkonten oder das Media Services-Konto, damit diese Komponenten sich alle unter demselben Abonnement befinden. |
 |Für das Media Services-Konto wird ein angefügtes Speicherkonto unter einem anderen Abonnement verwendet, da es sich um ein frühes Media Services-Konto handelt, für das dies unterstützt wurde. Alle frühen Media Services-Konten wurden in moderne, Azure Resources Manager-basierte Konten konvertiert und weisen den Status „Getrennt“ auf. |Migrieren Sie das Speicherkonto oder Media Services-Konto, damit diese Komponenten sich alle unter demselben Abonnement befinden.|
-
-## <a name="azure-storage-firewall"></a>Azure Storage-Firewall
-
-Azure Media Services unterstützt keine Speicherkonten, bei denen die Azure Storage-Firewall oder [private Endpunkte](../../storage/common/storage-network-security.md) aktiviert sind.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

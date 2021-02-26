@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757710"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555138"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Wichtige bevorstehende Änderungen an Azure Security Center
 
@@ -31,39 +31,9 @@ Die neuesten Versionshinweise finden Sie unter [Neuerungen in Azure Security Cen
 
 ## <a name="planned-changes"></a>Geplante Änderungen
 
-- [Empfehlungen zum Schutz von Kubernetes-Workloads bald allgemein verfügbar](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Zwei Empfehlungen der Sicherheitskontrolle „Systemupdates anwenden“ als veraltet eingestuft](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Verbesserungen für die Empfehlung zur SQL-Datenklassifizierung](#enhancements-to-sql-data-classification-recommendation)
-
-
-### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Empfehlungen zum Schutz von Kubernetes-Workloads bald allgemein verfügbar
-
-**Geschätztes Datum für die Änderung:** Januar 2021
-
-Die unter [Schützen Ihrer Kubernetes-Workloads](kubernetes-workload-protections.md) beschriebenen Empfehlungen zum Schutz von Kubernetes-Workloads befinden sich derzeit in der Vorschauphase. Während der Vorschauphase einer Empfehlung werden Ressourcen durch diese Empfehlung nicht in einen fehlerhaften Zustand versetzt, und sie wird nicht in die Berechnungen Ihrer Sicherheitsbewertung einbezogen.
-
-Diese Empfehlungen werden in Kürze allgemein verfügbar gemacht, wodurch sie dann auch *in die Bewertungsberechnung einbezogen werden*. Falls Sie sie noch nicht umgesetzt haben, kann sich dies geringfügig auf Ihre Sicherheitsbewertung auswirken.
-
-Setzen Sie sie nach Möglichkeit um. (Eine entsprechende Anleitung finden Sie unter [Umsetzen von Empfehlungen in Azure Security Center](security-center-remediate-recommendations.md).)
-
-Die Empfehlungen zum Schutz von Kubernetes-Workloads umfassen Folgendes:
-
-- Azure Policy-Add-On für Kubernetes muss auf Ihren Clustern installiert und aktiviert sein
-- Für Container müssen CPU- und Arbeitsspeicherlimits erzwungen werden
-- Privilegierte Container müssen vermieden werden
-- Unveränderliches (schreibgeschütztes) Stammdateisystem für Container erzwingen
-- Container mit Rechteausweitung müssen vermieden werden
-- Das Ausführen von Containern als Root-Benutzer muss vermieden werden
-- Container mit Freigabe sensibler Hostnamespaces vermeiden
-- Linux-Funktionen mit den niedrigsten Berechtigungen für Container erzwingen
-- Verwendung von HostPath-Volumeeinbindungen von Pods auf eine bekannte Liste beschränken
-- Container dürfen nur an zulässigen Ports lauschen
-- Dienste dürfen nur an zulässigen Ports lauschen
-- Verwendung von Hostnetzwerken und -ports einschränken
-- Überschreiben oder Deaktivieren des AppArmor-Profils für Container einschränken
-- Containerimages sollten nur von vertrauenswürdigen Registrierungen bereitgestellt werden             
-
-Weitere Informationen zu diesen Empfehlungen finden Sie unter [Schützen Ihrer Kubernetes-Workloads](kubernetes-workload-protections.md).
+- [Ausmusterung von elf Azure Defender-Warnungen](#deprecation-of-11-azure-defender-alerts)
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Zwei Empfehlungen der Sicherheitskontrolle „Systemupdates anwenden“ als veraltet eingestuft 
 
@@ -83,11 +53,38 @@ Weitere Informationen zu diesen Empfehlungen finden Sie auf der [Referenzseite z
 
 **Geschätztes Datum für die Änderung:** Q2 2021
 
-Die aktuelle Version der Empfehlung **Sensible Daten in Ihren SQL-Datenbanken müssen klassifiziert werden** in der Sicherheitskontrolle **Datenklassifizierung anwenden** werden als veraltet eingestuft und durch eine neue Version ersetzt, die stärker an der Microsoft-Strategie zur Datenklassifizierung ausgerichtet ist. Infolgedessen:
+Die Empfehlung **Sensible Daten in Ihren SQL-Datenbanken müssen klassifiziert werden** in der Sicherheitskontrolle **Datenklassifizierung anwenden** wird durch eine neue Version ersetzt, die stärker an der Microsoft-Strategie zur Datenklassifizierung ausgerichtet ist. Infolgedessen ändert sich auch die ID der Empfehlung (derzeit b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
-- Die Empfehlung geht nicht mehr in Ihre Sicherheitsbewertung ein.
-- Die Sicherheitskontrolle („Datenklassifizierung anwenden“) geht nicht mehr in Ihre Sicherheitsbewertung ein.
-- Die ID der Empfehlung ändert sich ebenfalls (derzeit b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+### <a name="deprecation-of-11-azure-defender-alerts"></a>Ausmusterung von elf Azure Defender-Warnungen
+
+**Geschätztes Datum für die Änderung:** März 2021
+
+Im nächsten Monat werden die unten aufgeführten elf Azure Defender-Warnungen ausgemustert.
+
+- Neue Warnungen werden diese beiden Warnungen ersetzt und für eine bessere Abdeckung sorgen:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW – MicroBurst toolkit „Get-AzureDomainInfo“ function run detected (VORSCHAU – Ausführung der MicroBurst-Toolkitfunktion „Get-AzureDomainInfo“ erkannt) |
+    | ARM_MicroBurstRunbook    | PREVIEW – MicroBurst toolkit „Get-AzurePasswords“ function run detected (VORSCHAU – Ausführung der MicroBurst-Funktion „Get-AzurePasswords“ erkannt)  |
+    |                          |                                                                          |
+
+- Die folgenden neun Warnungen beziehen sich auf einen Azure Active Directory Identity Protection-Connector, der bereits veraltet ist:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Ungewöhnliche Anmeldeeigenschaften |
+    | AnonymousLogin      | Anonyme IP-Adresse          |
+    | InfectedDeviceLogin | Mit Schadsoftware verknüpfte IP-Adresse     |
+    | ImpossibleTravel    | Ungewöhnlicher Ortswechsel               |
+    | MaliciousIP         | Schädliche IP-Adresse          |
+    | LeakedCredentials   | Kompromittierte Anmeldeinformationen            |
+    | PasswordSpray       | Kennwortspray                |
+    | LeakedCredentials   | Azure AD Threat Intelligence  |
+    | AADAI               | Azure AD-KI                   |
+    |                     |                               |
+ 
 
 
 

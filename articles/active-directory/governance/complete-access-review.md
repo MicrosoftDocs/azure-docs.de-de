@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779543"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008198"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Durchführen einer Zugriffsüberprüfung für Gruppen und Anwendungen in Azure AD-Zugriffsüberprüfungen
 
@@ -48,21 +48,28 @@ Sie können den Status nachverfolgen, während die Prüfer die Überprüfungen d
 
     Um zukünftige Ausführungen einer Zugriffsüberprüfung anzuzeigen, navigieren Sie zu dieser Zugriffsüberprüfung, und wählen Sie „Geplante Überprüfungen“ aus.
 
-    Auf der Seite **Übersicht** können Sie den Status verfolgen. Zugriffsrechte werden im Verzeichnis erst geändert, wenn die Überprüfung abgeschlossen ist.
+    Auf der Seite **Übersicht** können Sie den Status der aktuellen Instanz verfolgen. Zugriffsrechte werden im Verzeichnis erst geändert, wenn die Überprüfung abgeschlossen ist.
 
-    ![Fortschritt der Zugriffsüberprüfungen](./media/complete-access-review/overview-progress.png)
-    
-    Wenn Sie eine Zugriffsüberprüfung für den Gastzugriff für Microsoft 365-Gruppen (Vorschau) anzeigen, werden auf dem Blatt „Übersicht“ alle Gruppen in der Überprüfung aufgelistet.  
+     ![Überprüfen der Gruppe „All company“](./media/complete-access-review/all-company-group.png)
 
-   ![Überprüfen des Gastzugriffs für Microsoft 365-Gruppen](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    Alle Blätter unter „Aktuell“ sind nur während der Dauer der jeweiligen Überprüfungsinstanz einsehbar. 
 
-    Klicken Sie auf eine Gruppe, um den Fortschritt der Überprüfung für diese Gruppe anzuzeigen.
+    Die Seite „Ergebnisse“ bietet weitere Informationen zu jedem Benutzer, der in der Instanz überprüft wird, einschließlich der Möglichkeit, Ergebnisse zu beenden, zurückzusetzen und herunterzuladen.
+
+    ![Überprüfen des Gastzugriffs für Microsoft 365-Gruppen](./media/complete-access-review/all-company-group-results.png)
+
+
+    Wenn Sie eine Zugriffsüberprüfung für den Gastzugriff für Microsoft 365-Gruppen (Vorschau) anzeigen, werden auf dem Blatt „Übersicht“ alle Gruppen in der Überprüfung aufgelistet. 
+   
+    ![Überprüfen des Gastzugriffs für Microsoft 365-Gruppen](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Klicken Sie auf eine Gruppe, um den Fortschritt der Überprüfung für diese Gruppe anzuzeigen, mit Möglichkeiten zum Beenden, Zurücksetzen, Anwenden und Löschen.
 
    ![Details zur Überprüfung des Gastzugriffs für Microsoft 365-Gruppen](./media/complete-access-review/progress-group-review.png)
 
 1. Klicken Sie auf die Schaltfläche **Beenden**, wenn Sie eine Zugriffsüberprüfung beenden möchten, bevor dafür das geplante Enddatum erreicht wurde.
 
-    Nachdem eine Überprüfung beendet wurde, können Prüfer dafür keine Antworten mehr abgeben. Eine Überprüfung kann nicht neu gestartet werden, nachdem sie beendet wurde.
+    Nachdem Sie eine Überprüfung beendet haben, können Prüfer dafür keine Antworten mehr abgeben. Eine Überprüfung kann nicht neu gestartet werden, nachdem sie beendet wurde.
 
 1. Wenn Sie die Zugriffsüberprüfung nicht mehr benötigen, können Sie sie löschen, indem Sie auf die Schaltfläche **Löschen** klicken.
 
@@ -70,13 +77,18 @@ Sie können den Status nachverfolgen, während die Prüfer die Überprüfungen d
 
 Bei Aktivierung von **Ergebnisse automatisch auf Ressource anwenden** wird basierend auf Ihrer Auswahl unter **Einstellungen nach Abschluss** nach dem Enddatum der Überprüfung oder bei ihrer manuellen Beendigung die automatische Anwendung durchgeführt.
 
-Klicken Sie auf **Anwenden**, um die Änderungen manuell anzuwenden, wenn die Option **Ergebnisse automatisch auf Ressource anwenden** für die Überprüfung nicht aktiviert war. Wenn der Zugriff eines Benutzers in der Überprüfung verweigert wurde, entfernt Azure AD dessen Mitgliedschaft oder Anwendungszuweisung, nachdem Sie auf **Anwenden** geklickt haben.
+Wenn **Ergebnisse automatisch auf Ressource anwenden** für die Überprüfung nicht aktiviert wurde, navigieren Sie unter **Serien** zu **Überprüfungsverlauf**, nachdem die Überprüfungsdauer endet oder die Überprüfung vorzeitig beendet wurde. Klicken Sie auf die Instanz der Überprüfung, die Sie anwenden möchten.
 
 ![Anwenden von Änderungen der Zugriffsüberprüfung](./media/complete-access-review/apply-changes.png)
 
+Klicken Sie auf **Übernehmen**, um die Änderungen manuell zu übernehmen. Wenn der Zugriff eines Benutzers in der Überprüfung verweigert wurde, entfernt Azure AD dessen Mitgliedschaft oder Anwendungszuweisung, nachdem Sie auf **Anwenden** geklickt haben.
+
+![Schaltfläche zum Übernehmen der Änderungen der Zugriffsüberprüfung](./media/complete-access-review/apply-changes-button.png)
+
+
 Der Status der Überprüfung ändert sich von **Abgeschlossen** über Zwischenzustände wie **Wird angewandt** schließlich in den Status **Ergebnis angewendet**. Erwartungsgemäß sollten abgelehnte Benutzer (sofern vorhanden) innerhalb weniger Minuten aus der Gruppenmitgliedschaft oder Anwendungszuweisung entfernt werden.
 
-Die konfigurierte automatische Anwendung einer Überprüfung oder die Auswahl von **Anwenden** haben keine Auswirkung auf eine Gruppe, die aus einem lokalen Verzeichnis stammt, oder auf eine dynamische Gruppe. Wenn Sie eine Gruppe ändern möchten, die aus einem lokalen Verzeichnis stammt, laden Sie die Ergebnisse herunter, und wenden Sie diese Änderungen auf die Darstellung der Gruppe im Verzeichnis an.
+Das manuelle oder automatische Übernehmen von Ergebnissen hat keine Auswirkung auf eine Gruppe, die aus einem lokalen Verzeichnis oder einer dynamischen Gruppe stammt. Wenn Sie eine Gruppe ändern möchten, die aus einem lokalen Verzeichnis stammt, laden Sie die Ergebnisse herunter, und wenden Sie diese Änderungen auf die Darstellung der Gruppe im Verzeichnis an.
 
 ## <a name="retrieve-the-results"></a>Abrufen der Ergebnisse
 

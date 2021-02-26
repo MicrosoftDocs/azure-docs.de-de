@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202707"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627814"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Einführung in verwaltete Azure-Datenträger
 
@@ -44,6 +44,10 @@ Verwaltete Datenträger unterstützen [Verfügbarkeitszonen](../availability-zon
 ### <a name="azure-backup-support"></a>Azure Backup-Unterstützung
 
 Zum Schutz vor regionalen Katastrophen kann mit [Azure Backup](../backup/backup-overview.md) ein Sicherungsauftrag mit zeitbasierten Sicherungen und Richtlinien zur Sicherungsaufbewahrung erstellt werden. So können Sie nach Belieben Wiederherstellungen von virtuellen Computern oder verwalteten Datenträgern ausführen. Azure Backup unterstützt derzeit Datenträgergrößen von bis zu 32 Tebibyte (TiB). [Weitere Informationen](../backup/backup-support-matrix-iaas.md) zur Unterstützung der Azure-VM-Sicherung.
+
+#### <a name="azure-disk-backup"></a>Azure Disk Backup
+
+Azure Backup bietet Azure Disk Backup (Vorschau) als native, cloudbasierte Sicherungslösung, die Ihre Daten auf verwalteten Datenträgern schützt. Es handelt sich um eine einfache, sichere und kostengünstige Lösung, mit der Sie den Schutz für verwaltete Datenträger in wenigen Schritten konfigurieren können. Azure Disk Backup bietet eine schlüsselfertige Lösung, die eine Verwaltung des Lebenszyklus von Momentaufnahmen für verwaltete Datenträger durch Automatisierung einer periodischen Erstellung von Momentaufnahmen und Aufbewahrung der Momentaufnahmen für eine konfigurierte Dauer unter Verwendung der Sicherungsrichtlinie bereitstellt. Ausführliche Informationen zu Azure Disk Backup finden Sie unter [Übersicht über Azure Disk Backup (Vorschau)](../backup/disk-backup-overview.md).
 
 ### <a name="granular-access-control"></a>Genau abgestimmte Zugriffssteuerung
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 41ab057bdbf31667e45a73b2c5ded4993e716a66
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131558"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091679"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3-Serie 
 
@@ -27,7 +27,8 @@ Die virtuellen Computer der NCasT4_v3-Serie basieren auf GPUs vom Typ [Nvidia Te
 [Livemigration:](maintenance-and-updates.md) Nicht unterstützt<br>
 [Updates mit Speicherbeibehaltung:](maintenance-and-updates.md) Nicht unterstützt<br>
 [Unterstützung von VM-Generationen:](generation-2.md) Generation 1 und 2<br>
-Beschleunigter Netzwerkbetrieb: Unterstützt<br>
+[Beschleunigter Netzwerkbetrieb:](../virtual-network/create-vm-accelerated-networking-cli.md) Unterstützt<br>
+[Kurzlebige Betriebssystemdatenträger:](ephemeral-os-disks.md) Nicht unterstützt <br>
 Nvidia NVLink Interconnect: Nicht unterstützt<br>
 <br>
 

@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132328"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050469"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Beheben von Problemen bei der Anmeldung für ein Azure-Abonnement
 
@@ -32,7 +32,7 @@ Wenn Ihr Internetbrowser hängt, können Sie nacheinander die folgenden Schritte
 - Verwenden Sie einen anderen Internetbrowser.
 - Verwenden Sie den privaten Modus in Ihrem Browser:
 
-   - **Microsoft Edge:** Öffnen Sie **Einstellungen** (drei Punkte neben Ihrem Profilbild), und wählen Sie die Option **Neues InPrivate-Fenster** aus. Navigieren Sie dann zum [Azure-Portal](https://portal.azure.com/) oder [Azure-Kontocenter](https://account.azure.com/Subscriptions), und melden Sie sich an. 
+   - **Edge:** Öffnen Sie **Einstellungen** (drei Punkte neben Ihrem Profilbild), und wählen Sie die Option **Neues InPrivate-Fenster** aus. Navigieren Sie dann zum [Azure-Portal](https://portal.azure.com/), und melden Sie sich an. 
    - **Chrome:** Wählen Sie den Modus **Inkognito** aus.
    - **Safari:** Wählen Sie **Datei** und dann **Neues privates Fenster** aus.
 
@@ -53,7 +53,7 @@ Um dieses Problem zu lösen, probieren Sie eine der folgenden Methoden aus:
    - **Chrome:** Wählen Sie **Einstellungen** und unter **Datenschutz und Sicherheit** dann **Browserdaten löschen** aus.
 - Setzen Sie Ihre Browsereinstellungen auf die Standardwerte zurück.
 - Verwenden Sie den privaten Modus in Ihrem Browser. 
-   - **Microsoft Edge:** Öffnen Sie **Einstellungen** (drei Punkte neben Ihrem Profilbild), und wählen Sie die Option **Neues InPrivate-Fenster** aus. Navigieren Sie dann zum [Azure-Portal](https://portal.azure.com/) oder [Azure-Kontocenter](https://account.azure.com/Subscriptions), und melden Sie sich an. 
+   - **Edge:** Öffnen Sie **Einstellungen** (drei Punkte neben Ihrem Profilbild), und wählen Sie die Option **Neues InPrivate-Fenster** aus. Navigieren Sie dann zum [Azure-Portal](https://portal.azure.com/), und melden Sie sich an. 
    - **Chrome:** Wählen Sie den Modus **Inkognito** aus.
    - **Safari:** Wählen Sie **Datei** und dann **Neues privates Fenster** aus.
 

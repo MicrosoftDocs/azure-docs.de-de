@@ -1,22 +1,18 @@
 ---
 title: Azure Private Link für Azure Data Factory
 description: Erfahren Sie etwas über die Funktionsweise von Azure Private Link in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746348"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389177"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link für Azure Data Factory
 
@@ -48,7 +44,7 @@ Mit der Unterstützung von Private Link für Azure Data Factory können Sie folg
 * Erstellen eines privaten Endpunkts in Ihrem virtuellen Netzwerk
 * Aktivieren einer privaten Verbindung mit einer bestimmten Data Factory-Instanz 
 
-Die Kommunikation mit dem Azure Data Factory-Dienst durchläuft Private Link, sodass eine geschützte private Konnektivität zur Verfügung steht. Sie müssen die oben genannte Domäne und den Port nicht in einem virtuellen Netzwerk oder in der Unternehmensfirewall konfigurieren, um Ihre Ressourcen besser zu schützen.  
+Die Kommunikation mit dem Azure Data Factory-Dienst durchläuft Private Link, sodass eine geschützte private Konnektivität zur Verfügung steht. 
 
 ![Diagramm von Private Link für die Azure Data Factory-Architektur](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -63,11 +59,14 @@ Die Aktivierung des Private Link-Diensts für die genannten Kommunikationskanäl
    > [!NOTE]
    > Für Funktionen, die derzeit nicht unterstützt werden, müssen Sie die oben genannte Domäne und den Port weiterhin im virtuellen Netzwerk oder der Unternehmensfirewall konfigurieren. 
 
+   > [!NOTE]
+   > Das Herstellen einer Verbindung mit Azure Data Factory über einen privaten Endpunkt gilt nur für eine selbstgehostete Integration Runtime in Data Factory. In Synapse wird dieser Vorgang nicht unterstützt.
+
 > [!WARNING]
 > Wenn Sie einen verknüpften Dienst erstellen, stellen Sie sicher, dass die Anmeldeinformationen in Azure Key Vault gespeichert werden. Andernfalls funktionieren die Anmeldeinformationen nicht, wenn Sie Private Link in Azure Data Factory aktivieren.
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS-Änderungen für private Endpunkte
-Wenn Sie einen privaten Endpunkt erstellen, wird der DNS-CNAME-Ressourceneintrag für die Data Factory auf einen Alias in einer Unterdomäne mit dem Präfix „privatelink“ aktualisiert. Standardmäßig erstellen wir außerdem eine [private DNS-Zone](https://docs.microsoft.com/azure/dns/private-dns-overview), die der Unterdomäne „privatelink“ entspricht, mit den DNS-A-Ressourceneinträgen für die privaten Endpunkte.
+Wenn Sie einen privaten Endpunkt erstellen, wird der DNS-CNAME-Ressourceneintrag für die Data Factory auf einen Alias in einer Unterdomäne mit dem Präfix „privatelink“ aktualisiert. Standardmäßig erstellen wir außerdem eine [private DNS-Zone](../dns/private-dns-overview.md), die der Unterdomäne „privatelink“ entspricht, mit den DNS-A-Ressourceneinträgen für die privaten Endpunkte.
 
 Wenn Sie die Endpunkt-URL der Data Factory außerhalb des VNET mit dem privaten Endpunkt auflösen, wird diese in den öffentlichen Endpunkt des Data Factory-Diensts aufgelöst. Bei Auflösung aus dem VNET, das den privaten Endpunkt hostet, wird die Speicherendpunkt-URL in die IP-Adresse des privaten Endpunkts aufgelöst.
 
@@ -89,8 +88,8 @@ Die DNS-Ressourceneinträge für „DataFactoryA“ lauten nach dem Auflösen im
 Wenn Sie einen benutzerdefinierten DNS-Server in Ihrem Netzwerk verwenden, müssen Clients in der Lage sein, den FQDN für den Data Factory-Endpunkt in die IP-Adresse des privaten Endpunkts aufzulösen. Sie sollten den DNS-Server so konfigurieren, dass die Unterdomäne der privaten Verbindung an die private DNS-Zone für das VNET delegiert wird, oder konfigurieren Sie die A-Einträge für „DataFactoryA.{region}.privatelink.datafactory.azure.net“ mit der IP-Adresse des privaten Endpunkts.
 
 Weitere Informationen zum Konfigurieren des eigenen DNS-Servers für die Unterstützung privater Endpunkte finden Sie in den folgenden Artikeln:
-- [Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-Konfiguration für private Endpunkte](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS-Konfiguration für private Endpunkte](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Einrichten von Private Link für Azure Data Factory

@@ -3,7 +3,7 @@ title: Häufige Szenarien der Anwendungsverwaltung für Azure Active Directory |
 description: Zentralisieren der Anwendungsverwaltung mit Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835491"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259569"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Zentralisieren der Anwendungsverwaltung mit Azure AD
 
@@ -43,7 +43,7 @@ Kennwortverwaltung ist nicht mehr erforderlich. Greifen Sie mit ihren Unternehme
 |Funktion  | BESCHREIBUNG | Empfehlung |
 |---------|---------|---------|
 |SSO|Auf Standards basierendes Verbund-SSO mit vertrauenswürdigen Branchenstandards.|Verwenden Sie immer [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) zum Aktivieren von SSO, wenn Ihre Anwendung dies unterstützt.|
-|Meine Apps|Stellen Sie für Ihre Benutzer einen einfachen zentralen Ort zur Verfügung, über den diese alle Anwendungen ermitteln und darauf zugreifen können. Steigern Sie ihre Produktivität mit Self-Service-Funktionen wie dem Anfordern des Zugriffs auf Apps und Gruppen oder dem Verwalten des Zugriffs auf Ressourcen im Namen von anderen Personen.| Stellen Sie [Meine Apps](./access-panel-deployment-plan.md) in Ihrer Organisation bereit, nachdem Sie die Apps in Azure AD für SSO integriert haben.|
+|Meine Apps|Stellen Sie für Ihre Benutzer einen einfachen zentralen Ort zur Verfügung, über den diese alle Anwendungen ermitteln und darauf zugreifen können. Steigern Sie ihre Produktivität mit Self-Service-Funktionen wie dem Anfordern des Zugriffs auf Apps und Gruppen oder dem Verwalten des Zugriffs auf Ressourcen im Namen von anderen Personen.| Stellen Sie [Meine Apps](my-apps-deployment-plan.md) in Ihrer Organisation bereit, nachdem Sie die Apps in Azure AD für SSO integriert haben.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Szenario 2: Automatisieren der Bereitstellung und Aufhebung der Bereitstellung 
 

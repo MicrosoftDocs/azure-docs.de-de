@@ -2,16 +2,16 @@
 title: Behandeln von Problemen mit Azure Automation-Runbooks
 description: In diesem Artikel erfahren Sie, wie Sie Probleme mit Azure Automation-Runbooks beheben.
 services: automation
+ms.subservice: ''
 ms.date: 11/03/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368082"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053668"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Beheben von Runbookproblemen
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Ursache
 
-Dieser Fehler kann auftreten, wenn Sie kein ausführendes Konto verwenden oder wenn das ausführende Konto abgelaufen ist. Weitere Informationen finden Sie unter [Verwalten von ausführenden Azure Automation-Konten](../manage-runas-account.md).
+Dieser Fehler kann auftreten, wenn Sie kein ausführendes Konto verwenden oder wenn das ausführende Konto abgelaufen ist. Weitere Informationen finden Sie unter [Ausführende Azure Automation-Konten – Übersicht](../automation-security-overview.md#run-as-accounts).
 
 Dieser Fehler hat zwei Hauptursachen:
 

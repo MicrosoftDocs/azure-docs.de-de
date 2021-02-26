@@ -3,14 +3,14 @@ title: Erstellen eines eigenständigen Azure Automation-Kontos
 description: In diesem Artikel wird beschrieben, wie Sie ein eigenständiges Azure Automation-Konto und ein klassisches ausführendes Konto erstellen.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0088fb129e9c6558de7539ba754a45e067dc3d8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714642"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576836"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Erstellen eines eigenständigen Azure Automation-Kontos
 
@@ -74,7 +74,7 @@ Führen Sie die folgenden Schritte aus, um ein Azure Automation-Konto über das 
    > [!NOTE]
    > Wenn Sie die Option **Ausführendes Azure-Konto erstellen** auf **Nein** festlegen, wird im Bereich „Automation-Konto hinzufügen“ eine Meldung angezeigt. Das Konto wird zwar im Azure-Portal erstellt, verfügt aber im Verzeichnisdienst für Ihr Abonnement (klassisches Bereitstellungsmodell oder Azure Resource Manager-Bereitstellungsmodell) über keine entsprechende Authentifizierungsidentität. Dadurch hat das Automation-Konto auch keinen Zugriff auf Ressourcen in Ihrem Abonnement. Runbooks, die auf dieses Konto verweisen, können in diesem Fall nicht authentifiziert werden und keine Aufgaben für Ressourcen in diesen Bereitstellungsmodellen durchführen.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Der Screenshot der Aufforderung, dass Sie nicht über die Berechtigungen zum Erstellen eines ausführenden Kontos in Azure Active Directory verfügen.":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Der Screenshot der Aufforderung, dass Sie sich dazu entschieden haben, kein ausführendes Konto zu erstellen.":::
    >
    > Wenn der Dienstprinzipal nicht erstellt wird, wird die Rolle „Mitwirkender“ nicht zugewiesen.
    >
@@ -93,7 +93,7 @@ Nach der erfolgreichen Erstellung des Automation-Kontos werden automatisch versc
 
 ## <a name="create-a-classic-run-as-account"></a>Erstellen eines klassischen ausführenden Kontos
 
-Klassische ausführende Konten werden nicht mehr standardmäßig erstellt, wenn Sie ein Azure Automation-Konto erstellen. Falls Sie dennoch ein klassisches ausführendes Konto benötigen:
+Beim Erstellen eines Azure Automation-Konto werden klassische ausführende Konten nicht standardmäßig erstellt. Führen Sie die folgenden Schritte aus, wenn Sie ein klassisches ausführendes Konto zum Verwalten von klassischen Azure-Ressourcen benötigen
 
 1. Wählen Sie in Ihrem Automation-Konto unter **Kontoeinstellungen** die Option **Ausführende Konten** aus.
 2. Wählen Sie **Klassisches ausführendes Azure-Konto** aus.
@@ -104,5 +104,5 @@ Klassische ausführende Konten werden nicht mehr standardmäßig erstellt, wenn 
 * Weitere Informationen zur grafischen Erstellung finden Sie unter [Erstellen grafischer Runbooks in Azure Automation](automation-graphical-authoring-intro.md).
 * Informationen zu den ersten Schritten mit PowerShell-Runbooks finden Sie unter [Tutorial: Erstellen eines PowerShell-Runbooks](learn/automation-tutorial-runbook-textual-powershell.md).
 * Informationen zu den ersten Schritten mit PowerShell-Workflow-Runbooks finden Sie unter [Tutorial: Erstellen eines PowerShell-Workflow-Runbooks](learn/automation-tutorial-runbook-textual.md).
-* Informationen zu den ersten Schritten mit Python 2-Runbooks finden Sie unter [Tutorial: Erstellen eines Python 2-Runbooks](learn/automation-tutorial-runbook-textual-python2.md).
-* Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Informationen zu den ersten Schritten mit Python 3-Runbooks finden Sie unter [Tutorial: Erstellen eines Python 3-Runbooks](learn/automation-tutorial-runbook-textual-python-3.md).
+* Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation).

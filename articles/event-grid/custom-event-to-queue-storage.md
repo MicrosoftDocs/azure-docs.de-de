@@ -1,15 +1,15 @@
 ---
 title: 'Schnellstart: Senden von benutzerdefinierten Ereignissen an die Speicherwarteschlange: Event Grid, Azure CLI'
 description: 'Schnellstart: Verwenden Sie Azure Event Grid und die Azure CLI, um ein Thema zu veröffentlichen und dieses Ereignis zu abonnieren. Für den Endpunkt wird eine Speicherwarteschlange verwendet.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566315"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493259"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Schnellstart: Weiterleiten benutzerdefinierter Ereignisse an Azure Queue Storage mit Azure-CLI und Event Grid
 
@@ -116,6 +116,11 @@ done
 Navigieren Sie zur Queue Storage-Instanz im Portal, und beachten Sie, dass Event Grid diese drei Ereignisse an die Warteschlange gesendet hat.
 
 ![Anzeigen von Meldungen](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Wenn Sie einen [Azure Queue Storage-Trigger für Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) für eine Warteschlange verwenden, die Nachrichten von Event Grid empfängt, wird beim Ausführen der Funktion unter Umständen die folgende Fehlermeldung angezeigt: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> Der Grund ist, dass von Azure Functions bei Verwendung eines [Azure Queue Storage-Triggers](../azure-functions/functions-bindings-storage-queue-trigger.md) eine **Base64-codierte Zeichenfolge** erwartet wird, während Nachrichten von Event Grid nur im Nur-Text-Format an eine Speicherwarteschlange gesendet werden. Derzeit ist es nicht möglich, den Warteschlangentrigger für Azure Functions so zu konfigurieren, dass Nur-Text akzeptiert wird. 
 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen

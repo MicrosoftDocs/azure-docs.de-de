@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753500"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582365"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Web-API, die Web-APIs aufruft: Codekonfiguration
 
@@ -33,7 +33,7 @@ Microsoft empfiehlt die Verwendung des NuGet-Pakets [Microsoft.Identity.Web](htt
 
 ## <a name="client-secrets-or-client-certificates"></a>Geheime Clientschlüssel oder Clientzertifikate
 
-Wenn Ihre Web-API jetzt eine Downstream-Web-API aufruft, müssen Sie in der Datei *appsettings.json* einen geheimen Clientschlüssel oder ein Clientzertifikat angeben. Sie können auch einen Abschnitt hinzufügen, in dem Folgendes angegeben wird:
+Wenn Ihre Web-API jetzt eine Downstream-Web-API aufruft, geben Sie in der Datei *appsettings.json* einen geheimen Clientschlüssel oder ein Clientzertifikat an. Sie können auch einen Abschnitt hinzufügen, in dem Folgendes angegeben wird:
 
 - Die URL der Downstream-Web-API
 - Die zum Aufrufen der API erforderlichen Bereiche

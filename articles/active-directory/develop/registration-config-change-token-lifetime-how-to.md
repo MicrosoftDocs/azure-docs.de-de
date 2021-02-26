@@ -12,12 +12,12 @@ ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d39f378171443f028ef6b549b120b22f2a3405c4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063347"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582940"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Ändern der Standardwerte für die Tokengültigkeitsdauer für eine benutzerdefiniert entwickelte Anwendung
 
@@ -27,7 +27,7 @@ In diesem Artikel wird erläutert, wie Sie Azure AD PowerShell verwenden, um ei
 > Seit Mai 2020 können Mandanten die Gültigkeitsdauer von Aktualisierungs- und Sitzungstoken nicht mehr konfigurieren.  Nach dem 30. Januar 2021 berücksichtigt Azure Active Directory vorhandene Konfigurationen von Aktualisierungs- und Sitzungstoken in Richtlinien nicht mehr. Die Gültigkeitsdauer von Zugriffstoken kann jedoch auch nach der Einstellung weiterhin konfiguriert werden. Weitere Informationen hierzu finden Sie unter [Konfigurierbare Tokengültigkeitsdauer in Microsoft Identity Platform (Vorschau)](./active-directory-configurable-token-lifetimes.md).
 > Wir haben [Funktionen für das Verwalten von Authentifizierungssitzungen](../conditional-access/howto-conditional-access-session-lifetime.md) für den bedingten Zugriff in Azure AD implementiert. Mithilfe dieses neuen Features können Sie die Lebensdauer von Aktualisierungstoken durch Festlegen der Anmeldehäufigkeit konfigurieren.  
 
-Zum Festlegen einer Richtlinie für die Gültigkeitsdauer von Zugriffstoken müssen Sie das [Azure AD PowerShell-Modul](https://www.powershellgallery.com/packages/AzureADPreview) herunterladen.
+Zum Festlegen einer Richtlinie für die Lebensdauer von Zugriffstoken müssen Sie das [Azure AD-PowerShell-Modul](https://www.powershellgallery.com/packages/AzureADPreview) herunterladen.
 Führen Sie den Befehl **Connect-AzureAD -Confirm** aus.
 
 In dieser Beispielrichtlinie müssen sich Benutzer häufiger in Ihrer Web-App authentifizieren. Diese Richtlinie legt die Gültigkeitsdauer für den Zugriff auf den Dienstprinzipal Ihrer Web-App fest. Erstellen Sie die Richtlinie, und weisen Sie sie Ihrem Dienstprinzipal zu. Rufen Sie außerdem die „ObjectId“ Ihres Dienstprinzipals ab.

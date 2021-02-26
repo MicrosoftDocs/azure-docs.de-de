@@ -13,6 +13,8 @@
   items:
     - name: Einrichten Ihrer Umgebung
       items:
+        - name: Ermitteln Ihrer Mandanten-ID
+          href: how-to-set-azure-tenant.md
         - name: Ermitteln Ihres Azure-Abonnements
           href: how-to-set-azure-subscription.md
         - name: Erstellen eines Media Services-Kontos
@@ -70,6 +72,8 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
+        - name: Aktivieren des vertrauenswürdigen Speichers
+          href: tutorial-trusted-storage-rest.md
         - name: Codieren und Streamen einer Remotedatei (REST)
           href: stream-files-tutorial-with-rest.md
         - name: Kundenseitig verwaltete Schlüssel mit REST-API
@@ -305,6 +309,12 @@
           displayName: 'migration, samples'
 - name: Anleitungen
   items:
+    - name: Ermitteln Ihres Mandanten und Abonnements
+      items:
+        - name: Ermitteln Ihrer Mandanten-ID
+          href: how-to-set-azure-tenant.md
+        - name: Ermitteln Ihrer Abonnement-ID
+          href: how-to-set-azure-subscription.md
     - name: Erstellen von Medienobjekten und Hochladen von Medien
       items:
         - name: Erstellen eines Medienobjekts

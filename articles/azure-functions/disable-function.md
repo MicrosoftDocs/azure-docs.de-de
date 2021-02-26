@@ -2,20 +2,20 @@
 title: Deaktivieren von Funktionen in Azure Functions
 description: Erfahren Sie, wie Sie Funktionen in Azure Functions deaktivieren und aktivieren.
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4d93f728103aabdd1bd5557033a8bd36ffac2d42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661022"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551042"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deaktivieren von Funktionen in Azure Functions
 
 In diesem Artikel wird erläutert, wie Sie eine Funktion in Azure Functions deaktivieren. Durch das *Deaktivieren* einer Funktion wird die Runtime angewiesen, den für die Funktion definierten automatischen Trigger zu ignorieren. Dadurch können Sie das Ausführen einer bestimmten Funktion verhindern, ohne die gesamte Funktions-App zu beenden.
 
-Es wird empfohlen, eine Funktion mithilfe einer App-Einstellung im Format `AzureWebJobs.<FUNCTION_NAME>.Disabled`, das auf `true` festgelegt ist, zu deaktivieren. Sie können diese Anwendungseinstellung auf verschiedene Weise erstellen und ändern, z. B. über die [Azure-Befehlszeilenschnittstelle](/cli/azure/) und im [Azure-Portal](https://portal.azure.com) auf der Registerkarte **Verwalten** der Funktion. 
+Es wird empfohlen, eine Funktion mithilfe einer App-Einstellung im Format `AzureWebJobs.<FUNCTION_NAME>.Disabled`, das auf `true` festgelegt ist, zu deaktivieren. Sie können diese Anwendungseinstellung auf verschiedene Weise erstellen und ändern, z. B. über die [Azure-Befehlszeilenschnittstelle](/cli/azure/) und im [Azure-Portal](https://portal.azure.com) auf der Registerkarte **Übersicht** der Funktion. 
 
 > [!NOTE]  
 > Wenn Sie eine durch HTTP ausgelöste Funktion mithilfe der in diesem Artikel beschriebenen Methoden deaktivieren, kann der Zugriff auf den Endpunkt bei Ausführung auf dem lokalen Computer weiterhin möglich sein.  
@@ -40,9 +40,11 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Verwenden des Portals
 
-Sie können auch die Schaltflächen **Aktivieren** und **Deaktivieren** auf der Seite **Übersicht** der Funktion verwenden. Diese Schaltflächen ändern den Wert der App-Einstellung `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Diese funktionsspezifische Einstellung wird beim ersten Deaktivieren erstellt.
+Sie können auch die Schaltflächen **Aktivieren** und **Deaktivieren** auf der Seite **Übersicht** der Funktion verwenden. Diese Schaltflächen ändern den Wert der App-Einstellung `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Diese funktionsspezifische Einstellung wird beim ersten Deaktivieren erstellt. 
 
 ![Option „Funktionszustand“](media/disable-function/function-state-switch.png)
+
+Auch wenn Sie Ihre Funktions-App aus einem lokalen Projekt veröffentlichen, können Sie weiterhin das Portal verwenden, um Funktionen in der Funktions-App zu deaktivieren. 
 
 > [!NOTE]  
 > Die im Portal integrierte Testfunktion ignoriert die Einstellung `Disabled`. Dies bedeutet, dass eine deaktivierte Funktion immer noch ausgeführt wird, wenn sie über das Fenster **Test** im Portal gestartet wird. 
@@ -68,23 +70,7 @@ Obwohl die Methode der Anwendungseinstellung für alle Sprachen und alle Runtime
 
 ### <a name="c-class-libraries"></a>C#-Klassenbibliotheken
 
-In einer Klassenbibliotheksfunktion können Sie auch das `Disable`-Attribut verwenden, um das Auslösen der Funktion zu verhindern. Sie können das Attribut wie im folgenden Beispiel gezeigt ohne einen Konstruktorparameter verwenden:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-Wenn Sie das Attribut ohne Konstruktorparameter verwenden, müssen Sie das Projekt erneut kompilieren und erneut bereitstellen, um den Zustand „Deaktiviert“ der Funktion zu ändern. Eine flexiblere Möglichkeit zur Verwendung des Attributs besteht darin, wie im folgenden Beispiel gezeigt einen Konstruktorparameter hinzuzufügen, der auf eine boolesche App-Einstellung verweist:
+In einer Klassenbibliotheksfunktion können Sie auch das `Disable`-Attribut verwenden, um das Auslösen der Funktion zu verhindern. Mit diesem Attribut können Sie den Namen der Einstellung anpassen, mit der die Funktion deaktiviert wird. Verwenden Sie die Version des Attributs, mit der Sie wie im folgenden Beispiel gezeigt einen Konstruktorparameter hinzuzufügen, der auf eine boolesche App-Einstellung verweist:
 
 ```csharp
 public static class QueueFunctions
@@ -102,12 +88,7 @@ public static class QueueFunctions
 
 Mit dieser Methode können Sie die Funktion durch Ändern der App-Einstellung ohne erneutes Kompilieren oder erneutes Bereitstellen aktivieren und deaktivieren. Das Ändern einer App-Einstellung bewirkt einen Neustart der Funktions-App, sodass die Änderung des Zustands „Deaktiviert“ sofort erkannt wird.
 
-> [!IMPORTANT]
-> Das `Disabled`-Attribut ist die einzige Möglichkeit zum Deaktivieren einer Klassenbibliotheksfunktion. Die generierte Datei *function.json* für eine Klassenbibliotheksfunktion ist nicht zur direkten Bearbeitung vorgesehen. Wenn Sie diese Datei bearbeiten, haben Änderungen, die Sie an der `disabled`-Eigenschaft vornehmen, keinerlei Auswirkungen.
->
-> Das Gleiche gilt für die Option **Funktionszustand** auf der Registerkarte **Verwalten**, da diese die Datei *function.json* ändert.
->
-> Beachten Sie außerdem, dass die Funktion im Portal als deaktiviert angezeigt werden kann, wenn dies nicht der Fall ist.
+Es gibt auch einen Konstruktor für den Parameter, der keine Zeichenfolge für den Einstellungsnamen akzeptiert. Diese Version des Attributs wird nicht empfohlen. Wenn Sie diese Version verwenden, müssen Sie das Projekt erneut kompilieren und bereitstellen, um den deaktivierten Zustand der Funktion zu ändern.
 
 ### <a name="functions-1x---scripting-languages"></a>Functions 1.x – Skriptsprachen
 
@@ -139,7 +120,7 @@ oder
 Im zweiten Beispiel wird die Funktion deaktiviert, wenn eine App-Einstellung mit dem Namen „IS_DISABLED“ vorhanden und auf `true` oder 1 festgelegt ist.
 
 >[!IMPORTANT]  
->Das Portal verwendet nun Anwendungseinstellungen, um v1.x-Funktionen zu deaktivieren. Wenn eine Anwendungseinstellung mit der Datei „function.json“ in Konflikt steht, kann ein Fehler auftreten. Sie sollten die Eigenschaft `disabled` aus der Datei „function.json“ entfernen, um Fehler zu verhindern. 
+>Im Portal werden v1.x-Funktionen über Anwendungseinstellungen deaktiviert. Wenn eine Anwendungseinstellung mit der Datei „function.json“ in Konflikt steht, kann ein Fehler auftreten. Sie sollten die Eigenschaft `disabled` aus der Datei „function.json“ entfernen, um Fehler zu verhindern. 
 
 
 ## <a name="next-steps"></a>Nächste Schritte

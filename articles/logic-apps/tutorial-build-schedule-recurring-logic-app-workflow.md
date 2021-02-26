@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842562"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054059"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: Erstellen zeitplanbasierter und periodischer Automatisierungsworkflows mit Azure Logic Apps
 
@@ -43,6 +43,8 @@ Am Ende entspricht Ihre Logik-App grob dem folgenden Workflow:
 
 * Um die Reisezeit für eine Route zu ermitteln, benötigen Sie einen Zugriffsschlüssel für die Bing Maps-API. Führen Sie zum Abrufen dieses Schlüssels die Schritte zum [Abrufen eines Bing Maps-Schlüssels](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key) aus.
 
+* Falls Ihre Logik-App über eine Firewall kommunizieren muss, mit der der Datenverkehr auf bestimmte IP-Adressen beschränkt wird, muss Folgendes sichergestellt sein: In der Firewall muss der Zugriff für IP-Adressen, die vom Logic Apps-Dienst oder der Runtime in der Azure-Region Ihrer Logik-App genutzt werden, in [eingehender](logic-apps-limits-and-config.md#inbound) *und* [ausgehender](logic-apps-limits-and-config.md#outbound) Richtung zugelassen sein. Wenn Ihre Logik-App außerdem [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) (etwa den Office 365 Outlook-Connector oder den SQL-Connector) oder [benutzerdefinierte Connectors](/connectors/custom-connectors/) verwendet, muss die Firewall außerdem den Zugriff für *alle* [ausgehenden IP-Adressen der verwalteten Connectors](logic-apps-limits-and-config.md#outbound) in der Azure-Region Ihrer Logik-App zulassen.
+
 ## <a name="create-your-logic-app"></a>Erstellen Ihrer Logik-App
 
 1. Melden Sie sich mit den Anmeldeinformationen Ihres Azure-Kontos beim [Azure-Portal](https://portal.azure.com) an. Wählen Sie auf der Azure-Startseite **Ressource erstellen** aus.
@@ -55,7 +57,7 @@ Am Ende entspricht Ihre Logik-App grob dem folgenden Workflow:
 
    ![Screenshot: Bereich für die Logik-App-Erstellung sowie die Informationen, die für die neue Logik-App angegeben werden müssen](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Eigenschaft | Wert | Beschreibung |
+   | Eigenschaft | Wert | BESCHREIBUNG |
    |----------|-------|-------------|
    | **Abonnement** | <*Name des Azure-Abonnements*> | Den Namen Ihres Azure-Abonnements In diesem Beispiel wird `Pay-As-You-Go` verwendet. |
    | **Ressourcengruppe** | LA-TravelTime-RG | Der Name der [Azure-Ressourcengruppe](../azure-resource-manager/management/overview.md), die zum Organisieren verwandter Ressourcen verwendet wird. In diesem Beispiel wird eine neue Ressourcengruppe namens `LA-TravelTime-RG` erstellt. |
@@ -190,7 +192,7 @@ Die Aktion **Get route** (Route ermitteln) gibt standardmäßig die aktuelle Rei
 
 1. Geben Sie für Ihre Variable die folgenden Informationen an, wie in der Tabelle und in den Schritten unterhalb der Tabelle gezeigt:
 
-   | Eigenschaft | Erforderlich | Wert | Beschreibung |
+   | Eigenschaft | Erforderlich | Wert | BESCHREIBUNG |
    |----------|----------|-------|-------------|
    | **Name** | Ja | travelTime | Der Name für Ihre Variable. In diesem Beispiel wird `travelTime` verwendet. |
    | **Typ** | Ja | Integer | Der Datentyp für die Variable |

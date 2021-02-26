@@ -2,31 +2,21 @@
 title: Konvertieren von Portalvorlagen in Vorlagenspezifikationen
 description: Hier wird beschrieben, wie Sie eine vorhandene Vorlage im Azure-Portalkatalog in eine Vorlagenspezifikation konvertieren.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739055"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555949"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Konvertieren des Vorlagenkatalogs im Portal in Vorlagenspezifikationen
 
-Das Azure-Portal bietet eine Möglichkeit, Azure Resource Manager-Vorlagen (ARM-Vorlagen) in Ihrem Konto zu speichern. **Diese Funktion ist veraltet.** Um weiterhin Vorlagen in diesem Katalog zu verwenden, konvertieren Sie sie in [Vorlagenspezifikationen](template-specs.md).
+Das Azure-Portal bietet eine Möglichkeit, Azure Resource Manager-Vorlagen (ARM-Vorlagen) in Ihrem Konto zu speichern. [Vorlagenspezifikationen](template-specs.md) bieten allerdings eine einfachere Möglichkeit, um Ihre Vorlagen mit Benutzern in Ihrer Organisation zu teilen und mit anderen Vorlagen zu verknüpfen. In diesem Artikel wird gezeigt, wie Sie vorhandene Vorlagen im Vorlagenkatalog in Vorlagenspezifikationen konvertieren.
 
-In diesem Artikel wird gezeigt, wie Sie vorhandene Vorlagen im Vorlagenkatalog in Vorlagenspezifikationen konvertieren.
-
-Im Portal wird das veraltete Feature mit **Vorlagen (Vorschau)** bezeichnet. Um festzustellen, ob Sie Vorlagen konvertieren müssen, sehen Sie sich den [Vorlagenkatalog im Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems) an. Der Ressourcentyp dieser Vorlagen ist `Microsoft.Gallery/myareas/galleryitems`.
-
-## <a name="deprecation-of-portal-feature"></a>Veraltung des Portalfeatures
-
-Der Vorlagenkatalog im Portal gilt seit dem 21. Januar 2021 als veraltet. Sie können ihn bis zum 21. Februar weiterhin verwenden. Ab dem 22. Februar können Sie keine neuen Vorlagen im Portalkatalog erstellen, aber weiterhin vorhandene Vorlagen anzeigen und bereitstellen.
-
-Am 22. Juni wird das Feature aus dem Portal entfernt, und alle API-Vorgänge werden blockiert. Sie können dann keine Vorlagen aus dem Katalog mehr anzeigen oder bereitstellen.
-
-Vor dem 22. Juni sollten Sie alle Vorlagen migrieren, die Sie weiterhin verwenden möchten. Sie können eine der in diesem Artikel gezeigten Methoden verwenden, um die Vorlagen zu migrieren. Nachdem das Feature entfernt wurde, müssen Sie eine Supportanfrage öffnen, um Vorlagen zu erhalten, die Sie nicht migriert haben.
+Um festzustellen, ob Sie Vorlagen konvertieren müssen, sehen Sie sich den [Vorlagenkatalog im Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems) an. Der Ressourcentyp dieser Vorlagen ist `Microsoft.Gallery/myareas/galleryitems`.
 
 ## <a name="convert-with-powershell-script"></a>Konvertieren mit einem PowerShell-Skript
 

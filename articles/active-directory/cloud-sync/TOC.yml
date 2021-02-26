@@ -62,7 +62,7 @@
       items:
         - name: Transformationen
           href: how-to-transformation.md
-        - name: Eingehende Synchronisierung mit der MS Graph-API
+        - name: Programmgesteuertes Konfigurieren der Cloudsynchronisierung mit der MS Graph-API
           href: how-to-inbound-synch-ms-graph.md
         - name: Azure AD-Synchronisierungs-API
           href: /graph/api/resources/synchronization-overview

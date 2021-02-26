@@ -1,19 +1,19 @@
 ---
 title: Synapse RBAC-Rollen
 description: In diesem Artikel werden die integrierten Synapse RBAC-Rollen beschrieben.
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 35f66732fa9cb48b94f80bab203534c9d04b7a7b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572795"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102120"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC-Rollen
 
@@ -39,10 +39,10 @@ In der folgenden Tabelle werden die integrierten Rollen und die Bereiche beschri
 
 |Role |Berechtigungen|Bereiche|
 |---|---|-----|
-|Synapse-Administrator  |Vollständiger Synapse-Zugriff auf serverlose SQL-Pools, Apache Spark-Pools und Integration Runtimes.  Umfasst den Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf alle veröffentlichten Codeartefakte.  Enthält die Berechtigungen Operator von Computeressourcen, Manager für verknüpfte Daten und Anmeldeinformationsbenutzer für die Systemidentitäts-Anmeldeinformationen des Arbeitsbereichs.  Umfasst das Zuweisen von Synapse RBAC-Rollen.  Azure-Berechtigungen sind erforderlich, um Computeressourcen zu erstellen, zu löschen und zu verwalten. </br></br>_Kann Artefakte lesen und schreiben</br> Kann alle Aktionen für Spark-Aktivitäten ausführen.</br> Kann Spark-Poolprotokolle anzeigen</br> Kann gespeicherte Notebook- und Pipelineausgabe anzeigen </br> Kann die von verknüpften Diensten oder Anmeldeinformationen gespeicherten Geheimnisse verwenden</br>Kann mit den SQL-Berechtigungen `db_datareader`, `db_datawriter`, `connect` und `grant` Verbindungen zu serverlosen SQL-Endpunkten herstellen </br>Kann im aktuellen Bereich die Synapse RBAC-Rollen zuweisen und widerrufen_|Arbeitsbereich </br> Spark-Pool<br/>Integrationslaufzeit </br>Verknüpfter Dienst</br>Anmeldeinformationen |
+|Synapse-Administrator  |Vollständiger Synapse-Zugriff auf serverlose SQL-Pools, Apache Spark-Pools und Integration Runtimes.  Umfasst den Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf alle veröffentlichten Codeartefakte.  Enthält die Berechtigungen Operator von Computeressourcen, Manager für verknüpfte Daten und Anmeldeinformationsbenutzer für die Systemidentitäts-Anmeldeinformationen des Arbeitsbereichs.  Umfasst das Zuweisen von Synapse RBAC-Rollen. Zusätzlich zum Synapse-Administrator können auch Azure-Besitzer Synapse-RBAC-Rollen zuweisen. Azure-Berechtigungen sind erforderlich, um Computeressourcen zu erstellen, zu löschen und zu verwalten. </br></br>_Kann Artefakte lesen und schreiben</br> Kann alle Aktionen für Spark-Aktivitäten ausführen.</br> Kann Spark-Poolprotokolle anzeigen</br> Kann gespeicherte Notebook- und Pipelineausgabe anzeigen </br> Kann die von verknüpften Diensten oder Anmeldeinformationen gespeicherten Geheimnisse verwenden</br>Kann mit den SQL-Berechtigungen `db_datareader`, `db_datawriter`, `connect` und `grant` Verbindungen zu serverlosen SQL-Endpunkten herstellen </br>Kann im aktuellen Bereich die Synapse RBAC-Rollen zuweisen und widerrufen_|Arbeitsbereich </br> Spark-Pool<br/>Integrationslaufzeit </br>Verknüpfter Dienst</br>Anmeldeinformationen |
 |Synapse Apache Spark-Administrator</br>|Vollständiger Synapse-Zugriff auf Apache Spark-Pools.  Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf veröffentlichte Spark-Auftragsdefinitionen, Notebooks und deren Ausgaben sowie Bibliotheken, verknüpfte Dienste und Anmeldeinformationen.  Schließt Lesezugriff auf alle anderen veröffentlichten Codeartefakte ein. Umfasst nicht die Berechtigung zum Verwenden von Anmeldeinformationen und zum Ausführen von Pipelines. Umfasst nicht das Gewähren von Zugriff. </br></br>_Kann alle Aktionen für Spark-Artefakte ausführen</br>Kann alle Aktionen für Spark-Aktivitäten ausführen_|Arbeitsbereich</br>Spark-Pool|
 |Synapse SQL-Administrator|Vollständiger Synapse-Zugriff auf serverlose SQL-Pools.  Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf veröffentlichte SQL-Skripts, Anmeldeinformationen und verknüpfte Dienste.  Schließt Lesezugriff auf alle anderen veröffentlichten Codeartefakte ein.  Umfasst nicht die Berechtigung zum Verwenden von Anmeldeinformationen und zum Ausführen von Pipelines. Umfasst nicht das Gewähren von Zugriff. </br></br>*Kann alle Aktionen für SQL-Skripts ausführen<br/>Kann mit den SQL-Berechtigungen `db_datareader`, `db_datawriter`, `connect` und `grant` Verbindungen zu serverlosen SQL-Endpunkten herstellen*|Arbeitsbereich|
-|Synapse-Mitwirkender|Vollständiger Synapse-Zugriff auf serverlose SQL-Pools, Apache Spark-Pools und Integration Runtimes.  Umfasst den Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf alle veröffentlichten Codeartefakte und deren Ausgaben einschließlich Anmeldeinformationen und verknüpfter Dienste.  Schließt Berechtigungen eines Operators von Computeressourcen ein. Umfasst nicht die Berechtigung zum Verwenden von Anmeldeinformationen und zum Ausführen von Pipelines. Umfasst nicht das Gewähren von Zugriff. </br></br>_Kann Artefakte lesen und schreiben</br>Kann gespeicherte Notebook- und Pipelineausgabe anzeigen</br>Kann alle Aktionen für Spark-Aktivitäten ausführen</br>Kann Spark-Poolprotokolle anzeigen_|Arbeitsbereich </br> Spark-Pool<br/> Integrationslaufzeit|
+|Synapse-Mitwirkender|Vollständiger Synapse-Zugriff auf Apache Spark-Pools und Integration Runtimes. Umfasst den Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf alle veröffentlichten Codeartefakte und deren Ausgaben einschließlich Anmeldeinformationen und verknüpfter Dienste.  Schließt Berechtigungen eines Operators von Computeressourcen ein. Umfasst nicht die Berechtigung zum Verwenden von Anmeldeinformationen und zum Ausführen von Pipelines. Umfasst nicht das Gewähren von Zugriff. </br></br>_Kann Artefakte lesen und schreiben</br>Kann gespeicherte Notebook- und Pipelineausgabe anzeigen</br>Kann alle Aktionen für Spark-Aktivitäten ausführen</br>Kann Spark-Poolprotokolle anzeigen_|Arbeitsbereich </br> Spark-Pool<br/> Integrationslaufzeit|
 |Herausgeber von Synapse-Artefakten|Erstellungs-, Lese-, Aktualisierungs- und Löschzugriff auf alle veröffentlichten Codeartefakte und ihre Ausgaben. Umfasst nicht die Berechtigung zum Ausführen von Code oder Pipelines oder zum Gewähren von Zugriff. </br></br>_Kann veröffentlichte Artefakte lesen und Artefakte veröffentlichen</br>Kann gespeicherte Notebook-, Spark-Auftrags- und Pipelineausgabe anzeigen_|Arbeitsbereich
 |Benutzer von Synapse-Artefakten|Lesezugriff auf veröffentlichte Codeartefakte und ihre Ausgaben. Kann neue Artefakte erstellen, aber nicht Änderungen veröffentlichen oder ohne zusätzliche Berechtigungen Code ausführen.|Arbeitsbereich
 |Operator von Synapse-Computeressourcen |Übermitteln von Spark-Aufträgen und Notebooks und Anzeigen von Protokollen.  Umfasst das Abbrechen von Spark-Aufträgen, die von einem beliebigen Benutzer gesendet wurden. Erfordert zusätzliche Berechtigungen zur Verwendung von Anmeldeinformationen für die Systemidentität des Arbeitsbereichs zum Ausführen von Pipelines und für Ausgaben. </br></br>_Kann Aufträge einschließlich von anderen übermittelter Aufträge übermitteln und abbrechen</br>Kann Spark-Poolprotokolle anzeigen_|Arbeitsbereich</br>Spark-Pool</br>Integrationslaufzeit|

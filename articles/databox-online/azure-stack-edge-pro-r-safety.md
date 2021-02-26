@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709436"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981339"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Sicherheitsanweisungen für Azure Stack Edge Pro R
 
@@ -37,7 +37,7 @@ Beim Einrichten und Ausführen des Azure Stack Edge Pro R-Geräts sind die folg
 | Symbol | BESCHREIBUNG |
 |:--- |:--- |
 | ![Alle Anleitungen zuvor lesen](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Alle Anleitungen zuvor lesen |
-| ![Gefahrensymbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Gefahrensymbol |
+| ![Symbol „Hinweis“](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **HINWEIS:** | Zeigt als wichtig erachtete Informationen an, die allerdings nicht mit Gefahren in Verbindung stehen. || ![Gefahrensymbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Gefahrensymbol |
 | ![Symbol "Kippgefahr"](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Kippgefahr|
 | ![Symbol "Hohes Gewicht"](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Gefahr „Hohes Gewicht“|
 | ![Symbol "Stromschlag"](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Gefahr eines Stromschlags |
@@ -88,6 +88,7 @@ Beim Einrichten und Ausführen des Azure Stack Edge Pro R-Geräts sind die folg
   * Ausreichend Platz für den Zugang zu den Netzkabeln, da diese als Haupttrennschalter für das Produkt dienen.
 * Ethernet-Kabel sind nicht im Lieferumfang des Produkts enthalten. Um elektromagnetische Störungen zu verringern, wird empfohlen, eine STP-Verkabelung (Shielded Twisted Pair) der Kategorie 6 zu verwenden.
 * Stellen Sie das Gerät in einem Arbeitsbereich auf, der eine ausreichende Luftzirkulation um das Gerät ermöglicht. Stellen Sie sicher, dass die vordere und hintere Abdeckung vollständig entfernt wird, während das Gerät in Betrieb ist.
+* Ethernet-Kabel sind nicht im Lieferumfang des Produkts enthalten. Um elektromagnetische Störungen zu verringern, wird empfohlen, ein abgeschirmtes CAT 6-Kabel (STP, Shielded Twisted Pair) zu verwenden.
 * Installieren Sie das Gerät in einem klimatisierten Bereich ohne leitfähige Verunreinigungen, und sorgen Sie für ausreichende Luftzirkulation um das Gerät.
 * Halten Sie das Gerät von Flüssigkeitsquellen und übermäßig feuchten Umgebungen fern.
 * Es dürfen keine Flüssigkeiten oder Fremdkörper in das System gelangen. Stellen Sie keine Getränke oder andere Behälter mit Flüssigkeiten auf das System bzw. in dessen Nähe.
@@ -207,7 +208,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Symbol „Hinweis“](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **HINWEIS:** &nbsp;Änderungen oder Modifikationen am Gerät, die nicht ausdrücklich von Microsoft genehmigt wurden, können zum Erlöschen der Betriebserlaubnis des Benutzers für das Gerät führen.
+> ![Hinweissymbol 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **HINWEIS:** &nbsp;Änderungen oder Modifikationen am Gerät, die nicht ausdrücklich von Microsoft genehmigt wurden, können zum Erlöschen der Betriebserlaubnis des Benutzers für das Gerät führen.
 
 Kanada und USA:
 

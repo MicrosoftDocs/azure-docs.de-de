@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752869"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988907"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Veröffentlichen Ihrer App im Azure AD-App-Katalog
 
@@ -186,7 +186,7 @@ Sie benötigen einen Azure AD Mandanten, um Ihre App zu testen. Informationen z
 
 Alternativ wird zusammen mit jedem Microsoft 365-Abonnement ein Azure AD-Mandant eingerichtet. Informationen zum Einrichten einer kostenlosen Microsoft 365-Entwicklungsumgebung finden Sie unter [Teilnehmen am Microsoft 365-Entwicklerprogramm](/office/developer-program/microsoft-365-developer-program).
 
-Wenn Sie über einen Mandanten verfügen, müssen Sie das einmalige Anmelden und die [Bereitstellung](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client) testen. 
+Sobald Sie über einen Mandanten verfügen, testen Sie einmaliges Anmelden und [Bereitstellung](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 Im Fall von **OIDC- oder OATH-Anwendungen**[registrieren Sie Ihre Anwendung](quickstart-register-app.md) als mehrinstanzenfähige Anwendung. ‎Wählen Sie unter „Unterstützte Kontotypen“ die Option „Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten“ aus.
 

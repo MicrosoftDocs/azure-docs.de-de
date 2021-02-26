@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170615"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219229"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Überwachen von Azure AD B2C mit Azure Monitor
 
@@ -31,6 +31,10 @@ Sie können Protokollereignisse an folgende Komponenten weiterleiten:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 In diesem Artikel erfahren Sie, wie Sie Protokolle in einen Azure Log Analytics-Arbeitsbereich übertragen. Anschließend können Sie ein Dashboard oder Warnungen erstellen, die auf Azure AD B2C-Benutzeraktivitäten basieren.
+
+> [!IMPORTANT]
+> Wenn Sie Azure AD B2C-Protokolle in andere Überwachungslösungen oder in ein Repository übertragen möchten, berücksichtigen Sie Folgendes: Azure AD B2C-Protokolle enthalten personenbezogene Daten. Diese Daten müssen mithilfe geeigneter technischer oder organisatorischer Maßnahmen so verarbeitet werden, dass die Sicherheit der personenbezogenen Daten gewährleistet ist – einschließlich Schutz vor nicht autorisierter oder gesetzeswidriger Verarbeitung.
+
 
 ## <a name="deployment-overview"></a>Übersicht über die Bereitstellung
 

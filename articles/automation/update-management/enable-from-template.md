@@ -1,18 +1,16 @@
 ---
-title: Aktivieren der Updateverwaltung mithilfe einer Azure Resource Manager-Vorlage | Microsoft-Dokumentation
+title: Aktivieren der Updateverwaltung mithilfe einer Azure Resource Manager-Vorlage
 description: In diesem Artikel wird beschrieben, wie Sie die Updateverwaltung mit einer Azure Resource Manager-Vorlage aktivieren.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183233"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050330"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Aktivieren der Updateverwaltung mithilfe einer Azure Resource Manager-Vorlage
 
@@ -29,7 +27,7 @@ Die Vorlage automatisiert nicht die Aktivierung der Updateverwaltung auf virtuel
 Wenn Sie in Ihrem Abonnement bereits einen Log Analytics-Arbeitsbereich und ein Automation-Konto in einer unterstützten Region bereitgestellt haben, sind diese nicht verknüpft. Bei Verwendung dieser Vorlage werden der Link erstellt und die Updateverwaltung bereitgestellt.
 
 >[!NOTE]
->Die Erstellung des ausführenden Automation-Kontos wird bei Verwendung einer ARM-Vorlage nicht unterstützt. Informationen zum Erstellen eines ausführenden Kontos über das Portal oder mit PowerShell finden Sie unter [Verwalten von ausführenden Azure Automation-Konten](../manage-runas-account.md).
+>Die Erstellung des ausführenden Automation-Kontos wird bei Verwendung einer ARM-Vorlage nicht unterstützt. Informationen zum Erstellen eines ausführenden Kontos über das Portal oder mit PowerShell finden Sie unter [Erstellen eines ausführenden Kontos](../create-run-as-account.md).
 
 Nachdem Sie diese Schritte ausgeführt haben, müssen Sie [Diagnoseeinstellungen konfigurieren](../automation-manage-send-joblogs-log-analytics.md), damit Ihr Automation-Konto Auftragsstatus und Auftragsdatenströme von Runbooks an den verknüpften Log Analytics Arbeitsbereich sendet.
 

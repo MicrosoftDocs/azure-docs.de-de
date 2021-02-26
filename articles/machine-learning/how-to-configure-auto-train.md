@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600062"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526465"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurieren automatisierter ML-Experimente in Python
 
@@ -203,15 +203,53 @@ Klassifizierung | Regression | Zeitreihe und Vorhersage
 ### <a name="primary-metric"></a>Primäre Metrik
 Der Parameter `primary metric` bestimmt die Metrik, die während des Modelltrainings für die Optimierung verwendet werden soll. Die verfügbaren Metriken, die Sie auswählen können, werden vom ausgewählten Tasktyp bestimmt. In der folgenden Tabelle werden gültige primäre Metriken für jeden Tasktyp aufgeführt.
 
+Bei der Auswahl einer primären Metrik für ein optimiertes automatisiertes maschinelles Lernen müssen eine Vielzahl von Faktoren berücksichtigt werden. Der wichtigste Aspekt sollte sein, welche Metrik Ihre Geschäftsanforderungen am besten widerspiegelt. Anschließend sollten Sie überprüfen, ob die Metrik für Ihr Datasetprofil (Datengröße, Datenbereich, Klassenverteilung usw.) geeignet ist.
+
 Informationen zu den speziellen Definitionen dieser Metriken finden Sie unter [Grundlagen von Ergebnissen des automatisierten maschinellen Lernens](how-to-understand-automated-ml.md).
 
 |Klassifizierung | Regression | Zeitreihe und Vorhersage
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>Primäre Metriken für Klassifizierungsszenarien 
+
+Post-Threshold-Metriken wie `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` und `precision_score_weighted` bieten bei sehr kleinen Datasets möglicherweise eine weniger gute Optimierung. Gleiches gilt für Datasets mit sehr großer Klassenschiefe (unausgeglichene Klassen) oder in Szenarien, wenn der erwartete Metrikwert sehr nah bei 0,0 oder 1,0 liegt. In diesen Fällen eignet sich `AUC_weighted` möglicherweise besser als primäre Metrik. Nach Abschluss des automatisierten maschinellen Lernens können Sie das beste Modell basierend auf der Metrik auswählen, die sich am besten für Ihre Geschäftsanforderungen eignet.
+
+| Metrik | Beispiel eines Anwendungsfalls |
+| ------ | ------- |
+| `accuracy` | Bildklassifizierung, Stimmungsanalyse, Vorhersage der Kundenabwanderung |
+| `AUC_weighted` | Betrugserkennung, Bildklassifizierung, Anomalie-/Spamerkennung |
+| `average_precision_score_weighted` | Stimmungsanalyse |
+| `norm_macro_recall` | Vorhersage der Kundenabwanderung |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>Primäre Metriken für Regressionsszenarien
+
+Mit Metriken wie `r2_score` und `spearman_correlation` lässt sich die Qualität des Modells besser darstellen, wenn für den vorherzusagenden Wert eine Vielzahl von Größenordnungen verfügbar sind. Nehmen wir die Schätzung eines Gehalts als Beispiel: Viele Menschen verfügen über ein Gehalt zwischen 20.000 und 100.000 USD, es gibt jedoch auch Gehälter von rund 100 Millionen. 
+
+In diesem Fall würden `normalized_mean_absolute_error` und `normalized_root_mean_squared_error` einen Vorhersagefehler im Bereich 20.000 USD bei einem Mitarbeiter mit 30.000 USD Jahresgehalt und einem Mitarbeiter mit 20 Millionen USD Jahresgehalt identisch behandeln. Tatsächlich ist ein Vorhersagefehler bzw. eine Abweichung von 20.000 USD bei einem Jahresgehalt von 20 Millionen USD jedoch sehr nah am eigentlichen Wert (eine geringe relative Differenz von 0,1 %), wohingegen ein Vorhersagefehler bzw. eine Abweichung von 20.000 USD bei einem Gehalt von 30.000 USD eine erhebliche Abweichung darstellt (eine große relative Differenz von 67 %). `normalized_mean_absolute_error` und `normalized_root_mean_squared_error` sind nützlich, wenn die Größenordnung der vorherzusagenden Werte ähnlich ist.
+
+| Metrik | Beispiel eines Anwendungsfalls |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Preisvorhersage (Haus/Produkt/Trinkgeld), Vorhersage eines Bewertungsergebnisses |
+| `r2_score` | Verspätungen bei Fluggesellschaften, Gehaltsschätzung, erforderlicher Zeitaufwand bis zur Problemlösung |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Primäre Metriken für Szenarien zur Zeitreihenvorhersage
+
+Siehe Hinweise zur Regression oben.
+
+| Metrik | Beispiel eines Anwendungsfalls |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Preisvorhersage, Bestandoptimierung, Bedarfsvorhersage |
+| `r2_score` | Preisvorhersage, Bestandoptimierung, Bedarfsvorhersage |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>Merkmalerstellung für Daten
 
@@ -382,7 +420,7 @@ Allgemeine Informationen dazu, wie Modellerklärungen und Featurewichtigkeit in 
   * Attributfehler: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
   Um dieses Problem zu umgehen, führen Sie je nach Ihrer `AutoML` SDK-Trainingsversion einen der beiden folgenden Schritte aus:
-    * Wenn Ihre `AutoML` SDK-Trainingsversion höher als 1.13.0 ist, benötigen Sie `pandas == 0.25.1` und `sckit-learn==0.22.1`. Wenn die Version nicht übereinstimmt, führen Sie ein Upgrade von scikit-learn oder Pandas auf die richtige Version durch, wie nachstehend dargestellt:
+    * Wenn Ihre `AutoML` SDK-Trainingsversion höher als 1.13.0 ist, benötigen Sie `pandas == 0.25.1` und `scikit-learn==0.22.1`. Wenn die Version nicht übereinstimmt, führen Sie ein Upgrade von scikit-learn oder Pandas auf die richtige Version durch, wie nachstehend dargestellt:
       
       ```bash
          pip install --upgrade pandas==0.25.1

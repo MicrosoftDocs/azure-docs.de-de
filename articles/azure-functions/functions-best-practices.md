@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697689"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428299"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimieren der Leistung und Zuverlässigkeit von Azure Functions
 
@@ -64,6 +64,31 @@ Wenn ein Warteschlangenelement bereits verarbeitet wurde, sollte es möglich sei
 
 Nutzen Sie Verteidigungsmaßnahmen, die für auf der Azure Functions-Plattform verwendete Komponenten bereits bereitgestellt wurden. Informationen hierzu finden Sie beispielsweise in der [Dokumentation zu Azure Storage-Warteschlangentriggern und -bindungen](functions-bindings-storage-queue-trigger.md#poison-messages) unter **Behandeln von Nachrichten in der Warteschlange für nicht verarbeitbare Nachrichten**. 
 
+## <a name="function-organization-best-practices"></a>Bewährte Methoden für die Funktionsorganisation
+
+Sie entwickeln und veröffentlichen im Rahmen Ihrer Lösung möglicherweise mehrere Funktionen. Diese Funktionen werden häufig in einer einzelnen Funktions-App zusammengefasst, können aber auch in separaten Funktions-Apps ausgeführt werden. In den Hostingplänen Premium und Dedicated (App Service) können auch mehrere Funktions-Apps dieselben Ressourcen gemeinsam nutzen, indem sie im selben Plan ausgeführt werden. Wie Sie Ihre Funktionen und Funktions-Apps gruppieren, hat Einfluss auf die Leistung, Skalierung, Konfiguration, Bereitstellung und Sicherheit Ihrer gesamten Lösung. Es gibt keine Regeln, die für alle Szenarien gelten. Berücksichtigen Sie daher beim Planen und Entwickeln Ihrer Funktionen die Informationen in diesem Abschnitt.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organisieren von Funktionen im Hinblick auf Leistung und Skalierung
+
+Jede Funktion, die Sie erstellen, hat einen Speicherbedarf. Auch wenn dieser Speicherbedarf in der Regel gering ist, kann eine zu große Anzahl von Funktionen in einer Funktions-App dazu führen, dass die App auf neuen Instanzen langsamer gestartet wird. Dies bedeutet auch, dass die Gesamtspeicherauslastung Ihrer Funktions-App höher sein könnte. Es gibt keinen Richtwert, wie viele Funktionen sich in einer einzelnen App befinden sollten, da dies von Ihrer jeweiligen Workload abhängig ist. Wenn Ihre Funktion viele Daten im Arbeitsspeicher speichert, sollten Sie jedoch weniger Funktionen in einer einzelnen App einplanen.
+
+Wenn Sie mehrere Funktions-Apps in einem einzelnen Premium-Plan oder Dedicated-Plan (App Service) ausführen, werden diese Apps alle gemeinsam skaliert. Falls eine Funktions-App viel mehr Arbeitsspeicher benötigt als die anderen, wird in jeder Instanz, auf der die App bereitgestellt wird, eine unverhältnismäßig große Menge an Speicherressourcen beansprucht. Da dadurch weniger Arbeitsspeicher für die anderen Apps auf jeder Instanz verfügbar ist, sollten Sie eine Funktions-App mit solch einem hohen Arbeitsspeicherbedarf in einem separaten Hostingplan ausführen.
+
+> [!NOTE]
+> Im [Verbrauchstarif](./functions-scale.md) empfiehlt es sich, jede App immer in einem eigenen Plan anzuordnen, da Apps in jedem Fall unabhängig voneinander skaliert werden.
+
+Überlegen Sie auch, ob Sie Funktionen mit unterschiedlichen Auslastungsprofilen gruppieren möchten. Wenn Sie z. B. über eine Funktion verfügen, die viele Tausende Warteschlangennachrichten verarbeitet, und eine andere, die nur gelegentlich aufgerufen wird, aber hohe Anforderungen an den Arbeitsspeicher stellt, können Sie beide in separaten Funktions-Apps bereitstellen. Auf diese Weise erhalten sie eigene Ressourcensätze und werden unabhängig voneinander skaliert.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organisieren von Funktionen für die Konfiguration und Bereitstellung
+
+Funktions-Apps verfügen über eine Datei `host.json`, mit der das erweiterte Verhalten von Funktionstriggern und der Azure Functions-Runtime konfiguriert wird. Änderungen an der Datei `host.json` gelten für alle Funktionen in der App. Wenn Sie über einzelne Funktionen verfügen, die angepasste Konfigurationen erfordern, sollten Sie in Erwägung ziehen, diese in eigene Funktions-Apps zu verschieben.
+
+Alle Funktionen in Ihrem lokalen Projekt werden zusammen als Gruppe von Dateien in Ihrer Funktions-App in Azure bereitgestellt. Möglicherweise müssen Sie einige Funktionen separat bereitstellen oder Features wie [Bereitstellungsslots](./functions-deployment-slots.md) nur für einzelne Funktionen verwenden. In solchen Fällen sollten Sie diese Funktionen (aus separaten Codeprojekten) in verschiedenen Funktions-Apps bereitstellen.
+
+### <a name="organize-functions-by-privilege"></a>Organisieren von Funktionen nach Berechtigungen 
+
+Verbindungszeichenfolgen und andere in den Anwendungseinstellungen gespeicherte Anmeldeinformationen erteilen allen Funktionen in der Funktions-App die gleichen Berechtigungen in der zugehörigen Ressource. Erwägen Sie, die Anzahl der Funktionen mit Zugriff auf bestimmte Anmeldeinformationen zu minimieren, indem Sie Funktionen, die diese Anmeldeinformationen nicht nutzen, in eine separate Funktions-App verlagern. Sie können stets Techniken wie [Funktionsverkettung](/learn/modules/chain-azure-functions-data-using-bindings/) nutzen, um Daten in verschiedenen Funktions-Apps zwischen Funktionen zu übergeben.  
+
 ## <a name="scalability-best-practices"></a>Skalierbarkeit: Bewährte Methoden
 
 Zahlreiche Faktoren beeinflussen die Skalierung von Instanzen Ihrer Funktions-App. Ausführliche Informationen finden Sie in der Dokumentation zum [Skalieren von Funktionen-Apps](functions-scale.md).  Hier finden Sie bewährten Methoden, um die optimale Skalierbarkeit einer Funktionen-App sicherzustellen.
@@ -112,7 +137,7 @@ Bei C#-Funktionen können Sie den Typ in ein stark typisiertes Array ändern.  B
 
 Die Datei `host.json` in der Funktionen-App ermöglicht die Konfiguration der Host-Laufzeit und des Triggerverhaltens.  Zusätzlich zur Batchverarbeitung von Verhalten können Sie die Parallelität für mehrere Trigger verwalten. Eine häufige Anpassung der Werte in diesen Optionen kann die Skalierung der Instanz an die Anforderungen der aufgerufenen Funktionen vereinfachen.
 
-Die Einstellungen in der Datei „host.json“ gelten für alle Funktionen innerhalb der App in einer *Einzelinstanz* der Funktion. Wenn Sie eine Funktionen-App mit zwei HTTP-Funktionen und [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings)-Anforderungen auf 25 festlegen, zählt eine Anforderung für einen der HTTP-Trigger zu den 25 gemeinsamen parallelen Anforderungen.  Beim Skalieren dieser Funktions-App auf 10 Instanzen erlauben die beiden Funktionen effektiv 250 parallele Anforderungen (10 Instanzen * 25 gleichzeitige Anforderungen pro Instanz). 
+Die Einstellungen in der Datei „host.json“ gelten für alle Funktionen innerhalb der App in einer *Einzelinstanz* der Funktion. Wenn Sie eine Funktionen-App mit zwei HTTP-Funktionen und [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings)-Anforderungen auf 25 festlegen, zählt eine Anforderung für einen der HTTP-Trigger zu den 25 gemeinsamen parallelen Anforderungen.  Beim Skalieren dieser Funktions-App auf 10 Instanzen erlauben die zehn Funktionen effektiv 250 parallele Anforderungen (10 Instanzen × 25 gleichzeitige Anforderungen pro Instanz). 
 
 Weitere Hostkonfigurationsoptionen finden Sie [im Artikel zur host.json-Konfiguration](functions-host-json.md).
 

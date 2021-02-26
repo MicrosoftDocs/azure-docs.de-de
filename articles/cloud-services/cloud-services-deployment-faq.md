@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742215"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896476"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Bereitstellungsprobleme bei Azure Cloud Services (klassisch): Häufig gestellte Fragen (FAQs)
 
@@ -50,9 +50,9 @@ Informationen zu den verfügbaren Größen in Ihrer Region finden Sie unter [Mic
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Warum schlägt die Bereitstellung eines Clouddiensts manchmal aufgrund von Grenzwerten/Kontingenten/Einschränkungen in meinem Abonnement oder Dienst fehl?
 Die Bereitstellung eines Clouddiensts schlägt manchmal fehl, wenn die erforderlichen Ressourcen für die Zuweisung das maximale oder standardmäßige Kontingent überschreiten, das für Ihren Dienst in Ihrer Region/Datencenterebene zulässig ist. Weitere Informationen finden Sie unter [Grenzwerte für Clouddienste](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Sie können auch die aktuelle Nutzung bzw. das aktuelle Kontingent für Ihr Abonnement im Portal nachverfolgen: Azure-Portal => Abonnements => \<appropriate subscription>  => Nutzung + Kontingent.
+Sie können auch die aktuelle Nutzung bzw. das aktuelle Kontingent für Ihr Abonnement im Portal nachverfolgen: Azure-Portal > Abonnements > \<appropriate subscription> > „Verbrauch + Kontingent“.
 
-Informationen zur Ressourcenauslastung und zum Verbrauch können auch über die Azure-Abrechnungs-APIs abgerufen werden. Weitere Informationen finden Sie unter [Azure-API zur Ressourcennutzung (Preview)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Informationen zur Ressourcenauslastung und zum Verbrauch können auch über die Azure-Abrechnungs-APIs abgerufen werden. Weitere Informationen finden Sie unter [Azure-Nutzungs-API: Übersicht](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Wie kann ich die Größe eines bereitgestellten virtuellen Clouddienstcomputers ändern, ohne ihn erneut bereitzustellen?
 Die Größe eines virtuellen Clouddienstcomputers kann nicht ohne erneute Bereitstellung geändert werden. Die Größe des virtuellen Computers ist in CSDEF festgelegt. Diese Datei kann nur durch eine erneute Bereitstellung aktualisiert werden.

@@ -1,5 +1,5 @@
 ---
-title: Streamen von Videodateien mit Azure Media Services und der Azure-Befehlszeilenschnittstelle
+title: 'Streamen von Videodateien mit Azure Media Services: CLI'
 description: Führen Sie die in diesem Tutorial beschriebenen Schritte aus, um mithilfe der Azure CLI ein neues Azure Media Services-Konto zu erstellen, eine Datei zu codieren und in Azure Media Player zu streamen.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c78205d7e2b41628de9e8b92c9fa5506e82158cb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268773"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954495"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codieren einer Remotedatei anhand einer URL und Streamen des Videos – Azure CLI
 

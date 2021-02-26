@@ -1,16 +1,16 @@
 ---
-title: Hinzufügen von Bindungen zu einer vorhandenen Funktion in Azure Functions
-description: In diesem Artikel erfahren Sie, wie Sie Bindungen zu einer vorhandenen Funktion in einem Azure Functions-Projekt hinzufügen.
+title: Verbinden von Funktionen mit anderen Azure-Diensten
+description: In diesem Artikel erfahren Sie, wie Sie einer vorhandenen Funktion in einem Azure Functions-Projekt Bindungen mit anderen Azure-Diensten hinzufügen.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654049"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258200"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Hinzufügen von Bindungen zu einer vorhandenen Funktion in Azure Functions
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Verbinden von Funktionen mit Azure-Diensten mithilfe von Bindungen
 
 Wenn Sie eine Funktion erstellen, wird der sprachspezifische Triggercode aus Triggervorlagen in Ihrem Projekt hinzugefügt. Wenn Sie Ihre Funktion mithilfe von Ein- oder Ausgabebindungen mit anderen Diensten verknüpfen möchten, müssen Sie in Ihrer Funktion bestimmte Bindungsdefinitionen hinzufügen. Weitere Informationen zu Bindungen finden Sie unter [Azure Functions-Trigger und Bindungskonzepte](functions-triggers-bindings.md).
 

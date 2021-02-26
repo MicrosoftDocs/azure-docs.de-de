@@ -52,7 +52,11 @@
             - name: Skriptversion
               href: how-to-set-up-instance-scripted.md
         - name: Aktivieren des privaten Zugriffs mit Private Link
-          href: how-to-enable-private-link.md
+          items:
+            - name: Portal-Version
+              href: how-to-enable-private-link-portal.md
+            - name: CLI-Version
+              href: how-to-enable-private-link-cli.md
         - name: Schreiben von App-Authentifizierungscode
           href: how-to-authenticate-client.md
         - name: Erstellen einer App-Registrierung
@@ -103,12 +107,16 @@
       items:
         - name: Verwalten von Endpunkten und Routen
           items:
-            - name: APIs und CLI-Version
-              href: how-to-manage-routes-apis-cli.md
             - name: Portal-Version
               href: how-to-manage-routes-portal.md
+            - name: APIs und CLI-Version
+              href: how-to-manage-routes-apis-cli.md
         - name: Aktivieren einer verwalteten Identität für das Routing von Ereignissen
-          href: how-to-enable-managed-identities.md
+          items:
+            - name: Portal-Version
+              href: how-to-enable-managed-identities-portal.md
+            - name: CLI-Version
+              href: how-to-enable-managed-identities-cli.md
         - name: Integration in Azure Maps
           href: how-to-integrate-maps.md
         - name: Integration in Azure Time Series Insights
@@ -259,6 +267,8 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DTMI-Spezifikation
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: 'Inhalt: Entwickeln mit Azure Digital Twins'
+      href: /learn/paths/develop-azure-digital-twins/
     - name: Channel 9-Videos
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Kundenstimmen

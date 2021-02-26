@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397222"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594264"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrieren von Azure Application Gateway und Web Application Firewall von v1 zu v2
 
@@ -92,7 +92,7 @@ So führen Sie das Skript aus
    ```
 
    Parameter für das Skript:
-   * **resourceId: [Zeichenfolge]: Erforderlich** – Dies ist die Azure-Ressourcen-ID für Ihr vorhandenes Standard-v1- oder WAF-v1-Gateway. Um diesen Zeichenfolgenwert zu finden, navigieren Sie zum Azure-Portal, wählen Sie Ihr Anwendungsgateway oder Ihre WAF-Ressource aus, und klicken Sie auf den **Eigenschaften** -Link für das Gateway. Die Ressourcen-ID wird auf dieser Seite angezeigt.
+   * **resourceId: [Zeichenfolge]: Erforderlich** – Dies ist die Azure-Ressourcen-ID für Ihr vorhandenes Standard-v1- oder WAF-v1-Gateway. Um diesen Zeichenfolgenwert zu finden, navigieren Sie zum Azure-Portal, wählen Sie Ihr Anwendungsgateway oder Ihre WAF-Ressource aus, und klicken Sie auf den **Eigenschaften**-Link für das Gateway. Die Ressourcen-ID wird auf dieser Seite angezeigt.
 
      Sie können auch die folgenden Azure PowerShell-Befehle ausführen, um die Ressourcen-ID zu ermitteln:
 
@@ -125,7 +125,7 @@ So führen Sie das Skript aus
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Informationen, wie eine Liste aus PSApplicationGatewayTrustedRootCertificate-Objekten erstellt wird, finden Sie unter [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Informationen, wie eine Liste aus PSApplicationGatewayTrustedRootCertificate-Objekten erstellt wird, finden Sie unter [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [Zeichenfolge]: Optional**. Eine bestimmte private IP-Adresse, die Sie Ihrem neuen v2-Gateway zuordnen möchten.  Diese Adresse muss aus dem VNet stammen, das Sie für Ihr neues v2-Gateway zuordnen. Ist dieser Parameter nicht angegeben, weist das Skript eine private IP-Adresse für Ihr v2-Gateway zu.
    * **publicIpResourceId: [Zeichenfolge]: Optional**. Die Ressourcen-ID einer vorhandenen öffentlichen IP-Adresse (Standard-SKU-Ressource) in Ihrem Abonnement, die Sie dem neuen v2-Gateway zuordnen möchten. Wenn dies nicht angegeben ist, weist das Skript eine neue öffentliche IP-Adresse in der gleichen Ressourcengruppe zu. Der Name ist der Name des v2-Gateways, an den *-IP* angefügt ist.
    * **validateMigration: [Schalter]: Optional**. Verwenden Sie diesen Parameter, wenn das Skript nach der Erstellung des v2-Gateways und dem Kopieren der Konfiguration einige grundlegende Vergleichsprüfungen der Konfiguration durchführen soll. Standardmäßig erfolgt keine Prüfung.

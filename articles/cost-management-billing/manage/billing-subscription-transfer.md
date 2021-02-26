@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601526"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979430"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Übertragen des Abrechnungsbesitzes eines Azure-Abonnements an ein anderes Konto
 
@@ -80,7 +80,7 @@ Es ist jeweils nur eine Übertragungsanforderung aktiv. Eine Übertragungsanford
 So brechen Sie eine Übertragungsanforderung ab:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-1. Navigieren Sie zu **Abonnements**, und wählen Sie das Abonnement, für das Sie eine Übertragungsanforderung gesendet haben, und anschließend **Abrechnungsbesitz übertragen** aus.
+1. Navigieren Sie zu **Abonnements**. Wählen Sie das Abonnement, für das Sie eine Übertragungsanforderung gesendet haben, und anschließend **Abrechnungsbesitz übertragen** aus.
 1. Wählen Sie unten auf der Seite **Übertragungsanforderung abbrechen** aus.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Beispiel für das Fenster „Abrechnungsbesitz übertragen“ mit der Option „Übertragungsanforderung abbrechen“" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,20 @@ So brechen Sie eine Übertragungsanforderung ab:
 ## <a name="troubleshooting"></a>Problembehandlung
 
 Verwenden Sie die folgenden Informationen zur Problembehandlung, wenn beim Übertragen von Abonnements Probleme auftreten.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Ursprünglicher Abrechnungsbesitzer des Azure-Abonnements verlässt Ihre Organisation
+
+Es kann vorkommen, dass der ursprüngliche Abrechnungsbesitzer, der ein Azure-Konto und ein Azure-Abonnement erstellt hat, Ihre Organisation verlässt. Ist dies der Fall, ist dessen Benutzeridentität nicht mehr in der Azure Active Directory-Instanz der Organisation enthalten. Das Azure-Abonnement verfügt dann über keinen Abrechnungsbesitzer. Das führt wiederum dazu, dass für das Konto keine Abrechnungsvorgänge mehr ausgeführt werden können. Dazu zählt auch das Anzeigen und Bezahlen von Rechnungen. Das Abonnement kann dadurch in Zahlungsverzug geraten. Unter Umständen wird das Abonnement schließlich aufgrund ausbleibender Zahlungen deaktiviert. Das kann letztendlich die Löschung des Abonnements zur Folge haben, was Auswirkungen auf jeden Dienst hätte, der unter dem Abonnement ausgeführt wird.
+
+Wenn ein Abonnement nicht mehr über einen gültigen Abrechnungsbesitzer verfügt, wird von Azure eine E-Mail an andere Abrechnungsbesitzer, Dienstadministratoren, Co-Admins und Abonnementbesitzer gesendet, um sie über die Situation zu informieren und einen Link bereitzustellen, über den sie den Abrechnungsbesitz für das Abonnement akzeptieren können. Jeder dieser Benutzer kann den Link auswählen, um den Abrechnungsbesitz zu akzeptieren. Weitere Informationen zu Abrechnungsrollen finden Sie unter [Grundlegendes zu Verwaltungsrollen für Microsoft-Kundenvereinbarungen in Azure](understand-mca-roles.md) sowie unter [Administratorrollen für klassische Abonnements, Azure-Rollen und Azure AD-Rollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Die E-Mail sieht in etwa so aus:
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Screenshot: Beispiel-E-Mail zum Akzeptieren des Abrechnungsbesitzes" lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Darüber hinaus wird Abrechnungsbesitzern, Dienstadministratoren, Co-Admins und Abonnementbesitzern im Azure-Portal ein Banner im Detailfenster des Abonnements angezeigt. Wählen Sie den Link im Banner aus, um den Abrechnungsbesitz zu akzeptieren.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Screenshot: Beispiel eines Abonnements ohne gültigen Abrechnungsbesitzer" lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>Die Option „Abonnement übertragen“ ist nicht verfügbar
 

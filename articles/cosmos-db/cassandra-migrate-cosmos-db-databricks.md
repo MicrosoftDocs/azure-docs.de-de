@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516557"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493272"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrieren von Daten aus Cassandra zum Azure Cosmos DB-Cassandra-API-Konto mithilfe von Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Die Konfigurationen `spark.cassandra.output.concurrent.writes` und `connections_per_executor_max` sind wichtig, um eine [Ratenbegrenzung](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/) zu vermeiden. Diese erfolgt, wenn Anforderungen an Cosmos DB den bereitgestellten Durchsatz ([Anforderungseinheiten](./request-units.md)) überschreiten. Sie müssen diese Einstellungen möglicherweise abhängig von der Anzahl der Executors im Spark-Cluster und eventuell der Größe (und somit der RU-Kosten) jedes in die Zieltabellen geschriebenen Datensatzes anpassen.
+> Die Konfigurationen `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` und `connections_per_executor_max` sind wichtig, um eine [Ratenbegrenzung](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/) zu vermeiden. Diese erfolgt, wenn Anforderungen an Azure Cosmos DB den bereitgestellten Durchsatz ([Anforderungseinheiten](./request-units.md)) überschreiten. Sie müssen diese Einstellungen möglicherweise abhängig von der Anzahl der Executors im Spark-Cluster und eventuell der Größe (und somit der RU-Kosten) jedes in die Zieltabellen geschriebenen Datensatzes anpassen.
+
+## <a name="troubleshooting"></a>Problembehandlung
+
+### <a name="rate-limiting-429-error"></a>Ratenbegrenzung (Fehler 429)
+Es kann sein, dass der Fehlercode 429 oder der Fehlertext `request rate is large` angezeigt wird, obwohl Sie die obigen Einstellungen auf ihre Mindestwerte reduziert haben. Es folgen einige Beispielszenarien:
+
+- **Der der Tabelle zugewiesene Durchsatz ist kleiner als 6.000 [Anforderungseinheiten](./request-units.md)** . Selbst bei minimalen Einstellungen ist Spark in der Lage, Schreibvorgänge mit einer Rate ab 6.000 Anforderungseinheiten auszuführen. Wenn Sie eine Tabelle in einem Keyspace mit gemeinsamem Durchsatz bereitgestellt haben, ist es möglich, dass diese Tabelle zur Laufzeit weniger als 6.000 Anforderungseinheiten zur Verfügung hat. Stellen Sie sicher, dass die Tabelle, zu der Sie migrieren, mindestens 6.000 Anforderungseinheiten zur Verfügung hat, wenn Sie die Migration ausführen, und weisen Sie dieser Tabelle ggf. dedizierte Anforderungseinheiten zu. 
+- **Übermäßige Datenschiefe bei großen Datenmengen**. Wenn Sie sehr viele Daten (d. h. Tabellenzeilen) in eine bestimmte Tabelle migrieren müssen, aber eine erhebliche Schiefe in den Daten vorliegt (d. h. eine große Anzahl von Datensätzen, die für denselben Partitionsschlüsselwert geschrieben werden), kann es trotzdem zu einer Ratenbegrenzung kommen, selbst wenn Sie eine große Anzahl von [Anforderungseinheiten](./request-units.md) in Ihrer Tabelle bereitgestellt haben. Ursache dafür ist, dass die Anforderungseinheiten gleichmäßig auf die physischen Partitionen verteilt werden und dass eine starke Datenschiefe zu einem Engpass bei Anforderungen an eine einzelne Partition führen kann, was eine Ratenbegrenzung verursacht. In diesem Szenario ist es ratsam, die Durchsatzeinstellungen in Spark auf ein Minimum zu reduzieren, um eine Ratenbegrenzung zu vermeiden und eine langsame Ausführung der Migration zu erzwingen. Dieses Szenario kann häufiger vorkommen, wenn Referenz- oder Steuertabellen migriert werden, bei denen der Zugriff weniger häufig erfolgt, aber die Datenschiefe hoch sein kann. Wenn jedoch eine erhebliche Schiefe in einem anderen Tabellentyp vorhanden ist, kann es auch ratsam sein, Ihr Datenmodell zu überprüfen, um Probleme mit heißen Partitionen für die Workload bei stabilen Vorgängen zu vermeiden. 
+- **Anzahl kann für große Tabelle nicht abgerufen werden**. Die Ausführung von `select count(*) from table` wird derzeit für große Tabellen nicht unterstützt. Sie können die Anzahl aus den Metriken im Azure-Portal abrufen (weitere Informationen finden Sie in unserem [Artikel zur Problembehandlung](cassandra-troubleshoot.md)). Aber wenn Sie die Anzahl für eine große Tabelle im Rahmen eines Spark-Auftrags ermitteln müssen, können Sie die Daten in eine temporäre Tabelle kopieren und dann mit Spark SQL die Anzahl ermitteln (ersetzen Sie z. B. unten `<primary key>` durch ein Feld aus der resultierenden temporären Tabelle).
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

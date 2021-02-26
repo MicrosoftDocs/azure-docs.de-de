@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755261"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219959"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Bewährte Methoden und Empfehlungen für Microsoft Identity Platform
 
@@ -68,7 +68,7 @@ Stellen Sie anhand der folgenden Checkliste sicher, dass Ihre Anwendung effektiv
 
 ![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) Verwenden Sie moderne Authentifizierungslösungen (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) zur sicheren Benutzeranmeldung.
 
-![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) Programmieren Sie nicht direkt für Protokolle wie OAuth 2.0 und OpenID. Nutzen Sie stattdessen die [Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL)](msal-overview.md). Die MSAL-Bibliotheken schließen Sicherheitsprotokolle sicher in eine benutzerfreundliche Bibliothek ein und bieten integrierte Unterstützung für Szenarien mit [bedingtem Zugriff](../conditional-access/overview.md), geräteweites [einmaliges Anmelden (Single Sign-On, SSO)](../manage-apps/what-is-single-sign-on.md) sowie integrierte Unterstützung für die Tokenzwischenspeicherung. Weitere Informationen finden Sie in der Liste mit den von Microsoft unterstützten [Clientbibliotheken](reference-v2-libraries.md#microsoft-supported-client-libraries) und [Middlewarebibliotheken](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) sowie in der Liste mit den [kompatiblen Drittanbieter-Clientbibliotheken](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Wenn Sie Code für die Authentifizierungsprotokolle schreiben müssen, verwenden Sie eine Methodik wie [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Achten Sie auf die Sicherheitsüberlegungen in den Standardspezifikationen für jedes Protokoll.
+![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) Programmieren Sie nicht direkt für Protokolle wie OAuth 2.0 und OpenID. Nutzen Sie stattdessen die [Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL)](msal-overview.md). Die MSAL-Bibliotheken schließen Sicherheitsprotokolle sicher in eine benutzerfreundliche Bibliothek ein und bieten integrierte Unterstützung für Szenarien mit [bedingtem Zugriff](../conditional-access/overview.md), geräteweites [einmaliges Anmelden (Single Sign-On, SSO)](../manage-apps/what-is-single-sign-on.md) sowie integrierte Unterstützung für die Tokenzwischenspeicherung. Weitere Informationen finden Sie in der Liste der von Microsoft unterstützten [Clientbibliotheken](reference-v2-libraries.md). Wenn Sie Code für die Authentifizierungsprotokolle schreiben müssen, verwenden Sie eine Entwicklungsmethodik wie [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Achten Sie auf die Sicherheitsüberlegungen in den Standardspezifikationen für jedes Protokoll.
 
 ![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) Migrieren Sie bereits vorhandene Apps von der [Azure Active Directory-Authentifizierungsbibliothek (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) zur [Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL ist die neueste Identity Platform-Lösung von Microsoft und ADAL vorzuziehen. Sie ist für .NET, JavaScript, Android, iOS und macOS verfügbar und befindet sich für Python und Java momentan in der öffentlichen Vorschau. Ausführlichere Informationen zur App-Migration finden Sie in den Artikeln für [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md) und [ADAL.NET/iOS-Broker](msal-net-migration-ios-broker.md).
 

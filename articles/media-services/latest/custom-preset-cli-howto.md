@@ -1,5 +1,5 @@
 ---
-title: Codieren der benutzerdefinierten Transformation mit Media Services, Version 3 – Azure CLI | Microsoft-Dokumentation
+title: Codieren einer benutzerdefinierten Transformation über die CLI
 description: In diesem Thema wird gezeigt, wie mit Azure Media Services v3 eine benutzerdefinierte Transformation mithilfe der Azure CLI codiert wird.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295784"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956105"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Codieren mit einer benutzerdefinierten Transformation: Azure CLI
 

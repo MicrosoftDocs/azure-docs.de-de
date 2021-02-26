@@ -1,24 +1,24 @@
 ---
-title: Architektur von Sicherheits-Agents
+title: Security agents overview (Sicherheits-Agents (Übersicht))
 description: Grundlegendes zur Sicherheits-Agent-Architektur für die im Azure Defender für IoT-Dienst verwendeten Agents.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: ff837fe88f878c522366b2b6bc19a1ef3954b667
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835124"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820652"
 ---
 # <a name="security-agent-reference-architecture"></a>Sicherheits-Agent-Referenzarchitektur
 
@@ -28,15 +28,15 @@ Sicherheits-Agents sind für den Einsatz in einer eingeschränkten IoT-Umgebung 
 
 Sicherheits-Agents unterstützen die folgenden Features:
 
+- Authentifizieren mit vorhandener Geräteidentität oder einer dedizierten Modulidentität. Weitere Informationen finden Sie unter  [Authentifizierungsmethoden des Sicherheits-Agents](concept-security-agent-authentication-methods.md).
+
 - Sammeln von Rohdaten zu Sicherheitsereignissen aus dem zugrunde liegenden Betriebssystem (Linux, Windows). Weitere Informationen zu verfügbaren Sicherheitsdatensammlern finden Sie unter [für die IoT-Agent-Konfiguration](how-to-agent-configuration.md).
 
 - Aggregieren von Rohdaten zu Sicherheitsereignissen in Nachrichten, die über IoT Hub gesendet werden.
 
-- Authentifizieren mit vorhandener Geräteidentität oder einer dedizierten Modulidentität. Weitere Informationen finden Sie unter [Sicherheits-Agent-Authentifizierungsmethoden](concept-security-agent-authentication-methods.md).
-
 - Remotekonfigurieren durch Verwendung des Modulzwillings **azureiotsecurity**. Weitere Informationen finden Sie unter [Konfigurieren eines Defender für IoT-Agents](how-to-agent-configuration.md).
 
-Defender für IoT-Sicherheits-Agents werden als Open Source-Projekte entwickelt und sind über GitHub verfügbar:
+Sicherheits-Agents von Defender für IoT werden als Open-Source-Projekte entwickelt und sind über GitHub verfügbar:
 
 - [Defender für IoT – C-basierter Agent](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Defender für IoT – C#-basierter Agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
@@ -47,13 +47,13 @@ Defender für IoT bietet verschiedene Installer-Agents für 32-Bit- und 64-Bit-W
 
 | Aufbau | Linux | Windows | Details |
 |--|--|--|--|
-| 32 Bit | C | C# |  |
-| 64 Bit | C# oder C | C# | Wir empfehlen, den C-Agent für Geräte mit eingeschränkteren oder minimalen Geräteressourcen zu verwenden. |
+| 32-Bit | C | C# |  |
+| 64-Bit | C# oder C | C# | Wir empfehlen, den C-Agent für Geräte mit eingeschränkteren oder minimalen Geräteressourcen zu verwenden. |
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel haben Sie die Defender für IoT-Sicherheits-Agent-Architektur und die verfügbaren Installer kennen gelernt.
+In diesem Artikel erhalten Sie eine allgemeine Übersicht über die Architektur des Defender für IoT-Sicherheitsmoduls und die verfügbaren Installationsprogramme.
 
 Um mit der Defender für IoT-Bereitstellung fortzufahren, lesen Sie die folgenden Artikel:
 

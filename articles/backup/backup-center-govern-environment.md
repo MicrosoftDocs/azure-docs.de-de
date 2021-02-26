@@ -3,14 +3,14 @@ title: Steuern Ihres Sicherungsbestands mit Backup Center
 description: Erfahren Sie, wie Sie Ihre Azure-Umgebung so steuern, dass sichergestellt ist, dass sämtliche Ihrer Ressourcen aus Sicherungssicht zu Backup Center konform sind.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173798"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893845"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Steuern Ihres Sicherungsbestands mit Backup Center
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Steuern Ihres Sicherungsbestands mit Backup Center (Vorschau)
 
 Backup Center unterstützt Sie dabei, Ihre Azure-Umgebung so zu steuern, dass sichergestellt ist, dass sämtliche Ihrer Ressourcen aus Sicherungssicht zu Backup Center konform sind. Nachstehend sind einige der Steuerungsfunktionen von Backup Center aufgeführt:
 
@@ -43,6 +43,11 @@ Wenn Sie auf das Menüelement „Backup Compliance“ (Sicherungskonformität) k
 Wenn Sie das Menüelement **Schützbare Datenquellen** auswählen, können Sie alle Datenquellen anzeigen, die noch nicht für die Sicherung konfiguriert wurden. Sie können die Liste nach Datenquellenabonnement, -ressourcengruppe, -speicherort, -typ und Tags filtern. Sobald Sie eine Datenquelle ermittelt haben, die gesichert werden muss, können Sie mit der rechten Maustaste auf das entsprechende Rasterelement klicken und **Sicherung** auswählen, um die Sicherung für die Ressource zu konfigurieren.
 
 ![Menüelement „Schützbare Datenquellen“](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> Bei Auswahl von **SQL in Azure-VM** als Datenquellentyp wird in der Ansicht **Schützbare Datenquellen** die Liste aller Katalog-VMs angezeigt, die nicht über SQL-Datenbanken verfügen, die für die Sicherung konfiguriert wurden.
+> Bei Auswahl von **Azure Storage (Azure Files)** als Datenquellentyp wird in der Ansicht **Schützbare Datenquellen** die Liste aller Speicherkonten mit Unterstützung für Dateifreigaben angezeigt, die nicht über Dateifreigaben verfügen, die für die Sicherung konfiguriert wurden.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

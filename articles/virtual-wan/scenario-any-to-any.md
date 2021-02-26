@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440483"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525787"
 ---
 # <a name="scenario-any-to-any"></a>Szenario: Any-to-Any
 
-Wenn Sie mit Virtual WAN-Routing für virtuelle Hubs arbeiten, stehen Ihnen eine ganze Reihe von Szenarien zur Verfügung. In einem Any-to-Any-Szenario kann jeder Spoke einen anderen Spoke erreichen. Wenn mehrere Hubs vorhanden sind, ist das Hub-zu-Hub-Routing (auch als Routing zwischen Hubs bezeichnet) im virtuellen Standard-WAN standardmäßig aktiviert. Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md).
+Wenn Sie mit Virtual WAN-Routing für virtuelle Hubs arbeiten, stehen Ihnen eine ganze Reihe von Szenarien zur Verfügung. In einem Any-to-Any-Szenario kann jeder Spoke einen anderen Spoke erreichen. Wenn mehrere Hubs vorhanden sind, ist das Hub-zu-Hub-Routing (auch als Routing zwischen Hubs bezeichnet) im virtuellen Standard-WAN standardmäßig aktiviert. Sie können diese Konfiguration mit einer Vielzahl verschiedener Methoden erstellen, z. B. über das Azure-Portal oder mit einer [Azure-Schnellstartvorlage](quickstart-any-to-any-template.md). Weitere Informationen zum Routing für virtuelle Hubs finden Sie unter [Informationen zum Routing virtueller Hubs](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Entwurf
 
@@ -58,7 +58,7 @@ Diese Verbindungen werden (standardmäßig bei Erstellung) der Standardroutingta
 
 ## <a name="workflow"></a><a name="workflow"></a>Workflow
 
-Dieses Szenario ist für das virtuelle Standard-WAN standardmäßig aktiviert. Wenn die Einstellung für Branch-to-Branch in der WAN-Konfiguration deaktiviert ist, sind keine Verbindungen zwischen Branchspokes möglich. VPN/ExpressRoute/Benutzer-VPN werden in Virtual WAN als Branchspokes angesehen.
+Dieses Szenario ist für das virtuelle Standard-WAN standardmäßig aktiviert. Wenn die Einstellungen für Zweigstelle-zu-Zweigstelle in der WAN-Konfiguration deaktiviert sind, sind keine Verbindungen zwischen Zweigstellenspokes möglich. VPN/ExpressRoute/Benutzer-VPN werden in Virtual WAN als Branchspokes angesehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

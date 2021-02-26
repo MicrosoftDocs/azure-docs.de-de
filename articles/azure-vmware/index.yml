@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: c460df29183cbf40bee1f539435669121b3ee6ed
-  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+  ms.openlocfilehash: f5b22f1211076ee0d7990103586659c12eae66c9
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96608417"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100092688"
 landingContent:
 - title: Informationen zu Azure VMware Solution
   linkLists:
@@ -66,6 +66,8 @@ landingContent:
       url: tutorial-expressroute-global-reach-private-cloud.md
     - text: Skalieren einer privaten Cloud
       url: tutorial-scale-private-cloud.md
+    - text: Löschen einer privaten Cloud
+      url: tutorial-delete-private-cloud.md
 - title: Erweitern von Azure VMware Solution
   linkLists:
   - linkListType: how-to-guide
@@ -129,7 +131,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.vmware
     - text: Häufig gestellte Fragen
-      url: faq.md
+      url: faq.yml
 - title: Problembehandlung
   linkLists:
   - linkListType: reference

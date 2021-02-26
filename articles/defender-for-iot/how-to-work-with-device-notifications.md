@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836243"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523565"
 ---
 # <a name="work-with-device-notifications"></a>Arbeiten mit Gerätebenachrichtigungen
 
@@ -60,13 +60,13 @@ In der folgenden Tabelle werden die Benachrichtigungsereignistypen beschrieben, 
 
 | Benachrichtigungsereignistypen | BESCHREIBUNG | Antworten |
 |--|--|--|
-| Neue IP-Adressen | Dem Gerät wurde eine neue IP-Adresse zugeordnet. Die folgenden fünf Szenarios können erkannt werden: <br /><br /> Einem Gerät wurde eine zusätzliche IP-Adresse zugeordnet. Dieses Gerät ist auch einer vorhandenen MAC-Adresse zugeordnet.<br /><br /> Für ein Gerät, das eine vorhandene MAC-Adresse verwendet, wurde eine neue IP-Adresse erkannt. Derzeit kommuniziert dieses Gerät nicht mit einer IP-Adresse.<br /> <br /> Für ein Gerät, das einen NetBIOS-Namen verwendet, wurde eine neue IP-Adresse erkannt. <br /><br /> Für ein Gerät, das einer MAC-Adresse zugeordnet ist, wurde eine IP-Adresse als Verwaltungsschnittstelle erkannt. <br /><br /> Für ein Gerät, das eine virtuelle IP-Adresse verwendet, wurde eine neue IP-Adresse erkannt. | **Set Additional IP to Device** (Zusätzliche IP-Adresse für Gerät festlegen) (Zusammenführen von Geräten) <br /> <br />**Replace Existing IP** (Vorhandene IP-Adresse ersetzen) <br /> <br /> **Verwerfen**<br /> Entfernen Sie die Benachrichtigung. |
+| Neue IP erkannt | Dem Gerät wurde eine neue IP-Adresse zugeordnet. Die folgenden fünf Szenarios können erkannt werden: <br /><br /> Einem Gerät wurde eine zusätzliche IP-Adresse zugeordnet. Dieses Gerät ist auch einer vorhandenen MAC-Adresse zugeordnet.<br /><br /> Für ein Gerät, das eine vorhandene MAC-Adresse verwendet, wurde eine neue IP-Adresse erkannt. Derzeit kommuniziert dieses Gerät nicht mit einer IP-Adresse.<br /> <br /> Für ein Gerät, das einen NetBIOS-Namen verwendet, wurde eine neue IP-Adresse erkannt. <br /><br /> Für ein Gerät, das einer MAC-Adresse zugeordnet ist, wurde eine IP-Adresse als Verwaltungsschnittstelle erkannt. <br /><br /> Für ein Gerät, das eine virtuelle IP-Adresse verwendet, wurde eine neue IP-Adresse erkannt. | **Set Additional IP to Device** (Zusätzliche IP-Adresse für Gerät festlegen) (Zusammenführen von Geräten) <br /> <br />**Replace Existing IP** (Vorhandene IP-Adresse ersetzen) <br /> <br /> **Verwerfen**<br /> Entfernen Sie die Benachrichtigung. |
 | Inaktive Geräte | Auf einem Gerät wurde mehr als 60 Tage lang kein Datenverkehr erkannt. | **Löschen** <br /> Wenn dieses Gerät nicht zu Ihrem Netzwerk gehört, entfernen Sie es. <br /><br />**Verwerfen** <br /> Entfernen Sie die Benachrichtigung, wenn das Gerät Teil Ihres Netzwerks ist. Wenn das Gerät inaktiv ist (z. B. weil es versehentlich vom Netzwerk getrennt wurde), verwerfen Sie die Benachrichtigung, und verbinden Sie das Gerät erneut. |
-| Neues OT-Gerät | Ein Subnetz enthält ein OT-Gerät, das nicht in einem ICS-Subnetz definiert ist. <br /><br /> Jedes Subnetz, das mindestens ein OT-Gerät enthält, kann als ICS-Subnetz definiert werden. Dies hilft bei der Unterscheidung zwischen OT- und IT-Geräten in der Zuordnung. | **Set as ICS Subnet** (Als ICS-Subnetz festlegen) <br /> <br /> **Verwerfen** <br />Entfernen Sie die Benachrichtigung, wenn das Gerät nicht zum Subnetz gehört. |
+| Neue OT-Geräte | Ein Subnetz enthält ein OT-Gerät, das nicht in einem ICS-Subnetz definiert ist. <br /><br /> Jedes Subnetz, das mindestens ein OT-Gerät enthält, kann als ICS-Subnetz definiert werden. Dies hilft bei der Unterscheidung zwischen OT- und IT-Geräten in der Zuordnung. | **Set as ICS Subnet** (Als ICS-Subnetz festlegen) <br /> <br /> **Verwerfen** <br />Entfernen Sie die Benachrichtigung, wenn das Gerät nicht zum Subnetz gehört. |
 | Keine Subnetze konfiguriert | In Ihrem Netzwerk sind derzeit keine Subnetze konfiguriert. <br /><br /> Konfigurieren Sie Subnetze für eine bessere Darstellung in der Zuordnung und um zwischen OT- und IT-Geräten unterscheiden zu können. | **Öffnen Sie die Subnetzkonfiguration**, und konfigurieren Sie Subnetze. <br /><br />**Verwerfen** <br /> Entfernen Sie die Benachrichtigung. |
 | Betriebssystemänderungen | Dem Gerät wurde mindestens ein neues Betriebssystem zugeordnet. | Wählen Sie den Namen des neuen Betriebssystems aus, das Sie dem Gerät zuordnen möchten.<br /><br /> **Verwerfen** <br /> Entfernen Sie die Benachrichtigung. |
-| Subnetze wurden erkannt. | Es wurden neue Subnetze entdeckt. | **Learn**<br />Fügen Sie das Subnetz automatisch hinzu.<br />**Open Subnet Configuration** (Subnetzkonfiguration öffnen)<br />Ergänzen Sie alle fehlenden Subnetzinformationen.<br />**Verwerfen**<br />Entfernen Sie die Benachrichtigung. |
-| Gerätetypänderung wurde erkannt. | Dem Gerät wurde ein neuer Gerätetyp zugeordnet. | **Set as {…}** (Als {…} festlegen)<br />Ordnen Sie dem Gerät den neuen Typ zu.<br />**Verwerfen**<br />Entfernen Sie die Benachrichtigung. |
+| Neue Subnetze | Es wurden neue Subnetze entdeckt. | **Learn**<br />Fügen Sie das Subnetz automatisch hinzu.<br />**Open Subnet Configuration** (Subnetzkonfiguration öffnen)<br />Ergänzen Sie alle fehlenden Subnetzinformationen.<br />**Verwerfen**<br />Entfernen Sie die Benachrichtigung. |
+| Gerätetypänderungen | Dem Gerät wurde ein neuer Gerätetyp zugeordnet. | **Set as {…}** (Als {…} festlegen)<br />Ordnen Sie dem Gerät den neuen Typ zu.<br />**Verwerfen**<br />Entfernen Sie die Benachrichtigung. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Reagieren auf mehrere Benachrichtigungen gleichzeitig
 
@@ -98,6 +98,6 @@ Sehen Sie sich die Empfehlungen an, um die Betriebssystemklassifizierung anzurei
 
 Wenn Sie eine Empfehlung akzeptieren, werden die Informationen zum Betriebssystemtyp im Sensor aktualisiert.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Anzeigen von Warnungen](how-to-view-alerts.md)

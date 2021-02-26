@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760631"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430796"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Übersicht: Vorschauversion von Azure Logic Apps
 
@@ -168,6 +168,8 @@ Weitere Informationen zu den Preismodellen, die für diesen neuen Ressourcentyp 
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Geänderte, eingeschränkte, nicht verfügbare oder nicht unterstützte Funktionen
 
 Die folgenden Funktionen wurden in der Vorschauversion von Azure Logic Apps geändert, sind zurzeit eingeschränkt oder nicht verfügbar oder werden nicht unterstützt:
+
+* **Betriebssystemunterstützung:** Derzeit funktioniert der Designer in Visual Studio Code nicht mit einem Linux-Betriebssystem. Sie können jedoch weiterhin Logik-Apps bereitstellen, die die Vorschauversion der Logic Apps-Runtime für Linux-VMs verwenden. Zum jetzigen Zeitpunkt können Sie Ihre Logik-Apps in Visual Studio Code unter Windows oder macOS erstellen und dann auf einer Linux-basierten VM bereitstellen.
 
 * **Trigger und Aktionen:** Einige integrierte Trigger, wie z. B. gleitende Fenster und Batches, sind nicht verfügbar. Um Ihren Workflow zu starten, verwenden Sie den [integrierten Serien-, Anforderungs-, HTTP-, HTTP-Webhook-, Event Hubs- oder Service Bus-Trigger](../connectors/apis-list.md). Integrierte Trigger und Aktionen werden nativ in der Azure Logic Apps-Runtime (Vorschau) ausgeführt, während verwaltete Connectors in Azure bereitgestellt werden. Im Designer werden die integrierten Trigger und Aktionen auf der Registerkarte **Integriert** angezeigt, während die Trigger und Aktionen der verwalteten Connectors auf der Registerkarte **Azure** angezeigt werden.
 

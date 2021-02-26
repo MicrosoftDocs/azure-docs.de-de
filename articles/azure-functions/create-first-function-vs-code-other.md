@@ -3,12 +3,12 @@ title: 'Erstellen einer Funktion in Go oder Rust mit Visual Studio Code: Azure F
 description: Es wird beschrieben, wie Sie eine Go-Funktion als benutzerdefinierten Azure Functions-Handler erstellen und dann das lokale Projekt für serverloses Hosting in Azure Functions unter Verwendung der Azure Functions-Erweiterung in Visual Studio Code veröffentlichen.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 911e2ed263271cff41562f383f231d3ca8181854
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567558"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809564"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Schnellstart: Erstellen einer Go- oder Rust-Funktion in Azure mit Visual Studio Code
 
@@ -226,7 +226,7 @@ Sie können dieses Projekt auf Ihrem lokalen Entwicklungscomputer ausführen, be
 
 1. Die zurückgegebene Antwort sieht in einem Browser in etwa wie folgt aus:
 
-    ![Browser: Localhost-Beispielausgabe](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Browser: Localhost-Beispielausgabe](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. Informationen zur Anforderung werden in Bereich **Terminal** angezeigt.
 
@@ -262,7 +262,7 @@ In diesem Abschnitt veröffentlichen Sie Ihr Projekt in Azure über eine Funktio
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Ändern Sie `defaultExecutablePath` in der Datei *host.json* von `handler.exe` in `handler`. Hiermit wird die Funktions-App angewiesen, die Linux-Binärdatei auszuführen.
@@ -308,7 +308,7 @@ In diesem Abschnitt erstellen Sie eine Funktions-App sowie zugehörige Ressource
 
 1. Wählen Sie auf der Aktivitätsleiste das Azure-Symbol und anschließend im Bereich **Azure: Funktionen** die Schaltfläche **Deploy to function app...** (In Funktions-App bereitstellen...) aus.
 
-    ![Veröffentlichen Ihres Projekts in Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Veröffentlichen Ihres Projekts in Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Geben Sie nach entsprechender Aufforderung Folgendes ein:
 
@@ -337,19 +337,17 @@ In diesem Abschnitt erstellen Sie eine Funktions-App sowie zugehörige Ressource
 
     + **Wählen Sie eine Application Insights-Ressource aus**: Wählen Sie die Option `+ Create Application Insights resource`. Dieser Name muss in Azure global eindeutig sein. Sie können den Namen verwenden, der in der Eingabeaufforderung vorgeschlagen wird.
 
-    + **Wählen Sie einen Speicherort für neue Ressourcen aus:**  Wählen Sie eine [Region](https://azure.microsoft.com/regions/) in Ihrer Nähe aus, um eine bessere Leistung zu erzielen. 
+    + **Wählen Sie einen Speicherort für neue Ressourcen aus:**  Wählen Sie eine [Region](https://azure.microsoft.com/regions/) in Ihrer Nähe aus, um eine bessere Leistung zu erzielen. Die Erweiterung zeigt den Status einzelner Ressourcen an, während diese in Azure im Benachrichtigungsbereich erstellt werden.
 
-1. Nach Abschluss des Vorgangs werden in Ihrem Abonnement die folgenden Azure-Ressourcen erstellt, deren Namen auf dem Namen Ihrer Funktions-App basieren:
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Benachrichtigung über die Erstellung von Azure-Ressourcen":::
 
-    + Eine Ressourcengruppe als logischen Container für verwandte Ressourcen.
-    + Ein Azure Storage-Standardkonto, in dem Status- und andere Informationen zu Ihren Projekten verwaltet werden.
-    + Ein Verbrauchsplan, der den zugrunde liegenden Host für Ihre serverlose Funktions-App definiert. 
-    + Eine Funktions-App, die als Umgebung zum Ausführen Ihres Funktionscodes dient. Mit einer Funktions-App können Sie Funktionen zu logischen Einheiten gruppieren. Dies erleichtert die Verwaltung, Bereitstellung und Freigabe von Ressourcen im selben Hostingplan.
-    + Eine mit der Funktions-App verbundene Application Insights-Instanz, die die Nutzung Ihrer serverlosen Funktion nachverfolgt.
+1. Nach Abschluss des Vorgangs werden in Ihrem Abonnement die folgenden Azure-Ressourcen erstellt:
+
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Nach der Erstellung der Funktions-App wird eine Benachrichtigung angezeigt, und das Bereitstellungspaket wird angewendet. 
 
-1. Wählen Sie in dieser Benachrichtigungen **Ausgabe anzeigen** aus, um die Erstellungs- und Bereitstellungsergebnisse (auch für die von Ihnen erstellten Azure-Ressourcen) anzuzeigen. Wenn Sie die Benachrichtigung übersehen haben, wählen Sie das Glockensymbol in der unteren rechten Ecke aus, um sie erneut anzuzeigen.
+4. Wählen Sie in dieser Benachrichtigungen **Ausgabe anzeigen** aus, um die Erstellungs- und Bereitstellungsergebnisse (auch für die von Ihnen erstellten Azure-Ressourcen) anzuzeigen. Wenn Sie die Benachrichtigung übersehen haben, wählen Sie das Glockensymbol in der unteren rechten Ecke aus, um sie erneut anzuzeigen.
 
     ![Benachrichtigung nach Abschluss der Erstellung](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 

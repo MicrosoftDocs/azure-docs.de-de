@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542812"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820228"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Verschieben von Azure SQL-Datenbankressourcen in eine andere Region
 
@@ -272,8 +272,11 @@ Schließen Sie das Verschieben von Datenbanken und Pools für elastische Datenba
 
 Nach dem Verschieben können Sie die Ressourcen in der Quellregion löschen, dies ist jedoch optional. 
 
-1. Klicken Sie unter **Across regions** (Regionsübergreifend) auf den Namen der einzelnen Quellressourcen, die Sie löschen möchten.
-2. Wählen Sie auf der Seite „Eigenschaften“ der ausgewählten Ressource die Option **Löschen** aus.
+> [!NOTE]
+> SQL Server-Server können nicht über das Portal gelöscht werden und müssen auf der Eigenschaftenseite der jeweiligen Ressource gelöscht werden.
+
+1. Klicken Sie unter **Regionsübergreifend** auf den Namen der Quellressource, die Sie löschen möchten.
+2. Wählen Sie **Quelle löschen** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -2,13 +2,13 @@
 title: Bereitstellen von Traffic Manager zum Ausgleichen der Workloads von Azure VMware Solution
 description: Erfahren Sie, wie Sie Traffic Manager in Azure VMware Solution integrieren, um Anwendungsworkloads auf mehreren Endpunkten in unterschiedlichen Regionen auszugleichen.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809733"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988589"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Bereitstellen von Traffic Manager zum Ausgleichen der Workloads von Azure VMware Solution
 
@@ -130,7 +130,7 @@ Mit den folgenden Schritten wird die Konfiguration des NSX-T-Segments in der Azu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen:
+Nachdem Sie sich mit der Integration von Azure Traffic Manager und Azure VMware Solution beschäftigt haben, möchten Sie vielleicht mehr über Folgendes erfahren:
 
 - [Verwenden von Azure Application Gateway für Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 - [Traffic Manager-Routingmethoden](../traffic-manager/traffic-manager-routing-methods.md)

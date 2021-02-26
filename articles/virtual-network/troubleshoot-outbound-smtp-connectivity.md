@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883111"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054853"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Behandeln von Problemen mit ausgehenden SMTP-Verbindungen in Azure
 
@@ -27,7 +27,7 @@ Diese Änderung im Verhalten gilt nur für Abonnements und Bereitstellungen, die
 
 ## <a name="recommended-method-of-sending-email"></a>Empfohlene Methode zum Senden von E-Mails
 
-Es wird empfohlen, authentifizierte SMTP-Relaydienste zu verwenden, um E-Mails von Azure-VMs oder von Azure App Service zu senden. (Diese Relaydienste stellen in der Regel eine Verbindung über den TCP-Port 587 oder 443 her, sie unterstützen aber auch andere Ports.) Mithilfe dieser Dienste wird die Zuverlässigkeit der IP-Adresse oder Domäne bewahrt, um die Möglichkeit zu minimieren, dass Drittanbieter Nachrichten ablehnen. [SendGrid](https://sendgrid.com/partners/azure/) ist ein solcher SMTP-Relaydienst, aber es gibt auch andere. Möglicherweise verfügen Sie auch über einen sicheren SMTP-Relaydienst, der lokal ausgeführt wird und den Sie verwenden können.
+Es wird empfohlen, authentifizierte SMTP-Relaydienste zu verwenden, um E-Mails von Azure-VMs oder von Azure App Service zu senden. (Diese Relaydienste stellen in der Regel eine Verbindung über den TCP-Port 587 her, sie unterstützen aber auch andere Ports.) Mithilfe dieser Dienste wird die Zuverlässigkeit der IP-Adresse oder Domäne bewahrt, um die Möglichkeit zu minimieren, dass Drittanbieter Nachrichten ablehnen. [SendGrid](https://sendgrid.com/partners/azure/) ist ein solcher SMTP-Relaydienst, aber es gibt auch andere. Möglicherweise verfügen Sie auch über einen sicheren SMTP-Relaydienst, der lokal ausgeführt wird und den Sie verwenden können.
 
 Das Verwenden dieser Dienste für die E-Mail-Zustellung ist in Azure nicht eingeschränkt – unabhängig vom Abonnementtyp.
 

@@ -3,12 +3,12 @@ title: Häufig gestellte Fragen zu Azure Kubernetes Service (AKS)
 description: Finden Sie Antworten auf einige der häufig gestellten Fragen zu Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127633"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820261"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Häufig gestellte Fragen zu Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,9 @@ Die Windows Server-Unterstützung für Knotenpools umfasst einige Einschränkung
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Bietet AKS eine Vereinbarung zum Servicelevel?
 
-AKS bietet SLA-Garantien als optionales Add-On-Feature mit [Betriebszeit-SLA][uptime-sla].
+AKS bietet SLA-Garantien als optionales Add-On-Feature mit [Betriebszeit-SLA][uptime-sla]. 
+
+Die standardmäßig angebotene kostenlose SLA garantiert keinen hochverfügbaren API-Serverendpunkt (unser Servicelevelziel ist 99,5 %). Es kann vorkommen, dass vorübergehende Konnektivitätsprobleme bei Upgrades, fehlerhaften zugrunde liegenden Knoten, Wartungsarbeiten an der Plattform usw. auftreten. Wenn Ihre Workload keine Neustarts von APIServer toleriert, empfehlen wir die Wahl der Betriebszeit-SLA.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Kann ich Rabatte für Azure-Reservierungen auf meine AKS-Agent-Knoten anwenden?
 

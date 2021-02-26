@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120409"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576209"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Steuern des Speicherkontozugriffs für einen serverlosen SQL-Pool in Azure Synapse Analytics
 
@@ -94,6 +94,9 @@ Sie können die folgenden Kombinationen aus Autorisierungstypen und Azure Storag
 
 Beim Zugriff auf Speicher, der mit der Firewall geschützt ist, kann die **Benutzeridentität** oder die **verwaltete Identität** verwendet werden.
 
+> [!NOTE]
+> Das Firewallfeature für Storage befindet sich in der Public Preview-Phase und ist in allen öffentlichen Cloudregionen verfügbar. 
+
 #### <a name="user-identity"></a>Benutzeridentität
 
 Für den Zugriff auf den mit der Firewall geschützten Speicher über die Benutzeridentität können Sie das PowerShell-Modul „Az.Storage“ verwenden.
@@ -102,12 +105,13 @@ Für den Zugriff auf den mit der Firewall geschützten Speicher über die Benutz
 Führen Sie diese Schritte aus, um die Speicherkontofirewall zu konfigurieren und eine Ausnahme für den Synapse-Arbeitsbereich hinzuzufügen.
 
 1. Öffnen Sie PowerShell, oder [installieren Sie PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1).
-2. Installieren Sie das aktualisierte Az-Modul. Storage-Modul: 
+2. Installieren Sie das Az.Storage 3.0.1-Modul und Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Stellen Sie sicher, dass Sie mindestens Version 3.0.1 verwenden. Ihre Az.Storage-Version können Sie mithilfe des folgenden Befehls überprüfen:  
+    > Stellen Sie sicher, dass Sie **Version 3.0.1** verwenden. Ihre Az.Storage-Version können Sie mithilfe des folgenden Befehls überprüfen:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -121,16 +125,23 @@ Führen Sie diese Schritte aus, um die Speicherkontofirewall zu konfigurieren un
     - Ressourcengruppenname: Sie finden diesen Namen im Azure-Portal in der Übersicht des Synapse-Arbeitsbereichs.
     - Kontoname: Name des Speicherkontos, das durch Firewallregeln geschützt ist
     - Mandanten-ID: Sie finden diese ID im Azure-Portal in Azure Active Directory in den Mandanteninformationen.
-    - Ressourcen-ID: Sie finden diese ID im Azure-Portal in der Übersicht des Synapse-Arbeitsbereichs.
+    - Arbeitsbereichname: Name des Synapse-Arbeitsbereichs.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Stellen Sie sicher, dass die Ressourcen-ID dieser Vorlage entspricht.
+    > Vergewissern Sie sich, dass die Ressourcen-ID mit dieser Vorlage in der Ausgabe der resourceId-Variablen übereinstimmt.
     >
     > Es ist wichtig, **resourcegroups** in Kleinbuchstaben zu schreiben.
     > Beispiel für eine Ressourcen-ID: 
@@ -145,7 +156,15 @@ Führen Sie diese Schritte aus, um die Speicherkontofirewall zu konfigurieren un
 6. Vergewissern Sie sich, dass die Regel in Ihrem Speicherkonto angewendet wurde: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
+        }
     ```
 
 #### <a name="managed-identity"></a>Verwaltete Identität

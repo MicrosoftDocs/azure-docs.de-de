@@ -1,18 +1,15 @@
 ---
 title: Optimieren von Apache HBase mit Apache Ambari in Azure HDInsight
 description: Verwenden Sie die Apache Ambari-Webbenutzeroberfläche zum Konfigurieren und Optimieren von Apache HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/01/2021
+ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821696"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428199"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optimieren von Apache HBase mit Apache Ambari in Azure HDInsight
 
@@ -21,6 +18,9 @@ Apache Ambari ist eine Webbenutzeroberfläche zum Verwalten und Überwachen von 
 Die Apache HBase-Konfiguration wird über die Registerkarte **HBase Configs** (HBase-Konfigurationen) geändert. In den folgenden Abschnitten werden einige wichtige Konfigurationseinstellungen beschrieben, die sich auf die HBase-Leistung auswirken.
 
 ## <a name="set-hbase_heapsize"></a>Festlegen von HBASE_HEAPSIZE
+
+> [!NOTE]
+> Dieser Artikel enthält Verweise auf den Begriff *Master*, den Microsoft nicht mehr verwendet. Sobald der Begriff aus der Software entfernt wurde, wird er auch aus diesem Artikel entfernt.
 
 Mit der HBase-Heapgröße wird die maximale Heapmenge in MB angegeben, die von Servern vom Typ *region* und *master* verwendet werden kann. Der Standardwert ist 1.000 MB. Es ist ratsam, diesen Wert je nach Clusterworkload anzupassen.
 

@@ -3,16 +3,16 @@ title: Abrufen von Erkenntnissen mithilfe von Backup Center
 description: Erfahren Sie, wie Sie mit Backup Center historische Trends analysieren und tiefere Erkenntnisse aus Ihren Sicherungen gewinnen.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173744"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893692"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Abrufen von Erkenntnissen mithilfe von Backup Center
+# <a name="obtain-insights-using-backup-center-preview"></a>Abrufen von Erkenntnissen mithilfe von Backup Center (Vorschau)
 
-Zum Analysieren von historischen Trends und Gewinnen von tieferen Erkenntnissen aus Ihren Sicherungen bietet Backup Center eine Schnittstelle zu [Sicherungsberichten](configure-reports.md), die [Azure Monitor-Protokolle](../azure-monitor/platform/data-platform-logs.md) und [Azure-Arbeitsmappen](../azure-monitor/platform/workbooks-overview.md) verwendet. Sicherungsberichte bieten die folgenden Funktionen:
+Zum Analysieren von historischen Trends und Gewinnen von tieferen Erkenntnissen aus Ihren Sicherungen bietet Backup Center (Vorschau) eine Schnittstelle zu [Sicherungsberichten](configure-reports.md), die [Azure Monitor-Protokolle](../azure-monitor/platform/data-platform-logs.md) und [Azure-Arbeitsmappen](../azure-monitor/platform/workbooks-overview.md) verwendet. Sicherungsberichte bieten die folgenden Funktionen:
 
 - Zuordnung und Vorhersagen des verbrauchten Cloudspeichers.
 
@@ -24,7 +24,7 @@ Zum Analysieren von historischen Trends und Gewinnen von tieferen Erkenntnissen 
 
 ## <a name="supported-scenarios"></a>Unterstützte Szenarien
 
-- Sicherungsberichte sind derzeit für Sicherungen von Azure Database for PostgreSQL-Servern nicht verfügbar.
+- Sicherungsberichte (Vorschau) sind derzeit für Sicherungen von Azure Database for PostgreSQL-Servern nicht verfügbar.
 
 - Eine ausführliche Liste der unterstützten und nicht unterstützten Szenarien finden Sie in der [Supportmatrix](backup-center-support-matrix.md).
 

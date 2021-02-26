@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624683"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522392"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Steuern, welcher Datenverkehr überwacht wird
 
@@ -295,7 +295,7 @@ So zeigen Sie die Überprüfungsergebnisse an:
 
 1. Wenn die Überprüfung abgeschlossen ist, wählen Sie im Bereich **Actions** (Aktionen) **View Scan Results** (Überprüfungsergebnisse anzeigen) aus. Die CSV-Datei mit den Scanergebnissen wird auf Ihren Computer heruntergeladen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Untersuchen von Sensorerkennungen in einem Gerätebestand](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Untersuchen von Sensorerkennungen in der Geräteübersicht](how-to-work-with-the-sensor-device-map.md)

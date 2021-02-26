@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory – JSON-Skiptreferenz
 description: Stellt JSON-Schemas für Data Factory-Entitäten bereit.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 41ba08aef7aed761c3c6063f97768f22bffe3a36
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f17d851e517e1ea0297bf8169c42496068e57533
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508491"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371259"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory – JSON-Skiptreferenz
 > [!NOTE]

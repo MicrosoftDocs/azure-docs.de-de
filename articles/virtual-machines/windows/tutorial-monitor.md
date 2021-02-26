@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736592"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570070"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Überwachen eines virtuellen Windows-Computers in Azure
 
@@ -86,18 +86,18 @@ So aktivieren Sie die Überwachung Ihrer virtuellen Azure-Computer mit Azure Mon
 
 3. Wählen Sie auf der Seite **Insights (Vorschau)** **Jetzt testen** aus.
 
-    ![Aktivieren von Azure Monitor for VMs für eine VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Aktivieren von Azure Monitor for VMs für eine VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. Wenn Sie im selben Abonnement einen Log Analytics-Arbeitsbereich haben, wählen Sie ihn auf der Seite **Azure Monitor Insights Onboarding** (Onboarding von Azure Monitor Insights) in der Dropdownliste aus.  
 
     In der Liste sind Standardarbeitsbereich und Speicherort, in dem die VM im Abonnement bereitgestellt wird, vorab ausgewählt. 
 
     >[!NOTE]
-    >Informationen zum Erstellen eines neuen Log Analytics-Arbeitsbereichs für das Speichern der Überwachungsdaten aus der VM finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs](../../azure-monitor/learn/quick-create-workspace.md). Der Arbeitsbereich muss einer der [unterstützten Regionen](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) angehören.
+    >Informationen zum Erstellen eines neuen Log Analytics-Arbeitsbereichs für das Speichern der Überwachungsdaten aus der VM finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs](../../azure-monitor/logs/quick-create-workspace.md). Der Arbeitsbereich muss einer der [unterstützten Regionen](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions) angehören.
 
 Nachdem Sie die Überwachung aktiviert haben, müssen Sie möglicherweise etwa einige Minuten warten, bis die Leistungsmetriken für die VM angezeigt werden.
 
-![Aktivieren von Azure Monitor for VMs – Verarbeiten der Überwachungsbereitstellung](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Aktivieren von Azure Monitor for VMs – Verarbeiten der Überwachungsbereitstellung](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Anzeigen von VM-Leistungsmetriken
 

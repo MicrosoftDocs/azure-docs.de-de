@@ -1,23 +1,18 @@
 ---
 title: Aufrufen von gespeicherten Prozeduren aus der Kopieraktivität in Azure Data Factory
 description: Erfahren Sie, wie eine gespeicherte Prozedur in Azure SQL-Datenbank oder SQL-Server aus einer Kopieraktivität von Azure Data Factory aufgerufen wird.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f06b84ac0807a37c7adc603a557894be85a4cea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637852"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374965"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Aufrufen von gespeicherten Prozeduren aus der Kopieraktivität in Azure Data Factory
 > [!NOTE]
@@ -49,7 +44,7 @@ Legen Sie im Ausgabedataset-JSON den **type** auf **SqlServerTable** fest. Legen
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>JSON im Abschnitt „SqlSink“ in der Kopieraktivität
-Definieren Sie den Abschnitt **SqlSink** im JSON der Kopieraktivität wie folgt. Um beim Einfügen von Daten in die Senken-/Zieldatenbank eine gespeicherte Prozedur aufzurufen, geben Sie Werte sowohl für die **SqlWriterStoredProcedureName** -Eigenschaft als auch für die **SqlWriterTableType** -Eigenschaft an. Beschreibungen dieser Eigenschaften finden Sie im [SqlSink-Abschnitt im SQL Server-Connector-Artikel](data-factory-sqlserver-connector.md#sqlsink).
+Definieren Sie den Abschnitt **SqlSink** im JSON der Kopieraktivität wie folgt. Um beim Einfügen von Daten in die Senken-/Zieldatenbank eine gespeicherte Prozedur aufzurufen, geben Sie Werte sowohl für die **SqlWriterStoredProcedureName**-Eigenschaft als auch für die **SqlWriterTableType**-Eigenschaft an. Beschreibungen dieser Eigenschaften finden Sie im [SqlSink-Abschnitt im SQL Server-Connector-Artikel](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -68,7 +63,7 @@ Definieren Sie den Abschnitt **SqlSink** im JSON der Kopieraktivität wie folgt.
 ```
 
 ## <a name="stored-procedure-definition"></a>Definition der gespeicherten Prozedur 
-Definieren Sie in Ihrer Datenbank die gespeicherte Prozedur mit dem gleichen Namen wie **SqlWriterStoredProcedureName** . Die gespeicherte Prozedur verarbeitet Eingabedaten aus dem Quelldatenspeicher und fügt Daten in eine Tabelle in der Zieldatenbank ein. Der Name des ersten Parameters der gespeicherten Prozedur muss mit dem im Dataset-JSON definierten „tableName“ übereinstimmen (Marketing).
+Definieren Sie in Ihrer Datenbank die gespeicherte Prozedur mit dem gleichen Namen wie **SqlWriterStoredProcedureName**. Die gespeicherte Prozedur verarbeitet Eingabedaten aus dem Quelldatenspeicher und fügt Daten in eine Tabelle in der Zieldatenbank ein. Der Name des ersten Parameters der gespeicherten Prozedur muss mit dem im Dataset-JSON definierten „tableName“ übereinstimmen (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +76,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Tabellentypdefinition
-Definieren Sie in Ihrer Datenbank den Tabellentyp mit dem gleichen Namen wie **SqlWriterTableType** . Das Schema des Tabellentyps muss mit dem Schema des Eingabedatasets übereinstimmen.
+Definieren Sie in Ihrer Datenbank den Tabellentyp mit dem gleichen Namen wie **SqlWriterTableType**. Das Schema des Tabellentyps muss mit dem Schema des Eingabedatasets übereinstimmen.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

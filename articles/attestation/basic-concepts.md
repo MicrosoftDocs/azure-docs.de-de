@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572815"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429278"
 ---
 # <a name="basic-concepts"></a>Grundlegende Konzepte
 
@@ -30,9 +31,9 @@ Im Folgenden finden Sie einige grundlegende Konzepte zu Microsoft Azure Attestat
 
 Der Nachweisanbieter gehört zum Azure-Ressourcenanbieter mit dem Namen „Microsoft.Attestation“. Der Ressourcenanbieter ist ein Dienstendpunkt, der den Azure Attestation-REST-Vertrag bereitstellt und mithilfe von [Azure Resource Manager](../azure-resource-manager/management/overview.md) bereitgestellt wird. Jeder Nachweisanbieter berücksichtigt eine bestimmte erkennbare Richtlinie. Nachweisanbieter werden mit einer Standardrichtlinie für jeden Nachweistyp erstellt. (Beachten Sie, dass die VBS-Enclave über keine Standardrichtlinie verfügt.) Weitere Informationen zur Standardrichtlinie für SGX finden Sie unter [Beispiele einer Nachweisrichtlinie](policy-examples.md).
 
-### <a name="regional-default-provider"></a>Regionaler Standardanbieter
+### <a name="regional-shared-provider"></a>Regionaler gemeinsam verwendeter Anbieter
 
-Azure Attestation stellt in jeder Region einen Standardanbieter bereit. Kunden können den Standardanbieter für den Nachweis verwenden oder eigene Anbieter mit benutzerdefinierten Richtlinien erstellen. Die Standardanbieter sind für alle Azure AD-Benutzer zugänglich, und die einem Standardanbieter zugeordnete Richtlinie kann nicht geändert werden.
+Von Azure Attestation wird in jeder verfügbaren Region ein regionaler Anbieter für die gemeinsame Verwendung bereitgestellt. Kunden können den regionalen gemeinsam verwendeten Anbieter für die Nachweiserbringung nutzen oder eigene Anbieter mit benutzerdefinierten Richtlinien erstellen. Die gemeinsam verwendeten Anbieter sind für alle Azure AD-Benutzer zugänglich, und die zugeordnete Richtlinie kann nicht geändert werden.
 
 | Region | Nachweis-URI | 
 |--|--|

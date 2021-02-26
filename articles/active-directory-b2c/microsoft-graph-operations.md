@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805232"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952228"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Verwalten von Azure AD B2C mit Microsoft Graph
 
@@ -35,18 +35,33 @@ Zum Verwenden der MS Graph-API und Interagieren mit Ressourcen auf Ihrem Azure A
 - [Aktualisieren eines Benutzers](/graph/api/user-update)
 - [Löschen eines Benutzers](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>Verwaltung der Telefonnummer des Benutzers
+## <a name="user-phone-number-management-beta"></a>Verwaltung der Telefonnummer des Benutzers (Beta)
+
+Eine Telefonnummer, mit der sich ein Benutzer per [SMS oder Sprachanruf](identity-provider-local.md#phone-sign-in-preview) oder per [mehrstufiger Authentifizierung](multi-factor-authentication.md) anmelden kann. Weitere Informationen finden Sie unter [Ressourcentyp „phoneAuthenticationMethod“](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add (Hinzufügen)](/graph/api/authentication-post-phonemethods)
-- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Aktualisieren](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Liste](/graph/api/authentication-list-phonemethods)
+- [Get](/graph/api/phoneauthenticationmethod-get)
+- [Aktualisieren](/graph/api/phoneauthenticationmethod-update)
 - [Löschen](/graph/api/phoneauthenticationmethod-delete)
 
-Weitere Informationen zum Verwalten der Telefonnummer für die Anmeldung eines Benutzers finden Sie unter [b2cAuthenticationMethodsPolicy-Ressourcentyp](/graph/api/resources/b2cauthenticationmethodspolicy).
+Hinweis: Durch den [Auflistungsvorgang](/graph/api/authentication-list-phonemethods) werden nur aktivierte Telefonnummern zurückgegeben. Die folgende Telefonnummer muss aktiviert werden, um mit den Auflistungsvorgängen verwendet werden zu können. 
 
-## <a name="identity-providers-user-flow"></a>Identitätsanbieter (Benutzerflow)
+![Aktivieren der Anmeldung per Telefon](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
-Verwalten Sie die Identitätsanbieter, die für die Benutzerflows in Ihrem Azure AD B2C-Mandanten verfügbar sind.
+## <a name="self-service-password-reset-email-address-beta"></a>E-Mail-Adresse für Self-Service-Kennwortzurücksetzung (Beta)
+
+Eine E-Mail-Adresse, die von einem [Konto mit benutzernamenbasierter Anmeldung](identity-provider-local.md#username-sign-in) verwendet werden kann, um das Kennwort zurückzusetzen. Weitere Informationen finden Sie unter [Ressourcentyp „emailAuthenticationMethod“](/graph/api/resources/emailauthenticationmethod).
+
+- [Add (Hinzufügen)](/graph/api/emailauthenticationmethod-post)
+- [Liste](/graph/api/emailauthenticationmethod-list)
+- [Get](/graph/api/emailauthenticationmethod-get)
+- [Aktualisieren](/graph/api/emailauthenticationmethod-update)
+- [Löschen](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>Identitätsanbieter
+
+Verwalten Sie die [Identitätsanbieter](add-identity-provider.md), die für die Benutzerflows in Ihrem Azure AD B2C-Mandanten verfügbar sind.
 
 - [Auflisten von Identitätsanbietern, die im Azure AD B2C-Mandanten registriert sind](/graph/api/identityprovider-list)
 - [Erstellen eines Identitätsanbieters](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +77,13 @@ Konfigurieren Sie vordefinierte Richtlinien für Registrierung, Anmeldung, kombi
 - [Erstellen eines Benutzerflows](/graph/api/identitycontainer-post-b2cuserflows)
 - [Abrufen eines Benutzerflows](/graph/api/b2cidentityuserflow-get)
 - [Löschen eines Benutzerflows](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>Authentifizierungsmethoden mit Benutzerflow (Beta)
+
+Wählen Sie einen Mechanismus, mit dem sich Benutzer über lokale Konten registrieren können. Lokale Konten sind die Konten, bei denen die Identitätsassertion von Azure AD durchgeführt wird. Weitere Informationen finden Sie unter [Ressourcentyp „b2cAuthenticationMethodsPolicy“](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Aktualisieren](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Benutzerdefinierte Richtlinien
 

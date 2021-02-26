@@ -1,22 +1,18 @@
 ---
 title: Migrieren von Daten von einem lokalen Hadoop-Cluster zu Azure Storage
 description: Erfahren Sie, wie Sie mithilfe von Azure Data Factory Daten von einem lokalen Hadoop-Cluster zu Azure Storage migrieren.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638124"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367791"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Verwenden von Azure Data Factory zum Migrieren von Daten von einem lokalen Hadoop-Cluster zu Azure Storage 
 
@@ -110,7 +106,7 @@ Wenn Kopieraufträge aufgrund eines vorübergehenden Problems mit dem Netzwerk o
 
 Im DistCp-Modus von Data Factory können Sie den DistCp-Befehlszeilenparameter `-update` (Daten schreiben, wenn Quelldatei und Zieldatei eine unterschiedliche Größe aufweisen) für die Migration von Deltadaten verwenden.
 
-Im nativen Integration Runtime-Modus von Data Factory ist die Verwendung einer Namenskonvention mit Zeitpartitionierung am effizientesten zum Identifizieren von neuen oder geänderten Dateien aus HDFS. Wenn für die Daten in HDFS die Zeitpartitionierung mit Zeitsegmentinformationen im Datei- oder Ordnernamen durchgeführt wurde (z. B. */jjjj/mm/tt/file.csv* ), kann in der Pipeline einfach ermittelt werden, welche Dateien und Ordner inkrementell kopiert werden müssen.
+Im nativen Integration Runtime-Modus von Data Factory ist die Verwendung einer Namenskonvention mit Zeitpartitionierung am effizientesten zum Identifizieren von neuen oder geänderten Dateien aus HDFS. Wenn für die Daten in HDFS die Zeitpartitionierung mit Zeitsegmentinformationen im Datei- oder Ordnernamen durchgeführt wurde (z. B. */jjjj/mm/tt/file.csv*), kann in der Pipeline einfach ermittelt werden, welche Dateien und Ordner inkrementell kopiert werden müssen.
 
 Wenn die Daten in HDFS nicht über eine Zeitpartitionierung verfügen, kann Data Factory neue oder geänderte Dateien anhand des Werts **LastModifiedDate** identifizieren. Data Factory scannt alle Dateien aus HDFS und kopiert nur die neuen und aktualisierten Dateien, deren Zeitstempel der letzten Änderung größer als ein festgelegter Wert ist. 
 

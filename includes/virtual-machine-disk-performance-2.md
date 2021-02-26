@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518060"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808477"
 ---
 ![Diagramm mit den Dsv3-Spezifikationen.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -28,8 +28,8 @@ Sie können die Hostzwischenspeicherung aktivieren, wenn Sie Ihren virtuellen Co
 
 Sie können die Hostzwischenspeicherung für jeden Datenträger an Ihre Workloadanforderungen anpassen. Sie können Ihre Hostzwischenspeicherung wie folgt festlegen:
 
-- **Schreibgeschützt** : Für Workloads, die nur Lesevorgänge ausführen.
-- **Lesen/Schreiben** : Für Workloads mit einem ausgewogenen Verhältnis von Lese- und Schreibvorgängen.
+- **Schreibgeschützt**: Für Workloads, die nur Lesevorgänge ausführen.
+- **Lesen/Schreiben**: Für Workloads mit einem ausgewogenen Verhältnis von Lese- und Schreibvorgängen.
 
 Wenn Ihre Workload keinem dieser beiden Muster folgt, empfehlen wir die Verwendung der Hostzwischenspeicherung nicht.
 
@@ -121,12 +121,12 @@ In diesem Fall stellt die auf dem virtuellen Computer vom Typ „Standard_D8s_v3
 
 Wir verfügen über Metriken in Azure, die Aufschluss über die Leistung Ihrer virtuellen Computer und Datenträger geben. Diese Metriken können über das Azure-Portal angezeigt werden. Sie können auch über einen API-Aufruf abgerufen werden. Metriken werden in Intervallen von einer Minute berechnet. Die folgenden Metriken sind verfügbar, um einen Einblick in die VM- und Datenträger-E/A sowie in die Durchsatzleistung zu erhalten:
 
-- **Warteschlangentiefe für Betriebssystemdatenträger** : Die Anzahl der aktuell ausstehenden E/A-Anforderungen, die darauf warten, vom Betriebssystemdatenträger gelesen oder auf diesen geschrieben zu werden.
+- **Warteschlangentiefe für Betriebssystemdatenträger**: Die Anzahl der aktuell ausstehenden E/A-Anforderungen, die darauf warten, vom Betriebssystemdatenträger gelesen oder auf diesen geschrieben zu werden.
 - **Vom Betriebssystemdatenträger gelesene Bytes/Sek.** : Die Anzahl der Bytes, die in einer Sekunde vom Betriebssystemdatenträger gelesen werden.
 - **Lesevorgänge auf Betriebssystemdatenträger/Sek.** : Die Anzahl der Eingabevorgänge, die in einer Sekunde vom Betriebssystemdatenträger gelesen werden.
 - **Auf den Betriebssystemdatenträger geschriebene Bytes/Sek.** : Die Anzahl der Bytes, die in einer Sekunde auf den Betriebssystemdatenträger geschrieben werden.
 - **Schreibvorgänge auf Betriebssystemdatenträger/Sek.** : Die Anzahl der Ausgabevorgänge, die in einer Sekunde auf den Betriebssystemdatenträger geschrieben werden.
-- **Warteschlangentiefe für Datenträger** : Die Anzahl der aktuell ausstehenden E/A-Anforderungen, die darauf warten, von Datenträgern gelesen oder auf diese geschrieben zu werden.
+- **Warteschlangentiefe für Datenträger**: Die Anzahl der aktuell ausstehenden E/A-Anforderungen, die darauf warten, von Datenträgern gelesen oder auf diese geschrieben zu werden.
 - **Vom Datenträger gelesene Bytes/Sek.** : Die Anzahl der Bytes, die in einer Sekunde von Datenträgern für Daten gelesen werden.
 - **Datenträgerlesevorgänge/Sek.** : Die Anzahl der Eingabevorgänge, die in einer Sekunde von Datenträgern gelesen werden.
 - **Auf den Datenträger geschriebene Bytes/Sek.** : Die Anzahl der Bytes, die in einer Sekunde auf Datenträger für Daten geschrieben werden.
@@ -137,20 +137,21 @@ Wir verfügen über Metriken in Azure, die Aufschluss über die Leistung Ihrer v
 - **Datenträgerschreibvorgänge/Sek.** : Die Anzahl der Ausgabevorgänge, die in einer Sekunde von allen an einen virtuellen Computer angeschlossenen Datenträgern geschrieben werden.
 
 ## <a name="storage-io-utilization-metrics"></a>Auslastungsmetriken für Speicher-E/A
+Die folgenden Metriken helfen bei der Diagnose von Engpässen Ihrer Kombination aus VM und Datenträger. Diese Metriken sind nur verfügbar, wenn Sie eine Premium-VM verwenden. Sie stehen für alle Datenträgertypen mit Ausnahme von Ultra zur Verfügung. 
 
 Metriken, die bei der Diagnose der E/A-Begrenzung von Datenträgern helfen:
 
-- **Beanspruchte Datenträger-IOPS in Prozent** : Der Prozentsatz, der über die abgeschlossenen Datenträger-IOPS im Vergleich zu den bereitgestellten Datenträger-IOPs berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom IOPS-Grenzwert Ihres Datenträgers begrenzt.
-- **Beanspruchte Datenträgerbandbreite in Prozent** : Der Prozentsatz, der über den abgeschlossenen Datenträgerdurchsatz im Vergleich zum bereitgestellten Datenträgerdurchsatz berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Bandbreitengrenzwert Ihres Datenträgers begrenzt.
-- **Beanspruchte Betriebssystemdatenträger-IOPS in Prozent** : Der Prozentsatz, der über die abgeschlossenen Betriebssystemdatenträger-IOPS im Vergleich zu den bereitgestellten Betriebssystemdatenträger-IOPs berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom IOPS-Grenzwert Ihres Betriebssystemdatenträgers begrenzt.
-- **Beanspruchte Betriebssystem-Datenträgerbandbreite in Prozent** : Der Prozentsatz, der über den abgeschlossenen Betriebssystemdatenträgerdurchsatz im Vergleich zum bereitgestellten Betriebssystemdatenträgerdurchsatz berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Bandbreitengrenzwert Ihres Betriebssystemdatenträgers begrenzt.
+- **Beanspruchte Datenträger-IOPS in Prozent**: Der Prozentsatz, der über die abgeschlossenen Datenträger-IOPS im Vergleich zu den bereitgestellten Datenträger-IOPs berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom IOPS-Grenzwert Ihres Datenträgers begrenzt.
+- **Beanspruchte Datenträgerbandbreite in Prozent**: Der Prozentsatz, der über den abgeschlossenen Datenträgerdurchsatz im Vergleich zum bereitgestellten Datenträgerdurchsatz berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Bandbreitengrenzwert Ihres Datenträgers begrenzt.
+- **Beanspruchte Betriebssystemdatenträger-IOPS in Prozent**: Der Prozentsatz, der über die abgeschlossenen Betriebssystemdatenträger-IOPS im Vergleich zu den bereitgestellten Betriebssystemdatenträger-IOPs berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom IOPS-Grenzwert Ihres Betriebssystemdatenträgers begrenzt.
+- **Beanspruchte Betriebssystem-Datenträgerbandbreite in Prozent**: Der Prozentsatz, der über den abgeschlossenen Betriebssystemdatenträgerdurchsatz im Vergleich zum bereitgestellten Betriebssystemdatenträgerdurchsatz berechnet wird. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Bandbreitengrenzwert Ihres Betriebssystemdatenträgers begrenzt.
 
 Metriken, die bei der Diagnose der E/A-Begrenzung von virtuellen Computern helfen:
 
-- **Verbrauchte von der VM zwischengespeicherte IOPS in Prozent** : Der Prozentsatz der gesamten abgeschlossenen IOPS gemessen am oberen Grenzwert für zwischengespeicherte IOPS auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert für zwischengespeicherte IOPS Ihrer VM begrenzt.
-- **Prozentsatz der von der VM beanspruchten zwischengespeicherten Bandbreite** : Der Prozentsatz des gesamten abgeschlossenen Durchsatzes gemessen am oberen Grenzwert für zwischengespeicherten Durchsatz auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert der Bandbreite Ihrer VM für die Zwischenspeicherung begrenzt.
-- **Verbrauchte von der VM nicht zwischengespeicherte IOPS in Prozent** : Der Prozentsatz der gesamten abgeschlossenen IOPS auf einem virtuellen Computer gemessen am oberen Grenzwert für nicht zwischengespeicherte IOPS auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert für nicht zwischengespeicherte IOPS Ihrer VM begrenzt.
-- **Prozentsatz der von der VM beanspruchten nicht zwischengespeicherten Bandbreite** : Der Prozentsatz des gesamten abgeschlossenen Durchsatzes auf einem virtuellen Computer gemessen am oberen Grenzwert für bereitgestellten Durchsatz auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert der Bandbreite Ihrer VM für nicht zwischengespeicherte Daten begrenzt.
+- **Verbrauchte von der VM zwischengespeicherte IOPS in Prozent**: Der Prozentsatz der gesamten abgeschlossenen IOPS gemessen am oberen Grenzwert für zwischengespeicherte IOPS auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert für zwischengespeicherte IOPS Ihrer VM begrenzt.
+- **Prozentsatz der von der VM beanspruchten zwischengespeicherten Bandbreite**: Der Prozentsatz des gesamten abgeschlossenen Durchsatzes gemessen am oberen Grenzwert für zwischengespeicherten Durchsatz auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert der Bandbreite Ihrer VM für die Zwischenspeicherung begrenzt.
+- **Verbrauchte von der VM nicht zwischengespeicherte IOPS in Prozent**: Der Prozentsatz der gesamten abgeschlossenen IOPS auf einem virtuellen Computer gemessen am oberen Grenzwert für nicht zwischengespeicherte IOPS auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert für nicht zwischengespeicherte IOPS Ihrer VM begrenzt.
+- **Prozentsatz der von der VM beanspruchten nicht zwischengespeicherten Bandbreite**: Der Prozentsatz des gesamten abgeschlossenen Durchsatzes auf einem virtuellen Computer gemessen am oberen Grenzwert für bereitgestellten Durchsatz auf dem virtuellen Computer. Wenn dieser Betrag bei 100 % liegt, wird Ihre aktive Anwendung vom Grenzwert der Bandbreite Ihrer VM für nicht zwischengespeicherte Daten begrenzt.
 
 ## <a name="storage-io-utilization-metrics-example"></a>Beispiel zu den Auslastungsmetriken für Speicher-E/A
 

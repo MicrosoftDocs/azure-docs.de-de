@@ -3,12 +3,12 @@ title: Einführung
 description: Hier finden Sie Informationen zu den Features und Vorteilen von Azure VMware Solution für die Bereitstellung und Verwaltung VMware-basierter Workloads in Azure.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579284"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Was ist Azure VMware Solution?
 
@@ -48,12 +48,12 @@ Nach der Bereitstellung von Azure VMware Solution in Ihrem Abonnement werden aut
 
 In Ihrer privaten Cloud haben Sie folgende Möglichkeiten:
 - Sammeln von Protokollen auf jedem Ihrer virtuellen Computer
-- [Herunterladen und Installieren des MMA-Agents](../azure-monitor/platform/log-analytics-agent.md#installation-options) auf virtuellen Linux- und Windows-Computern
-- Aktivieren der [Azure-Diagnoseerweiterung](../azure-monitor/platform/diagnostics-extension-overview.md)
-- [Erstellen und Ausführen neuer Abfragen](../azure-monitor/platform/data-platform-logs.md#log-queries)
+- [Herunterladen und Installieren des MMA-Agents](../azure-monitor/agents/log-analytics-agent.md#installation-options) auf virtuellen Linux- und Windows-Computern
+- Aktivieren der [Azure-Diagnoseerweiterung](../azure-monitor/agents/diagnostics-extension-overview.md)
+- [Erstellen und Ausführen neuer Abfragen](../azure-monitor/logs/data-platform-logs.md#log-queries)
 - Ausführen der gleichen Abfragen, die Sie auch sonst auf Ihren virtuellen Computern ausführen
 
-Überwachungsmuster innerhalb von Azure VMware Solution sind mit virtuellen Azure-Computern auf der IaaS-Plattform vergleichbar. Weitere Informationen und Anleitungen finden Sie unter [Überwachen von virtuellen Azure-Computern mit Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Überwachungsmuster innerhalb von Azure VMware Solution sind mit virtuellen Azure-Computern auf der IaaS-Plattform vergleichbar. Weitere Informationen und Anleitungen finden Sie unter [Überwachen von virtuellen Azure-Computern mit Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

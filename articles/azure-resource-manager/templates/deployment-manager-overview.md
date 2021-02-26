@@ -4,12 +4,12 @@ description: Informationen zum Bereitstellen eines Diensts mit dem Azure-Bereits
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333204"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627498"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Sichere Bereitstellungsmethoden mit dem Azure-Bereitstellungs-Manager (öffentliche Vorschau)
 
@@ -23,17 +23,17 @@ Um den Bereitstellungs-Manager zu verwenden, müssen Sie vier Dateien erstellen:
 
 * Topologievorlage
 * Rolloutvorlage
-* Parameterdatei für die Topologie
-* Parameterdatei für den Rollout
+* Parameterdatei für Topologie
+* Parameterdatei für Rollout
 
 Die Topologievorlage wird vor der Rolloutvorlage bereitgestellt.
 
 Zusätzliche Ressourcen:
 
-- Die [REST-API-Referenz für den Azure-Bereitstellungs-Manager](/rest/api/deploymentmanager/).
-- [Tutorial: Verwenden des Azure-Bereitstellungs-Managers mit Resource Manager-Vorlagen (private Vorschau)](./deployment-manager-tutorial.md) beschrieben vor.
-- [Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager (Public Preview)](./deployment-manager-tutorial-health-check.md).
-- [Ein Beispiel zum Azure-Bereitstellungs-Manager](https://github.com/Azure-Samples/adm-quickstart).
+* [Referenz zur REST-API für Azure Deployment Manager](/rest/api/deploymentmanager/)
+* [Tutorial: Verwenden des Azure-Bereitstellungs-Managers mit Resource Manager-Vorlagen (private Vorschau)](./deployment-manager-tutorial.md) beschrieben vor.
+* [Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager (Public Preview)](./deployment-manager-tutorial-health-check.md).
+* [Ein Beispiel für Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identität und Zugriff
 
@@ -49,10 +49,10 @@ Die Topologievorlage beschreibt, welche Azure-Ressourcen Ihr Dienst umfasst und 
 
 Die Topologievorlage enthält die folgenden Ressourcen:
 
-* Artefaktquelle: Hier sind Ihre Resource Manager-Vorlage und -Parameter gespeichert.
-* Diensttopologie: Sie verweist auf die Artefaktquelle.
-  * Dienste: Geben den Standort und die Azure-Abonnement-ID an.
-    * Diensteinheiten. Legen die Ressourcengruppe, den Bereitstellungsmodus und den Pfad für die Vorlage und Parameterdatei fest.
+* Artefaktquelle: Hier sind Ihre Resource Manager-Vorlagen und -Parameter gespeichert.
+* Diensttopologie: Verweis auf die Artefaktquelle.
+  * Dienste: Geben die Region und Azure-Abonnement-ID an.
+    * Diensteinheiten: Legen die Ressourcengruppe, den Bereitstellungsmodus und Pfad für die Vorlage- und Parameterdateien fest.
 
 Um die Vorgänge auf jeder Ebene zu verstehen, ist es hilfreich zu sehen, welche Werte Sie angeben.
 
@@ -87,7 +87,7 @@ Weitere Informationen finden Sie in der [artifactSources-Vorlagenreferenz](/azur
 
 ### <a name="service-topology"></a>Diensttopologie
 
-Das folgende Beispiel zeigt das allgemeine Format der Diensttopologieressource. Sie geben die Ressourcen-ID der Artefaktquelle an, die die Vorlagen und Parameterdateien enthält. Die Diensttopologie umfasst alle Dienstressourcen. Um sicherzustellen, dass die Artefaktquelle verfügbar ist, hängt die Diensttopologie davon ab.
+Das folgende Beispiel zeigt das allgemeine Format der Diensttopologieressource. Sie geben die Ressourcen-ID der Artefaktquelle an, die die Vorlagen und Parameterdateien enthält. Die Diensttopologie umfasst alle Dienstressourcen. Stellen Sie sicher, dass die Artefaktquelle verfügbar ist, da die Diensttopologie von ihr abhängt.
 
 ```json
 {
@@ -193,9 +193,9 @@ In der Rolloutvorlage erstellen Sie eine Artefaktquelle für die Binärdateien, 
 
 ### <a name="steps"></a>Schritte
 
-Sie können einen Schritt definieren, der entweder vor oder nach der Bereitstellung ausgeführt werden soll. Derzeit stehen nur die Schritte `wait` und „healthCheck“ zur Verfügung.
+Sie können einen Schritt definieren, der entweder vor oder nach der Bereitstellung ausgeführt werden soll. Derzeit stehen nur die Schritte `wait` und `healthCheck` zur Verfügung.
 
-Der Warteschritt hält die Bereitstellung zwischendurch an. So können Sie überprüfen, ob Ihr Dienst wie erwartet ausgeführt wird, bevor Sie die nächste Diensteinheit bereitstellen. Das folgende Beispiel zeigt das allgemeine Format eines Warteschritts.
+Der Schritt `wait` hält die Bereitstellung zwischendurch an. So können Sie überprüfen, ob Ihr Dienst wie erwartet ausgeführt wird, bevor Sie die nächste Diensteinheit bereitstellen. Das folgende Beispiel zeigt das allgemeine Format des Schritts `wait`.
 
 ```json
 {
@@ -214,13 +214,13 @@ Der Warteschritt hält die Bereitstellung zwischendurch an. So können Sie über
 
 Die Eigenschaft „duration“ verwendet den [ISO 8601-Standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). Das vorherige Beispiel gibt eine Wartezeit von einer Minute an.
 
-Weitere Informationen zum Integritätsüberprüfungsschritt finden Sie unter [Rollout der Integritätsintegration in Azure-Bereitstellungs-Manager](./deployment-manager-health-check.md) und im [Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager (Public Preview)](./deployment-manager-tutorial-health-check.md).
+Weitere Informationen zur Integritätsüberprüfung finden Sie unter [Rollout der Integritätsintegration in Azure Deployment Manager](./deployment-manager-health-check.md) und im [Tutorial: Verwenden der Integritätsprüfung in Azure Deployment Manager (Public Preview)](./deployment-manager-tutorial-health-check.md).
 
 Weitere Informationen finden Sie in der [steps-Vorlagenreferenz](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Rollouts
 
-Um sicherzustellen, dass die Artefaktquelle verfügbar ist, hängt der Rollout davon ab. Der Rollout definiert Schrittgruppen für jede bereitgestellte Diensteinheit. Sie können Aktionen definieren, die vor oder nach der Bereitstellung ausgeführt werden sollen. Sie können beispielsweise festlegen, dass die Bereitstellung nach dem Bereitstellen der Diensteinheit pausiert. Die Reihenfolge der Schrittgruppen lässt sich definieren.
+Stellen Sie sicher, dass die Artefaktquelle verfügbar ist, da der Rollout davon abhängt. Der Rollout definiert Schrittgruppen für jede bereitgestellte Diensteinheit. Sie können Aktionen definieren, die vor oder nach der Bereitstellung ausgeführt werden sollen. Sie können beispielsweise festlegen, dass die Bereitstellung nach Bereitstellen der Diensteinheit pausiert. Die Reihenfolge der Schrittgruppen lässt sich definieren.
 
 Das Identitätsobjekt gibt die [benutzerseitig zugewiesene verwaltete Identität](#identity-and-access) an, die die Bereitstellungsaktionen ausführt.
 
@@ -296,7 +296,7 @@ Beim Rollout erstellen Sie beispielsweise eine Artefaktquelle für die binären 
 
 Beachten Sie die Eigenschaften `artifactRoot` und `sasUri`. Der Artefaktstamm kann auf einen Wert wie `binaries/1.0.0.0` festgelegt werden. Der SAS-URI ist der URI des Speichercontainers mit einem SAS-Token für den Zugriff. Der Bereitstellungs-Manager erstellt automatisch den Wert der Variablen `$containerRoot`. Er kombiniert diese Werte im Format `<container>/<artifactRoot>`.
 
-Ihre Vorlage und Parameterdatei benötigen den korrekten Pfad, um die versionierten Binärdateien abzurufen. Um beispielsweise Dateien für eine Web-App bereitzustellen, erstellen Sie die folgende Parameterdatei mit der Variablen „$containerRoot“. Sie müssen zwei umgekehrte Schrägstriche (`\\`) für den Pfad verwenden, weil der erste ein Escapezeichen ist.
+Ihre Vorlage und Parameterdatei benötigen den korrekten Pfad, um die versionierten Binärdateien abzurufen. Um beispielsweise Dateien für eine Web-App bereitzustellen, erstellen Sie die folgende Parameterdatei mit der Variablen `$containerRoot`. Sie müssen zwei umgekehrte Schrägstriche (`\\`) für den Pfad verwenden, weil der erste ein Escapezeichen ist.
 
 ```json
 {
@@ -330,7 +330,7 @@ Verwenden Sie dann diesen Parameter in Ihrer Vorlage:
 }
 ```
 
-Verwalten Sie versionierte Bereitstellungen, indem Sie neue Ordner erstellen und diese beim Rollout übergeben. Der Pfad führt zu der Vorlage, die die Ressourcen bereitstellt.
+Sie verwalten Bereitstellungen mit Versionsangabe, indem Sie neue Ordner erstellen und diesen Stammpfad beim Rollout übergeben. Der Pfad führt zu der Vorlage, die die Ressourcen bereitstellt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

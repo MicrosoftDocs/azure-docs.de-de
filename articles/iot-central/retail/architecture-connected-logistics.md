@@ -5,15 +5,15 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/20/2019
 ms.custom: mqtt
-ms.openlocfilehash: 41232ba3899d098c019674e4ca4a0a8f2f7d465f
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d1e17dce80c313bf726451c36ec06dd393549600
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97345958"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832418"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Architektur der IoT Central-Anwendungsvorlage für vernetzte Logistik
 

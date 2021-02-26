@@ -2,15 +2,15 @@
 title: Konfigurieren von Linux-Python-Apps
 description: Es wird beschrieben, wie Sie den Python-Container konfigurieren, in dem Web-Apps ausgeführt werden, indem Sie sowohl das Azure-Portal als auch die Azure CLI verwenden.
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855055"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493701"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurieren einer Linux-Python-App für Azure App Service
 
@@ -67,10 +67,13 @@ Sie können auch eine nicht unterstützte Version von Python ausführen, indem S
 
 Mit dem Buildsystem von App Service (Bezeichnung: Oryx) werden die folgenden Schritte ausgeführt, wenn Sie Ihre App per Git oder mit ZIP-Paketen bereitstellen:
 
-1. Führen Sie ein benutzerdefiniertes Präbuildskript aus, sofern dies über die Einstellung `PRE_BUILD_COMMAND` angegeben ist.
+1. Führen Sie ein benutzerdefiniertes Präbuildskript aus, sofern dies über die Einstellung `PRE_BUILD_COMMAND` angegeben ist. (Vom Skript können selbst auch andere Python- und Node.js-Skripts, pip- und npm-Befehle und Node-basierte Tools wie yarn, z. B. `yarn install` und `yarn build`, ausgeführt werden.)
+
 1. Führen Sie `pip install -r requirements.txt` aus. Die Datei *requirements.txt* muss im Stammordner des Projekts enthalten sein. Andernfalls wird vom Buildprozess ein Fehler der folgenden Art gemeldet: „setup.py oder requirements.txt nicht gefunden. pip-Installation wird nicht ausgeführt.“
+
 1. Wenn sich *manage.py* im Stammverzeichnis des Repositorys befindet (Hinweis auf Django-App), wird *manage.py collectstatic* ausgeführt. Wenn die Einstellung `DISABLE_COLLECTSTATIC` aber auf `true` festgelegt ist, wird dieser Schritt übersprungen.
-1. Führen Sie ein benutzerdefiniertes Postbuildskript aus, sofern dies über die Einstellung `POST_BUILD_COMMAND` angegeben ist.
+
+1. Führen Sie ein benutzerdefiniertes Postbuildskript aus, sofern dies über die Einstellung `POST_BUILD_COMMAND` angegeben ist. (Auch hier können vom Skript selbst andere Python- und Node.js-Skripts, pip- und npm-Befehle und Node-basierte Tools ausgeführt werden.)
 
 Standardmäßig sind die Einstellungen für `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` und `DISABLE_COLLECTSTATIC` leer. 
 
@@ -131,6 +134,52 @@ In der folgenden Tabelle sind die Produktionseinstellungen beschrieben, die für
 | `ALLOWED_HOSTS` | In der Produktion ist es für Django erforderlich, dass Sie die URL der App im Array `ALLOWED_HOSTS` von *settings.py* einfügen. Sie können diese URL zur Laufzeit mit dem Code `os.environ['WEBSITE_HOSTNAME']` abrufen. Von App Service wird die Umgebungsvariable `WEBSITE_HOSTNAME` automatisch auf die URL der App festgelegt. |
 | `DATABASES` | Definieren Sie Einstellungen in App Service für die Datenbankverbindung, und laden Sie sie als Umgebungsvariablen, um das Wörterbuch [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) aufzufüllen. Sie können diese Werte (vor allem Benutzername und Kennwort) auch als [Azure Key Vault-Geheimnisse](../key-vault/secrets/quick-create-python.md) speichern. |
 
+## <a name="serve-static-files-for-django-apps"></a>Bereitstellen von statischen Dateien für Django-Apps
+
+Wenn Ihre Django-Web-App statische Front-End-Dateien enthält, sollten Sie zunächst die Anleitung in der Django-Dokumentation zum Thema [Verwalten von statischen Dateien](https://docs.djangoproject.com/en/3.1/howto/static-files/) befolgen.
+
+Anschließend nehmen Sie für App Service die folgenden Änderungen vor:
+
+1. Erwägen Sie, Umgebungsvariablen (für die lokale Entwicklung) und App-Einstellungen (bei der Bereitstellung in der Cloud) zu verwenden, um die Django-Variablen `STATIC_URL` und `STATIC_ROOT` dynamisch festzulegen. Beispiel:    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` und `DJANGO_STATIC_ROOT` können für Ihre lokalen und Cloudumgebungen wie gewünscht geändert werden. Falls diese Variablen vom Buildprozess für Ihre statischen Dateien beispielsweise in einem Ordner mit dem Namen `django-static` angeordnet werden, können Sie `DJANGO_STATIC_URL` auf `/django-static/` festlegen, um die Verwendung der Standardeinstellung zu vermeiden.
+
+1. Wenn Sie über ein Präbuildskript verfügen, mit dem statische Dateien in einem anderen Ordner generiert werden, sollten Sie diesen Ordner in die Django-Variable `STATICFILES_DIRS` einfügen, damit die Dateien vom `collectstatic`-Prozess von Django gefunden werden können. Bei Ausführung von `yarn build` in Ihrem Front-End-Ordner und Erstellung des Ordners `build/static` mit statischen Dateien durch yarn, sollten Sie diesen Ordner wie folgt einfügen:
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    `FRONTEND_DIR` wird hier verwendet, um einen Pfad zu dem Ort zu erstellen, an dem ein Buildtool wie yarn ausgeführt wird. Sie können auch hier wie gewünscht eine Umgebungsvariable und eine App-Einstellung verwenden.
+
+1. Fügen Sie `whitenoise` Ihrer Datei *requirements.txt* hinzu. Bei [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) handelt es sich um ein Python-Paket, mit dem eine für die Produktion bestimmte Django-App leicht eigene statische Dateien bereitstellen kann. Von Whitenoise werden genau die Dateien aus dem Ordner bereitgestellt, der mit der Django-Variablen `STATIC_ROOT` angegeben wurde.
+
+1. Fügen Sie in Ihrer Datei *settings.py* die folgende Zeile für Whitenoise hinzu:
+
+    ```python
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. Ändern Sie außerdem die Listen `MIDDLEWARE` und `INSTALLED_APPS` so, dass sie Whitenoise enthalten:
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
 ## <a name="container-characteristics"></a>Eigenschaften von Containern
 
 Bei der Bereitstellung in App Service werden Python-Apps in einem Linux-Docker-Container ausgeführt, der im [GitHub-Repository für Python in App Service](https://github.com/Azure-App-Service/python) definiert ist. Sie finden Imagekonfigurationen in den versionsspezifischen Verzeichnissen.
@@ -150,6 +199,8 @@ Dieser Container verfügt über die folgenden Eigenschaften:
 
 - App Service definiert automatisch eine Umgebungsvariable mit dem Namen `WEBSITE_HOSTNAME` und der URL der Web-App, z. B. `msdocs-hello-world.azurewebsites.net`. Außerdem wird `WEBSITE_SITE_NAME` mit dem Namen Ihrer App definiert, z. B. `msdocs-hello-world`. 
    
+- npm und Node.js sind im Container installiert, damit Sie Node-basierte Buildtools, z. B. yarn, ausführen können.
+
 ## <a name="container-startup-process"></a>Startprozess des Containers
 
 Beim Starten führt der Container vom Typ „App Service für Linux“ die folgenden Schritte aus:
@@ -270,7 +321,7 @@ Wenn Sie beispielsweise eine App-Einstellung mit dem Namen `DATABASE_SERVER` ers
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## <a name="detect-https-session"></a>Erkennen einer HTTPS-Sitzung
 
 In App Service erfolgt die [SSL-Terminierung](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) in den Modulen für den Netzwerklastenausgleich, sodass alle HTTPS-Anforderungen Ihre App als unverschlüsselte HTTP-Anforderungen erreichen. Wenn Ihre App-Logik überprüfen muss, ob Benutzeranforderungen verschlüsselt sind, können Sie dazu den Header `X-Forwarded-Proto` untersuchen.

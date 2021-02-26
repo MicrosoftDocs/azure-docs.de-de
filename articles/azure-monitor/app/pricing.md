@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531325"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556124"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Verwalten der Nutzung und der Kosten für Application Insights
 
@@ -186,7 +186,7 @@ Das von Ihnen gesendete Datenvolumen kann mithilfe der folgenden Verfahren verwa
 
 * **Stichprobenerstellung**: Mit der Stichprobenerstellung kann die Menge der von Ihrem Server und Ihren Client-Apps gesendeten Telemetriedaten bei minimaler Verzerrung von Metriken verringert werden. Die Stichprobenerstellung ist Ihr wichtigstes Tool, um die Menge der von Ihnen gesendeten Daten zu optimieren. Erfahren Sie mehr über die [Merkmale von Stichproben](./sampling.md).
 
-* **Begrenzen von AJAX-Aufrufen**: Sie können die [Anzahl der gemeldeten AJAX-Aufrufe für jeden Seitenaufruf begrenzen](./javascript.md#configuration) oder AJAX-Berichte deaktivieren.
+* **Begrenzen von AJAX-Aufrufen**: Sie können die [Anzahl der gemeldeten AJAX-Aufrufe für jeden Seitenaufruf begrenzen](./javascript.md#configuration) oder AJAX-Berichte deaktivieren. Beachten Sie, dass durch die Deaktivierung von AJAX-Aufrufen die [JavaScript-Korrelation](./javascript.md#enable-correlation) deaktiviert wird.
 
 * **Deaktivieren nicht benötigter Module**: [Bearbeiten Sie „ApplicationInsights.config“](./configuration-with-applicationinsights-config.md), um nicht benötigte Sammlungsmodule zu deaktivieren. Das kann z. B. für Leistungsindikator- oder Abhängigkeitsdaten gelten.
 

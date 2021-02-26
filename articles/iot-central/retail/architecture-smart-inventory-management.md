@@ -5,15 +5,15 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/20/2019
 ms.custom: mqtt
-ms.openlocfilehash: 9e0b4a3c22c1e6008bdce7fecc1d122fe317dd58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7939193b0dad1ed74dccd0ace0b0f0323b17124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81686200"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832639"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architektur der IoT Central-Anwendungsvorlage für intelligente Bestandsverwaltung
 

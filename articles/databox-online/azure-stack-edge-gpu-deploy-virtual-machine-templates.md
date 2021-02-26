@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805204"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546923"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Bereitstellen von VMs auf Ihrem Azure Stack Edge Pro-GPU-Gerät über Vorlagen
 
@@ -149,7 +149,7 @@ In einer typischen Umgebung würden Sie Ihr DNS so konfigurieren, dass alle Spei
 
 ### <a name="optional-install-certificates"></a>(Optional) Installieren von Zertifikaten
 
-Überspringen Sie diesen Schritt, wenn Sie die Verbindung über den Storage-Explorer (unter Verwendung von *http*) herstellen. Bei Verwendung von *https* müssen die erforderlichen Zertifikate im Storage-Explorer installiert werden. In diesem Fall installieren Sie das Blobendpunktzertifikat. Weitere Informationen finden Sie im Abschnitt zum Erstellen und Hochladen von Zertifikaten unter [Verwalten von Zertifikaten](azure-stack-edge-j-series-manage-certificates.md). 
+Überspringen Sie diesen Schritt, wenn Sie die Verbindung über den Storage-Explorer (unter Verwendung von *http*) herstellen. Bei Verwendung von *https* müssen die erforderlichen Zertifikate im Storage-Explorer installiert werden. In diesem Fall installieren Sie das Blobendpunktzertifikat. Weitere Informationen finden Sie im Abschnitt zum Erstellen und Hochladen von Zertifikaten unter [Verwalten von Zertifikaten](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Erstellen und Hochladen einer VHD
 

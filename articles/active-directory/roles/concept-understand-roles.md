@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740345"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089223"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Grundlegendes zu Rollen in Azure Active Directory
 
@@ -61,7 +61,7 @@ Die folgende Tabelle dient zum besseren Verständnis dieser Rollenkategorien. Di
 Kategorie | Role
 ---- | ----
 Azure AD-spezifische Rollen | Anwendungsadministrator<br>Anwendungsentwickler<br>Authentifizierungsadministrator<br>B2C-IEF-Schlüsselsatzadministrator<br>B2C-IEF-Richtlinienadministrator<br>Cloudanwendungsadministrator<br>Cloudgeräteadministrator<br>Administrator für den bedingten Zugriff<br>Geräteadministratoren<br>Rolle „Verzeichnis lesen“<br>Konten zur Verzeichnissynchronisierung<br>Verzeichnis schreiben<br>Administrator für Benutzerflows mit externer ID<br>Administrator für Benutzerflowattribute mit externer ID<br>Externer Identitätsanbieteradministrator<br>Gruppenadministrator<br>Gasteinladender<br>Helpdeskadministrator<br>Hybrididentitätsadministrator<br>Lizenzadministrator<br>Partnersupport der Ebene 1<br>Partnersupport der Ebene 2<br>Kennwortadministrator<br>Privilegierter Authentifizierungsadministrator<br>Administrator für privilegierte Rollen<br>Meldet Reader<br>Benutzerkontoadministrator
-Dienstübergreifende Rollen | Unternehmensadministrator<br>Complianceadministrator<br>Administrator für Konformitätsdaten<br>Globaler Leser<br>Sicherheitsadministrator<br>Sicherheitsoperator<br>Sicherheitsleseberechtigter<br>Dienstunterstützungsadministrator
+Dienstübergreifende Rollen | Globaler Administrator<br>Complianceadministrator<br>Administrator für Konformitätsdaten<br>Globaler Leser<br>Sicherheitsadministrator<br>Sicherheitsoperator<br>Sicherheitsleseberechtigter<br>Dienstunterstützungsadministrator
 Dienstspezifische Rollen | Azure DevOps-Administrator<br>Azure Information Protection-Administrator<br>Abrechnungsadministrator<br>CRM-Dienstadministrator<br>Genehmigende Person für den LockBox-Kundenzugriff<br>Desktop Analytics-Administrator<br>Exchange-Dienstadministrator<br>Insights Administrator<br>Insights Business Leader<br>Intune-Dienstadministrator<br>Kaizala-Administrator<br>Lync-Dienstadministrator<br>Nachrichtencenter-Datenschutzleseberechtigter<br>Nachrichtencenter-Leser<br>Modern Commerce User<br>Netzwerkadministrator<br>Office-Apps-Administrator<br>Power BI-Dienstadministrator<br>Power Platform-Administrator<br>Druckeradministrator<br>Druckertechniker<br>Suchadministrator<br>Such-Editor<br>SharePoint-Dienstadministrator<br>Teams-Kommunikationsadministrator<br>Teams-Kommunikationssupporttechniker<br>Teams-Kommunikationssupportspezialist<br>Teams-Geräteadministrator<br>Teams-Dienstadministrator
 
 ## <a name="next-steps"></a>Nächste Schritte

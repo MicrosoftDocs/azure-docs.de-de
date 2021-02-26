@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232971"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989100"
 ---
 # <a name="self-hosted-gateway-overview"></a>Übersicht über das selbstgehostete Gateway
 
@@ -43,13 +43,13 @@ Indem selbstgehostete Gateways in denselben Umgebungen, in denen die Implementie
 
 ## <a name="packaging-and-features"></a>Paketerstellung und Features
 
-Das selbstgehostete Gateway ist eine containerbasierte, funktional gleichwertige Version des verwalteten Gateways, das im Rahmen jedes API Management-Diensts in Azure bereitgestellt wird. Das selbstgehostete Gateway ist in der Microsoft Container Registry als Linux-basierter Docker-[Container](https://aka.ms/apim/sputnik/dhub) verfügbar. Es kann in Docker, Kubernetes oder jeder anderen Lösung für die Containerorchestrierung bereitgestellt werden, die auf einem lokalen Servercluster, in einer Cloudinfrastruktur oder zu Evaluierungs- und Entwicklungszwecken auf einem PC ausgeführt wird.
+Das selbstgehostete Gateway ist eine containerisierte, funktional gleichwertige Version des verwalteten Gateways, das im Rahmen jedes API Management-Diensts in Azure bereitgestellt wird. Das selbstgehostete Gateway ist in der Microsoft Container Registry als Linux-basierter Docker-[Container](https://aka.ms/apim/sputnik/dhub) verfügbar. Es kann in Docker, Kubernetes oder jeder anderen Lösung für die Containerorchestrierung bereitgestellt werden, die auf einem lokalen Servercluster, in einer Cloudinfrastruktur oder zu Evaluierungs- und Entwicklungszwecken auf einem PC ausgeführt wird.
 
 Die folgende, in verwalteten Gateways zu findende Funktionalität ist im selbstgehosteten Gateway **nicht verfügbar**:
 
 - Azure Monitor-Protokolle
 - Upstreamverwaltung (Back-End-seitig) von TLS-Version und Verschlüsselung
-- Überprüfung von Server- und Clientzertifikaten mithilfe von [Stammzertifikaten der Zertifizierungsstelle](api-management-howto-ca-certificates.md), die in den API Management-Dienst hochgeladen wurden. Um Unterstützung für die benutzerdefinierte Zertifizierungsstelle hinzuzufügen, fügen Sie dem Containerimage des selbstgehosteten Gateways, das das Stammzertifikat der Zertifizierungsstelle installiert, eine Ebene hinzu.
+- Überprüfung von Server- und Clientzertifikaten mithilfe von [Stammzertifikaten der Zertifizierungsstelle](api-management-howto-ca-certificates.md), die in den API Management-Dienst hochgeladen wurden. Weitere Informationen finden Sie unter [Zertifikatsüberprüfung in selbstgehostetem Gateway](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integration in [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS-Sitzungswiederaufnahme
 - Erneute Aushandlung des Clientzertifikats. Dies bedeutet, dass API-Consumer, damit die [Clientzertifikatauthentifizierung](api-management-howto-mutual-certificates-for-clients.md) funktioniert, ihre Zertifikate als Teil des ersten TLS-Handshakes präsentieren müssen. Um dies sicherzustellen, aktivieren Sie die Einstellung „Clientzertifikat aushandeln“, wenn Sie den benutzerdefinierten Hostnamen eines selbstgehosteten Gateways konfigurieren.

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222797"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980489"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Unterstützung für das Verschieben von virtuellen Azure-Computern zwischen Azure-Regionen
 
@@ -134,6 +134,8 @@ Verwalteter Datenträger (Premium) | Unterstützt |
 SSD Standard | Unterstützt |
 Generation 2 (UEFI-Start) | Unterstützt
 Startdiagnose-Speicherkonto | Nicht unterstützt | Aktivieren Sie es nach dem Verschieben des virtuellen Computers in die Zielregion erneut.
+VMs mit aktiviertem Dienst „Azure Disk Encryption“ | Unterstützt | [Weitere Informationen](tutorial-move-region-encrypted-virtual-machines.md)
+VMs, die die serverseitige Verschlüsselung mit kundenseitig verwalteten Schlüsseln verwenden | Unterstützt | [Weitere Informationen](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Grenzwerte und Datenänderungsraten
 

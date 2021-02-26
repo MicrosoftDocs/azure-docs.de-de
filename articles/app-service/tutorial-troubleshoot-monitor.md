@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183199"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586290"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Problembehandlung für eine App Service-App mit Azure Monitor
 
@@ -78,7 +78,7 @@ Mit Diagnoseeinstellungen können Metriken für bestimmte Azure-Dienste in Azure
 Sie führen die folgenden Befehle aus, um Diagnoseeinstellungen für AppServiceConsoleLogs (Standardausgabe/-fehler) und AppServiceHTTPLogs (Webserverprotokolle) zu erstellen. Ersetzen Sie _\<app-name>_ und _\<workspace-name>_ durch Ihre eigenen Werte. 
 
 > [!NOTE]
-> Die ersten beiden Befehle (`resourceID` und `workspaceID`) sind Variablen, die im Befehl `az monitor diagnostic-settings create` verwendet werden. Weitere Informationen zu diesem Befehl finden Sie unter [Erstellen von Diagnoseeinstellungen mithilfe der Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli).
+> Die ersten beiden Befehle (`resourceID` und `workspaceID`) sind Variablen, die im Befehl `az monitor diagnostic-settings create` verwendet werden. Weitere Informationen zu diesem Befehl finden Sie unter [Erstellen von Diagnoseeinstellungen mithilfe der Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli).
 >
 
 ```bash
@@ -129,7 +129,7 @@ Wählen Sie im Azure-Portal Ihren Log Analytics-Arbeitsbereich aus.
 
 ### <a name="log-queries"></a>Protokollabfragen
 
-Mithilfe von Protokollabfragen können Sie die Daten, die in Azure Monitor-Protokollen erfasst werden, in vollem Umfang nutzen. Sie verwenden Protokollabfragen, um die Protokolle sowohl in „AppServiceHTTPLogs“ als auch in „AppServiceConsoleLogs“ zu identifizieren. Weitere Informationen zu Protokollabfragen finden Sie unter [Übersicht über Protokollabfragen in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Mithilfe von Protokollabfragen können Sie die Daten, die in Azure Monitor-Protokollen erfasst werden, in vollem Umfang nutzen. Sie verwenden Protokollabfragen, um die Protokolle sowohl in „AppServiceHTTPLogs“ als auch in „AppServiceConsoleLogs“ zu identifizieren. Weitere Informationen zu Protokollabfragen finden Sie unter [Übersicht über Protokollabfragen in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Anzeigen von „AppServiceHTTPLogs“ mit Protokollabfrage
 
@@ -269,6 +269,6 @@ Sie haben Folgendes gelernt:
 > * Verwenden von Protokollabfragen zum Identifizieren und Beheben von Web-App-Problemen
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Nächste Schritte
-* [Abfrageprotokolle mit Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Abfrageprotokolle mit Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio (Problembehandlung für Azure App Service in Visual Studio)](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight (Analyse von App-Protokollen in HDInsight)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

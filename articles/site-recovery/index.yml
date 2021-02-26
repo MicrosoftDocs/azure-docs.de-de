@@ -10,12 +10,12 @@ metadata:
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 11/19/2019
-  ms.openlocfilehash: 009f905e097f434819953b63446e64e3ba3d5efa
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 35dc762e7114664bb39182107e78d0c3778458b3
+  ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86135626"
+  ms.lasthandoff: 02/15/2021
+  ms.locfileid: "100521576"
 landingContent:
 - title: Informationen zu Azure Site Recovery
   linkLists:
@@ -49,6 +49,8 @@ landingContent:
       url: ./azure-to-azure-move-overview.md
   - linkListType: how-to-guide
     links:
+    - text: Notfallwiederherstellung zwischen Zonen
+      url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - text: Netzwerk für die Notfallwiederherstellung für virtuelle Azure-Computer
       url: ./azure-to-azure-about-networking.md
     - text: Notfallwiederherstellung nach der Migration zu Azure

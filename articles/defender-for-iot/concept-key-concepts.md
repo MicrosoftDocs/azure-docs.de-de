@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621927"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508607"
 ---
 # <a name="basic-concepts"></a>Grundlegende Konzepte 
 
@@ -20,9 +20,9 @@ In diesem Artikel werden die wichtigsten Vorteile von Azure Defender für IoT be
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Schnelle nicht-invasive Bereitstellung und passive Überwachung
 
-Defender für IoT-Sensoren stellen eine Verbindung mit einem SPAN-Port oder einem Netzwerk-TAP her und beginnen per passiver Überwachung (ohne Agent) sofort mit der Erfassung von ICS-Netzwerkdatenverkehr. Mit Deep Packet Inspection (DPI) wird Datenverkehr sowohl von seriellen als auch von Ethernet-Steuerungsnetzwerkgeräten analysiert. Defender für IoT hat keinerlei Auswirkungen auf OT-Netzwerke, da sich die Lösung nicht im Datenpfad befindet und OT-Geräte damit nicht aktiv überprüft werden. 
+Defender für IoT-Sensoren stellen eine Verbindung mit Switch-SPAN-Ports (Spiegel) und Netzwerk-TAPs her und beginnen per passiver Überwachung (ohne Agent) sofort mit der Erfassung von ICS-Netzwerkdatenverkehr. Mit Deep Packet Inspection (DPI) wird Datenverkehr sowohl von seriellen als auch von Ethernet-Steuerungsnetzwerkgeräten analysiert. Defender für IoT hat keinerlei Auswirkungen auf OT-Netzwerke, da sich die Lösung nicht im Datenpfad befindet und OT-Geräte damit nicht aktiv überprüft werden. 
 
-Zur Bereitstellung von sofortigen Momentaufnahmen von ausführlichen Geräteinformationen wird bei Defender für IoT-Sensoren die passive Überwachung durch eine optionale aktive Komponente ergänzt. Diese Komponente verwendet sichere, von Anbietern genehmigte Befehle, um bei Windows- und Controllergeräten Details zu Geräten mit einer von Ihnen festgelegten Häufigkeit abzufragen.
+Zur Bereitstellung von sofortigen Momentaufnahmen von ausführlichen Windows-Geräteinformationen kann Defender für IoT-Sensoren so konfiguriert werden, dass die passive Überwachung durch eine optionale aktive Komponente ergänzt wird. Diese Komponente verwendet sichere, von Anbietern genehmigte Befehle, um bei Windows-Geräten Details zu Geräten mit einer von Ihnen festgelegten Häufigkeit abzufragen.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Integrierte Kenntnisse von ICS-Protokollen, -Geräten und -Anwendungen
 
@@ -73,7 +73,7 @@ Defender für IoT bietet eine konsolidierte Ansicht aller Geräte. Zudem stellt 
 
 Defender für IoT ermöglicht die effektive Verwaltung mehrerer Bereitstellungen und eine umfassende einheitliche Ansicht des Netzwerks. Zudem bietet Defender für IoT eine optimierte Warnungsverarbeitung und die Kontrolle über die Sicherheit des Betriebsnetzwerks.
 
-Bei der lokalen Verwaltungskonsole handelt es sich um eine webbasierte Verwaltungsplattform, mit der Sie Aktivitäten von globalen Sensorinstallationen überwachen und steuern können. Mit der lokalen Verwaltungskonsole lassen sich nicht nur die von bereitgestellten Sensoren empfangene Daten verwalten, sondern auch Daten von verschiedenen Geschäftsressourcen nahtlos integrieren: Dazu gehören Konfigurationsverwaltungsdatenbanken (CMDB), DNS, Firewalls, Web-APIs usw.
+Bei der lokalen Verwaltungskonsole handelt es sich um eine webbasierte Verwaltungsplattform, mit der Sie Aktivitäten von globalen Sensorinstallationen überwachen und steuern können. Mit der lokalen Verwaltungskonsole lassen sich nicht nur die von bereitgestellten Sensoren empfangene Daten verwalten, sondern auch Daten von einer Reihe verschiedener Geschäftsressourcen nahtlos integrieren: Dazu gehören Konfigurationsverwaltungsdatenbanken (CMDB), DNS, Firewalls, Web-APIs usw.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="Anzeige der lokalen Verwaltungskonsole.":::
 

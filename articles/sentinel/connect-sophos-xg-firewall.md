@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: b48773272e050b47af73b197d6f1c8156318fd71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8b6247a735bceaf98029740bf9d4f7e233069d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095033"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097567"
 ---
 # <a name="connect-your-sophos-xg-firewall-to-azure-sentinel"></a>Verbinden von Sophos XG Firewall mit Azure Sentinel
 

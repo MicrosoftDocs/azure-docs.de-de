@@ -1,22 +1,24 @@
 ---
-title: Einrichten der IoT-Ressourcen, die Sie für IoT Plug & Play benötigen | Microsoft-Dokumentation
-description: Erstellen Sie einen IoT Hub und eine Device Provisioning Service-Instanz zur Verwendung bei den IoT Plug & Play-Schnellstarts und -Tutorials.
+title: 'Schnellstart: Einrichten der IoT-Ressourcen, die Sie für IoT Plug & Play benötigen | Microsoft-Dokumentation'
+description: 'Schnellstart: Erstellen Sie eine IoT Hub- und eine Device Provisioning Service-Instanz zur Verwendung in den IoT Plug & Play-Schnellstarts und -Tutorials.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004261"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831891"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Einrichten Ihrer Umgebung für die IoT Plug & Play-Schnellstarts und -Tutorials
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Schnellstart: Einrichten Ihrer Umgebung für die IoT Plug & Play-Schnellstarts und -Tutorials
 
 Bevor Sie einen der Schnellstarts und eines der Tutorials zu IoT Plug & Play durcharbeiten können, müssen Sie einen IoT Hub und den Device Provisioning Service (DPS) in Ihrem Azure-Abonnement konfigurieren. Sie benötigen auch lokale Kopien der Modelldateien, die von den Beispielanwendungen und dem Tool „Azure IoT-Explorer“ verwendet werden.
+
+## <a name="prerequisites"></a>Voraussetzungen
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
@@ -130,7 +132,7 @@ Konfigurieren Sie das Tool zur Verwendung der zuvor heruntergeladenen Modelldate
 
 Weitere Informationen finden Sie unter [Installieren und Verwenden des Azure IoT-Explorers](howto-use-iot-explorer.md).
 
-## <a name="remove-the-resources"></a>Entfernen der Ressourcen
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Weil Sie den IoT Hub und die DPS-Instanz für alle IoT Plug & Play-Schnellstarts und -Tutorials verwenden können, müssen Sie die Schritte in diesem Artikel nur einmal ausführen. Wenn Sie damit fertig sind, können Sie die Ressourcen mit folgendem Befehl aus Ihrem Abonnement entfernen:
 

@@ -7,7 +7,7 @@
     - name: Bewährte Methoden
       href: howto-best-practices.md
     - name: Häufig gestellte Fragen
-      href: faq.md
+      href: faq.yml
 - name: Schnellstarts
   expanded: true
   items:
@@ -17,7 +17,7 @@
           href: quickstart-aspnet-core-app.md
         - name: .NET Core
           href: quickstart-dotnet-core-app.md
-        - name: ".NET\_Framework"
+        - name: .NET Framework
           href: quickstart-dotnet-app.md
         - name: Azure Functions in .NET Core
           href: quickstart-azure-functions-csharp.md
@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
   items:
-    - name: Aktivieren der dynamischen Konfiguration
+    - name: Aktivieren der dynamischen Konfiguration mithilfe eines Abfragemodells
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,6 +52,10 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+    - name: Aktivieren der dynamischen Konfiguration mithilfe eines Pushmodells
+      items:
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
     - name: Verwenden von Featureflags
       items:
         - name: ASP.NET Core
@@ -122,12 +126,14 @@
       href: howto-import-export-data.md
     - name: Verwenden des JSON-Inhaltstyps für Schlüsselwerte
       href: howto-leverage-json-content-type.md
-    - name: Routing von Ereignissen an einen benutzerdefinierten Endpunkt
+    - name: Verwenden von Event Grid für Datenänderungsbenachrichtigungen
       href: howto-app-configuration-event.md
     - name: Konfigurationsspeicher automatisch sichern
       href: howto-backup-config-store.md
     - name: Verwenden verwalteter Identitäten für den Zugriff auf App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Integrieren von App Configuration in Visual Studio
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Verweis
   items:
     - name: Konfiguration

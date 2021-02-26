@@ -3,12 +3,12 @@ title: Regelmäßiges Sichern/Wiederherstellen in eigenständigem Azure Service 
 description: Verwenden Sie das Feature für regelmäßige Sicherungen und Wiederherstellungen eines eigenständigen Service Fabric, um eine regelmäßige Datensicherung Ihrer Anwendungsdaten zu ermöglichen.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538584"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927946"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Regelmäßiges Sichern und Wiederherstellen in einer eigenständigen Service Fabric-Umgebung
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ Service Fabric stellt einen Satz von APIs für die folgende Funktionalität im Z
 * X.509-Zertifikat für die Verschlüsselung der Geheimnisse, die für die Verbindung mit dem Speicher zum Speichern von Sicherungen benötigt werden. Informieren Sie sich in diesem [Artikel](service-fabric-windows-cluster-x509-security.md) darüber, wie Sie ein selbstsigniertes X.509-Zertifikat abrufen oder erstellen.
 
 * Service Fabric-Anwendung für statusbehaftete zuverlässige Dienste, die mit dem Service Fabric SDK, Version 3.0 oder höher, erstellt wurde. Anwendungen für .NET Core 2.0 sollten mit Version 3.1 oder höher des Service Fabric-SDK erstellt worden sein.
-* Installieren Sie das Modul „Microsoft.ServiceFabric.PowerShell.Http“ [Vorschau], um Konfigurationsaufrufe vorzunehmen.
+* Installieren Sie das Modul Microsoft.ServiceFabric.PowerShell.Http (Vorschau), um Konfigurationsaufrufe vorzunehmen.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Wenn Ihre PowerShellGet-Version kleiner als 1.6.0 ist, müssen Sie ein Update ausführen, um Unterstützung für das *-AllowPrerelease*-Flag hinzuzufügen:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Stellen Sie mit dem Befehl `Connect-SFCluster` sicher, dass eine Verbindung mit dem Cluster besteht, bevor Sie Konfigurationsanforderungen mit dem Modul „Microsoft.ServiceFabric.PowerShell.Http“ vornehmen.
 

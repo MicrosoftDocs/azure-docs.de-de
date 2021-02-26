@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346366"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831687"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportieren von Daten aus Azure IoT Central und Visualisieren von Erkenntnissen in Power BI
 
@@ -504,6 +504,4 @@ Sie können Ihre Power BI-Datasets und das Dashboard löschen, indem Sie den Arb
 In diesen drei Tutorials wurde eine End-to-End-Lösung vorgestellt, für die die IoT Central-Anwendungsvorlage **In-Store-Analyse – Auschecken** verwendet wird. Sie haben Geräte mit der Anwendung verbunden, IoT Central zum Überwachen der Geräte verwendet und Power BI genutzt, um ein Dashboard zum Anzeigen von Erkenntnissen aus den Telemetriedaten des Geräts zu erstellen. Wir empfehlen Ihnen, als Nächstes eine der anderen IoT Central-Anwendungsvorlagen zu erkunden:
 
 > [!div class="nextstepaction"]
-> * [Erstellen von Lösungen für die Energiebranche mit IoT Central](../energy/overview-iot-central-energy.md)
-> * [Erstellen von Lösungen für Behörden mit IoT Central](../government/overview-iot-central-government.md)
-> * [Erstellen von Lösungen für das Gesundheitswesen mit IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Erstellen von Lösungen für die Energiebranche mit IoT Central](../energy/overview-iot-central-energy.md)

@@ -11,12 +11,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 04/30/2020
-  ms.openlocfilehash: d6f3b3f6844de00a1d175c1ba32704e55585cd43
-  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+  ms.openlocfilehash: db01f91401b3a0f33b8ad53e91eb60839ecbcb7f
+  ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96344214"
+  ms.lasthandoff: 02/05/2021
+  ms.locfileid: "99576294"
 landingContent:
 - title: Erwerben von Reservierungen
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
     - text: Azure Databricks
       url: prepay-databricks-reserved-capacity.md
     - text: App Service
-      url: prepay-app-service-isolated-stamp.md
+      url: prepay-app-service.md
     - text: Azure-Softwarepläne
       url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
 - title: Informationen zur Anwendung von Rabatten
@@ -69,7 +69,7 @@ landingContent:
     - text: Azure Databricks
       url: reservation-discount-databricks.md
     - text: App Service
-      url: reservation-discount-app-service-isolated-stamp.md
+      url: reservation-discount-app-service.md
     - text: Azure-Softwaregebühren
       url: understand-suse-reservation-charges.md
 - title: Anwenden von Rabatten auf Azure-Datenbank

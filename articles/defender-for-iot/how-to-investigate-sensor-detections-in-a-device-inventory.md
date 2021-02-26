@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625430"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523990"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Grundlagen zu Sensorerkennungen in einem Gerätebestand
 
@@ -32,18 +32,18 @@ Die folgenden Attribute werden in der Gerätebestandstabelle angezeigt:
 
 | Parameter | BESCHREIBUNG |
 |--|--|
-| Name | Der Name des Geräts, das vom Sensor erkannt wurde |
-| type | Der Typ des Geräts. |
+| Name | Der Name des Geräts, wie er vom Sensor erkannt oder vom Benutzer eingegeben wurde. |
+| type | Der Typ des Geräts, wie er vom Sensor ermittelt oder vom Benutzer eingegeben wurde. |
 | Hersteller | Der Name des Herstellers des Geräts, wie in der MAC-Adresse angegeben |
-| Betriebssystem | Das Betriebssystem des Geräts |
-| Firmware | Die Firmware des Geräts |
-| IP-Adresse | Die IP-Adresse des Geräts |
+| Betriebssystem | Das Betriebssystem des Geräts, falls es erkannt wurde. |
+| Firmware version | Die Firmware des Geräts, falls sie erkannt wurde. |
+| IP-Adresse | Die IP-Adresse des Geräts, wenn sie definiert wurde. |
 | VLAN | Das VLAN des Geräts Ausführliche Informationen dazu, wie Sie den Sensor so einrichten können, dass er VLANs erkennt, finden Sie unter [Definieren von VLAN-Namen](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
 | MAC-Adresse | Die MAC-Adresse des Geräts. |
 | Protokolle | Die Protokolle, die vom Gerät verwendet werden |
 | Unacknowledged Alerts (Nicht bestätigte Warnungen) | Die Anzahl der nicht bestätigten Warnungen, die mit diesem Gerät verknüpft sind |
 | Is Authorized (Autorisiert) | Der vom Benutzer definierte Autorisierungsstatus:<br />- **true**: Das Gerät wurde autorisiert.<br />- **false**: Das Gerät wurde nicht autorisiert. |
-| Is Known as Scanner (Als Scanner bekannt) | Wurde vom Benutzer als Scanner definiert |
+| Is Known as Scanner (Als Scanner bekannt) | Wurde vom Benutzer als Netzwerkscanner definiert. |
 | Is Programming device (Programmiergerät) | Gibt an, ob das Gerät vom Benutzer als autorisiertes Programmiergerät definiert wurde. <br />- **true**: Das Gerät führt Programmieraktivitäten für PLCs, RTUs und Controller aus, die für Engineeringstationen relevant sind. <br />- **false**: Das Gerät ist kein Programmiergerät. |
 | Gruppen | Die Gruppen, in denen dieses Gerät Mitglied ist |
 | Last Activity (Letzte Aktivität) | Die letzte Aktivität, die das Gerät ausgeführt hat |
@@ -111,7 +111,7 @@ Wenn Sie zur Übersichtsansicht wechseln, werden die gefilterten Geräte hervorg
 
 ## <a name="learn-windows-registry-details"></a>Windows-Registrierungsdetails
 
-Neben OT-Geräten können Sie IT-Geräte ermitteln, u. a. auch Microsoft Windows-Arbeitsstationen und -Server. Diese Geräte werden auch im Gerätebestand angezeigt. Nachdem Sie Geräte ermittelt haben, können Sie den Gerätebestand mit detaillierten Windows-Informationen erweitern, z. B. mit den folgenden Informationen:
+Neben OT-Geräten können Sie Microsoft Windows-Arbeitsstationen und -Server ermitteln. Diese Geräte werden auch im Gerätebestand angezeigt. Nachdem Sie Geräte ermittelt haben, können Sie den Gerätebestand mit detaillierten Windows-Informationen erweitern, z. B. mit den folgenden Informationen:
 
 - Installierte Windows-Version
 
@@ -217,13 +217,13 @@ So importieren Sie die Informationen:
 
 ## <a name="export-device-inventory-information"></a>Exportieren von Gerätebestandsinformationen
 
-Sie können Gerätebestandsinformationen in eine Excel-Datei exportieren. Importierte Informationen überschreiben aktuelle Informationen.
+Sie können Gerätebestandsinformationen in eine Excel-Datei exportieren.
 
 So exportieren Sie eine CSV-Datei:
 
 - Wählen Sie im Menü oben rechts im Gerätebestand das Symbol :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: aus. Der CSV-Bericht wird generiert und heruntergeladen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Untersuchen aller Unternehmenssensorerkennungen in einem Gerätebestand](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

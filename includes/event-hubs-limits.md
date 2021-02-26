@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152723"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427274"
 ---
 In der folgenden Tabelle finden Sie die Kontingente und Grenzwerte, die für [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) gelten. Informationen zu den Preisen von Event Hubs finden Sie unter [Event Hubs – Preise](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -30,7 +30,8 @@ Die folgenden Grenzwerte sind gängig für alle Ebenen:
 | Anzahl nicht epochenbezogener Empfänger pro Consumergruppe |- |5 |
 | Anzahl von Autorisierungsregeln pro Namespace | Nachfolgende Anforderungen zur Erstellung von Autorisierungsregeln werden abgelehnt.|12 |
 | Die Anzahl der Aufrufe der GetRuntimeInformation-Methode |  - | 50 pro Sekunde | 
-| Anzahl von Regeln für virtuelle Netzwerke (VNET) und IP-Konfigurationen | - | 128 | 
+| Anzahl von virtuellen Netzwerken (VNETs) | - | 128 | 
+| Anzahl von IP-Konfigurationsregeln | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>Basic- und Standard-Tarif

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464262"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546770"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Konfigurieren des Netzwerks für Azure Stack Edge Mini R
 
@@ -50,7 +50,7 @@ Führen Sie diese Schritte aus, um das Netzwerk für Ihr Gerät zu konfigurieren
 
 2. Sollte ein Zero-Day-Update erforderlich sein, können Sie es hier durchführen, indem Sie einen Datenport mit einer Kabelverbindung konfigurieren. Weitere Informationen zur Einrichtung einer Kabelverbindung für dieses Gerät finden Sie unter [Verkabeln Ihres Geräts](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Nach Abschluss des Updates können Sie die Kabelverbindung entfernen.
 
-3. Erstellen Sie Zertifikate für WLAN und Signaturkette. Sowohl das Signaturkettenzertifikat als auch das WLAN-Zertifikat muss im DER-Format vorliegen und über die Dateierweiterung *.cer* verfügen. Eine entsprechende Anleitung finden Sie unter [Verwenden von Zertifikaten mit einem Azure Stack Edge Pro-GPU-Gerät](azure-stack-edge-j-series-manage-certificates.md).
+3. Erstellen Sie Zertifikate für WLAN und Signaturkette. Sowohl das Signaturkettenzertifikat als auch das WLAN-Zertifikat muss im DER-Format vorliegen und über die Dateierweiterung *.cer* verfügen. Eine entsprechende Anleitung finden Sie unter [Verwenden von Zertifikaten mit einem Azure Stack Edge Pro-GPU-Gerät](azure-stack-edge-gpu-manage-certificates.md).
 
 4. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Erste Schritte**. Wählen Sie auf der Kachel **Sicherheit** die Option **Zertifikate** und anschließend **Konfigurieren** aus. 
 
@@ -126,6 +126,7 @@ Führen Sie diese Schritte aus, um das Netzwerk für Ihr Gerät zu konfigurieren
    - Falls DHCP in Ihrer Umgebung aktiviert ist, werden Netzwerkschnittstellen automatisch konfiguriert. IP-Adresse, Subnetz, Gateway und DNS werden automatisch zugewiesen.
    - Wenn DHCP nicht aktiviert ist, können Sie bei Bedarf statische IP-Adressen zuweisen.
    - Sie können die Netzwerkschnittstelle als IPv4 konfigurieren.
+   - Der NIC-Teamvorgang (Network Interface Card, Netzwerkadapter) oder Linkaggregation wird bei Azure Stack Edge nicht unterstützt.
    - Die Seriennummer eines beliebigen Ports entspricht der Seriennummer des Knotens. Bei einem Gerät der K-Serie wird nur eine einzelne Seriennummer angezeigt.
 
      >[!NOTE] 
@@ -152,7 +153,7 @@ Befolgen Sie diese Schritte, um Compute zu aktivieren und das Computenetzwerk zu
     > Kubernetes in Azure Stack Edge verwendet das Subnetz 172.27.0.0/16 für den Pod und das Subnetz 172.28.0.0/16 für den Dienst. Stellen Sie sicher, dass diese in Ihrem Netzwerk nicht verwendet werden. Werden diese Subnetze bereits in Ihrem Netzwerk verwendet, können Sie sie ändern, indem Sie das Cmdlet `Set-HcsKubeClusterNetworkInfo` über die PowerShell-Schnittstelle des Geräts ausführen. Weitere Informationen finden Sie unter [Ändern des Pod- und Dienstsubnetzes in Kubernetes](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Weisen Sie **externe Dienst-IP-Adressen für Kubernetes** zu. Dies sind auch die IP-Adressen für den Lastenausgleich. Diese zusammenhängenden IP-Adressen sind für Dienste, die Sie außerhalb des Kubernetes-Clusters verfügbar machen möchten. Sie legen den statischen IP-Adressenbereich abhängig von der Anzahl der verfügbar gemachten Dienste fest. 
+1. Weisen Sie **externe Dienst-IP-Adressen für Kubernetes** zu. Dies sind auch die IP-Adressen für den Lastenausgleich. Diese zusammenhängenden IP-Adressen sind für Dienste, die Sie außerhalb des Kubernetes-Clusters verfügbar machen möchten. Sie legen den statischen IP-Adressbereich abhängig von der Anzahl der verfügbar gemachten Dienste fest. 
     
     > [!IMPORTANT]
     > Es wird dringend empfohlen, mindestens eine IP-Adresse für den Azure Stack Edge Mini R-Hubdienst anzugeben, um auf Computemodule zugreifen zu können. Sie können dann optional zusätzliche IP-Adressen für andere Dienste/IoT Edge-Module (eine pro Dienst/Modul) angeben, auf die von außerhalb des Clusters zugegriffen werden muss. Die IP-Adressen des Diensts können später aktualisiert werden. 

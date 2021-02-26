@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 37a989082b63dc101bb519fea1cc4ef16c76ae49
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621534"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979532"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optische Zeichenerkennung (OCR)
 
@@ -36,15 +36,16 @@ Der Aufruf **Read** nimmt Bilder und Dokumente als Eingabe entgegen. Es bestehen
 * Die Dateigröße muss weniger als 50 MB (4 MB für den Free-Tarif) betragen und eine Größe von mindestens 50 x 50 Pixel und höchstens 10000 × 10000 Pixel aufweisen. 
 * Die Abmessungen bei PDF-Dateien dürfen maximal 17 × 17 Zoll betragen. Dies entspricht den Papierformaten Legal oder DIN A3 und kleineren Formaten.
 
-### <a name="read-32-preview-allows-selecting-pages"></a>Die Vorschauversion von Read 3.2 ermöglicht die Auswahl von Seiten
-Mit der [Read 3.2-API (Vorschauversion)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) können Sie bei großen, mehrseitigen Dokumenten bestimmte Seitenzahlen oder Seitenbereiche als Eingabeparameter angeben, um Text nur von diesen Seiten zu extrahieren. Dies ist ein neuer Eingabeparameter zusätzlich zu dem optionalen Sprachparameter.
-
 > [!NOTE]
 > **Spracheneingabe** 
 >
-> Der [Read-Aufruf](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) weist einen optionalen Anforderungsparameter für die Sprache auf. Dies ist der BCP-47-Sprachcode des Texts im Dokument. Read unterstützt die automatische Sprachidentifikation und mehrsprachige Dokumente. Geben Sie also nur einen Sprachcode an, wenn Sie erzwingen möchten, dass das Dokument in dieser spezifischen Sprache verarbeitet wird.
+> Der [Read-Aufruf](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) weist einen optionalen Anforderungsparameter für die Sprache auf. Read unterstützt die automatische Sprachidentifikation und mehrsprachige Dokumente. Geben Sie also nur einen Sprachcode an, wenn Sie erzwingen möchten, dass das Dokument in dieser spezifischen Sprache verarbeitet wird.
 
-## <a name="the-read-call"></a>Read-Aufruf
+## <a name="ocr-demo-examples"></a>OCR-Demo (Beispiele)
+
+![OCR-Demos](./Images/ocr-demo.gif)
+
+## <a name="step-1-the-read-operation"></a>Schritt 1: Der Read-Vorgang
 
 Beim [Read-Aufruf](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) der Read-API wird ein Bild oder PDF-Dokument als Eingabe erfasst und asynchron Text extrahiert. Der Aufruf wird mit einem Antwortheaderfeld namens `Operation-Location` zurückgegeben. Der `Operation-Location`-Wert ist eine URL, die die Vorgangs-ID enthält, die im nächsten Schritt verwendet werden soll.
 
@@ -57,7 +58,7 @@ Beim [Read-Aufruf](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 >
 > Die Seite [Preise für maschinelles Sehen](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enthält den Tarif für Read. Jedes analysierte Bild oder jede analysierte Seite ist eine Transaktion. Wenn Sie den Vorgang mit einem PDF- oder TIFF-Dokument mit 100 Seiten aufrufen, wird dies vom Read-Vorgang als 100 Transaktionen gezählt und Ihnen werden 100 Transaktionen in Rechnung gestellt. Wenn Sie für den Vorgang 50 Aufrufe durchgeführt haben und jeder Aufruf ein Dokument mit 100 Seiten übermittelt hat, werden Ihnen 5000 Transaktionen (50 x 100) in Rechnung gestellt.
 
-## <a name="the-get-read-results-call"></a>„Get Read Results“-Aufruf
+## <a name="step-2-the-get-read-results-operation"></a>Schritt 2: Der „Get Read Results“-Vorgang
 
 Der zweite Schritt umfasst das Aufrufen des Vorgangs [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Dieser Vorgang erfasst die Vorgangs-ID, die beim Read-Vorgang erstellt wurde, als Eingabe. Er gibt eine JSON-Antwort zurück, die ein **Status**-Feld mit den folgenden möglichen Werten enthält. Sie rufen diesen Vorgang iterativ auf, bis er mit dem Wert **succeeded** (erfolgreich) zurückgegeben wird. Verwenden Sie ein Intervall von 1 bis 2 Sekunden, um zu vermeiden, dass die Rate der Anforderungen pro Sekunde (RPS) überschritten wird.
 
@@ -74,7 +75,7 @@ Der zweite Schritt umfasst das Aufrufen des Vorgangs [Get Read Results](https://
 Wenn das Feld **Status** den Wert **succeeded** aufweist, enthält die JSON-Antwort den extrahierten Textinhalt aus Ihrem Bild oder Dokument. In der JSON-Antwort werden die ursprünglichen Zeilengruppierungen der erkannten Wörter beibehalten. Sie enthält die extrahierten Textzeilen und die zugehörigen Begrenzungsrahmenkoordinaten. Jede Textzeile enthält alle extrahierten Wörter mit den zugehörigen Koordinaten und Zuverlässigkeitsbewertungen.
 
 > [!NOTE]
-> Die an den Vorgang `Read` übermittelten Daten werden vorübergehend verschlüsselt, im Ruhezustand gespeichert und innerhalb von 48 Stunden gelöscht. Dadurch können Ihre Anwendungen den extrahierten Text als Teil der Dienstantwort abrufen.
+> Die an den Vorgang `Read` übermittelten Daten werden vorübergehend verschlüsselt, für eine kurze Dauer im Ruhezustand gespeichert und dann gelöscht. Dadurch können Ihre Anwendungen den extrahierten Text als Teil der Dienstantwort abrufen.
 
 ## <a name="sample-json-output"></a>JSON-Beispielausgabe
 
@@ -130,67 +131,33 @@ Eine erfolgreiche JSON-Antwort sieht in etwa wie folgendes Beispiel aus:
   }
 }
 ```
-### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Die Vorschauversion von Read 3.2 fügt Textzeilenstil hinzu (nur Sprachen mit lateinischem Alphabet)
-Die [Read 3.2-API (Vorschauversion)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) gibt ein **appearance**-Objekt aus, das klassifiziert, ob es sich bei den einzelnen Textzeilen um Drucktext oder eine Handschrift handelt. Außerdem wird eine Zuverlässigkeitsbewertung ausgegeben. Dieses Feature wird nur für lateinische Sprachen unterstützt.
 
-Beginnen Sie mit den [Schnellstartanleitungen für die REST-API für maschinelles Sehen oder für die Clientbibliothek](./quickstarts-sdk/client-library.md), um OCR-Funktionen in Ihre Anwendungen zu integrieren.
+## <a name="natural-reading-order-output"></a>Ausgabe der natürlichen Leserichtung
+Geben Sie mit der [Read 3.2-API (Vorschauversion)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) die Reihenfolge an, in der die Textzeilen mit dem `readingOrder`-Abfrageparameter ausgegeben werden. Verwenden Sie `natural` für eine benutzerfreundlichere Ausgabe der Lesereihenfolge, wie im folgenden Beispiel gezeigt.
 
-## <a name="supported-languages-for-print-text"></a>Unterstützte Sprachen für Drucktext
-Mit der [Lese-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) kann gedruckter Text in englischer, spanischer, deutscher, französischer, italienischer, portugiesischer und niederländischer Sprache extrahiert werden.
+:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Beispiel für OCR-Leserichtung":::
 
-Eine vollständige Liste der für OCR unterstützten Sprachen finden Sie unter [Unterstützte Sprachen](./language-support.md#optical-character-recognition-ocr).
+## <a name="handwritten-classification-for-text-lines-latin-only"></a>Handschriftliche Klassifizierung für Textzeilen (nur Lateinisch)
+Die Antwort der [Read 3.2-API (Vorschauversion)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) umfasst die Klassifizierung, ob es sich bei den einzelnen Textzeilen um einen handschriftlichen Stil handelt, zusammen mit einer Zuverlässigkeitsbewertung. Dieses Feature wird nur für lateinische Sprachen unterstützt. Das folgende Beispiel zeigt die handschriftliche Klassifizierung für den Text im Bild.
 
-### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Chinesisch (vereinfacht) und Japanisch in der Vorschauversion von Read 3.2
-Die [öffentliche Vorschau der Read 3.2-API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) unterstützt jetzt Chinesisch (vereinfacht) und Japanisch. Wenn Sie für Ihr Szenario Unterstützung für weitere Sprachen benötigen, finden Sie entsprechende Informationen im Abschnitt [OCR-API](#ocr-api). 
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Beispiel für OCR-Handschriftklassifizierung":::
 
-## <a name="supported-languages-for-handwritten-text"></a>Unterstützte Sprachen für handschriftlichen Text
-Der Read-Vorgang unterstützt zurzeit das Extrahieren von handschriftlichem Text ausschließlich in englischer Sprache.
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Auswählen von Seiten oder Seitenbereichen für die Textextraktion
+Verwenden Sie mit der [Read 3.2-API (Vorschauversion)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) bei großen mehrseitigen Dokumenten den Abfrageparameter `pages` zur Angabe von Seitenzahlen oder Seitenbereichen, um Text nur von diesen Seiten zu extrahieren. Das folgende Beispiel zeigt ein Dokument mit 10 Seiten, wobei für beide Fälle – alle Seiten (1-10) und ausgewählte Seiten (3-6) – Text extrahiert wurde.
 
-## <a name="use-the-rest-api-and-sdk"></a>Verwenden von REST-API und SDK
-Die [Read 3.x-REST-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) ist die bevorzugte Option der meisten Kunden, da sie sich einfach integrieren und schnell vorgefertigt produktiv einsetzen lässt. Azure und der Dienst für maschinelles Sehen verarbeiten Skalierungs-, Leistungs-, Datensicherheits- und Complianceanforderungen, während Sie sich auf die Erfüllung der Anforderungen Ihrer Kunden konzentrieren.
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Ausgabe ausgewählter Seiten":::
 
-## <a name="deploy-on-premise-with-docker-containers"></a>Lokales Bereitstellen mit Docker-Containern
-Der [Read-Docker-Container (Vorschau)](./computer-vision-how-to-install-containers.md) ermöglicht Ihnen die Bereitstellung der neuen OCR-Funktionen in Ihrer eigenen lokalen Umgebung. Container eignen sich hervorragend für bestimmte Sicherheits- und Datengovernanceanforderungen.
+## <a name="supported-languages"></a>Unterstützte Sprachen
+Die Lese-APIs unterstützen insgesamt 73 Sprachen für gedruckten Text. Eine vollständige Liste finden Sie unter [Sprachunterstützung für maschinelles Sehen](./language-support.md#optical-character-recognition-ocr). OCR für handgeschriebenen Text wird ausschließlich für Englisch unterstützt.
 
-## <a name="example-outputs"></a>Beispielausgaben
+## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Verwenden der Cloud-API oder lokale Bereitstellung
+Die Read 3.x-Cloud-APIs sind die bevorzugte Option der meisten Kunden, da sie sich einfach integrieren und schnell vorgefertigt produktiv einsetzen lassen. Azure und der Dienst für maschinelles Sehen verarbeiten Skalierungs-, Leistungs-, Datensicherheits- und Complianceanforderungen, während Sie sich auf die Erfüllung der Anforderungen Ihrer Kunden konzentrieren.
 
-### <a name="text-from-images"></a>Text in Bildern
-
-Die folgende Ausgabe der Read-API zeigt den aus einem Bild extrahierten Text in unterschiedlichen Textwinkeln, -farben und -schriftarten.
-
-![Ein Bild mit mehreren Wörtern in unterschiedlichen Farben und Winkeln mit Auflistung des extrahierten Texts](./Images/text-from-images-example.png)
-
-### <a name="text-from-documents"></a>Text in Dokumenten
-
-Die Read-API akzeptiert auch PDF-Dokumente als Eingabe.
-
-![Ein Rechnungsdokument mit Auflistung des extrahierten Texts](./Images/text-from-pdf-example.png)
-
-### <a name="handwritten-text"></a>Handschriftlicher Text
-
-Der Read-Vorgang extrahiert handschriftlichen Text aus Bildern (zurzeit nur in Englisch).
-
-![Eine Abbildung einer handschriftlichen Notiz mit Auflistung des extrahierten Texts](./Images/handwritten-example.png)
-
-### <a name="printed-text"></a>Gedruckter Text
-
-Der Read-Vorgang kann gedruckten Text in verschiedenen Sprachen extrahieren.
-
-![Eine Abbildung eines Spanisch-Lehrbuchs mit Auflistung des extrahierten Texts](./Images/supported-languages-example.png)
-
-### <a name="mixed-language-documents"></a>Dokumente mit gemischten Sprachen
-
-Die Read-API unterstützt Bilder und Dokumente, die mehrere verschiedene Sprachen enthalten, im Allgemeinen als Dokumente mit gemischten Sprachen bezeichnet. Dabei wird jede einzelne Textzeile in einem Dokument in die erkannte Sprache klassifiziert, bevor die Textinhalte extrahiert werden.
-
-![Ein Abbildung von Ausdrücken in mehreren Sprachen mit Auflistung des extrahierten Texts](./Images/mixed-language-example.png)
+Für die lokale Bereitstellung ermöglicht der [Read-Docker-Container (Vorschau)](./computer-vision-how-to-install-containers.md) Ihnen die Bereitstellung der neuen OCR-Funktionen in Ihrer eigenen lokalen Umgebung. Container eignen sich hervorragend für bestimmte Sicherheits- und Datengovernanceanforderungen.
 
 ## <a name="ocr-api"></a>OCR-API
 
 Die [OCR-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) verwendet ein älteres Erkennungsmodell, unterstützt nur Bilder und wird synchron ausgeführt, sodass der erkannte Text direkt zurückgegeben wird. Informationen finden Sie unter [Für OCR unterstützte Sprachen](./language-support.md#optical-character-recognition-ocr) in der Read-API.
-
-## <a name="data-privacy-and-security"></a>Datenschutz und Sicherheit
-
-Wie bei allen Cognitive Services-Diensten müssen Entwickler, die Read/OCR-Dienste nutzen, die Microsoft-Richtlinien zu Kundendaten beachten. Weitere Informationen finden Sie im [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview) auf der Seite zu Cognitive Services.
 
 > [!NOTE]
 > Die RecognizeText-Vorgänge der Maschinelles Sehen-API 2.0 werden allmählich zugunsten der neuen in diesem Artikel erläuterten Lese-API eingestellt. Bestehende Kunden sollten dazu [übergehen, Lesevorgänge zu nutzen](upgrade-api-versions.md).
@@ -198,5 +165,5 @@ Wie bei allen Cognitive Services-Diensten müssen Entwickler, die Read/OCR-Diens
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Beginnen Sie mit den [Schnellstartanleitungen für die REST-API für maschinelles Sehen oder für die Clientbibliothek](./quickstarts-sdk/client-library.md).
-- Erfahren Sie mehr über die [Read-REST-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Erfahren Sie mehr über die [öffentliche Vorschau der Read 3.2-REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) mit Unterstützung für Chinesisch (vereinfacht) und Japanisch.
+- Erfahren Sie mehr über die [Read 3.1-REST-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Erfahren Sie mehr über die [öffentliche Vorschau der Read 3.2-REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) mit Unterstützung für insgesamt 73 Sprachen.

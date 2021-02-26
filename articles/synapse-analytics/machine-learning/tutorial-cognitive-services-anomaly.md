@@ -83,9 +83,9 @@ Geben Sie die folgenden Details zum Konfigurieren der Anomalieerkennung an:
 
 - **Spalte mit Zeitstempel**: Die Spalte, die die Uhrzeit der Reihe darstellt. Wählen Sie **timestamp (string)** (Zeitstempel (Zeichenfolge)) aus.
 
-- **Timeseries value column** (Spalte mit Zeitreihenwert): Diese Spalte gibt den Wert der Reihe zu dem Zeitpunkt an, der unter „Spalte mit Zeitstempel“ angegeben ist. Wählen Sie **value (double)** (Wert (doppelt)) aus.
+- **Timeseries value column** (Spalte mit Zeitreihenwerten): Diese Spalte gibt den Wert der Reihe zu dem Zeitpunkt an, der unter „Spalte mit Zeitstempel“ angegeben ist. Wählen Sie **value (double)** (Wert (doppelt)) aus.
 
-- **Grouping column** (Spalte mit Gruppierung): Diese Spalte dient der Gruppierung der Reihe. Dies bedeutet, dass alle Zeilen mit gleichem Wert in dieser Spalte eine Zeitreihe bilden. Wählen Sie **group (string)** (Gruppe (Zeichenfolge)) aus.
+- **Grouping column** (Gruppierungsspalte): Diese Spalte dient der Gruppierung der Reihe. Dies bedeutet, dass alle Zeilen mit gleichem Wert in dieser Spalte eine Zeitreihe bilden. Wählen Sie **group (string)** (Gruppe (Zeichenfolge)) aus.
 
 Wenn Sie fertig sind, wählen Sie **Notebook öffnen** aus. Dadurch wird ein Notebook für Sie mit PySpark-Code generiert, der Azure Cognitive Services für die Anomalieerkennung verwendet.
 

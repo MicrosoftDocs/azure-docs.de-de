@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724015"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428672"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -363,14 +363,7 @@ Ja. Informationen hierzu finden Sie unter [Konfigurieren eines benutzerdefiniert
 
 **Kann ich eine DNS-Aktualisierung ausführen?**
 
-Derzeit bieten wir keine Funktion zum Aktualisieren der DNS-Serverkonfiguration für SQL Managed Instance.
-
-Die DNS-Konfiguration wird letztendlich aktualisiert:
-
-- Wenn die DHCP-Lease abläuft.
-- Bei einem Plattformupgrade.
-
-Als Problemumgehung können Sie für SQL Managed Instance ein Downgrade auf vier virtuelle Kerne und danach ein Upgrade der Instanz durchführen. Dies hat die Nebenwirkung, dass die DNS-Konfiguration aktualisiert wird.
+Ja. Lesen Sie dazu [Synchronisieren der Einstellung für DNS-Server virtueller Netzwerke in einem virtuellen SQL Managed Instance-Cluster](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="change-time-zone"></a>Ändern der Zeitzone
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536765"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584989"
 ---
 # <a name="apply-math-operation"></a>Anwenden einer mathematischen Operation
 
@@ -249,16 +249,19 @@ Gibt den kleineren Wert zurück – den Wert in **Spaltensatz** oder den Wert de
 
 Umfasst die grundlegenden arithmetischen Operationen: Addition und Subtraktion, Division und Multiplikation.  Da die meisten Operationen binär sind und zwei Zahlen erfordern, wählen Sie zuerst die Operation und dann die Spalte oder die Zahlen, die im ersten und zweiten Argument verwendet werden sollen.
 
-Die Reihenfolge, in der Sie die Spalten für Division und Subtraktion auswählen, mag kontraintuitiv erscheinen. Um das Ergebnis jedoch besser zu verstehen, zeigt die Spaltenüberschrift die Operationsbezeichnung und die Reihenfolge an, in der die Spalten verwendet wurden.
+Die Reihenfolge für Division und Subtraktion lautet wie folgt: 
+- Subtract(Arg1_Arg2) = Arg1 - Arg 2
+- Divide(Arg1_Arg2) =  Arg1 / Arg 2
 
+Die folgende Tabelle zeigt einige Beispiele
 Vorgang|Num1|Num2|Ergebnisspalte|Ergebniswert|
 ----|----|----|----|----
-|Addition|1|5|Add(Num2_Num1)| 4|
+|Addition|1|5|Add(Num2_Num1)| 6|
 |Multiplikation|1|5|Multiple(Num2_Num1)|5|
-|Subtraktion|1|5|Subtract(Num2_Num1)|4|
-|Subtraktion|0|1|Subtract(Num2_Num1)|0|
-|Division|1|5|Divide(Num2_Num1)|5|
-|Division|0|1|Divide(Num2_Num1)|Unendlich|
+|Subtraktion|5|1|Subtract(Num2_Num1)|4|
+|Subtraktion|0|1|Subtract(Num2_Num1)|-1|
+|Division|5|1|Divide(Num2_Num1)|5|
+|Division|1|0|Divide(Num2_Num1)|Unendlich|
 
 ### <a name="add"></a>Hinzufügen
 
@@ -300,7 +303,7 @@ Gibt die Untergrenze für die Werte in **Column set** mit der angegebenen Genaui
 
 ### <a name="mod"></a>Mod
 
-Gibt den Bruchteil der Werte in **Column set** mit der angegebenen Genauigkeit zurück.  
+Gibt die Nachkommastellen der Werte in **Spaltensatz** entsprechend der angegebenen Genauigkeit zurück.  
 
 ### <a name="quotient"></a>Quotient
 

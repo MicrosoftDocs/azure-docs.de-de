@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: a4890dd93cf77e20aff09ca6fd33ec3434a45a4b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663045"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806069"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Schnellstart: Hinzufügen von Featureflags zu einer ASP.NET Core-App
 
@@ -207,7 +207,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Öffnen Sie *_Layout.cshtml* im Verzeichnis *Ansichten*\\*Freigegeben*. Suchen Sie unter `<body>` > `<header>` nach dem Barcode `<nav>`. Fügen Sie ein neues `<feature>`-Tag zwischen den Navigationsleistenelementen *Start* und *Datenschutz* ein, wie nachfolgend in den hervorgehobenen Zeilen gezeigt:
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
 
 1. Erstellen Sie ein Verzeichnis *Views/Beta* und eine Datei *Index.cshtml*, die das folgende Markup enthält:
 

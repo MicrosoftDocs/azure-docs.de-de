@@ -3,18 +3,17 @@ title: Experimentnachverfolgung und Bereitstellen von Modellen
 titleSuffix: Azure Data Science Virtual Machine
 description: Erfahren Sie, wie Sie Experimente von der Data Science Virtual Machine mit Azure Machine Learning und/oder MLFlow nachverfolgen und protokollieren können.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704539"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518537"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Nachverfolgen von Experimenten und Bereitstellen von Modellen in Azure Machine Learning
 
@@ -30,7 +29,7 @@ Im folgenden Diagramm ist dargestellt, wie Sie mit MLflow-Tracking die Ausführu
 
 ## <a name="create-a-new-notebook"></a>Erstellen eines neuen Notebooks
 
-Das Azure Machine Learning und das MLFlow SDK sind auf der Data Science-VM vorinstalliert und sind in der **azureml_py36_\** _-Conda-Umgebung zugänglich. Klicken Sie in JupyterLab auf das Startprogramm, und wählen Sie den folgenden Kernel aus:
+Das Azure Machine Learning und das MLFlow SDK sind auf der Data Science-VM vorinstalliert und sind in der **azureml_py36_\*** -Conda-Umgebung zugänglich. Klicken Sie in JupyterLab auf das Startprogramm, und wählen Sie den folgenden Kernel aus:
 
 ![Kernelauswahl](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ Klicken Sie im Menü auf der linken Seite in [AzureML Studio](https://ml.azure.c
 
 Geben Sie im Bereich __Neuer Rückschlusscluster__ Details für Folgendes ein:
 
-_ Computename
+* Computename
 * Kubernetes Service. Wählen Sie „Neu erstellen“ aus.
 * Wählen Sie die Region aus.
 * Wählen Sie die VM-Größe aus (für die Zwecke dieses Tutorials ist die Standardgröße Standard_D3_v2 ausreichend).

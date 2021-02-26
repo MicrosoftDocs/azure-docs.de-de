@@ -1,5 +1,5 @@
 ---
-title: Szenariobasierter Migrationsleitfaden für den Inhaltsschutz | Microsoft-Dokumentation
+title: Migrationsleitfaden für den Inhaltsschutz
 description: In diesem Artikel finden Sie einen szenariobasierten Migrationsleitfaden für den Inhaltsschutz, der Sie bei der Migration von Azure Media Services V2 zu V3 unterstützt.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a546120a93f311be29083d5f23d4716316bf64f4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9c0040c0ad34b019eaa90bbd1571377ad3539578
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689461"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940118"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Szenariobasierter Migrationsleitfaden für den Inhaltsschutz
 

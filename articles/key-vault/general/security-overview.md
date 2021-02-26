@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937516"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071563"
 ---
-# <a name="azure-key-vault-security-overview"></a>Azure Key Vault-Sicherheitsübersicht
+# <a name="azure-key-vault-security"></a>Azure Key Vault – Sicherheit
 
 Sie verwenden Azure Key Vault für den Schutz Ihrer Verschlüsselungsschlüssel und Geheimnisse (wie Zertifikate, Verbindungszeichenfolgen und Kennwörter) in der Cloud. Wenn Sie vertrauliche und unternehmenskritische Daten speichern, müssen Sie Maßnahmen ergreifen, um die Sicherheit Ihrer Tresore und der darin gespeicherten Daten zu maximieren.
 
-Dieser Artikel bietet eine Übersicht über Sicherheitsfeatures und Best Practices für Azure Key Vault. Eine umfassende Liste mit Empfehlungen, die auf dem [Azure-Sicherheitsvergleichstest](../../security/benchmarks/introduction.md) basieren, finden Sie unter [Azure-Sicherheitsbaseline für Key Vault](security-baseline.md).
+Dieser Artikel bietet eine Übersicht über Sicherheitsfeatures und Best Practices für Azure Key Vault. 
 
-## <a name="general-guidance"></a>Allgemeine Hinweise
-
-Es wird empfohlen, einen Schlüsseltresor pro Anwendung und Umgebung (Entwicklung, Präproduktion und Produktion) zu verwenden. Dadurch können Sie die Geheimnisse nicht umgebungsübergreifend freigegeben und es verringert auch die Bedrohung im Falle einer Sicherheitsverletzung.
+> [!NOTE]
+> Eine umfassende Liste mit Sicherheitsempfehlungen für Azure Key Vault finden Sie in der [Sicherheitsbaseline für Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
@@ -109,20 +108,9 @@ Mit den Azure Key Vault-Funktionen zum Schutz beim vorläufigen und endgültigen
 
 Sie sollten beim Aktualisieren, Löschen und Erstellen von Objekten in einem Schlüsseltresor auch regelmäßig Sicherungskopien Ihres Schlüsseltresors erstellen.  
 
-Azure PowerShell-Sicherungsbefehle:
-
-* [Sichern eines Zertifikats](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Sichern eines Schlüssels](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Sichern eines Geheimnisses](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Azure CLI-Sicherungsbefehle:
-
-* [Sichern eines Zertifikats](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Sichern eines Schlüssels](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Sichern eines Geheimnisses](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Nächste Schritte
 
+- [Azure Key Vault-Sicherheitsbaseline](security-baseline.md)
+- [Bewährte Methoden zum Verwenden von Key Vault](security-baseline.md)
 - [VNET-Dienstendpunkte für Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Integrierte Rollen](../../role-based-access-control/built-in-roles.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631158"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571032"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Neues in Azure NetApp Files
 
@@ -99,7 +99,7 @@ Azure NetApp Files wird regelmäßig aktualisiert. Dieser Artikel bietet eine Ü
 
 ## <a name="may-2020"></a>Mai 2020
 
-* [Microsoft Azure Backup-Richtlinienbenutzer](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Vorschau)
+* [Microsoft Azure Backup-Richtlinienbenutzer](create-active-directory-connections.md) (Vorschau)
 
     Sie können in Azure NetApp Files jetzt weitere Konten einschließen, die erhöhte Rechte für das für Azure NetApp Files erstellte Computerkonto erfordern. Die angegebenen Konten dürfen die NTFS-Berechtigungen auf Datei- oder Ordnerebene ändern. Beispielsweise können Sie ein nicht privilegiertes Dienstkonto angeben, das zum Migrieren von Daten zu einer SMB-Dateifreigabe in Azure NetApp Files verwendet wird. Das Feature Sicherungsrichtlinienbenutzer steht derzeit als Vorschau zur Verfügung.
 

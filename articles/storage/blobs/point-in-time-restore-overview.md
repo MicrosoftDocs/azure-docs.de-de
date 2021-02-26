@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803866"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980512"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Point-in-Time-Wiederherstellung für Blockblobs
 
@@ -32,6 +32,10 @@ Zum Aktivieren von Point-in-Time-Wiederherstellung erstellen Sie eine Verwaltung
 Um eine Point-in-Time-Wiederherstellung zu initiieren, rufen Sie den Vorgang [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) auf und geben einen Wiederherstellungspunkt in UTC-Zeit an. Sie können lexikografische Bereiche von Container- und Blobnamen, die wiederhergestellt werden sollen, angeben oder den Bereich weglassen, um alle Container im Speicherkonto wiederherzustellen. Pro Wiederherstellungsvorgang werden bis zu 10 lexikografische Bereiche unterstützt.
 
 Azure Storage analysiert alle Änderungen, die an den angegebenen Blobs zwischen dem angeforderten Wiederherstellungspunkt (angegeben in UTC-Zeit) und dem aktuellen Zeitpunkt vorgenommen wurden. Der Wiederherstellungsvorgang ist atomisch, sodass er entweder bei der Wiederherstellung aller Änderungen vollständig erfolgreich ist oder fehlschlägt. Wenn Blobs vorhanden sind, die nicht wiederhergestellt werden können, schlägt der Vorgang fehl, und Lese- und Schreibvorgänge für die betroffenen Container werden fortgesetzt.
+
+Das folgende Diagramm veranschaulicht die Funktionsweise der Zeitpunktwiederherstellung. Mindestens ein Container oder ein Blobbereich wird auf seinen Zustand vor *n* Tagen wiederhergestellt, wobei *n* kleiner oder gleich der Beibehaltungsdauer ist, die für die Zeitpunktwiederherstellung definiert wurde. Der Zweck besteht darin, Schreib- und Löschvorgänge, die während der Beibehaltungsdauer aufgetreten sind, rückgängig zu machen.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagramm der Zeitpunktwiederherstellung von Containern in einen früheren Zustand":::
 
 Nur ein Wiederherstellungsvorgang kann für ein Speicherkonto gleichzeitig ausgeführt werden. Ein Wiederherstellungsvorgang kann nicht abgebrochen werden, sobald er ausgeführt wird. Es kann jedoch ein zweiter Wiederherstellungsvorgang ausgeführt werden, um den ersten Vorgang rückgängig zu machen.
 

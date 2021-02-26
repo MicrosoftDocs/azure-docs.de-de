@@ -31,7 +31,7 @@
   items:
     - name: Testen des Modells
       href: test-your-model.md
-    - name: Verbessern der Klassifizierung
+    - name: Verbessern Ihres Modells
       href: getting-started-improving-your-classifier.md
     - name: Domäne auswählen
       href: select-domain.md
@@ -95,9 +95,9 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Kompatibilität
+    - name: Compliance
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Verschlüsselung
-      href: custom-vision-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Versionsinformationen
       href: release-notes.md

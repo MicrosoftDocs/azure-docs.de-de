@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 2/2/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8dba607ae746c26dd80a8e036bcd75930a1e8b01
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131473"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538390"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Versionshinweise zum Azure-Dateisynchronisierungs-Agent
 Mit der Azure-Dateisynchronisierung können Sie Dateifreigaben Ihrer Organisation in Azure Files zentralisieren, ohne auf die Flexibilität, Leistung und Kompatibilität eines lokalen Dateiservers verzichten zu müssen. Ihre Windows Server-Installationen werden in einen schnellen Cache Ihrer Azure-Dateifreigabe transformiert. Sie können ein beliebiges Protokoll verwenden, das unter Windows Server verfügbar ist, um lokal auf Ihre Daten zuzugreifen (z.B. SMB, NFS und FTPS). Sie können weltweit so viele Caches wie nötig nutzen.
@@ -25,7 +25,8 @@ Die folgenden Versionen des Agents für die Azure-Dateisynchronisierung werden u
 
 | Meilenstein | Agent-Versionsnummer | Veröffentlichungsdatum | Status |
 |----|----------------------|--------------|------------------|
-| Release für V11.1: [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4\. November 2020 | Unterstützt |
+| V11.2-Release: [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2\. Februar 2021 | Unterstützt – Flighting |
+| V11.1-Release: [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4\. November 2020 | Unterstützt |
 | V10.1-Release: [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5\. Juni 2020 | Unterstützt |
 | Mai 2020 Updaterollup – [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19. Mai 2020 | Unterstützt |
 | V10-Release: [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9\. April 2020 | Unterstützt |
@@ -48,6 +49,32 @@ Die folgenden Versionen des Agents für die Azure-Dateisynchronisierung sind abg
 ### <a name="azure-file-sync-agent-update-policy"></a>Updaterichtlinie für den Azure-Dateisynchronisierungs-Agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>Agent-Version 11.2.0.0
+Die folgenden Versionshinweise gelten für Version 11.2.0.0 des Azure-Dateisynchronisierungs-Agents, die am 2. Februar 2021 veröffentlicht wurde. Diese Hinweise gelten zusätzlich zu den Versionshinweisen, die für die Version 11.1.0.0 angegeben sind.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Verbesserungen und behobene Probleme 
+- Wenn eine Synchronisierungssitzung aufgrund einer hohen Anzahl von Fehlern pro Element abgebrochen wird, kann die Synchronisierung beim Starten einer neuen Sitzung durch einen Abgleich erfolgen, wenn der Azure-Dateisynchronisierungsdienst feststellt, dass eine benutzerdefinierte Synchronisierungssitzung erforderlich ist, um die Fehler pro Element zu korrigieren.
+- Beim Registrieren eines Servers mit dem Cmdlet „Register-AzStorageSyncServer“ tritt möglicherweise ein „Ausnahmefehler“ auf.
+- Neues PowerShell-Cmdlet (Add-StorageSyncAllowedServerEndpointPath) zum Konfigurieren zulässiger Serverendpunktpfade auf einem Server. Dieses Cmdlet eignet sich für Szenarien, in denen die Bereitstellung der Azure-Dateisynchronisierung von einem Cloud Solution Provider (CSP) oder Dienstanbieter verwaltet wird und der Kunde zulässige Serverendpunktpfade auf einem Server konfigurieren möchte. Wenn beim Erstellen eines Serverendpunkts der angegebene Pfad nicht in der Zulassungsliste enthalten ist, tritt beim Erstellen dieses Serverendpunkts ein Fehler auf. Beachten Sie, dass es sich hierbei um ein optionales Feature handelt und alle unterstützten Pfade beim Erstellen eines Serverendpunkts standardmäßig zulässig sind.  
+
+    
+    - Um einen zulässigen Serverendpunktpfad hinzuzufügen, führen Sie die folgenden PowerShell-Befehle auf dem Server aus:
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Um die Liste der unterstützten Pfade abzurufen, führen Sie den folgenden PowerShell-Befehl aus:
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Zum Entfernen eines Pfads führen Sie den folgenden PowerShell-Befehl aus:
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>Agent-Version 11.1.0.0
 Die folgenden Versionshinweise gelten für Version 11.1.0.0 des Azure-Dateisynchronisierungs-Agents (Veröffentlichung: 4. November 2020).
 

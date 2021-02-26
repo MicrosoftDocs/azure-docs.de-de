@@ -5,22 +5,20 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520440"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979741"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Verschieben von Azure-VMs zwischen Regionen
 
 In diesem Artikel erfahren Sie, wie Sie Azure-VMs und zugehörige Netzwerk-/Speicherressourcen mithilfe von [Azure Resource Mover](overview.md) in eine andere Azure-Region verschieben.
-
-> [!NOTE]
-> Azure Resource Mover ist derzeit als öffentliche Vorschauversion verfügbar.
+.
 
 
 In diesem Tutorial lernen Sie Folgendes:
@@ -40,26 +38,21 @@ In diesem Tutorial lernen Sie Folgendes:
 Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/), bevor Sie beginnen. Melden Sie sich dann beim [Azure-Portal](https://portal.azure.com)an.
 
 ## <a name="prerequisites"></a>Voraussetzungen
-
--  Überprüfen Sie, ob Sie *Besitzerzugriff* auf das Abonnement haben, das die zu verschiebenden Ressourcen enthält.
-    - Wenn Sie zum ersten Mal eine Ressource für ein bestimmtes Quelle-Ziel-Paar in einem Azure-Abonnement hinzufügen, erstellt Resource Mover eine [vom System zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (früher als Managed Service Identify (MSI) bezeichnet), die vom Abonnement als vertrauenswürdig eingestuft wird.
-    - Zum Erstellen der Identität und zum Zuweisen der erforderlichen Rolle (Mitwirkender oder Benutzerzugriffsadministrator im Quellabonnement) benötigt das Konto, das Sie zum Hinzufügen von Ressourcen verwenden, Berechtigungen als *Besitzer* für das Abonnement. Hier [erfahren Sie mehr](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) zu Azure-Rollen.
-- Das Abonnement benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Überprüfen Sie die Preise und Gebühren für die Zielregion, in die Sie virtuelle Computer verschieben. Verwenden Sie hierfür den [Preisrechner](https://azure.microsoft.com/pricing/calculator/).
+**Anforderung** | **Beschreibung**
+--- | ---
+**Abonnementberechtigungen** | Vergewissern Sie sich, dass Sie *Besitzerzugriff* auf das Abonnement haben, das die zu verschiebenden Ressourcen enthält.<br/><br/> **Warum benötige ich Besitzerzugriff?** Wenn Sie zum ersten Mal eine Ressource für ein bestimmtes Quelle-Ziel-Paar in einem Azure-Abonnement hinzufügen, erstellt Resource Mover eine [vom System zugewiesene verwaltete Identität](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (früher als Managed Service Identify (MSI) bezeichnet), die vom Abonnement als vertrauenswürdig eingestuft wird. Zum Erstellen der Identität und zum Zuweisen der erforderlichen Rolle (Mitwirkender oder Benutzerzugriffsadministrator im Quellabonnement) benötigt das Konto, das Sie zum Hinzufügen von Ressourcen verwenden, Berechtigungen als *Besitzer* für das Abonnement. Hier [erfahren Sie mehr](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) zu Azure-Rollen.
+**VM-Support** |  Überprüfen Sie, ob die virtuellen Computer unterstützt werden, die Sie verschieben möchten.<br/><br/> - Informationen zu unterstützten virtuellen Windows-Computern finden Sie [hier](support-matrix-move-region-azure-vm.md#windows-vm-support).<br/><br/> - Informationen zu unterstützten virtuellen Linux-Computern und Kernel-Versionen finden Sie [hier](support-matrix-move-region-azure-vm.md#linux-vm-support).<br/><br/> - Überprüfen Sie die unterstützten Einstellungen für [Compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [Speicher](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) und [Netzwerk](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings).
+**Zielabonnement** | Das Abonnement in der Zielregion benötigt ein ausreichendes Kontingent zum Erstellen der Ressourcen, die Sie in die Zielregion verschieben. Wenn kein ausreichendes Kontingent vorhanden ist, [fordern Sie eine Heraufsetzung des Kontingents an](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Gebühren für die Zielregion** | Überprüfen Sie die Preise und Gebühren für die Zielregion, in die Sie virtuelle Computer verschieben. Verwenden Sie hierfür den [Preisrechner](https://azure.microsoft.com/pricing/calculator/).
     
 
-## <a name="check-vm-requirements"></a>Prüfen der VM-Anforderungen
+## <a name="prepare-vms"></a>Vorbereiten der VMs
 
-1. Überprüfen Sie, ob die virtuellen Computer unterstützt werden, die Sie verschieben möchten.
-
-    - [Überprüfen](support-matrix-move-region-azure-vm.md#windows-vm-support) Sie die unterstützten Windows-VMs.
-    - [Überprüfen](support-matrix-move-region-azure-vm.md#linux-vm-support) Sie die unterstützten Linux-VMs und Kernel-Versionen.
-    - Überprüfen Sie die unterstützten [Compute-](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [Speicher-](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) und [Netzwerkeinstellungen](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings).
-2. Überprüfen Sie, ob die virtuellen Computer, die Sie verschieben möchten, aktiviert sind.
-3. Stellen Sie sicher, dass die virtuellen Computer über die aktuellen vertrauenswürdigen Stammzertifikate und eine aktualisierte Zertifikatssperrliste (Certificate Revocation List, CRL) verfügen. Dazu ist Folgendes erforderlich:
+1. Nachdem Sie sich vergewissert haben, dass die virtuellen Computer die Anforderungen erfüllen, müssen Sie sicherstellen, dass die virtuellen Computer, die Sie verschieben möchten, aktiviert sind. Alle VM-Datenträger, die in der Zielregion verfügbar sein sollen, müssen an den virtuellen Computer angefügt und initialisiert werden.
+1. Stellen Sie sicher, dass die virtuellen Computer über die aktuellen vertrauenswürdigen Stammzertifikate und eine aktualisierte Zertifikatssperrliste (Certificate Revocation List, CRL) verfügen. Dazu ist Folgendes erforderlich:
     - Installieren Sie auf Windows-VMs die aktuellen Windows-Updates.
     - Befolgen Sie auf Linux-VMs die Anweisungen des Distributors, damit die Computer über die aktuellen Zertifikate und CRL verfügen. 
-4. Erlauben Sie die ausgehende Verbindung von virtuellen Computern:
+1. Erlauben Sie die ausgehende Verbindung von virtuellen Computern:
     - Lassen Sie den Zugriff auf die folgenden [URLs](support-matrix-move-region-azure-vm.md#url-access) zu, wenn Sie einen URL-basierten Firewallproxy zum Steuern der ausgehenden Konnektivität verwenden.
     - Wenn Sie Regeln für Netzwerksicherheitsgruppen (NSG) zum Steuern der ausgehenden Verbindung verwenden, erstellen Sie diese [Diensttagregeln](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Wählen Sie die Ressourcen aus, die Sie verschieben möchten.
     ![Seite zum Auswählen der Quell- und Zielregion](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. Klicken Sie unter **Zu verschiebende Ressourcen** auf **Ressourcen auswählen**.
-7. Wählen Sie unter **Ressourcen auswählen** den virtuellen Computer aus. Sie können nur Ressourcen hinzufügen, [die zum Verschieben unterstützt werden](#check-vm-requirements). Klicken Sie anschließend auf **Fertig**.
+7. Wählen Sie unter **Ressourcen auswählen** den virtuellen Computer aus. Sie können nur Ressourcen hinzufügen, [die zum Verschieben unterstützt werden](#prepare-vms). Klicken Sie anschließend auf **Fertig**.
 
     ![Seite zum Auswählen von zu verschiebenden virtuellen Computern](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  Klicken Sie unter **Zu verschiebende Ressourcen** auf **Weiter**.
-9. Überprüfen Sie unter **Review + Add** (Überprüfen und hinzufügen) die Quell- und Zieleinstellungen. 
+9. Überprüfen Sie unter **Überprüfen** die Quell- und Zieleinstellungen. 
 
     ![Seite zum Überprüfen der Einstellungen und zum Fortsetzen der Verschiebung](./media/tutorial-move-region-virtual-machines/review.png)
 10. Klicken Sie auf **Fortsetzen**, um die Ressourcen hinzuzufügen.
@@ -99,25 +92,27 @@ Wählen Sie die Ressourcen aus, die Sie verschieben möchten.
 
 > [!NOTE]
 > - Hinzugefügte Ressourcen haben den Status *Prepare pending* (Vorbereitung ausstehend).
+> - Die Ressourcengruppe für die virtuellen Computer wird automatisch hinzugefügt.
 > - Wenn Sie eine Ressource aus einer Sammlung für die Verschiebung entfernen möchten, hängt die Methode davon ab, an welchem Punkt im Verschiebevorgang Sie sich befinden. [Weitere Informationen](remove-move-resources.md)
 
 ## <a name="resolve-dependencies"></a>Auflösen von Abhängigkeiten
 
 1. Wenn für Ressourcen in der Spalte **Probleme** die Meldung *Abhängigkeiten überprüfen* angezeigt wird, klicken Sie auf die Schaltfläche **Abhängigkeiten überprüfen**. Der Überprüfungsprozess wird daraufhin begonnen.
 2. Wenn Abhängigkeiten gefunden werden, klicken Sie auf **Abhängigkeiten hinzufügen**. 
-3. Wählen Sie unter **Abhängigkeiten hinzufügen** die abhängigen Ressourcen und **Abhängigkeiten hinzufügen** aus. Überwachen Sie den Fortschritt in den Benachrichtigungen.
+3. Übernehmen Sie unter **Abhängigkeiten hinzufügen** die Standardoption **Alle Abhängigkeiten anzeigen**.
+
+    - Bei Verwendung von „Alle Abhängigkeiten anzeigen“ werden alle direkten und indirekten Abhängigkeiten für eine Ressource durchlaufen. Für einen virtuellen Computer werden beispielsweise die NIC, das virtuelle Netzwerk, die Netzwerksicherheitsgruppen (NSGs) und Ähnliches angezeigt.
+    - Bei Verwendung von „Show first level dependencies only“ (Nur Abhängigkeiten der ersten Ebene anzeigen) werden nur direkte Abhängigkeiten angezeigt. Für einen virtuellen Computer wird beispielsweise die NIC, aber nicht das virtuelle Netzwerk angezeigt.
+
+
+4. Wählen Sie die abhängigen Ressourcen, die Sie hinzufügen möchten, und anschließend **Abhängigkeiten hinzufügen** aus. Überwachen Sie den Fortschritt in den Benachrichtigungen.
 
     ![Hinzufügen von Abhängigkeiten](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Fügen Sie bei Bedarf zusätzliche Abhängigkeiten hinzu, und überprüfen Sie die Abhängigkeiten erneut. 
+4. Überprüfen Sie die Abhängigkeiten erneut. 
     ![Seite zum Hinzufügen zusätzlicher Abhängigkeiten](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. Überprüfen Sie auf der Seite **Across regions** (Regionsübergreifend), ob sich die Ressourcen jetzt im Status *Prepare pending* (Vorbereitung ausstehend) befinden und keine Probleme mehr aufweisen.
 
-    ![Seite mit den Ressourcen im Status „Prepare pending“ (Vorbereitung ausstehend)](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Wenn Sie die Zieleinstellungen vor dem Verschieben bearbeiten möchten, wählen Sie den Link in der Spalte **Destination configuration** (Zielkonfiguration) der Ressource aus, und bearbeiten Sie die Einstellungen. Wenn Sie die Ziel-VM-Einstellungen bearbeiten, darf die Größe der Ziel-VM nicht kleiner sein als die Größe der Quell-VM.  
 
 ## <a name="move-the-source-resource-group"></a>Verschieben der Quellressourcengruppe 
 
@@ -158,9 +153,17 @@ So committen Sie die Verschiebung und schließen sie ab:
 
 ## <a name="prepare-resources-to-move"></a>Vorbereiten der Ressource zum Verschieben
 
+Nach dem Verschieben der Quellressourcengruppe können Sie als Nächstes die Verschiebung anderer Ressourcen mit dem Status *Vorbereitung ausstehend* vorbereiten.
+
+1. Vergewissern Sie sich unter **Regionsübergreifend**, dass sich die Ressourcen jetzt im Status *Vorbereitung ausstehend* befinden und keine Probleme mehr vorliegen. Führen Sie andernfalls eine erneute Überprüfung durch, und beheben Sie ggf. noch vorhandene Probleme.
+
+    ![Seite mit den Ressourcen im Status „Prepare pending“ (Vorbereitung ausstehend)](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Wenn Sie die Zieleinstellungen vor dem Verschieben bearbeiten möchten, wählen Sie den Link in der Spalte **Destination configuration** (Zielkonfiguration) der Ressource aus, und bearbeiten Sie die Einstellungen. Wenn Sie die Ziel-VM-Einstellungen bearbeiten, darf die Größe der Ziel-VM nicht kleiner sein als die Größe der Quell-VM.  
+
 Nachdem die Quellressourcengruppe verschoben wurde, können Sie die Verschiebung der anderen Ressourcen vorbereiten.
 
-1. Wählen Sie unter **Across regions** (Regionsübergreifend) die Ressourcen aus, die Sie vorbereiten möchten. 
+3. Wählen Sie die Ressourcen aus, die Sie vorbereiten möchten. 
 
     ![Seite zur Auswahl der Vorbereitung für andere Ressourcen](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -238,12 +241,16 @@ Wenn Sie die Verschiebung abschließen möchten, führen Sie einen Commit aus.
 - Der Mobilitätsdienst wird auf virtuellen Computern nicht automatisch deinstalliert. Deinstallieren Sie ihn manuell, oder lassen Sie ihn installiert, wenn Sie planen, den Server erneut zu verschieben.
 - Ändern Sie nach dem Verschieben die Regeln der rollenbasierten Zugriffssteuerung in Azure (Azure RBAC).
 
+
 ## <a name="delete-source-resources-after-commit"></a>Löschen von Quellressourcen nach einem Commit
 
 Nach dem Verschieben können Sie die Ressourcen in der Quellregion löschen, dies ist jedoch optional. 
 
-1. Klicken Sie unter **Across regions** (Regionsübergreifend) auf den Namen der einzelnen Quellressourcen, die Sie löschen möchten.
-2. Wählen Sie auf der Seite „Eigenschaften“ der ausgewählten Ressource die Option **Löschen** aus.
+> [!NOTE]
+> Einige Ressourcen (beispielsweise Schlüsseltresore und SQL Server-Server) können nicht über das Portal gelöscht werden und müssen auf der Eigenschaftenseite der jeweiligen Ressource gelöscht werden.
+
+1. Klicken Sie unter **Regionsübergreifend** auf den Namen der Quellressource, die Sie löschen möchten.
+2. Wählen Sie **Quelle löschen** aus.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Löschen zusätzlicher, für das Verschieben erstellter Ressourcen
 

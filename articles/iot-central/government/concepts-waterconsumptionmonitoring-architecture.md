@@ -4,15 +4,15 @@ description: Enthält eine Beschreibung der Konzepte einer Lösung zur Überwach
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: da1eafee719919d7f3086a059d8d2c70ef8d8cb1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586787"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831653"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Überwachung des Wasserverbrauchs: Referenzarchitektur 
 

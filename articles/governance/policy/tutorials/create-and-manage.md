@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Erstellen von Richtlinien zur Konformitätserzwingung'
 description: In diesem Tutorial verwenden Sie Richtlinien zum Erzwingen von Standards, Steuern der Kosten, Gewährleisten der Sicherheit und Erzwingen von unternehmensweiten Entwurfsprinzipien.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005434"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221192"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung
 
@@ -71,6 +71,10 @@ Für die Konformitätserzwingung mit Azure Policy muss zunächst eine Richtlinie
 1. Lassen Sie das Kontrollkästchen **Korrekturtask erstellen** deaktiviert. Dieses Kontrollkästchen ermöglicht die Erstellung eines Tasks zur Änderung bereits vorhandener Ressourcen (zusätzlich zu neuen oder aktualisierten Ressourcen). Weitere Informationen finden Sie unter [Korrigieren nicht konformer Ressourcen mit Azure Policy](../how-to/remediate-resources.md).
 
 1. **Verwaltete Identität erstellen** ist automatisch aktiviert, da diese Richtliniendefinition die Auswirkung [Modify](../concepts/effects.md#modify) verwendet. **Berechtigungen** ist basierend auf der Richtliniendefinition automatisch auf _Mitwirkende_ festgelegt. Weitere Informationen finden Sie unter [Verwaltete Identitäten](../../../active-directory/managed-identities-azure-resources/overview.md) und [Funktionsweise der Wiederherstellungssicherheit](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Wählen Sie oben im Assistenten die Registerkarte **Meldungen zu Complianceverstößen** aus.
+
+1. Legen Sie **Meldung zu Complianceverstößen** auf _This resource doesn't have the required tag_ (Ressource verfügt nicht über das erforderliche Tag) fest. Diese benutzerdefinierte Meldung wird bei der Ablehnung einer Ressource oder für nicht konforme Ressourcen bei der regulären Auswertung angezeigt.
 
 1. Wählen Sie im oberen Bereich des Assistenten die Registerkarte **Überprüfen + erstellen** aus.
 

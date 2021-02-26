@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d6a79e87e9999dd520358e0722011cf4e54d8c63
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883219"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546243"
 ---
 # <a name="azure-firewall-dns-settings"></a>DNS-Einstellungen für Azure Firewall
 

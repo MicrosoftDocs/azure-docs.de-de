@@ -39,8 +39,6 @@
       href: access-control.md
     - name: Lokale integrierte RBAC-Rollen
       href: built-in-roles.md
-- name: Anleitungen
-  items: null
 - name: Verweis
   items:
     - name: Azure PowerShell

@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379901"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582497"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Referenz: API Management-Ressourcenprotokollschema
 
-Dieser Artikel enthält eine Schemareferenz für das GatewayLogs-Ressourcenprotokoll von Azure API Management. Protokolleinträge beinhalten auch Felder im [allgemeinen Schema der obersten Ebene](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+Dieser Artikel enthält eine Schemareferenz für das GatewayLogs-Ressourcenprotokoll von Azure API Management. Protokolleinträge beinhalten auch Felder im [allgemeinen Schema der obersten Ebene](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Informationen zum Aktivieren der Sammlung des Ressourcenprotokolls in API Management finden Sie unter [Überwachen von veröffentlichten APIs](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Die folgenden Eigenschaften werden für jede API-Anforderung protokolliert:
 ## <a name="next-steps"></a>Nächste Schritte
 
 * Informationen zur Überwachung von APIs in API Management finden Sie unter [Überwachen von veröffentlichten APIs](api-management-howto-use-azure-monitor.md).
-* Weitere Informationen zum allgemeinen und dienstspezifischen Schema für Azure-Ressourcenprotokolle finden Sie [hier](../azure-monitor/platform/resource-logs-schema.md).
+* Weitere Informationen zum allgemeinen und dienstspezifischen Schema für Azure-Ressourcenprotokolle finden Sie [hier](../azure-monitor/essentials/resource-logs-schema.md).
 

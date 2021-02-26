@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 53c342005d2c33e2ee18057fe0e667ebdec5166c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625413"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522239"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importieren von Geräteinformationen in einen Sensor
 
@@ -160,7 +160,7 @@ Zum Importieren von IP-Adresse, Betriebssystem und Patchebene gehen Sie folgende
 
    - **Betriebssystem:** Wählen Sie einen Eintrag in der Dropdownliste aus.
 
-   - **Letzte Aktualisierung**: Verwenden Sie das Format JJJJ-MM-TT.
+   - **Datum der letzten Aktualisierung**: Verwenden Sie das Format JJJJ-MM-TT.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="Der Inhalt auf dem Bildschirm.":::
 
@@ -172,7 +172,7 @@ Zum Importieren von IP-Adresse, Betriebssystem und Patchebene gehen Sie folgende
 
 Zum Importieren des Autorisierungsstatus gehen Sie folgendermaßen vor:
 
-1. Laden Sie die Datei [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) aus dem Defender für IoT-Hilfecenter herunter, und speichern Sie sie. Vergewissern Sie sich, dass Sie die Datei als CSV-Datei gespeichert haben.
+1. Laden Sie die Datei [authorized_devices - examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) aus dem Defender für IoT-Hilfecenter herunter, und speichern Sie sie. Vergewissern Sie sich, dass Sie die Datei als CSV-Datei gespeichert haben.
 
 2. Geben Sie die Informationen wie folgt ein:
 
@@ -188,7 +188,7 @@ Zum Importieren des Autorisierungsstatus gehen Sie folgendermaßen vor:
 
 Beim Importieren der Informationen werden Warnungen zu nicht autorisierten Geräten für alle Geräte angezeigt, die nicht in dieser Liste enthalten sind.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Steuern, welcher Datenverkehr überwacht wird](how-to-control-what-traffic-is-monitored.md)
 

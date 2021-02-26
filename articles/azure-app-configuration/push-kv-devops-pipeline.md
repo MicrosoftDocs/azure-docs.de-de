@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkemper
-ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932114"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979605"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Pushen von Einstellungen an App Configuration mit Azure Pipelines
 
@@ -56,7 +56,7 @@ Weisen Sie den im Rahmen der Aufgabe verwendeten Anmeldeinformationen die passen
 
 In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration Push“ in einer Azure DevOps-Buildpipeline verwenden.
 
-1. Klicken Sie auf **Pipelines** > **Pipelines**, um zur Seite für Buildpipelines zu navigieren. Die Dokumentation zu Buildpipelines finden Sie [hier](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
+1. Klicken Sie auf **Pipelines** > **Pipelines**, um zur Seite für Buildpipelines zu navigieren. Die Dokumentation zu Buildpipelines finden Sie [hier](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - Falls Sie eine neue Buildpipeline erstellen möchten, wählen Sie auf der rechten Seite der Pipeline die Option **Assistent anzeigen** aus, und suchen Sie nach der Aufgabe **Azure App Configuration Push**.
       - Falls Sie eine bereits vorhandene Buildpipeline verwenden möchten, navigieren Sie im Rahmen der Pipelinebearbeitung zur Registerkarte **Aufgaben**, und suchen Sie nach der Aufgabe **Azure App Configuration Push**.
 2. Konfigurieren Sie die erforderlichen Parameter für die Aufgabe, um die Schlüsselwerte aus der Konfigurationsdatei in den App Configuration-Speicher zu pushen. Der Parameter **Konfigurationsdateipfad** beginnt am Stamm des Dateirepositorys.
@@ -66,10 +66,10 @@ In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration
 
 In diesem Abschnitt erfahren Sie, wie Sie die Aufgabe „Azure App Configuration Push“ in Azure DevOps-Releasepipelines verwenden.
 
-1. Wählen Sie **Pipelines** > **Releases** aus, um zur Seite für Releasepipelines zu navigieren. Die Dokumentation zu Releasepipelines finden Sie [hier](/azure/devops/pipelines/release?view=azure-devops).
+1. Wählen Sie **Pipelines** > **Releases** aus, um zur Seite für Releasepipelines zu navigieren. Die Dokumentation zu Releasepipelines finden Sie [hier](/azure/devops/pipelines/release).
 1. Wählen Sie eine vorhandene Releasepipeline aus. Sollten Sie über keine verfügen, wählen Sie **+ Neu** aus, um eine zu erstellen.
 1. Wählen Sie rechts oben die Schaltfläche **Bearbeiten** aus, um die Releasepipeline zu bearbeiten.
-1. Wählen Sie die **Phase** aus, um die Aufgabe hinzuzufügen. Weitere Informationen zu Phasen finden Sie [hier](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Wählen Sie die **Phase** aus, um die Aufgabe hinzuzufügen. Weitere Informationen zu Phasen finden Sie [hier](/azure/devops/pipelines/release/environments).
 1. Wählen Sie **+** für diesen Auftrag aus, und fügen Sie auf der Registerkarte **Bereitstellen** die Aufgabe **Azure App Configuration Push** hinzu.
 1. Konfigurieren Sie die erforderlichen Parameter in der Aufgabe, um Ihre Schlüsselwerte aus Ihrer Konfigurationsdatei in Ihren App Configuration-Speicher zu pushen. Die Parameter werden weiter unten im Abschnitt **Parameter** sowie in QuickInfos neben dem jeweiligen Parameter erläutert.
 1. Speichern Sie Ihre Angaben, und reihen Sie ein Release in die Warteschlange ein. Im Releaseprotokoll werden alle Fehler angezeigt, die ggf. bei der Aufgabenausführung aufgetreten sind.

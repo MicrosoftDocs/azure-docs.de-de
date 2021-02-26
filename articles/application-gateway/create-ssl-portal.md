@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: 96b33c619ecfde8d1a470069f7fab4d840536b46
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397653"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986751"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Konfigurieren eines Anwendungsgateways mit TLS-Terminierung über das Azure-Portal
 
@@ -71,22 +71,22 @@ Export-PfxCertificate `
 
 1. Klicken Sie im Azure-Portal im Menü auf der linken Seite auf **Ressource erstellen**. Das Fenster **Neu** wird angezeigt.
 
-2. Klicken Sie auf **Netzwerk** , und wählen Sie dann in der Liste **Ausgewählte** die Option **Application Gateway** aus.
+2. Klicken Sie auf **Netzwerk**, und wählen Sie dann in der Liste **Ausgewählte** die Option **Application Gateway** aus.
 
 ### <a name="basics-tab"></a>Registerkarte „Grundlagen“
 
 1. Geben Sie auf der Registerkarte **Grundlagen** die folgenden Werte für die Einstellungen des Anwendungsgateways ein:
 
-   - **Ressourcengruppe** : Wählen Sie **myResourceGroupAG** als Ressourcengruppe aus. Falls diese Gruppe nicht vorhanden ist, wählen Sie **Neue erstellen** aus, um sie zu erstellen.
-   - **Name des Anwendungsgateways** : Geben Sie *myAppGateway* als Namen des Anwendungsgateways ein.
+   - **Ressourcengruppe**: Wählen Sie **myResourceGroupAG** als Ressourcengruppe aus. Falls diese Gruppe nicht vorhanden ist, wählen Sie **Neue erstellen** aus, um sie zu erstellen.
+   - **Name des Anwendungsgateways**: Geben Sie *myAppGateway* als Namen des Anwendungsgateways ein.
 
         ![Erstellen eines neuen Anwendungsgateways: Grundlagen](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Für die Kommunikation in Azure zwischen den von Ihnen erstellten Ressourcen ist ein virtuelles Netzwerk erforderlich. Sie können ein neues virtuelles Netzwerk erstellen oder ein bereits vorhandenes virtuelles Netzwerk auswählen. In diesem Beispiel erstellen Sie gleichzeitig mit dem Anwendungsgateway ein virtuelles Netzwerk. Application Gateway-Instanzen werden in separaten Subnetzen erstellt. In diesem Beispiel erstellen Sie zwei Subnetze: eins für das Anwendungsgateway und eins für die Back-End-Server.
 
-    Erstellen Sie unter **Virtuelles Netzwerk konfigurieren** ein neues virtuelles Netzwerk, indem Sie **Neu erstellen** auswählen. Geben Sie im Fenster **Virtuelles Netzwerk erstellen** , das geöffnet wird, die folgenden Werte ein,um das virtuelle Netzwerk und zwei Subnetze zu erstellen:
+    Erstellen Sie unter **Virtuelles Netzwerk konfigurieren** ein neues virtuelles Netzwerk, indem Sie **Neu erstellen** auswählen. Geben Sie im Fenster **Virtuelles Netzwerk erstellen**, das geöffnet wird, die folgenden Werte ein,um das virtuelle Netzwerk und zwei Subnetze zu erstellen:
 
-    - **Name** : Geben Sie *myVNet* als Namen des virtuellen Netzwerks ein.
+    - **Name**: Geben Sie *myVNet* als Namen des virtuellen Netzwerks ein.
 
     - **Subnetzname** (Application Gateway-Subnetz): Im Raster **Subnetze** wird ein Subnetz namens *Default* angezeigt. Ändern Sie den Namen dieses Subnetzes in *myAGSubnet*.<br>Das Subnetz für das Anwendungsgateway kann nur Anwendungsgateways enthalten. Andere Ressourcen sind nicht zulässig.
 
@@ -102,11 +102,11 @@ Export-PfxCertificate `
 
 ### <a name="frontends-tab"></a>Registerkarte „Front-Ends“
 
-1. Vergewissern Sie sich auf der Registerkarte **Front-Ends** , dass der **Typ der Front-End-IP-Adresse** auf **Öffentlich** festgelegt ist. <br>Je nach Anwendungsfall können Sie konfigurieren, dass die Front-End-IP-Adresse öffentlich oder privat ist. In diesem Beispiel verwenden Sie eine öffentliche Front-End-IP-Adresse.
+1. Vergewissern Sie sich auf der Registerkarte **Front-Ends**, dass der **Typ der Front-End-IP-Adresse** auf **Öffentlich** festgelegt ist. <br>Je nach Anwendungsfall können Sie konfigurieren, dass die Front-End-IP-Adresse öffentlich oder privat ist. In diesem Beispiel verwenden Sie eine öffentliche Front-End-IP-Adresse.
    > [!NOTE]
    > Für die Application Gateway v2-SKU können Sie nur die **öffentliche** Front-End-IP-Konfiguration wählen. Die private Front-End-IP-Konfiguration ist derzeit für diese v2-SKU nicht aktiviert.
 
-2. Wählen Sie **Neu erstellen** für die **Öffentliche IP-Adresse** aus, und geben Sie *myAGPublicIPAddress* als Namen der öffentlichen IP-Adresse ein. Wählen Sie dann **OK** aus. 
+2. Wählen Sie **Neu hinzufügen** für **Öffentliche IP-Adresse** aus, und geben Sie *myAGPublicIPAddress* als Namen der öffentlichen IP-Adresse ein. Wählen Sie dann **OK** aus. 
 
    ![Erstellen eines neuen Anwendungsgateways: Front-Ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -116,12 +116,12 @@ Export-PfxCertificate `
 
 Der Back-End-Pool wird zum Weiterleiten von Anforderungen an die Back-End-Server verwendet, die die Anforderung verarbeiten. Back-End-Pools können Netzwerkkarten, VM-Skalierungsgruppen, öffentliche IP-Adressen, interne IP-Adressen, vollqualifizierte Domänennamen (Fully Qualified Domain Names, FQDN) und Back-Ends mit mehreren Mandanten wie Azure App Service umfassen. In diesem Beispiel erstellen Sie mit Ihrem Anwendungsgateway einen leeren Back-End-Pool und fügen dann Back-End-Ziele zum Back-End-Pool hinzu.
 
-1. Wählen Sie auf der Registerkarte **Back-Ends** die Option **+Back-End-Pool hinzufügen** aus.
+1. Wählen Sie auf der Registerkarte **Back-Ends** die Option **Back-End-Pool hinzufügen** aus.
 
-2. Geben Sie im Fenster **Back-End-Pool hinzufügen** , das geöffnet wird, die folgenden Werte ein, um einen leeren Back-End-Pool zu erstellen:
+2. Geben Sie im Fenster **Back-End-Pool hinzufügen**, das geöffnet wird, die folgenden Werte ein, um einen leeren Back-End-Pool zu erstellen:
 
-    - **Name** : Geben Sie *myBackendPool* als Name des Back-End-Pools ein.
-    - **Back-End-Pool ohne Ziele hinzufügen** : Wählen Sie **Ja** aus, um einen Back-End-Pool ohne Ziele zu erstellen. Back-End-Ziele werden Sie nach dem Erstellen des Anwendungsgateways hinzufügen.
+    - **Name**: Geben Sie *myBackendPool* als Name des Back-End-Pools ein.
+    - **Back-End-Pool ohne Ziele hinzufügen**: Wählen Sie **Ja** aus, um einen Back-End-Pool ohne Ziele zu erstellen. Back-End-Ziele werden Sie nach dem Erstellen des Anwendungsgateways hinzufügen.
 
 3. Wählen Sie im Fenster **Back-End-Pool hinzufügen** die Option **Hinzufügen** aus, um die Konfiguration des Back-End-Pools zu speichern und zur Registerkarte **Back-Ends** zurückzukehren.
 
@@ -133,22 +133,23 @@ Der Back-End-Pool wird zum Weiterleiten von Anforderungen an die Back-End-Server
 
 Auf der Registerkarte **Konfiguration** verbinden Sie das Front-End und den von Ihnen erstellten Back-End-Pool mithilfe einer Routingregel.
 
-1. Wählen Sie **Regel hinzufügen** in der Spalte **Routingregeln** aus.
+1. Wählen Sie in der Spalte **Routingregeln** die Option **Routingregel hinzufügen** aus.
 
-2. Geben Sie im Fenster **Routingregel hinzufügen** , das geöffnet wird, *myRoutingRule* als **Regelname** ein.
+2. Geben Sie im Fenster **Routingregel hinzufügen**, das geöffnet wird, *myRoutingRule* als **Regelname** ein.
 
 3. Eine Routingregel erfordert einen Listener. Geben Sie im Fenster **Routingregel hinzufügen** auf der Registerkarte **Listener** die folgenden Werte für den Listener ein:
 
-    - **Name des Listeners** : Geben Sie *myListener* als Name für den Listener ein.
-    - **Front-End-IP** : Wählen Sie **Öffentlich** aus, um die für das Front-End erstellte öffentliche IP-Adresse auszuwählen.
+    - **Name des Listeners**: Geben Sie *myListener* als Name für den Listener ein.
+    - **Front-End-IP**: Wählen Sie **Öffentlich** aus, um die für das Front-End erstellte öffentliche IP-Adresse auszuwählen.
     - **Protokoll:** Wählen Sie **HTTPS** aus.
     - **Port:** Vergewissern Sie sich, dass 443 für den Port eingegeben wurde.
 
-   Unter **HTTPS-Zertifikat** :
+   Unter **HTTPS-Einstellungen**:
 
-   - **PFX-Zertifikatsdatei** : Navigieren Sie zur zuvor erstellten Datei „c:\appgwcert.pfx“.
-   - **Zertifikatname** : Geben Sie als Name für das Zertifikat *mycert1* ein.
-   - **Kennwort** : Geben Sie Ihr Kennwort ein.
+   - **Zertifikat auswählen**: Wählen Sie **Zertifikat hochladen** aus.
+   - **PFX-Zertifikatsdatei**: Navigieren Sie zur zuvor erstellten Datei „c:\appgwcert.pfx“.
+   - **Zertifikatname**: Geben Sie als Name für das Zertifikat *mycert1* ein.
+   - **Kennwort**: Geben Sie das Kennwort ein, das Sie zum Erstellen des Zertifikats verwendet haben.
   
         Übernehmen Sie auf der Registerkarte **Listener** die Standardwerte für die übrigen Einstellungen. Wählen Sie dann die Registerkarte **Back-End-Ziele** aus, um den Rest der Routingregel zu konfigurieren.
 
@@ -156,7 +157,7 @@ Auf der Registerkarte **Konfiguration** verbinden Sie das Front-End und den von 
 
 4. Wählen Sie auf der Registerkarte **Back-End-Ziele** den Pool **myBackendPool** als **Back-End-Ziel** aus.
 
-5. Wählen Sie für die **HTTP-Einstellung** die Option **Neu erstellen** aus, um eine neue HTTP-Einstellung zu erstellen. Die HTTP-Einstellung bestimmt das Verhalten der Routingregel. Geben Sie im Fenster **HTTP-Einstellung hinzufügen** , das geöffnet wird, *myHTTPSetting* als **Name der HTTP-Einstellung** ein. Übernehmen Sie im Fenster **HTTP-Einstellung hinzufügen** die Standardwerte für die übrigen Einstellungen, und wählen Sie dann **Hinzufügen** aus, um zum Fenster **Routingregel hinzufügen** zurückzukehren. 
+5. Wählen Sie für die **HTTP-Einstellung** die Option **Neu hinzufügen** aus, um eine neue HTTP-Einstellung zu erstellen. Die HTTP-Einstellung bestimmt das Verhalten der Routingregel. Geben Sie im daraufhin geöffneten Fenster **HTTP-Einstellung hinzufügen** unter **Name der HTTP-Einstellung** den Namen *myHTTPSetting* ein. Übernehmen Sie im Fenster **HTTP-Einstellung hinzufügen** die Standardwerte für die übrigen Einstellungen, und wählen Sie dann **Hinzufügen** aus, um zum Fenster **Routingregel hinzufügen** zurückzukehren. 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Erstellen eines neuen Anwendungsgateways: HTTP-Einstellung":::
 
@@ -168,7 +169,7 @@ Auf der Registerkarte **Konfiguration** verbinden Sie das Front-End und den von 
 
 ### <a name="review--create-tab"></a>Registerkarte „Überprüfen und erstellen“
 
-Überprüfen Sie die Einstellungen auf der Registerkarte **Überprüfen und erstellen** , und wählen Sie dann **Erstellen** aus, um das virtuelle Netzwerk, die öffentliche IP-Adresse und das Anwendungsgateway zu erstellen. Die Erstellung des Anwendungsgateways in Azure kann einige Minuten in Anspruch nehmen. Warten Sie, bis die Bereitstellung erfolgreich abgeschlossen ist, bevor Sie mit dem nächsten Abschnitt fortfahren.
+Überprüfen Sie die Einstellungen auf der Registerkarte **Überprüfen und erstellen**, und wählen Sie dann **Erstellen** aus, um das virtuelle Netzwerk, die öffentliche IP-Adresse und das Anwendungsgateway zu erstellen. Die Erstellung des Anwendungsgateways in Azure kann einige Minuten in Anspruch nehmen. Warten Sie, bis die Bereitstellung erfolgreich abgeschlossen ist, bevor Sie mit dem nächsten Abschnitt fortfahren.
 
 ## <a name="add-backend-targets"></a>Hinzufügen von Back-End-Zielen
 
@@ -176,7 +177,7 @@ In diesem Beispiel verwenden Sie virtuelle Computer als Ziel-Back-End. Sie könn
 
 Gehen Sie dazu wie folgt vor:
 
-1. Erstellen von zwei neuen virtuellen Computern ( *myVM* und *myVM2* ) für die Verwendung als Back-End-Server
+1. Erstellen von zwei neuen virtuellen Computern (*myVM* und *myVM2*) für die Verwendung als Back-End-Server
 2. Installieren von IIS auf den virtuellen Computern, um zu überprüfen, ob die Application Gateway-Instanz erfolgreich erstellt wurde
 3. Hinzufügen der Back-End-Server zum Back-End-Pool
 
@@ -189,16 +190,16 @@ Gehen Sie dazu wie folgt vor:
 
 1. Geben Sie auf der Registerkarte **Grundlagen** die folgenden Werte für die VM-Einstellungen ein:
 
-    - **Ressourcengruppe** : Wählen Sie **myResourceGroupAG** als Namen der Ressourcengruppe aus.
-    - **Name des virtuellen Computers** : Geben Sie *myVM* als Namen der VM ein.
-    - **Benutzername** : Geben *azureuser* als Namen des Administratorbenutzers ein.
-    - **Kennwort** : Geben Sie ein Kennwort für das Administratorkonto ein.
+    - **Ressourcengruppe**: Wählen Sie **myResourceGroupAG** als Namen der Ressourcengruppe aus.
+    - **Name des virtuellen Computers**: Geben Sie *myVM* als Namen der VM ein.
+    - **Benutzername**: Geben Sie einen Benutzernamen für den Administrator ein.
+    - **Kennwort**: Geben Sie ein Kennwort für das Administratorkonto ein.
 1. Übernehmen Sie für die anderen Einstellungen die Standardwerte, und klicken Sie auf **Weiter: Datenträger**.  
 2. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardwerte, und klicken Sie auf **Weiter: Netzwerk**.
-3. Vergewissern Sie sich auf der Registerkarte **Netzwerk** , dass **myVNet** für **Virtuelles Netzwerk** ausgewählt und **Subnetz** auf **myBackendSubnet** festgelegt ist. Übernehmen Sie für die anderen Einstellungen die Standardwerte, und klicken Sie auf **Weiter: Verwaltung** aus.
+3. Vergewissern Sie sich auf der Registerkarte **Netzwerk**, dass **myVNet** für **Virtuelles Netzwerk** ausgewählt und **Subnetz** auf **myBackendSubnet** festgelegt ist. Übernehmen Sie für die anderen Einstellungen die Standardwerte, und klicken Sie auf **Weiter: Verwaltung** aus.
 
    Application Gateway kann mit Instanzen außerhalb des eigenen virtuellen Netzwerks kommunizieren, es muss jedoch sichergestellt werden, dass eine IP-Verbindung besteht.
-1. Legen Sie auf der Registerkarte **Verwaltung** die Option **Startdiagnose** auf **Aus** fest. Übernehmen Sie für die anderen Einstellungen die Standardwerte, und klicken Sie auf **Bewerten + erstellen**.
+1. Legen Sie auf der Registerkarte **Verwaltung** die Option **Startdiagnose** auf **Deaktivieren** fest. Übernehmen Sie für die anderen Einstellungen die Standardwerte, und klicken Sie auf **Bewerten + erstellen**.
 2. Überprüfen Sie auf der Registerkarte **Bewerten + erstellen** die Einstellungen, beheben Sie alle Validierungsfehler, und wählen Sie dann **Erstellen** aus.
 3. Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie den Vorgang fortsetzen.
 
@@ -210,7 +211,7 @@ In diesem Beispiel installieren Sie IIS auf den virtuellen Computern nur, um zu 
 
     ![Installieren der benutzerdefinierten Erweiterung](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Führen Sie den folgenden Befehl aus, um IIS auf dem virtuellen Computer zu installieren: 
+2. Ändern Sie die Einstellung des Speicherorts für Ihre Umgebung, und führen Sie anschließend den folgenden Befehl aus, um IIS auf dem virtuellen Computer zu installieren: 
 
    ```azurepowershell-interactive
           Set-AzVMExtension `
@@ -221,7 +222,7 @@ In diesem Beispiel installieren Sie IIS auf den virtuellen Computern nur, um zu 
             -ExtensionType CustomScriptExtension `
             -TypeHandlerVersion 1.4 `
             -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-            -Location EastUS
+            -Location <location>
    ```
 
 3. Erstellen Sie eine zweite VM, und installieren Sie IIS mithilfe der zuvor ausgeführten Schritte. Verwenden Sie *myVM2* für den VM-Namen und für die Einstellung **VMName** des Cmdlets **Set-AzVMExtension**.
@@ -234,9 +235,11 @@ In diesem Beispiel installieren Sie IIS auf den virtuellen Computern nur, um zu 
 
 3. Wählen Sie **myBackendPool** aus.
 
-4. Wählen Sie unter **Ziele** in der Dropdownliste die Option **Virtueller Computer** aus.
+4. Wählen Sie unter **Zieltyp** in der Dropdownliste die Option **Virtueller Computer** aus.
 
-5. Wählen Sie unter **VIRTUELLER COMPUTER** und **NETZWERKSCHNITTSTELLEN** in den Dropdownlisten die VMs **myVM** und **myVM2** sowie die zugehörigen Netzwerkschnittstellen aus.
+5. Wählen Sie unter **Ziel** in der Dropdownliste die Netzwerkschnittstelle unter **myVM** aus.
+
+6. Wiederholen Sie den Vorgang, um die Netzwerkschnittstelle für **myVM2** hinzuzufügen.
 
     ![Hinzufügen von Back-End-Servern](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
@@ -252,7 +255,7 @@ In diesem Beispiel installieren Sie IIS auf den virtuellen Computern nur, um zu 
 
 2. Geben Sie in die Adressleiste Ihres Browsers *https://\<your application gateway ip address\>* ein.
 
-   Wenn Sie ein selbstsigniertes Zertifikat verwendet haben und die Sicherheitswarnung akzeptieren möchten, klicken Sie auf **Details** (bzw. in Chrome auf **Erweitert** ), und anschließend auf „Webseite trotzdem laden“:
+   Wenn Sie ein selbstsigniertes Zertifikat verwendet haben und die Sicherheitswarnung akzeptieren möchten, klicken Sie auf **Details** (bzw. in Chrome auf **Erweitert**), und anschließend auf „Webseite trotzdem laden“:
 
     ![Sicherheitswarnung](./media/create-ssl-portal/application-gateway-secure.png)
 

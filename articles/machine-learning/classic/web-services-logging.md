@@ -4,18 +4,17 @@ description: Erfahren Sie, wie Sie die Protokollierung für (klassische) Machine
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518282"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Aktivieren der Protokollierung für (klassische) Azure Machine Learning Studio-Webdienste
 
@@ -54,7 +53,7 @@ Aktivieren Sie die Protokollierung im [(klassischen) Azure Machine Learning Stud
 
    2. Klicken Sie unter **Blob-Dienst** auf **Container**.
 
-   3. Wenn der Container **ml-diagnostics** nicht vorhanden ist, klicken Sie auf **+Container** , vergeben Sie für den neuen Container den Namen „ml-diagnostics“, und wählen Sie für **Zugriffstyp** die Option „Blob“ aus. Klicken Sie auf **OK**.
+   3. Wenn der Container **ml-diagnostics** nicht vorhanden ist, klicken Sie auf **+Container**, vergeben Sie für den neuen Container den Namen „ml-diagnostics“, und wählen Sie für **Zugriffstyp** die Option „Blob“ aus. Klicken Sie auf **OK**.
 
       ![Erstellen eines neuen Containers zum Speichern der Diagnoseprotokolle](./media/web-services-logging/create-ml-diagnostics-container.png)
 

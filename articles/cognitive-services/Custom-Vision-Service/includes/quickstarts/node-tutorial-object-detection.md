@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: be3f199b1b8442da38b4ad0b6b6495b533c6dfe1
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 02e374e94e3d710ff70a89846c2a077f8dad2343
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256407"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105670"
 ---
 Dieser Leitfaden enthält Anweisungen und Beispielcode für die ersten Schritte mit der Custom Vision-Clientbibliothek für Node.js und unterstützt Sie beim Erstellen eines Objekterkennungsmodells. Sie erstellen ein Projekt, fügen Tags hinzu, trainieren das Projekt und verwenden die Vorhersageendpunkt-URL des Projekts, um es programmgesteuert zu testen. Verwenden Sie dieses Beispiel als Vorlage für die Erstellung Ihrer eigenen Bilderkennungsanwendung.
 
@@ -25,7 +25,7 @@ Verwenden Sie die Custom Vision-Clientbibliothek für .NET für folgende Aufgabe
 * Veröffentlichen der aktuellen Iteration
 * Testen des Vorhersageendpunkts
 
-Referenzdokumentation [(Training)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(Vorhersage)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Quellcode der Bibliothek [(Training)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(Vorhersage)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Paket (npm) [(Training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(Vorhersage)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Beispiele](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Referenzdokumentation [(Training)](/javascript/api/@azure/cognitiveservices-customvision-training/) [(Vorhersage)](/javascript/api/@azure/cognitiveservices-customvision-prediction/) | Quellcode der Bibliothek [(Training)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(Vorhersage)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Paket (npm) [(Training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(Vorhersage)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Beispiele](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -87,9 +87,9 @@ Fügen Sie außerdem Felder für Ihren Projektnamen und einen Timeoutparameter f
 
 |name|BESCHREIBUNG|
 |---|---|
-|[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | Diese Klasse wird für die Erstellung, das Training und die Veröffentlichung Ihrer Modelle verwendet. |
-|[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| Diese Klasse wird zum Abfragen Ihrer Modelle für Vorhersagen zur Objekterkennung verwendet.|
-|[Vorhersage](/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| Mit dieser Schnittstelle wird eine einzelne Vorhersage für ein einzelnes Bild definiert. Sie enthält Eigenschaften für die Objekt-ID und den Namen sowie eine Zuverlässigkeitsbewertung.|
+|[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient) | Diese Klasse wird für die Erstellung, das Training und die Veröffentlichung Ihrer Modelle verwendet. |
+|[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient)| Diese Klasse wird zum Abfragen Ihrer Modelle für Vorhersagen zur Objekterkennung verwendet.|
+|[Vorhersage](/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction)| Mit dieser Schnittstelle wird eine einzelne Vorhersage für ein einzelnes Bild definiert. Sie enthält Eigenschaften für die Objekt-ID und den Namen sowie eine Zuverlässigkeitsbewertung.|
 
 ## <a name="code-examples"></a>Codebeispiele
 
@@ -105,7 +105,7 @@ Diese Codeausschnitte veranschaulichen, wie die folgenden Aufgaben mit der Custo
 
 ## <a name="authenticate-the-client"></a>Authentifizieren des Clients
 
-Instanziieren Sie Clientobjekte mit Ihrem Endpunkt und Schlüssel. Erstellen Sie ein **ApiKeyCredentials**-Objekt mit Ihrem Schlüssel, und verwenden Sie es mit Ihrem Endpunkt, um ein [TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest)- und ein [PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)-Objekt zu erstellen.
+Instanziieren Sie Clientobjekte mit Ihrem Endpunkt und Schlüssel. Erstellen Sie ein **ApiKeyCredentials**-Objekt mit Ihrem Schlüssel, und verwenden Sie es mit Ihrem Endpunkt, um ein [TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient)- und ein [PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient)-Objekt zu erstellen.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_auth)]
 
@@ -126,7 +126,7 @@ Starten Sie eine neue Funktion, die alle Custom Vision-Funktionsaufrufe enthäl
 Laden Sie zunächst die Beispielbilder für dieses Projekt herunter. Speichern Sie den Inhalt des [Ordners mit den Beispielbildern](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) auf Ihrem lokalen Gerät.
 
 > [!NOTE]
-> Mit Trove, einem Microsoft Garage-Projekt, können Sie Bilder zu Trainingszwecken sammeln und erwerben. Die gesammelten Bilder können Sie dann herunterladen und wie gewohnt in Ihr Custom Vision-Projekt importieren. Weitere Informationen finden Sie unter [Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
+> Benötigen Sie für Ihr Training ein größeres Spektrum von Bildern? Mit Trove, einem Microsoft Garage-Projekt, können Sie Bilder zu Trainingszwecken sammeln und erwerben. Die gesammelten Bilder können Sie dann herunterladen und wie gewohnt in Ihr Custom Vision-Projekt importieren. Weitere Informationen finden Sie unter [Trove](https://www.microsoft.com/ai/trove?activetab=pivot1:primaryr3).
 
 Um dem Projekt die Beispielbilder hinzuzufügen, fügen Sie nach der Erstellung der Kategorien den folgenden Code ein. Dieser Code lädt das Bild mit dem entsprechenden Tag hoch. Wenn Sie Bilder in Objekterkennungsprojekten mit Tags versehen, müssen Sie mithilfe normalisierter Koordinaten die Region des jeweiligen markierten Objekts angeben. Die Bereiche für dieses Tutorial werden inline mit dem Code hartcodiert. Die Regionen geben den Begrenzungsrahmen in normalisierten Koordinaten an, und die Koordinaten werden in der folgenden Reihenfolge angegeben: links, oben, Breite, Höhe. Sie können bis zu 64 Bilder in einem Batch hochladen.
 
@@ -187,5 +187,5 @@ Sie haben jetzt die einzelnen Schritte des Objekterkennungsprozesses im Code aus
 
 * [Was ist Custom Vision?](../../overview.md)
 * Den Quellcode für dieses Beispiel finden Sie auf [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js).
-* [SDK-Referenzdokumentation (Training)](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
-* [SDK-Referenzdokumentation (Vorhersage)](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)
+* [SDK-Referenzdokumentation (Training)](/javascript/api/@azure/cognitiveservices-customvision-training/)
+* [SDK-Referenzdokumentation (Vorhersage)](/javascript/api/@azure/cognitiveservices-customvision-prediction/)

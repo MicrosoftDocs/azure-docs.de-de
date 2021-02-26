@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652074"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581821"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gewusst wie: Verwenden von Azure PowerShell zum Erstellen eines Dienstprinzipals mit einem Zertifikat
 
@@ -72,7 +72,7 @@ Das Beispiel befindet sich 20 Sekunden lang im Ruhezustand und schafft damit Zei
 
 Sie können den Geltungsbereich für diese Rollenzuweisung mit dem Parameter **ResourceGroupName** auf eine bestimmte Ressourcengruppe festlegen. Sie können den Geltungsbereich durch die Verwendung der Parameter **ResourceType** und **ResourceName** auch auf eine bestimmte Ressource festlegen. 
 
-Wenn Sie **nicht mit Windows 10 oder Windows Server 2016 arbeiten**, müssen Sie den [Generator für selbstsignierte Zertifikate](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) aus dem Skriptcenter von Microsoft herunterladen. Extrahieren Sie den Inhalt, und importieren Sie das benötigte Cmdlet.
+Wenn Sie **nicht mit Windows 10 oder Windows Server 2016 arbeiten**, laden Sie den [Generator für selbstsignierte Zertifikate](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) aus dem Skriptcenter von Microsoft herunter. Extrahieren Sie den Inhalt, und importieren Sie das benötigte Cmdlet.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Bereitstellen eines Zertifikats über automatisiertes PowerShell-Skript
 
-Bei jeder Anmeldung als Dienstprinzipal müssen Sie die Mandanten-ID des Verzeichnisses für Ihre AD-App angeben. Ein Mandant ist eine Instanz von Azure AD.
+Geben Sie bei jeder Anmeldung als Dienstprinzipal die Mandanten-ID des Verzeichnisses für Ihre AD-App an. Ein Mandant ist eine Instanz von Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Bereitstellen eines Zertifikats über automatisiertes PowerShell-Skript
-Bei jeder Anmeldung als Dienstprinzipal müssen Sie die Mandanten-ID des Verzeichnisses für Ihre AD-App angeben. Ein Mandant ist eine Instanz von Azure AD.
+Geben Sie bei jeder Anmeldung als Dienstprinzipal die Mandanten-ID des Verzeichnisses für Ihre AD-App an. Ein Mandant ist eine Instanz von Azure AD.
 
 ```powershell
 Param (

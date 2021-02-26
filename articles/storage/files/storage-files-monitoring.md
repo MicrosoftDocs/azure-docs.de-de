@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875143"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574532"
 ---
 # <a name="monitoring-azure-files"></a>Überwachen von Azure Files
 
@@ -589,13 +589,13 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 
 3. Klicken Sie auf **Ressource bearbeiten**, wählen Sie den **Dateiressourcentyp** aus, und klicken Sie anschließend auf **Fertig**. 
 
-4. Klicken Sie auf **Bedingung auswählen**, und geben Sie die folgenden Informationen für die Warnung an: 
+4. Klicken Sie auf **Bedingung hinzufügen**, und geben Sie die folgenden Informationen zur Warnung an: 
 
     - **Metrik**
     - **Dimensionsname**
     - **Warnungslogik**
 
-5. Klicken Sie auf **Aktionsgruppe auswählen**, und fügen Sie der Warnung eine Aktionsgruppe (E-Mail, SMS usw.) hinzu, indem Sie entweder eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
+5. Klicken Sie auf **Aktionsgruppe hinzufügen**, und fügen Sie der Warnung eine Aktionsgruppe (E-Mail, SMS usw.) hinzu, indem Sie entweder eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
 
 6. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung** und **Schweregrad** ein.
 
@@ -609,16 +609,31 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 1. Navigieren Sie im **Azure-Portal** zu Ihrem **Speicherkonto**.
 2. Klicken Sie im Abschnitt **Überwachung** auf **Warnungen** und anschließend auf **+ Neue Warnungsregel**.
 3. Klicken Sie auf **Ressource bearbeiten**, wählen Sie unter **Ressourcentyp** den Ressourcentyp für das Speicherkonto aus, und klicken Sie anschließend auf **Fertig**. Wenn der Name des Speicherkontos beispielsweise `contoso` ist, wählen Sie die `contoso/file`-Ressource aus.
-4. Klicken Sie auf **Bedingung auswählen**, um eine Bedingung hinzuzufügen.
+4. Klicken Sie auf **Bedingung hinzufügen**, um eine Bedingung hinzuzufügen.
 5. Wählen Sie in der daraufhin angezeigten Liste der für das Speicherkonto unterstützten Signale die Metrik **Transaktionen** aus.
 6. Klicken Sie auf dem Blatt **Signallogik konfigurieren** auf das Dropdownmenü **Dimensionsname**, und wählen Sie **Antworttyp** aus.
-7. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie **SuccessWithThrottling** (für SMB) oder **ClientThrottlingError** (für REST) aus.
+7. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die entsprechenden Antworttypen für die Dateifreigabe aus.
+
+    Wählen Sie für Standard-Dateifreigaben die folgenden Antworttypen aus:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Wählen Sie für Premium-Dateifreigaben die folgenden Antworttypen aus:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Wenn der Dimensionswert „SuccessWithThrottling“ oder „ClientThrottlingError“ nicht angezeigt wird, bedeutet dies, dass die Ressource nicht gedrosselt wurde. Klicken Sie zum Hinzufügen des Dimensionswerts neben der Dropdownliste **Dimensionswerte** auf **Benutzerdefinierten Wert hinzufügen**, geben Sie **SuccessWithThrottling** oder **ClientThrottlingError** ein, klicken Sie auf **OK**, und wiederholen Sie anschließend Schritt 7.
+   > Wenn die Antworttypen nicht in der Dropdownliste **Dimensionswerte** aufgeführt werden, bedeutet dies, dass die Ressource nicht gedrosselt wurde. Wählen Sie zum Hinzufügen der Dimensionswerte neben der Dropdownliste **Dimensionswerte** die Option **Benutzerdefinierten Wert hinzufügen** aus, geben Sie den Typ ein (z. B. **SuccessWithThrottling**), und wählen Sie **OK** aus. Wiederholen Sie diese Schritte zum Hinzufügen aller betreffenden Antworttypen für die Dateifreigabe.
 
 8. Klicken Sie auf die Dropdownliste **Dimensionsname**, und wählen Sie **Dateifreigabe** aus.
 9. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die Dateifreigaben aus, für die Sie eine Warnung einrichten möchten.
+
 
    > [!NOTE]
    > Handelt es sich bei der Dateifreigabe um eine Standarddateifreigabe, wählen Sie **Alle aktuellen und zukünftigen Werte** aus. Die Dateifreigaben werden in der Dropdownliste mit den Dimensionswerten nicht aufgeführt, da für Standarddateifreigaben keine freigabespezifischen Metriken zur Verfügung stehen. Die Drosselung von Warnungen für Standarddateifreigaben wird ausgelöst, wenn eine Dateifreigabe im Speicherkonto gedrosselt wird und die Warnung nicht identifiziert, welche Freigabe gedrosselt wurde. Da Metriken pro Freigabe für Standarddateifreigaben nicht verfügbar sind, wird empfohlen, dass es eine einzige Dateifreigabe pro Speicherkonto gibt.
@@ -628,8 +643,8 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
     > [!TIP]
     > Bei Verwendung eines statischen Schwellenwerts kann das Metrikdiagramm bei der Ermittlung eines sinnvollen Schwellenwerts helfen, wenn die Dateifreigabe gerade gedrosselt wird. Falls Sie einen dynamischen Schwellenwert verwenden, zeigt das Metrikdiagramm die berechneten Schwellenwerte basierend auf aktuellen Daten an.
 
-11. Klicken Sie auf **Aktionsgruppe auswählen**, um der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzuzufügen, indem Sie entweder eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
-12. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung und **Schweregrad** ein.
+11. Klicken Sie auf **Aktionsgruppe hinzufügen**, und fügen Sie der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzu, indem Sie eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
+12. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung** und **Schweregrad** ein.
 13. Klicken Sie auf **Warnungsregel erstellen**, um die Warnung zu erstellen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Erstellen einer Warnung, wenn die Größe der Azure-Dateifreigabe 80 % der Kapazität beträgt
@@ -637,7 +652,7 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 1. Navigieren Sie im **Azure-Portal** zu Ihrem **Speicherkonto**.
 2. Klicken Sie im Abschnitt **Überwachung** auf **Warnungen** und anschließend auf **+ Neue Warnungsregel**.
 3. Klicken Sie auf **Ressource bearbeiten**, wählen Sie unter **Ressourcentyp** den Ressourcentyp für das Speicherkonto aus, und klicken Sie anschließend auf **Fertig**. Wenn der Name des Speicherkontos beispielsweise `contoso` ist, wählen Sie die `contoso/file`-Ressource aus.
-4. Klicken Sie auf **Bedingung auswählen**, um eine Bedingung hinzuzufügen.
+4. Klicken Sie auf **Bedingung hinzufügen**, um eine Bedingung hinzuzufügen.
 5. Wählen Sie in der daraufhin angezeigten Liste der für das Speicherkonto unterstützten Signale die Metrik **Dateikapazität** aus.
 6. Klicken Sie auf dem Blatt **Signallogik konfigurieren** auf das Dropdownmenü **Dimensionsname**, und wählen Sie **Dateifreigabe** aus.
 7. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die Dateifreigaben aus, für die Sie eine Warnung einrichten möchten.
@@ -647,8 +662,8 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 
 8. Geben Sie den **Schwellenwert** in Bytes ein. Wenn die Größe der Dateifreigabe z. B. 100 TiB beträgt und Sie eine Warnung erhalten möchten, wenn die Größe der Dateifreigabe 80 % der Kapazität beträgt, ist der Schwellenwert in Bytes 87960930222080.
 9. Definieren Sie die übrigen **Warnungsparameter** (Aggregationsgranularität und Häufigkeit der Auswertung), und klicken Sie auf **Fertig**.
-10. Klicken Sie auf Aktionsgruppe auswählen, um der Warnung eine Aktionsgruppe (E-Mail, SMS usw.) hinzuzufügen, indem Sie entweder eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
-11. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung und **Schweregrad** ein.
+10. Klicken Sie auf **Aktionsgruppe hinzufügen**, und fügen Sie der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzu, indem Sie eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
+11. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung** und **Schweregrad** ein.
 12. Klicken Sie auf **Warnungsregel erstellen**, um die Warnung zu erstellen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Erstellen einer Warnung, wenn der Ausgang der Azure-Dateifreigabe 500 GiB pro Tag überschritten hat
@@ -656,7 +671,7 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 1. Navigieren Sie im **Azure-Portal** zu Ihrem **Speicherkonto**.
 2. Klicken Sie im Abschnitt „Überwachung“ auf **Warnungen** und anschließend auf **+ Neue Warnungsregel**.
 3. Klicken Sie auf **Ressource bearbeiten**, wählen Sie unter **Ressourcentyp** den Ressourcentyp für das Speicherkonto aus, und klicken Sie anschließend auf **Fertig**. Wenn der Name des Speicherkontos z. B. „contoso“ lautet, wählen Sie die Ressource „contoso/datei“ aus.
-4. Klicken Sie auf **Bedingung auswählen**, um eine Bedingung hinzuzufügen.
+4. Klicken Sie auf **Bedingung hinzufügen**, um eine Bedingung hinzuzufügen.
 5. Wählen Sie in der daraufhin angezeigten Liste der für das Speicherkonto unterstützten Signale die Metrik **Ausgehend** aus.
 6. Klicken Sie auf dem Blatt **Signallogik konfigurieren** auf das Dropdownmenü **Dimensionsname**, und wählen Sie **Dateifreigabe** aus.
 7. Klicken Sie auf die Dropdownliste **Dimensionswerte**, und wählen Sie die Dateifreigaben aus, für die Sie eine Warnung einrichten möchten.
@@ -667,8 +682,8 @@ In der folgenden Tabelle sind einige Beispielszenarios für die Überwachung und
 8. Geben Sie **536870912000** Bytes für den Schwellenwert ein. 
 9. Klicken Sie auf die Dropdownliste **Aggregationsgranularität**, und wählen Sie **24 Stunden** aus.
 10. Wählen Sie die **Häufigkeit der Auswertung** aus, und klicken Sie auf **Fertig**.
-11. Klicken Sie auf **Aktionsgruppe auswählen**, um der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzuzufügen, indem Sie entweder eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
-12. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung und **Schweregrad** ein.
+11. Klicken Sie auf **Aktionsgruppe hinzufügen**, und fügen Sie der Warnung eine **Aktionsgruppe** (E-Mail, SMS usw.) hinzu, indem Sie eine bestehende Aktionsgruppe auswählen oder eine neue Aktionsgruppe erstellen.
+12. Geben Sie die **Warnungsdetails** wie **Warnungsregelname**, **Beschreibung** und **Schweregrad** ein.
 13. Klicken Sie auf **Warnungsregel erstellen**, um die Warnung zu erstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte

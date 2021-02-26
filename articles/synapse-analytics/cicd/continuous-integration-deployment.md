@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797308"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624758"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Continuous Integration und Continuous Delivery für Azure Synapse-Arbeitsbereiche
 
@@ -139,8 +139,8 @@ Wenn Sie die Git-Integration mit Ihre, Synapse-Arbeitsbereich verwenden und übe
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Verwenden der Aufgabe zur Synapse-Arbeitsbereichsbereitstellung
 
-In Synapse sind alle Arten von Artefakten keine ARM-Ressourcen, was sich von ADF unterscheidet. Sie können die Aufgabe zur Bereitstellung von ARM-Vorlagen nicht verwenden, um Synapse-Artefakte bereitzustellen.
+In Synapse gibt es eine Reihe von Artefakten, die keine ARM-Ressourcen sind. Dies ist ein Unterschied zu Azure Data Factory. Die Aufgabe zur Bereitstellung von ARM-Vorlagen kann Synapse-Artefakte nicht ordnungsgemäß bereitstellen.
  
 ### <a name="unexpected-token-error-in-release"></a>Unerwarteter Tokenfehler in Release
 
-Wenn Ihre Parameterdatei Parameterwerte enthält, die nicht mit Escapezeichen versehen sind, würde beim Analysieren der Datei durch die Releasepipeline der Fehler eines unerwarteten Tokens auftreten. Wir empfehlen Ihnen, die Parameter oder KeyVault außer Kraft zu setzen, um Parameter abzurufen. Als Abhilfe könnten Sie auch doppelte Escapezeichen verwenden.
+Wenn Ihre Parameterdatei Parameterwerte enthält, die nicht mit Escapezeichen versehen sind, würde beim Analysieren der Datei durch die Releasepipeline der Fehler „Unerwartetes Token“ auftreten. Es wird empfohlen, die Parameter zu überschreiben oder Azure Key Vault außer Kraft zu setzen, um Parameterwerte abzurufen. Als Abhilfe können Sie auch doppelte Escapezeichen verwenden.

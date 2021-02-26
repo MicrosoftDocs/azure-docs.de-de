@@ -2,13 +2,13 @@
 title: 'Konzepte: Updates und Upgrades für private Clouds'
 description: Hier erfahren Sie mehr über die wichtigsten Upgradeprozesse und Features in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/02/2021
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809648"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006700"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware Solution: Updates und Upgrades für private Clouds
 
@@ -53,11 +53,14 @@ Zusätzlich zur Anwendung von Updates nimmt Azure VMware Solution eine Sicherung
 
 Wenn Fehler auftreten kann Azure VMware Solution diese aus der Sicherung der Konfiguration wiederherstellen. 
 
-Weitere Informationen zu VMware-Softwareversionen finden Sie im [Konzeptartikel zu privaten Clouds und Clustern](concepts-private-clouds-clusters.md) und in den [häufig gestellten Fragen (FAQ)](faq.md).
+Weitere Informationen zu VMware-Softwareversionen finden Sie im [Konzeptartikel zu privaten Clouds und Clustern](concepts-private-clouds-clusters.md) und in den [häufig gestellten Fragen (FAQ)](faq.yml).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Der nächste Schritt besteht darin, eine [private Cloud zu erstellen](tutorial-create-private-cloud.md).
+Nachdem Sie sich mit den Prozessen und Funktionen zum Schlüsselupgrade in Azure VMware Solution vertraut gemacht haben, informieren Sie sich über die folgenden Themen:
+
+- [Erstellen einer privaten Cloud](tutorial-create-private-cloud.md)
+- [Aktivieren einer Azure VMware Solution-Ressource](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

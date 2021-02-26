@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c28e2f1c24d39ceb915be9f4f6f222d70de9ee73
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811561"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522222"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Sensortrend- und Statistikberichte
 
@@ -26,19 +26,29 @@ Sie können Widgetdiagramme und Kreisdiagramme erstellen, um Erkenntnisse über 
 Das Dashboard besteht aus Widgets, die die folgenden Informationstypen grafisch beschreiben:
 
 - Datenverkehr nach Port
+- Bester Datenverkehr nach Port
 - Bandbreite des Kanals
 - Bandbreite gesamt
 - Aktive TCP-Verbindung
+- Beste Bandbreite nach VLAN
 - Geräte:
   - Neue Geräte
   - Ausgelastete Geräte
   - Geräte nach Hersteller
   - Geräte nach Betriebssystem
+  - Anzahl der Geräte pro VLAN
   - Getrennte Geräte
-- Verbindungsabbruch nach Stunden
+- Verbindungsabbrüche nach Stunden
 - Warnungen zu Vorfällen nach Typ
 - Zugriff auf Datenbanktabellen
 - Widgets zur Protokollanalyse
+- DELTAV
+  - Verteilung von DeltaV roc-Vorgängen
+  - DeltaV roc-Ereignisse nach Name
+  - DeltaV-Ereignisse nach Zeit
+- AMS
+  - AMS-Datenverkehr nach Serverport
+  - AMS-Datenverkehr nach Befehl
 - Ethernet- und IP-Adresse:
   - Ethernet- und IP-Adressdatenverkehr nach CIP-Dienst
   - Ethernet- und IP-Adressdatenverkehr nach CIP-Klasse
@@ -49,6 +59,15 @@ Das Dashboard besteht aus Widgets, die die folgenden Informationstypen grafisch 
 - Siemens S7:
   - S7-Datenverkehr nach Steuerungsfunktion
   - S7-Datenverkehr nach Unterfunktion
+- VLAN
+  - Anzahl der Geräte pro VLAN
+  - Beste Bandbreite nach VLAN
+- 60870-5-104
+  - IEC-60870-Datenverkehr nach ASDU
+- BACNET
+  - BACnet-Dienste
+- DNP3
+  - DNP3-Datenverkehr nach Funktion
 - SRTP:
   - SRTP-Datenverkehr nach Dienstcode
   - SRTP-Fehler nach Tag
@@ -74,7 +93,7 @@ Wählen Sie im Seitenmenü die Option **Trends und Statistiken** aus.
 
 Standardmäßig werden Ergebnisse für Erkennungen in den letzten 7 Tagen angezeigt. Sie können Filtertools verwenden, um diesen Bereich zu ändern. Beispielsweise eine Freitextsuche.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="next-steps"></a>Nächste Schritte
 
 [Berichterstellung zur Risikobewertung](how-to-create-risk-assessment-reports.md)
 [Sensor-Data Mining-Abfragen](how-to-create-data-mining-queries.md)

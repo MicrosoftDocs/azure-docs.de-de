@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210982"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920374"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Verwenden von Wartungszeitplänen zum Verwalten der Updates und Wartung von Diensten
 
@@ -38,7 +38,7 @@ Dank der Integration in Service Health-Benachrichtigungen und in Resource Health
 Eine Benachrichtigung 24 Stunden im Voraus geht allen Wartungsereignissen voran, die nicht für DWC400c und niedrigere Ebenen gelten.
 
 > [!NOTE]
-> Wenn ein zeitkritisches Update erforderlich ist, können die Vorabbenachrichtigung deutlich früher gesendet werden.
+> Wenn ein zeitkritisches Update erforderlich ist, können die Vorabbenachrichtigung deutlich früher gesendet werden. Dieser Fehler kann außerhalb eines festgelegten Wartungsfensters auftreten, wenn es sich um ein kritisches Update handelt.
 
 Wenn Sie eine Vorankündigung erhalten haben, dass die Wartung erfolgt, die Wartung aber nicht während des in der Benachrichtigung angegebenen Zeitraums durchgeführt werden kann, erhalten Sie eine Stornierungsbenachrichtigung. Die Wartung wird dann während des nächsten geplanten Wartungszeitraums durchgeführt.
 

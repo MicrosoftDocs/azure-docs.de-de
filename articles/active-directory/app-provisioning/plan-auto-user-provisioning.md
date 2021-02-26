@@ -3,7 +3,7 @@ title: Planen einer automatischen Benutzerbereitstellung für Azure Active Direc
 description: Leitfaden für die Planung und Ausführung einer automatischen Benutzerbereitstellung
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255762"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planen einer automatischen Benutzerbereitstellung
 
@@ -322,7 +322,7 @@ Unter den folgenden Links finden Sie Informationen zum Beheben von Problemen, di
 
 * [Informieren Sie sich über Neuerungen bei Azure AD, um immer auf dem neuesten Stand zu sein](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Stack Overflow: Azure AD-Forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&A: Azure AD-Forum](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Konfigurieren der automatischen Benutzerbereitstellung](../app-provisioning/configure-automatic-user-provisioning-portal.md)

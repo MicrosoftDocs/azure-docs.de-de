@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353543"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627598"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Konzepte für Azure Functions-Trigger und -Bindungen
 
@@ -39,16 +39,19 @@ Diese Beispiele sollen nicht erschöpfend sein, werden aber bereitgestellt, um d
 
 ###  <a name="trigger-and-binding-definitions"></a>Definitionen für Trigger und Bindungen
 
-Trigger und Bindungen werden je nach Entwicklungsansatz unterschiedlich definiert.
+Trigger und Bindungen werden je nach Entwicklungssprache unterschiedlich definiert.
 
-| Plattform | Trigger und Bindungen werden in dieser Weise konfiguriert... |
+| Sprache | Trigger und Bindungen werden in dieser Weise konfiguriert... |
 |-------------|--------------------------------------------|
 | C#-Klassenbibliothek | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Versehen von Methoden und Parametern mit C#-Attributen |
-| Alle anderen (einschließlich Azure-Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualisieren von [function.json](./functions-reference.md) ([Schema](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Versehen von Methoden und Parametern mit Java-Anmerkungen  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualisieren von [function.json](./functions-reference.md) ([Schema](http://json.schemastore.org/function)) |
 
-Das Portal stellt eine Benutzeroberfläche für diese Konfiguration zur Verfügung, Sie können die Datei jedoch direkt bearbeiten, indem Sie den **erweiterten Editor** öffnen, der auf der Registerkarte **Integrieren** Ihrer Funktion zur Verfügung steht.
+Für Sprachen, die auf „function.json“ angewiesen sind, bietet das Portal auf der Registerkarte **Integration** eine Benutzeroberfläche zum Hinzufügen von Bindungen. Sie können die Datei auch direkt im Portal auf der Registerkarte **Programmieren und testen** Ihrer Funktion bearbeiten. In Visual Studio Code können Sie ganz einfach [eine Bindung zur Datei „function.json“ hinzufügen](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project), indem Sie auf eine Reihe praktischer Eingabeaufforderungen reagieren. 
 
-In .NET definiert der Parametertyp den Datentyp für Eingabedaten. Verwenden Sie zum Beispiel `string`, um eine Bindung mit dem Text eines Warteschlangentriggers zu erstellen – einem Bytearray zum Lesen im Binärformat und einem benutzerdefinierten Typ zum Deserialisieren in einem Objekt.
+In .NET und Java definiert der Parametertyp den Datentyp für Eingabedaten. Verwenden Sie z. B. `string`, um eine Bindung mit dem Text eines Warteschlangentriggers zu erstellen – einem Bytearray zum Lesen im Binärformat und einem benutzerdefinierten Typ zum Deserialisieren in einem Objekt. Da Funktionen der .NET-Klassenbibliothek und Java-Funktionen für Bindungsdefinitionen nicht auf *function.json* angewiesen sind, können sie nicht im Portal erstellt und bearbeitet werden. Die Bearbeitung von C# im Portal basiert auf einem C#-Skript, das *function.json* anstelle von Attributen verwendet.
+
+Weitere Informationen zum Hinzufügen von Bindungen zu vorhandenen Funktionen finden Sie unter [Verbinden von Funktionen mit Azure-Diensten mithilfe von Bindungen](add-bindings-existing-function.md).
 
 Für dynamisch typisierte Sprachen wie JavaScript verwenden Sie die Eigenschaft `dataType` in der *function.json*-Datei. Um z.B. den Inhalt einer HTTP-Anforderung im Binärformat zu lesen, legen Sie `dataType` auf `binary` fest:
 

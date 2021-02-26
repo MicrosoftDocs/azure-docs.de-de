@@ -1,6 +1,6 @@
 ---
-title: 'Schnellstart: Azure Blob Storage-Bibliothek v12 – Java'
-description: In diesem Schnellstart erfahren Sie, wie mithilfe der Azure Blob Storage-Clientbibliothek Version 12 für Java ein Container und ein Blob in Blob Storage (Objektspeicher) erstellt werden. Als Nächstes erfahren Sie, wie Sie den Blob auf Ihren lokalen Computer herunterladen, und wie Sie alle Blobs in einem Container auflisten.
+title: 'Schnellstart: Azure Blob Storage-Bibliothek v12: Java'
+description: In dieser Schnellstartanleitung erfahren Sie, wie Sie mit Version 12 der Azure Blob Storage-Clientbibliothek für Java einen Container und ein Blob in Blob Storage (Objektspeicher) erstellen. Als Nächstes erfahren Sie, wie Sie den Blob auf Ihren lokalen Computer herunterladen, und wie Sie alle Blobs in einem Container auflisten.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501123"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054702"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Schnellstart: Verwalten von Blobs per Java v12 SDK
 
@@ -37,7 +37,7 @@ Zusätzliche Ressourcen:
 
 ## <a name="setting-up"></a>Einrichten
 
-In diesem Abschnitt wird beschrieben, wie ein Projekt zur Verwendung mit der Azure Blob Storage-Clientbibliothek v12 für Java vorbereitet wird.
+In diesem Abschnitt wird beschrieben, wie Sie ein Projekt für die Verwendung mit der Azure Blob Storage-Clientbibliothek v12 für Java vorbereiten.
 
 ### <a name="create-the-project"></a>Erstellen des Projekts
 
@@ -199,7 +199,7 @@ Der folgende Code ruft die Verbindungszeichenfolge für das Speicherkonto aus de
 Fügen Sie diesen Code in der `Main`-Methode hinzu:
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 Die Ausgabe der App sieht etwa wie das folgende Beispiel aus:
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ In dieser Schnellstartanleitung wurde beschrieben, wie Sie Blobs per Java hochla
 Weitere Beispiel-Apps für Blob Storage finden Sie unter:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage SDK v12 – Java-Beispiele](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Azure Blob Storage SDK v12: Java-Beispiele](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Weitere Informationen finden Sie unter [Azure SDK für Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * Tutorials, Beispiele, Schnellstartanleitungen und weiteres Dokumentationsmaterial finden Sie unter [Azure für Java-Cloudentwickler](/azure/developer/java/).

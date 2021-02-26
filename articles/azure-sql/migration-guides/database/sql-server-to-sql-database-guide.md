@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358978"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260027"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Migrationsleitfaden: SQL Server zu SQL-Datenbank
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -149,6 +149,18 @@ Nachdem Sie sich vergewissert haben, dass die Daten in der Quelle und im Ziel id
 
 > [!IMPORTANT]
 > Weitere Informationen zu den Schritten für eine Übernahmemigration mithilfe von DMS finden Sie unter [Durchführen der Migrationsübernahme](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+
+## <a name="migration-recommendations"></a>Empfehlungen zur Migration
+
+Zum Beschleunigen der Migration zu Azure SQL-Datenbank sollten Sie die folgenden Empfehlungen beachten:
+
+|  | Ressourcenkonflikte | Empfehlung |
+|--|--|--|
+| **Quelle (in der Regel lokal)** |Die primären Engpässe bei der Migration sind an der Quelle die Dateneingabe/-ausgabe und die Latenz bei der Datendatei, die sorgfältig überwacht werden müssen.  |Basierend auf den Dateneingaben/-ausgaben und der Latenz der Datendatei und abhängig davon, ob es sich um eine VM oder einen physischen Server handelt, müssen Sie mit dem Speicheradministrator Optionen zur Verringerung der Engpässe untersuchen. |
+|**Ziel (Azure SQL-Datenbank)**|Die größten Einschränkungsfaktoren sind die Protokollgenerierungsrate und die Wartezeit für die Protokolldatei. Bei Azure SQL-Datenbank können Sie höchstens eine Protokollgenerierungsrate von 96 MB/s erzielen. | Zur Beschleunigung der Migration skalieren Sie die Ziel-SQL-Datenbank auf „Unternehmenskritisch“ Gen5 mit 8 virtuellen Kernen hoch, um die maximale Protokollgenerierungsrate von 96 MB/s zu erhalten und außerdem die Latenz für die Protokolldatei zu verringern. Die Dienstebene [Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) bietet unabhängig vom ausgewählten Servicelevel eine Protokollrate von 100 MB/s. |
+|**Network** |Die benötigte Netzwerkbandbreite ist gleich der maximalen Protokollerfassungsrate von 96 MB/s (768 MBit/s). |Abhängig von der Netzwerkkonnektivität zwischen Ihrem lokalen Rechenzentrum und Azure müssen Sie überprüfen, ob die Bandbreite Ihres Netzwerks (in der Regel [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) die maximale Protokollerfassungsrate unterstützen kann. |
+|**VM für den Datenmigrations-Assistenten (DMA)** |Die CPU ist der primäre Engpass auf der VM mit dem DMA. |Überlegungen zum Beschleunigen der Datenmigration: </br>- Verwenden Sie rechenintensive Azure-VMs. </br>- Verwenden Sie mindestens F8s_v2-VMs (8 virtuelle Kerne) zum Ausführen des DMA. </br>- Stellen Sie sicher, dass die VM in derselben Azure-Region wie das Ziel ausgeführt wird. |
+|**Azure Database Migration Service (DMS)** |Überlegungen zu Konflikten bei Computeressourcen und zu Datenbankobjekten für DMS |Verwenden Sie Premium mit 4 virtuellen Kernen. DMS kümmert sich automatisch um Datenbankobjekte wie Fremdschlüssel, Trigger, Einschränkungen und nicht gruppierte Indizes und benötigt keinen manuellen Eingriff.  |
 
 
 ## <a name="post-migration"></a>Nach der Migration

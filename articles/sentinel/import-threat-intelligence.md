@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660779"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807138"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importieren von Threat Intelligence in Azure Sentinel
 
@@ -36,7 +36,7 @@ Sie können Threat Intelligence (TI) mithilfe der folgenden Aktivitäten in Azur
 - Verwenden Sie die integrierten Regelvorlagen für die **Analyse**, um Sicherheitswarnungen und -incidents mithilfe Ihrer importierten Bedrohungsinformationen zu generieren.
 - Visualisieren Sie wichtige Informationen zu Ihren Threat Intelligence-Daten in Azure Sentinel mit der **Threat Intelligence-Arbeitsmappe**.
 
-Threat Intelligence bietet auch einen nützlichen Kontext für andere Azure Sentinel-Umgebungen wie **Hunting** und **Notebooks**. Diese werden in diesem Artikel nicht behandelt, aber [dieser lesenswerte Blogbeitrag von Ian Hellen zu Jupyter Notebooks in Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) beschreibt die Verwendung von CTI in Notebooks.
+Threat Intelligence bietet auch einen nützlichen Kontext für andere Azure Sentinel-Umgebungen wie **Hunting** und **Notebooks**. Diese werden in diesem Artikel nicht behandelt, aber [dieser lesenswerte Blogbeitrag von Ian Hellen zu Jupyter Notebooks in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) beschreibt die Verwendung von CTI in Notebooks.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Azure Sentinel-Datenconnectors für Threat Intelligence
 

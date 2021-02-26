@@ -1,16 +1,16 @@
 ---
 title: 'Zusammenarbeit mit anderen: QnA Maker'
-description: ''
+description: Hier erfahren Sie, wie Sie mithilfe der rollenbasierten Zugriffssteuerung in Azure mit anderen Autoren und Editoren zusammenarbeiten.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346154"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988017"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Zusammenarbeiten mit anderen Autoren und Redakteuren
 
@@ -46,7 +46,7 @@ Wenn Sie die [Erstellungs-APIs](../index.yml) aufrufen möchten, informieren Sie
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Authentifizieren über das QnA Maker-Portal
 
-Wenn Sie das QnA Maker-Portal verwenden, um Inhalte zu erstellen und mit anderen zusammenzuarbeiten, werden sämtliche Zugriffsberechtigungen durch das QnA Maker-Portal verwaltet, nachdem Sie [der Ressource die entsprechende Rolle für einen Projektmitarbeiter hinzugefügt](../index.yml) haben.
+Wenn Sie das QnA Maker-Portal verwenden, um Inhalte zu erstellen und mit anderen zusammenzuarbeiten, werden sämtliche Zugriffsberechtigungen durch das QnA Maker-Portal verwaltet, nachdem Sie der Ressource die entsprechende Rolle für einen Projektmitarbeiter hinzugefügt haben.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Authentifizieren über QnA Maker-APIs und -SDKs
 
@@ -54,4 +54,4 @@ Wenn Sie zum Erstellen von Inhalten sowie für die Zusammenarbeit mit anderen di
 
 ## <a name="next-step"></a>Nächster Schritt
 
-* Entwerfen Sie eine Wissensdatenbank für [Sprachen](../index.yml) und für [Clientanwendungen](../index.yml).
+* Entwerfen Sie eine Wissensdatenbank für Sprachen und für Clientanwendungen.

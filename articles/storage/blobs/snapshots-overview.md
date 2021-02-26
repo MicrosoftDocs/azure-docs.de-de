@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: debce0a1b4c09bb89cdceb1cd29e59e1976c939a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295398"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539150"
 ---
 # <a name="blob-snapshots"></a>Blobmomentaufnahmen
 

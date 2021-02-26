@@ -11,25 +11,23 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 07/21/2020
-ms.openlocfilehash: ff9fc2baaf1563d4a02364db00344ffc0bc46a6a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.date: 01/29/2021
+ms.openlocfilehash: 6232c842514c10a5440e574621ca74e2f4867d86
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060264"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981623"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Schnellstart: Erstellen einer Azure Database Migration Service-Instanz über das Azure-Portal
 
-In dieser Schnellstartanleitung verwenden Sie das Azure-Portal, um eine Instanz von Azure Database Migration Service zu erstellen.  Nachdem Sie die Instanz erstellt haben, können Sie sie zum Migrieren von Daten von SQL Server zu Azure SQL-Datenbank verwenden.
+In dieser Schnellstartanleitung verwenden Sie das Azure-Portal, um eine Instanz von Azure Database Migration Service zu erstellen. Nach der Erstellung der Instanz können Sie sie zum Migrieren von Daten aus mehreren Datenbankquellen zu Azure-Datenplattformen verwenden, etwa von SQL Server zu Azure SQL-Datenbank oder von SQL Server zu Azure SQL Managed Instance.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
 
-Öffnen Sie Ihren Webbrowser, navigieren Sie zum [Microsoft Azure-Portal](https://portal.azure.com/), und geben Sie dann Ihre Anmeldeinformationen ein, um sich am Portal anzumelden.
-
-Die Standardansicht ist Ihr Dienstdashboard.
+Öffnen Sie Ihren Webbrowser, navigieren Sie zum [Microsoft Azure-Portal](https://portal.azure.com/), und geben Sie dann Ihre Anmeldeinformationen ein, um sich am Portal anzumelden. Die Standardansicht ist Ihr Dienstdashboard.
 
 > [!NOTE]
 > Sie können bis zu zehn Instanzen von DMS pro Abonnement und Region erstellen. Wenn Sie eine größere Anzahl von Instanzen benötigen, erstellen Sie ein Supportticket.
@@ -38,39 +36,50 @@ Die Standardansicht ist Ihr Dienstdashboard.
 
 Sie müssen den Microsoft.DataMigration-Ressourcenanbieter registrieren, bevor Sie Ihre erste Instanz von Database Migration Service erstellen.
 
-1. Klicken Sie im Azure-Portal auf **Alle Dienste** und anschließend auf **Abonnements**.
+1. Suchen Sie im Azure-Portal nach dem Eintrag **Abonnements**, und wählen Sie ihn aus.
+
+   ![Abonnements im Portal anzeigen](media/quickstart-create-data-migration-service-portal/portal-select-subscription.png)
 
 2. Wählen Sie das Abonnement aus, in dem Sie die Azure Database Migration Service-Instanz erstellen möchten, und klicken Sie dann auf **Ressourcenanbieter**.
 
-3. Suchen Sie nach „Migration“, und wählen Sie rechts neben **Microsoft.DataMigration** die Option **Registrieren** aus.
+    ![Ressourcenanbieter anzeigen](media/quickstart-create-data-migration-service-portal/portal-select-resource-provider.png)
+
+3. Suchen Sie nach „Migration“, und wählen Sie dann **Registrieren** für **Microsoft.DataMigration** aus.
 
     ![Registrieren des Ressourcenanbieters](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Erstellen einer Instanz des Diensts
 
-1. Klicken Sie auf **+ Ressource erstellen**, um eine Instanz von Azure Database Migration Service zu erstellen.
+1. Wählen Sie im Menü des Azure-Portals oder auf der **Startseite** die Option **Ressource erstellen** aus. Suchen Sie **Azure Database Migration Service**, und wählen Sie ihn aus.
 
-2. Suchen Sie im Marketplace nach „Migration“, wählen Sie **Azure Database Migration Service** aus, und klicken Sie dann auf dem Bildschirm **Azure Database Migration Service** auf **Erstellen**.
+    ![Azure Marketplace](media/quickstart-create-data-migration-service-portal/portal-marketplace.png)
 
-3. Auf dem Bildschirm **Create Migration Service** (Migrationsdienst erstellen):
+2. Wählen Sie auf dem Bildschirm **Azure Database Migration Service** die Schaltfläche **Erstellen** aus.
 
-    - Wählen Sie einen **Dienstnamen** aus, der einprägsam und in Ihrer Azure Database Migration Service-Instanz eindeutig ist.
-    - Wählen Sie das Azure-**Abonnement** aus, in dem Sie die Instanz erstellen möchten.
-    - Wählen Sie eine vorhandene **Ressourcengruppe** aus, oder erstellen Sie eine neue.
-    - Wählen Sie den **Ort** aus, der die geringste Entfernung zum Quell- oder Zielserver aufweist.
-    - Wählen Sie ein vorhandenes **virtuelles Netzwerk** aus, oder erstellen Sie eins.
+    ![Erstellen einer Instanz von Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-create.png)
 
-        Das virtuelle Netzwerk erteilt Azure Database Migration Service Zugriff auf die Quelldatenbank und die Zielumgebung.
+3. Auf dem Bildschirm **Create Migration Service** (Migrationsdienst erstellen) mit den Grundeinstellungen:
 
-        Weitere Informationen zum Erstellen eines virtuellen Netzwerks im Azure-Portal finden Sie im Artikel [Erstellen eines virtuellen Netzwerks im Azure Portal](../virtual-network/quick-create-portal.md).
+     - Wählen Sie das Abonnement aus.
+     - Erstellen Sie eine neue Ressourcengruppe, oder wählen Sie eine vorhandene Ressourcengruppe aus.
+     - Geben Sie einen Namen für die Instanz von Azure Database Migration Service an.
+     - Wählen Sie den Standort aus, an dem Sie die Azure Database Migration Service-Instanz erstellen möchten.
+     - Wählen Sie **Azure** als Dienstmodus aus.
+     - Wählen Sie einen Tarif. Weitere Informationen zu Kosten und Tarifen finden Sie in der [Preisübersicht](https://aka.ms/dms-pricing).
+     
+    ![Konfigurieren der Grundeinstellungen einer Azure Database Migration Service-Instanz](media/quickstart-create-data-migration-service-portal/dms-create-basics.png)
 
-    - Wählen Sie „Basic: 1 virtueller Kern“ als **Tarif** aus.
+     - Klicken Sie auf Weiter: Netzwerk.
 
-        ![Database Migration Service erstellen](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+4. Auf dem Netzwerkbildschirm **Create Migration Service** (Migrationsdienst erstellen):
 
-4. Klicken Sie auf **Erstellen**.
+    - Wählen Sie ein vorhandenes virtuelles Netzwerk aus, oder erstellen Sie ein neues. Das virtuelle Netzwerk erteilt Azure Database Migration Service Zugriff auf die Quelldatenbank und die Zielumgebung. Weitere Informationen zum Erstellen eines virtuellen Netzwerks im Azure-Portal finden Sie im Artikel [Erstellen eines virtuellen Netzwerks im Azure Portal](../virtual-network/quick-create-portal.md).
 
-    Nach einigen Augenblicken wird die Azure Database Migration Service-Instanz erstellt und kann verwendet werden. Die Azure Database Migration Service-Instanz wird wie in der folgenden Abbildung angezeigt:
+    ![Konfigurieren der Netzwerkeinstellungen einer Azure Database Migration Service-Instanz](media/quickstart-create-data-migration-service-portal/dms-network-settings.png)
+
+    - Wählen Sie zum Erstellen des Diensts die Option **Überprüfen + erstellen** aus. 
+    
+    - Nach einigen Augenblicken wird die Azure Database Migration Service-Instanz erstellt und kann verwendet werden:
 
     ![Erstellte Migration Service-Instanz](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
@@ -80,5 +89,7 @@ Sie können alle in dieser Schnellstartanleitung erstellten Ressourcen bereinige
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Migrieren von SQL Server zu Azure SQL-Datenbank](tutorial-sql-server-to-azure-sql.md)
+* [Offlinemigration von SQL Server zu Azure SQL-Datenbank](tutorial-sql-server-to-azure-sql.md)
+* [Onlinemigration von SQL Server zu Azure SQL-Datenbank](tutorial-sql-server-azure-sql-online.md)
+* [Offlinemigration von SQL Server zu Azure SQL Managed Instance](tutorial-sql-server-to-managed-instance.md)
+* [Onlinemigration von SQL Server zu Azure SQL Managed Instance](tutorial-sql-server-managed-instance-online.md)

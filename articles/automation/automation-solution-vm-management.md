@@ -3,18 +3,18 @@ title: Übersicht der Azure Automation-Funktion „VMs außerhalb der Geschäfts
 description: In diesem Artikel wird die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ beschrieben, die VMs gemäß einem Zeitplan startet oder beendet und sie proaktiv in Azure Monitor-Protokollen überwacht.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055380"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007005"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs außerhalb der Geschäftszeiten starten/beenden – Übersicht
 
-Die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ startet bzw. beendet aktivierte virtuelle Azure-Computer. Damit können Sie Computer nach benutzerdefinierten Zeitplänen starten und beenden und außerdem über Azure Monitor-Protokolle Erkenntnisse aus Ihren Daten ziehen und durch die Nutzung von [Aktionsgruppen](../azure-monitor/platform/action-groups.md) optional E-Mails senden. Die Funktion kann in den meisten Szenarien sowohl auf Azure Resource Manager-VMs als auch auf klassischen VMs aktiviert werden. 
+Die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ startet bzw. beendet aktivierte virtuelle Azure-Computer. Damit können Sie Computer nach benutzerdefinierten Zeitplänen starten und beenden und außerdem über Azure Monitor-Protokolle Erkenntnisse aus Ihren Daten ziehen und durch die Nutzung von [Aktionsgruppen](../azure-monitor/platform/action-groups.md) optional E-Mails senden. Die Funktion kann in den meisten Szenarien sowohl auf Azure Resource Manager-VMs als auch auf klassischen VMs aktiviert werden.
 
 Diese Funktion verwendet das Cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) zum Starten von VMs. Zum Beenden von VMs wird [Stop-AzVM](/powershell/module/az.compute/stop-azvm) verwendet.
 
@@ -39,9 +39,9 @@ Die aktuelle Funktion hat folgende Einschränkungen:
 
 - Die Runbooks für die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ funktionieren mit einem [ausführenden Azure-Konto](./automation-security-overview.md#run-as-accounts). Das ausführende Konto ist die bevorzugte Authentifizierungsmethode, da anstelle eines Kennworts, das ablaufen oder sich häufig ändern kann, eine Zertifikatauthentifizierung verwendet wird.
 
-- Das verknüpfte Automation-Konto und der Log Analytics-Arbeitsbereich müssen sich in der gleichen Ressourcengruppe befinden.
+- Ein [Azure Monitor Log Analytics-Arbeitsbereich](../azure-monitor/platform/design-logs-deployment.md) zum Speichern der Protokolle zu Runbookaufträgen und der Ergebnisse von Auftragsstreams in einem Arbeitsbereich für Abfragen und Analysen. Das Automation-Konto kann mit einem neuen oder einem vorhandenen Log Analytics-Arbeitsbereich verknüpft sein, und beide Ressourcen müssen sich in derselben Ressourcengruppe befinden.
 
-- Sie sollten für die Arbeit mit VMs, die für die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ aktiviert sind, ein separates Automation-Konto verwenden. Die Azure-Modulversionen werden häufig aktualisiert, und ihre Parameter können sich ändern. Die Funktion wird nicht mit derselben Häufigkeit aktualisiert, sodass sie eventuell nicht mit neueren Versionen der verwendeten Cmdlets funktioniert. Sie sollten zum Testen auf Modulupdates ein Automation-Testkonto verwenden, bevor Sie sie in Ihre Automation-Konten für die Produktion importieren.
+Sie sollten für die Arbeit mit VMs, die für die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ aktiviert sind, ein separates Automation-Konto verwenden. Die Azure-Modulversionen werden häufig aktualisiert, und ihre Parameter können sich ändern. Die Funktion wird nicht mit derselben Häufigkeit aktualisiert, sodass sie eventuell nicht mit neueren Versionen der verwendeten Cmdlets funktioniert. Vor dem Importieren der aktualisierten Module in Ihre Automation-Produktionskonten sollten Sie sie in ein Automation-Testkonto importieren, um sicherzustellen, dass keine Kompatibilitätsprobleme vorliegen.
 
 ## <a name="permissions"></a>Berechtigungen
 
@@ -148,7 +148,7 @@ In der folgenden Tabelle sind die in Ihrem Automation-Konto erstellten Variablen
 |Internal_ResourceGroupName | Der Ressourcengruppennamen des Automation-Kontos.|
 
 >[!NOTE]
->Der Standardwert für die Variable `External_WaitTimeForVMRetryInSeconds` wurde von 600 auf 2.100 aktualisiert. 
+>Der Standardwert für die Variable `External_WaitTimeForVMRetryInSeconds` wurde von 600 auf 2.100 aktualisiert.
 
 In allen Szenarien sind die Variablen `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` und `External_ExcludeVMNames` für die Ziel-VMs erforderlich. Ausgenommen sind die VMs in den durch Trennzeichen getrennten Listen für die Runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** und **ScheduledStartStop_Parent**. Dies bedeutet, dass sich die VMs in Zielressourcengruppen befinden müssen, damit Aktionen zum Starten und Beenden durchgeführt werden. Die Logik ähnelt der von Azure Policy, da Sie das Abonnement oder die Ressourcengruppe als Ziel verwenden können und neu erstellte VMs Aktionen erben. Hierdurch wird vermieden, dass für jeden virtuellen Computer jeweils ein separater Zeitplan gepflegt werden muss und dass Aktionen zum Starten und Beenden für die Skalierung verwaltet werden müssen.
 
@@ -174,18 +174,14 @@ Wenn Sie diese Funktion mit klassischen VMs verwenden möchten, benötigen Sie e
 
 Wenn Sie über mehr als 20 VMs pro Clouddienst verfügen, beachten Sie folgende Empfehlungen:
 
-* Erstellen Sie mehrere Zeitpläne mit dem übergeordneten Runbook **ScheduledStartStop_Parent**, und geben Sie pro Zeitplan 20 VMs an. 
-* Geben Sie die VM-Namen in den Zeitplaneigenschaften mithilfe des Parameters `VMList` als durch Trennzeichen getrennte Liste (ohne Leerzeichen) an. 
+* Erstellen Sie mehrere Zeitpläne mit dem übergeordneten Runbook **ScheduledStartStop_Parent**, und geben Sie pro Zeitplan 20 VMs an.
+* Geben Sie die VM-Namen in den Zeitplaneigenschaften mithilfe des Parameters `VMList` als durch Trennzeichen getrennte Liste (ohne Leerzeichen) an.
 
 Wenn andernfalls der Automatisierungsauftrag für diese Funktion mehr als drei Stunden ausgeführt wird, wird er gemäß dem Limit für [gleichmäßige Verteilung](automation-runbook-execution.md#fair-share) vorübergehend entladen oder angehalten.
 
 Azure CSP-Abonnements unterstützen nur das Azure Resource Manager-Modell. Dienste, die nicht auf Azure Resource Manager basieren, sind in diesem Programm nicht verfügbar. Wenn die Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ ausgeführt wird, werden möglicherweise Fehler ausgegeben, da sie Cmdlets für die Verwaltung klassischer Ressourcen enthält. Weitere Informationen zu CSP finden Sie unter [Verfügbare Dienste in CSP-Abonnements](/azure/cloud-solution-provider/overview/azure-csp-available-services). Wenn Sie ein CSP-Abonnement verwenden, sollten Sie die Variable [External_EnableClassicVMs](#variables) nach der Bereitstellung auf FALSE festlegen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="enable-the-feature"></a>Aktivieren des Features
-
-Um mit der Verwendung der Funktion zu beginnen, führen Sie die Schritte in [Aktivieren von „VMs außerhalb der Geschäftszeiten starten/beenden“](automation-solution-vm-management-enable.md) aus.
 
 ## <a name="view-the-feature"></a>Anzeigen der Funktion
 
@@ -195,7 +191,7 @@ Sie können über eine der folgenden Vorgehensweisen auf die aktivierte Funktion
 
 * Navigieren Sie zu dem Log Analytics-Arbeitsbereich, der mit Ihrem Automation-Konto verknüpft ist. Nachdem Sie den Arbeitsbereich ausgewählt haben, wählen Sie im linken Bereich **Lösungen** aus. Wählen Sie auf der Seite „Lösungen“ in der Liste **Start-Stop-VM[Arbeitsbereich]** aus.  
 
-Nach dem Auswählen der Funktion wird die Seite „Start-Stop-VM[Arbeitsbereich]“ angezeigt. Hier können Sie wichtige Details überprüfen, z. B. die Informationen auf der Kachel **StartStopVM**. Wie in Ihrem Log Analytics-Arbeitsbereich auch, werden auf dieser Kachel die Anzahl und eine grafische Darstellung der Runbookaufträge für die Funktion angezeigt, die gestartet und erfolgreich abgeschlossen wurden.
+Nach dem Auswählen der Funktion wird die Seite **Start-Stop-VM[Arbeitsbereich]** angezeigt. Hier können Sie wichtige Details überprüfen, z. B. die Informationen auf der Kachel **StartStopVM**. Wie in Ihrem Log Analytics-Arbeitsbereich auch, werden auf dieser Kachel die Anzahl und eine grafische Darstellung der Runbookaufträge für die Funktion angezeigt, die gestartet und erfolgreich abgeschlossen wurden.
 
 ![Automation-Seite „Updateverwaltung“](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -203,37 +199,7 @@ Sie können eine weitergehende Analyse der Auftragsdatensätze durchführen, ind
 
 ## <a name="update-the-feature"></a>Aktualisieren der Funktion
 
-Wenn Sie eine frühere Version der Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ bereitgestellt haben, müssen Sie sie vor der Bereitstellung eines aktualisierten Releases aus Ihrem Konto löschen. Führen Sie dazu die Schritte zum [Entfernen der Funktion](#remove-the-feature) und anschließend die Schritte zu [deren Aktivierung](automation-solution-vm-management-enable.md) aus.
-
-## <a name="remove-the-feature"></a>Entfernen der Funktion
-
-Wenn Sie die Funktion nicht mehr benötigen, können Sie sie aus dem Automation-Konto löschen. Beim Löschen der Funktion werden nur die zugeordneten Runbooks entfernt. Die Zeitpläne oder Variablen, die beim Hinzufügen der Funktion erstellt wurden, werden nicht gelöscht. 
-
-So löschen Sie „VMs außerhalb der Geschäftszeiten starten/beenden“
-
-1. Wählen Sie in Ihrem Automation-Konto unter **Verwandte Ressourcen** die Option **Verknüpfter Arbeitsbereich** aus.
-
-2. Klicken Sie auf **Zu Arbeitsbereich wechseln**.
-
-3. Klicken Sie unter **Allgemein** auf **Lösungen**. 
-
-4. Wählen Sie auf der Seite „Lösungen“ **Start-Stop-VM[Arbeitsbereich]** aus. 
-
-5. Wählen Sie auf der Seite „VMManagementSolution[Arbeitsbereich]“ im Menü **Löschen** aus.<br><br> ![Löschen der VM-Verwaltungsfunktion](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. Bestätigen Sie im Fenster „Lösung löschen“, dass Sie die Funktion löschen möchten.
-
-7. Während die Informationen überprüft werden und die Funktion gelöscht wird, können Sie den Fortschritt im Menü unter **Benachrichtigungen** nachverfolgen. Nach dem Löschvorgang kehren Sie zur Seite „Lösungen“ zurück.
-
-8. Das Automation-Konto und der Log Analytics-Arbeitsbereich werden bei diesem Vorgang nicht gelöscht. Wenn Sie den Log Analytics-Arbeitsbereich nicht beibehalten möchten, müssen Sie ihn manuell im Azure-Portal löschen:
-
-    1. Suchen Sie nach **Log Analytics-Arbeitsbereiche**, und wählen Sie diese Option aus.
-
-    2. Wählen Sie auf der Seite „Log Analytics-Arbeitsbereich“ den Arbeitsbereich aus.
-
-    3. Wählen Sie im Menü **Löschen** aus.
-
-    4. Wenn Sie die [Funktionskomponenten](#components) des Azure Automation-Kontos nicht behalten möchten, können Sie sie einzeln manuell löschen.
+Wenn Sie eine frühere Version der Funktion „VMs außerhalb der Geschäftszeiten starten/beenden“ bereitgestellt haben, müssen Sie sie vor der Bereitstellung eines aktualisierten Releases aus Ihrem Konto löschen. Führen Sie dazu die Schritte zum [Entfernen der Funktion](automation-solution-vm-management-remove.md#delete-the-feature) und anschließend die Schritte zu [deren Aktivierung](automation-solution-vm-management-enable.md) aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

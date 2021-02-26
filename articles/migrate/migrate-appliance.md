@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754129"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986818"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-Appliance
 
@@ -45,7 +45,7 @@ In der folgenden Tabelle sind die Anforderungen der Azure Migrate-Appliance für
 
 **Anforderung** | **VMware** 
 --- | ---
-**Berechtigungen** | Um lokal oder remote auf die Appliance-Web-App zuzugreifen, müssen Sie Domänenadministrator oder lokaler Administrator auf dem Appliancecomputer sein.
+**Berechtigungen** | Für den lokalen oder Remotezugriff auf die Appliance-Web-App benötigen Sie ein lokales Benutzerkonto oder ein Domänenbenutzerkonto mit Administratorrechten auf dem Applianceserver.
 **Appliancekomponenten** | Die Appliance verfügt über die folgenden Komponenten:<br/><br/> - **Verwaltungs-App**: Dies ist eine Web-App für Benutzereingaben während der Appliance-Bereitstellung. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/> - **Ermittlungs-Agent**: Der Agent erfasst Computerkonfigurationsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Collector-Agent**: Der Agent sammelt Leistungsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Dienst für automatische Aktualisierungen**: Aktualisiert Appliancekomponenten (wird alle 24 Stunden ausgeführt).<br/>- **DRA-Agent**: Orchestriert die VM-Replikation und koordiniert die Kommunikation zwischen replizierten Computern und Azure. Wird nur bei der Replikation von VMware-VMs in Azure mithilfe der Migration ohne Agent verwendet.<br/>- **Gateway**: Sendet replizierte Daten an Azure. Wird nur bei der Replikation von VMware-VMs in Azure mithilfe der Migration ohne Agent verwendet.
 **Unterstützte Bereitstellung** | Bereitstellen als VMware VM mit OVA-Vorlage.<br/><br/> Bereitstellen als VMware VM oder physischer Computer mithilfe des PowerShell-Installationsskripts.
 **Projektunterstützung** |  Eine Appliance kann einem einzelnen Projekt zugeordnet werden. <br/> Einem einzelnen Projekt kann eine beliebige Anzahl von Appliances zugeordnet werden.<br/> 
@@ -65,7 +65,7 @@ In der folgenden Tabelle sind die Anforderungen der Azure Migrate-Appliance für
 
 **Anforderung** | **Hyper-V** 
 --- | ---
-**Berechtigungen** | Um lokal oder remote auf die Appliance-Web-App zuzugreifen, müssen Sie Domänenadministrator oder lokaler Administrator auf dem Appliancecomputer sein.
+**Berechtigungen** | Für den lokalen oder Remotezugriff auf die Appliance-Web-App benötigen Sie ein lokales Benutzerkonto oder ein Domänenbenutzerkonto mit Administratorrechten auf dem Applianceserver.
 **Appliancekomponenten** | Die Appliance verfügt über die folgenden Komponenten:<br/><br/>- **Verwaltungs-App**: Dies ist eine Web-App für Benutzereingaben während der Appliance-Bereitstellung. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/> - **Ermittlungs-Agent**: Der Agent erfasst Computerkonfigurationsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Collector-Agent**: Der Agent sammelt Leistungsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Dienst für automatische Aktualisierungen**: Aktualisiert Appliancekomponenten (wird alle 24 Stunden ausgeführt).
 **Unterstützte Bereitstellung** | Bereitstellen als Hyper-V VM mithilfe einer VHD-Vorlage.<br/><br/> Bereitstellen als virtueller Hyper-V-Computer oder physischer Computer mithilfe des PowerShell-Installationsskripts.
 **Projektunterstützung** |  Eine Appliance kann einem einzelnen Projekt zugeordnet werden. <br/> Einem einzelnen Projekt kann eine beliebige Anzahl von Appliances zugeordnet werden.<br/> 
@@ -82,7 +82,7 @@ _ *Hyper-V-Anforderungen** | Wenn Sie die Appliance mit der VHD-Vorlage bereitst
 
 **Anforderung** | **Physisch** 
 --- | ---
-**Berechtigungen** | Um lokal oder remote auf die Appliance-Web-App zuzugreifen, müssen Sie Domänenadministrator oder lokaler Administrator auf dem Appliancecomputer sein.
+**Berechtigungen** | Für den lokalen oder Remotezugriff auf die Appliance-Web-App benötigen Sie ein lokales Benutzerkonto oder ein Domänenbenutzerkonto mit Administratorrechten auf dem Applianceserver.
 **Appliancekomponenten** | Die Appliance verfügt über die folgenden Komponenten: <br/><br/> - **Verwaltungs-App**: Dies ist eine Web-App für Benutzereingaben während der Appliance-Bereitstellung. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/> - **Ermittlungs-Agent**: Der Agent erfasst Computerkonfigurationsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Collector-Agent**: Der Agent sammelt Leistungsdaten. Wird beim Bewerten von Computern für die Migration zu Azure verwendet.<br/>- **Dienst für automatische Aktualisierungen**: Aktualisiert Appliancekomponenten (wird alle 24 Stunden ausgeführt).
 **Unterstützte Bereitstellung** | Bereitstellen als dedizierter physischer Computer oder als virtueller Computer mithilfe eines PowerShell-Installationsskripts. Das Skript steht im Portal als Download zur Verfügung.
 **Projektunterstützung** |  Eine Appliance kann einem einzelnen Projekt zugeordnet werden. <br/> Einem einzelnen Projekt kann eine beliebige Anzahl von Appliances zugeordnet werden.<br/> 

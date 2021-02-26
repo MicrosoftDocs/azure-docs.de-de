@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879931"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491722"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrieren und Überprüfen einer verwalteten Azure SQL-Datenbank-Instanz
 
@@ -104,20 +104,6 @@ Es ist erforderlich, die Anwendungs-ID und das Geheimnis des Dienstprinzipals ab
 1. Wählen Sie **Erstellen** aus, um den Vorgang abzuschließen.
 1. Falls für Ihren Schlüsseltresor noch keine Verbindung mit Purview hergestellt wurde, müssen Sie eine [neue Schlüsseltresorverbindung erstellen](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. [Erstellen Sie abschließend neue Anmeldeinformationen](manage-credentials.md#create-a-new-credential), indem Sie den Dienstprinzipal zum Einrichten Ihrer Überprüfung verwenden.
-
-### <a name="firewall-settings"></a>Firewalleinstellungen
-
-Der Datenbankserver muss die Aktivierung von Azure-Verbindungen zulassen. Dadurch kann Azure Purview den Server erreichen und eine Verbindung mit ihm herstellen. Sie können die Schrittanleitung zum [Herstellen von Verbindungen aus Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure) befolgen.
-
-1. Navigieren Sie zu Ihrem Datenbankkonto.
-1. Wählen Sie auf der Seite **Übersicht** den Servernamen aus.
-1. Wählen Sie **Sicherheit > Firewalls und virtuelle Netzwerke** aus.
-1. Wählen Sie für **Azure-Diensten und -Ressourcen den Zugriff auf diesen Server gestatten** die Option **Ja** aus.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Optionen für die Quellenregistrierung" border="true":::
-    
-> [!Note]
-> Derzeit wird die VNET-Konfiguration von Azure Purview nicht unterstützt. Daher ist es nicht möglich, IP-basierte Firewalleinstellungen festzulegen.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registrieren einer Datenquelle vom Typ „Verwaltete Azure SQL-Datenbank-Instanz“
 

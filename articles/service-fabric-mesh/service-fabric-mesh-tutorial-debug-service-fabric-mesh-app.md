@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 56cc8b4010dc17cf2b723a72898034de8d6a7175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3dc16481340c0266cd398d0970e2147648e17f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843293"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625448"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Debuggen einer Service Fabric Mesh-Anwendung, die in Ihrem lokalen Entwicklungscluster ausgeführt wird
+
+> [!IMPORTANT]
+> Die Vorschauversion von Azure Service Fabric Mesh wurde eingestellt. Neue Bereitstellungen über die Service Fabric Mesh-API werden nicht mehr gestattet. Unterstützung für vorhandene Bereitstellungen wird bis zum 28. April 2021 fortgesetzt.
+> 
+> Einzelheiten finden Sie unter [Ausmusterung der Vorschauversion von Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Dieses Tutorial ist der zweite Teil einer Reihe und zeigt, wie Sie eine Azure Service Fabric Mesh-App in Ihrem lokalen Entwicklungscluster erstellen und debuggen.
 
@@ -55,7 +60,7 @@ Die Anwendung befindet sich im Verzeichnis „`src\todolistapp`“.
 
 Beim Laden Ihres Projekts wird automatisch ein Docker-Image erstellt und in Ihrem lokalen Cluster bereitgestellt. Dieser Vorgang kann etwas dauern. Den Fortschritt können Sie in Visual Studio im Bereich **Ausgabe** überwachen. Wählen Sie hierzu in der Dropdownliste **Ausgabe anzeigen von:** die Option **Service Fabric-Tools** aus.
 
-Drücken Sie**F5**, um Ihren Dienst zu kompilieren und lokal auszuführen. Wenn das Projekt lokal ausgeführt und debuggt wird, werden von Visual Studio folgende Schritte ausgeführt:
+Drücken Sie **F5**, um Ihren Dienst zu kompilieren und lokal auszuführen. Wenn das Projekt lokal ausgeführt und debuggt wird, werden von Visual Studio folgende Schritte ausgeführt:
 
 * Sicherstellen, dass Docker für Windows ausgeführt wird und Windows als Containerbetriebssystem festgelegt ist
 * Herunterladen ggf. fehlender Docker-Basisimages (kann etwas dauern)
@@ -75,7 +80,7 @@ Derzeit besteht ein Problem, das bewirkt, dass mit dem Aufruf von `using (HttpRe
 2. Wählen Sie im Service Fabric-Managers für lokale Cluster die Option **Lokalen Cluster beenden** und dann **Lokalen Cluster starten**.
 3. Stellen Sie die App erneut bereit (in Visual Studio, **F5**).
 
-Sollte der Fehler **No Service Fabric local cluster is running** (Es wird kein lokaler Service Fabric-Cluster ausgeführt.) auftreten, vergewissern Sie sich, dass der LCM (Service Fabric Local Cluster Manager) ausgeführt wird, klicken Sie auf der Taskleiste mit der rechten Maustaste auf das LCM-Symbol, und klicken Sie anschließend auf **Start Local Cluster** (Lokalen Cluster starten). Kehren Sie nach dem Start des Clusters zu Visual Studio zurück, und drücken Sie**F5**.
+Sollte der Fehler **No Service Fabric local cluster is running** (Es wird kein lokaler Service Fabric-Cluster ausgeführt.) auftreten, vergewissern Sie sich, dass der LCM (Service Fabric Local Cluster Manager) ausgeführt wird, klicken Sie auf der Taskleiste mit der rechten Maustaste auf das LCM-Symbol, und klicken Sie anschließend auf **Start Local Cluster** (Lokalen Cluster starten). Kehren Sie nach dem Start des Clusters zu Visual Studio zurück, und drücken Sie **F5**.
 
 Sollte beim Start der App ein Fehler vom Typ **404** auftreten, sind möglicherweise die Umgebungsvariablen in **service.yaml** nicht korrekt. Vergewissern Sie sich, dass `ApiHostPort` und `ToDoServiceName` ordnungsgemäß festgelegt sind, wie unter [Tutorial: Erstellen, Debuggen und Bereitstellen einer Webanwendung mit mehreren Diensten in Service Fabric Mesh](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables) beschrieben.
 
@@ -88,7 +93,7 @@ Beim Debuggen einer Service Fabric Mesh-Anwendung in Visual Studio verwenden Sie
 2. Öffnen Sie im Projekt **ToDoService** die Datei **TodoController.cs**, und legen Sie einen Breakpoint in der Methode **Get** (Zeile 15) fest.
 3. Aktualisieren Sie die Anzeige im Browser. Sie erreichen den ersten Breakpoint in der Web-Front-End-Methode `OnGet()`. Anhand der Variablen `backendUrl` sehen Sie, wie die Umgebungsvariablen, die Sie in der Datei **service.yaml** definiert haben, zu der URL kombiniert werden, die zum Herstellen der Verbindung mit dem Back-End-Dienst verwendet wird.
 4. Überspringen Sie durch Drücken von F10 den Aufruf `client.GetAsync(backendUrl).GetAwaiter().GetResult())`, um zum Controller-Breakpoint `Get()` zu gelangen. In dieser Methode sehen Sie, wie die Liste mit den Aufgaben aus der In-Memory-Liste abgerufen wird.
-5. Wenn Sie fertig sind, drücken Sie**UMSCHALT+F5**, um das Debuggen Ihres Projekts in Visual Studio zu beenden.
+5. Wenn Sie fertig sind, drücken Sie **UMSCHALT+F5**, um das Debuggen Ihres Projekts in Visual Studio zu beenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

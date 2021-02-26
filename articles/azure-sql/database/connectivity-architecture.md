@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: da21fd2b6f8d427369cee89e0ad93d63e8608784
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 07303e3eea7e63f7c153db771168b8a741183362
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808265"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576497"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Verbindungsarchitektur von Azure SQL-Datenbank und Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -92,7 +92,7 @@ Details zum Migrieren von Datenverkehr zu neuen Gateways in bestimmten Regionen 
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA (Ost) 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 |
 | Frankreich, Mitte       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| Frankreich, Süden         | 40.79.177.10 ,40.79.177.12 |
+| Frankreich, Süden         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Deutschland, Mitte      | 51.4.144.100       |
 | Deutschland, Nordosten   | 51.5.144.179       |
 | Deutschland, Westen-Mitte | 51.116.240.0, 51.116.248.0, 51.116.152.0 |

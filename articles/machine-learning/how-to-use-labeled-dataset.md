@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987370"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981509"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Erstellen und Untersuchen eines Azure Machine Learning-Datasets mit Bezeichnungen
 
@@ -39,6 +39,9 @@ Wenn Sie ein Datenbezeichnungsprojekt abschließen, können Sie die Bezeichnungs
 ### <a name="coco"></a>COCO 
 
  Die COCO-Datei wird im Standardblobspeicher des Azure Machine Learning-Arbeitsbereichs in einem Ordner unter *export/coco* erstellt. 
+ 
+>[!NOTE]
+>In Objekterkennungsprojekten werden die exportierten Werte „bbox: [x,y,Breite,Höhe]“ in der COCO-Datei normalisiert. Sie werden auf 1 skaliert. Beispiel: Ein Begrenzungsrahmen an der Position (10, 10) mit einer Breite von 30 Pixeln und einer Höhe von 60 Pixeln wird in einem Bild mit den Maßen 640 × 480 Pixel wie folgt bezeichnet: (0,015625, 0,02083, 0,046875, 0,125). Da die Koordinaten normalisiert werden, wird bei allen Bildern für „Breite“ und „Höhe“ der Wert „0,0“ angezeigt. Die tatsächliche Breite und Höhe können Sie mithilfe einer Python-Bibliothek wie OpenCV oder Pillow(PIL) abrufen.
 
 ### <a name="azure-machine-learning-dataset"></a>Azure Machine Learning-Dataset
 

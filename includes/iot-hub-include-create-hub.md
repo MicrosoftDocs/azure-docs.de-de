@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cf651a1a09662e3084a8a9bdb6365b69b6ea52b5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605184"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579785"
 ---
 In diesem Abschnitt wird beschrieben, wie Sie über das [Azure-Portal](https://portal.azure.com) einen IoT-Hub erstellen:
 
@@ -35,17 +35,17 @@ In diesem Abschnitt wird beschrieben, wie Sie über das [Azure-Portal](https://p
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Erstellen eines Hubs im Azure-Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Erstellen eines Hubs im Azure-Portal":::
 
 1. Klicken Sie auf **Weiter: Netzwerk**, um die Erstellung Ihres Hubs fortzusetzen.
 
    Wählen Sie die Endpunkte aus, die eine Verbindung mit IoT Hub herstellen können. Sie können die Standardeinstellung **Öffentlicher Endpunkt (alle Netzwerke)** auswählen oder die Option **Öffentlicher Endpunkt (ausgewählte IP-Adressbereiche)** oder **Privater Endpunkt** festlegen. Übernehmen Sie für dieses Beispiel die Standardeinstellung.
 
-   ![Auswählen der Endpunkte, die eine Verbindung herstellen können](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Auswählen der Endpunkte, die eine Verbindung herstellen können":::
 
 1. Klicken Sie auf **Weiter: Verwaltung**, um die Erstellung Ihres Hubs fortzusetzen.
 
-    ![Festlegen der Größe und Skalierung für einen neuen Hub über das Azure-Portal](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Festlegen der Größe und Skalierung für einen neuen Hub über das Azure-Portal":::
 
     Sie können hier die Standardeinstellungen übernehmen. Sie können bei Bedarf die folgenden Felder anpassen:
 
@@ -60,14 +60,14 @@ In diesem Abschnitt wird beschrieben, wie Sie über das [Azure-Portal](https://p
 
     - **Erweiterte Einstellungen** > **Gerät-zu-Cloud-Partitionen**: Diese Eigenschaft setzt die Gerät-zu-Cloud-Nachrichten in Relation zur Anzahl von gleichzeitigen Lesern der Nachrichten. Die meisten Hubs benötigen nur vier Partitionen.
 
-1.  Klicken Sie auf **Weiter: Tags**, um mit dem nächsten Bildschirm fortzufahren.
+1. Klicken Sie auf **Weiter: Tags**, um mit dem nächsten Bildschirm fortzufahren.
 
     Tags sind Name-Wert-Paare. Sie können das gleiche Tag mehreren Ressourcen und Ressourcengruppen zuweisen, um Ressourcen zu kategorisieren und die Abrechnung zu konsolidieren. Weitere Informationen finden Sie unter [Verwenden von Tags zum Organisieren von Azure-Ressourcen](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Zuweisen von Tags für den Hub über das Azure-Portal](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Zuweisen von Tags für den Hub über das Azure-Portal":::
 
-1.  Klicken Sie auf **Weiter: Überprüfen + erstellen**, um Ihre Auswahl zu überprüfen. Die Anzeige entspricht in etwa dem folgenden Bildschirm, allerdings werden die Werte verwendet, die Sie beim Erstellen des Hubs ausgewählt haben. 
+1. Klicken Sie auf **Weiter: Überprüfen + erstellen**, um Ihre Auswahl zu überprüfen. Die Anzeige entspricht in etwa dem folgenden Bildschirm, allerdings werden die Werte verwendet, die Sie beim Erstellen des Hubs ausgewählt haben.
 
-    ![Überprüfen von Informationen bei der Erstellung des neuen Hubs](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Überprüfen von Informationen bei der Erstellung des neuen Hubs":::
 
-1.  Wählen Sie **Erstellen** aus, um Ihren neuen Hub zu erstellen. Das Erstellen des Hubs dauert einige Minuten.
+1. Wählen Sie **Erstellen** aus, um Ihren neuen Hub zu erstellen. Das Erstellen des Hubs dauert einige Minuten.

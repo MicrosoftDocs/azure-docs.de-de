@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736087"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807851"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Azure-Sicherheitsbaseline für App Service
 
@@ -1111,7 +1111,7 @@ Markieren Sie außerdem Abonnements aussagekräftig (z. B. „Produktion“, �
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Integrieren von Sicherheitswarnungen in das System zur Reaktion auf Vorfälle
 
-**Leitfaden**: Exportieren Sie Ihre Security Center-Warnungen und -Empfehlungen mithilfe des Features „Fortlaufender Export“. Über „Fortlaufender Export“ können Sie Warnungen und Empfehlungen entweder manuell oder kontinuierlich exportieren. Verwenden Sie den Security Center-Datenconnector zum Streamen der Warnungen an Sentinel gemäß Ihren Geschäftsanforderungen.
+**Leitfaden**: Exportieren Sie Ihre Security Center-Warnungen und -Empfehlungen mithilfe des Features „Fortlaufender Export“. Über „Fortlaufender Export“ können Sie Warnungen und Empfehlungen entweder manuell oder kontinuierlich exportieren. Verwenden Sie den Security Center-Datenconnector zum Streamen der Warnungen an Azure Sentinel gemäß Ihren Geschäftsanforderungen.
 
 - [Konfigurieren des fortlaufenden Exports](../security-center/continuous-export.md)
 

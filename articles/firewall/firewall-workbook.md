@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
-ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91339549"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831840"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Überwachen von Protokollen mit Azure Firewall Workbook
 
@@ -26,7 +26,7 @@ Bevor Sie beginnen, sollten Sie die [Diagnoseprotokollierung](firewall-diagnosti
 
 ## <a name="get-started"></a>Erste Schritte
 
-Wechseln Sie zum Bereitstellen der Arbeitsmappe zu [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Azure%20Monitor%20Workbook) (Azure Monitor-Arbeitsmappe für Azure Firewall) und befolgen Sie die Anweisungen auf der Seite. Azure Firewall Workbook ist für das Arbeiten mit mehreren Mandanten und Abonnements konzipiert und für mehrere Firewalls filterbar.
+Wechseln Sie zum Bereitstellen der Arbeitsmappe zu [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook) (Azure Monitor-Arbeitsmappe für Azure Firewall) und befolgen Sie die Anweisungen auf der Seite. Azure Firewall Workbook ist für das Arbeiten mit mehreren Mandanten und Abonnements konzipiert und für mehrere Firewalls filterbar.
 
 ## <a name="overview-page"></a>Seite „Übersicht“
 
@@ -38,23 +38,23 @@ Die Übersichtsseite ermöglicht, Arbeitsbereiche, Zeit und Firewalls zu filtern
 
 Auf dieser Seite werden die eindeutigen Quellen der IP-Adresse im Zeitverlauf, die Nutzungshäufigkeit der Anwendungsregeln, der verweigerte/zulässige FQDN im Zeitverlauf und gefilterte Daten angezeigt. Sie können Daten auf der IP-Adresse basierend filtern.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Übersicht zu Azure Firewall Workbook":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Anwendungsregelprotokoll von Azure Firewall Workbook":::
 
 ## <a name="network-rule-log-statistics"></a>Netzwerkregelprotokoll-Statistik
 
 Diese Seite bietet eine Ansicht nach Regelaktion – zulassen/verweigern, Zielport nach IP und DNAT im Zeitverlauf. Sie können auch nach Aktion, Port und Zieltyp filtern.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Übersicht zu Azure Firewall Workbook":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Netzwerkregelprotokoll von Azure Firewall Workbook":::
 
 Sie können Protokolle auch auf Zeitfensterbasis filtern:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Übersicht zu Azure Firewall Workbook":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Netzwerkregelprotokoll-Zeitfenster von Azure Firewall Workbook":::
 
 ## <a name="investigations"></a>Untersuchungen
 
 Sie können die Protokolle ansehen und auf Basis der Quell-IP-Adresse mehr über die Ressource erfahren. Sie können Informationen wie den Namen des virtuellen Computers und der Netzwerkschnittstelle erhalten. Es ist einfach, in den Protokollen nach der Ressource zu filtern.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Übersicht zu Azure Firewall Workbook":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Azure Firewall Workbook-Untersuchung":::
 
 ## <a name="next-steps"></a>Nächste Schritte
 

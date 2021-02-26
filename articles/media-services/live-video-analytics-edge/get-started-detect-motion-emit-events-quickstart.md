@@ -3,12 +3,12 @@ title: 'Erste Schritte mit Live Video Analytics in IoT Edge: Azure'
 description: In dieser Schnellstartanleitung wird veranschaulicht, wie Sie in die Nutzung von Live Video Analytics in IoT Edge einsteigen. Es wird beschrieben, wie Sie in einem Livevideostream Bewegung erkennen.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631935"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573805"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Schnellstart: Erste Schritte: Live Video Analytics in IoT Edge
 
@@ -31,7 +31,7 @@ Sie können sich das folgende Video mit ausführlichen Schritten für den Einsti
   > Sie benötigen ein Azure-Abonnement mit Berechtigungen zum Erstellen von Dienstprinzipalen. (Die **Rolle „Besitzer“** stellt diese Berechtigungen bereit.) Wenn Sie nicht über die richtigen Berechtigungen verfügen, wenden Sie sich an Ihren Kontoadministrator, damit er Ihnen die richtigen Berechtigungen erteilt.  
 
 * Installation von [Visual Studio Code](https://code.visualstudio.com/) auf Ihrem Entwicklungscomputer. Stellen Sie sicher, dass Sie über die [Azure IoT Tools-Erweiterung](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) verfügen.
-* Vergewissern Sie sich, dass für das Netzwerk, mit dem Ihr Entwicklungscomputer verbunden ist, AMQP (Advanced Message Queueing Protocol) über Port 5671 zulässig ist. Dieses Setup ermöglicht die Kommunikation zwischen Azure IoT Tools und Azure IoT Hub.
+* Vergewissern Sie sich, dass für das Netzwerk, mit dem Ihr Entwicklungscomputer verbunden ist, AMQP (Advanced Message Queueing Protocol) über Port 5671 für ausgehenden Datenverkehr zulässig ist. Dieses Setup ermöglicht die Kommunikation zwischen Azure IoT Tools und Azure IoT Hub.
 
 > [!TIP]
 > Bei der Installation der Azure IoT Tools-Erweiterung werden Sie unter Umständen aufgefordert, Docker zu installieren. Sie können diese Aufforderung ignorieren.
@@ -48,6 +48,8 @@ Für dieses Tutorial werden die folgenden Azure-Ressourcen benötigt:
 Für diese Schnellstartanleitung wird die Verwendung des [Setupskripts für Live Video Analytics-Ressourcen](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) zum Bereitstellen der erforderlichen Ressourcen in Ihrem Azure-Abonnement empfohlen. Gehen Sie dazu folgendermaßen vor:
 
 1. Navigieren Sie zum [Azure-Portal](https://portal.azure.com), und wählen Sie das Cloud Shell-Symbol aus.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Wenn Sie Cloud Shell zum ersten Mal verwenden, werden Sie aufgefordert, ein Abonnement auszuwählen, um ein Speicherkonto und eine Microsoft Azure Files-Freigabe zu erstellen. Wählen Sie **Speicher erstellen** aus, um ein Speicherkonto für die Cloud Shell-Sitzungsinformationen zu erstellen. Dieses Speicherkonto ist von dem Konto getrennt, das vom Skript für die Verwendung mit Ihrem Azure Media Services-Konto erstellt wird.
 1. Wählen Sie auf der linken Seite des Cloud Shell-Fensters im Dropdownmenü **Bash** als Option für die Umgebung aus.
 
@@ -59,13 +61,27 @@ Für diese Schnellstartanleitung wird die Verwendung des [Setupskripts für Live
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Nach der erfolgreichen Ausführung des Skripts sollten alle erforderlichen Ressourcen Ihres Abonnements angezeigt werden. In der Ausgabe des Skripts ist in einer Tabelle mit den Ressourcen der Name des IoT-Hubs angegeben. Suchen Sie nach dem Ressourcentyp **`Microsoft.Devices/IotHubs`** , und notieren Sie sich den Namen. Sie benötigen diesen Namen im nächsten Schritt.  
+    Nach der erfolgreichen Ausführung des Skripts sollten alle erforderlichen Ressourcen Ihres Abonnements angezeigt werden. Vom Skript werden insgesamt zwölf Ressourcen eingerichtet:
+    1. **Streamingendpunkt**: Dient als Hilfe beim Wiedergeben des aufgezeichneten AMS-Objekts.
+    1. **Virtueller Computer**: Ein virtueller Computer, der als Ihr Edgegerät fungiert.
+    1. **Datenträger**: Ein Speicherdatenträger, der für die Speicherung von Medien und Artefakten an den virtuellen Computer angefügt ist.
+    1. **Netzwerksicherheitsgruppe**: Wird verwendet, um Netzwerkdatenverkehr von und zu Azure-Ressourcen in einem virtuellen Azure-Netzwerk zu filtern.
+    1. **Netzwerkschnittstelle**: Ermöglicht einem virtuellen Azure-Computer die Kommunikation mit dem Internet, Azure und anderen Ressourcen.
+    1. **Bastion-Verbindung**: Ermöglicht Ihnen das Herstellen einer Verbindung mit Ihrem virtuellen Computer über Ihren Browser und das Azure-Portal.
+    1. **Öffentliche IP-Adresse**: Ermöglicht es Azure-Ressourcen, mit dem Internet und öffentlichen Azure-Diensten zu kommunizieren.
+    1. **Virtuelles Netzwerk**: Ermöglicht es vielen Arten von Azure-Ressourcen (z. B. Ihrem virtuellen Computer), sicher untereinander sowie mit dem Internet und mit lokalen Netzwerken zu kommunizieren. Informieren Sie sich eingehender über [virtuelle Netzwerke](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **IoT Hub**: Dient als zentraler Nachrichtenhub für die bidirektionale Kommunikation zwischen Ihrer IoT-Anwendung, IoT Edge-Modulen und den verwalteten Geräten.
+    1. **Media Services-Konto**: Dient als Hilfe beim Verwalten und Streamen von Medieninhalten in Azure.
+    1. **Speicherkonto**: Sie müssen über ein primäres Speicherkonto verfügen. Darüber hinaus können Sie beliebig viele sekundäre Speicherkonten an Ihr Media Services-Konto anfügen. Weitere Informationen finden Sie unter [Azure Storage-Konten mit Azure Media Services-Konten](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Containerregistrierung**: Dient zum Speichern und Verwalten Ihrer privaten Docker-Containerimages und der zugehörigen Artefakte.
+
+In der Ausgabe des Skripts ist in einer Tabelle mit den Ressourcen der Name des IoT-Hubs angegeben. Suchen Sie nach dem Ressourcentyp **`Microsoft.Devices/IotHubs`** , und notieren Sie sich den Namen. Sie benötigen diesen Namen im nächsten Schritt.  
 
 > [!NOTE]
-> Darüber hinaus generiert das Skript auch einige Konfigurationsdateien im Verzeichnis **_~/clouddrive/lva-sample/_* _. Sie benötigen diese Dateien später in dieser Schnellstartanleitung noch.
+> Darüber hinaus generiert das Skript auch einige Konfigurationsdateien im Verzeichnis ***~/clouddrive/lva-sample/*** . Sie benötigen diese Dateien später in dieser Schnellstartanleitung noch.
 
 > [!TIP]
-> Falls für erstellte Azure-Ressourcen Probleme auftreten, helfen Ihnen die Informationen zum Beheben von häufigen Problemen im _ *[Leitfaden für die Problembehandlung](troubleshoot-how-to.md#common-error-resolutions)* * weiter.
+> Falls für erstellte Azure-Ressourcen Probleme auftreten, helfen Ihnen die Informationen zum Beheben von häufigen Problemen im **[Leitfaden für die Problembehandlung](troubleshoot-how-to.md#common-error-resolutions)** weiter.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Bereitstellen von Modulen auf dem Edgegerät
 
@@ -101,6 +117,12 @@ Befolgen Sie die unten angegebene Anleitung, um mit der Azure IoT Tools-Erweiter
 1. Wählen Sie unten links auf der Registerkarte **Explorer** die Option **Azure IoT Hub** aus.
 1. Wählen Sie das Symbol **Weitere Optionen** aus, um das Kontextmenü anzuzeigen. Wählen Sie anschließend **IoT Hub-Verbindungszeichenfolge festlegen** aus.
 1. Geben Sie Ihre IoT Hub-Verbindungszeichenfolge ein, wenn das entsprechende Eingabefeld angezeigt wird. In Cloud Shell finden Sie die Verbindungszeichenfolge in *~/clouddrive/lva-sample/appsettings.json*.
+
+> [!NOTE]
+> Unter Umständen werden Sie aufgefordert, für die IoT Hub-Instanz die Informationen zum integrierten Endpunkt anzugeben. Sie erhalten diese Informationen, indem Sie im Azure-Portal zu Ihrer IoT Hub-Instanz navigieren und im linken Navigationsbereich nach der Option **Integrierte Endpunkte** suchen. Klicken Sie darauf, und suchen Sie im Abschnitt **Event Hub-kompatibler Endpunkt** nach dem **Event Hub-kompatiblen Endpunkt**. Kopieren und verwenden Sie den im Feld enthaltenen Text. Der Endpunkt sieht in etwa wie folgt aus:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Wenn die Verbindung erfolgreich hergestellt wird, wird die Liste mit den Edgegeräten angezeigt. Es sollte mindestens ein Gerät mit dem Namen **lva-sample-device** angezeigt werden. Sie können nun über das Kontextmenü Ihre IoT Edge-Geräte verwalten und mit Azure IoT Hub interagieren. Erweitern Sie unter **lva-sample-device** den Knoten **Module**, um die auf dem Edgegerät bereitgestellten Module anzuzeigen.
 
@@ -145,7 +167,7 @@ Gehen Sie wie folgt vor, um alle [Graphtopologien](media-graph-concept.md#media-
 
 ### <a name="invoke-graphtopologyset"></a>Aufrufen von „GraphTopologySet“
 
-Mit den Schritten zum Aufrufen von `GraphTopologyList` können Sie `GraphTopologySet` aufrufen, um eine [Graphtopologie](media-graph-concept.md#media-graph-topologies-and-instances) festzulegen. Verwenden Sie den folgenden JSON-Code als Nutzlast.
+Wie bereits zuvor können Sie nun `GraphTopologySet` aufrufen, um eine [Graphtopologie](media-graph-concept.md#media-graph-topologies-and-instances) festzulegen. Verwenden Sie den folgenden JSON-Code als Nutzlast.
 
 ```
 {
@@ -541,6 +563,12 @@ Führen Sie die folgenden Schritte aus, um die Ergebnisse anzuzeigen.
 3. Klicken Sie mit der rechten Maustaste auf **lva-sample-device**, und wählen Sie anschließend **Überwachung des integrierten Ereignisendpunkts starten** aus.
 
     ![Starten der Überwachung von IoT Hub-Ereignissen](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > Unter Umständen werden Sie aufgefordert, für die IoT Hub-Instanz die Informationen zum integrierten Endpunkt anzugeben. Sie erhalten diese Informationen, indem Sie im Azure-Portal zu Ihrer IoT Hub-Instanz navigieren und im linken Navigationsbereich nach der Option **Integrierte Endpunkte** suchen. Klicken Sie darauf, und suchen Sie im Abschnitt **Event Hub-kompatibler Endpunkt** nach dem **Event Hub-kompatiblen Endpunkt**. Kopieren und verwenden Sie den im Feld enthaltenen Text. Der Endpunkt sieht in etwa wie folgt aus:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 Im **Ausgabefenster** wird die folgende Meldung angezeigt:
 
@@ -573,13 +601,6 @@ Im **Ausgabefenster** wird die folgende Meldung angezeigt:
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

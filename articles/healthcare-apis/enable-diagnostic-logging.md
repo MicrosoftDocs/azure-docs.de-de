@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905173"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581976"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Aktivieren der Diagnoseprotokollierung in Azure API for FHIR
 
-In diesem Artikel erfahren Sie, wie Sie die Diagnoseprotokollierung in Azure API for FHIR aktivieren und einige Beispiele von Abfragen dieser Protokolle einsehen können. Der Zugriff auf Diagnoseprotokolle ist für jeden Dienst im Gesundheitswesen unerlässlich, bei dem die Einhaltung gesetzlicher Vorschriften (wie z. B. HIPAA) zwingend erforderlich ist. Eine Option in Azure API for FHIR, die Diagnoseprotokolle aktiviert, ist [**Diagnoseeinstellungen**](../azure-monitor/platform/diagnostic-settings.md) im Azure-Portal. 
+In diesem Artikel erfahren Sie, wie Sie die Diagnoseprotokollierung in Azure API for FHIR aktivieren und einige Beispiele von Abfragen dieser Protokolle einsehen können. Der Zugriff auf Diagnoseprotokolle ist für jeden Dienst im Gesundheitswesen unerlässlich, bei dem die Einhaltung gesetzlicher Vorschriften (wie z. B. HIPAA) zwingend erforderlich ist. Eine Option in Azure API for FHIR, die Diagnoseprotokolle aktiviert, ist [**Diagnoseeinstellungen**](../azure-monitor/essentials/diagnostic-settings.md) im Azure-Portal. 
 
 ## <a name="enable-audit-logs"></a>Aktivieren von Überwachungsprotokollen
 1. Um die Diagnoseprotokollierung in der Azure API for FHIR zu aktivieren, wählen Sie Ihren Dienst „Azure API for FHIR“ im Azure-Portal aus. 
@@ -35,9 +35,9 @@ In diesem Artikel erfahren Sie, wie Sie die Diagnoseprotokollierung in Azure API
     2. **Streamen Sie die Protokolle zu Event Hub**, damit sie von einem Dienst eines Drittanbieters oder einer benutzerdefinierten Analyselösung erfasst werden können. Sie müssen einen Event Hub-Namespace und eine Event Hub-Richtlinie erstellen, ehe Sie diesen Schritt konfigurieren können.
     3. **Streamen Sie die Protokolle zum Log Analytics-Arbeitsbereich** in Azure Monitor. Sie müssen zuvor Ihren Log Analytics-Arbeitsbereich erstellen, bevor Sie diese Option auswählen können.
 
-6. Wählen Sie **AuditLogs** und alle Metriken aus, die Sie erfassen möchten. Wenn Sie den Azure IoT-Konnektor für FHIR verwenden, stellen Sie sicher, dass Sie als Metriken **Fehler, Datenverkehr und Wartezeit** auswählen. 
+6. Wählen Sie **AuditLogs** und/oder **AllMetrics** aus. Die Metriken umfassen Dienstname, Verfügbarkeit, Datengröße, Gesamtwartezeit, Gesamtanzahl der Anforderungen, Gesamtanzahl der Fehler und Zeitstempel.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT-Konnektor2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR-Diagnoseeinstellungen. Auswählen von „AuditLogs“ und/oder „AllMetrics“" lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Wählen Sie **Speichern** aus.
 
@@ -45,7 +45,7 @@ In diesem Artikel erfahren Sie, wie Sie die Diagnoseprotokollierung in Azure API
 > [!Note] 
 > Es kann bis zu 15 Minuten dauern, bis die ersten Protokolle in Log Analytics angezeigt werden.  
  
-Weitere Informationen zum Arbeiten mit Diagnoseprotokollen finden Sie in der Dokumentation zu [Azure-Ressourcenprotokollen](../azure-monitor/platform/platform-logs-overview.md).
+Weitere Informationen zum Arbeiten mit Diagnoseprotokollen finden Sie in der Dokumentation zu [Azure-Ressourcenprotokollen](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="audit-log-details"></a>Überwachungsprotokolldetails
 Derzeit gibt der Dienst „Azure API for FHIR“ im Überwachungsprotokoll die folgenden Felder zurück: 

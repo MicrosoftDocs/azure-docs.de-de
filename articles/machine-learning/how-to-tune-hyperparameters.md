@@ -2,24 +2,23 @@
 title: Optimierung der Hyperparameter eines Modells
 titleSuffix: Azure Machine Learning
 description: Mit Azure Machine Learning können Sie die Optimierung der Hyperparameter für Deep Learning- und Machine Learning-Modelle automatisieren.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133854"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430370"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Optimierung der Hyperparameter eines Modells mit Azure Machine Learning
-
 
 Automatisieren eine effiziente Hyperparameteroptimierung mithilfe des [HyperDrive-Pakets](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) von Azure Machine Learning. Hier erfahren Sie, wie Sie die Schritte durchführen, die zum Optimieren der Hyperparameter mit dem [Azure Machine Learning SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) erforderlich sind:
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualisieren der Ausführungen der Hyperparameteroptimierung
 
+Sie können Ihre Ausführungen der Hyperparameteroptimierung im Azure Machine Learning Studio visualisieren oder ein Notebook-Widget verwenden.
+
+### <a name="studio"></a>Studio
+
+Sie können alle Ihre Ausführungen der Hyperparameteroptimierung im [Azure Machine Learning Studio](https://ml.azure.com) visualisieren. Weitere Informationen zum Anzeigen von Experimenten im Portal finden Sie unter [Anzeigen von Ausführungsaufzeichnungen in Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Metrikdiagramm:** Diese Visualisierung dient zum Nachverfolgen der Metriken, die im Rahmen der Hyperparameteroptimierung für die einzelnen untergeordneten HyperDrive-Ausführungen protokolliert werden. Jede Zeile stellt eine untergeordnete Ausführung dar, und jeder Punkt misst den primären Metrikwert bei dieser Laufzeititeration.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Metrikdiagramm für die Hyperparameteroptimierung":::
+
+- **Diagramm mit parallelen Koordinaten:** Diese Visualisierung zeigt die Korrelation zwischen der Leistung der primären Metrik und individuellen Hyperparameterwerten. Das Diagramm ist interaktiv. Da bedeutet, die Achsen können durch Klicken und Ziehen der Achsenbezeichnung verschoben werden. Außerdem können Werte auf einer einzelnen Achse hervorgehoben werden. (Klicken und ziehen Sie vertikal entlang einer einzelnen Achse, um einen gewünschten Wertebereich hervorzuheben.)
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Diagramm mit parallelen Koordinaten für die Hyperparameteroptimierung":::
+
+- **Zweidimensionales Punktdiagramm:** Diese Visualisierung zeigt die Korrelation zwischen zwei individuellen Hyperparametern zusammen mit ihrem zugeordneten primären Metrikwert.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Zweidimensionales Punktdiagramm für die Hyperparameteroptimierung":::
+
+- **Dreidimensionales Punktdiagramm:** Diese Visualisierung ist mit der zweidimensionalen Variante identisch, ermöglicht jedoch die Verwendung von drei Hyperparameterdimensionen für die Korrelation mit dem primären Metrikwert. Sie können auch auf das Diagramm klicken und ziehen, um die Ausrichtung des Diagramms zu ändern und verschiedene Korrelationen im dreidimensionalen Raum anzuzeigen.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Dreidimensionales Punktdiagramm für die Hyperparameteroptimierung":::
+
+### <a name="notebook-widget"></a>Notebook-Widget
+
 Verwenden Sie das [Notebook-Widget](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py), um den Fortschritt Ihrer Trainingsausführungen zu visualisieren. Der folgende Codeausschnitt visualisiert alle Läufe zur Hyperparameteroptimierung in einem Jupyter Notebook:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Dieser Code zeigt eine Tabelle mit Details zu den Trainingsläufen für jede der Hyperparameterkonfigurationen an.
 
-![Optimierungstabelle für Hyperparameter](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabelle für die Hyperparameteroptimierung":::
 
-Ferner können Sie die Leistung jedes dieser Läufe während des fortschreitenden Trainings visualisieren. 
-
-![Hyperparameter-Optimierungsplot](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Sie können die Korrelation zwischen der Leistung und den Werten einzelner Hyperparameter mithilfe eines Plots mit parallelen Koordinaten visuell darstellen. 
-
-[![Parallele Koordinaten einer Hyperparameteroptimierung](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Alternativ können Sie auch alle Ausführungen zur Hyperparameteroptimierung im Azure-Webportal visualisieren. Weitere Informationen zum Anzeigen von Experimenten im Portal finden Sie unter [Nachverfolgen von Experimenten](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Ferner können Sie die Leistung jedes dieser Läufe während des fortschreitenden Trainings visualisieren.
 
 ## <a name="find-the-best-model"></a>Ermitteln des besten Modells
 

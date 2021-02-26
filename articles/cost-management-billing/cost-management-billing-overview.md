@@ -4,17 +4,17 @@ description: Mit den Features „Azure Cost Management + Abrechnung“ können S
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029939"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051092"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Was ist „Azure Cost Management + Abrechnung“?
 
@@ -43,11 +43,11 @@ Ein Abrechnungskonto wird erstellt, wenn Sie sich für die Nutzung von Azure reg
 
 Im Azure-Portal werden aktuell folgende Arten von Abrechnungskonten unterstützt:
 
-- **Microsoft Online Services-Programm**: Ein individuelles Abrechnungskonto für ein Microsoft Online Services-Programm wird erstellt, wenn Sie sich über die Azure-Website für Azure registrieren. Beispiele hierfür sind die Registrierung für ein Kostenloses Azure-Konto, ein Angebot mit nutzungsbasierter Bezahlung oder als Visual Studio-Abonnent.
+- **Microsoft Online Services-Programm**: Ein individuelles Abrechnungskonto für ein Microsoft Online Services-Programm wird erstellt, wenn Sie sich über die Azure-Website für Azure registrieren. Beispiele hierfür sind die Registrierung für ein [kostenloses Azure-Konto](./manage/create-free-services.md), ein Konto mit nutzungsbasierter Bezahlung oder als Visual Studio-Abonnent.
 
 - **Enterprise Agreement**: Ein Abrechnungskonto für ein Enterprise Agreement wird erstellt, wenn Ihre Organisation ein Enterprise Agreement (EA) für die Nutzung von Azure unterzeichnet.
 
-- **Microsoft-Kundenvereinbarung**: Ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung wird erstellt, wenn Ihre Organisation eine Microsoft-Kundenvereinbarung über einen Microsoft-Vertreter unterzeichnet. Einige Kunden in ausgewählten Regionen, die sich über die Azure-Website für ein Angebot mit nutzungsbasierter Bezahlung registrieren oder ein Upgrade ihres kostenlosen Azure-Kontos ausführen, verfügen möglicherweise auch über ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung.
+- **Microsoft-Kundenvereinbarung**: Ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung wird erstellt, wenn Ihre Organisation eine Microsoft-Kundenvereinbarung über einen Microsoft-Vertreter unterzeichnet. Einige Kunden in ausgewählten Regionen, die sich über die Azure-Website für ein Angebot mit nutzungsbasierter Bezahlung registrieren oder ein Upgrade ihres [kostenlosen Azure-Kontos](./manage/create-free-services.md) ausführen, verfügen möglicherweise auch über ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung.
 
 ### <a name="scopes-for-billing-accounts"></a>Bereiche für Abrechnungskonten
 Ein Bereich ist ein Knoten in einem Abrechnungskonto, den Sie zum Anzeigen und Verwalten der Abrechnung verwenden. Dort verwalten Sie Abrechnungsdaten, Zahlungen und Rechnungen und führen allgemeine Kontoverwaltungsaufgaben aus.

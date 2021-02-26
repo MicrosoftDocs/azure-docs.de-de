@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.date: 01/27/2021
+ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398425"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928529"
 ---
 # <a name="reservation-recommendations"></a>Reservierungsempfehlungen
 
@@ -37,11 +37,11 @@ Im folgenden Beispielbild für die ausgewählte Empfehlung empfiehlt Azure die K
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Beispiel einer Empfehlung für den Reservierungserwerb" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
-Weitere Informationen zu der Empfehlung werden angezeigt, wenn Sie den Link **Details anzeigen** auswählen. Das folgende Bild zeigt Details zur Empfehlung. Die empfohlene Menge wird – basierend auf Ihrer verlaufsbezogenen Nutzung – für die höchstmögliche Nutzung berechnet. Ihre Empfehlung ist möglicherweise nicht für 100%ige Auslastung vorgesehen, wenn sie nicht durchgehend genutzt wird. Beachten Sie im Beispiel, dass diese Auslastung im Laufe der Zeit geschwankt hat. Gezeigt werden die Kosten der Reservierung, mögliche Einsparungen und die prozentuale Auslastung.
+Weitere Informationen zu der Empfehlung werden angezeigt, wenn Sie **Details anzeigen** auswählen. Das folgende Bild zeigt Details zur Empfehlung. Die empfohlene Menge wird basierend auf Ihrer verlaufsbezogenen Nutzung für die höchstmögliche Nutzung berechnet. Ihre Empfehlung ist möglicherweise nicht für 100%ige Auslastung vorgesehen, wenn sie nicht durchgehend genutzt wird. Beachten Sie im Beispiel, dass diese Auslastung im Laufe der Zeit geschwankt hat. Gezeigt werden die Kosten der Reservierung, mögliche Einsparungen und die prozentuale Auslastung.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Beispiel mit Details zur Empfehlung für den Reservierungserwerb" :::
 
-Wenn Sie die Reservierungsmenge über die Empfehlung hinaus erhöhen oder verringern, ändern sich das Diagramm und die geschätzten Werte. Durch Erhöhung der Reservierungsmenge werden Ihre Einsparungen verringert, weil dies letztlich zu einer geringeren Reservierungsnutzung führt. Mit anderen Worten: Sie bezahlen für Reservierungen, die nicht vollständig genutzt werden.
+Das Diagramm und die geschätzten Werte ändern sich, wenn Sie die empfohlene Menge erhöhen. Durch Erhöhung der Reservierungsmenge werden Ihre Einsparungen verringert, weil dies letztlich zu einer geringeren Reservierungsnutzung führt. Mit anderen Worten: Sie bezahlen für Reservierungen, die nicht vollständig genutzt werden.
 
 Wenn Sie die Reservierungsmenge verringern, werden Ihre Einsparungen ebenfalls verringert. Obwohl Sie die Auslastung erhöht haben, gibt es wahrscheinlich Zeiträume, in denen Ihre Reservierungen ihre Nutzung nicht vollständig abdecken werden. Die über die Reservierungsmenge hinausgehende Nutzung wird von teureren Ressourcen mit nutzungsbasierter Bezahlung verwendet. Das folgende Beispielbild veranschaulicht dies. Wir haben die Reservierungsmenge manuell auf 4 verringert. Die Reservierungsnutzung wird erhöht, die Gesamtersparnis aber verringert, weil Kosten für die nutzungsbasierte Bezahlung anfallen.
 
@@ -53,11 +53,12 @@ Wenn Sie Einsparungen durch Reservierungen maximieren möchten, versuchen Sie, R
 
 Empfehlungen für den Reservierungserwerb stehen in Azure Advisor zur Verfügung. Berücksichtigen Sie dabei Folgendes:
 
-- Von Advisor werden nur Empfehlungen für Einzelabonnementbereiche abgegeben. Wenn Sie Empfehlungen für den gesamten Abrechnungsbereich (Abrechnungskonto oder Abrechnungsprofil) anzeigen möchten, wechseln Sie zum Azure-Portal und wählen „Reservierungen“ und „Hinzufügen“ aus, und wählen Sie den Typ aus, für den Sie die Empfehlungen anzeigen möchten.
+- Von Advisor werden nur Empfehlungen für Einzelabonnementbereiche abgegeben. Wenn Sie Empfehlungen für den gesamten Abrechnungsbereich (Abrechnungskonto oder Abrechnungsprofil) anzeigen möchten, gehen Sie wie folgt vor:
+  -  Navigieren Sie im Azure-Portal zu **Reservierungen** > **Hinzufügen**, und wählen Sie den Typ aus, für den Sie die Empfehlungen anzeigen möchten.
 - Bei den im Advisor verfügbaren Empfehlungen wird der Nutzungstrend der letzten 30 Tage berücksichtigt.
-- Die Menge und Einsparung von Empfehlungen ist – soweit verfügbar – eine 3-jährige Reservierung. Wenn für den Dienst keine 3-jährige Reservierung verkauft wird, wird die Empfehlung mit einem Reservierungspreis für 1 Jahr berechnet.
+- Die Menge und Einsparungen aus den Empfehlungen gelten für eine dreijährige Reservierung (sofern verfügbar). Wenn für den Dienst keine 3-jährige Reservierung verkauft wird, wird die Empfehlung mit einem Reservierungspreis für 1 Jahr berechnet.
 - Bei der Berechnung von Empfehlungen werden alle speziellen Rabatte berücksichtigt, die bei Ihren bedarfsgesteuerten Nutzungsraten möglicherweise gelten.
-- Wenn Sie eine Reservierung mit gemeinsam genutztem Bereich erwerben, kann es bis zu fünf Tage dauern, bis Advisor-Empfehlungen für den Reservierungserwerb nicht mehr angezeigt werden.
+- Wenn Sie eine Reservierung mit gemeinsam genutztem Bereich erwerben, kann es bis zu fünf Tage dauern, bis Advisor-Empfehlungen für den Reservierungserwerb nicht mehr angezeigt werden.
 
 ## <a name="other-expected-api-behavior"></a>Sonstiges erwartetes API-Verhalten
 

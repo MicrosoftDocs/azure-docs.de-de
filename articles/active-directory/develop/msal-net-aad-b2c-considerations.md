@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614913"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580826"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Verwenden von MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke
 
 Sie können MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke über [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) verwenden. Azure AD B2C basiert auf dem Konzept von Richtlinien. In MSAL.NET bedeutet die Angabe einer Richtlinie die Bereitstellung einer Autorität.
 
-- Wenn Sie eine öffentliche Clientanwendung instanziieren, müssen Sie die Richtlinie als Bestandteil der Autorität angeben.
+- Wenn Sie eine öffentliche Clientanwendung instanziieren, müssen Sie die Richtlinie als Bestandteil der zuständigen Stelle angeben.
 - Wenn Sie eine Richtlinie anwenden möchten, rufen Sie eine Überschreibung von `AcquireTokenInteractive` auf, die den Parameter `authority` akzeptiert.
 
 Dieser Artikel gilt für MSAL.NET 3.x. Informationen zu MSAL.NET 2.x finden Sie unter [Besonderheiten von Azure AD B2C bei MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) im Wiki für MSAL.NET auf GitHub.

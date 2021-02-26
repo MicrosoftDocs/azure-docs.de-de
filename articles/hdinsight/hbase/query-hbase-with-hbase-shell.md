@@ -2,19 +2,16 @@
 title: 'Schnellstart: Abfragen von Apache HBase in Azure HDInsight – HBase Shell'
 description: In diesem Schnellstart erfahren Sie, wie Sie Apache HBase Shell zum Ausführen von Apache HBase-Abfragen verwenden.
 keywords: HDInsight, Hadoop, HBase
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.author: hrasheed
-ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79371068"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942935"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Schnellstart: Abfragen von Apache HBase in Azure HDInsight mit HBase Shell
 

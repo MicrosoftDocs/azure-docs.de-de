@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879829"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361552"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Ändern des Lizenzierungsmodells für einen virtuellen SQL-Computer in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,6 @@ Das Ändern des Lizenzmodells
    - wird nur für die Standard Edition und Enterprise Edition von SQL Server unterstützt. unterstützt keine Lizenzänderungen für Express, Web und Developer. 
    - wird nur für virtuelle Computer unterstützt, die mit dem Azure Resource Manager-Modell bereitgestellt wurden. unterstützt keine SQL Server-VMs, die mit dem klassischen Modell bereitgestellt wurden. 
    - Nur für öffentliche oder Azure Government-Clouds verfügbar. 
-   - wird nur auf virtuellen Computern unterstützt, die eine einzelne Netzwerkschnittstelle haben. 
 
 > [!Note]
 > Der Azure-Hybridvorteil kann nur für die core-basierte SQL Server-Lizenzierung mit Software Assurance- oder Abonnementlizenzen genutzt werden. Wenn Sie die Server- und CAL-Lizenzierung für SQL Server verwenden und über Software Assurance verfügen, können Sie BYOL für ein Azure SQL Server-VM-Image verwenden, um die Lizenzmobilität für diese Server zu nutzen. Die anderen AHB-Features können Sie jedoch nicht nutzen. 
@@ -136,10 +135,6 @@ Dieser Fehler tritt auf, wenn Sie versuchen, das Lizenzierungsmodell auf einer S
 
 Sie müssen Ihr Abonnement beim Ressourcenanbieter registrieren und dann [Ihre SQL Server-VM mit der SQL-IaaS-Agent-Erweiterung registrieren](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**Der virtuelle Computer „\<vmname\>“ hat mehr als eine zugeordnete Netzwerkschnittstelle**
-
-Dieser Fehler tritt auf virtuellen Computern auf, die über mehr als eine Netzwerkschnittstelle verfügen. Entfernen Sie eine der Netzwerkschnittstellen, bevor Sie das Lizenzierungsmodell ändern. Obwohl Sie die Netzwerkschnittstelle nach dem Ändern des Lizenzmodells wieder zur VM hinzufügen können, werden Vorgänge im Azure-Portal wie die automatische Sicherung und das automatische Patchen nicht mehr unterstützt. 
 
 
 ## <a name="next-steps"></a>Nächste Schritte

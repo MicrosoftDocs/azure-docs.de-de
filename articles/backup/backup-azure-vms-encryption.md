@@ -3,12 +3,12 @@ title: Sichern und Wiederherstellen von verschlüsselten virtuellen Azure-Comput
 description: Beschreibt, wie verschlüsselte virtuelle Azure-Computer (VMs) mit dem Azure Backup-Dienst gesichert und wiederhergestellt werden.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547150"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223456"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sichern und Wiederherstellen verschlüsselter virtueller Azure-Computer
 
@@ -44,11 +44,11 @@ Wie in der nachstehenden Tabelle zusammengefasst, kann Azure Backup Azure-VMs mi
 
 ### <a name="limitations"></a>Einschränkungen
 
-- Sie können verschlüsselte VMs innerhalb desselben Abonnements und derselben Region sichern und wiederherstellen.
+- Mit ADE verschlüsselte virtuelle Computer können innerhalb des gleichen Abonnements und der gleichen Region gesichert und wiederhergestellt werden.
 - Azure Backup unterstützt mit eigenständigen Schlüsseln verschlüsselte VMs. Ein Schlüssel, der Teil eines Zertifikats ist, das zum Verschlüsseln eines virtuellen Computers verwendet wurde, wird derzeit nicht unterstützt.
-- Sie können verschlüsselte VMs innerhalb desselben Abonnements und derselben Region als Recovery Services-Sicherungstresor sichern und wiederherstellen.
-- Verschlüsselte virtuelle Computer können nicht auf Datei- oder Ordnerebene wiederhergestellt werden. Sie müssen den gesamten virtuellen Computer wiederherstellen, damit Dateien und Ordner wiederhergestellt werden.
-- Beim Wiederherstellen eines virtuellen Computers können Sie die Option [Vorhandenen virtuellen Computer ersetzen](backup-azure-arm-restore-vms.md#restore-options) für verschlüsselte virtuelle Computer nicht verwenden. Diese Option wird nur bei unverschlüsselten verwalteten Datenträgern unterstützt.
+- Mit ADE verschlüsselte virtuelle Computer können innerhalb des gleichen Abonnements und der gleichen Region gesichert und wiederhergestellt werden, in dem bzw. in der sich auch der Recovery Services-Sicherungstresor befindet.
+- Mit ADE verschlüsselte virtuelle Computer können nicht auf Datei- oder Ordnerebene wiederhergestellt werden. Sie müssen den gesamten virtuellen Computer wiederherstellen, damit Dateien und Ordner wiederhergestellt werden.
+- Beim Wiederherstellen eines virtuellen Computers kann die Option [Vorhandenen virtuellen Computer ersetzen](backup-azure-arm-restore-vms.md#restore-options) für mit ADE verschlüsselte virtuelle Computer nicht verwendet werden. Diese Option wird nur bei unverschlüsselten verwalteten Datenträgern unterstützt.
 
 ## <a name="before-you-start"></a>Vorbereitung
 
@@ -125,6 +125,17 @@ So legen Sie Berechtigungen fest:
 
 1. Wählen Sie im Azure-Portal **Alle Dienste** aus, und suchen Sie nach **Schlüsseltresore**.
 1. Wählen Sie den Schlüsseltresor aus, der dem verschlüsselten virtuellen Computer zugeordnet ist, den Sie sichern möchten.
+
+    >[!TIP]
+    >Verwenden Sie den folgenden PowerShell-Befehl, um den zugeordneten Schlüsseltresor eines virtuellen Computers zu ermitteln. Geben Sie den Namen Ihrer Ressourcengruppe und Ihres virtuellen Computers an:
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Der Name des Schlüsseltresors befindet sich in der folgenden Zeile:
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Wählen Sie **Zugriffsrichtlinien** > **Zugriffsrichtlinie hinzufügen** aus.
 
     ![Zugriffsrichtlinie hinzufügen](./media/backup-azure-vms-encryption/add-access-policy.png)

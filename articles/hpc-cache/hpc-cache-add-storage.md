@@ -4,14 +4,14 @@ description: Definieren von Speicherzielen, damit Ihr Azure HPC Cache Ihr lokale
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657175"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054364"
 ---
 # <a name="add-storage-targets"></a>Hinzufügen von Speicherzielen
 
@@ -165,19 +165,21 @@ Ein NFS-Speicherziel besitzt andere Einstellungen als ein Blob-Speicherziel. Mit
 
 Wenn Sie ein Speicherziel erstellen, das auf ein NFS-Speichersystem verweist, müssen Sie das Nutzungsmodell für dieses Ziel auswählen. Dieses Modell bestimmt, wie Ihre Daten zwischengespeichert werden.
 
+Mit den integrierten Nutzungsmodellen können Sie zwischen kurzen Reaktionszeiten und dem Risiko veralteter Daten abwägen. Wenn Sie die Geschwindigkeit bei Dateilesevorgängen optimieren möchten, spielt es möglicherweise eine untergeordnete Rolle, ob die Dateien im Cache mit den Back-End-Dateien abgeglichen werden. Wenn Sie jedoch sicherstellen möchten, dass Ihre Dateien immer auf dem neuesten Stand sind und den Dateien im Remotespeicher entsprechen, wählen Sie ein Modell aus, bei dem regelmäßig eine Überprüfung durchgeführt wird.
+
 Drei Optionen stehen zur Verfügung:
 
 * **Leseintensive, unregelmäßige Schreibvorgänge**: Verwenden Sie diese Option, wenn Sie den Lesezugriff auf Dateien beschleunigen möchten, die statisch sind oder selten geändert werden.
 
-  Mit dieser Option werden von Clients gelesene Dateien zwischengespeichert, die Schreibvorgänge werden jedoch sofort an den Back-End-Speicher übergeben. Im Cache gespeicherte Dateien werden niemals mit den Dateien auf dem NFS-Speichervolume verglichen.
+  Mit dieser Option werden von Clients gelesene Dateien zwischengespeichert, die Schreibvorgänge werden jedoch sofort an den Back-End-Speicher übergeben. Im Cache gespeicherte Dateien werden nicht automatisch mit den Dateien auf dem NFS-Speichervolume verglichen. (Weitere Informationen finden Sie im nachfolgenden Hinweis zur Back-End-Überprüfung.)
 
-  Verwenden Sie diese Option nicht, wenn das Risiko besteht, dass eine Datei direkt im Speichersystem geändert werden kann, ohne sie zuvor in den Cache zu schreiben. In diesem Fall wird die zwischengespeicherte Version der Datei niemals mit Änderungen aus dem Back-End aktualisiert, und das Dataset kann inkonsistent werden.
+  Verwenden Sie diese Option nicht, wenn das Risiko besteht, dass eine Datei direkt im Speichersystem geändert werden kann, ohne sie zuvor in den Cache zu schreiben. In diesem Fall ist die zwischengespeicherte Version der Datei nicht mit der Back-End-Datei synchron.
 
 * **Mehr als 15 % Schreibvorgänge**: Diese Option beschleunigt die Lese-und Schreibleistung. Wenn diese Option verwendet wird, müssen alle Clients über den Azure HPC-Cache auf Dateien zugreifen, anstatt den Back-End-Speicher direkt einzubinden. Die zwischengespeicherten Dateien enthalten aktuelle Änderungen, die nicht auf dem Back-End gespeichert werden.
 
-  Bei diesem Nutzungsmodell werden Dateien im Cache nicht mit den Dateien im Back-End-Speicher verglichen. Es wird davon ausgegangen, dass die zwischengespeicherte Version der Datei aktueller ist. Eine geänderte Datei im Cache wird in das Back-End-Speichersystem geschrieben, nachdem sie sich eine Stunde lang ohne zusätzliche Änderungen im Cache befunden hat.
+  Bei diesem Nutzungsmodell werden Dateien im Cache nur alle acht Stunden mit den Dateien im Back-End-Speicher verglichen. Es wird davon ausgegangen, dass die zwischengespeicherte Version der Datei aktueller ist. Eine geänderte Datei im Cache wird in das Back-End-Speichersystem geschrieben, nachdem sie sich eine Stunde lang ohne zusätzliche Änderungen im Cache befunden hat.
 
-* **Clients umgehen den Cache und schreiben in das NFS-Ziel**: Wählen Sie diese Option aus, wenn Clients in Ihrem Workflow Daten direkt in das Speichersystem schreiben, ohne zuvor in den Cache zu schreiben. Die von Clients angeforderten Dateien werden zwischengespeichert, aber alle Änderungen an diesen Dateien vom Client werden sofort an das Back-End-Speichersystem zurückgegeben.
+* **Clients umgehen den Cache und schreiben in das NFS-Ziel**: Wählen Sie diese Option aus, wenn Clients in Ihrem Workflow Daten direkt in das Speichersystem schreiben, ohne zuvor in den Cache zu schreiben, oder wenn Sie die Datenkonsistenz verbessern möchten. Die von Clients angeforderten Dateien werden zwischengespeichert, aber alle Änderungen an diesen Dateien vom Client werden sofort an das Back-End-Speichersystem zurückgegeben.
 
   Bei diesem Nutzungsmodell werden die Dateien im Cache häufig anhand der Back-End-Versionen auf Updates überprüft. Bei dieser Überprüfung können Dateien außerhalb des Caches geändert werden, während die Datenkonsistenz gewahrt bleibt.
 
@@ -186,8 +188,11 @@ In dieser Tabelle werden die Unterschiede im Nutzungsmodell zusammengefasst:
 | Nutzungsmodell                   | Cachemodus | Back-End-Überprüfung | Maximale Zurückschreibverzögerung |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Leseintensiv, unregelmäßige Schreibvorgänge | Lesen         | Nie                 | Keine                     |
-| Mehr als 15 % Schreibvorgänge       | Lesen/Schreiben   | Nie                 | 1 Stunde                   |
+| Mehr als 15 % Schreibvorgänge       | Lesen/Schreiben   | 8 Stunden               | 1 Stunde                   |
 | Clients umgehen den Cache      | Lesen         | 30 Sekunden            | Keine                     |
+
+> [!NOTE]
+> Der Wert **Back-End-Überprüfung** wird angezeigt, wenn der Cache Dateien automatisch mit Quelldateien im Remotespeicher vergleicht. Sie können jedoch erzwingen, dass Azure HPC Cache Dateien vergleicht, indem Sie einen Verzeichnisvorgang ausführen, der eine readdirplus-Anforderung enthält. Readdirplus ist eine standardmäßige NFS-API (erweiterter Lesevorgang), die Verzeichnismetadaten zurückgibt. Durch diesen Vorgang wird erzwungen, dass der Cache Dateien vergleicht und aktualisiert.
 
 ### <a name="create-an-nfs-storage-target"></a>Erstellen eines NFS-Speicherziels
 

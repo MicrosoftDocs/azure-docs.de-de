@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754671"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583585"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Geltungsbereiche für eine Web-API, die v1.0-Token akzeptiert
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Wenn Sie mit MSAL.NET für Azure AD Lese- und Schreibvorgänge über die Microsoft Graph-API (https:\//graph.microsoft.com/) ausführen möchten, müssen Sie wie in den folgenden Beispielen eine Liste von Geltungsbereichen erstellen:
+Wenn Sie mit MSAL.NET für Azure AD Lese- und Schreibvorgänge über die Microsoft Graph-API (https:\//graph.microsoft.com/) ausführen möchten, erstellen Sie wie in den folgenden Beispielen gezeigt eine Liste von Geltungsbereichen:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Sie müssen zwei Schrägstriche verwenden, weil die Azure Resource Manager-API einen Schrägstrich im Zielgruppenanspruch/„audience“-Anspruch (aud) erwartet und ein weiterer Schrägstrich erforderlich ist, um den API-Namen vom Geltungsbereich zu trennen.
+> Sie müssen zwei Schrägstriche verwenden, weil die Azure Resource Manager-API einen Schrägstrich im Zielgruppenanspruch (aud) erwartet und ein weiterer Schrägstrich erforderlich ist, um den API-Namen vom Geltungsbereich zu trennen.
 
 Die von Azure AD verwendete Logik lautet wie folgt:
 

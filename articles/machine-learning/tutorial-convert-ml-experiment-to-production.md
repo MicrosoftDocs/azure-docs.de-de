@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317855"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576024"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Konvertieren von ML-Experimenten in Python-Produktionscode
 
@@ -353,7 +353,7 @@ Als dritte Maßnahme müssen die verwandten Funktionen in Python-Dateien zusamme
 Konvertieren Sie Ihr Notebook in ein ausführbares Skript, indem Sie an einer Eingabeaufforderung die folgende Anweisung ausführen, für die das Paket `nbconvert`und der Pfad `experimentation/Diabetes Ridge Regression Training.ipynb` verwendet werden:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Entfernen Sie alle unerwünschten Kommentare, nachdem das Notebook in `train.py` konvertiert wurde. Ersetzen Sie den Aufruf von `main()` am Ende der Datei durch einen bedingten Aufruf wie den folgenden Code:
@@ -441,7 +441,7 @@ Die Datei `train_aml.py` aus dem Verzeichnis `diabetes_regression/training` im M
 Konvertieren Sie Ihr Notebook in ein ausführbares Skript, indem Sie an einer Eingabeaufforderung die folgende Anweisung ausführen, für die das Paket `nbconvert` und der Pfad `experimentation/Diabetes Ridge Regression Scoring.ipynb` verwendet werden:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Entfernen Sie alle unerwünschten Kommentare, nachdem das Notebook in `score.py` konvertiert wurde. Ihre Datei `score.py` sollte wie im folgenden Code aussehen:

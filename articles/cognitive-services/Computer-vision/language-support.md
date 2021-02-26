@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736817"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575871"
 ---
 # <a name="language-support-for-computer-vision"></a>Sprachunterstützung für maschinelles Sehen
 
@@ -25,34 +25,89 @@ Einige Features des maschinellen Sehens unterstützen mehrere Sprachen; alle hie
 
 Die OCR-APIs für maschinelles Sehen unterstützen verschiedene Sprachen. Es muss kein Sprachcode angegeben werden. Weitere Informationen finden Sie unter [Optische Zeichenerkennung (OCR)](concept-recognizing-text.md).
 
-|Sprache| Sprachcode | OCR-API | Read 3.0 und 3.1 | Read v3.2-preview.1 |
+|Sprache| Sprachcode | OCR-API | Read 3.0/3.1 | Read v3.2 Vorschau |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`| | |✔ |
+|Albanisch |`sq`| | |✔ |
 |Arabisch | `ar`|✔ | | |
+|Asturisch |`ast`| | |✔ |
+|Baskisch  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Bretonisch    |`br`| | |✔ |
+|Katalanisch    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chinesisch (vereinfacht) | `zh-Hans`|✔ | |✔ |
-|Chinesisch (traditionell) | `zh-Hant`|✔ | | |
-|Tschechisch | `cs` |✔ | | |
-|Dänisch | `da` |✔ | | |
+|Chinesisch (traditionell) | `zh-Hant`|✔ | |✔ |
+|Kornisch     |`kw`| | |✔ |
+|Korsisch      |`co`| | |✔ |
+|Krimtatarisch (Lateinisch)  |`crh`| | |✔ |
+|Tschechisch | `cs` |✔ | |✔ |
+|Dänisch | `da` |✔ | |✔ |
 |Niederländisch | `nl` |✔ |✔ |✔ |
 |Englisch | `en` |✔ |✔ |✔ |
-|Finnisch | `fi` |✔ | | |
+|Estnisch  |`crh`| | |✔ |
+|Fidschi |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Finnisch | `fi` |✔ | |✔ |
 |Französisch | `fr` |✔ |✔ |✔ |
+|Friaulisch  | `fur` | | |✔ |
+|Galizisch   | `gl` | | |✔ |
 |Deutsch | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Griechisch | `el` |✔ | | |
-|Ungarisch | `hu` |✔ | | |
+|Grönländisch   | `kl` | | |✔ |
+|Haitianisches Kreolisch  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong Daw (Lateinisch) | `mww` | | |✔ |
+|Ungarisch | `hu` |✔ | | ✔ |
+|Indonesisch   | `id` | | |✔ |
+|Interlingual  | `ia` | | |✔ |
+|Inuktitut (Lateinisch)  | `iu` | | |✔ |
+|Irisch    | `ga` | | |✔ |
 |Italienisch | `it` |✔ |✔ |✔ |
 |Japanisch | `ja` |✔ | |✔ |
-|Koreanisch | `ko` |✔ | | |
+|Javanisch | `jv` | | |✔ |
+|Kabuverdianu | `kea` | | |✔ |
+|Kachin (Lateinisch) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kaschubisch | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Koreanisch | `ko` |✔ | |✔ |
+|K’iche’  | `quc` | | |✔ |
+|Kurdisch (Lateinisch) | `kur` | | |✔ |
+|Luxemburgisch  | `lb` | | |✔ |
+|Malaiisch (Lateinisch)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Neapolitanisch   | `nap` | | |✔ |
 |Norwegisch | `nb` |✔ | | |
-|Polnisch | `pl` |✔ | | |
+|Norwegisch | `no` | | |✔ |
+|Okzitanisch | `oc` | | |✔ |
+|Polnisch | `pl` |✔ | |✔ |
 |Portugiesisch | `pt` |✔ |✔ |✔ |
 |Rumänisch | `ro` |✔ | | |
+|Rätoromanisch  | `rm` | | |✔ |
 |Russisch | `ru` |✔ | | |
+|Schotten  | `sco` | | |✔ |
+|Schottisch-Gälisch  | `gd` | | |✔ |
 |Serbisch (Kyrillisch) | `sr-Cyrl` |✔ | | |
 |Serbisch (Lateinisch) | `sr-Latn` |✔ | | |
 |Slowakisch | `sk` |✔ | | |
+|Slowenisch  | `slv` | | |✔ |
 |Spanisch | `es` |✔ |✔ |✔ |
-|Schwedisch | `sw` |✔ | | |
-|Türkisch | `tr` |✔ | | |
+|Suaheli (Lateinisch)  | `sw` | | |✔ |
+|Schwedisch | `sv` |✔ | |✔ |
+|Tatarisch (Lateinisch)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Türkisch | `tr` |✔ | |✔ |
+|Obersorbisch  | `hsb` | | |✔ |
+|Usbekisch (Lateinisch)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Westfriesisch | `fy` | | |✔ |
+|Yukatekisches Maya | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulu  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Bildanalyse
 
@@ -65,10 +120,3 @@ Einige Aktionen der [Bildanalyse](https://westcentralus.dev.cognitive.microsoft.
 |Japanisch | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portugiesisch | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Spanisch | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Nächste Schritte
-
-Mit den in diesem Handbuch erwähnten Features für maschinelles Sehen können Sie die ersten Schritte ausführen.
-
-* [Analysieren eines lokalen Bilds (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Extrahieren von gedrucktem Text (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 758e5b24afe2edad9bf661e2eb7a6c88db849720
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.date: 09/22/2020
+ms.openlocfilehash: 74885156b3afe72f505dc45161b1f01dc6789875
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705012"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546090"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Beispiele für Resource Manager-Vorlagen für Protokollwarnungsregeln in Azure Monitor
 Dieser Artikel enthält Beispiele für [Azure Resource Manager-Vorlagen](../../azure-resource-manager/templates/template-syntax.md) zum Erstellen und Konfigurieren von Protokollabfragewarnungen in Azure Monitor. Jedes Beispiel umfasst eine Vorlagendatei und eine Parameterdatei mit Beispielwerten für die Vorlage.

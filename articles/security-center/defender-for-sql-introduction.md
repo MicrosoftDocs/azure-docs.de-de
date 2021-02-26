@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5d8c5eb385baff4aac450c470fb6103e2fb315f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881366"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590412"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Einführung in Azure Defender für SQL
 
@@ -43,8 +43,8 @@ Azure Defender for SQL verfügt über zwei Azure Defender-Pläne als Erweiterung
 - Mit **Azure Defender für SQL Server-Instanzen auf Computern** wird der Schutz für Ihre nativen Azure SQL Server-Instanzen erweitert, um Hybridumgebungen vollständig zu unterstützen und SQL Server-Instanzen (alle unterstützten Versionen), die in Azure, anderen Cloudumgebungen oder sogar auf lokalen Computern gehostet werden, schützen zu können:
     - [SQL Server auf virtuellen Computern](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Lokale SQL Server-Instanzen:
-        - [Azure Arc-fähige SQL-Server-Instanz (Vorschauversion)](/sql/sql-server/azure-arc/overview)
-        - [Auf Windows-Computern ohne Azure Arc ausgeführte SQL Server-Instanzen](../azure-monitor/platform/agent-windows.md)
+        - [Azure Arc-fähige SQL-Server-Instanz (Vorschauversion)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [Auf Windows-Computern ohne Azure Arc ausgeführte SQL Server-Instanzen](../azure-monitor/agents/agent-windows.md)
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>Welche Vorteile hat die Nutzung von Azure Defender für SQL?
@@ -72,7 +72,6 @@ Warnungen enthalten Details zum Incident, durch den sie ausgelöst wurden, sowie
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel haben Sie mehr über Azure Defender für SQL erfahren.
+In diesem Artikel haben Sie mehr über Azure Defender für SQL erfahren. Gehen Sie wie folgt vor, um die beschriebenen Dienste zu nutzen:
 
-> [!div class="nextstepaction"]
-> [Überprüfen der SQL Server-Instanzen auf Sicherheitsrisiken mit Azure Defender](defender-for-sql-usage.md)
+- Verwenden Sie Azure Defender für SQL-Server auf Computern, um Ihre [SQL Server-Instanzen auf Sicherheitsrisiken zu überprüfen](defender-for-sql-usage.md).

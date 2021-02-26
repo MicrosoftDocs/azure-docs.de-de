@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881077"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547858"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Häufig gestellte Fragen zur Microsoft Authenticator-App
 
@@ -67,7 +67,11 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 
 **F:** Was speichert Authenticator in meinem Namen, und wie kann ich diese Daten löschen?
 
-**A:** Die Authenticator-App erfasst drei Arten von Informationen:<ul><li>Kontoinformationen, die Sie beim Hinzufügen Ihres Kontos angeben. Diese Daten können durch Entfernen Ihres Kontos entfernt werden.</li><li>Diagnoseprotokolldaten, die sich nur in der App befinden, bis Sie die Option **Protokolle senden** im Menü **Hilfe** der App auswählen, um die Protokolle an Microsoft zu senden. Diese Protokolle können personenbezogene Daten wie E-Mail-Adressen, Serveradressen oder IP-Adressen sowie Gerätedaten enthalten. Dazu zählen z. B. der Gerätename und die Betriebssystemversion. Personenbezogene Daten werden nur in soweit erfasst, wie es für die Behebung von App-Problemen erforderlich ist. Sie können diese Protokolldateien in der App jederzeit durchsuchen, um die erfassten Informationen anzuzeigen. Wenn Sie Ihre Protokolldateien senden, werden die Techniker der Authenticator-App diese ausschließlich zur Behebung von durch Kunden gemeldeten Problemen verwenden.</li><li>Nicht personenbezogene Verwendungsdaten, z. B. „Ablauf zum Hinzufügen des Kontos gestartet/Konto erfolgreich hinzugefügt“ oder „Benachrichtigung genehmigt“. Diese Daten sind ein wesentlicher Faktor bei unseren Technikentscheidungen. Anhand Ihrer Nutzungsdaten erfahren wir, wie wir unsere Apps auf für unsere Kunden relevante Weise verbessern können. Sie werden über diese Datenerfassung informiert, wenn Sie die App zum ersten Mal benutzen. Sie werden in diesem Zusammenhang darauf hingewiesen, dass die Datenerfassung auf der App-Seite **Einstellungen** deaktiviert werden kann. Sie können die Einstellung jederzeit aktivieren oder deaktivieren.</li></ul>
+**A:** Die Authenticator-App erfasst drei Arten von Informationen:
+
+- Kontoinformationen, die Sie beim Hinzufügen Ihres Kontos angeben. Diese Daten können durch Entfernen Ihres Kontos entfernt werden.
+- Diagnoseprotokolldaten, die sich nur in der App befinden, bis Sie die Option **Feedback senden** im oberen Menü der App auswählen, um die Protokolle an Microsoft zu senden. Diese Protokolle können personenbezogene Daten wie E-Mail-Adressen, Serveradressen oder IP-Adressen sowie Gerätedaten enthalten. Dazu zählen z. B. der Gerätename und die Betriebssystemversion. Personenbezogene Daten werden nur in soweit erfasst, wie es für die Behebung von App-Problemen erforderlich ist. Sie können diese Protokolldateien in der App jederzeit durchsuchen, um die erfassten Informationen anzuzeigen. Wenn Sie Ihre Protokolldateien senden, werden die Techniker der Authenticator-App diese ausschließlich zur Behebung von durch Kunden gemeldeten Problemen verwenden.
+- Nicht personenbezogene Verwendungsdaten, z. B. „Ablauf zum Hinzufügen des Kontos gestartet/Konto erfolgreich hinzugefügt“ oder „Benachrichtigung genehmigt“. Diese Daten sind ein wesentlicher Faktor bei unseren Technikentscheidungen. Anhand Ihrer Nutzungsdaten erfahren wir, wie wir unsere Apps auf für unsere Kunden relevante Weise verbessern können. Sie werden über diese Datensammlung informiert, wenn Sie die App zum ersten Mal benutzen. In diesem Zusammenhang werden Sie darauf hingewiesen, dass die Datensammlung auf der App-Seite  **Einstellungen** deaktiviert werden kann. Sie können die Einstellung jederzeit aktivieren oder deaktivieren.
 
 ### <a name="codes-in-the-app"></a>Codes in der App
 
@@ -90,6 +94,7 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 ### <a name="device-registration"></a>Geräteregistrierung
 
 **F:** Was ist die Geräteregistrierung?
+
 **A:** Ihre Organisation kann Sie dazu auffordern, Ihr Gerät zu registrieren, um den Zugriff auf gesicherte Ressourcen wie Dateien und Apps nachverfolgen zu können. Sie kann außerdem den bedingten Zugriff aktivieren, um das Risiko des unberechtigten Zugriffs auf diese Ressourcen zu reduzieren. Sie können die Registrierung Ihres Geräts unter **Einstellungen** aufheben, aber dann verlieren Sie möglicherweise den Zugriff auf E-Mails in Outlook, Dateien in OneDrive und die Möglichkeit, die Anmeldung per Telefon zu verwenden.
 
 ### <a name="verification-codes-when-connected"></a>Prüfcodes bei Verbindung
@@ -102,7 +107,7 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 
 **F:** Warum erhalte ich nur dann Benachrichtigungen, wenn die App geöffnet ist? Wenn die App geschlossen ist, erhalte ich keine Benachrichtigungen.
 
-**A:** Wenn Sie auch mit aktiviertem Rufton Benachrichtigungen, aber keine Warnung erhalten, sollten Sie Ihre App-Einstellungen überprüfen. Stellen Sie sicher, dass Sound oder Vibrieren bei Benachrichtigungen für die App aktiviert ist. Wenn Sie überhaupt keine Benachrichtigungen erhalten, überprüfen Sie Folgendes:<ul><li>Ist Ihr Telefon im Nicht-stören-Modus oder stummgeschaltet? Diese Modi können verhindern, dass Apps Benachrichtigungen senden.</li><li>Erhalten Sie Benachrichtigungen von anderen Apps? Wenn dies nicht der Fall ist, liegt möglicherweise ein Problem mit den Netzwerkverbindungen auf Ihrem Mobiltelefon oder mit dem Benachrichtigungskanal von Android oder Apple vor. Sie können versuchen, Ihre Netzwerkverbindungen über Ihre Telefoneinstellungen aufzulösen. Unter Umständen müssen Sie sich an Ihren Internetanbieter wenden, damit dieser mit dem Benachrichtigungskanal von Android oder Apple hilft.</li><li>Können Sie nur für bestimmte Konten in der App Benachrichtigungen erhalten? Falls Ja, entfernen Sie das problematische Konto aus Ihrer App, fügen Sie es erneut hinzu, sodass Benachrichtigungen möglich sind, und prüfen Sie, ob das Problem damit behoben ist.</li></ul>Wenn Sie alle diese Schritte versucht haben und immer noch Probleme auftreten, sollten Sie Ihre Protokolldateien zur Diagnose einsenden. Öffnen Sie die App, wechseln Sie zu **Hilfe**, und wählen Sie dann **Protokolle senden** aus. Wechseln Sie anschließend zum [Internetforum zur Microsoft Authenticator-App](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp), und informieren Sie uns über Ihr Problem und wie Sie bisher versucht haben, es zu lösen.
+**A:** Wenn Sie auch mit aktiviertem Rufton Benachrichtigungen, aber keine Warnung erhalten, sollten Sie Ihre App-Einstellungen überprüfen. Stellen Sie sicher, dass Sound oder Vibrieren bei Benachrichtigungen für die App aktiviert ist. Wenn Sie überhaupt keine Benachrichtigungen erhalten, überprüfen Sie Folgendes:<ul><li>Ist Ihr Telefon im Nicht-stören-Modus oder stummgeschaltet? Diese Modi können verhindern, dass Apps Benachrichtigungen senden.</li><li>Erhalten Sie Benachrichtigungen von anderen Apps? Wenn dies nicht der Fall ist, liegt möglicherweise ein Problem mit den Netzwerkverbindungen auf Ihrem Mobiltelefon oder mit dem Benachrichtigungskanal von Android oder Apple vor. Sie können versuchen, Ihre Netzwerkverbindungen über Ihre Telefoneinstellungen aufzulösen. Unter Umständen müssen Sie sich an Ihren Internetanbieter wenden, damit dieser mit dem Benachrichtigungskanal von Android oder Apple hilft.</li><li>Können Sie nur für bestimmte Konten in der App Benachrichtigungen erhalten? Falls Ja, entfernen Sie das problematische Konto aus Ihrer App, fügen Sie es erneut hinzu, sodass Benachrichtigungen möglich sind, und prüfen Sie, ob das Problem damit behoben ist.</li></ul>Wenn Sie alle diese Schritte versucht haben und immer noch Probleme auftreten, sollten Sie Ihre Protokolldateien zur Diagnose einsenden. Öffnen Sie die App, wechseln Sie zum oberen Menü der App, und wählen Sie  **Feedback senden** aus. Wechseln Sie anschließend zum [Internetforum zur Microsoft Authenticator-App](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp), und informieren Sie Microsoft über Ihr Problem und darüber, wie Sie bisher versucht haben, es zu lösen.
 
 ### <a name="switch-to-push-notifications"></a>Umstellen auf Pushbenachrichtigungen
 
@@ -204,13 +209,13 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 
 **F:** Meine Apple Watch-Begleit-App ist abgestürzt. Kann ich Ihnen meine Absturzprotokolle zur Untersuchung senden?
 
-**A:** Sie müssen zuerst sicherstellen, dass Sie sich entschieden haben, Ihre Analysen für uns freizugeben. Als TestFlight-Benutzer sind Sie bereits registriert. Andernfalls wechseln Sie zu **Einstellungen > Datenschutz > Analyse**, und wählen Sie sowohl die Option **iPhone- und Watch-Analyse freigeben** als auch **Für App-Entwickler freigeben** aus.<br>Nachdem Sie sich angemeldet haben, können Sie versuchen, den Absturz zu reproduzieren, damit Ihre Absturzprotokolle automatisch zur Untersuchung an uns gesendet werden. Wenn Sie den Absturz jedoch nicht reproduzieren können, können Sie die Protokolldateien manuell kopieren und an uns senden.<ol><li>Öffnen die Watch-App auf Ihrem Telefon, wechseln Sie zu **Einstellungen > Allgemein**, und klicken Sie dann auf **Watch-Analyse kopieren**.</li><li>Suchen Sie den entsprechenden Absturz unter **Einstellungen > Datenschutz > Analyse > Analysedaten**, und kopieren Sie dann den gesamten Text manuell.</li><li>Öffnen Sie Authenticator auf Ihrem Telefon, und fügen Sie den kopierten Text auf der Seite **Protokolle senden** in das Textfeld **Share with App Developers** (Mit App-Entwicklern teilen) ein.</li></ol>
+**A:** Sie müssen zuerst sicherstellen, dass Sie sich entschieden haben, Ihre Analysen für uns freizugeben. Als TestFlight-Benutzer sind Sie bereits registriert. Andernfalls wechseln Sie zu **Einstellungen > Datenschutz > Analyse**, und wählen Sie sowohl die Option **iPhone- und Watch-Analyse freigeben** als auch **Für App-Entwickler freigeben** aus.<br>Nachdem Sie sich angemeldet haben, können Sie versuchen, den Absturz zu reproduzieren, damit Ihre Absturzprotokolle automatisch zur Untersuchung an uns gesendet werden. Wenn Sie den Absturz jedoch nicht reproduzieren können, können Sie die Protokolldateien manuell kopieren und an uns senden.<ol><li>Öffnen die Watch-App auf Ihrem Telefon, wechseln Sie zu **Einstellungen > Allgemein**, und klicken Sie dann auf **Watch-Analyse kopieren**.</li><li>Suchen Sie den entsprechenden Absturz unter **Einstellungen > Datenschutz > Analyse > Analysedaten**, und kopieren Sie dann den gesamten Text manuell.</li><li>Öffnen Sie Authenticator auf Ihrem Telefon, und fügen Sie den kopierten Text in das Feld  **Beschreiben Sie das Problem** unter **Sie haben Probleme?** auf der Seite  **Feedback senden** ein. </li></ol>
 
-## <a name="autofill-for-consumers"></a>AutoAusfüllen für Benutzer
+## <a name="autofill-with-authenticator"></a>AutoAusfüllen bei Authenticator
 
-**F:** Was ist AutoAusfüllen in Authenticator?
+**F:** Was ist die AutoAusfüllen-Funktion bei Authenticator?
 
-**A:** Die Authenticator-App speichert Kennwörter für Apps und Websites, die Sie auf Ihrem Smartphone besuchen, nun sicher und füllt sie automatisch aus. Sie können AutoAusfüllen verwenden, um Ihre Kennwörter auf Ihren iOS- und Android-Geräten zu synchronisieren und automatisch auszufüllen. Nachdem Sie die Authenticator-App auf Ihrem Smartphone als Anbieter für AutoAusfüllen eingerichtet haben, bietet sie die Speicherung Ihrer Kennwörter an, wenn Sie diese auf der Anmeldeseite einer Website oder App eingeben. Die Kennwörter werden in [Ihrem Microsoft-Konto](https://account.microsoft.com/account) gespeichert und sind auch verfügbar, wenn Sie sich mit Ihrem Microsoft-Konto bei Microsoft Edge anmelden.
+**A:** Die Authenticator-App speichert Kennwörter für Apps und Websites, die Sie auf Ihrem Smartphone besuchen, nun sicher und füllt sie automatisch aus. Sie können AutoAusfüllen verwenden, um Ihre Kennwörter auf Ihren iOS- und Android-Geräten zu synchronisieren und automatisch auszufüllen. Nachdem Sie die Authenticator-App auf Ihrem Smartphone als Anbieter für AutoAusfüllen eingerichtet haben, bietet sie die Speicherung Ihrer Kennwörter an, wenn Sie diese auf der Anmeldeseite einer Website oder App eingeben. Die Kennwörter werden in [Ihrem persönlichen Microsoft-Konto](https://account.microsoft.com/account) gespeichert und sind auch verfügbar, wenn Sie sich mit Ihrem persönlichen Microsoft-Konto bei Microsoft Edge anmelden.
 
 **F:** Welche Informationen kann die Funktion AutoAusfüllen von Authenticator für mich ausfüllen?
 
@@ -221,23 +226,22 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 **A:** Folgen Sie diesen Schritten:
 
 1. Öffnen Sie die Authenticator-App.
-1. Aktivieren Sie in **Einstellungen** unter **Beta** die Option **AutoAusfüllen**.
 1. Wählen Sie in Authenticator auf der Registerkarte **Kennwörter** die Option **Bei Microsoft anmelden** aus, und melden Sie sich mit [Ihrem Microsoft-Konto](https://account.microsoft.com/account) an. Derzeit unterstützt diese Funktion nur Microsoft-Konten und auch noch keine Geschäfts-, Schul- oder Unikonten.
 
 **F:** Wie lege ich Authenticator als Standardanbieter für AutoAusfüllen auf meinem Smartphone fest?
 
 **A:** Folgen Sie diesen Schritten:
 
-1. Öffnen Sie in Authenticator **Einstellungen**, und aktivieren Sie unter **Beta** die Option **AutoAusfüllen**.
-1. Melden Sie sich in der App auf der Registerkarte **Kennwörter** mit [Ihrem Microsoft-Konto](https://account.microsoft.com/account) an.
+1. Öffnen Sie die Authenticator-App.
+1. Wählen Sie in der App auf der Registerkarte **Kennwörter** die Option **Bei Microsoft anmelden** aus, und melden Sie sich mit [Ihrem Microsoft-Konto](https://account.microsoft.com/account) an.
 1. Führen Sie eines der folgenden Verfahren aus:
 
    - Wählen Sie bei iOS unter **Einstellungen** im Abschnitt „AutoAusfüllen-Einstellungen“ die Option **Aktivieren von AutoAusfüllen** aus, um zu erfahren, wie Sie Authenticator als Standardanbieter für AutoAusfüllen festlegen.
-   - Wählen Sie bei Android unter **Einstellungen** im Abschnitt „AutoAusfüllen-Einstellungen“ die Option **Als AutoAusfüllen-Anbieter festlegen** aus, um Authenticator als Standardanbieter für AutoAusfüllen festzulegen.
+   - Wählen Sie bei Android unter **Einstellungen** im Abschnitt „AutoAusfüllen-Einstellungen“ die Option **Als AutoAusfüllen-Anbieter festlegen** aus.
 
-**F:** Warum ist der Schalter für **AutoAusfüllen** in den Einstellungen ausgegraut?
+**F:** Wie gehe ich vor, wenn **AutoAusfüllen** nicht in den Einstellungen verfügbar ist?
 
-**A:** AutoAusfüllen befindet sich zurzeit in der Betaphase und wurde noch nicht für alle Organisationen oder Kontotypen aktiviert. Wenn der Schalter **AutoAusfüllen** in **Einstellungen** ausgegraut ist, verwenden Sie die Authenticator-App sehr wahrscheinlich mit Ihrem Geschäftskonto. Sie können diese Funktion auf einem Gerät verwenden, auf dem Ihr Geschäftskonto nicht hinzugefügt wurde. Wenn Ihre Organisation mit Microsoft arbeitet, wird der Schalter **AutoAusfüllen** aktiviert, wenn Authenticator ein Geschäftskonto hinzugefügt wurde.
+**A:** Wenn AutoAusfüllen in Authenticator nicht verfügbar ist, ist die Funktion möglicherweise für Ihre Organisation oder Ihren Kontotyp nicht zulässig. Sie können diese Funktion auf einem Gerät verwenden, auf dem Ihr Geschäfts-, Schul- oder Unikonto nicht hinzugefügt wurde. Weitere Informationen zum Zulassen von AutoAusfüllen für Ihre Organisation finden Sie unter [AutoAusfüllen für IT-Administratoren](#autofill-for-it-admins).
 
 **F:** Wie beende ich die Synchronisierung von Kennwörtern?
 
@@ -247,8 +251,8 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 
 **A:** Die Authenticator-App bietet bereits einen hohen Grad an Sicherheit für die mehrstufige Authentifizierung und die Kontoverwaltung, und dieselben hohen Sicherheitsstandards werden auch auf die Verwaltung Ihrer Kennwörter angewandt.
 
-- **Die Authenticator-App erfordert eine strenge Authentifizierung:** Für die Anmeldung bei Authenticator ist ein zweiter Faktor erforderlich. Dies bedeutet, dass auf Ihre Kennwörter in der Authenticator-App auch dann nicht zugegriffen werden kann, wenn jemand das Kennwort Ihres Microsoft-Kontos kennt.
-- **AutoAusfüllen-Daten werden durch Biometriedaten und einen Passcode geschützt:** Bevor Sie das Kennwort für eine App oder Website automatisch ausfüllen können, erfordert Authenticator eine biometrische Kennung oder einen Gerätepasscode. Damit wird sichergestellt, dass selbst dann, wenn eine andere Person Zugriff auf Ihr Gerät hat, Ihr Kennwort nicht ausgefüllt oder angezeigt werden kann, da die biometrischen Daten oder die Geräte-PIN fehlen. Außerdem können Benutzer die Seite „Kennwörter“ nur öffnen, wenn sie die biometrischen Daten oder die PIN bereitstellen. Dies gilt selbst dann, wenn sie die App-Sperre in den App-Einstellungen deaktivieren.
+- **Die Authenticator-App erfordert eine strenge Authentifizierung:** Für die Anmeldung bei Authenticator ist ein zweiter Faktor erforderlich. Dies bedeutet, dass Ihre Kennwörter in der Authenticator-App auch dann geschützt sind, wenn jemand das Kennwort Ihres Microsoft-Kontos kennt.
+- **AutoAusfüllen-Daten werden durch Biometriedaten und einen Passcode geschützt:** Bevor Sie das Kennwort für eine App oder Website automatisch ausfüllen können, erfordert Authenticator eine biometrische Kennung oder einen Gerätepasscode. Dies trägt dazu bei, dass selbst dann, wenn eine andere Person Zugriff auf Ihr Gerät hat, Ihr Kennwort nicht ausgefüllt oder angezeigt werden kann, da die biometrischen Daten oder die Geräte-PIN fehlen. Außerdem können Benutzer die Seite „Kennwörter“ nur öffnen, wenn sie die biometrischen Daten oder die PIN bereitstellen. Dies gilt selbst dann, wenn sie die App-Sperre in den App-Einstellungen deaktivieren.
 - **Verschlüsselte Kennwörter auf dem Gerät:** Die Kennwörter werden auf dem Gerät verschlüsselt, und die Ver-/Entschlüsselungsschlüssel werden niemals gespeichert, sondern immer dynamisch generiert. Kennwörter werden nur entschlüsselt, wenn der Benutzer dies möchte, also während des automatischen Ausfüllens oder wenn der Benutzer das Kennwort anzeigen möchte. Für beide Aktionen sind jedoch die biometrischen Daten oder die PIN erforderlich.
 - **Cloud- und Netzwerksicherheit:** Ihre Kennwörter in der Cloud werden nur ver- und entschlüsselt, wenn sie auf Ihrem Gerät eintreffen. Die Kennwörter werden über eine per SSL geschützte HTTPS-Verbindung synchronisiert, sodass vertrauliche Daten bei der Synchronisierung nicht von Angreifern abgehört werden können. Außerdem wird die Integrität der über das Netzwerk synchronisierten Daten mithilfe kryptografischer Hashfunktionen (insbesondere durch hashbasierte Nachrichtenauthentifizierungscodes) überprüft.
 
@@ -256,11 +260,7 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
 
 **F:** Können meine Mitarbeiter oder Schüler/Studierende AutoAusfüllen für Kennwörter in der Authenticator-App ebenfalls nutzen?
 
-**A:** Nein. Das Feature AutoAusfüllen befindet sich zurzeit in der Betaphase und wurde noch nicht für alle Organisationen oder Kontotypen aktiviert. Wenn Ihre Mitarbeiter oder Schüler/Studierenden ihre Geschäfts-, Schul- oder Unikonten in der Microsoft Authenticator-App hinzugefügt haben, steht ihnen AutoAusfüllen nicht zur Verfügung. Eine Ausnahme von dieser Einschränkung bildet der Fall, dass Mitarbeiter oder Schüler/Studierende ihre Geschäfts-, Schul- oder Unikonten in der cloudbasierten Microsoft Multi-Factor Authentication als [externe Konten oder Konten eines Drittanbieters](user-help-auth-app-add-non-ms-account.md) hinzufügen.
-
-**F:** Kann ich die Funktion AutoAusfüllen für meine Mitarbeiter (oder Schüler/Studierende) verfügbar machen?
-
-**A:** Ja. Um die Funktion für Ihre Mitarbeiter oder Schüler/Studierende zu aktivieren, kann Ihr Unternehmen oder Ihre Bildungseinrichtung einer Positivliste hinzugefügt werden. Wenden Sie sich an einen Support- oder Microsoft-Mitarbeiter, um der Positivliste hinzugefügt zu werden. Wenn Sie ein IT-Administrator für Ihre Organisation sind, können Sie auch ein Formular ausfüllen, um Ihr Interesse an der Aufnahme in die [Allow-List Enterprise for Autofill in Authenticator](https://aka.ms/RequestAutofillInAuthenticator) (Positivliste von Unternehmen für AutoAusfüllen in Authenticator) auszudrücken.
+**A:** Ja, AutoAusfüllen funktioniert jetzt selbst dann für die meisten Unternehmensbenutzer, wenn ein Geschäfts-, Schul- oder Unikonto zur Authenticator-App hinzugefügt wird. Sie können ein Formular ausfüllen, um AutoAusfüllen für Ihre Organisation zu konfigurieren (zulassen oder verweigern), und das Formular [an das Authenticator-Team senden](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **F:** Werden die Kennwörter für Geschäfts-, Schul- oder Unikonten meiner Benutzer automatisch synchronisiert?
 
@@ -268,7 +268,7 @@ Die Microsoft Authenticator-App ersetzt die Azure Authenticator-App und ist die 
   
 **F:** Kann ich nur bestimmte Benutzer meiner Organisation in die Positivliste für AutoAusfüllen aufnehmen?
 
-**A:** Nein. Unternehmen können derzeit AutoAusfüllen für Kennwörter nur für alle oder keine Ihrer Mitarbeiter aktivieren. Diese Steuerungsmöglichkeiten werden schrittweise erweitert.
+**A:** Nein. Unternehmen können derzeit AutoAusfüllen für Kennwörter nur für alle oder keine Ihrer Mitarbeiter aktivieren.
 
 **F:** Was geschieht, wenn meine Mitarbeiter oder Schüler/Studierenden mehrere Geschäfts-, Schul- oder Unikonten haben? Einer meiner Mitarbeiter hat z. B. Konten mehrerer Unternehmen oder Bildungseinrichtungen in Microsoft Authenticator.
 

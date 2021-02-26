@@ -1,20 +1,17 @@
 ---
 title: Pipelines und Aktivitäten in Azure Data Factory
 description: Informationen zu Pipelines und Aktivitäten in Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500076"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364510"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines und Aktivitäten in Azure Data Factory
 
@@ -56,7 +53,7 @@ Datentransformationsaktivität | Compute-Umgebung
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop-Datenströme](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Aktivitäten mit Azure Machine Learning Studio (klassisch): Batchausführung und Ressourcenaktualisierung](transform-data-using-machine-learning.md) | Azure VM
+[Aktivitäten von Azure Machine Learning Studio (Classic): Batchausführung und Ressourcenaktualisierung](transform-data-using-machine-learning.md) | Azure VM
 [Gespeicherte Prozedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics oder SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Benutzerdefinierte Aktivität](transform-data-using-dotnet-custom-activity.md) | Azure Batch

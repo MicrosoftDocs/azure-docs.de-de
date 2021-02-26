@@ -3,18 +3,18 @@ title: 'ML Studio (Classic): Verwalten von Webdiensten – Azure'
 description: Verwalten Sie Ihre neuen und klassischen Webdienste mit maschinellem Lernen im Microsoft Azure Machine Learning Web Services-Portal. Da klassische und neue Webdienste auf unterschiedlichen zugrunde liegenden Technologien basieren, gibt es für beide geringfügig andere Verwaltungsfunktionen.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8b04119f4a9ff702356f942cec5bebed1e23926b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322347"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515936"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Verwalten eines Webdiensts im Azure Machine Learning Studio (klassisch) Web Services-Portal
 
@@ -64,8 +64,8 @@ Um einen Webdienst zu verwalten, klicken Sie auf „Web Services“. Auf der Sei
 
 Wenn Sie auf einen Webdienst klicken, wird die Seite „Quickstart“ des Webdiensts geöffnet. Die Seite „Quickstart“ des Webdienst bietet zwei Menüoptionen, die Ihnen das Verwalten des Webdiensts ermöglichen:
 
-* **DASHBOARD** : Hier können Sie die Nutzung des Webdiensts anzeigen.
-* **CONFIGURE** : Ermöglicht das Hinzufügen von beschreibendem Text, das Aktualisieren des Schlüssels des Speicherkontos, das dem Webdienst zugeordnet ist, sowie das Aktivieren und Deaktivieren von Beispieldaten.
+* **DASHBOARD**: Hier können Sie die Nutzung des Webdiensts anzeigen.
+* **CONFIGURE**: Ermöglicht das Hinzufügen von beschreibendem Text, das Aktualisieren des Schlüssels des Speicherkontos, das dem Webdienst zugeordnet ist, sowie das Aktivieren und Deaktivieren von Beispieldaten.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Überwachen der Nutzung des Webdiensts
 Klicken Sie auf die Registerkarte **DASHBOARD** .
@@ -99,7 +99,7 @@ Klicken Sie auf der Seite „Quickstart“ des Webdiensts auf die Menüoption **
 * **Upgrade/Downgrade** können Sie einen vorhandenen Plan hochskalieren, um Kapazität hinzuzufügen.
 * **Delete** ermöglicht das Löschen eines Plans.
 
-Klicken Sie auf einen Plan, um dessen Dashboard anzuzeigen. Das Dashboard zeigt eine Momentaufnahme der Plannutzung in einem ausgewählten Zeitraum. Klicken Sie rechts oben im Dashboard auf die Dropdownliste **Period** , um den anzuzeigenden Zeitraum auszuwählen. 
+Klicken Sie auf einen Plan, um dessen Dashboard anzuzeigen. Das Dashboard zeigt eine Momentaufnahme der Plannutzung in einem ausgewählten Zeitraum. Klicken Sie rechts oben im Dashboard auf die Dropdownliste **Period**, um den anzuzeigenden Zeitraum auszuwählen. 
 
 Das Dashboard des Plans enthält die folgenden Informationen:
 
@@ -131,8 +131,8 @@ Auf der Seite „Classic Web Service endpoint“ können Sie Endpunkte für den 
 
 Klicken Sie auf einen der Endpunkte, um die Webdienstseite „Quickstart“ zu öffnen. Die Seite „Quickstart“ bietet zwei Menüoptionen, die Ihnen das Verwalten des Webdiensts ermöglichen:
 
-* **DASHBOARD** : Hier können Sie die Nutzung des Webdiensts anzeigen.
-* **CONFIGURE** : Ermöglicht das Hinzufügen von beschreibendem Text, das Ein- und Ausschalten der Fehlerprotokollierung, das Aktualisieren des Schlüssels des Speicherkontos, das dem Webdienst zugeordnet ist, sowie das Aktivieren und Deaktivieren von Beispieldaten.
+* **DASHBOARD**: Hier können Sie die Nutzung des Webdiensts anzeigen.
+* **CONFIGURE**: Ermöglicht das Hinzufügen von beschreibendem Text, das Ein- und Ausschalten der Fehlerprotokollierung, das Aktualisieren des Schlüssels des Speicherkontos, das dem Webdienst zugeordnet ist, sowie das Aktivieren und Deaktivieren von Beispieldaten.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Überwachen der Nutzung des Webdiensts
 Klicken Sie auf die Registerkarte **DASHBOARD** .

@@ -3,12 +3,12 @@ title: Beheben von Problemen bei der Anmeldung bei der Registrierung
 description: Symptome, Ursachen und Lösungen allgemeiner Probleme bei der Anmeldung bei einer Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379501"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052077"
 ---
 # <a name="troubleshoot-registry-login"></a>Beheben von Problemen mit der Registrierungsanmeldung
 
@@ -39,6 +39,8 @@ Mindestens eines der folgenden Probleme kann ein Symptom sein:
 Führen Sie den Befehl [az acr check-health](/cli/azure/acr#az-acr-check-health) aus, um weitere Informationen zur Integrität der Registrierungsumgebung abzurufen und optional Zugriff auf eine Zielregistrierung zu erhalten. Beispielsweise können Sie Docker-Konfigurationsfehler oder Azure Active Directory-Anmeldeprobleme diagnostizieren. 
 
 Befehlsbeispiele finden Sie unter [Überprüfen der Integrität einer Azure Container Registry](container-registry-check-health.md). Wenn Fehler gemeldet werden, überprüfen Sie die [Fehlerreferenz](container-registry-health-error-reference.md) und die folgenden Abschnitte für empfohlene Lösungen.
+
+Wenn Sie Probleme bei Verwendung der Registrierung mit Azure Kubernetes Service haben, führen Sie den Befehl [az aks check-acr](/cli/azure/aks#az_aks_check_acr) aus, um zu überprüfen, ob der Zugriff auf die Registrierung vom AKS-Cluster aus möglich ist.
 
 > [!NOTE]
 > Einige Authentifizierungs- oder Autorisierungsfehler können auch auftreten, wenn es Firewall- oder Netzwerkkonfigurationen gibt, die Zugriff auf die Registrierung verhindern. Weitere Informationen finden Sie unter [Beheben von Netzwerkproblemen mit der Registrierung](container-registry-troubleshoot-access.md).
@@ -79,7 +81,7 @@ Verwandte Links:
 * Wenn Sie einen Active Directory-Dienstprinzipal verwenden, stellen Sie sicher, dass Sie die richtigen Anmeldeinformationen im Active Directory-Mandanten verwenden:
   * User Name (Benutzername): Anwendungs-ID des Dienstprinzipals (auch als *Client-ID* bezeichnet)
   * Password (Kennwort): Kennwort des Dienstprinzipals (auch als *geheimer Clientschlüssel* bezeichnet)
-* Wenn Sie einen Azure-Dienst wie Azure Kubernetes Service oder Azure DevOps für den Zugriff auf die Registrierung verwenden, bestätigen Sie die Registrierungskonfiguration für Ihren Dienst.
+* Wenn Sie einen Azure-Dienst wie Azure Kubernetes Service oder Azure DevOps für den Zugriff auf die Registrierung verwenden, bestätigen Sie die Registrierungskonfiguration für Ihren Dienst. 
 * Wenn Sie `az acr login` mit der `--expose-token`-Option ausgeführt haben, die die Registrierungsanmeldung ohne den Docker-Daemon ermöglicht, stellen Sie sicher, dass Sie sich mit dem Benutzernamen `00000000-0000-0000-0000-000000000000` authentifizieren.
 * Wenn Ihre Registrierung für [anonymen Pullzugriff](container-registry-faq.md#how-do-i-enable-anonymous-pull-access) konfiguriert ist, können vorhandene Docker-Anmeldeinformationen, die von einer früheren Docker-Anmeldung gespeichert wurden, den anonymen Zugriff verhindern. Führen Sie `docker logout` aus, bevor Sie einen anonymen Pullvorgang auf die Registrierung anwenden.
 

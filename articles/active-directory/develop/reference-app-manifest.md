@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 47215070893c6fefd42554fdf4514e4aa8b45047
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491298"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103344"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-App-Manifest
 
@@ -27,13 +27,13 @@ Das Anwendungsmanifest enthält eine Definition aller Attribute eines Anwendungs
 Sie können die Attribute einer App über das Azure-Portal oder programmgesteuert mit der [REST-API](/graph/api/resources/application) oder [PowerShell](/powershell/module/azuread#applications) konfigurieren. Es gibt aber einige Szenarien, in denen Sie das App-Manifest bearbeiten müssen, um das Attribut einer App zu konfigurieren. Zu diesen Szenarien gehören:
 
 * Wenn Sie die App als mehrinstanzenfähige Azure AD-App und für persönliche Microsoft-Konten registriert haben, können Sie die unterstützten Microsoft-Konten nicht über die Benutzeroberfläche ändern. In diesem Fall müssen Sie den unterstützten Kontotyp mithilfe des Anwendungsmanifest-Editors ändern.
-* Wenn Sie Berechtigungen und Rollen definieren müssen, die von Ihrer App unterstützt werden, müssen Sie das Anwendungsmanifest ändern.
+* Zum Definieren der Berechtigungen und Rollen, die von Ihrer App unterstützt werden, müssen Sie das Anwendungsmanifest ändern.
 
 ## <a name="configure-the-app-manifest"></a>Konfigurieren des App-Manifests
 
 Konfigurieren Sie das Anwendungsmanifest wie folgt:
 
-1. Öffnen Sie das <a href="https://portal.azure.com/" target="_blank">Azure-Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Suchen Sie nach dem **Azure Active Directory**-Dienst, und wählen Sie ihn aus.
+1. Öffnen Sie das <a href="https://portal.azure.com/" target="_blank">Azure-Portal</a>. Suchen Sie nach dem **Azure Active Directory**-Dienst, und wählen Sie ihn aus.
 1. Wählen Sie **App-Registrierungen** aus.
 1. Wählen Sie die App aus, die Sie konfigurieren möchten.
 1. Wählen Sie auf der Seite **Übersicht** der App den Abschnitt **Manifest**. Ein webbasierter Manifest-Editor wird geöffnet, mit dem Sie das Manifest im Portal bearbeiten können. Optional können Sie **Herunterladen** wählen, um das Manifest lokal zu bearbeiten, und dann **Hochladen** verwenden, um es wieder auf Ihre Anwendung anzuwenden.
@@ -173,7 +173,8 @@ Konfiguriert den in einem Benutzer- oder OAuth 2.0-Zugriffstoken ausgegebenen An
 - `"None"`
 - `"SecurityGroup"` (für Sicherheitsgruppen und Azure AD-Rollen)
 - `"ApplicationGroup"` (diese Option umfasst nur Gruppen, die der Anwendung zugewiesen sind)
-- `"All"` (damit werden alle Sicherheitsgruppen, Verteilergruppen und Azure AD-Verzeichnisrollen abgerufen, in denen der angemeldete Benutzer ein Mitglied ist)
+- `"DirectoryRole"` (ruft die Azure AD-Verzeichnisrollen ab, in denen der Benutzer Mitglied ist)
+- `"All"` (ruft alle Sicherheitsgruppen, Verteilergruppen und Azure AD-Verzeichnisrollen ab, in denen der angemeldete Benutzer ein Mitglied ist)
 
 Beispiel:
 

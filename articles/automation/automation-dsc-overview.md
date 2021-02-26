@@ -7,15 +7,15 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/22/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 752d7f86941967c218b3a57fa163698b9f502057
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897019"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Übersicht über Azure Automation State Configuration
 
@@ -37,7 +37,7 @@ Wenn Sie Computerkonfigurationen noch nicht in der Cloud verwalten möchten, kö
 
 Azure Automation State Configuration bietet verschiedene Vorteile gegenüber der Verwendung von DSC außerhalb von Azure. Mit diesem Dienst können Sie Skalierbarkeit über Tausende von Computern schnell und einfach von einem zentralen, sicheren Ort aus erreichen. Sie können problemlos Computer aktivieren, ihnen deklarative Konfigurationen zuweisen und Berichte dazu anzeigen, inwieweit jeder Computer mit dem gewünschten Zustand, den Sie angegeben haben, kompatibel ist.
 
-Der Azure Automation DSC-Dienst ist für DSC, was die Azure Automation-Runbooks für PowerShell-Skripts sind. So hilft Azure Automation auf die gleiche Weise wie beim Verwalten von PowerShell-Skripts bei der Verwaltung von DSC-Konfigurationen. 
+Der Azure Automation DSC-Dienst ist für DSC, was die Azure Automation-Runbooks für PowerShell-Skripts sind. So hilft Azure Automation auf die gleiche Weise wie beim Verwalten von PowerShell-Skripts bei der Verwaltung von DSC-Konfigurationen.
 
 ### <a name="built-in-pull-server"></a>Integrierter Pullserver
 
@@ -83,20 +83,11 @@ Für alle Linux-Knoten, die in Azure ausgeführt werden, wird beim Aktivieren de
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>Konfiguration privater Netzwerke
 
-Wenn sich Ihre Knoten in einem privaten Netzwerk befinden, sind die folgenden Ports und URLs erforderlich. Durch diese Ressourcen wird die Netzwerkkonnektivität für den verwalteten Knoten bereitgestellt. Zudem ermöglichen sie die Kommunikation von DSC mit Azure Automation.
-
-* Port: Für ausgehenden Zugriff auf das Internet ist nur TCP 443 erforderlich
-* Globale URL: * **.azure-automation.net**
-* Globale URL von „US Gov Virginia“: * **.azure-automation.us**
-* Agent-Dienst: **https://\<workspaceId\>.agentsvc.azure-automation.net**
-
-Wenn Sie DSC-Ressourcen verwenden, die zwischen Knoten kommunizieren (z. B. [WaitFor*-Ressourcen](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)), müssen Sie auch Datenverkehr zwischen Knoten zulassen. Informationen zu diesen Netzwerkanforderungen finden Sie in der Dokumentation für die einzelnen DSC-Ressourcen.
-
-Informationen zu den Clientanforderungen für TLS 1.2 finden Sie unter [Erzwingen von TLS 1.2 für Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Überprüfen Sie die [Azure Automation-Netzwerkkonfiguration](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration), um ausführliche Informationen zu den Ports, URLs und anderen Netzwerkdetails zu erhalten, die für Knoten in einem privaten Netzwerk erforderlich sind.
 
 #### <a name="proxy-support"></a>Proxyunterstützung
 
-Proxyunterstützung für den DSC-Agent ist in Windows, Version 1809 und höher, verfügbar. Diese Option wird aktiviert, indem die Werte für die Eigenschaften `ProxyURL` und `ProxyCredential` im [Metakonfigurationsskript](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) festgelegt werden, das zum Registrieren von Knoten verwendet wird. 
+Proxyunterstützung für den DSC-Agent ist in Windows, Version 1809 und höher, verfügbar. Diese Option wird aktiviert, indem die Werte für die Eigenschaften `ProxyURL` und `ProxyCredential` im [Metakonfigurationsskript](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) festgelegt werden, das zum Registrieren von Knoten verwendet wird.
 
 >[!NOTE]
 >Azure Automation State Configuration bietet keine DSC-Proxyunterstützung für frühere Windows-Versionen.
@@ -114,4 +105,4 @@ Es wird empfohlen, beim Definieren von Ausnahmen die Adressen aus der Tabelle [D
 - Wie Sie DSC-Konfigurationen kompilieren und sie anschließend Zielknoten zuweisen, erfahren Sie unter [Kompilieren von DSC-Konfigurationen in Azure Automation State Configuration](automation-dsc-compile.md).
 - Ein Anwendungsbeispiel für Azure Automation State Configuration in einer Continuous Deployment-Pipeline finden Sie unter [Einrichten von Continuous Deployment mit Chocolatey](automation-dsc-cd-chocolatey.md).
 - Eine Preisübersicht finden Sie unter [Automation – Preise](https://azure.microsoft.com/pricing/details/automation/).
-- Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Eine Referenz zu den PowerShell-Cmdlets finden Sie unter [Az.Automation](/powershell/module/az.automation).

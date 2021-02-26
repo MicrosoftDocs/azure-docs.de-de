@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063078"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581566"
 ---
 # <a name="co-sell-partner-engagement"></a>Partner-Engagement für Co-Selling
 
@@ -79,6 +79,9 @@ Starten Sie Ihre Co-Selling-Aktivitäten direkt im Partner Center, indem Sie die
 
 1. Speichern Sie den Entwurf, bevor Sie fortfahren.
 1. Nachdem Sie alle erforderlichen Abschnitte des Angebots abgeschlossen haben, können Sie es zum Überprüfen und Veröffentlichen übermitteln. Wählen Sie in der rechten oberen Ecke **Überprüfen und veröffentlichen** aus. Überprüfen Sie die Angebotsdetails, und wählen Sie dann **Veröffentlichen** aus.
+
+> [!NOTE]
+> Sie müssen sich nicht mehr mit uns in Verbindung setzen, um Ihr Angebot für das Co-Selling zu nominieren. Nachdem Sie alle Pflichtfelder auf der Seite „Co-Selling mit Microsoft“ ausgefüllt und Ihr Angebot erneut veröffentlicht haben, überprüfen wir das Angebot, um zu ermitteln, ob es die Anforderungen für das Co-Selling erfüllt.
 
 ## <a name="see-your-offers-co-sell-status"></a>Anzeigen des Co-Selling-Status Ihres Angebots
 

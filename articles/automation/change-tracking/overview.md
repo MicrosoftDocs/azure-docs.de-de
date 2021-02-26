@@ -3,14 +3,14 @@ title: 'Azure Automation: Übersicht über Änderungsnachverfolgung und Bestand'
 description: In diesem Artikel wird das Feature „Änderungsnachverfolgung und Bestand“ beschrieben, mit dem Sie Änderungen an Software und Microsoft-Diensten in Ihrer Umgebung erkennen können.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445420"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896628"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Übersicht über Änderungsnachverfolgung und Bestand
 
@@ -32,7 +32,7 @@ Beim Feature „Änderungsnachverfolgung und Bestand“ werden die [Dateiintegri
 - Microsoft-Dienste
 - Linux-Daemons
 
-Die Aktivierung aller Funktionen von Änderungsnachverfolgung und Bestand kann dazu führen, dass weitere Kosten anfallen. Lesen Sie [Automation – Preise](https://azure.microsoft.com/pricing/details/automation/) und [Azure Monitor – Preise](https://azure.microsoft.com/pricing/details/monitor/), bevor Sie fortfahren. 
+Die Aktivierung aller Funktionen von Änderungsnachverfolgung und Bestand kann dazu führen, dass weitere Kosten anfallen. Lesen Sie [Automation – Preise](https://azure.microsoft.com/pricing/details/automation/) und [Azure Monitor – Preise](https://azure.microsoft.com/pricing/details/monitor/), bevor Sie fortfahren.
 
 Änderungsnachverfolgung und Bestand leitet Daten an Azure Monitor-Protokolle weiter, und diese gesammelten Daten werden in einem Log Analytics-Arbeitsbereich gespeichert. Das Feature zur Dateiintegritätsüberwachung (FIM) ist nur verfügbar, wenn **Azure Defender für Server** aktiviert ist. Weitere Informationen finden Sie unter [Azure Security Center – Preise](../../security-center/security-center-pricing.md). Bei der Dateiintegritätsüberwachung werden Daten in denselben Log Analytics-Arbeitsbereich hochgeladen, der zum Speichern von Daten für Änderungsnachverfolgung und Bestand erstellt wurde. Wir empfehlen Ihnen, Ihren verknüpften Log Analytics-Arbeitsbereich zu überwachen, um die exakte Nutzung nachzuverfolgen. Weitere Informationen zum Analysieren des Datenverbrauchs mit Azure Monitor-Protokollen finden Sie unter [Verwalten von Verbrauch und Kosten](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -74,16 +74,7 @@ Die ausführbare python2-Datei muss dem Alias *python* zugewiesen werden.
 
 ## <a name="network-requirements"></a>Netzwerkanforderungen
 
-Die folgenden Adressen sind speziell für Änderungsnachverfolgung und Bestand erforderlich. Die Kommunikation mit diesen Adressen erfolgt über Port 443.
-
-|Azure – Öffentlich  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
-
-Wenn Sie Netzwerkgruppen-Sicherheitsregeln erstellen oder Azure Firewall so konfigurieren, dass Datenverkehr an den Automation-Dienst und den Log Analytics-Arbeitsbereich zulässig ist, verwenden Sie die [Diensttags](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** und **AzureMonitor**. Dies vereinfacht die laufende Verwaltung Ihrer Netzwerksicherheitsregeln. Wenn Sie von Ihren virtuellen Azure-Computern aus sicher und privat eine Verbindung mit dem Automation-Dienst herstellen möchten, lesen Sie [Verwenden von Azure Private Link](../how-to/private-link-security.md). Um die aktuellen Informationen zu Diensttag und Bereich abzurufen, um sie als Teil Ihrer lokalen Firewallkonfigurationen einzuschließen, sehen Sie die [herunterladbaren JSON-Dateien](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Überprüfen Sie die [Azure Automation-Netzwerkkonfiguration](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory), um ausführliche Informationen zu den Ports, URLs und anderen Netzwerkdetails zu erhalten, die für „Änderungsnachverfolgung und Bestand“ erforderlich sind.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivieren der Lösung für Änderungsnachverfolgung und Bestand
 

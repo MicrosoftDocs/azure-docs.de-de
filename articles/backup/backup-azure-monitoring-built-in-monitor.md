@@ -4,18 +4,29 @@ description: In diesem Artikel erfahren Sie mehr über die Überwachungs- und Be
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173999"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550341"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Überwachen von Azure Backup-Workloads
 
 Azure Backup enthält mehrere Sicherheitslösungen, deren Einsatz von den Anforderungen an die Sicherheit und der Infrastrukturtopologie (lokal oder Azure) abhängt. Alle Benutzer und Administratoren der Sicherung sollten die Vorgänge in allen Lösungen verfolgen können und in wichtigen Fällen benachrichtigt werden. In diesem Artikel werden die Überwachungs- und Benachrichtigungsfunktionen in Azure Backup näher erläutert.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Sicherungselemente im Recovery Services-Tresor
+
+Sie können alle Ihre Sicherungselemente über einen Recovery Services-Tresor überwachen. Wenn Sie im Tresor zum Abschnitt **Sicherungselemente** navigieren, wird eine Ansicht geöffnet, die die Anzahl der mit dem Tresor verbundenen Sicherungselemente jedes Workloadtyps anzeigt. Wenn Sie auf eine beliebige Zeile klicken, wird eine detaillierte Ansicht geöffnet, in der alle Sicherungselemente des angegebenen Workloadtyps aufgelistet sind, mit Informationen zum letzten Sicherungsstatus für jedes Element, dem letzten verfügbaren Wiederherstellungspunkt und so weiter.
+
+![Sicherungselemente des Recovery Services-Tresors](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> Für Elemente, die mit DPM nach Azure gesichert wurden, zeigt die Liste alle mit dem DPM-Server geschützten Datenquellen an (sowohl auf dem Datenträger als auch online). Wird der Schutz für die Datenquelle unter Beibehaltung der Sicherungsdaten beendet, wird die Datenquelle weiterhin im Portal aufgeführt. Sie können zu den Details der Datenquelle navigieren, um zu sehen, ob die Wiederherstellungspunkte auf dem Datenträger, online oder an beiden Orten vorhanden sind. Auch für Datenquellen, deren Onlineschutz beendet wurde, deren Daten aber erhalten bleiben, wird die Abrechnung der Onlinewiederherstellungspunkte fortgesetzt, bis die Daten vollständig gelöscht werden.
+>
+> Die DPM-Version muss DPM 1807 (5.1.378.0) oder DPM 2019 (Version 10.19.58.0 oder höher) sein, damit die Sicherungselemente im Portal des Recovery Services-Tresors sichtbar sind.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Sicherungsaufträge im Recovery Services-Tresor
 
@@ -81,7 +92,7 @@ Diese Ausnahmen wurden eingeführt, da das Ergebnis der oben aufgeführten Vorg�
 
 Je nach Schweregrad der Warnung werden diese drei Arten zugeordnet:
 
-- **Kritisch** : Im Prinzip führt jeder Fehler bei der Sicherung oder Wiederherstellung (geplant oder vom Benutzer ausgelöst) zu einer Warnung, die als „Kritisch“ angezeigt wird. Das gilt auch für destruktive Vorgänge wie das Löschen der Sicherung.
+- **Kritisch**: Im Prinzip führt jeder Fehler bei der Sicherung oder Wiederherstellung (geplant oder vom Benutzer ausgelöst) zu einer Warnung, die als „Kritisch“ angezeigt wird. Das gilt auch für destruktive Vorgänge wie das Löschen der Sicherung.
 - **Warnung:** Wenn der Sicherungsvorgang erfolgreich durchgeführt wurde, aber einige Warnungen auslöst werden, werden diese als „Warnung“ aufgeführt. Warnungen sind zurzeit nur für Sicherungen des Azure Backup-Agents verfügbar.
 - **Informativ:** Derzeit werden keine informativen Warnungen von Azure Backup generiert.
 
@@ -105,7 +116,7 @@ Wenn die Häufigkeit auf eine stündliche Übersicht festgelegt und eine Warnung
 
 ## <a name="inactivating-alerts"></a>Deaktivieren von Warnungen
 
-Um eine aktive Warnung zu deaktivieren bzw. aufzulösen, können Sie das Listenelement auswählen, das der Warnung entspricht, die Sie deaktivieren möchten. Dadurch wird ein Bildschirm geöffnet, auf dem detaillierte Informationen zur Warnung angezeigt werden. Oberhalb der Warnung finden Sie eine Schaltfläche zum **Deaktivieren** . Wenn Sie diese Schaltfläche auswählen, ändert sich der Status der Warnung zu **Inaktiv** . Sie können eine Warnung auch deaktivieren, indem Sie mit der rechten Maustaste auf das Listenelement klicken, das dieser Warnung entspricht, und dann **Deaktivieren** auswählen.
+Um eine aktive Warnung zu deaktivieren bzw. aufzulösen, können Sie das Listenelement auswählen, das der Warnung entspricht, die Sie deaktivieren möchten. Dadurch wird ein Bildschirm geöffnet, auf dem detaillierte Informationen zur Warnung angezeigt werden. Oberhalb der Warnung finden Sie eine Schaltfläche zum **Deaktivieren**. Wenn Sie diese Schaltfläche auswählen, ändert sich der Status der Warnung zu **Inaktiv**. Sie können eine Warnung auch deaktivieren, indem Sie mit der rechten Maustaste auf das Listenelement klicken, das dieser Warnung entspricht, und dann **Deaktivieren** auswählen.
 
 ![Deaktivieren einer Warnung zum Recovery Services-Tresor](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

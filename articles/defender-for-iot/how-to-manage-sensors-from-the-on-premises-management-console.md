@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624590"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523956"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Verwalten von Sensoren über die Verwaltungskonsole
 
@@ -315,6 +315,6 @@ Zum Einrichten eines SMB-Servers für das Speichern einer Sensorsicherung auf ei
 
 9. Legen Sie `Backup.shared_location` auf `<backup_folder_name_on_cyberx_server>` fest.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="next-steps"></a>Nächste Schritte
 
 [Verwalten einzelner Sensoren](how-to-manage-individual-sensors.md)

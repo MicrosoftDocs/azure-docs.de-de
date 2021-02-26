@@ -2,19 +2,19 @@
 title: Authentifizieren bei Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Erfahren Sie mehr über die Möglichkeiten, wie sich eine App oder ein Dienst bei Communication Services authentifizieren kann.
-author: matthewrobertson
+author: GrantMeStrength
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e20c822c2e792c67ed655080385a3c90794d53fd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571095"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545138"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Authentifizieren bei Azure Communication Services
 
@@ -72,11 +72,11 @@ Wenn Sie keine Clientbibliothek verwenden, um HTTP-Anforderungen an die REST-API
 
 Benutzerzugriffstoken ermöglichen die direkte Authentifizierung Ihrer Clientanwendungen bei Azure Communication Services. Hierzu müssen Sie einen vertrauenswürdigen Dienst einrichten, der die Anwendungsbenutzer authentifiziert und mit der Clientbibliothek „Administration“ Benutzerzugriffstoken ausstellt. Informieren Sie sich in der konzeptionellen Dokumentation zur [Client- und Serverarchitektur](./client-and-server-architecture.md), um mehr über unsere Überlegungen zur Architektur zu erfahren.
 
-Die `CommunicationUserCredential`-Klasse enthält die Logik zur Bereitstellung von Anmeldeinformationen mittels Benutzerzugriffstoken für die Clientbibliotheken und zur Verwaltung ihres Lebenszyklus.
+Die `CommunicationTokenCredential`-Klasse enthält die Logik zur Bereitstellung von Anmeldeinformationen mittels Benutzerzugriffstoken für die Clientbibliotheken und zur Verwaltung ihres Lebenszyklus.
 
 ### <a name="initialize-the-client-libraries"></a>Initialisieren der Clientbibliotheken
 
-Zur Initialisierung der Clientbibliotheken von Azure Communication Services, die eine Authentifizierung per Benutzerzugriffstoken erfordern, erstellen Sie zunächst eine Instanz der `CommunicationUserCredential`-Klasse und verwenden diese dann zur Initialisierung eines API-Clients.
+Zur Initialisierung der Clientbibliotheken von Azure Communication Services, die eine Authentifizierung per Benutzerzugriffstoken erfordern, erstellen Sie zunächst eine Instanz der `CommunicationTokenCredential`-Klasse und verwenden diese dann zur Initialisierung eines API-Clients.
 
 Die folgenden Ausschnitte zeigen, wie Sie die Clientbibliothek „Chat“ mit einem Benutzerzugriffstoken initialisieren können:
 
@@ -86,8 +86,8 @@ Die folgenden Ausschnitte zeigen, wie Sie die Clientbibliothek „Chat“ mit ei
 // user access tokens should be created by a trusted service using the Administration client library
 var token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-var userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+var userCredential = new CommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -99,8 +99,8 @@ var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
-const userCredential = new AzureCommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
+const userCredential = new AzureCommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -112,8 +112,8 @@ let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 let token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-let userCredential = try CommunicationUserCredential(token: token)
+// create a CommunicationTokenCredential instance
+let userCredential = try CommunicationTokenCredential(token: token)
 
 // initialize the chat client library with the credential
 let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
@@ -125,8 +125,8 @@ let chatClient = try CommunicationChatClient(credential: userCredential, endpoin
 // user access tokens should be created by a trusted service using the Administration client library
 String token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-CommunicationUserCredential userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
 
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
@@ -140,12 +140,12 @@ ChatClient chatClient = builder.buildClient();
 
 ### <a name="refreshing-user-access-tokens"></a>Aktualisieren von Benutzerzugriffstoken
 
-Benutzerzugriffstoken sind kurzlebige Anmeldeinformationen, die neu ausgestellt werden müssen, um Dienstunterbrechungen für Ihre Benutzer zu vermeiden. Der Konstruktor `CommunicationUserCredential` akzeptiert eine Rückruffunktion zur Aktualisierung, mit der Sie Benutzerzugriffstoken aktualisieren können, ehe sie ablaufen. Sie sollten diesen Rückruf verwenden, um ein neues Benutzerzugriffstoken von Ihrem vertrauenswürdigen Dienst abzurufen.
+Benutzerzugriffstoken sind kurzlebige Anmeldeinformationen, die neu ausgestellt werden müssen, um Dienstunterbrechungen für Ihre Benutzer zu vermeiden. Der Konstruktor `CommunicationTokenCredential` akzeptiert eine Rückruffunktion zur Aktualisierung, mit der Sie Benutzerzugriffstoken aktualisieren können, ehe sie ablaufen. Sie sollten diesen Rückruf verwenden, um ein neues Benutzerzugriffstoken von Ihrem vertrauenswürdigen Dienst abzurufen.
 
 #### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-var userCredential = new CommunicationUserCredential(
+var userCredential = new CommunicationTokenCredential(
     initialToken: token,
     refreshProactively: true,
     tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
@@ -155,7 +155,7 @@ var userCredential = new CommunicationUserCredential(
 #### <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new AzureCommunicationUserCredential({
+const userCredential = new AzureCommunicationTokenCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
@@ -165,7 +165,7 @@ const userCredential = new AzureCommunicationUserCredential({
 #### <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
- let userCredential = try CommunicationUserCredential(initialToken: token, refreshProactively: true) { |completionHandler|
+ let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
    let updatedToken = fetchTokenForCurrentUser()
    completionHandler(updatedToken, nil)
  }
@@ -181,7 +181,7 @@ TokenRefresher tokenRefresher = new TokenRefresher() {
     }
 }
 
-CommunicationUserCredential credential = new CommunicationUserCredential(tokenRefresher, token, true);
+CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
 ```
 ---
 

@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409891"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389449"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Verhindern verwaister DNS-Einträge und Vermeiden von Unterdomänenübernahmen
 
 In diesem Artikel werden die allgemeinen Sicherheitsrisiken einer Unterdomänenübernahme und die Schritte beschrieben, die Sie ergreifen können, um dieses Problem abzuschwächen.
 
 
-## <a name="what-is-subdomain-takeover"></a>Was bedeutet Unterdomänenübernahme?
+## <a name="what-is-a-subdomain-takeover"></a>Was ist eine Unterdomänenübernahme?
 
 Unterdomänenübernahmen sind häufige Bedrohungen mit hohem Schweregrad für Unternehmen, die regelmäßig viele Ressourcen erstellen und löschen. Eine Unterdomänenübernahme kann auftreten, wenn Sie über einen [DNS-Eintrag](../../dns/dns-zones-records.md#dns-records) verfügen, der auf eine Azure-Ressource verweist, deren Bereitstellung aufgehoben wurde. Solche DNS-Einträge werden auch als „verwaiste DNS“-Einträge bezeichnet. CNAME-Einträge sind besonders anfällig für diese Bedrohung. Durch die Übernahme von Unterdomänen können böswillige Akteure Datenverkehr, der für die Domäne eines Unternehmens bestimmt ist, an eine Website für schädliche Aktivitäten umleiten.
 
@@ -119,7 +119,7 @@ Wenn Sie ein globaler Administrator des Mandanten Ihrer Organisation sind, erhö
 
 ### <a name="run-the-script"></a>Ausführen des Skripts
 
-Unter https://aka.ms/DanglingDNSDomains können Sie das PowerShell-Skript **Get-DanglingDnsRecords.ps1** von GitHub herunterladen, und Sie erhalten weitere Informationen dazu.
+Unter https://aka.ms/Get-DanglingDnsRecords können Sie das PowerShell-Skript **Get-DanglingDnsRecords.ps1** von GitHub herunterladen, und Sie erhalten weitere Informationen dazu.
 
 ## <a name="remediate-dangling-dns-entries"></a>Behandeln verwaister DNS-Einträge 
 
@@ -144,6 +144,15 @@ Ein wichtiger Teil des Sicherheitsprogramms besteht darin, sicherzustellen, dass
 
 Einige Azure-Dienste bieten Features, die Sie bei der Erstellung vorbeugender Maßnahmen unterstützen. Diese werden weiter unten ausführlicher beschrieben. Andere Methoden zur Vermeidung dieses Problems müssen über Best Practices oder Standards Ihrer Organisation implementiert werden.
 
+### <a name="enable-azure-defender-for-app-service"></a>Aktivieren von Azure Defender für App Service
+
+Azure Defender ist die Cloud Workload Protection Platform (CWPP) von Azure Security Center und bietet eine Reihe von Plänen zum Schützen Ihrer Azure-Ressourcen sowie Hybrid- und Multicloudressourcen und -workloads.
+
+Der Plan **Azure Defender für App Service** umfasst das Erkennen verwaister DNS-Einträge. Wenn dieser Plan aktiviert ist, erhalten Sie Sicherheitswarnungen, wenn Sie eine App Service-Website außer Betrieb nehmen, aber nicht ihre benutzerdefinierte Domäne aus Ihrer DNS-Registrierungsstelle entfernen.
+
+Der Azure Defender-Schutz vor verwaisten DNS-Einträgen ist unabhängig davon verfügbar, ob Ihre Domänen mit Azure DNS oder mit einer externen Domänenregistrierungsstelle verwaltet werden. Der Schutz gilt sowohl für App Service unter Windows als auch für App Service unter Linux.
+
+Weitere Informationen zu diesem und anderen Vorteilen des Azure Defender-Plans finden Sie unter [Einführung in Azure Defender für App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Verwenden von Azure DNS-Aliaseinträgen
 
@@ -201,6 +210,8 @@ Entwickler und Betriebsteams müssen häufig Bereinigungsprozesse durchführen, 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Weitere Informationen zu verwandten Diensten und Azure-Features, die Sie verwenden können, um sich vor Unterdomänenübernahmen zu schützen, finden Sie auf den folgenden Seiten.
+
+- [Aktivieren von Azure Defender für App Service](../../security-center/defender-for-app-service-introduction.md), um Warnungen zu erhalten, wenn verwaiste DNS-Einträge erkannt werden
 
 - [Vermeiden verwaister DNS-Einträge](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

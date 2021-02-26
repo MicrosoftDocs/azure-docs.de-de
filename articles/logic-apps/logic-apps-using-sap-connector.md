@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786689"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575482"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Herstellen einer Verbindung zu SAP-Systemen: Azure Logic Apps
 
@@ -504,7 +504,7 @@ Wenn Sie keine IDoc-Pakete von SAP an den Trigger Ihrer Logik-App senden können
   * Damit diese Segmente von SAP freigegeben werden, wenden Sie sich an den ABAP-Techniker Ihres SAP-Systems.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Asynchrone Anforderung/Antwort für Trigger
 
-Der SAP-Connector unterstützt das [asynchrone Anforderung/Antwort-Muster von Azure](/azure/architecture/patterns/async-request-reply.md) für Logic Apps-Trigger. Sie können dieses Muster verwenden, um erfolgreiche Anforderungen zu erstellen, die andernfalls mit dem standardmäßigen synchronen Anforderung/Antwort-Muster fehlschlagen würden. 
+Der SAP-Connector unterstützt das [asynchrone Anforderung/Antwort-Muster von Azure](/azure/architecture/patterns/async-request-reply) für Logic Apps-Trigger. Sie können dieses Muster verwenden, um erfolgreiche Anforderungen zu erstellen, die andernfalls mit dem standardmäßigen synchronen Anforderung/Antwort-Muster fehlschlagen würden. 
 
 > [!TIP]
 > In Logik-Apps mit mehreren Antwortaktionen müssen alle Antwortaktionen dasselbe Anforderung/Antwort-Muster verwenden. Wenn Ihre Logik-App z. B. ein Switch-Steuerelement mit mehreren möglichen Antwortaktionen verwendet, müssen Sie alle Antwortaktionen so konfigurieren, dass sie dasselbe Anforderung/Antwort-Muster verwenden, entweder synchron oder asynchron. 
@@ -528,6 +528,18 @@ So konfigurieren Sie ein asynchrones Anforderung/Antwort-Muster für Ihre Logik-
 Vollständige Fehlermeldungen finden Sie in den erweiterten Protokolle Ihres SAP-Adapters. Sie können auch [eine erweiterte Protokolldatei für den SAP-Connector aktivieren](#extended-sap-logging-in-on-premises-data-gateway).
 
 Für lokale Datengatewayreleases ab Juni 2020 und später können Sie [Gatewayprotokolle in den App-Einstellungen aktivieren](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
+
+* Der Standardprotokolliergrad ist **Warnung**.
+
+* Wenn Sie **Zusätzliche Protokollierung** in den Einstellungen für die **Diagnose** der lokalen Datengateway-App aktivieren, wird der Protokolliergrad auf **Information** erhöht.
+
+* Um den Protokolliergrad auf **Ausführlich** zu erhöhen, aktualisieren Sie die folgende Einstellung in Ihrer Konfigurationsdatei. Normalerweise befindet sich die Konfigurationsdatei unter `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 Für lokale Datengatewayreleases ab April 2020 und früher sind Protokolle standardmäßig deaktiviert.
 

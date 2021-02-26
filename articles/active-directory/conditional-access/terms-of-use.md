@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232776"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919628"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Nutzungsbedingungen für Azure Active Directory
 
@@ -30,7 +30,7 @@ Das folgende Video enthält eine kurze Übersicht über Richtlinien für Nutzung
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Weitere Videos finden Sie unter:
+Weitere Videos:
 - [How to deploy a terms of use policy in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY) (Bereitstellen einer Richtlinie für Nutzungsbedingungen in Azure Active Directory)
 - [How to roll out a terms of use policy in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY) (Umsetzen einer Richtlinie für Nutzungsbedingungen in Azure Active Directory)
 
@@ -183,7 +183,7 @@ Gehen Sie wie folgt vor, um mit der Verwendung von Azure AD-Überwachungsprotoko
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Darstellung der Nutzungsbedingungen für Benutzer
 
-Wenn eine Richtlinie für Nutzungsbedingungen erstellt wurde und erzwungen wird, sehen die betroffenen Benutzern bei der Anmeldung folgenden Bildschirm.
+Wenn eine Richtlinie für Nutzungsbedingungen erstellt wurde und erzwungen wird, wird den betroffenen Benutzern bei der Anmeldung folgender Bildschirm angezeigt.
 
 ![Beispiel für Nutzungsbedingungen, die angezeigt werden, wenn sich ein Benutzer anmeldet](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Benutzer können die Richtlinie für Nutzungsbedingungen anzeigen und bei Bedarf
 
 ![Ansicht der Nutzungsbedingungen mit Zoomschaltflächen](./media/terms-of-use/zoom-buttons.png)
 
-Der folgende Bildschirm veranschaulicht die Darstellung der Richtlinie für Nutzungsbedingungen auf mobilen Geräten.
+Im folgenden Bildschirm wird die Darstellung der Richtlinie für Nutzungsbedingungen auf mobilen Geräten veranschaulicht.
 
 ![Beispiel für Nutzungsbedingungen, die angezeigt werden, wenn sich ein Benutzer auf einem mobilen Gerät anmeldet](./media/terms-of-use/mobile-tou.png)
 
@@ -226,7 +226,7 @@ Sie können einige Details der Richtlinien für Nutzungsbedingungen bearbeiten, 
     - (Vorschau:) Sie können ein vorhandenes Dokument mit **Nutzungsbedingungen aktualisieren**.
     - Sie können vorhandenen Nutzungsbedingungen eine Sprache hinzufügen.
 
-   Wenn Sie andere Einstellungen ändern möchten, z. B. das PDF-Dokument, die Optionen „Zustimmung der Benutzer auf jedem Gerät erforderlich“, „Ablauf für Einwilligungen“ und „Zeitraum bis erneute Zustimmung erforderlich ist (Tage)“ oder die Richtlinie für bedingten Zugriff, müssen Sie neue Richtlinie für Nutzungsbedingungen erstellen.
+   Wenn Sie andere Einstellungen ändern möchten, z. B. das PDF-Dokument, die Optionen „Zustimmung der Benutzer auf jedem Gerät erforderlich“, „Ablauf für Einwilligungen“ und „Zeitraum bis erneute Zustimmung erforderlich ist (Tage)“ oder die Richtlinie für bedingten Zugriff, müssen Sie eine neue Richtlinie für Nutzungsbedingungen erstellen.
 
     ![Bearbeiten der Anzeige unterschiedlicher Sprachoptionen ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Sie können einige Details der Richtlinien für Nutzungsbedingungen bearbeiten, 
 7.  Nachdem Sie Ihre neue PDF-Datei hochgeladen und die Option für die erneute Annahme festgelegt haben, klicken Sie unten im Bereich auf „Hinzufügen“.
 8.  Die neueste Version wird nun in der Spalte „Dokument“ angezeigt.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Anzeigen früherer Versionen von Nutzungsbedingungen
+## <a name="view-previous-versions-of-a-tou"></a>Anzeigen früherer Versionen von Nutzungsbedingungen
 
 1.  Melden Sie sich unter https://aka.ms/catou bei Azure an, und navigieren Sie zu **Nutzungsbedingungen**.
 2.  Wählen Sie die Richtlinie für Nutzungsbedingungen aus, für die Sie den Versionsverlauf anzeigen möchten.
@@ -266,12 +266,12 @@ Sie können einige Details der Richtlinien für Nutzungsbedingungen bearbeiten, 
 2.  Um festzustellen, wer die Nutzungsbedingungen aktuell akzeptiert hat, klicken Sie auf die Zahl in der Spalte **Akzeptiert** für die gewünschten Nutzungsbedingungen.
 3.  Auf der nächsten Seite wird standardmäßig der aktuelle Status aller Benutzer angezeigt, die den Nutzungsbedingungen zugestimmt haben.
 4.  Wenn Sie auch frühere Einwilligungen anzeigen möchten, wählen Sie in der Dropdownliste **Aktueller Status** die Option **Alle** aus. Damit zeigen Sie Details für sämtliche Benutzerereignisse zu jeder Version mit der entsprechenden Aktion an.
-5.  Alternativ können Sie eine bestimmte Version in der Dropdownliste **Version** auswählen, um festzustellen, wer diese spezielle Version akzeptiert hat.
+5.  Alternativ können Sie in der Dropdownliste **Version** eine bestimmte Version auswählen, um anzuzeigen, wer diese spezielle Version akzeptiert hat.
 
 
-## <a name="add-a-terms-of-use-language"></a>Hinzufügen einer Sprache der Nutzungsbedingungen
+## <a name="add-a-tou-language"></a>Hinzufügen einer Sprache für Nutzungsbedingungen
 
-Im Folgenden wird das Verfahren zum Hinzufügen einer Sprache der Nutzungsbedingungen beschrieben.
+Im Folgenden wird das Verfahren zum Hinzufügen einer Sprache für die Nutzungsbedingungen beschrieben.
 
 1. Melden Sie sich unter [https://aka.ms/catou](https://aka.ms/catou) bei Azure an, und navigieren Sie zu **Nutzungsbedingungen**.
 1. Wählen Sie die Richtlinie für Nutzungsbedingungen aus, die Sie bearbeiten möchten.
@@ -344,9 +344,13 @@ Veraltete Richtlinien für Nutzungsbedingungen können wie folgt gelöscht werde
 
    Ihre Richtlinie für Nutzungsbedingungen wird nicht mehr angezeigt.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Gelöschte Benutzer und aktive Nutzungsbedingungen
+## <a name="user-acceptance-record-deletion"></a>Löschen von Datensätzen zur Benutzerakzeptanz
 
-Ein gelöschter Benutzer befindet sich in Azure AD standardmäßig 30 Tage lang in einem gelöschten Zustand. In diesem Zeitraum kann er von einem Administrator wiederhergestellt werden, sofern erforderlich. Nach 30 Tagen wird dieser Benutzer endgültig gelöscht. Darüber hinaus kann ein globaler Administrator über das Azure Active Directory-Portal explizit [einen kürzlich gelöschten Benutzer endgültig löschen](../fundamentals/active-directory-users-restore.md), bevor dieser Zeitraum abgelaufen ist. Wurde ein Benutzer endgültig gelöscht, werden nachfolgende Daten zu diesem Benutzer aus der aktiven Richtlinie für Nutzungsbedingungen entfernt. Überwachungsinformationen zu gelöschten Benutzern verbleiben im Überwachungsprotokoll.
+Datensätze zur Benutzerakzeptanz werden unter folgenden Bedingungen gelöscht:
+
+- Die Nutzungsbedingungen werden explizit vom Administrator gelöscht. In diesem Fall werden alle Datensätze zur Benutzerakzeptanz, die diesen speziellen Nutzungsbedingungen zugeordnet sind, ebenfalls gelöscht.
+- Der Mandant verliert seine Active Azure Active Directory Premium-Lizenz.
+- Der Mandant wird gelöscht.
 
 ## <a name="policy-changes"></a>Richtlinienänderungen
 

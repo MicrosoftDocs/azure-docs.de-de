@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451572"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576362"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatisieren von Aufgaben zur Verarbeitung von E-Mails mithilfe von Azure Logic Apps, Azure Functions und Azure Storage
 
@@ -36,7 +36,7 @@ Am Ende entspricht Ihre Logik-App grob dem folgenden Workflow:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/).
+* Ein Azure-Konto und ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/).
 
 * Ein E-Mail-Konto eines von Logic Apps unterstützten E-Mail-Anbieters wie etwa Office 365 Outlook, Outlook.com oder Gmail. Informationen zu Connectors für andere Anbieter finden Sie in [dieser Liste](/connectors/).
 
@@ -46,6 +46,8 @@ Am Ende entspricht Ihre Logik-App grob dem folgenden Workflow:
   > Wenn Sie den Gmail-Connector verwenden möchten, können nur G-Suite-Geschäftskonten diesen Connector ohne Einschränkung in Logik-Apps verwenden. Wenn Sie über ein Gmail-Consumerkonto verfügen, können Sie diesen Connector nur mit bestimmten von Google genehmigten Diensten verwenden, oder Sie können [eine Google-Client-App erstellen, die für die Authentifizierung mit Ihrem Gmail-Connector verwendet werden soll](/connectors/gmail/#authentication-and-bring-your-own-application). Weitere Informationen finden Sie unter [Datensicherheit und Datenschutzrichtlinien für Google-Connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Laden Sie den kostenlosen [Microsoft Azure Storage-Explorer](https://storageexplorer.com/) herunter, und installieren Sie ihn. Mit diesem Tool können Sie überprüfen, ob Ihr Speichercontainer ordnungsgemäß eingerichtet ist.
+
+* Falls Ihre Logik-App über eine Firewall kommunizieren muss, mit der der Datenverkehr auf bestimmte IP-Adressen beschränkt wird, muss Folgendes sichergestellt sein: In der Firewall muss der Zugriff für IP-Adressen, die vom Logic Apps-Dienst oder der Runtime in der Azure-Region Ihrer Logik-App genutzt werden, in [eingehender](logic-apps-limits-and-config.md#inbound) *und* [ausgehender](logic-apps-limits-and-config.md#outbound) Richtung zugelassen sein. Falls für Ihre Logik-App auch [verwaltete Connectors](../connectors/apis-list.md#managed-api-connectors) (Office 365 Outlook-Connector oder SQL-Connector) oder [benutzerdefinierte Connectors](/connectors/custom-connectors/) verwendet werden, muss in der Firewall in der Azure-Region Ihrer Logik-App zusätzlich der Zugriff für *alle* [ausgehenden IP-Adressen der verwalteten Connectors](logic-apps-limits-and-config.md#outbound) zulässig sein.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Einrichten von Speicher zum Speichern von Anlagen
 
@@ -86,7 +88,7 @@ Eingehende E-Mails und Anlagen können als Blobs in einem [Azure-Speichercontain
 
       ![Kopieren und Speichern von Speicherkontoname und -schlüssel](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Sie können auch [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) oder die [Azure CLI](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list) verwenden, um den Zugriffsschlüssel Ihres Speicherkontos abzurufen.
+   Sie können auch [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) oder die [Azure CLI](/cli/azure/storage/account/keys) verwenden, um den Zugriffsschlüssel Ihres Speicherkontos abzurufen.
 
 1. Erstellen Sie einen Blobspeichercontainer für Ihre E-Mail-Anlagen.
 
@@ -102,7 +104,7 @@ Eingehende E-Mails und Anlagen können als Blobs in einem [Azure-Speichercontain
 
       ![Fertiger Speichercontainer](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Sie können auch [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) oder die [Azure-Befehlszeilenschnittstelle](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) verwenden, um einen Speichercontainer zu erstellen.
+   Sie können auch [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) oder die [Azure-Befehlszeilenschnittstelle](/cli/azure/storage/container#az-storage-container-create) verwenden, um einen Speichercontainer zu erstellen.
 
 Stellen Sie als Nächstes eine Storage-Explorer-Verbindung mit Ihrem Speicherkonto her.
 

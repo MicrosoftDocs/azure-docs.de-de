@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250163"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652357"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Veröffentlichen einer Gatsby-Website in Azure Static Web Apps (Vorschauversion)
 
@@ -75,7 +75,7 @@ Sie benötigen ein Repository auf GitHub, um eine neue Azure Static Web Apps-Res
 1. Übertragen Sie Ihr lokales Repository auf GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Bereitstellen Ihrer Web-App
@@ -102,7 +102,7 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue statische Website-App
 
 1. Wählen Sie unter _SKU_ die Option **Free** aus.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Eingegebene Details":::
 
 1. Klicken Sie auf die Schaltfläche **Mit GitHub anmelden**.
 
@@ -110,9 +110,9 @@ In den folgenden Schritten wird gezeigt, wie Sie eine neue statische Website-App
 
 1. Wählen Sie unter _Repository_ die Option **gatsby-static-web-app** aus.
 
-1. Wählen Sie unter _Branch_ die Option **Master** aus.
+1. Wählen Sie unter _Branch_ die Option **main** aus.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Eingegebene GitHub-Informationen":::
 
 ### <a name="build"></a>Entwickeln
 
@@ -126,7 +126,7 @@ Fügen Sie als Nächstes Konfigurationseinstellungen hinzu, die beim Buildprozes
 
    Ein Wert für _API-Speicherort_ ist nicht erforderlich, da Sie hier keine API bereitstellen.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Buildeinstellungen":::
 
 ### <a name="review-and-create"></a>Überprüfen und Erstellen
 
@@ -138,7 +138,7 @@ Fügen Sie als Nächstes Konfigurationseinstellungen hinzu, die beim Buildprozes
 
 1. Klicken Sie auf dem Ressourcenbildschirm auf den Link _URL_, um Ihre bereitgestellte Anwendung zu öffnen. Sie müssen ggf. ein bis zwei Minuten warten, bis der GitHub Actions-Vorgang abgeschlossen ist.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Erstellen einer statischen Web-App (Vorschau) im Portal":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Bereitgestellte Anwendung":::
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

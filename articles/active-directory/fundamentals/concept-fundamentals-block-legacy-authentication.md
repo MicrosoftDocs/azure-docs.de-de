@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973710"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895287"
 ---
 # <a name="blocking-legacy-authentication"></a>Blockieren der Legacyauthentifizierung
  
@@ -37,6 +37,7 @@ Bevor Sie die Legacyauthentifizierung in Ihrem Verzeichnis blockieren können, m
 1. Filtern Sie nach **Client-App**, und aktivieren Sie alle angezeigten Optionen für **Legacy-Authentifizierungsclients**.
 1. Filtern Sie nach **Status** > **Erfolg**. 
 1. Erweitern Sie ggf. den Datumsbereich mithilfe des Filters **Datum**.
+1. Wenn Sie die [neuen Berichte zu Anmeldeaktivitäten (Vorschau)](../reports-monitoring/concept-all-sign-ins.md) aktiviert haben, wiederholen Sie die obigen Schritte auch auf der Registerkarte **Benutzeranmeldungen (nicht interaktiv)** .
 
 Beim Filtern werden nur erfolgreiche Anmeldeversuche der ausgewählten Legacyauthentifizierungsprotokolle angezeigt. Bei Klicken auf jeden einzelnen Anmeldeversuch werden Ihnen weitere Details angezeigt. Wenn Sie eine einzelne Datenzeile auswählen, wird in der Spalte „Client-App“ oder im Feld „Client-App“ (auf der Registerkarte „Grundlegende Infos“) angezeigt, welches Legacyauthentifizierungsprotokoll verwendet wurde. Diese Protokolle geben an, welche Benutzer weiterhin von der Legacyauthentifizierung abhängig sind, und welche Anwendungen ältere Protokolle für Authentifizierungsanforderungen verwenden. Für Benutzer, die nicht in diesen Protokollen aufgeführt sind und für die bestätigt wurde, dass sie keine veraltete Authentifizierungsmethode verwenden, implementieren Sie eine Richtlinie für bedingten Zugriff. Oder aktivieren Sie nur für diese Benutzer die Basisrichtlinie zum Blockieren der Legacyauthentifizierung.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517967"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938564"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Szenario: Weiterleiten von Datenverkehr über virtuelle Netzwerkgeräte (Network Virtual Appliances, NVAs) mithilfe benutzerdefinierter Einstellungen
 
@@ -57,6 +57,9 @@ Es gibt drei verschiedene Konnektivitätsmuster, die in drei Routingtabellen üb
 * Branches:
   * Zugeordnete Routingtabelle: **Standard**
   * Weitergabe an Routingtabellen: **RT_SHARED** und **Standard**
+
+> [!NOTE] 
+> Stellen Sie sicher, dass die Spoke-VNets nicht an die Standardbezeichnung weitergegeben werden. Dadurch wird sichergestellt, dass der Datenverkehr von Branches zu Spoke-VNets an die NVAs weitergeleitet wird.
 
 Diese statischen Routen stellen sicher, dass der Datenverkehr zum und vom virtuellen Netzwerk und der Filiale über das NVA im Dienst-VNET (VNET 4) läuft:
 
@@ -102,7 +105,7 @@ Zur Einrichtung des Routings über das virtuelle Netzwerkgerät sind die folgend
 
    * **Weitergabe:** Da Sie möchten, dass alle Filialen und VNET-Verbindungen ihre Routen dynamisch an diese Routingtabelle weitergeben, wählen Sie Filialen und alle VNETs aus.
 
-1. Erstellen Sie die benutzerdefinierte Routingtabelle **RT_V2B** , um den Datenverkehr von den VNETs 1, 2 und 3 an Filialen weiterzuleiten.
+1. Erstellen Sie die benutzerdefinierte Routingtabelle **RT_V2B**, um den Datenverkehr von den VNETs 1, 2 und 3 an Filialen weiterzuleiten.
 
    * **Routen:** Fügen Sie einen aggregierten statischen Routeneintrag für Filialen mit dem nächsten Hop als VNET 4-Verbindung hinzu. Konfigurieren Sie eine statische Route in der VNET 4-Verbindung für Filialpräfixe, und geben Sie an, dass der nächste Hop die spezifische IP-Adresse des NVA in VNET 4 sein soll.
 

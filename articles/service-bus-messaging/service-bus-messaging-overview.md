@@ -2,13 +2,13 @@
 title: Übersicht über Azure Service Bus-Messaging | Microsoft-Dokumentation
 description: Dieser Artikel enthält eine allgemeine Übersicht über Azure Service Bus (ein vollständig verwalteter Nachrichtenbroker für die Unternehmensintegration).
 ms.topic: overview
-ms.date: 11/20/2020
-ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881600"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570470"
 ---
 # <a name="what-is-azure-service-bus"></a>Was ist Azure Service Bus?
 Bei Microsoft Azure Service Bus handelt es sich um einen vollständig verwalteten Nachrichtenbroker für Unternehmen mit Nachrichtenwarteschlangen und Veröffentlichen-Abonnieren-Themen. Service Bus wird verwendet, um Anwendungen und Dienste voneinander zu entkoppeln und so die folgenden Vorteile zu erzielen:
@@ -118,11 +118,10 @@ Beim clientseitigen Batching kann ein Warteschlangen- oder Themenclient mehrere 
 Eine Transaktion fasst mehrere Vorgänge zu einem *Ausführungsbereich* zusammen. Service Bus ermöglicht Ihnen das Gruppieren von Vorgängen für mehrere Nachrichtenentitäten innerhalb einer Transaktion. Eine Nachrichtenentität kann eine Warteschlange, ein Thema oder ein Abonnement sein. Weitere Informationen finden Sie unter [Übersicht über die Service Bus-Transaktionsverarbeitung](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Automatisches Löschen nach Leerlauf
-
-Automatisches Löschen nach Leerlauf ermöglicht die Angabe eines Leerlaufintervalls, nach dessen Ablauf ein Warteschlangen- oder Themenabonnement automatisch gelöscht wird. Die Mindestdauer ist fünf Minuten. Weitere Informationen finden Sie unter [Eigenschaft „QueueDescription.AutoDeleteOnIdle“](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+Automatisches Löschen nach Leerlauf ermöglicht die Angabe eines Leerlaufintervalls, nach dessen Ablauf ein Warteschlangen- oder Themenabonnement automatisch gelöscht wird. Die Mindestdauer ist fünf Minuten. 
 
 ### <a name="duplicate-detection"></a>Duplikaterkennung
-Mit dem Feature „Duplikaterkennung“ kann der Absender die gleiche Nachricht erneut senden, und der Broker kann ein potenzielles Duplikat verwerfen. Die Duplikaterkennung basiert auf der Nachverfolgung der `message-id`-Eigenschaft einer Nachricht. Dies bedeutet, dass die Anwendung beim erneuten Senden der Nachricht darauf achten muss, dass der gleiche Wert verwendet wird. Dieser Wert kann ggf. direkt von einem anwendungsspezifischen Kontext abgeleitet sein. Weitere Informationen finden Sie unter [Duplikaterkennung](duplicate-detection.md).
+Mit dem Feature „Duplikaterkennung“ kann der Absender die gleiche Nachricht erneut senden, und der Broker kann ein potenzielles Duplikat verwerfen. Weitere Informationen finden Sie unter [Duplikaterkennung](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Georedundante Notfallwiederherstellung
 
@@ -152,12 +151,12 @@ Das [primäre Protokoll von Azure Service Bus ist AMQP 1.0](service-bus-amqp-ov
 
 Service Bus kann vollständig mit vielen Microsoft- und Azure-Diensten integriert werden, z. B.:
 
-* [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logik-Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure-Funktionen](https://azure.microsoft.com/services/functions/)
-* [Power Platform](https://powerplatform.microsoft.com/)
-* [Dynamics 365](https://dynamics.microsoft.com)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Event Grid](service-bus-to-event-grid-integration-example.md)
+* [Logik-Apps](../connectors/connectors-create-api-servicebus.md)
+* [Azure-Funktionen](../azure-functions/functions-bindings-service-bus.md)
+* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
