@@ -26,7 +26,7 @@ Im Anschluss finden Sie einige gängige Messagingszenarien:
 * *Entkoppelung von Anwendungen*: Höhere Zuverlässigkeit und bessere Skalierbarkeit von Anwendungen und Diensten. Producer und Consumer müssen nicht gleichzeitig online bzw. immer verfügbar sein. Die [Last wird verteilt](/azure/architecture/patterns/queue-based-load-leveling), damit ein Dienst nicht aufgrund von Datenverkehrsspitzen überlastet wird. 
 * *Lastenausgleich*: Ermöglicht es, dass mehrere [konkurrierende Consumer](/azure/architecture/patterns/competing-consumers) gleichzeitig Daten aus einer Warteschlange auslesen und die Consumer dann jeweils auf sichere Weise die exklusive Eigentümerschaft für bestimmte Nachrichten erhalten. 
 * *Themen und Abonnements*: Ermöglichen 1:*n*-Beziehungen zwischen [Herausgebern und Abonnenten](/azure/architecture/patterns/publisher-subscriber), damit Abonnenten bestimmte Nachrichten aus einem Datenstrom mit veröffentlichten Nachrichten auswählen können.
-* *Transaktionen*: Ermöglichen Ihnen die Durchführung mehrerer Vorgänge im Rahmen einer atomischen Transaktion. Beispielsweise können die folgenden Vorgänge im Rahmen einer Transaktion durchgeführt werden.  
+* *Transaktionen*: Ermöglichen Ihnen die Durchführung mehrerer Vorgänge im Rahmen einer atomaren Transaktion. Beispielsweise können die folgenden Vorgänge im Rahmen einer Transaktion durchgeführt werden.  
 
     1. Abrufen einer Nachricht aus einer Warteschlange
     2. Posten von Ergebnissen in einer oder mehreren anderen Warteschlangen
