@@ -81,7 +81,7 @@ Für das Azure Blockchain Development Kit wird Truffle zum Ausführen des Migrat
 
 ![Erfolgreich bereitgestellter Contract](./media/send-transaction/deploy-contract.png)
 
-## <a name="call-a-contract-function&quot;></a>Aufrufen einer Funktion des Contracts
+## <a name="call-a-contract-function"></a>Aufrufen einer Funktion des Contracts
 Mit der Funktion **SendRequest** des Contracts **HelloBlockchain** wird die Zustandsvariable **RequestMessage** geändert. Die Änderung des Zustands eines Blockchainnetzwerks wird nicht per Transaktion durchgeführt. Sie können ein Skript erstellen, um die Funktion **SendRequest** per Transaktion auszuführen.
 
 1. Erstellen Sie im Stammverzeichnis Ihres Truffle-Projekts eine neue Datei, und geben Sie ihr den Namen `sendrequest.js`. Fügen Sie der Datei den folgenden Web3-JavaScript-Code hinzu.
